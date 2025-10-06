@@ -1,0 +1,172 @@
+---
+sidebar: sidebar 
+permalink: task-verify-autosupport.html 
+keywords: autosupport, set up autosupport, test autosupport, asup, test asup 
+summary: AutoSupport主动监控系统的健康状况并向NetApp技术支持发送消息。默认情况下，每个节点上都启用AutoSupport ，以使用 HTTPS 传输协议向技术支持发送消息。最好验证AutoSupport是否可以发送这些消息。 
+---
+= 验证Cloud Volumes ONTAP 的AutoSupport设置
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+AutoSupport主动监控系统的健康状况并向NetApp技术支持发送消息。默认情况下，每个节点上都启用AutoSupport ，以使用 HTTPS 传输协议向技术支持发送消息。最好验证AutoSupport是否可以发送这些消息。
+
+唯一需要的配置步骤是确保Cloud Volumes ONTAP具有出站互联网连接。有关详细信息，请参阅您的云提供商的网络要求。
+
+
+
+== AutoSupport要求
+
+Cloud Volumes ONTAP节点需要NetApp AutoSupport的出站互联网访问权限，它可以主动监控系统的健康状况并向NetApp技术支持发送消息。
+
+路由和防火墙策略必须允许 HTTPS 流量到达以下端点，以便Cloud Volumes ONTAP可以发送AutoSupport消息：
+
+* \ https://mysupport.netapp.com/aods/asupmessage
+* \ https://mysupport.netapp.com/asupprod/post/1.0/postAsup
+
+
+如果没有可用的出站互联网连接来发送AutoSupport消息， NetApp控制台会自动配置您的Cloud Volumes ONTAP系统以使用控制台代理作为代理服务器。唯一的要求是确保控制台代理的安全组允许通过端口 3128 进行入站连接。部署控制台代理后，您需要打开此端口。
+
+如果您为Cloud Volumes ONTAP定义了严格的出站规则，那么您还需要确保Cloud Volumes ONTAP安全组允许通过端口 3128 进行出站连接。
+
+
+TIP: 如果您使用 HA 对，则 HA 中介不需要出站互联网访问。
+
+验证出站互联网访问可用后，您可以测试AutoSupport以确保它可以发送消息。有关说明，请参阅 https://docs.netapp.com/us-en/ontap/system-admin/setup-autosupport-task.html["ONTAP文档：设置AutoSupport"^]。
+
+
+
+== 排除AutoSupport配置故障
+
+如果出站连接不可用，并且控制台无法将您的Cloud Volumes ONTAP系统配置为使用控制台代理作为代理服务器，您将收到来自控制台的通知，标题为“<系统名称> 无法发送AutoSupport消息”。
+
+您收到此消息很可能是因为网络问题。
+
+请按照以下步骤解决此问题。
+
+.步骤
+. 通过 SSH 连接到Cloud Volumes ONTAP系统，以便您可以从ONTAP CLI 管理系统。
++
+link:task-connecting-to-otc.html["了解如何通过 SSH 连接到Cloud Volumes ONTAP"] 。
+
+. 显示AutoSupport子系统的详细状态：
++
+`autosupport check show-details`
+
++
+响应应类似于以下内容：
+
++
+[listing]
+----
+    Category: smtp
+          Component: mail-server
+             Status: failed
+             Detail: SMTP connectivity check failed for destination:
+                     mailhost. Error: Could not resolve host - 'mailhost'
+            Corrective Action: Check the hostname of the SMTP server
+
+    Category: http-https
+        Component: http-put-destination
+            Status: ok
+            Detail: Successfully connected to:
+                    <https://support.netapp.com/put/AsupPut/>.
+
+          Component: http-post-destination
+             Status: ok
+             Detail: Successfully connected to:
+                     https://support.netapp.com/asupprod/post/1.0/postAsup.
+
+    Category: on-demand
+          Component: ondemand-server
+             Status: ok
+             Detail: Successfully connected to:
+                     https://support.netapp.com/aods/asupmessage.
+
+    Category: configuration
+            Component: configuration
+                Status: ok
+                Detail: No configuration issues found.
+    5 entries were displayed.
+----
++
+如果 http-https 类别的状态为“ok”，则表示AutoSupport配置正确，可以发送消息。
+
+. 如果状态不正常，请验证每个Cloud Volumes ONTAP节点的代理 URL：
++
+`autosupport show -fields proxy-url`
+
+. 如果代理 URL 参数为空，请配置Cloud Volumes ONTAP以使用控制台代理作为代理：
++
+`autosupport modify -proxy-url \http://<console agent private ip>:3128`
+
+. 再次验证AutoSupport状态：
++
+`autosupport check show-details`
+
+. 如果状态仍然失败，请验证Cloud Volumes ONTAP和控制台代理之间是否通过端口 3128 建立连接。
+. 如果验证连接后状态 ID 仍然失败，则通过 SSH 连接到控制台代理。
++
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-maintain-connectors.html#connect-to-the-linux-vm["了解有关控制台代理连接到 Linux VM 的更多信息"^]
+
+. 前往 `/opt/application/netapp/cloudmanager/docker_occm/data/`
+. 打开代理配置文件 `squid.conf`
++
+该文件的基本结构如下：
+
++
+[listing]
+----
+        http_port 3128
+        acl localnet src 172.31.0.0/16
+        acl azure_aws_metadata dst 169.254.169.254
+
+        http_access allow localnet
+        http_access deny azure_aws_metadata
+        http_access allow localhost
+        http_access deny all
+----
++
+localnet src 值是Cloud Volumes ONTAP系统的 CIDR。
+
+. 如果Cloud Volumes ONTAP系统的 CIDR 块不在文件中指定的范围内，请更新值或添加新条目，如下所示：
++
+`acl cvonet src <cidr>`
+
++
+如果您添加此新条目，请不要忘记添加允许条目：
+
++
+`http_access allow cvonet`
+
++
+以下是一个例子：
+
++
+[listing]
+----
+        http_port 3128
+        acl localnet src 172.31.0.0/16
+        acl cvonet src 172.33.0.0/16
+        acl azure_aws_metadata dst 169.254.169.254
+
+        http_access allow localnet
+        http_access allow cvonet
+        http_access deny azure_aws_metadata
+        http_access allow localhost
+        http_access deny all
+----
+. 编辑配置文件后，以 sudo 身份重新启动代理容器：
++
+`docker restart squid`
+
+. 返回Cloud Volumes ONTAP CLI 并验证Cloud Volumes ONTAP是否可以发送AutoSupport消息：
++
+`autosupport check show-details`
+
+

@@ -1,0 +1,191 @@
+---
+sidebar: sidebar 
+permalink: concept-aws-elastic-volumes.html 
+keywords: elastic volumes, ev, ebs elastic volumes, ebs, amazon ebs, disk growth 
+summary: 通过Cloud Volumes ONTAP聚合支持 Amazon EBS Elastic Volumes 功能可提供更好的性能和额外的容量，同时使您能够根据需要自动增加底层磁盘容量。 
+---
+= 了解Cloud Volumes ONTAP对 AWS Elastic Volumes 的支持
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+通过Cloud Volumes ONTAP聚合支持 Amazon EBS Elastic Volumes 功能可提供更好的性能和额外的容量，同时使NetApp控制台能够根据需要自动增加底层磁盘容量。
+
+
+
+== 受益
+
+* 动态磁盘增长
++
+当Cloud Volumes ONTAP正在运行且磁盘仍处于连接状态时，控制台可以动态增加磁盘的大小。
+
+* 更好的性能
++
+启用弹性卷的聚合最多可以拥有八个磁盘，这些磁盘在两个 RAID 组中平均利用。此配置可提供更高的吞吐量和稳定的性能。
+
+* 较大的骨料
++
+支持八个磁盘，最大聚合容量为 128 TiB。对于未启用弹性卷功能的聚合，这些限制高于六个磁盘限制和 96 TiB 限制。
+
++
+请注意，系统总容量限制保持不变。
+
+
+
+https://aws.amazon.com/ebs/features/["AWS 文档：了解有关 AWS 弹性卷的更多信息"^]
+
+
+
+== 支持的配置
+
+特定Cloud Volumes ONTAP版本和特定 EBS 磁盘类型支持 Amazon EBS Elastic Volumes 功能。
+
+
+
+=== Cloud Volumes ONTAP版本
+
+从 9.11.0 或更高版本创建的 _new_ Cloud Volumes ONTAP系统支持弹性卷功能。  9.11.0 之前部署的现有Cloud Volumes ONTAP系统不支持该功能。
+
+例如，如果您创建了Cloud Volumes ONTAP 9.9.0 系统，然后将该系统升级到版本 9.11.0，则不支持弹性卷功能。它必须是使用 9.11.0 或更高版本部署的新系统。
+
+
+
+=== EBS 磁盘类型
+
+使用通用 SSD（gp3）或预配置 IOPS SSD（io1）时，弹性卷功能会在聚合级别自动启用。使用任何其他磁盘类型的聚合不支持弹性卷功能。
+
+
+
+== 所需的 AWS 权限
+
+从 3.9.19 版本开始，控制台代理需要以下权限才能在Cloud Volumes ONTAP聚合上启用和管理弹性卷功能：
+
+* ec2：描述卷修改
+* ec2：修改卷
+
+
+这些权限包含在 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html["NetApp提供的政策"^]
+
+
+
+== 弹性卷支持如何运作
+
+启用了弹性卷功能的聚合由一个或两个 RAID 组组成。每个 RAID 组有四个相同的磁盘，容量相同。下面是一个 10 TiB 聚合的示例，该聚合包含四个磁盘，每个磁盘大小为 2.5 TiB：
+
+image:diagram-aws-elastic-volumes-one-raid-group.png["概念图显示了由四个大小相同的磁盘组成的聚合和 RAID 组。"]
+
+当控制台创建聚合时，它从一个 RAID 组开始。如果需要额外的容量，它会通过将 RAID 组中所有磁盘的容量增加相同的量来增加聚合。容量增加至少为 256 GiB 或聚合大小的 10%。
+
+例如，如果您有一个 1 TiB 聚合，则每个磁盘为 250 GiB。聚合容量的 10% 为 100 GiB。这低于 256 GiB，因此聚合的大小增加了 256 GiB 的最小值（或每个磁盘 64 GiB）。
+
+当Cloud Volumes ONTAP系统正在运行且磁盘仍处于连接状态时，控制台会增加磁盘的大小。该变化不会造成破坏。
+
+如果聚合达到 64 TiB（或每个磁盘 16 TiB），控制台将创建第二个 RAID 组以提供额外的容量。第二个 RAID 组的工作方式与第一个 RAID 组相同：它有四个容量完全相同的磁盘，并且可以增长到 64 TiB。这意味着聚合的最大容量可以为 128 TiB。
+
+以下是具有两个 RAID 组的聚合的示例。第一个 RAID 组已达到容量限制，而第二个 RAID 组中的磁盘有足够的可用空间。
+
+image:diagram-aws-elastic-volumes-two-raid-groups.png["概念图显示了一个聚合和两个 RAID 组，它们均由四个大小相同的磁盘组成。"]
+
+
+
+=== 创建卷时会发生什么
+
+如果您创建使用 gp3 或 io1 磁盘的卷，控制台将按如下方式在聚合上创建该卷：
+
+* 如果存在启用了弹性卷的现有 gp3 或 io1 聚合，则控制台会在该聚合上创建卷。
+* 如果有多个启用了弹性卷的 gp3 或 io1 聚合，则控制台会在需要最少资源的聚合上创建卷。
+* 如果系统仅具有未启用弹性卷的 gp3 或 io1 聚合，则会在该聚合上创建卷。
++
+[NOTE]
+====
+虽然这种情况不太可能发生，但在两种情况下是有可能的：
+
+** 从 API 创建聚合时，您明确禁用了弹性卷功能。
+** 您从用户界面创建了一个新的Cloud Volumes ONTAP系统，在这种情况下，初始聚合上的弹性卷功能被禁用。审查<<限制>>请参阅下文以了解更多信息。
+
+
+====
+* 如果现有聚合都没有足够的容量，控制台将创建启用弹性卷的聚合，然后在该新聚合上创建卷。
++
+聚合的大小基于请求的卷大小加上额外的 10% 容量。
+
+
+
+
+
+=== 容量管理模式
+
+控制台代理的容量管理模式与弹性卷的工作方式类似于与其他类型的聚合的工作方式：
+
+* 启用自动模式（这是默认设置）时，如果需要额外的容量，控制台会自动增加聚合的大小。
+* 如果将容量管理模式更改为手动，控制台将要求您批准购买额外容量。
+
+
+link:concept-storage-management.html#capacity-management["了解有关容量管理模式的更多信息"] 。
+
+
+
+== 限制
+
+增加聚合体的大小最多可能需要 6 个小时。在此期间，控制台无法为该聚合请求任何额外容量。
+
+
+
+== 如何使用弹性卷
+
+您可以使用弹性卷执行以下任务：
+
+* 使用 gp3 或 io1 磁盘时，创建一个在初始聚合上启用弹性卷的新系统
++
+link:task-deploying-otc-aws.html["了解如何创建Cloud Volumes ONTAP系统"]
+
+* 在启用了弹性卷的聚合上创建新卷
++
+如果您创建使用 gp3 或 io1 磁盘的卷，控制台会自动在启用了弹性卷的聚合上创建该卷。有关详细信息，请参阅<<创建卷时会发生什么>>。
+
++
+link:task-create-volumes.html["了解如何创建卷"] 。
+
+* 创建已启用弹性卷的新聚合
++
+只要Cloud Volumes ONTAP系统是从 9.11.0 或更高版本创建的，弹性卷就会在使用 gp3 或 io1 磁盘的新聚合上自动启用。
+
++
+创建聚合时，控制台会提示您输入聚合的容量大小。这与选择磁盘大小和磁盘数量的其他配置不同。
+
++
+以下屏幕截图显示了由 gp3 磁盘组成的新聚合的示例。
+
++
+image:screenshot-aggregate-size-ev.png["这是 gp3 磁盘的聚合磁盘屏幕的屏幕截图，您可以在其中输入聚合大小（以 TiB 为单位）。"]
+
++
+link:task-create-aggregates.html["了解如何创建聚合"] 。
+
+* 识别已启用弹性卷的聚合
++
+当您转到“高级分配”页面时，您可以确定聚合上是否启用了弹性卷功能。在以下示例中，aggr1 启用了弹性卷。
+
++
+image:screenshot_elastic_volume_enabled.png["屏幕截图显示了两个聚合，其中一个聚合的字段带有文本“弹性卷已启用”。"]
+
+* 向聚合添加容量
++
+虽然控制台会根据需要自动向聚合添加容量，但您也可以手动增加容量。
+
++
+link:task-manage-aggregates.html["了解如何提高总容量"] 。
+
+* 将数据复制到已启用弹性卷的聚合
++
+如果目标Cloud Volumes ONTAP系统支持弹性卷，则目标卷将放置在启用了弹性卷的聚合上（只要您选择 gp3 或 io1 磁盘）。
+
++
+https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["了解如何设置数据复制"^]
+
+

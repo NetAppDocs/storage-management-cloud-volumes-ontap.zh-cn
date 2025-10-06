@@ -1,0 +1,11 @@
+= Azure 对新西兰北部地区的支持
+:allow-uri-read: 
+
+
+
+
+=== Azure 对新西兰北部地区的支持
+
+Azure 现已支持新西兰北部地区的Cloud Volumes ONTAP 9.12.1 GA 及更高版本的单节点和高可用性 (HA) 配置。请注意，此区域不支持 Lsv3 实例类型。
+
+有关所有受支持区域的列表，请参阅 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球区域地图"^]。

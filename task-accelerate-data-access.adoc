@@ -1,0 +1,69 @@
+---
+sidebar: sidebar 
+permalink: task-accelerate-data-access.html 
+keywords: flexcache, flexcache volumes, create a flexcache volume, provision flexcache, create flexcache volume 
+summary: FlexCache卷是一种存储卷，用于缓存来自源卷或源卷的 NFS 读取数据。随后读取缓存数据可以加快对该数据的访问速度。 
+---
+= 使用Cloud Volumes ONTAP系统上的FlexCache卷加速数据访问
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+FlexCache卷是一种存储卷，用于缓存从原始（或源）卷读取的 SMB 和 NFS 数据。随后读取缓存数据可以加快对该数据的访问速度。
+
+您可以使用FlexCache卷来加快数据访问速度或卸载访问量大的卷的流量。  FlexCache卷有助于提高性能，特别是当客户端需要重复访问相同数据时，因为可以直接提供数据而无需访问原始卷。  FlexCache卷非常适合读取密集型的系统工作负载。
+
+NetApp Console 提供FlexCache卷的管理link:https://docs.netapp.com/us-en/bluexp-volume-caching/index.html["NetApp卷缓存"^]。
+
+您还可以使用ONTAP CLI 或ONTAP系统管理器来创建和管理FlexCache卷：
+
+* http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html["FlexCache卷实现更快数据访问电源指南"^]
+* http://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-07F4C213-076D-4FE8-A8E3-410F49498D49.html["在 System Manager 中创建FlexCache卷"^]
+
+
+video::PBNPVRUeT1o[youtube,width=848,height=480]
+
+
+== 当源加密时使用FlexCache
+
+在原始卷已加密的Cloud Volumes ONTAP系统上配置FlexCache时，需要执行额外的步骤，以确保FlexCache卷可以正确访问和缓存加密数据。
+
+.开始之前
+. *加密设置*：确保源卷完全加密且可操作。对于Cloud Volumes ONTAP系统，这涉及与特定于云的密钥管理服务集成。
+
+
+ifdef::aws[]
+
+对于 AWS，这通常意味着使用 AWS 密钥管理服务 (KMS)。有关信息，请参阅link:task-aws-key-management.html["使用 AWS Key Management Service 管理密钥"]。
+
+endif::aws[]
+
+ifdef::azure[]
+
+对于 Azure，您需要为NetApp卷加密 (NVE) 设置 Azure Key Vault。有关信息，请参阅link:task-azure-key-vault.html["使用 Azure Key Vault 管理密钥"]。
+
+endif::azure[]
+
+ifdef::gcp[]
+
+对于 Google Cloud，它是 Google Cloud Key Management Service。有关信息，请参阅link:task-google-key-manager.html["使用 Google 的云密钥管理服务管理密钥"]。
+
+endif::gcp[]
+
+. *密钥管理服务*：在创建FlexCache卷之前，请验证密钥管理服务是否在Cloud Volumes ONTAP系统上正确配置。此配置对于FlexCache卷解密来自原始卷的数据至关重要。
+. *许可*：确认有效的FlexCache许可证可用并在Cloud Volumes ONTAP系统上激活。
+. * ONTAP版本*：确保您的Cloud Volumes ONTAP系统的ONTAP版本支持带有加密卷的FlexCache 。参考最新 https://docs.netapp.com/us-en/ontap/release-notes/index.html["ONTAP发行说明"^]或兼容性矩阵以获取更多信息。
+. *网络配置*：确保网络配置允许原始卷和FlexCache卷之间的无缝通信。这包括云环​​境中的正确路由和 DNS 解析。
+
+
+.步骤
+使用加密源卷在Cloud Volumes ONTAP系统上创建FlexCache卷。有关详细步骤和其他注意事项，请参阅以下部分：
+
+* http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-fc-mgmt/home.html["FlexCache卷实现更快数据访问电源指南"^]
+* http://docs.netapp.com/ontap-9/topic/com.netapp.doc.onc-sm-help-960/GUID-07F4C213-076D-4FE8-A8E3-410F49498D49.html["在 System Manager 中创建FlexCache卷"^]
+

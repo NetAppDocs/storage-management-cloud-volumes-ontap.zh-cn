@@ -1,0 +1,26 @@
+---
+sidebar: sidebar 
+permalink: task-change-route-tables.html 
+keywords: route tables, update route tables, modify route tables, change route table 
+summary: 您可以修改 AWS 路由表，其中包含部署在多个 AWS 可用区中的 HA 对的浮动 IP 地址的路由。如果新的 NFS 或 CIFS 客户端需要访问 AWS 中的 HA 对，您可以这样做。 
+---
+= 修改多个 AWS AZ 中的Cloud Volumes ONTAP HA 对的路由表
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以修改 AWS 路由表，其中包含部署在多个 AWS 可用区 (AZ) 中的 HA 对的浮动 IP 地址的路由。如果新的 NFS 或 CIFS 客户端需要访问 AWS 中的 HA 对，您可以这样做。
+
+.步骤
+. 在*系统*页面上，选择系统。
+. 在概览选项卡上，单击功能面板，然后单击*路由表*旁边的铅笔图标。
+. 修改所选路由表列表，然后单击“*保存*”。
+
+
+.结果
+NetApp控制台发送 AWS 请求来修改路由表。

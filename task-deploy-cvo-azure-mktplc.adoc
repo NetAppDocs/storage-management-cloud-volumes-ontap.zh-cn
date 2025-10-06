@@ -1,0 +1,150 @@
+---
+sidebar: sidebar 
+permalink: task-deploy-cvo-azure-mktplc.html 
+keywords: deploy cvo marketplace, marketplace direct cvo deployment, azure marketplace 
+summary:  
+---
+= 从 Azure 市场部署Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用 Azure 市场直接部署来快速轻松地部署Cloud Volumes ONTAP。从 Azure 市场，您只需单击几下即可快速部署Cloud Volumes ONTAP ，并在您的环境中探索其核心特性和功能。
+
+有关该产品的更多信息，请参阅link:concept-azure-mktplace-direct.html["了解NetApp控制台和市场中的Cloud Volumes ONTAP产品"]。
+
+.关于此任务
+使用 Azure 市场直接部署部署的Cloud Volumes ONTAP系统具有这些属性。请注意，通过 Azure 市场部署的独立实例的功能在NetApp控制台中被发现时会发生变化。
+
+* 最新的Cloud Volumes ONTAP版本（9.16.1 或更高版本）。
+* Cloud Volumes ONTAP的免费许可证，限制为 500 GiB 的配置容量。此许可证不包括NetApp支持，并且没有到期日期。
+* 两个节点在单个可用区 (AZ) 中以高可用性 (HA) 模式配置，并配置默认序列号。存储虚拟机（存储 VM）部署在link:concept-ha-azure.html#ha-single-availability-zone-configuration-with-shared-managed-disks["灵活的编排模式"]。
+* 默认创建的实例的聚合。
+* 预置容量为 500 GiB 的高级 SSD v2 托管磁盘，以及根磁盘和数据磁盘。
+* 部署了一个数据存储虚拟机，具有 NFS、CIFS、iSCSI 和 NVMe/TCP 数据服务。您不能添加任何额外的数据存储虚拟机。
+* 为 NFS、CIFS (SMB)、iSCSI、自主勒索软件防护 (ARP)、 SnapLock和SnapMirror安装许可证。
+* https://docs.netapp.com/us-en/ontap/volumes/enable-temperature-sensitive-efficiency-concept.html["ONTAP温度敏感存储效率 (TSSE)"^]、卷加密和外部密钥管理默认启用。
+* 不支持以下功能：
++
+** FabricPool分层
+** 更改存储虚拟机类型
+** 快速写入模式
+
+
+
+
+.开始之前
+* 确保您拥有有效的 Azure 市场订阅。
+* 确保您满足link:concept-ha-azure.html#ha-single-availability-zone-configuration-with-shared-managed-disks["单个可用区内的高可用性部署"]在 Azure 中。请参阅link:reference-networking-azure.html["为Cloud Volumes ONTAP设置 Azure 网络"] 。
+* 您需要分配以下 Azure 角色之一才能部署Cloud Volumes ONTAP：
++
+** 这 `contributor`具有默认权限的角色。欲了解更多信息，请参阅 https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles["Microsoft Azure 文档：Azure 内置角色"^]。
+** 具有以下权限的自定义 RBAC 角色。欲了解更多信息，请参阅 https://learn.microsoft.com/en-us/azure/role-based-access-control/custom-roles["Azure 文档：Azure 自定义角色"^]。
++
+[]
+====
+“权限”：[{“操作”：[“Microsoft.AAD/register/action”，“Microsoft.Resources/subscriptions/resourceGroups/write”，“Microsoft.Network/loadBalancers/write”，“Microsoft.ClassicCompute/virtualMachines/write”，“Microsoft.Compute/capacityReservationGroups/deploy/action”，“Microsoft.ClassicCompute/virtualMachines/networkInterfaces/associatedNetworkSecurityGroups/write”，“Microsoft.Network/networkInterfaces/write”，“Microsoft.Compute/virtualMachines/write”，“Microsoft.Compute/virtualMachines/extensions/write”，“Microsoft.Resources/deployments/validate/action”，“Microsoft.Resources/subscriptions/resourceGroups/read”，“Microsoft.Network/virtualNetworks/write”，“Microsoft.Network/virtualNetworks/read”，“Microsoft.Network/networkSecurityGroups/write”， “Microsoft.Network/networkSecurityGroups/read”、“Microsoft.Compute/disks/write”、“Microsoft.Compute/virtualMachineScaleSets/write”、“Microsoft.Resources/deployments/write”、“Microsoft.Network/virtualNetworks/subnets/read”、“Microsoft.Network/virtualNetworks/subnets/write”]、“notActions”：[]、“dataActions”：[]、“notDataActions”：[] } ]
+
+====
++
+
+NOTE: 如果您已将资源提供程序“Microsoft.storage”注册到您的订阅，那么您不需要 `Microsoft.AAD/register/action`允许。欲了解更多信息，请参阅 https://learn.microsoft.com/en-us/azure/role-based-access-control/permissions/storage["Azure 文档：Azure 存储权限"^]。
+
+
+
+
+
+.步骤
+. 从 Azure 市场网站搜索NetApp产品。
+. 选择* NetApp Cloud Volumes ONTAP direct*。
+. 单击“*创建*”以启动部署向导。
+. 选择一个计划。  *计划*列表通常显示Cloud Volumes ONTAP的最新版本。
+. 在“*基本信息*”选项卡中，提供以下详细信息：
++
+** *订阅*：选择订阅。部署将与订阅号挂钩。
+** *资源组*：使用现有资源组或创建一个新的资源组。资源组有助于在Cloud Volumes ONTAP系统的单个组内分配所有资源，例如磁盘和存储虚拟机。
+** *区域*：选择支持在单个 AZ 中部署 Azure HA 的区域。您只会看到列表中可用的区域。
+** *大小*：为支持的 Premium SSD v2 托管磁盘选择存储 VM 大小。
+** *区域*：为您选择的地区选择一个区域。
+** *管理员密码*：设置密码。部署完成后，您可以使用此管理员密码登录系统。
+** *确认密码*：再次输入相同的密码进行确认。
++
+*** 在“*网络*”选项卡中，添加虚拟网络和子网，或从列表中选择它们。
++
+
+NOTE: 为了遵守 Microsoft Azure 限制，您应该在设置新的虚拟网络时创建一个新的子网。同样，如果您选择现有网络，则应该选择现有子网。
+
+*** 要选择预定义的网络安全组，请选择“是”。选择“*否*”以分配具有必要流量规则的预定义 Azure 网络安全组。有关详细信息，请参阅link:reference-networking-azure.html#security-group-rules["Azure 的安全组规则"] 。
+*** 在“*高级*”选项卡中确认是否已设置此部署所需的两个 Azure 功能。参考link:task-saz-feature.html["为Cloud Volumes ONTAP单可用区部署启用 Azure 功能"]和link:task-azure-high-availability-mode.html["在 Azure 中为Cloud Volumes ONTAP启用高可用性模式"]。
+*** 您可以在*标签*选项卡中为资源或资源组定义名称和值对。
+*** 在“*Review + create*”选项卡中，查看详细信息并开始部署。
+
+
+
+
+
+
+.完成后
+选择通知图标即可查看部署进度。部署Cloud Volumes ONTAP后，您可以查看列出的可供操作的存储虚拟机。
+
+一旦可以访问，请使用ONTAP系统管理器或ONTAP CLI 通过您设置的管理员凭据登录到存储虚拟机。此后，您可以创建卷、LUN 或共享并开始利用Cloud Volumes ONTAP的存储功能。
+
+
+
+== 解决部署问题
+
+直接通过 Azure 市场部署的Cloud Volumes ONTAP系统不包括NetApp的支持。如果部署过程中出现任何问题，您可以独立排除故障并解决。
+
+.步骤
+. 在 Azure 市场网站上，转到 *启动诊断 > 串行日志*。
+. 下载并调查串行日志。
+. 请参阅产品文档和知识库 (KB) 文章以进行故障排除。
++
+** https://learn.microsoft.com/en-us/partner-center/["Azure 市场文档"]
+** https://www.netapp.com/support-and-training/documentation/["NetApp文档"]
+** https://kb.netapp.com/["NetApp知识库文章"]
+
+
+
+
+
+
+== 在控制台中发现已部署的系统
+
+您可以发现使用 Azure 市场直接部署部署的Cloud Volumes ONTAP系统，并在控制台中的 *系统* 页面上对其进行管理。控制台代理发现系统、添加系统并应用必要的许可证，并为这些系统解锁控制台的全部功能。保留具有 PSSD v2 托管磁盘的单个 AZ 中的原始 HA 配置，并且系统注册到与原始部署相同的 Azure 订阅和资源组。
+
+.关于此任务
+在发现使用 Azure 市场直接部署部署的Cloud Volumes ONTAP系统时，控制台代理将执行以下任务：
+
+* 将发现系统的免费许可证替换为常规的基于容量的许可证link:concept-licensing.html#packages["免费增值许可证"]。
+* 保留已部署系统的现有功能，并添加控制台的附加功能，例如数据保护、数据管理和安全功能。
+* 使用 NFS、CIFS (SMB)、iSCSI、ARP、 SnapLock和SnapMirror的新ONTAP许可证替换节点上已安装的许可证。
+* 将通用节点序列号转换为唯一序列号。
+* 根据需要为资源分配新的系统标签。
+* 将实例的动态 IP 地址转换为静态 IP 地址。
+* 启用以下功能link:task-tiering.html["FabricPool分层"]，link:task-verify-autosupport.html["AutoSupport"] ， 和link:concept-worm.html["一次写入多次读取"]（WORM）存储。您可以在需要时从控制台激活这些功能。
+* 将实例注册到用于发现它们的 NSS 帐户。
+* 启用容量管理功能link:concept-storage-management.html#capacity-management["自动和手动模式"]对于已发现的系统。
+
+
+.开始之前
+确保在 Azure 市场上部署已完成。仅当部署完成且可供发现时，控制台代理才能发现系统。
+
+.步骤
+在控制台中，您可以按照标准程序来发现现有系统。请参阅link:task-adding-systems.html["将现有的Cloud Volumes ONTAP系统添加到控制台"] 。
+
+.完成后
+发现完成后，您可以在控制台的“*系统*”页面上查看列出的系统。您可以执行各种管理任务，例如link:task-manage-aggregates.html["扩大总量"]，link:task-create-volumes.html["添加卷"] ，link:task-managing-svms-azure.html["配置额外的存储虚拟机"] ， 和link:task-change-azure-vm.html["更改实例类型"]。
+
+.相关链接
+有关创建存储的更多信息，请参阅ONTAP文档：
+
+* https://docs.netapp.com/us-en/ontap/volumes/create-volume-task.html["为 NFS 创建卷"^]
+* https://docs.netapp.com/us-en/ontap-cli/lun-create.html["为 iSCSI 创建 LUN"^]
+* https://docs.netapp.com/us-en/ontap-cli/vserver-cifs-share-create.html["为 CIFS 创建共享"^]
+

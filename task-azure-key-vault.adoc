@@ -1,0 +1,208 @@
+---
+sidebar: sidebar 
+permalink: task-azure-key-vault.html 
+keywords: azure, encryption, NVE, NetApp volume encryption, KMIP, azure key vault 
+summary: 利用 Azure Key Vault 作为第三方密钥管理服务。 
+---
+= 使用 Azure Key Vault 管理Cloud Volumes ONTAP加密密钥
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用 Azure Key Vault (AKV) 来保护 Azure 部署的应用程序中ONTAP加密密钥。请参阅link:https://docs.microsoft.com/en-us/azure/key-vault/general/basic-concepts["Microsoft 文档"^]。
+
+AKV 仅可用于保护数据 SVM 的NetApp卷加密 (NVE) 密钥。欲了解更多信息，请参阅link:https://docs.netapp.com/us-en/ontap/encryption-at-rest/configure-netapp-volume-encryption-concept.html["ONTAP 文档"^] 。
+
+可以使用 CLI 或ONTAP REST API 启用 AKV 密钥管理。
+
+使用 AKV 时，请注意默认情况下使用数据 SVM LIF 与云密钥管理端点通信。节点管理网络用于与云提供商的身份验证服务（login.microsoftonline.com）进行通信。如果集群网络配置不正确，集群将无法正确利用密钥管理服务。
+
+.开始之前
+* Cloud Volumes ONTAP必须运行 9.10.1 或更高版本
+* 已安装卷加密 (VE) 许可证（NetApp卷加密许可证会自动安装在每个向NetApp支持注册的Cloud Volumes ONTAP系统上）
+* 您必须拥有多租户加密密钥管理 (MT_EK_MGMT) 许可证
+* 您必须是集群或 SVM 管理员
+* 有效的 Azure 订阅
+
+
+.限制
+* AKV 只能在数据 SVM 上配置
+* NAE 不能与 AKV 一起使用。  NAE 需要外部支持的 KMIP 服务器。
+* Cloud Volumes ONTAP节点每 15 分钟轮询一次 AKV，以确认可访问性和密钥可用性。此轮询周期是不可配置的，并且在轮询尝试连续四次失败后（总共 1 小时），卷将处于脱机状态。
+
+
+
+
+== 配置过程
+
+概述的步骤捕获了如何向 Azure 注册您的Cloud Volumes ONTAP配置以及如何创建 Azure Key Vault 和密钥。如果您已经完成这些步骤，请确保您具有正确的配置设置，特别是在<<create-akv>>，然后继续<<ontap>>。
+
+* <<azure-app>>
+* <<secret>>
+* <<create-akv>>
+* <<key>>
+* <<AAD>>
+* <<ontap>>
+
+
+[[azure-app]]
+.Azure 应用程序注册
+. 您必须首先在 Azure 订阅中注册您希望Cloud Volumes ONTAP用于访问 Azure Key Vault 的应用程序。在 Azure 门户中，选择**应用注册**。
+. 选择**新注册**。
+. 为您的应用程序提供一个名称并选择支持的应用程序类型。默认的单个租户足以满足 Azure Key Vault 的使用。选择**注册**。
+. 在 Azure 概览窗口中，选择已注册的应用程序。将**应用程序（客户端）ID**和**目录（租户）ID**复制到安全位置。在稍后的注册过程中将需要它们。
+
+
+[[secret]]
+.创建 Azure 客户端机密
+. 在 Azure Key Vault 应用注册的 Azure 门户中，选择“证书和机密”窗格。
+. 选择**新客户端密钥**。为您的客户端密钥输入一个有意义的名称。  NetApp建议的有效期为 24 个月；但是，您的特定云治理策略可能需要不同的设置。
+. 单击**添加**以创建客户端密钥。复制**值**列中列出的秘密字符串，并将其存储在安全的位置，以便稍后使用<<ontap>>。当您离开该页面后，秘密值将不再显示。
+
+
+[[create-akv]]
+.创建 Azure Key Vault
+. 如果您有现有的 Azure Key Vault，则可以将其连接到Cloud Volumes ONTAP配置；但是，您必须根据此过程中的设置调整访问策略。
+. 在 Azure 门户中，导航到 **Key Vaults** 部分。
+. 单击“+创建”并输入所需信息，包括资源组、区域和定价层。此外，输入保留已删除保管库的天数，并在密钥保管库上选择**启用清除保护**。
+. 选择**下一步**来选择访问策略。
+. 选择以下选项：
++
+.. 在**访问配置**下，选择**Vault 访问策略**。
+.. 在**资源访问**下，选择**Azure 磁盘加密进行卷加密**。
+
+
+. 选择“+创建”以添加访问策略。
+. 在**从模板配置**下，单击下拉菜单，然后选择**密钥、机密和证书管理**模板。
+. 选择每个下拉权限菜单（密钥、秘密、证书），然后在菜单列表顶部选择**全选**以选择所有可用的权限。您应该：
++
+** **关键权限**：已选择 20 个
+** **秘密权限**：已选择 8 个
+** **证书权限**：已选择 16 个
++
+image:screenshot-azure-key-secret-cert-all-list.png["创建访问策略的屏幕截图，其中显示了创建访问策略所需的所有权限选择"]
+
+
+
+. 单击**下一步**，选择您在 Azure 中创建的**主体**注册应用程序<<azure-app>>。选择**下一步**。
++
+
+NOTE: 每个策略只能分配一个主体。
+
++
+image:screenshot-azure-key-secret-cert-principal.png["创建访问策略主体选项卡的屏幕截图"]
+
+. 单击**下一步**两次，直到到达**审核并创建**。然后，单击**创建**。
+. 选择**下一步**进入**网络**选项。
+. 选择适当的网络访问方法或选择**所有网络**和**查看 + 创建**来创建密钥保管库。  （网络访问方法可能由治理策略或您的企业云安全团队规定。）
+. 记录密钥保管库 URI：在您创建的密钥保管库中，导航到概览菜单并从右侧列复制**Vault URI**。您需要它来完成后面的步骤。
+
+
+[[key]]
+.创建加密密钥
+. 在您为Cloud Volumes ONTAP创建的 Key Vault 菜单中，导航到 **Keys** 选项。
+. 选择**生成/导入**来创建新密钥。
+. 将默认选项设置为**生成**。
+. 提供以下信息：
++
+** 加密密钥名称
+** 密钥类型：RSA
+** RSA密钥大小：2048
+** 已启用：是
+
+
+. 选择**创建**来创建加密密钥。
+. 返回**Keys**菜单并选择您刚刚创建的密钥。
+. 选择**当前版本**下的密钥ID，查看密钥属性。
+. 找到**密钥标识符**字段。复制 URI，直到但不包括十六进制字符串。
+
+
+[[AAD]]
+.创建 Azure Active Directory 端点（仅限 HA）
+. 仅当您为 HA Cloud Volumes ONTAP系统配置 Azure Key Vault 时才需要此过程。
+. 在 Azure 门户中导航到**虚拟网络**。
+. 选择部署Cloud Volumes ONTAP系统的虚拟网络，然后选择页面左侧的**子网**菜单。
+. 从列表中选择Cloud Volumes ONTAP部署的子网名称。
+. 导航到**服务端点**标题。在下拉菜单中，选择以下内容：
++
+** **Microsoft.AzureActiveDirectory**
+** **Microsoft.KeyVault**
+** **Microsoft.Storage**（可选）
++
+image:screenshot-azure-service-endpoints-services.png["服务端点的屏幕截图显示了三个选定的服务"]
+
+
+
+. 选择**保存**来捕获您的设置。
+
+
+[[ontap]]
+.Cloud Volumes ONTAP配置
+. 使用您首选的 SSH 客户端连接到集群管理 LIF。
+. 在ONTAP中进入高级权限模式：
+`set advanced -con off`
+. 确定所需的数据 SVM 并验证其 DNS 配置：
+`vserver services name-service dns show`
++
+.. 如果所需数据 SVM 的 DNS 条目存在并且包含 Azure DNS 条目，则无需执行任何操作。如果没有，请为数据 SVM 添加指向 Azure DNS、私有 DNS 或本地服务器的 DNS 服务器条目。这应该与集群管理员 SVM 的条目匹配：
+`vserver services name-service dns create -vserver _SVM_name_ -domains _domain_ -name-servers _IP_address_`
+.. 验证已为数据 SVM 创建 DNS 服务：
+`vserver services name-service dns show`
+
+
+. 使用应用程序注册后保存的客户端 ID 和租户 ID 启用 Azure Key Vault：
+`security key-manager external azure enable -vserver _SVM_name_ -client-id _Azure_client_ID_ -tenant-id _Azure_tenant_ID_ -name _key_vault_URI_ -key-id _full_key_URI_`
++
+
+NOTE: 这 `_full_key_URI`价值必须利用 `<https:// <key vault host name>/keys/<key label>`格式。
+
+. 成功启用 Azure Key Vault 后，输入 `client secret value`当出现提示时。
+. 检查密钥管理器的状态：
+`security key-manager external azure check`输出将如下所示：
++
+[source]
+----
+::*> security key-manager external azure check
+
+Vserver: data_svm_name
+Node: akvlab01-01
+
+Category: service_reachability
+    Status: OK
+
+Category: ekmip_server
+    Status: OK
+
+Category: kms_wrapped_key_status
+    Status: UNKNOWN
+    Details: No volumes created yet for the vserver. Wrapped KEK status will be available after creating encrypted volumes.
+
+3 entries were displayed.
+----
++
+如果 `service_reachability`状态不是 `OK`，SVM 无法通过所有必需的连接和权限访问 Azure Key Vault 服务。确保您的 Azure 网络策略和路由不会阻止您的私有 vNet 到达 Azure Key Vault 公共终结点。如果确实如此，请考虑使用 Azure Private 端点从 vNet 内部访问 Key Vault。您可能还需要在 SVM 上添加静态主机条目来解析端点的私有 IP 地址。
+
++
+这 `kms_wrapped_key_status`将报告 `UNKNOWN`在初始配置时。其状态将变为 `OK`第一卷加密后。
+
+. 可选：创建测试卷以验证 NVE 的功能。
++
+`vol create -vserver _SVM_name_ -volume _volume_name_ -aggregate _aggr_ -size _size_ -state online -policy default`
+
++
+如果配置正确， Cloud Volumes ONTAP将自动创建卷并启用卷加密。
+
+. 确认卷已正确创建并加密。如果是的话， `-is-encrypted`参数将显示为 `true`。
+`vol show -vserver _SVM_name_ -fields is-encrypted`
+. 可选：如果要更新 Azure Key Vault 身份验证证书上的凭据，请使用以下命令：
+`security key-manager external azure update-credentials -vserver v1 -authentication-method certificate`
+
+
+.相关链接
+* link:task-set-up-azure-encryption.html["设置Cloud Volumes ONTAP以在 Azure 中使用客户管理的密钥"]
+* https://learn.microsoft.com/en-us/azure/key-vault/general/overview["Microsoft Azure 文档：关于 Azure Key Vault"^]
+* https://docs.netapp.com/us-en/ontap-cli/index.html["ONTAP命令参考指南"^]
+

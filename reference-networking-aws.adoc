@@ -1,0 +1,331 @@
+---
+sidebar: sidebar 
+permalink: reference-networking-aws.html 
+keywords: networking, network, requirements, connection, connections, vpc, security group, security groups, subnets, vpn, internet, nat, s3, dns, ad, active directory, az, availability zone, floating IP, floating, SVM, management LIF, route, route tables, proxy, HTTP, private, tier, s3 endpoint, proxy server, nat device, vpn, snapmanager, snapcenter, iscsi, nfs, cifs, nas, san, outbound, inbound, connections, autosupport, ha, ha pair, high availability 
+summary: NetApp控制台负责设置Cloud Volumes ONTAP的网络组件，例如 IP 地址、网络掩码和路由。您需要确保可以访问出站互联网、有足够的私有 IP 地址、有正确的连接等等。 
+---
+= 为Cloud Volumes ONTAP设置 AWS 网络
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp控制台负责设置Cloud Volumes ONTAP的网络组件，例如 IP 地址、网络掩码和路由。您需要确保可以访问出站互联网、有足够的私有 IP 地址、有正确的连接等等。
+
+
+
+== 一般要求
+
+确保您已满足 AWS 中的以下要求。
+
+
+
+=== Cloud Volumes ONTAP节点的出站互联网访问
+
+Cloud Volumes ONTAP系统需要出站互联网访问才能访问外部端点以实现各种功能。如果这些端点在具有严格安全要求的环境中被阻止， Cloud Volumes ONTAP将无法正常运行。
+
+控制台代理联系多个端点以进行日常操作。有关所用端点的信息，请参阅 https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html#step-3-set-up-networking["查看从控制台代理联系的端点"^]和 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-networking-saas-console.html["准备使用控制台的网络"^]。
+
+
+
+==== Cloud Volumes ONTAP端点
+
+Cloud Volumes ONTAP使用这些端点与各种服务进行通信。
+
+[cols="5*"]
+|===
+| 端点 | 适用于 | 目的 | 部署模式 | 端点不可用时的影响 
+
+
+| \ https://netapp-cloud-account.auth0.com | 身份验证  a| 
+用于控制台中的身份验证。
+| 标准和限制模式。  a| 
+用户身份验证失败，以下服务仍然不可用：
+
+* Cloud Volumes ONTAP服务
+* ONTAP 服务
+* 协议和代理服务
+
+
+
+
+| \ https://api.bluexp.netapp.com/tenancy | 租户 | 用于从控制台检索Cloud Volumes ONTAP资源以授权资源和用户。 | 标准和限制模式。 | Cloud Volumes ONTAP资源和用户未获得授权。 
+
+
+| \ https://mysupport.netapp.com/aods/asupmessage \ https://mysupport.netapp.com/asupprod/post/1.0/postAsup | AutoSupport | 用于将AutoSupport遥测数据发送给NetApp支持。 | 标准和限制模式。 | AutoSupport信息仍未送达。 
+
+
+| AWS 服务的确切商业端点（后缀为 `amazonaws.com`) 取决于您使用的 AWS 区域。请参阅 https://docs.aws.amazon.com/general/latest/gr/rande.html["AWS 文档了解详细信息"^]。  a| 
+* 云形成
+* 弹性计算云（EC2）
+* 身份和访问管理 (IAM)
+* 密钥管理服务（KMS）
+* 安全令牌服务 (STS)
+* 简单存储服务（S3）
+
+| 与 AWS 服务通信。 | 标准和私人模式。 | Cloud Volumes ONTAP无法与 AWS 服务通信以在 AWS 中执行特定操作。 
+
+
+| AWS 服务的具体政府端点取决于您使用的 AWS 区域。端点后缀为 `amazonaws.com`和 `c2s.ic.gov`。参考	https://docs.aws.amazon.com/AWSJavaSDK/latest/javadoc/com/amazonaws/services/s3/model/Region.html["AWS 开发工具包"^]和 https://docs.aws.amazon.com/general/latest/gr/rande.html["AWS 文档"^]了解更多信息。  a| 
+* 云形成
+* 弹性计算云（EC2）
+* 身份和访问管理 (IAM)
+* 密钥管理服务（KMS）
+* 安全令牌服务 (STS)
+* 简单存储服务（S3）
+
+| 与 AWS 服务通信。 | 限制模式。 | Cloud Volumes ONTAP无法与 AWS 服务通信以在 AWS 中执行特定操作。 
+|===
+
+
+=== HA 中介器的出站互联网访问
+
+HA 中介实例必须具有与 AWS EC2 服务的出站连接，以便它可以协助存储故障转移。为了提供连接，您可以添加公共 IP 地址、指定代理服务器或使用手动选项。
+
+手动选项可以是 NAT 网关或从目标子网到 AWS EC2 服务的接口 VPC 端点。有关 VPC 终端节点的详细信息，请参阅 http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-interface.html["AWS 文档：接口 VPC 终端节点 (AWS PrivateLink)"^]。
+
+
+
+=== NetApp Console 代理的网络代理配置
+
+您可以使用NetApp控制台代理的代理服务器配置来启用来自Cloud Volumes ONTAP 的出站互联网访问。控制台支持两种类型的代理：
+
+* *显式代理*：来自Cloud Volumes ONTAP 的出站流量使用在控制台代理的代理配置期间指定的代理服务器的 HTTP 地址。管理员可能还配置了用户凭据和根 CA 证书以进行额外的身份验证。Cloud Volumes ONTAP显式代理有可用的根 CA 证书，请确保使用 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全证书安装"^]命令。
+* *透明代理*：网络配置为通过控制台代理的代理自动路由来自Cloud Volumes ONTAP 的出站流量。设置透明代理时，管理员只需要提供用于从Cloud Volumes ONTAP进行连接的根 CA 证书，而不是代理服务器的 HTTP 地址。确保使用以下方式获取相同的根 CA 证书并将其上传到您的Cloud Volumes ONTAP系统 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全证书安装"^]命令。
+
+
+有关配置代理服务器的信息，请参阅 https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html["配置控制台代理以使用代理服务器"^]。
+
+
+
+=== 私有 IP 地址
+
+控制台会自动为Cloud Volumes ONTAP分配所需数量的私有 IP 地址。您需要确保您的网络有足够的可用私有 IP 地址。
+
+控制台为Cloud Volumes ONTAP分配的 LIF 数量取决于您部署的是单节点系统还是 HA 对。  LIF 是与物理端口关联的 IP 地址。
+
+
+
+==== 单节点系统的 IP 地址
+
+控制台为单节点系统分配6个IP地址。
+
+下表提供了与每个私有 IP 地址关联的 LIF 的详细信息。
+
+[cols="20,40"]
+|===
+| LIF | 目的 
+
+
+| 集群管理 | 整个集群（HA 对）的行政管理。 
+
+
+| 节点管理 | 节点的行政管理。 
+
+
+| 集群间 | 跨集群通信、备份和复制。 
+
+
+| NAS数据 | 通过 NAS 协议进行客户端访问。 
+
+
+| iSCSI 数据 | 通过 iSCSI 协议进行客户端访问。系统还将其用于其他重要的网络工作流程。此 LIF 是必需的，不应删除。 
+
+
+| 存储虚拟机管理 | 存储虚拟机管理 LIF 与SnapCenter等管理工具一起使用。 
+|===
+
+
+==== HA 对的 IP 地址
+
+HA 对需要比单节点系统更多的 IP 地址。这些 IP 地址分布在不同的以太网接口上，如下图所示：
+
+image:diagram_cvo_aws_networking_ha.png["该图表显示了 AWS 中Cloud Volumes ONTAP HA 配置上的 eth0、eth1、eth2。"]
+
+HA 对所需的私有 IP 地址数量取决于您选择的部署模型。在单个 AWS 可用区 (AZ) 中部署的 HA 对需要 15 个私有 IP 地址，而在多个 AZ 中部署的 HA 对需要 13 个私有 IP 地址。
+
+下表提供了与每个私有 IP 地址关联的 LIF 的详细信息。
+
+[cols="20,20,20,40"]
+|===
+| LIF | 接口 | 节点 | 目的 
+
+
+| 集群管理 | eth0 | 节点 1 | 整个集群（HA 对）的行政管理。 
+
+
+| 节点管理 | eth0 | 节点 1 和节点 2 | 节点的行政管理。 
+
+
+| 集群间 | eth0 | 节点 1 和节点 2 | 跨集群通信、备份和复制。 
+
+
+| NAS数据 | eth0 | 节点 1 | 通过 NAS 协议进行客户端访问。 
+
+
+| iSCSI 数据 | eth0 | 节点 1 和节点 2 | 通过 iSCSI 协议进行客户端访问。系统还将其用于其他重要的网络工作流程。这些 LIF 是必需的，不应删除。 
+
+
+| 集群连接 | eth1 | 节点 1 和节点 2 | 使节点能够相互通信并在集群内移动数据。 
+
+
+| HA 连接 | eth2 | 节点 1 和节点 2 | 发生故障转移时两个节点之间的通信。 
+
+
+| RSM iSCSI 流量 | eth3 | 节点 1 和节点 2 | RAID SyncMirror iSCSI 流量，以及两个Cloud Volumes ONTAP节点和中介之间的通信。 
+
+
+| 调解器 | eth0 | 调解器 | 节点和中介之间的通信通道，用于协助存储接管和归还过程。 
+|===
+[cols="20,20,20,40"]
+|===
+| LIF | 接口 | 节点 | 目的 
+
+
+| 节点管理 | eth0 | 节点 1 和节点 2 | 节点的行政管理。 
+
+
+| 集群间 | eth0 | 节点 1 和节点 2 | 跨集群通信、备份和复制。 
+
+
+| iSCSI 数据 | eth0 | 节点 1 和节点 2 | 通过 iSCSI 协议进行客户端访问。这些 LIF 还管理节点之间浮动 IP 地址的迁移。这些 LIF 是必需的，不应删除。 
+
+
+| 集群连接 | eth1 | 节点 1 和节点 2 | 使节点能够相互通信并在集群内移动数据。 
+
+
+| HA 连接 | eth2 | 节点 1 和节点 2 | 发生故障转移时两个节点之间的通信。 
+
+
+| RSM iSCSI 流量 | eth3 | 节点 1 和节点 2 | RAID SyncMirror iSCSI 流量，以及两个Cloud Volumes ONTAP节点和中介之间的通信。 
+
+
+| 调解器 | eth0 | 调解器 | 节点和中介之间的通信通道，用于协助存储接管和归还过程。 
+|===
+
+TIP: 当部署在多个可用区时，多个 LIF 与link:reference-networking-aws.html#floatingips["浮动IP地址"]，这不计入 AWS 私有 IP 限制。
+
+
+
+=== 安全组
+
+您不需要创建安全组，因为控制台会为您完成此操作。如果您需要使用自己的，请参阅link:reference-security-groups.html["安全组规则"]。
+
+
+TIP: 正在寻找有关控制台代理的信息？ https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-aws.html["查看控制台代理的安全组规则"^]
+
+
+
+=== 数据分层连接
+
+如果您想将 EBS 用作性能层，将 AWS S3 用作容量层，则必须确保Cloud Volumes ONTAP与 S3 有连接。提供该连接的最佳方式是创建到 S3 服务的 VPC 端点。有关说明，请参阅 https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint["AWS 文档：创建网关终端节点"^]。
+
+创建 VPC 端点时，请确保选择与Cloud Volumes ONTAP实例相对应的区域、VPC 和路由表。您还必须修改安全组以添加允许流量到 S3 端点的出站 HTTPS 规则。否则， Cloud Volumes ONTAP无法连接到 S3 服务。
+
+如果您遇到任何问题，请参阅 https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/["AWS Support 知识中心：为什么我无法使用网关 VPC 终端节点连接到 S3 存储桶？"^]
+
+
+
+=== 与ONTAP系统的连接
+
+要在 AWS 中的Cloud Volumes ONTAP系统和其他网络中的ONTAP系统之间复制数据，您必须在 AWS VPC 和其他网络（例如您的公司网络）之间建立 VPN 连接。有关说明，请参阅 https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/SetUpVPNConnections.html["AWS 文档：设置 AWS VPN 连接"^]。
+
+
+
+=== CIFS 的 DNS 和 Active Directory
+
+如果您想要配置 CIFS 存储，则必须在 AWS 中设置 DNS 和 Active Directory，或者将您的本地设置扩展到 AWS。
+
+DNS 服务器必须为 Active Directory 环境提供名称解析服务。您可以配置 DHCP 选项集以使用默认 EC2 DNS 服务器，该服务器不能是 Active Directory 环境使用的 DNS 服务器。
+
+有关说明，请参阅 https://aws-quickstart.github.io/quickstart-microsoft-activedirectory/["AWS 文档：AWS 云上的 Active Directory 域服务：快速入门参考部署"^]。
+
+
+
+=== VPC共享
+
+从 9.11.1 版本开始，AWS 通过 VPC 共享支持Cloud Volumes ONTAP HA 对。 VPC 共享使您的组织能够与其他 AWS 账户共享子网。要使用此配置，您必须设置您的 AWS 环境，然后使用 API 部署 HA 对。
+
+link:task-deploy-aws-shared-vpc.html["了解如何在共享子网中部署 HA 对"] 。
+
+
+
+== 多可用区中 HA 对的要求
+
+额外的 AWS 网络要求适用于使用多个可用区 (AZ) 的Cloud Volumes ONTAP HA 配置。在启动 HA 对之前，您应该查看这些要求，因为在添加Cloud Volumes ONTAP系统时必须在控制台中输入网络详细信息。
+
+要了解 HA 对的工作原理，请参阅link:concept-ha.html["高可用性对"]。
+
+可用区域:: 此 HA 部署模型使用多个 AZ 来确保数据的高可用性。您应该为每个Cloud Volumes ONTAP实例和中介实例使用专用 AZ，这为 HA 对之间提供了通信通道。
+
+
+每个可用区都应该有一个子网。
+
+[[floatingips]]
+用于 NAS 数据和集群/SVM 管理的浮动 IP 地址:: 多个可用区中的 HA 配置使用浮动 IP 地址，如果发生故障，这些地址会在节点之间迁移。它们无法从 VPC 外部本地访问，除非您link:task-setting-up-transit-gateway.html["设置 AWS 中转网关"]。
++
+--
+一个浮动 IP 地址用于集群管理，一个用于节点 1 上的 NFS/CIFS 数据，一个用于节点 2 上的 NFS/CIFS 数据。用于 SVM 管理的第四个浮动 IP 地址是可选的。
+
+
+NOTE: 如果您将SnapDrive for Windows 或SnapCenter与 HA 对一起使用，则 SVM 管理 LIF 需要浮动 IP 地址。
+
+添加Cloud Volumes ONTAP HA 系统时，需要输入浮动 IP 地址。控制台在启动系统时将 IP 地址分配给 HA 对。
+
+浮动 IP 地址必须位于您部署 HA 配置的 AWS 区域中的所有 VPC 的 CIDR 块之外。将浮动 IP 地址视为您所在区域的 VPC 之外的逻辑子网。
+
+以下示例显示了浮动 IP 地址与 AWS 区域中的 VPC 之间的关系。虽然浮动 IP 地址位于所有 VPC 的 CIDR 块之外，但它们可以通过路由表路由到子网。
+
+image:diagram_ha_floating_ips.png["概念图显示了 AWS 区域中五个 VPC 的 CIDR 块以及 VPC CIDR 块之外的三个浮动 IP 地址。"]
+
+
+NOTE: 控制台会自动创建静态 IP 地址，用于 iSCSI 访问和来自 VPC 外部客户端的 NAS 访问。您不需要满足这些类型的 IP 地址的任何要求。
+
+--
+中转网关，用于从 VPC 外部启用浮动 IP 访问:: 如果需要的话，link:task-setting-up-transit-gateway.html["设置 AWS 中转网关"]允许从 HA 对所在的 VPC 外部访问 HA 对的浮动 IP 地址。
+路由表:: 指定浮动 IP 地址后，系统将提示您选择应包含浮动 IP 地址路由的路由表。这使得客户端可以访问 HA 对。
++
+--
+如果您的 VPC 中的子网只有一个路由表（主路由表），则控制台会自动将浮动 IP 地址添加到该路由表。如果您有多个路由表，则在启动 HA 对时选择正确的路由表非常重要。否则，某些客户端可能无法访问Cloud Volumes ONTAP。
+
+例如，您可能有两个与不同路由表关联的子网。如果您选择路由表 A，而不是路由表 B，则与路由表 A 关联的子网中的客户端可以访问 HA 对，但与路由表 B 关联的子网中的客户端则不能访问。
+
+有关路由表的更多信息，请参阅 http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html["AWS 文档：路由表"^]。
+
+--
+连接到NetApp管理工具:: 要将NetApp管理工具与多个 AZ 中的 HA 配置一起使用，您有两种连接选项：
++
+--
+. 在不同的 VPC 中部署NetApp管理工具，并link:task-setting-up-transit-gateway.html["设置 AWS 中转网关"]。网关允许从 VPC 外部访问集群管理接口的浮动 IP 地址。
+. 在同一 VPC 中部署NetApp管理工具，并使用与 NAS 客户端类似的路由配置。
+
+
+--
+
+
+
+
+=== HA 配置示例
+
+下图说明了多个可用区中的 HA 对特有的网络组件：三个可用区、三个子网、浮动 IP 地址和一个路由表。
+
+image:diagram_ha_networking.png["概念图显示了Cloud Volumes ONTAP HA 架构中的组件：两个Cloud Volumes ONTAP节点和一个中介实例，每个节点位于不同的可用区中。"]
+
+
+
+== 控制台代理的要求
+
+如果您尚未创建控制台代理，则应查看网络要求。
+
+* https://docs.netapp.com/us-en/bluexp-setup-admin/concept-install-options-aws.html["查看控制台代理的网络要求"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-aws.html["AWS 中的安全组规则"^]
+
+
+.相关主题
+* link:task-verify-autosupport.html["验证Cloud Volumes ONTAP 的AutoSupport设置"]
+* https://docs.netapp.com/us-en/ontap/networking/ontap_internal_ports.html["了解ONTAP内部端口"^] 。
+

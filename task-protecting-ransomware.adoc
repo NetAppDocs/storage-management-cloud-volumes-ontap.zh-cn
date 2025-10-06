@@ -1,0 +1,74 @@
+---
+sidebar: sidebar 
+permalink: task-protecting-ransomware.html 
+keywords: snapshot policy, ransomware, protection, fpolicy, block, extension, attacks, arp, autonomous, monitor, alert, attacks, Cloud Volumes ONTAP 
+summary: 勒索软件攻击会浪费企业的时间、资源和声誉。控制台使您能够实施NetApp勒索软件解决方案，该解决方案提供了有效的可见性、检测和补救工具。 
+---
+= 为Cloud Volumes ONTAP启用NetApp勒索软件防护解决方案
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+勒索软件攻击会浪费企业的时间、资源和声誉。 NetApp控制台使您能够实施两种NetApp勒索软件解决方案：针对常见勒索软件文件扩展名的防护和自主勒索软件防护 (ARP)。这些解决方案为可见性、检测和补救提供了有效的工具。
+
+
+
+== 防御常见勒索软件文件扩展名
+
+控制台上的勒索软件防护设置允许您利用ONTAP FPolicy 功能来防御常见的勒索软件文件扩展类型。
+
+.步骤
+. 在 *Systems* 页面上，双击您配置为使用勒索软件保护的Cloud Volumes ONTAP系统的名称。
+. 在“概述”选项卡上，单击“功能”面板，然后单击“*勒索软件防护*”旁边的铅笔图标。
++
+image::screenshot_features_support_registration_2.png[查看系统时，概览页面右上角的功能面板下的勒索软件防护设置的屏幕截图。]
+
+. 实施NetApp勒索软件解决方案：
++
+.. 如果您的卷未启用快照策略，请单击“激活快照策略”。
++
+NetApp Snapshot 技术提供了业界最佳的勒索软件补救解决方案。成功恢复的关键是从未受感染的备份中恢复。快照副本是只读的，可防止勒索软件破坏。他们还可以提供创建单个文件副本或完整灾难恢复解决方案的图像的粒度。
+
+.. 单击“*激活 FPolicy*”以启用 ONTAP 的 FPolicy 解决方案，该解决方案可以根据文件的扩展名阻止文件操作。
++
+此预防解决方案通过阻止常见的勒索软件文件类型来提高对勒索软件攻击的防护。
+
++
+默认 FPolicy 范围会阻止具有以下扩展名的文件：
+
++
+micro、加密、锁定、加密、crypt、crinf、r5a、XRNT、XTBL、R16M01D05、pzdc、好、哈哈！、OMG！、RDM、RRK、encryptedRS、crjoker、EnCiPhErEd、LeChiffre
+
++
+
+TIP: 当您在Cloud Volumes ONTAP上激活 FPolicy 时，将创建此范围。该列表基于常见的勒索软件文件类型。您可以使用Cloud Volumes ONTAP CLI 中的 _vserver fpolicy policy scope_ 命令自定义被阻止的文件扩展名。
+
++
+image:screenshot_ransomware_protection.gif["屏幕截图显示了系统内部可用的勒索软件防护页面。屏幕显示了没有快照策略的卷的数量以及阻止勒索软件文件扩展名的能力。"]
+
+
+
+
+
+
+
+== 自主勒索软件防护
+
+Cloud Volumes ONTAP支持自主勒索软件防护 (ARP) 功能，该功能对工作负载进行分析，以主动检测并警告可能表明勒索软件攻击的异常活动。
+
+与通过以下方式提供的文件扩展名保护分开 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-protecting-ransomware.html#protection-from-common-ransomware-file-extensions["勒索软件防护设置"]，ARP 功能使用工作负载分析根据检测到的“异常活动”向用户发出潜在攻击警报。勒索软件防护设置和 ARP 功能可以结合使用，以实现全面的勒索软件防护。
+
+ARP 功能可与自带许可证 (BYOL) 一起使用，并且无需额外付费即可在市场订阅您的许可证。
+
+启用 ARP 的卷具有指定状态“学习模式”或“活动”。
+
+卷的 ARP 配置是通过ONTAP系统管理器和ONTAP CLI 执行的。
+
+有关如何使用ONTAP System Manager 和ONTAP CLI 启用 ARP 的更多信息，请参阅 https://docs.netapp.com/us-en/ontap/anti-ransomware/enable-task.html["ONTAP文档：启用自主勒索软件防护"^]。
+
+image::screenshot_arp.png[屏幕截图显示了自主勒索软件防护的附加许可证。]

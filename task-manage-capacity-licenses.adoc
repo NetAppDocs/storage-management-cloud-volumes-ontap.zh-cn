@@ -1,0 +1,190 @@
+---
+sidebar: sidebar 
+permalink: task-manage-capacity-licenses.html 
+keywords: license, licensing, capacity license, capacity based license, add license, install license, digital wallet 
+summary: 从NetApp控制台管理基于容量的许可证，以确保您的NetApp帐户具有足够的容量用于您的Cloud Volumes ONTAP系统。 
+---
+= 管理Cloud Volumes ONTAP基于容量的许可
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+从NetApp控制台管理基于容量的许可证，以确保您的NetApp帐户具有足够的容量用于您的Cloud Volumes ONTAP系统。
+
+_基于容量的许可证_使您能够按 TiB 容量支付Cloud Volumes ONTAP 的费用。
+
+您可以从NetApp控制台管理基于容量的Cloud Volumes ONTAP许可证。
+
+
+NOTE: 虽然控制台中管理的产品和服务的实际使用情况和计量始终以 GiB 和 TiB 计算，但 GB/GiB 和 TB/TiB 这两个术语可互换使用。这反映在云市场列表、报价、列表描述和其他支持文档中
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html["了解有关Cloud Volumes ONTAP许可证的更多信息"] 。
+
+
+
+== 如何将许可证添加到NetApp控制台
+
+从NetApp销售代表处购买许可证后， NetApp将向您发送一封电子邮件，其中包含序列号和其他许可详细信息。
+
+同时，控制台会自动查询 NetApp 的许可服务，以获取与您的NetApp支持站点帐户相关的许可证的详细信息。如果没有错误，它会添加许可证。
+
+如果控制台无法添加许可证，则需要手动添加它们。例如，如果控制台代理安装在没有互联网访问的位置，则您需要自己添加许可证。 https://docs.netapp.com/us-en/bluexp-digital-wallet/task-manage-data-services-licenses.html#add-a-license["了解如何将购买的许可证添加到您的帐户"^] 。
+
+
+
+== 查看账户中已消耗的容量
+
+控制台显示您帐户中消耗的总容量以及按许可包消耗的容量。这可以帮助您了解收费方式以及是否需要购买额外的容量。
+
+.步骤
+. 从左侧导航窗格中，选择*管理>许可证和订阅*。
+. 在“概览”选项卡上， Cloud Volumes ONTAP图块显示为您的帐户配置的当前容量。
++
+image:screenshot_cvo_licensing_card.png["width=300 显示您的Cloud Volumes ONTAP许可证和订阅的容量摘要的屏幕截图。"]
+
++
+** _直接许可证_是您的NetApp帐户中所有Cloud Volumes ONTAP系统的总配置容量。收费基于每个卷的配置大小，而不考虑卷内的本地、已用、存储或有效空间。
+** _年度合同_是您从NetApp购买的总许可容量（自带许可证 (BYOL) 或市场合同）。
+** _PAYGO_ 是使用云市场订阅的总配置容量。仅当消耗的容量高于许可容量或控制台中没有可用的 BYOL 许可证时，才使用 PAYGO 收费。
+
+
+. 选择“查看”以查看每个许可包所消耗的容量。
+. 选择“*许可证*”选项卡查看您购买的每个包许可证的详细信息。
++
+为了更好地了解 Essentials 套件所显示的容量，您应该熟悉充电的工作原理。 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#notes-about-charging["了解 Essentials 套餐的收费"] 。
+
+. 选择“*订阅*”选项卡来查看按许可证消费模式消耗的容量。此选项卡包括 PAYGO 和年度合同许可证。
++
+您只会看到与您当前正在查看的组织相关的订阅。
+
+. 当您查看有关订阅的信息时，您可以与表中的详细信息进行交互。展开一行可以查看更多详细信息。
++
+** 选择image:icon-column-selector.png["表头末尾的加号图标"]选择表中显示的列。请注意，“期限”和“自动续订”列默认不会出现。自动续订列仅显示 Azure 合同的续订信息。
+
+
+
+
+
+
+== 查看包裹详情
+
+您可以通过在Cloud Volumes ONTAP页面上切换到传统模式来查看每个包使用的容量的详细信息。
+
+. 从左侧导航窗格中，选择*管理>许可证和订阅*。
+. 在“概览”选项卡上， Cloud Volumes ONTAP图块显示为您的帐户配置的当前容量。
+. 选择“查看”以查看每个许可包的配置容量。
+. 选择*切换到高级视图*。
++
+image:screenshot_licensing.png["切换到高级视图按钮的屏幕截图"]
+
+. 查看您想要查看的包裹的详细信息。
++
+image:screenshot_licesning_standard_view.png["切换到标准视图按钮的屏幕截图"]
+
+
+
+
+
+== 改变充电方式
+
+基于容量的许可以_包_的形式提供。创建Cloud Volumes ONTAP系统时，您可以根据业务需求从多个许可包中进行选择。如果您在创建系统后需求发生变化，您可以随时更改套餐。例如，您可以从 Essentials 包更改为 Professional 包。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html["了解有关基于容量的许可包的更多信息"^] 。
+
+.关于此任务
+* 更改收费方式不会影响您是通过从NetApp (BYOL) 购买的许可证还是通过云提供商的市场即用即付 (PAYGO) 订阅进行收费。
++
+控制台始终会先尝试根据许可证收费。如果没有许可证，则会根据市场订阅收费。您不必将 BYOL 订阅转换为市场订阅，反之亦然。
+
+* 如果您拥有来自云提供商市场的私人优惠或合同，则更改为合同中未包含的收费方式将导致对 BYOL（如果您从NetApp购买了许可证）或 PAYGO 收费。
+
+
+.步骤
+. 从左侧导航窗格中，选择*管理>许可证和订阅*。
+. 选择“*概览*”选项卡。
+. 在Cloud Volumes ONTAP图块上，选择 *查看*。
+. 选择*切换到高级视图*。
++
+image:screenshot_licensing.png["切换到旧版视图按钮的屏幕截图"]
+
+. 向下滚动到*基于容量的许可证*表并选择*更改收费方式*。
++
+image:screenshot-digital-wallet-charging-method-button.png["控制台中Cloud Volumes ONTAP页面的屏幕截图，其中“更改收费方式”按钮位于表格上方。"]
+
+. 在*更改收费方式*弹出窗口中，选择一个Cloud Volumes ONTAP系统，选择新的收费方式，然后确认您了解更改套餐类型将影响服务费用。
+. 选择*更改充电方式*。
+
+
+
+
+== 下载使用情况报告
+
+您可以从控制台下载四份使用情况报告。这些使用情况报告提供您的订阅的容量详细信息，并告诉您如何为Cloud Volumes ONTAP订阅中的资源付费。可下载的报告捕获某个时间点的数据，并且可以轻松地与他人共享。
+
+image:screenshot-download-usage-report.png["屏幕截图显示了基于Cloud Volumes ONTAP容量的许可证页面，并突出显示了使用情况报告按钮。"]
+
+以下报告可供下载。显示的容量值以 TiB 为单位。
+
+* *高级用法*：此报告包含以下信息：
++
+** 总消耗容量
+** 预先承诺的总容量
+** 总 BYOL 容量
+** 市场合同总容量
+** PAYGO 总容量
+
+
+* * Cloud Volumes ONTAP软件包使用情况*：此报告包含每个软件包的以下信息：
++
+** 总消耗容量
+** 预先承诺的总容量
+** 总 BYOL 容量
+** 市场合同总容量
+** PAYGO 总容量
+
+
+* *存储虚拟机使用情况*：此报告显示收费容量在Cloud Volumes ONTAP系统和存储虚拟机 (SVM) 之间的分配情况。此信息仅在报告中提供。它包含以下信息：
++
+** 系统 ID 和名称（显示为 UUID）
+** 云
+** NetApp帐户 ID
+** 系统配置
+** SVM 名称
+** 预配置容量
+** 充电容量汇总
+** 市场计费条款
+** Cloud Volumes ONTAP软件包或功能
+** 收费 SaaS 市场订阅名称
+** 收费 SaaS 市场订阅 ID
+** 工作负载类型
+
+
+* *卷使用情况*：此报告显示Cloud Volumes ONTAP系统中如何按卷细分收费容量。控制台中的任何屏幕上均不显示此信息。它包括以下信息：
++
+** 系统 ID 和名称（显示为 UUID）
+** SVN 名称
+** Volume ID
+** 卷类型
+** 卷配置容量
++
+
+NOTE: FlexClone卷不包含在此报告中，因为这些类型的卷不会产生费用。
+
+
+
+
+
+.步骤
+. 从左侧导航窗格中，选择*管理>许可证和订阅*。
+. 在*概览*选项卡上，从Cloud Volumes ONTAP图块中选择*查看*。
+. 选择*使用情况报告*。
++
+使用情况报告下载。
+
+. 打开下载的文件以访问报告。
+

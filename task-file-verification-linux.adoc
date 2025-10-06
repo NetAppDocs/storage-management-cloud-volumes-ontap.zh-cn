@@ -1,0 +1,61 @@
+---
+sidebar: sidebar 
+permalink: task-file-verification-linux.html 
+keywords: Azure, image, VHD, file signature verification, encryption, sha256, ONTAP, Cloud Volumes, CLI, Linux 
+summary: 通过 Linux 上的Cloud Volumes ONTAP映像摘要文件工具验证导出的 VHD 文件签名 
+---
+= 验证 Linux 上Cloud Volumes ONTAP的 Azure 市场映像签名
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在 Linux 上验证导出的 VHD 文件签名包括验证信任链、编辑文件和验证签名。
+
+.步骤
+. 从下载 Azure 映像文件 https://mysupport.netapp.com/site/["NetApp 支持站点"^]并提取摘要（.sig）文件、公钥证书（.pem）文件和链证书（.pem）文件。
++
+参考 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-azure-download-digest-file.html["下载 Azure 映像摘要文件"^]了解更多信息。
+
+. 验证信任链。
++
+[source, cli]
+----
+% openssl verify -CAfile Certificate-Chain-9.15.0P1_azure.pem Certificate-9.15.0P1_azure.pem
+Certificate-9.15.0P1_azure.pem: OK
+----
+. 删除 VHD 文件开头的 1 MB（1,048,576 字节）和结尾的 512 字节。使用时 `tail`， 这 `-c +K`选项从文件的第 K 个字节生成字节。因此，它将 1048577 传递给 `tail -c`。
++
+[source, cli]
+----
+% tail -c +1048577 ./9150.01000024.05090105.vhd > ./sign.tmp.tail
+% head -c -512 ./sign.tmp.tail > sign.tmp
+% rm ./sign.tmp.tail
+----
+. 使用 OpenSSL 从证书中提取公钥，并使用签名文件和公钥验证剥离的文件（sign.tmp）。
++
+命令提示符根据验证显示指示成功或失败的消息。
+
++
+[source, cli]
+----
+% openssl x509 -pubkey -noout -in ./Certificate-9.15.0P1_azure.pem > ./Code-Sign-Cert-Public-key.pub
+
+% openssl dgst -verify Code-Sign-Cert-Public-key.pub -keyform PEM -sha256 -signature digest.sig -binary ./sign.tmp
+Verification OK
+
+% openssl dgst -verify Code-Sign-Cert-Public-key.pub -keyform PEM -sha256 -signature digest.sig -binary ./another_file_from_nowhere.tmp
+Verification Failure
+----
+. 清理工作区。
++
+[source, cli]
+----
+% rm ./9150.01000024.05090105.vhd ./sign.tmp
+% rm *.sig *.pub *.pem
+----
+

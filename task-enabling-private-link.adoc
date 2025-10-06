@@ -1,0 +1,147 @@
+---
+sidebar: sidebar 
+permalink: task-enabling-private-link.html 
+keywords: azure private link, private link connection, private link to storage, service endpoints, enable service endpoint, disable private link 
+summary: Cloud Volumes ONTAP使用 Azure Private Link 连接到其关联的存储帐户。如果需要，您可以禁用 Azure Private Links 并改用服务端点。 
+---
+= 为Cloud Volumes ONTAP系统使用 Azure Private Link 或服务端点
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP使用 Azure Private Link 连接到其关联的存储帐户。如果需要，您可以禁用 Azure Private Links 并改用服务端点。
+
+
+
+== 概述
+
+默认情况下， NetApp控制台启用 Azure Private Link 来建立Cloud Volumes ONTAP与其关联存储帐户之间的连接。  Azure 专用链接可保护 Azure 中端点之间的连接并提供性能优势。
+
+如果需要，您可以将Cloud Volumes ONTAP配置为使用服务端点而不是 Azure Private Link。
+
+无论采用哪种配置，控制台始终限制Cloud Volumes ONTAP和存储帐户之间的连接的网络访问。网络访问仅限于部署Cloud Volumes ONTAP 的VNet 和部署控制台代理的 VNet。
+
+
+
+== 禁用 Azure Private Links 并改用服务终结点
+
+如果您的业务需要，您可以在控制台中更改设置，以便将Cloud Volumes ONTAP配置为使用服务端点而不是 Azure Private Link。更改此设置适用于您创建的新Cloud Volumes ONTAP系统。服务端点仅支持link:https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies["Azure 区域对"^]控制台代理和Cloud Volumes ONTAP VNet 之间。
+
+控制台代理应部署在与其管理的Cloud Volumes ONTAP系统相同的 Azure 区域中，或者部署在 https://docs.microsoft.com/en-us/azure/availability-zones/cross-region-replication-azure#azure-cross-region-replication-pairings-for-all-geographies["Azure 区域对"^]适用于Cloud Volumes ONTAP系统。
+
+.步骤
+. 从左侧导航窗格转到*管理>代理*。
+. 点击image:icon-action.png[""]管理Cloud Volumes ONTAP系统的控制台代理的图标。
+. 选择* Cloud Volumes ONTAP设置*。
++
+image::screenshot-settings-cloud-volumes-ontap.png[设置图标下的Cloud Volumes ONTAP设置选项的屏幕截图。]
+
+. 在“*Azure*”下，单击“*使用 Azure 专用链接*”。
+. 取消选择* Cloud Volumes ONTAP和存储帐户之间的专用链接连接*。
+. 单击“保存”。
+
+
+.完成后
+如果您禁用了 Azure Private Links 并且控制台代理使用代理服务器，则必须启用直接 API 流量。
+
+https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html#enable-a-proxy-on-a-connector["了解如何在控制台代理上启用直接 API 流量"^]
+
+
+
+== 使用 Azure Private Links
+
+在大多数情况下，您无需执行任何操作即可设置与Cloud Volumes ONTAP 的Azure Private 链接。控制台为您管理 Azure 专用链接。但是如果您使用现有的 Azure 私有 DNS 区域，则需要编辑配置文件。
+
+
+
+=== 自定义 DNS 的要求
+
+或者，如果您使用自定义 DNS，则需要从自定义 DNS 服务器创建到 Azure 私有 DNS 区域的条件转发器。要了解更多信息，请参阅link:https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns#on-premises-workloads-using-a-dns-forwarder["Azure 关于使用 DNS 转发器的文档"^]。
+
+
+
+=== 专用链接连接的工作原理
+
+当控制台在 Azure 中部署Cloud Volumes ONTAP时，它会在资源组中创建一个私有端点。私有端点与Cloud Volumes ONTAP 的存储帐户相关联。因此，对Cloud Volumes ONTAP存储的访问需要通过 Microsoft 主干网络。
+
+当客户端与Cloud Volumes ONTAP位于同一 VNet 内、位于对等 VNet 内或位于本地网络中时，客户端访问将通过专用链接进行。
+
+以下示例展示了客户端如何通过专用链接从同一 VNet 内部以及从具有专用 VPN 或 ExpressRoute 连接的本地网络进行访问。
+
+image:diagram_azure_private_link.png["概念图显示了数据访问进入Cloud Volumes ONTAP并通过私有端点和私有链接到存储帐户。"]
+
+
+NOTE: 如果控制台代理和Cloud Volumes ONTAP系统部署在不同的 VNet 中，则必须在部署控制台代理的 VNet 和部署Cloud Volumes ONTAP系统的 VNet 之间设置 VNet 对等连接。
+
+
+
+=== 提供有关 Azure 专用 DNS 的详细信息
+
+如果你使用 https://docs.microsoft.com/en-us/azure/dns/private-dns-overview["Azure 专用 DNS"^]，那么就需要在每个Console代理上修改一个配置文件。否则，控制台无法设置Cloud Volumes ONTAP与其关联存储帐户之间的 Azure Private Link 连接。
+
+请注意，DNS 名称必须符合 Azure DNS 命名要求 https://docs.microsoft.com/en-us/azure/storage/common/storage-private-endpoints#dns-changes-for-private-endpoints["如 Azure 文档所示"^]。
+
+.步骤
+. 通过 SSH 连接到控制台代理主机并登录。
+. 导航至 `/opt/application/netapp/cloudmanager/docker_occm/data`目录。
+. 编辑 `app.conf`通过添加 `user-private-dns-zone-settings`具有以下关键字-值对的参数：
++
+[source, cli]
+----
+ "user-private-dns-zone-settings" : {
+    "resource-group" : "<resource group name of the DNS zone>",
+    "subscription" : "<subscription ID>",
+    "use-existing" : true,
+    "create-private-dns-zone-link" : true
+ }
+----
++
+这 `subscription`仅当私有 DNS 区域与控制台代理的订阅不同时才需要关键字。
+
+. 保存文件并注销控制台代理。
++
+不需要重新启动。
+
+
+
+
+
+=== 启用故障回滚
+
+如果控制台无法在特定操作中创建 Azure 专用链接，它将在没有 Azure 专用链接连接的情况下完成该操作。创建新系统（单个节点或 HA 对）时，或者在 HA 对上执行以下操作时，可能会发生这种情况：创建新聚合、向现有聚合添加磁盘或在超过 32 TiB 时创建新的存储帐户。
+
+如果控制台无法创建 Azure 专用链接，您可以通过启用回滚来更改此默认行为。这有助于确保您完全遵守公司的安全规定。
+
+如果启用回滚，控制台将停止该操作并回滚作为该操作的一部分创建的所有资源。
+
+您可以通过 API 或更新 app.conf 文件来启用回滚。
+
+*通过 API 启用回滚*
+
+.步骤
+. 使用 `PUT /occm/config`具有以下请求主体的 API 调用：
++
+[source, json]
+----
+{ "rollbackOnAzurePrivateLinkFailure": true }
+----
+
+
+*通过更新 app.conf 启用回滚*
+
+.步骤
+. 通过 SSH 连接到控制台代理的主机并登录。
+. 导航到以下目录：/opt/application/netapp/cloudmanager/docker_occm/data
+. 编辑 app.conf，添加以下参数和值：
++
+ "rollback-on-private-link-failure": true
+. 保存文件并注销控制台代理。
++
+不需要重新启动。
+
+

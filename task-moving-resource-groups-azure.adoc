@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: task-moving-resource-groups-azure.html 
+keywords: move resource groups, azure, remove system, resource groups, azure console, Azure subscriptions 
+summary: Cloud Volumes ONTAP支持 Azure 资源组移动，但工作流程仅在 Azure 控制台中进行。 
+---
+= 在 Azure 控制台中移动Cloud Volumes ONTAP的 Azure 资源组
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP支持 Azure 资源组移动，但工作流程仅在 Azure 控制台中进行。
+
+您可以将Cloud Volumes ONTAP系统从同一 Azure 订阅内的一个资源组移动到 Azure 中的另一个资源组。不支持在不同的 Azure 订阅之间移动资源组。
+
+.步骤
+. 删除Cloud Volumes ONTAP系统。请参阅link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-removing.html["删除Cloud Volumes ONTAP系统"] 。
+. 在 Azure 控制台中执行资源组移动。
++
+要完成移动，请参阅link:https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/move-resource-group-and-subscription["Microsoft Azure 文档中的“将资源移动到新的资源组或订阅”"^]。
+
+. 在*系统*页面上，发现系统。
+. 在系统信息中查找新的资源组。
+
+
+.结果
+系统及其资源（虚拟机、磁盘、存储帐户、网络接口、快照）位于新的资源组中。

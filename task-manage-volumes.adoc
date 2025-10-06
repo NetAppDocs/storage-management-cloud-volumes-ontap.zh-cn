@@ -1,0 +1,392 @@
+---
+sidebar: sidebar 
+permalink: task-manage-volumes.html 
+keywords: volumes, managing, cloning, editing, CIFS server, edit, flexclone, snapshot copy, restore, mount, delete, cifs setup, DNS, active directory, AD, domain, NetBIOS, identify, move, capacity, action required, clone, snapshot copies, restoring, vol move, volume move, move a volume, volume move slow, volume move performance 
+summary: NetApp控制台使您能够管理卷和 CIFS 服务器。它还会提示您移动卷以避免容量问题。 
+---
+= 管理Cloud Volumes ONTAP系统上的卷
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以在NetApp控制台中管理卷和 CIFS 服务器。您还可以移动卷以避免容量问题。
+
+您可以在NetApp控制台标准视图中管理卷，也可以通过控制台中包含的ONTAP系统管理器管理卷，以实现高级卷管理。标准视图提供了一组有限的选项来修改您的卷。系统管理器提供高级管理，例如克隆、调整大小、更改反勒索软件、分析、保护和活动跟踪的设置以及跨层移动卷。有关信息，请参阅link:task-administer-advanced-view.html["使用系统管理器管理Cloud Volumes ONTAP"]。
+
+
+
+== 管理卷
+
+通过使用控制台的标准视图，您可以根据存储需求管理卷。您可以查看、编辑、克隆、恢复和删除卷。
+
+.步骤
+. 从左侧导航菜单中，选择“存储”>“管理”。
+. 在*系统*页面上，双击要管理卷的Cloud Volumes ONTAP系统。
+. 选择“*卷*”选项卡。
++
+image:screenshot_manage_vol_button.png["“卷”选项卡下的“管理卷”按钮的屏幕截图。"]
+
+. 在所需的卷图块上，单击*管理卷*。
++
+[cols="30,70"]
+|===
+| 任务 | 操作 
+
+
+| 查看有关卷的信息 | 在“管理卷”面板的“卷操作”下，单击“查看卷详细信息”。 
+
+
+| 获取NFS挂载命令  a| 
+.. 在“管理卷”面板的“卷操作”下，单击“安装命令”。
+.. 单击“*复制*”。
+
+
+
+
+| 克隆卷  a| 
+.. 在“管理卷”面板的“卷操作”下，单击“克隆卷”。
+.. 根据需要修改克隆名称，然后单击“*克隆*”。
+
+
+此过程会创建一个FlexClone卷。  FlexClone卷是可写的、时间点副本，它节省空间，因为它只使用少量空间来存储元数据，并且仅在更改或添加数据时才消耗额外的空间。
+
+要了解有关FlexClone卷的更多信息，请参阅 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["ONTAP 9 逻辑存储管理指南"^]。
+
+
+
+| 编辑卷（仅限读写卷）  a| 
+.. 在“管理卷”面板的“卷操作”下，单击“编辑卷设置”
+.. 修改卷的快照策略、NFS 协议版本、NFS 访问控制列表（导出策略）或共享权限，然后单击*应用*。
+
+
+
+NOTE: 如果您需要自定义 Snapshot 策略，则可以使用ONTAP System Manager 创建它们。
+
+
+
+| 删除卷  a| 
+.. 在“管理卷”面板的“卷操作”下，单击“删除卷”。
+.. 在“删除卷”窗口下，输入要删除的卷的名称。
+.. 再次单击“*删除*”进行确认。
+
+
+
+
+| 按需创建 Snapshot 副本  a| 
+.. 在“管理卷”面板的“保护操作”下，单击“创建 Snapshot 副本”。
+.. 如果需要，更改名称，然后单击“*创建*”。
+
+
+
+
+| 将数据从 Snapshot 副本还原到新卷  a| 
+.. 在“管理卷”面板的“保护操作”下，单击“从 Snapshot 副本还原”。
+.. 选择一个 Snapshot 副本，输入新卷的名称，然后单击“*恢复*”。
+
+
+
+
+| 更改底层磁盘类型  a| 
+.. 在“管理卷”面板的“高级操作”下，单击“更改磁盘类型”。
+.. 选择磁盘类型，然后单击“*更改*”。
+
+
+
+NOTE: 控制台将卷移动到使用所选磁盘类型的现有聚合，或者为该卷创建新的聚合。
+
+
+
+| 更改分层策略  a| 
+.. 在“管理卷”面板的“高级操作”下，单击“更改分层策略”。
+.. 选择不同的策略并单击*更改*。
+
+
+
+NOTE: 控制台将卷移动到使用具有分层功能的所选磁盘类型的现有聚合，或者为该卷创建新的聚合。
+
+
+
+| 删除卷  a| 
+.. 选择一个卷，然后单击“*删除*”。
+.. 在对话框中输入卷的名称。
+.. 再次单击“*删除*”进行确认。
+
+
+|===
+
+
+
+
+== 调整卷大小
+
+默认情况下，当卷空间不足时，它会自动增长到最大大小。默认值为 1,000，这意味着卷可以增长到其大小的 11 倍。该值可以在控制台代理的设置中配置。
+
+如果您需要调整卷大小，您可以从控制台中的ONTAP系统管理器进行操作。
+
+.步骤
+. 单击系统管理器视图以通过ONTAP系统管理器调整卷大小。请参阅link:task-administer-advanced-view.html#how-to-get-started["如何开始"] 。
+. 从左侧导航菜单中，选择“存储”>“卷”。
+. 从卷列表中，确定应调整大小的卷。
+. 点击选项图标image:screenshot_gallery_options.gif["烤肉串图标"]。
+. 选择*调整大小*。
+. 在*调整卷大小*屏幕上，根据需要编辑容量和快照预留百分比。您可以将现有的可用空间与修改后的容量进行比较。
+. 单击“保存”。
+
+
+image:screenshot-resize-volume.png["屏幕显示卷调整大小后修改后的容量"]
+
+调整卷大小时，请务必考虑系统的容量限制。前往 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP发行说明"^]了解更多信息。
+
+
+
+== 修改 CIFS 服务器
+
+如果您更改 DNS 服务器或 Active Directory 域，则需要修改Cloud Volumes ONTAP中的 CIFS 服务器，以便它可以继续为客户端提供存储服务。
+
+.步骤
+. 从Cloud Volumes ONTAP系统的 *Overview* 选项卡中，单击右侧面板下的 *Feature* 选项卡。
+. 在 CIFS 设置字段下，单击 *铅笔图标* 以显示 CIFS 设置窗口。
+. 指定 CIFS 服务器的设置：
++
+[cols="30,70"]
+|===
+| 任务 | 操作 
+
+
+| 选择存储虚拟机 (SVM) | 选择 Cloud Volume ONTAP存储虚拟机 (SVM) 显示其配置的 CIFS 信息。 
+
+
+| 要加入的 Active Directory 域 | 您希望 CIFS 服务器加入的 Active Directory (AD) 域的 FQDN。 
+
+
+| 授权加入域的凭据 | 具有足够权限将计算机添加到 AD 域内指定组织单位 (OU) 的 Windows 帐户的名称和密码。 
+
+
+| DNS 主 IP 地址和辅助 IP 地址 | 为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含定位 Active Directory LDAP 服务器和 CIFS 服务器将加入的域的域控制器所需的服务位置记录 (SRV)。ifdef::gcp[] 如果您正在配置 Google Managed Active Directory，则默认情况下可以使用 169.254.169.254 IP 地址访问 AD。endif::gcp[] 
+
+
+| DNS 域 | Cloud Volumes ONTAP存储虚拟机 (SVM) 的 DNS 域。大多数情况下，该域与 AD 域相同。 
+
+
+| CIFS 服务器 NetBIOS 名称 | AD 域中唯一的 CIFS 服务器名称。 
+
+
+| 组织单位  a| 
+AD 域内与 CIFS 服务器关联的组织单位。默认值为 CN=Computers。
+
+ifdef::aws[]
+
+** 要将 AWS Managed Microsoft AD 配置为Cloud Volumes ONTAP 的AD 服务器，请在此字段中输入 *OU=Computers,OU=corp*。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+** 要将 Azure AD 域服务配置为Cloud Volumes ONTAP 的AD 服务器，请在此字段中输入 *OU=AADDC Computers* 或 *OU=AADDC Users*。link:https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou["Azure 文档：在 Azure AD 域服务托管域中创建组织单位 (OU)"^]
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+** 要将 Google Managed Microsoft AD 配置为Cloud Volumes ONTAP的 AD 服务器，请在此字段中输入 *OU=Computers,OU=Cloud*。link:https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google Cloud 文档：Google Managed Microsoft AD 中的组织单位"^]
+
+
+endif::gcp[]
+
+|===
+. 单击“*设置*”。
+
+
+.结果
+Cloud Volumes ONTAP使用更改来更新 CIFS 服务器。
+
+
+
+== 移动卷
+
+移动卷以提高容量利用率、提高性能并满足服务级别协议。
+
+您可以在ONTAP系统管理器中移动卷，方法是选择卷和目标聚合、启动卷移动操作以及选择性地监控卷移动作业。使用系统管理器时，卷移动操作会自动完成。
+
+.步骤
+. 使用ONTAP系统管理器或ONTAP CLI 将卷移动到聚合。
++
+在大多数情况下，您可以使用系统管理器来移动卷。
+
++
+有关说明，请参阅link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-vol-move/home.html["《ONTAP 9 卷移动快速指南》"^]。
+
+
+
+
+
+== 当控制台显示“需要操作”消息时移动卷
+
+控制台可能会显示“需要采取措施”消息，表示需要移动卷以避免容量问题，但您需要自行解决问题。如果发生这种情况，您需要确定如何纠正问题，然后移动一个或多个卷。
+
+
+TIP: 当聚合已达到 90% 的使用容量时，控制台会显示这些“需要操作”消息。如果启用了数据分层，则当聚合已达到 80% 的已用容量时会显示消息。默认情况下，保留 10% 的可用空间用于数据分层。link:task-tiering.html#changing-the-free-space-ratio-for-data-tiering["了解有关数据分层的可用空间比率的更多信息"^] 。
+
+.步骤
+. <<确定如何纠正容量问题>> 。
+. 根据您的分析，移动卷以避免容量问题：
++
+** <<将卷移动到另一个系统以避免容量问题>> 。
+** <<将卷移动到另一个聚合以避免容量问题>> 。
+
+
+
+
+
+
+=== 确定如何纠正容量问题
+
+如果控制台无法提供移动卷以避免容量问题的建议，则必须确定需要移动的卷以及是否应将它们移动到同一系统上的另一个聚合或另一个系统。
+
+.步骤
+. 查看“需要操作”消息中的高级信息，以确定已达到其容量限制的聚合。
++
+例如，高级信息应该显示类似如下内容：聚合 aggr1 已达到其容量限制。
+
+. 确定要移出聚合的一个或多个卷：
++
+.. 在Cloud Volumes ONTAP系统中，单击 *Aggregates tab*。
+.. 在聚合图块上，单击image:icon-action.png[""]图标，然后单击*查看汇总详情*。
+.. 在“聚合详细信息”屏幕的“概述”选项卡下，查看每个卷的大小并选择要移出聚合的一个或多个卷。
++
+您应该选择足够大的卷来释放聚合中的空间，以避免将来出现额外的容量问题。
+
++
+image::screenshot_aggr_volume_overview.png[屏幕截图聚合量概览]
+
+
+
+. 如果系统尚未达到磁盘限制，则应将卷移动到现有聚合或同一系统上的新聚合。
++
+有关信息，请参阅<<move-volumes-aggregate-capacity,将卷移动到另一个聚合以避免容量问题>>。
+
+. 如果系统已达到磁盘限制，请执行以下操作之一：
++
+.. 删除所有未使用的卷。
+.. 重新排列卷以释放聚合上的空间。
++
+有关信息，请参阅<<move-volumes-aggregate-capacity,将卷移动到另一个聚合以避免容量问题>>。
+
+.. 将两个或多个卷移动到另一个有空间的系统。
++
+有关信息，请参阅<<move-volumes-aggregate-capacity,将卷移动到另一个聚合以避免容量问题>>。
+
+
+
+
+
+
+
+=== 将卷移动到另一个系统以避免容量问题
+
+您可以将一个或多个卷移动到另一个Cloud Volumes ONTAP系统以避免容量问题。如果系统达到其磁盘限制，您可能需要执行此操作。
+
+.关于此任务
+您可以按照此任务中的步骤来更正以下“需要操作”消息：
+
+[]
+====
+移动卷对于避免容量问题是必要的；但是，控制台无法为您执行此操作，因为系统已达到磁盘限制。
+
+====
+.步骤
+. 确定具有可用容量的Cloud Volumes ONTAP系统，或部署新系统。
+. 将源系统拖放到目标系统以执行卷的一次性数据复制。
++
+有关信息，请参阅link:https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["在系统之间复制数据"^]。
+
+. 转到“复制状态”页面，然后中断SnapMirror关系，将复制的卷从数据保护卷转换为读/写卷。
++
+有关信息，请参阅link:https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html#managing-data-replication-schedules-and-relationships["管理数据复制计划和关系"^]。
+
+. 配置数据访问的卷。
++
+有关配置数据访问目标卷的信息，请参阅link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-sm-ic-fr/home.html["ONTAP 9 卷灾难恢复快速指南"^]。
+
+. 删除原始卷。
++
+有关信息，请参阅link:task-manage-volumes.html#manage-volumes["管理卷"]。
+
+
+
+
+
+=== 将卷移动到另一个聚合以避免容量问题
+
+您可以将一个或多个卷移动到另一个聚合以避免容量问题。
+
+.关于此任务
+您可以按照此任务中的步骤来更正以下“需要操作”消息：
+
+[]
+====
+需要移动两个或更多卷以避免容量问题；但是，控制台无法为您执行此操作。
+
+====
+.步骤
+. 验证现有聚合是否具有可供您需要移动的卷使用的容量：
++
+.. 在Cloud Volumes ONTAP系统上，单击 *Aggregates tab*。
+.. 在所需的聚合图块上，单击image:icon-action.png[""]图标，然后*查看聚合详细信息*以查看可用容量（预配置大小减去已用聚合容量）。
++
+image::screenshot_aggr_capacity.png[屏幕截图聚合容量]
+
+
+
+. 如果需要，将磁盘添加到现有聚合：
++
+.. 选择聚合，然后单击image:icon-action.png[""]图标 > *添加磁盘*。
+.. 选择要添加的磁盘数量，然后单击“*添加*”。
+
+
+. 如果没有可用容量的聚合，则创建一个新的聚合。
++
+有关信息，请参阅link:task-create-aggregates.html["创建聚合"^]。
+
+. 使用ONTAP系统管理器或ONTAP CLI 将卷移动到聚合。
+. 在大多数情况下，您可以使用系统管理器来移动卷。
++
+有关说明，请参阅link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-vol-move/home.html["《ONTAP 9 卷移动快速指南》"^]。
+
+
+
+
+
+== 交易量变动执行缓慢的原因
+
+如果Cloud Volumes ONTAP满足以下任何条件，则移动卷所需的时间可能会比您预期的要长：
+
+* 该卷是一个克隆。
+* 该卷是克隆的父卷。
+* 源聚合或目标聚合具有单个吞吐量优化 HDD (st1) 磁盘。
+* 其中一个聚合使用了较旧的对象命名方案。两个聚合必须使用相同的名称格式。
++
+如果在 9.4 或更早版本中的聚合上启用了数据分层，则使用较旧的命名方案。
+
+* 源聚合和目标聚合上的加密设置不匹配，或者正在进行重新密钥。
+* 在卷移动时指定了 _-tiering-policy_ 选项来更改分层策略。
+* 在卷移动时指定了 _-generate-destination-key_ 选项。
+
+
+
+
+== 查看FlexGroup卷
+
+您可以直接通过控制台中的“卷”选项卡查看通过ONTAP System Manager 或ONTAP CLI 创建的FlexGroup卷。您可以通过专用的 *Volumes* 图块查看 FleGroup 卷的详细信息，并通过图标的悬停文本识别每个FlexGroup卷组。此外，您可以通过卷样式列识别和排序卷列表视图下的FlexGroup卷。
+
+image::screenshot_show_flexgroup_vol.png[屏幕截图显示 flexgroup vol]
+
+
+NOTE: 目前，您只能在控制台下查看现有的FlexGroup卷。您无法在控制台中创建FlexGroup卷。

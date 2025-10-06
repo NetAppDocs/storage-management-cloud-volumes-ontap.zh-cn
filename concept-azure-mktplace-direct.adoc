@@ -1,0 +1,71 @@
+---
+sidebar: sidebar 
+permalink: concept-azure-mktplace-direct.html 
+keywords: azure marketplace direct, cvo in azure marketplace 
+summary:  
+---
+= 了解 Azure 中的Cloud Volumes ONTAP部署选项
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp提供了两种在 Azure 上部署Cloud Volumes ONTAP 的选项。 Cloud Volumes ONTAP传统上依赖NetApp控制台进行部署和编排。从Cloud Volumes ONTAP 9.16.1 开始，您可以利用 Azure 市场直接部署，这是一个简化的过程，可以访问有限但仍然强大的Cloud Volumes ONTAP功能和选项。
+
+当您直接从 Azure 市场部署Cloud Volumes ONTAP时，您无需设置控制台代理或满足通过控制台部署Cloud Volumes ONTAP所需的其他安全和入职标准。从 Azure 市场，您只需单击几下即可快速部署Cloud Volumes ONTAP ，并在您的环境中探索其核心特性和功能。
+
+在 Azure 市场完成部署后，您可以在控制台中发现这些系统。发现后，您可以将它们作为Cloud Volumes ONTAP系统进行管理，并利用所有控制台功能。请参阅link:task-deploy-cvo-azure-mktplc.html["在控制台中发现已部署的系统"] 。
+
+以下是两个选项之间的功能比较。请注意，通过 Azure 市场部署的独立实例的功能在控制台中被发现时会发生变化。
+
+[cols="3*"]
+|===
+|  | Azure 市场 | NetApp控制台 
+
+
+| *入职培训* | 更短、更简单，直接部署所需的准备工作最少 | 更长的入职流程，包括控制台代理的安装 
+
+
+| *支持的虚拟机 (VM) 类型*  a| 
+Eds_v5 和 Ls_v3 实例类型
+| 全方位的 VM 类型。https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Azure 中支持的配置"^] 
+
+
+| *执照* | 免费许可证 | 任何基于容量的许可证。link:concept-licensing.html["Cloud Volumes ONTAP许可"] 
+
+
+| * NetApp支持* | 不包括 | 根据许可证类型可用 
+
+
+| *容量* | 最多 500 GiB | 可通过配置扩展 
+
+
+| 部署模型 | 单可用区（AZ）高可用（HA）模式部署 | 所有支持的配置，包括单节点和 HA 模式、单 AZ 和多 AZ 部署 
+
+
+| *支持的磁盘类型* | 高级 SSD v2 托管磁盘 | 更广泛的支持。link:concept-storage.html#azure-storage["Cloud Volumes ONTAP的默认配置"] 
+
+
+| *写入速度（快速写入模式）* | 不支持 | 根据您的配置，支持。link:concept-write-speed.html["了解Cloud Volumes ONTAP中的写入速度"] 。 
+
+
+| *编排功能* | 不可用 | 根据许可证类型，可通过NetApp控制台获取 
+
+
+| *支持的存储虚拟机数量* | 每个部署一个 | 根据您的配置，多个存储虚拟机。link:task-managing-svms-azure.html#supported-number-of-storage-vms["支持的存储虚拟机数量"] 
+
+
+| 更改实例类型 | 不支持 | 支持 
+
+
+| * FabricPool分层* | 不支持 | 支持 
+|===
+.相关链接
+* Azure 市场直接部署：link:task-deploy-cvo-azure-mktplc.html["从 Azure 市场部署Cloud Volumes ONTAP"]
+* 通过控制台部署：link:task-getting-started-azure.html["Azure 中的Cloud Volumes ONTAP快速入门"]
+* https://docs.netapp.com/us-en/bluexp-family/index.html["NetApp控制台文档"^]
+

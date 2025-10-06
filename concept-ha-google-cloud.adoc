@@ -1,0 +1,154 @@
+---
+sidebar: sidebar 
+permalink: concept-ha-google-cloud.html 
+keywords: high-availability, HA, mediator, concepts, understanding, overview, takeover, giveback, rpo, rto, nondisruptive, ha pairs, node, nodes, synchronous, resync, recovery point objective, recovery time objective, failover, mount, remount, failure, data access, access, ip address, performance, gcp, gcp ha, google cloud ha, ha in google cloud 
+summary: Cloud Volumes ONTAP高可用性配置提供无中断操作和容错功能。在 Google Cloud 中，数据在两个节点之间同步镜像。 
+---
+= 了解 Google Cloud 中的Cloud Volumes ONTAP HA 对
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP高可用性 (HA) 配置提供无中断操作和容错功能。在 Google Cloud 中，数据在两个节点之间同步镜像。
+
+
+
+== HA 组件
+
+Google Cloud 中的Cloud Volumes ONTAP HA 配置包括以下组件：
+
+* 两个Cloud Volumes ONTAP节点，其数据彼此同步镜像。
+* 中介实例在节点之间提供通信通道，以协助存储接管和交还过程。
+* 一个区域或三个区域（推荐）。
++
+如果您选择三个区域，则两个节点和中介器位于单独的 Google Cloud 区域。
+
+* 四个虚拟私有云（VPC）。
++
+该配置使用四个 VPC，因为 GCP 要求每个网络接口位于单独的 VPC 网络中。
+
+* 四个 Google Cloud 内部负载均衡器（TCP/UDP），用于管理传入Cloud Volumes ONTAP HA 对的流量。
+
+
+link:reference-networking-gcp.html["了解网络要求"]，包括有关负载均衡器、VPC、内部 IP 地址、子网等的更多详细信息。
+
+以下概念图展示了Cloud Volumes ONTAP HA 对及其组件：
+
+image:diagram_gcp_ha.png["Cloud Volumes ONTAP HA 对及其组件的概念图。"]
+
+
+
+=== 调解器
+
+以下是有关 Google Cloud 中中介实例的一些关键细节：
+
+实例类型:: e2-micro（之前使用过 f1-micro 实例）
+磁盘:: 两个标准永久性磁盘，每个磁盘 10 GiB
+操作系统:: Debian 11
++
+--
+
+NOTE: 对于Cloud Volumes ONTAP 9.10.0 及更早版本，调解器上安装了 Debian 10。
+
+--
+升级:: 升级Cloud Volumes ONTAP时， NetApp控制台还会根据需要更新中介实例。
+访问实例:: 对于 Debian，默认云用户是 `admin`。 Google Cloud 为 `admin`当通过 Google Cloud 控制台或 gcloud 命令行请求 SSH 访问时的用户。您可以指定 `sudo`获得root权限。
+第三方代理:: 中介实例不支持第三方代理或 VM 扩展。
+
+
+
+
+== 存储接管和交还
+
+如果一个节点发生故障，另一个节点可以为其伙伴提供数据以提供持续的数据服务。客户端可以从伙伴节点访问相同的数据，因为数据已同步镜像到伙伴节点。
+
+节点重启后，伙伴必须重新同步数据才能返回存储。重新同步数据所需的时间取决于节点关闭时更改的数据量。
+
+默认情况下，存储接管、重新同步和恢复都是自动的。无需用户操作。
+
+
+
+== RPO 和 RTO
+
+HA 配置可按照以下方式维护数据的高可用性：
+
+* 恢复点目标 (RPO) 为 0 秒。
++
+您的数据在事务上是一致的，没有数据丢失。
+
+* 恢复时间目标 (RTO) 为 120 秒。
++
+如果发生中断，数据应在 120 秒或更短时间内可用。
+
+
+
+
+
+== HA部署模型
+
+您可以通过在多个区域或单个区域中部署 HA 配置来确保数据的高可用性。
+
+多区域（推荐）:: 跨三个区域部署 HA 配置可确保当一个区域内发生故障时数据仍然可用。请注意，与使用单个区域相比，写入性能略低，但差别很小。
+单区:: 在单个区域中部署时， Cloud Volumes ONTAP HA 配置使用分散放置策略。此策略可确保 HA 配置免受区域内单点故障的影响，而无需使用单独的区域来实现故障隔离。
++
+--
+这种部署模型确实降低了您的成本，因为区域之间没有数据流出费用。
+
+--
+
+
+
+
+== HA 对中的存储工作原理
+
+与ONTAP集群不同，GCP 中的Cloud Volumes ONTAP HA 对中的存储不会在节点之间共享。相反，数据在节点之间同步镜像，以便在发生故障时数据可用。
+
+
+
+=== 存储分配
+
+当您创建新卷并且需要额外的磁盘时，控制台会为两个节点分配相同数量的磁盘，创建镜像聚合，然后创建新卷。例如，如果卷需要两个磁盘，则控制台会为每个节点分配两个磁盘，总共四个磁盘。
+
+
+
+=== 存储配置
+
+您可以将 HA 对用作主动-主动配置，其中两个节点都向客户端提供数据，或者用作主动-被动配置，其中被动节点仅在接管主动节点的存储后才会响应数据请求。
+
+
+
+=== HA 配置的性能预期
+
+Cloud Volumes ONTAP HA 配置在节点之间同步复制数据，这会消耗网络带宽。因此，与单节点Cloud Volumes ONTAP配置相比，您可以获得以下性能：
+
+* 对于仅从一个节点提供数据的 HA 配置，读取性能与单节点配置的读取性能相当，而写入性能较低。
+* 对于从两个节点提供数据的 HA 配置，读取性能高于单节点配置的读取性能，写入性能相同或更高。
+
+
+有关Cloud Volumes ONTAP性能的更多详细信息，请参阅link:concept-performance.html["性能"]。
+
+
+
+=== 客户端访问存储
+
+客户端应使用卷所在节点的数据 IP 地址访问 NFS 和 CIFS 卷。如果 NAS 客户端使用伙伴节点的 IP 地址访问卷，则流量会在两个节点之间流动，从而降低性能。
+
+
+TIP: 如果在 HA 对中的节点之间移动卷，则应使用另一个节点的 IP 地址重新挂载该卷。否则，您可能会遇到性能下降的情况。如果客户端支持 NFSv4 引用或 CIFS 文件夹重定向，您可以在Cloud Volumes ONTAP系统上启用这些功能以避免重新挂载卷。有关详细信息，请参阅ONTAP文档。
+
+您可以通过选择卷并单击“安装命令”从控制台找到正确的 IP 地址。
+
+image::screenshot_mount_option.png[400]
+
+
+
+=== 相关链接
+
+* link:reference-networking-gcp.html["了解网络要求"]
+* link:task-getting-started-gcp.html["了解如何开始使用 GCP"]
+

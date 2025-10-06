@@ -1,0 +1,153 @@
+---
+sidebar: sidebar 
+permalink: task-planning-your-config-azure.html 
+keywords: license, disk, storage, size, write speed, volume usage, capacity, limit, configurations, virtual machine, vm, regions, supported disks, disk types, premium storage, standard storage, use profile, thin provisioning, deduplication, compression, shared instance, dedicated instance, write speed, high write speed, normal write speed, network information, worksheet, limit, limits, storage limits, volume limit, aggregate limit, maximum volume size, maximum aggregate size, supported vm type, supported virtual machines, supported virtual machine types, supported instances, space, size, azure, disk size 
+summary: 在 Azure 中部署Cloud Volumes ONTAP时，您可以选择符合您的工作负载要求的预配置系统，也可以创建自己的配置。如果您选择自己的配置，您应该了解可用的选项。 
+---
+= 在 Azure 中规划Cloud Volumes ONTAP配置
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在 Azure 中部署Cloud Volumes ONTAP时，您可以选择符合您的工作负载要求的预配置系统，也可以创建自己的配置。如果您选择自己的配置，您应该了解可用的选项。
+
+
+
+== 选择Cloud Volumes ONTAP许可证
+
+Cloud Volumes ONTAP有多种许可选项。每个选项都可以让您选择符合您需求的消费模式。
+
+* link:concept-licensing.html["了解Cloud Volumes ONTAP的许可选项"]
+* link:task-set-up-licensing-azure.html["了解如何设置许可"]
+
+
+
+
+== 选择支持的区域
+
+大多数 Microsoft Azure 区域都支持Cloud Volumes ONTAP 。 https://bluexp.netapp.com/cloud-volumes-global-regions["查看支持区域的完整列表"^] 。
+
+
+
+== 选择受支持的 VM 类型
+
+Cloud Volumes ONTAP支持多种 VM 类型，具体取决于您选择的许可证类型。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Azure 中Cloud Volumes ONTAP支持的配置"^]
+
+
+
+== 了解存储限制
+
+Cloud Volumes ONTAP系统的原始容量限制与许可证相关。额外的限制会影响聚合和卷的大小。在规划配置时您应该注意这些限制。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-azure.html["Azure 中Cloud Volumes ONTAP的存储限制"^]
+
+
+
+== 在 Azure 中调整系统大小
+
+调整Cloud Volumes ONTAP系统的大小可以帮助您满足性能和容量要求。选择 VM 类型、磁盘类型和磁盘大小时，您应该注意几个关键点：
+
+虚拟机类型:: 查看受支持的虚拟机类型 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP发行说明"^]然后查看有关每种受支持的 VM 类型的详细信息。请注意，每种 VM 类型都支持特定数量的数据磁盘。
++
+--
+* https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-general#dsv2-series["Azure 文档：通用虚拟机大小"^]
+* https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes-memory#dsv2-series-11-15["Azure 文档：内存优化虚拟机大小"^]
+
+
+--
+具有单节点系统的 Azure 磁盘类型:: 为Cloud Volumes ONTAP创建卷时，您需要选择Cloud Volumes ONTAP用作磁盘的底层云存储。
++
+--
+单节点系统可以使用以下类型的 Azure 托管磁盘：
+
+* _高级 SSD 托管磁盘_ 以更高的成本为 I/O 密集型工作负载提供高性能。
+* 与高级 SSD 托管磁盘相比，_高级 SSD v2 托管磁盘_ 以更低的成本提供更高的性能和更低的延迟。
+* _标准 SSD 托管磁盘_为需要低 IOPS 的工作负载提供一致的性能。
+* 如果您不需要高 IOPS 并且想要降低成本，那么“标准 HDD 托管磁盘”是一个不错的选择。
+
+
+有关这些磁盘用例的更多详细信息，请参阅 https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types["Microsoft Azure 文档：Azure 中有哪些磁盘类型？"^]。
+
+--
+具有 HA 对的 Azure 磁盘类型:: HA 系统使用高级 SSD 共享托管磁盘，它们都以更高的成本为 I/O 密集型工作负载提供高性能。  9.12.1 版本之前创建的 HA 部署使用高级页面 blob。
+Azure 磁盘大小::
++
+--
+启动Cloud Volumes ONTAP实例时，您必须选择聚合的默认磁盘大小。 NetApp控制台将此磁盘大小用于初始聚合，以及使用简单配置选项时创建的任何其他聚合。您可以通过以下方式创建使用不同于默认磁盘大小的聚合：link:task-create-aggregates.html["使用高级分配选项"] 。
+
+
+TIP: 聚合中的所有磁盘必须具有相同的大小。
+
+选择磁盘大小时，您应该考虑几个因素。磁盘大小会影响您支付的存储费用、您可以在聚合中创建的卷的大小、 Cloud Volumes ONTAP可用的总容量以及存储性能。
+
+Azure Premium Storage 的性能与磁盘大小相关。更大的磁盘可提供更高的 IOPS 和吞吐量。例如，选择 1 TiB 磁盘可以提供比 500 GiB 磁盘更好的性能，但成本更高。
+
+标准存储的磁盘大小之间没有性能差异。您应该根据所需的容量来选择磁盘大小。
+
+请参阅 Azure 了解按磁盘大小划分的 IOPS 和吞吐量：
+
+* https://azure.microsoft.com/en-us/pricing/details/managed-disks/["Microsoft Azure：托管磁盘定价"^]
+* https://azure.microsoft.com/en-us/pricing/details/storage/page-blobs/["Microsoft Azure：Page Blob 定价"^]
+
+
+--
+
+
+
+
+== 查看默认系统磁盘
+
+除了用户数据的存储之外，控制台还购买了Cloud Volumes ONTAP系统数据（启动数据、根数据、核心数据和NVRAM）的云存储。出于规划目的，在部署Cloud Volumes ONTAP之前查看这些详细信息可能会有所帮助。
+
+link:reference-default-configs.html#azure-single-node["查看 Azure 中Cloud Volumes ONTAP系统数据的默认磁盘"] 。
+
+
+TIP: 控制台代理还需要系统磁盘。 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-connector-default-config.html["查看控制台代理默认配置的详细信息"^] 。
+
+
+
+== 收集网络信息
+
+在 Azure 中部署Cloud Volumes ONTAP时，您需要指定有关虚拟网络的详细信息。您可以使用工作表从管理员那里收集信息。
+
+[cols="30,70"]
+|===
+| Azure 信息 | 你的价值 
+
+
+| 地区 |  
+
+
+| 虚拟网络 (VNet) |  
+
+
+| 子网 |  
+
+
+| 网络安全组（如果使用您自己的） |  
+|===
+
+
+== 选择写入速度
+
+控制台使您能够选择Cloud Volumes ONTAP的写入速度设置。在选择写入速度之前，您应该了解正常设置和高设置之间的差异以及使用高写入速度时的风险和建议。link:concept-write-speed.html["了解有关写入速度的更多信息"] 。
+
+
+
+== 选择卷使用情况配置文件
+
+ONTAP包含多种存储效率功能，可以减少您所需的总存储量。在控制台中创建卷时，您可以选择启用这些功能的配置文件或禁用这些功能的配置文件。您应该了解有关这些功能的更多信息，以帮助您决定使用哪个配置文件。
+
+NetApp存储效率功能具有以下优势：
+
+精简配置:: 向主机或用户提供比物理存储池中实际拥有的更多的逻辑存储。不是预先分配存储空间，而是在写入数据时动态地将存储空间分配给每个卷。
+重复数据删除:: 通过定位相同的数据块并将其替换为对单个共享块的引用来提高效率。该技术通过消除驻留在同一卷中的冗余数据块来减少存储容量要求。
+数据压缩:: 通过压缩主存储、辅助存储和归档存储卷内的数据来减少存储数据所需的物理容量。
+

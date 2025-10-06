@@ -1,0 +1,59 @@
+---
+sidebar: sidebar 
+permalink: task-getting-started-aws.html 
+keywords: amazon web services, aws, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, vpc, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, get started, network, vpn, multi-cloud, tier, storage tier, data tier, vpc endpoint, endpoint, S3, subscribe, subscribing, marketplace, granting, permissions, policy, iam policy, ec2 console, ami, mediator, connectivity, internet, outbound, endpoint, connection, networks, replicating, ec2 service, policies, attach, iam user, access key, secret key, keys, sign up, cloud manager, cloud volumes ontap, cloud ontap, create, console 
+summary: 只需几个步骤即可开始使用Cloud Volumes ONTAP for AWS。 
+---
+= AWS 中的Cloud Volumes ONTAP快速入门
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+只需几个步骤即可开始在 AWS 中使用Cloud Volumes ONTAP 。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]创建控制台代理
+[role="quick-margin-para"]
+如果你没有 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["控制台代理"^]但是，您需要创建一个。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html["了解如何在 AWS 中创建控制台代理"^] 。
+
+[role="quick-margin-para"]
+请注意，如果您想在没有互联网访问的子网中部署Cloud Volumes ONTAP ，则需要手动安装控制台代理并访问在该控制台代理上运行的NetApp控制台用户界面。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["了解如何在没有互联网访问的地方手动安装控制台代理"^] 。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]规划您的配置
+[role="quick-margin-para"]
+控制台提供符合您的工作负载要求的预配置包，或者您可以创建自己的配置。如果您选择自己的配置，您应该了解可用的选项。link:task-planning-your-config.html["了解更多"] 。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]设置网络
+[role="quick-margin-list"]
+. 确保您的 VPC 和子网将支持控制台代理和Cloud Volumes ONTAP之间的连接。
+. 为NetApp AutoSupport启用从目标 VPC 的出站互联网访问。
++
+如果您在没有互联网访问的位置部署Cloud Volumes ONTAP，则不需要执行此步骤。
+
+. 设置到 S3 服务的 VPC 端点。
++
+如果您想将冷数据从Cloud Volumes ONTAP到低成本对象存储，则需要 VPC 端点。
+
+
+
+[role="quick-margin-para"]
+link:reference-networking-aws.html["了解有关网络要求的更多信息"] 。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]设置 AWS KMS
+[role="quick-margin-para"]
+如果您想将 Amazon 加密与Cloud Volumes ONTAP结合使用，则需要确保存在有效的客户主密钥 (CMK)。您还需要通过添加以_密钥用户_身份向控制台代理提供权限的 IAM 角色来修改每个 CMK 的密钥策略。link:task-setting-up-kms.html["了解更多"] 。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五"]使用控制台启动Cloud Volumes ONTAP
+[role="quick-margin-para"]
+单击“*添加系统*”，选择您想要部署的系统类型，然后完成向导中的步骤。link:task-deploying-otc-aws.html["阅读分步说明"] 。
+
+.相关链接
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-bluexp.html["为 AWS 创建控制台代理"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-marketplace.html["从 AWS Marketplace 创建控制台代理"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html["在本地安装并设置控制台代理"^]
+* https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html["控制台代理的 AWS 权限"^]
+

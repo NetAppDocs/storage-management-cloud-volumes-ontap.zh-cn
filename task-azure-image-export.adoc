@@ -1,0 +1,268 @@
+---
+sidebar: sidebar 
+permalink: task-azure-image-export.html 
+keywords: Azure, image, VHD, image signature file, export, marketplace, 
+summary: 您可以从 Azure 市场导出ONTAP映像来验证 VHD 文件的签名。 
+---
+= 从 Azure 市场导出Cloud Volumes ONTAP的 VHD 映像
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+一旦 VHD 映像发布到 Azure 云，它就不再由NetApp管理。相反，已发布的图像被放置在 Azure 市场上。当映像在 Azure 市场上暂存和发布时，Azure 会修改 VHD 开头的 1 MB 和结尾的 512 字节。要验证VHD文件的签名，需要从Azure市场导出Azure修改后的VHD镜像。
+
+.开始之前
+确保您的系统上安装了 Azure CLI，或者可以通过 Azure 门户使用 Azure Cloud Shell。有关如何安装 Azure CLI 的详细信息，请参阅 https://learn.microsoft.com/en-us/cli/azure/install-azure-cli["Microsoft 文档：如何安装 Azure CLI"^]。
+
+.步骤
+. 使用 _version_readme_ 文件的内容将系统上的Cloud Volumes ONTAP版本映射到 Azure 市场映像版本。  Cloud Volumes ONTAP版本由 `buildname`Azure 市场镜像版本表示为 `version`在版本映射中。
++
+在以下示例中， Cloud Volumes ONTAP版本 `9.15.0P1`映射到 Azure 市场映像版本 `9150.01000024.05090105`。此 Azure 市场镜像版本稍后用于设置镜像 URN。
+
++
+[source, cli]
+----
+[
+ "buildname": "9.15.0P1",
+    "publisher": "netapp",
+     "version": "9150.01000024.05090105"
+
+]
+----
+. 确定要创建虚拟机的区域。区域名称用作 `locName`设置市场图像的 URN 时的变量。要列出可用区域，请运行以下命令：
++
+[source, cli]
+----
+az account list-locations -o table
+----
++
+在此表中，区域名称出现在 `Name`场地。
+
++
+[source, cli]
+----
+$ az account list-locations -o table
+DisplayName               Name                 RegionalDisplayName
+------------------------  -------------------  -------------------------------------
+East US                   eastus               (US) East US
+East US 2                 eastus2              (US) East US 2
+South Central US          southcentralus       (US) South Central US
+...
+----
+. 查看下表中相应Cloud Volumes ONTAP版本和 VM 部署类型的 SKU 名称。  SKU 名称用作 `skuName`设置市场图像的 URN 时的变量。
++
+例如，所有采用Cloud Volumes ONTAP 9.15.0 的单节点部署都应使用 `ontap_cloud_byol`作为 SKU 名称。
+
++
+[cols="1,1,1"]
+|===
+
+
+| * Cloud Volumes ONTAP版本* | *通过虚拟机部署* | *SKU 名称* 
+
+
+| 9.17.1 及更高版本 | Azure 市场 | ontap_cloud_direct_gen2 
+
+
+| 9.17.1 及更高版本 | NetApp控制台 | ontap_cloud_gen2 
+
+
+| 9.16.1 | Azure 市场 | ontap_cloud_direct 
+
+
+| 9.16.1 | 控制台 | ontap_cloud 
+
+
+| 9.15.1 | 控制台 | ontap_cloud 
+
+
+| 9.15.0 | 控制台，单节点部署 | ontap_cloud_byol 
+
+
+| 9.15.0 | 控制台、高可用性 (HA) 部署 | ontap_cloud_byol_ha 
+|===
+. 映射ONTAP版本和 Azure 市场映像后，使用 Azure Cloud Shell 或 Azure CLI 从 Azure 市场导出 VHD 文件。
+
+
+
+
+== 使用 Linux 上的 Azure Cloud Shell 导出 VHD 文件
+
+从 Azure Cloud Shell，将市场映像导出到 VHD 文件（例如，_9150.01000024.05090105.vhd_），然后将其下载到本地 Linux 系统。执行以下步骤从 Azure 市场获取 VHD 映像。
+
+.步骤
+. 设置市场图像的 URN 和其他参数。 URN 格式为 `<publisher>:<offer>:<sku>:<version>`。或者，您可以列出NetApp市场图像来确认正确的图像版本。
++
+[source, cli]
+----
+PS /home/user1> $urn="netapp:netapp-ontap-cloud:ontap_cloud_byol:9150.01000024.05090105"
+PS /home/user1> $locName="eastus2"
+PS /home/user1> $pubName="netapp"
+PS /home/user1> $offerName="netapp-ontap-cloud"
+PS /home/user1> $skuName="ontap_cloud_byol"
+PS /home/user1> Get-AzVMImage -Location $locName -PublisherName $pubName -Offer $offerName -Sku $skuName |select version
+...
+141.20231128
+9.141.20240131
+9.150.20240213
+9150.01000024.05090105
+...
+----
+. 从市场映像创建一个具有匹配映像版本的新托管磁盘：
++
+[source, cli]
+----
+PS /home/user1> $diskName = “9150.01000024.05090105-managed-disk"
+PS /home/user1> $diskRG = “fnf1”
+PS /home/user1> az disk create -g $diskRG -n $diskName --image-reference $urn
+PS /home/user1> $sas = az disk grant-access --duration-in-seconds 3600 --access-level Read --name $diskName --resource-group $diskRG
+PS /home/user1> $diskAccessSAS = ($sas | ConvertFrom-Json)[0].accessSas
+----
+. 将 VHD 文件从托管磁盘导出到 Azure 存储。创建具有适当访问级别的容器。在这个例子中，我们使用了一个名为 `vm-images`和 `Container`访问级别。从 Azure 门户获取存储帐户访问密钥：*存储帐户 > _examplesaname_ > 访问密钥 > _key1_ > _key_ > 显示 > _<copy>_*
++
+[source, cli]
+----
+PS /home/user1> $storageAccountName = “examplesaname”
+PS /home/user1> $containerName = “vm-images”
+PS /home/user1> $storageAccountKey = "<replace with the above access key>"
+PS /home/user1> $destBlobName = “9150.01000024.05090105.vhd”
+PS /home/user1> $destContext = New-AzureStorageContext -StorageAccountName $storageAccountName -StorageAccountKey $storageAccountKey
+PS /home/user1> Start-AzureStorageBlobCopy -AbsoluteUri $diskAccessSAS -DestContainer $containerName -DestContext $destContext -DestBlob $destBlobName
+PS /home/user1> Get-AzureStorageBlobCopyState –Container $containerName –Context $destContext -Blob $destBlobName
+----
+. 将生成的图像下载到您的 Linux 系统。使用 `wget`下载VHD文件的命令：
++
+[source, cli]
+----
+wget <URL of filename/Containers/vm-images/9150.01000024.05090105.vhd>
+----
++
+URL 遵循标准格式。为了实现自动化，您可以获取如下所示的 URL 字符串。或者，您可以使用 Azure CLI `az`命令来获取 URL。示例 URL：https://examplesaname.bluexpinfraprod.eastus2.data.azurecr.io/vm-images/9150.01000024.05090105.vhd[]
+
+. 清理托管磁盘
++
+[source, cli]
+----
+PS /home/user1> Revoke-AzDiskAccess -ResourceGroupName $diskRG -DiskName $diskName
+PS /home/user1> Remove-AzDisk -ResourceGroupName $diskRG -DiskName $diskName
+----
+
+
+
+
+== 使用 Linux 上的 Azure CLI 导出 VHD 文件
+
+使用本地 Linux 系统的 Azure CLI 将市场映像导出到 VHD 文件。
+
+.步骤
+. 登录到 Azure CLI 并列出市场图像：
++
+[source, cli]
+----
+% az login --use-device-code
+----
+. 要登录，请使用网络浏览器打开页面 https://microsoft.com/devicelogin[]并输入验证码。
++
+[source, cli]
+----
+% az vm image list --all --publisher netapp --offer netapp-ontap-cloud --sku ontap_cloud_byol
+...
+{
+"architecture": "x64",
+"offer": "netapp-ontap-cloud",
+"publisher": "netapp",
+"sku": "ontap_cloud_byol",
+"urn": "netapp:netapp-ontap-cloud:ontap_cloud_byol:9150.01000024.05090105",
+"version": "9150.01000024.05090105"
+},
+...
+----
+. 从具有匹配映像版本的市场映像创建新的托管磁盘。
++
+[source, cli]
+----
+% export urn="netapp:netapp-ontap-cloud:ontap_cloud_byol:9150.01000024.05090105"
+% export diskName="9150.01000024.05090105-managed-disk"
+% export diskRG="new_rg_your_rg"
+% az disk create -g $diskRG -n $diskName --image-reference $urn
+% az disk grant-access --duration-in-seconds 3600 --access-level Read --name $diskName --resource-group $diskRG
+{
+  "accessSas": "https://md-xxxxxx.bluexpinfraprod.eastus2.data.azurecr.io/xxxxxxx/abcd?sv=2018-03-28&sr=b&si=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxx&sigxxxxxxxxxxxxxxxxxxxxxxxx"
+}
+% export diskAccessSAS="https://md-xxxxxx.bluexpinfraprod.eastus2.data.azurecr.io/xxxxxxx/abcd?sv=2018-03-28&sr=b&si=xxxxxxxx-xxxx-xx-xx-xx&sigxxxxxxxxxxxxxxxxxxxxxxxx"
+----
++
+为了使该过程自动化，需要从标准输出中提取 SAS。请参阅相应文档以获取指导。
+
+. 从托管磁盘导出 VHD 文件。
++
+.. 创建具有适当访问级别的容器。在此示例中，名为 `vm-images`和 `Container`使用访问级别。
+.. 从 Azure 门户获取存储帐户访问密钥：*存储帐户 > _examplesaname_ > 访问密钥 > _key1_ > _key_ > 显示 > _<copy>_*
++
+您还可以使用 `az`此步骤的命令。
+
++
+[source, cli]
+----
+% export storageAccountName="examplesaname"
+% export containerName="vm-images"
+% export storageAccountKey="xxxxxxxxxx"
+% export destBlobName="9150.01000024.05090105.vhd"
+
+% az storage blob copy start --source-uri $diskAccessSAS --destination-container $containerName --account-name $storageAccountName --account-key $storageAccountKey --destination-blob $destBlobName
+
+{
+  "client_request_id": "xxxx-xxxx-xxxx-xxxx-xxxx",
+  "copy_id": "xxxx-xxxx-xxxx-xxxx-xxxx",
+  "copy_status": "pending",
+  "date": "2022-11-02T22:02:38+00:00",
+  "etag": "\"0xXXXXXXXXXXXXXXXXX\"",
+  "last_modified": "2022-11-02T22:02:39+00:00",
+  "request_id": "xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
+  "version": "2020-06-12",
+  "version_id": null
+}
+----
+
+
+. 检查 blob 副本的状态。
++
+[source, cli]
+----
+% az storage blob show --name $destBlobName --container-name $containerName --account-name $storageAccountName
+
+....
+    "copy": {
+      "completionTime": null,
+      "destinationSnapshot": null,
+      "id": "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxx",
+      "incrementalCopy": null,
+      "progress": "10737418752/10737418752",
+      "source": "https://md-xxxxxx.bluexpinfraprod.eastus2.data.azurecr.io/xxxxx/abcd?sv=2018-03-28&sr=b&si=xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
+      "status": "success",
+      "statusDescription": null
+    },
+....
+----
+. 将生成的图像下载到您的 Linux 服务器。
++
+[source, cli]
+----
+wget <URL of file examplesaname/Containers/vm-images/9150.01000024.05090105.vhd>
+----
++
+URL 遵循标准格式。为了实现自动化，您可以获取如下所示的 URL 字符串。或者，您可以使用 Azure CLI `az`命令来获取 URL。示例 URL：https://examplesaname.bluexpinfraprod.eastus2.data.azurecr.io/vm-images/9150.01000024.05090105.vhd[]
+
+. 清理托管磁盘
++
+[source, cli]
+----
+az disk revoke-access --name $diskName --resource-group $diskRG
+az disk delete --name $diskName --resource-group $diskRG --yes
+----
+

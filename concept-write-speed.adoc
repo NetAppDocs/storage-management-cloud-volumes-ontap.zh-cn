@@ -1,0 +1,153 @@
+---
+sidebar: sidebar 
+permalink: concept-write-speed.html 
+keywords: write speed, high write speed, normal write speed, nvfail, writing speed, ldm, low durability mode 
+summary: NetApp Console 使您能够为Cloud Volumes ONTAP选择正常或高写入速度。在选择写入速度之前，您应该了解正常设置和高设置之间的差异以及使用高写入速度时的风险和建议。 
+---
+= 写入速度
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp Console 使您能够为大多数Cloud Volumes ONTAP配置选择正常或高写入速度。在选择写入速度之前，您应该了解正常设置和高设置之间的差异以及使用高写入速度时的风险和建议。
+
+
+
+== 正常写入速度
+
+当您选择正常写入速度时，数据将直接写入磁盘。当数据直接写入磁盘时，可以降低发生意外系统中断或涉及意外系统中断的级联故障（仅限 HA 对）时数据丢失的可能性。
+
+正常写入速度是默认选项。
+
+
+
+== 高写入速度
+
+当您选择高写入速度时，数据会在写入磁盘之前缓冲在内存中，从而提供更快的写入性能。由于这种缓存，如果发生意外的系统中断，则可能会丢失数据。
+
+发生意外系统中断时可能丢失的数据量是最后两个一致点的跨度。一致点是将缓冲数据写入磁盘的行为。当写入日志已满或 10 秒后（以先到者为准）就会出现一致点。但是，云提供商提供的存储性能可能会影响一致点处理时间。
+
+
+
+=== 何时使用高写入速度
+
+如果您的工作负载需要快速写入性能，并且您可以承受意外系统中断或涉及意外系统中断的级联故障（仅限 HA 对）时数据丢失的风险，那么高写入速度是一个不错的选择。
+
+
+
+=== 使用高写入速度时的建议
+
+如果启用高写入速度，则应确保应用程序层的写保护，或者确保应用程序能够容忍数据丢失（如果发生）。
+
+ifdef::aws[]
+
+
+
+=== AWS 中的 HA 对具有高写入速度
+
+如果您计划在 AWS 中的 HA 对上启用高写入速度，则应该了解多可用区 (AZ) 部署和单可用区部署之间的保护级别差异。跨多个可用区部署 HA 对可提供更高的弹性，并有助于降低数据丢失的可能性。
+
+link:concept-ha.html["了解有关 AWS 中的 HA 对的更多信息"] 。
+
+endif::aws[]
+
+
+
+=== 支持高写入速度的配置
+
+并非所有Cloud Volumes ONTAP配置都支持高写入速度。这些配置默认使用正常的写入速度。
+
+ifdef::aws[]
+
+
+
+==== AWS
+
+如果您使用单节点系统， Cloud Volumes ONTAP支持所有实例类型的高写入速度。
+
+从 9.8 版本开始， Cloud Volumes ONTAP在使用几乎所有受支持的 EC2 实例类型（m5.xlarge 和 r5.xlarge 除外）时都支持具有 HA 对的高写入速度。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["了解有关Cloud Volumes ONTAP支持的 Amazon EC2 实例的更多信息"^] 。
+
+endif::aws[]
+
+ifdef::azure[]
+
+
+
+==== Azure
+
+如果您使用单节点系统， Cloud Volumes ONTAP支持所有 VM 类型的高写入速度。
+
+如果您使用 HA 对，从 9.8 版本开始， Cloud Volumes ONTAP支持多种 VM 类型的高写入速度。前往 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Cloud Volumes ONTAP发行说明"^]查看支持高写入速度的虚拟机类型。
+
+endif::azure[]
+
+ifdef::gcp[]
+
+
+
+==== Google Cloud
+
+如果您使用单节点系统， Cloud Volumes ONTAP支持所有机器类型的高写入速度。
+
+如果您使用 HA 对，从 9.13.0 版本开始， Cloud Volumes ONTAP支持多种 VM 类型的高写入速度。前往 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html#supported-configurations-by-license["Cloud Volumes ONTAP发行说明"^]查看支持高写入速度的虚拟机类型。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["详细了解Cloud Volumes ONTAP支持的 Google Cloud 机器类型"^] 。
+
+endif::gcp[]
+
+
+
+== 如何选择写入速度
+
+您可以在添加新的Cloud Volumes ONTAP系统时选择写入速度，并且可以link:task-modify-write-speed.html["更改现有系统的写入速度"]。
+
+
+
+== 如果发生数据丢失会发生什么
+
+如果由于写入速度过快而导致数据丢失，事件管理系统 (EMS) 会报告以下两个事件：
+
+* Cloud Volumes ONTAP 9.12.1 或更高版本
++
+ NOTICE nv.data.loss.possible: An unexpected shutdown occurred while in high write speed mode, which possibly caused a loss of data.
+* Cloud Volumes ONTAP 9.11.0 至 9.11.1
++
+ DEBUG nv.check.failed: NVRAM check failed with error "NVRAM disabled due to dirty shutdown with High Write Speed mode"
++
+ ERROR wafl.root.content.changed: Contents of the root volume '' might have changed. Verify that all recent configuration changes are still in effect..
+* Cloud Volumes ONTAP 9.8 至 9.10.1
++
+ DEBUG nv.check.failed: NVRAM check failed with error "NVRAM disabled due to dirty shutdown"
++
+ ERROR wafl.root.content.changed: Contents of the root volume '' might have changed. Verify that all recent configuration changes are still in effect.
+
+
+当这种情况发生时， Cloud Volumes ONTAP应该能够启动并继续提供数据，而无需用户干预。
+
+
+
+== 如果发生数据丢失，如何停止数据访问
+
+如果您担心数据丢失，希望应用程序在数据丢失时停止运行，并在正确解决数据丢失问题后恢复数据访问，则可以使用 CLI 中的 NVFAIL 选项来实现该目标。
+
+启用 NVFAIL 选项:: `vol modify -volume <vol-name> -nvfail on`
+检查 NVFAIL 设置:: `vol show -volume <vol-name> -fields nvfail`
+禁用 NVFAIL 选项:: `vol modify -volume <vol-name> -nvfail off`
+
+
+当发生数据丢失时，启用 NVFAIL 的 NFS 或 iSCSI 卷应停止提供数据（这对无状态协议 CIFS 没有影响）。有关详细信息，请参阅 https://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mcc-mgmt-dr/GUID-40D04B8A-01F7-4E87-8161-E30BD80F5B7F.html["NVFAIL 如何影响对 NFS 卷或 LUN 的访问"^]。
+
+检查 NVFAIL 状态:: `vol show -fields in-nvfailed-state`
+
+
+正确解决数据丢失问题后，您可以清除 NVFAIL 状态，然后卷将可供数据访问。
+
+清除 NVFAIL 状态:: `vol modify -volume <vol-name> -in-nvfailed-state false`
+

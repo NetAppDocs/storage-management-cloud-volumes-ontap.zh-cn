@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: task-connecting-to-otc.html 
+keywords: connecting, cli, command, command line, connect, shell, interface 
+summary: Cloud Volumes ONTAP CLI 使您能够运行所有管理命令，对于高级任务或您更喜欢使用 CLI 来说，它是一个不错的选择。您可以使用 SSH 连接到 CLI。 
+---
+= 从 CLI 管理Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP CLI 使您能够运行所有管理命令，对于高级任务或您更喜欢使用 CLI 来说，它是一个不错的选择。您可以使用安全外壳 (SSH) 连接到 CLI。
+
+.开始之前
+使用 SSH 连接到Cloud Volumes ONTAP 的主机必须具有与Cloud Volumes ONTAP 的网络连接。例如，您可能需要从云提供商网络中的跳转主机进行 SSH。
+
+ifdef::aws[]
+
+
+NOTE: 当部署在多个 AZ 中时， Cloud Volumes ONTAP HA 配置使用浮动 IP 地址作为集群管理接口，这意味着外部路由不可用。您必须从属于同一路由域的主机进行连接。
+
+endif::aws[]
+
+.步骤
+. 在NetApp控制台中，确定集群管理接口的 IP 地址：
++
+.. 从左侧导航菜单中，选择“存储”>“管理”。
+.. 在*系统*页面上，选择Cloud Volumes ONTAP系统。
+.. 复制右侧窗格中显示的集群管理 IP 地址。
+
+
+. 使用 SSH 使用管理员帐户连接到集群管理接口 IP 地址。
++
+*例子*
+
++
+下图显示了使用 PuTTY 的示例：
+
++
+image:screenshot_cli2.gif["屏幕截图：显示端口 22 上的目标 admin@192.168.11.5。"]
+
+. 在登录提示符下，输入管理员帐户的密码。
++
+*例子*
+
++
+....
+Password: ********
+COT2::>
+....
+

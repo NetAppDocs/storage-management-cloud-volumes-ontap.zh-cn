@@ -1,0 +1,514 @@
+---
+sidebar: sidebar 
+permalink: task-deploying-gcp.html 
+keywords: Cloud Volumes ONTAP, deploying, launching, creating, deploy, launch, create,  license key, serial number, location, license, preconfigured packages, programmatic deployments, disk size, write speed, access control, volume protection, usage profile, register, CIFS share, quota, qtree, HA, high-availability, google cloud ha, ha in google cloud, ha pair, cloud backup, cloud tiering 
+summary: 您可以在单系统配置中启动Cloud Volumes ONTAP ，也可以在 Google Cloud Platform 中以 HA 对的形式启动 Cloud Volumes ONTAP。 
+---
+= 在 Google Cloud 中启动Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以在单节点配置中启动Cloud Volumes ONTAP ，也可以在 Google Cloud 中以 HA 对的形式启动 Cloud Volumes ONTAP。
+
+
+
+== 开始之前
+
+开始之前您需要以下内容。
+
+[[licensing]]
+* 已启动并正在运行的控制台代理。
++
+** 你应该有一个 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["与您的系统关联的控制台代理"^]。
+** https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["您应该准备好让控制台代理始终处于运行状态"^] 。
+** 与控制台代理关联的服务帐户 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-gcp.html["应该具有所需的权限"^]
+
+
+* 了解您想要使用的配置。
++
+您应该已经做好准备，选择配置并从管理员处获取 Google Cloud 网络信息。有关详细信息，请参阅link:task-planning-your-config-gcp.html["规划您的Cloud Volumes ONTAP配置"]。
+
+* 了解设置Cloud Volumes ONTAP许可所需的条件。
++
+link:task-set-up-licensing-google.html["了解如何设置许可"] 。
+
+* Google Cloud API 应该 https://cloud.google.com/apis/docs/getting-started#enabling_apis["在您的项目中启用"^]：
++
+** 云部署管理器 V2 API
+** 云日志 API
+** 云资源管理器 API
+** 计算引擎 API
+** 身份和访问管理 (IAM) API
+
+
+
+
+
+
+== 在 Google Cloud 中启动单节点系统
+
+在NetApp控制台中创建一个系统以在 Google Cloud 中启动Cloud Volumes ONTAP 。
+
+.步骤
+. 从左侧导航菜单中，选择“存储”>“管理”。
+. [[订阅]]在*系统*页面上，单击*添加系统*并按照提示进行操作。
+. *选择位置*：选择*Google Cloud*和* Cloud Volumes ONTAP*。
+. 如果出现提示， https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["创建控制台代理"^] 。
+. *详细信息和凭证*：选择一个项目，指定一个集群名称，可选地选择一个服务帐户，可选地添加标签，然后指定凭证。
++
+下表描述了您可能需要指导的字段：
+
++
+[cols="25,75"]
+|===
+| 字段 | 描述 
+
+
+| 系统名称 | 控制台使用系统名称来命名Cloud Volumes ONTAP系统和 Google Cloud VM 实例。如果您选择该选项，它还会使用该名称作为预定义安全组的前缀。 
+
+
+| 服务帐户名称 | 如果你打算使用link:concept-data-tiering.html["数据分层"]或者 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp备份和恢复"^]使用Cloud Volumes ONTAP，则需要启用*服务帐户*并选择具有预定义存储管理员角色的服务帐户。link:task-creating-gcp-service-account.html["了解如何创建服务帐号"^] 。 
+
+
+| 添加标签 | 标签是您的 Google Cloud 资源的元数据。控制台将标签添加到Cloud Volumes ONTAP系统以及与该系统关联的 Google Cloud 资源。创建系统时，您可以从用户界面添加最多四个标签，然后可以在创建系统后添加更多标签。请注意，创建系统时，API 不会将您限制为四个标签。有关标签的信息，请参阅 https://cloud.google.com/compute/docs/labeling-resources["Google Cloud 文档：标记资源"^]。 
+
+
+| 用户名和密码 | 这些是Cloud Volumes ONTAP集群管理员帐户的凭据。您可以使用这些凭据通过ONTAP System Manager 或ONTAP CLI 连接到Cloud Volumes ONTAP 。保留默认的_admin_用户名或将其更改为自定义用户名。 
+
+
+| 编辑项目  a| 
+选择您希望Cloud Volumes ONTAP驻留的项目。默认项目是控制台所在的项目。
+
+如果您在下拉列表中没有看到任何其他项目，则表示您尚未将服务帐户与其他项目关联。进入Google Cloud控制台，打开IAM服务，选择项目。将具有用于控制台的角色的服务帐户添加到该项目。您需要对每个项目重复此步骤。
+
+
+NOTE: 这是您为控制台设置的服务帐户，link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["如本页所述"^] 。
+
+单击“添加订阅”将选定的凭据与订阅关联。
+
+要创建按使用量付费的Cloud Volumes ONTAP系统，您需要从 Google Cloud 市场选择与Cloud Volumes ONTAP订阅相关联的 Google Cloud 项目。参考 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html["将市场订阅与 Google Cloud 凭据关联"^]。
+
+|===
+. *服务*：选择您想要在此系统上使用的服务。为了选择备份和恢复，或使用NetApp Cloud Tiering，您必须在步骤 3 中指定服务帐户。
++
+
+TIP: 如果您想使用 WORM 和数据分层，则必须禁用备份和恢复并部署版本 9.8 或更高版本的Cloud Volumes ONTAP系统。
+
+. *位置和连接*：选择一个位置，选择防火墙策略，并确认与 Google Cloud 存储的网络连接以进行数据分层。
++
+下表描述了您可能需要指导的字段：
+
++
+[cols="25,75"]
+|===
+| 字段 | 描述 
+
+
+| 连接验证 | 要将冷数据分层到 Google Cloud Storage 存储桶，必须为Cloud Volumes ONTAP所在的子网配置私有 Google Access。有关说明，请参阅 https://cloud.google.com/vpc/docs/configure-private-google-access["Google Cloud 文档：配置私有 Google 访问权限"^]。 
+
+
+| 生成的防火墙策略  a| 
+如果您让控制台为您生成防火墙策略，则需要选择如何允许流量：
+
+** 如果您选择*仅限选定的 VPC*，则入站流量的源过滤器是选定 VPC 的子网范围和控制台代理所在 VPC 的子网范围。这是推荐的选项。
+** 如果您选择*所有 VPC*，则入站流量的源过滤器是 0.0.0.0/0 IP 范围。
+
+
+
+
+| 使用现有的防火墙策略 | 如果您使用现有的防火墙策略，请确保它包含所需的规则：link:reference-networking-gcp.html#firewall-rules["了解Cloud Volumes ONTAP的防火墙规则"] 
+|===
+. *收费方式和 NSS 帐户*：指定您想要在此系统中使用的收费选项，然后指定NetApp支持站点帐户：
++
+** link:concept-licensing.html["了解Cloud Volumes ONTAP的许可选项"^]
+** link:task-set-up-licensing-google.html["了解如何设置许可"^]
+
+
+. *预配置包*：选择其中一个包来快速部署Cloud Volumes ONTAP系统，或者单击*创建我自己的配置*。
++
+如果您选择其中一个套餐，您只需指定一个卷，然后审核并批准配置。
+
+. *许可*：根据需要更改Cloud Volumes ONTAP版本并选择机器类型。
++
+
+NOTE: 如果所选版本有较新的候选版本、通用版本或补丁版本，则控制台在创建系统时会将其更新到该版本。例如，如果您选择Cloud Volumes ONTAP 9.13.1 并且 9.13.1 P4 可用，则会发生更新。更新不会从一个版本发生到另一个版本 — 例如，从 9.13 到 9.14。
+
+. *底层存储资源*：选择初始聚合的设置：磁盘类型和每个磁盘的大小。
++
+磁盘类型适用于初始卷。您可以为后续卷选择不同的磁盘类型。
+
++
+磁盘大小适用于初始聚合中的所有磁盘以及使用简单配置选项时控制台创建的任何其他聚合。您可以使用高级分配选项创建使用不同磁盘大小的聚合。
+
++
+有关选择磁盘类型和大小的帮助，请参阅link:task-planning-your-config-gcp.html#size-your-system-in-gcp["在 Google Cloud 中调整系统大小"^]。
+
+. *闪存缓存、写入速度和 WORM*：
++
+.. 如果需要，启用*Flash Cache*。
++
+
+NOTE: 从Cloud Volumes ONTAP 9.13.1 开始，n2-standard-16、n2-standard-32、n2-standard-48 和 n2-standard-64 实例类型支持_Flash Cache_。部署后您无法禁用 Flash Cache。
+
+.. 如果需要，选择*正常*或*高*写入速度。
++
+link:concept-write-speed.html["了解有关写入速度的更多信息"] 。
+
++
+
+NOTE: 通过*高*写入速度选项可实现高写入速度和更高的 8,896 字节最大传输单元 (MTU)。此外，8,896 的更高 MTU 要求选择 VPC-1、VPC-2 和 VPC-3 进行部署。有关 VPC-1、VPC-2 和 VPC-3 的更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-gcp.html#requirements-for-the-connector["VPC-1、VPC-2 和 VPC-3 的规则"^]。
+
+.. 如果需要，请激活一次写入，多次读取 (WORM) 存储。
++
+如果为Cloud Volumes ONTAP 9.7 及更低版本启用了数据分层，则无法启用 WORM。启用 WORM 和分层后，恢复或降级到Cloud Volumes ONTAP 9.8 的操作将被阻止。
+
++
+link:concept-worm.html["了解有关 WORM 存储的更多信息"^] 。
+
+.. 如果您激活 WORM 存储，请选择保留期限。
+
+
+. *Google Cloud Platform 中的数据分层*：选择是否在初始聚合上启用数据分层，为分层数据选择存储类，然后选择具有预定义存储管理员角色的服务帐户（ Cloud Volumes ONTAP 9.7 或更高版本所需），或选择 Google Cloud 帐户（ Cloud Volumes ONTAP 9.6 所需）。
++
+请注意以下事项：
+
++
+** 控制台在Cloud Volumes ONTAP实例上设置服务帐户。此服务帐户提供将数据分层到 Google Cloud Storage 存储桶的权限。请确保将控制台代理服务帐户添加为分层服务帐户的用户，否则，您无法从控制台中选择它。
+** 如需添加 Google Cloud 帐户的帮助，请参阅 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html["使用 9.6 设置和添加 Google Cloud 帐户以进行数据分层"^]。
+** 您可以在创建或编辑卷时选择特定的卷分层策略。
+** 如果您禁用数据分层，则可以在后续聚合中启用它，但您需要关闭系统并从 Google Cloud 控制台添加服务帐户。
++
+link:concept-data-tiering.html["了解有关数据分层的更多信息"^] 。
+
+
+
+. *创建卷*：输入新卷的详细信息或单击*跳过*。
++
+link:concept-client-protocols.html["了解支持的客户端协议和版本"^] 。
+
++
+此页面中的某些字段是不言自明的。下表描述了您可能需要指导的字段：
+
++
+[cols="25,75"]
+|===
+| 字段 | 描述 
+
+
+| 大小 | 您可以输入的最大大小很大程度上取决于您是否启用精简配置，这使您能够创建比当前可用的物理存储更大的卷。 
+
+
+| 访问控制（仅适用于 NFS） | 导出策略定义了子网中可以访问卷的客户端。默认情况下，控制台输入一个提供对子网中所有实例的访问权限的值。 
+
+
+| 权限和用户/组（仅适用于 CIFS） | 这些字段使您能够控制用户和组对共享的访问级别（也称为访问控制列表或 ACL）。您可以指定本地或域 Windows 用户或组，或者 UNIX 用户或组。如果指定域 Windows 用户名，则必须使用域\用户名格式包含用户的域。 
+
+
+| Snapshot 策略 | Snapshot 副本策略指定自动创建的NetApp Snapshot 副本的频率和数量。NetApp Snapshot 副本是时间点文件系统映像，它不会影响性能并且只需要最少的存储空间。您可以选择默认策略或无策略。对于瞬态数据，您可能选择无：例如，对于 Microsoft SQL Server，请选择 tempdb。 
+
+
+| 高级选项（仅适用于 NFS） | 为卷选择一个 NFS 版本：NFSv3 或 NFSv4。 
+
+
+| 启动器组和 IQN（仅适用于 iSCSI） | iSCSI 存储目标称为 LUN（逻辑单元），并作为标准块设备呈现给主机。启动器组是 iSCSI 主机节点名称表，用于控制哪些启动器可以访问哪些 LUN。iSCSI 目标通过标准以太网网络适配器 (NIC)、带有软件启动器的 TCP 卸载引擎 (TOE) 卡、融合网络适配器 (CNA) 或专用主机总线适配器 (HBA) 连接到网络，并通过 iSCSI 限定名称 (IQN) 进行标识。当您创建 iSCSI 卷时，控制台会自动为您创建一个 LUN。我们通过为每个卷创建一个 LUN 来简化操作，因此无需进行任何管理。创建卷后，link:task-connect-lun.html["使用 IQN 从主机连接到 LUN"] 。 
+|===
++
+下图显示了卷创建向导的第一页：
+
++
+image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例填写的卷页面。"]
+
+. *CIFS 设置*：如果您选择 CIFS 协议，请设置 CIFS 服务器。
++
+[cols="25,75"]
+|===
+| 字段 | 描述 
+
+
+| DNS 主 IP 地址和辅助 IP 地址 | 为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含定位 CIFS 服务器将加入的域的 Active Directory LDAP 服务器和域控制器所需的服务位置记录 (SRV)。如果您正在配置 Google 管理的 Active Directory，则默认情况下可以使用 169.254.169.254 IP 地址访问 AD。 
+
+
+| 要加入的 Active Directory 域 | 您希望 CIFS 服务器加入的 Active Directory (AD) 域的 FQDN。 
+
+
+| 授权加入域的凭据 | 具有足够权限将计算机添加到 AD 域内指定组织单位 (OU) 的 Windows 帐户的名称和密码。 
+
+
+| CIFS 服务器 NetBIOS 名称 | AD 域中唯一的 CIFS 服务器名称。 
+
+
+| 组织单位 | AD 域内与 CIFS 服务器关联的组织单位。默认值为 CN=Computers。要将 Google Managed Microsoft AD 配置为Cloud Volumes ONTAP的 AD 服务器，请在此字段中输入 *OU=Computers,OU=Cloud*。https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google Cloud 文档：Google Managed Microsoft AD 中的组织单位"^] 
+
+
+| DNS 域 | Cloud Volumes ONTAP存储虚拟机 (SVM) 的 DNS 域。大多数情况下，该域与 AD 域相同。 
+
+
+| NTP 服务器 | 选择“使用 Active Directory 域”以使用 Active Directory DNS 配置 NTP 服务器。如果您需要使用不同的地址配置 NTP 服务器，那么您应该使用 API。欲了解更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自动化文档"^]了解详情。请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。创建 CIFS 服务器后，它不可配置。 
+|===
+. *使用情况配置文件、磁盘类型和分层策略*：选择是否要启用存储效率功能并更改卷分层策略（如果需要）。
++
+更多信息，请参阅link:task-planning-your-config-gcp.html#choose-a-volume-usage-profile["选择卷使用情况配置文件"^]，link:concept-data-tiering.html["数据分层概述"^] ， 和 https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/What_Inline_Storage_Efficiency_features_are_supported_with_CVO#["KB：CVO 支持哪些内联存储效率功能？"^]
+
+. *审核并批准*：审核并确认您的选择。
++
+.. 查看有关配置的详细信息。
+.. 点击*更多信息*查看有关支持和控制台将购买的 Google Cloud 资源的详细信息。
+.. 选中*我明白...*复选框。
+.. 单击“*开始*”。
+
+
+
+
+.结果
+控制台部署Cloud Volumes ONTAP系统。您可以在*审核*页面上跟踪进度。
+
+如果您在部署Cloud Volumes ONTAP系统时遇到任何问题，请查看失败消息。您也可以选择系统并单击*重新创建环境*。
+
+如需更多帮助，请访问 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP支持"^]。
+
+.完成后
+* 如果您配置了 CIFS 共享，请授予用户或组对文件和文件夹的权限，并验证这些用户是否可以访问共享并创建文件。
+* 如果要将配额应用于卷，请使用ONTAP系统管理器或ONTAP CLI。
++
+配额使您能够限制或跟踪用户、组或 qtree 使用的磁盘空间和文件数量。
+
+
+
+
+
+== 在 Google Cloud 中启动 HA 对
+
+在控制台中创建一个系统以在 Google Cloud 中启动Cloud Volumes ONTAP 。
+
+.步骤
+. 从左侧导航菜单中，选择“存储”>“管理”。
+. 在*系统*页面上，单击*存储>系统*并按照提示进行操作。
+. *选择位置*：选择*Google Cloud*和* Cloud Volumes ONTAP HA*。
+. *详细信息和凭证*：选择一个项目，指定一个集群名称，可选地选择一个服务帐户，可选地添加标签，然后指定凭证。
++
+下表描述了您可能需要指导的字段：
+
++
+[cols="25,75"]
+|===
+| 字段 | 描述 
+
+
+| 系统名称 | 控制台使用系统名称来命名Cloud Volumes ONTAP系统和 Google Cloud VM 实例。如果您选择该选项，它还会使用该名称作为预定义安全组的前缀。 
+
+
+| 服务帐户名称 | 如果您打算使用link:concept-data-tiering.html["NetApp云分层"]或者 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["备份和恢复"^]服务，您需要启用*服务帐户*开关，然后选择具有预定义存储管理员角色的服务帐户。 
+
+
+| 添加标签 | 标签是您的 Google Cloud 资源的元数据。控制台将标签添加到Cloud Volumes ONTAP系统以及与该系统关联的 Google Cloud 资源。创建系统时，您可以从用户界面添加最多四个标签，然后可以在创建系统后添加更多标签。请注意，创建系统时，API 不会将您限制为四个标签。有关标签的信息，请参阅 https://cloud.google.com/compute/docs/labeling-resources["Google Cloud 文档：标记资源"^]。 
+
+
+| 用户名和密码 | 这些是Cloud Volumes ONTAP集群管理员帐户的凭据。您可以使用这些凭据通过ONTAP System Manager 或ONTAP CLI 连接到Cloud Volumes ONTAP 。保留默认的_admin_用户名或将其更改为自定义用户名。 
+
+
+| 编辑项目  a| 
+选择您希望Cloud Volumes ONTAP驻留的项目。默认项目是控制台的项目。
+
+如果您在下拉列表中没有看到任何其他项目，则表示您尚未将服务帐户与其他项目关联。进入Google Cloud控制台，打开IAM服务，选择项目。将具有用于控制台的角色的服务帐户添加到该项目。您需要对每个项目重复此步骤。
+
+
+NOTE: 这是您为控制台设置的服务帐户，link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["如本页所述"^] 。
+
+单击“添加订阅”将选定的凭据与订阅关联。
+
+要创建按使用量付费的Cloud Volumes ONTAP系统，您需要从 Google Cloud Marketplace 中选择与Cloud Volumes ONTAP订阅相关联的 Google Cloud 项目。参考 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html["将市场订阅与 Google Cloud 凭据关联"^]。
+
+|===
+. *服务*：选择您想要在此系统上使用的服务。要选择备份和恢复，或使用NetApp Cloud Tiering，您必须在步骤 3 中指定服务帐户。
++
+
+TIP: 如果您想使用 WORM 和数据分层，则必须禁用备份和恢复并部署版本 9.8 或更高版本的Cloud Volumes ONTAP系统。
+
+. *HA 部署模型*：为 HA 配置选择多个区域（推荐）或单个区域。然后选择一个地区和区域。
++
+link:concept-ha-google-cloud.html["了解有关 HA 部署模型的更多信息"^] 。
+
+. *连接性*：为 HA 配置选择四个不同的 VPC，每个 VPC 中选择一个子网，然后选择一个防火墙策略。
++
+link:reference-networking-gcp.html["了解有关网络要求的更多信息"^] 。
+
++
+下表描述了您可能需要指导的字段：
+
++
+[cols="25,75"]
+|===
+| 字段 | 描述 
+
+
+| 生成的策略  a| 
+如果您让控制台为您生成防火墙策略，则需要选择如何允许流量：
+
+** 如果您选择*仅限选定的 VPC*，则入站流量的源过滤器是选定 VPC 的子网范围和控制台代理所在 VPC 的子网范围。这是推荐的选项。
+** 如果您选择*所有 VPC*，则入站流量的源过滤器是 0.0.0.0/0 IP 范围。
+
+
+
+
+| 使用现有的 | 如果您使用现有的防火墙策略，请确保它包含所需的规则。link:reference-networking-gcp.html#firewall-rules["了解Cloud Volumes ONTAP的防火墙规则"^] 。 
+|===
+. *收费方式和 NSS 帐户*：指定您想要在此系统中使用的收费选项，然后指定NetApp支持站点帐户。
++
+** link:concept-licensing.html["了解Cloud Volumes ONTAP的许可选项"^] 。
+** link:task-set-up-licensing-google.html["了解如何设置许可"^] 。
+
+
+. *预配置包*：选择其中一个包来快速部署Cloud Volumes ONTAP系统，或者单击*创建我自己的配置*。
++
+如果您选择其中一个套餐，您只需指定一个卷，然后审核并批准配置。
+
+. *许可*：根据需要更改Cloud Volumes ONTAP版本并选择机器类型。
++
+
+NOTE: 如果所选版本有较新的候选版本、通用版本或补丁版本，则控制台在创建系统时会将其更新到该版本。例如，如果您选择Cloud Volumes ONTAP 9.13.1 并且 9.13.1 P4 可用，则会发生更新。更新不会从一个版本发生到另一个版本 - 例如，从 9.13 到 9.14。
+
+. *底层存储资源*：选择初始聚合的设置：磁盘类型和每个磁盘的大小。
++
+磁盘类型适用于初始卷。您可以为后续卷选择不同的磁盘类型。
+
++
+磁盘大小适用于初始聚合中的所有磁盘以及使用简单配置选项时控制台创建的任何其他聚合。您可以使用高级分配选项创建使用不同磁盘大小的聚合。
+
++
+有关选择磁盘类型和大小的帮助，请参阅link:task-planning-your-config-gcp.html#size-your-system-in-gcp["在 Google Cloud 中调整系统大小"^]。
+
+. *闪存缓存、写入速度和 WORM*：
++
+.. 如果需要，启用*Flash Cache*。
++
+
+NOTE: 从Cloud Volumes ONTAP 9.13.1 开始，n2-standard-16、n2-standard-32、n2-standard-48 和 n2-standard-64 实例类型支持_Flash Cache_。部署后您无法禁用 Flash Cache。
+
+.. 如果需要，选择*正常*或*高*写入速度。
++
+link:concept-write-speed.html["了解有关写入速度的更多信息"^] 。
+
++
+
+NOTE: 通过 n2-standard-16、n2-standard-32、n2-standard-48 和 n2-standard-64 实例类型的 *高* 写入速度选项，可以获得高写入速度和更高的 8,896 字节的最大传输单元 (MTU)。此外，8,896 的更高 MTU 要求选择 VPC-1、VPC-2 和 VPC-3 进行部署。高写入速度和 8,896 的 MTU 取决于功能，并且无法在配置的实例中单独禁用。有关 VPC-1、VPC-2 和 VPC-3 的更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-gcp.html#requirements-for-the-connector["VPC-1、VPC-2 和 VPC-3 的规则"^]。
+
+.. 如果需要，请激活一次写入，多次读取 (WORM) 存储。
++
+如果为Cloud Volumes ONTAP 9.7 及更低版本启用了数据分层，则无法启用 WORM。启用 WORM 和分层后，恢复或降级到Cloud Volumes ONTAP 9.8 的操作将被阻止。
+
++
+link:concept-worm.html["了解有关 WORM 存储的更多信息"^] 。
+
+.. 如果您激活 WORM 存储，请选择保留期限。
+
+
+. *Google Cloud 中的数据分层*：选择是否在初始聚合上启用数据分层，为分层数据选择存储类，然后选择具有预定义存储管理员角色的服务帐户。
++
+请注意以下事项：
+
++
+** 控制台在Cloud Volumes ONTAP实例上设置服务帐户。此服务帐户提供将数据分层到 Google Cloud Storage 存储桶的权限。请确保将控制台代理服务帐户添加为分层服务帐户的用户，否则，您无法从控制台中选择它。
+** 您可以在创建或编辑卷时选择特定的卷分层策略。
+** 如果您禁用数据分层，则可以在后续聚合中启用它，但您需要关闭系统并从 Google Cloud 控制台添加服务帐户。
++
+link:concept-data-tiering.html["了解有关数据分层的更多信息"^] 。
+
+
+
+. *创建卷*：输入新卷的详细信息或单击*跳过*。
++
+link:concept-client-protocols.html["了解支持的客户端协议和版本"^] 。
+
++
+此页面中的某些字段是不言自明的。下表描述了您可能需要指导的字段：
+
++
+[cols="25,75"]
+|===
+| 字段 | 描述 
+
+
+| 大小 | 您可以输入的最大大小很大程度上取决于您是否启用精简配置，这使您能够创建比当前可用的物理存储更大的卷。 
+
+
+| 访问控制（仅适用于 NFS） | 导出策略定义了子网中可以访问卷的客户端。默认情况下，控制台输入一个提供对子网中所有实例的访问权限的值。 
+
+
+| 权限和用户/组（仅适用于 CIFS） | 这些字段使您能够控制用户和组对共享的访问级别（也称为访问控制列表或 ACL）。您可以指定本地或域 Windows 用户或组，或者 UNIX 用户或组。如果指定域 Windows 用户名，则必须使用域\用户名格式包含用户的域。 
+
+
+| Snapshot 策略 | Snapshot 副本策略指定自动创建的NetApp Snapshot 副本的频率和数量。NetApp Snapshot 副本是时间点文件系统映像，它不会影响性能并且只需要最少的存储空间。您可以选择默认策略或无策略。对于瞬态数据，您可能选择无：例如，对于 Microsoft SQL Server，请选择 tempdb。 
+
+
+| 高级选项（仅适用于 NFS） | 为卷选择一个 NFS 版本：NFSv3 或 NFSv4。 
+
+
+| 启动器组和 IQN（仅适用于 iSCSI） | iSCSI 存储目标称为 LUN（逻辑单元），并作为标准块设备呈现给主机。启动器组是 iSCSI 主机节点名称表，用于控制哪些启动器可以访问哪些 LUN。iSCSI 目标通过标准以太网网络适配器 (NIC)、带有软件启动器的 TCP 卸载引擎 (TOE) 卡、融合网络适配器 (CNA) 或专用主机总线适配器 (HBA) 连接到网络，并通过 iSCSI 限定名称 (IQN) 进行标识。当您创建 iSCSI 卷时，控制台会自动为您创建一个 LUN。我们通过为每个卷创建一个 LUN 来简化操作，因此无需进行任何管理。创建卷后，link:task-connect-lun.html["使用 IQN 从主机连接到 LUN"] 。 
+|===
++
+下图显示了卷创建向导的第一页：
+
++
+image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例填写的卷页面。"]
+
+. *CIFS 设置*：如果您选择 CIFS 协议，请设置 CIFS 服务器。
++
+[cols="25,75"]
+|===
+| 字段 | 描述 
+
+
+| DNS 主 IP 地址和辅助 IP 地址 | 为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含定位 CIFS 服务器将加入的域的 Active Directory LDAP 服务器和域控制器所需的服务位置记录 (SRV)。如果您正在配置 Google 管理的 Active Directory，则默认情况下可以使用 169.254.169.254 IP 地址访问 AD。 
+
+
+| 要加入的 Active Directory 域 | 您希望 CIFS 服务器加入的 Active Directory (AD) 域的 FQDN。 
+
+
+| 授权加入域的凭据 | 具有足够权限将计算机添加到 AD 域内指定组织单位 (OU) 的 Windows 帐户的名称和密码。 
+
+
+| CIFS 服务器 NetBIOS 名称 | AD 域中唯一的 CIFS 服务器名称。 
+
+
+| 组织单位 | AD 域内与 CIFS 服务器关联的组织单位。默认值为 CN=Computers。要将 Google Managed Microsoft AD 配置为Cloud Volumes ONTAP的 AD 服务器，请在此字段中输入 *OU=Computers,OU=Cloud*。https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google Cloud 文档：Google Managed Microsoft AD 中的组织单位"^] 
+
+
+| DNS 域 | Cloud Volumes ONTAP存储虚拟机 (SVM) 的 DNS 域。大多数情况下，该域与 AD 域相同。 
+
+
+| NTP 服务器 | 选择“使用 Active Directory 域”以使用 Active Directory DNS 配置 NTP 服务器。如果您需要使用不同的地址配置 NTP 服务器，那么您应该使用 API。请参阅 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自动化文档"^]了解详情。请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。创建 CIFS 服务器后，它不可配置。 
+|===
+. *使用情况配置文件、磁盘类型和分层策略*：选择是否要启用存储效率功能并更改卷分层策略（如果需要）。
++
+更多信息，请参阅link:task-planning-your-config-gcp.html#choose-a-volume-usage-profile["选择卷使用情况配置文件"^]，link:concept-data-tiering.html["数据分层概述"^] ， 和 https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/What_Inline_Storage_Efficiency_features_are_supported_with_CVO#["KB：CVO 支持哪些内联存储效率功能？"^]
+
+. *审核并批准*：审核并确认您的选择。
++
+.. 查看有关配置的详细信息。
+.. 点击*更多信息*查看有关支持和控制台将购买的 Google Cloud 资源的详细信息。
+.. 选中*我明白...*复选框。
+.. 单击“*开始*”。
+
+
+
+
+.结果
+控制台部署Cloud Volumes ONTAP系统。您可以在*审核*页面上跟踪进度。
+
+如果您在部署Cloud Volumes ONTAP系统时遇到任何问题，请查看失败消息。您也可以选择系统并单击*重新创建环境*。
+
+如需更多帮助，请访问 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP支持"^]。
+
+.完成后
+* 如果您配置了 CIFS 共享，请授予用户或组对文件和文件夹的权限，并验证这些用户是否可以访问共享并创建文件。
+* 如果要将配额应用于卷，请使用ONTAP系统管理器或ONTAP CLI。
++
+配额使您能够限制或跟踪用户、组或 qtree 使用的磁盘空间和文件数量。
+
+

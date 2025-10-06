@@ -1,0 +1,11 @@
+= 增强用户升级版本选择的体验
+:allow-uri-read: 
+
+
+
+
+=== 增强用户升级版本选择的体验
+
+从此版本开始，当您尝试使用BlueXP通知升级Cloud Volumes ONTAP，您将收到有关使用默认、最新和兼容版本的指导。此外，现在您可以选择与您的Cloud Volumes ONTAP实例兼容的最新补丁或主要版本，或者手动输入要升级的版本。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-updating-ontap-cloud.html#upgrade-from-bluexp-notifications["升级Cloud Volumes ONTAP软件"]

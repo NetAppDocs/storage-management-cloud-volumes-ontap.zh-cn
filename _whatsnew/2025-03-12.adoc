@@ -1,0 +1,15 @@
+= Azure 中支持多可用区域部署的新区域
+:allow-uri-read: 
+
+
+
+
+=== Azure 中支持多可用区域部署的新区域
+
+以下区域现在支持 Azure 中适用于Cloud Volumes ONTAP 9.12.1 GA 及更高版本的 HA 多可用区域部署：
+
+* 美国中部
+* US Gov Virginia（美国政府地区 - 弗吉尼亚州）
+
+
+有关所有地区的列表，请参阅 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球区域地图"^]。

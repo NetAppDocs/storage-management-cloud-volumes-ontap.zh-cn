@@ -1,0 +1,46 @@
+---
+sidebar: sidebar 
+permalink: concept-flash-cache.html 
+keywords: cloud volumes ontap, flash cache, read-intensive, read, random, databases, email, file services, compression, performance, nvme 
+summary: 一些Cloud Volumes ONTAP配置包括本地 NVMe 存储， Cloud Volumes ONTAP将其用作闪存缓存以获得更好的性能。 
+---
+= Flash Cache
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+一些Cloud Volumes ONTAP配置包括本地 NVMe 存储， Cloud Volumes ONTAP将其用作_Flash Cache_ 以获得更好的性能。
+
+
+
+== 什么是闪存？
+
+Flash Cache 通过实时智能缓存最近读取的用户数据和NetApp元数据来加快数据访问速度。它对于随机读取密集型工作负载（包括数据库、电子邮件和文件服务）非常有效。
+
+
+
+== 支持的配置
+
+特定的Cloud Volumes ONTAP配置支持 Flash Cache。查看支持的配置 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP发行说明"^]
+
+
+
+== 限制
+
+ifdef::aws[]
+
+* 在 AWS 中为Cloud Volumes ONTAP 9.12.0 或更早版本配置 Flash Cache 时，必须在所有卷上禁用压缩才能利用 Flash Cache 性能改进。当您部署或升级到Cloud Volumes ONTAP 9.12.1 或更高版本时，您无需禁用压缩。
++
+从NetApp控制台创建卷时跳过选择存储效率设置，或者创建卷然后 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/GUID-8508A4CB-DB43-4D0D-97EB-859F58B29054.html["使用 CLI 禁用数据压缩"^]。
+
+
+
+endif::aws[]
+
+* Cloud Volumes ONTAP不支持重新启动后缓存重新预热。
+

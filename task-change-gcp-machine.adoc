@@ -1,0 +1,52 @@
+---
+sidebar: sidebar 
+permalink: task-change-gcp-machine.html 
+keywords: change machine type, google cloud machine type, gcp machine type, modify machine type 
+summary: 在 Google Cloud 中启动Cloud Volumes ONTAP时，您可以从多种机器类型中进行选择。如果您确定实例或机器类型太小或太大，无法满足您的需求，您可以随时更改实例或机器类型。 
+---
+= 更改Cloud Volumes ONTAP的 Google Cloud 机器类型
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在 Google Cloud 中启动Cloud Volumes ONTAP时，您可以从多种机器类型中进行选择。如果您确定实例或机器类型太小或太大，无法满足您的需求，您可以随时更改实例或机器类型。
+
+.关于此任务
+* 必须在Cloud Volumes ONTAP HA 对上启用自动交还（这是默认设置）。如果不是，则操作将失败。
++
+http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/GUID-3F50DE15-0D01-49A5-BEFD-D529713EC1FA.html["ONTAP 9 文档：用于配置自动交还的命令"^]
+
+* 更改机器类型可能会影响 Google Cloud 服务费用。
+* 该操作重新启动Cloud Volumes ONTAP。
++
+对于单节点系统，I/O 被中断。
+
++
+对于 HA 对来说，这种变化是无中断的。  HA 对继续提供数据。
+
++
+
+TIP: NetApp控制台通过启动接管并等待返回来一次更改一个节点。 NetApp 的质量保证团队在此过程中对文件的写入和读取进行了测试，并且没有发现客户端的任何问题。随着连接的变化，在 I/O 级别观察到一些重试，但应用层克服了 NFS/CIFS 连接的重新连接。
+
+
+
+.步骤
+. 在*系统*页面上，选择系统。
+. 在概览选项卡上，单击功能面板，然后单击*机器类型*旁边的铅笔图标。
++
+image:screenshot_features_machine_type.png["查看系统时，概览页面右上角的功能面板下显示机器类型设置的屏幕截图。"]
+
+
+
+如果您使用的是基于节点的即用即付 (PAYGO) 许可证，则可以通过单击“许可证类型”旁边的铅笔图标来选择不同的许可证和机器类型。
+
+. 选择一种机器类型，选中复选框以确认您了解更改的含义，然后单击*更改*。
+
+
+.结果
+Cloud Volumes ONTAP使用新配置重新启动。

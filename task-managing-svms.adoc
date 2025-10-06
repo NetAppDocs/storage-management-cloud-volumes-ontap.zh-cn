@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: task-managing-svms.html 
+keywords: storage virtual machine, vserver, svm, storage vm, supported number, number supported 
+summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端提供存储和数据服务。您可能知道这是 SVM 或 vserver。  Cloud Volumes ONTAP默认配置一个存储虚拟机，但某些配置支持额外的存储虚拟机。 
+---
+= 管理Cloud Volumes ONTAP 的存储虚拟机
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端提供存储和数据服务。您可能知道这是一个_SVM_或_vserver_。  Cloud Volumes ONTAP默认配置一个存储虚拟机，但某些配置支持额外的存储虚拟机。
+
+
+
+== 支持的存储虚拟机数量
+
+特定配置支持多个存储虚拟机。前往 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP发行说明"^]验证您的Cloud Volumes ONTAP版本支持的存储虚拟机数量。
+
+
+
+== 使用多个存储虚拟机
+
+NetApp控制台支持您从ONTAP系统管理器或ONTAP CLI 创建的任何其他存储虚拟机。
+
+例如，下图显示了如何在创建卷时选择存储虚拟机。
+
+image:screenshot_create_volume_svm.gif["屏幕截图显示了选择要在其中创建卷的存储虚拟机的能力。"]
+
+下图显示了将卷复制到另一个系统时如何选择存储虚拟机。
+
+image:screenshot_replicate_volume_svm.gif["屏幕截图显示了选择要在其中复制卷的存储虚拟机的能力。"]
+
+
+
+== 修改默认存储虚拟机的名称
+
+控制台会自动命名其为Cloud Volumes ONTAP创建的单个存储虚拟机。如果您有严格的命名标准，则可以从ONTAP系统管理器、 ONTAP CLI 或 API 修改存储虚拟机的名称。例如，您可能希望该名称与ONTAP集群的存储虚拟机的命名方式相匹配。

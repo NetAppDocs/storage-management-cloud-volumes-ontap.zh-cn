@@ -1,0 +1,104 @@
+---
+sidebar: sidebar 
+permalink: task-setting-up-transit-gateway.html 
+keywords: transit gateway, aws, amazon web services, transit gateway, floating ip, client access, nas, outside, vpc, virtual private cloud, route table 
+summary: 设置 AWS 传输网关，以允许 NAS 客户端从Cloud Volumes ONTAP所在的 VPC 外部访问浮动 IP 地址。这是有益的，因为当发生故障时，浮动 IP 会在节点之间自动迁移。 
+---
+= 为Cloud Volumes ONTAP HA 对设置 AWS 传输网关
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+设置 AWS 中转网关以允许访问 HA 对的link:reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["浮动IP地址"]来自 HA 对所在的 VPC 外部。
+
+当Cloud Volumes ONTAP HA 配置分布在多个 AWS 可用区时，需要浮动 IP 地址才能从 VPC 内部访问 NAS 数据。当发生故障时，这些浮动 IP 地址可以在节点之间迁移，但它们无法从 VPC 外部进行本机访问。单独的私有 IP 地址提供从 VPC 外部的数据访问，但它们不提供自动故障转移。
+
+集群管理接口和可选的 SVM 管理 LIF 也需要浮动 IP 地址。
+
+如果您设置了 AWS 传输网关，则可以从 HA 对所在的 VPC 外部访问浮动 IP 地址。这意味着 VPC 之外的 NAS 客户端和NetApp管理工具可以访问浮动 IP。
+
+下面是一个显示通过中转网关连接的两个 VPC 的示例。 HA 系统位于一个 VPC 中，而客户端位于另一个 VPC 中。然后，您可以使用浮动 IP 地址在客户端上安装 NAS 卷。
+
+image:diagram_transit_gateway.png["该图显示了一个 VPC 中的 HA 配置，其中浮动 IP 路由到 ENI，另一个 VPC 中的客户端，其中浮动 IP 路由到传输网关，以及传输网关，其中浮动 IP 路由到 VPC1 路由表。"]
+
+以下步骤说明如何设置类似的配置。
+
+.步骤
+. https://docs.aws.amazon.com/vpc/latest/tgw/tgw-getting-started.html["创建中转网关并将 VPC 附加到该网关"^] 。
+. 将 VPC 与传输网关路由表关联。
++
+.. 在 *VPC* 服务中，单击 *Transit Gateway Route Tables*。
+.. 选择路由表。
+.. 单击*关联*，然后选择*创建关联*。
+.. 选择要关联的附件（VPC），然后单击*创建关联*。
+
+
+. 通过指定 HA 对的浮动 IP 地址在传输网关的路由表中创建路由。
++
+您可以在NetApp控制台的系统信息页面上找到浮动 IP 地址。以下是一个例子：
+
++
+image:screenshot_floating_ips.gif["该屏幕截图显示了集群管理接口、两个 NFS 和 CIFS 数据接口以及 SVM 管理接口的浮动 IP 地址。"]
+
++
+以下示例图显示了中转网关的路由表。它包括到两个 VPC 的 CIDR 块的路由和Cloud Volumes ONTAP使用的四个浮动 IP 地址。
+
++
+image:screenshot_transit_gateway1.png["AWS 控制台的屏幕截图，显示了传输网关的路由表。它包括到两个 VPC 的 CIDR 块的路由和Cloud Volumes ONTAP使用的四个浮动 IP 地址。"]
+
+. 修改需要访问浮动IP地址的VPC的路由表。
++
+.. 为浮动IP地址添加路由条目。
+.. 将路由条目添加到 HA 对所在 VPC 的 CIDR 块。
++
+下面的示例图显示了 VPC 2 的路由表，其中包括到 VPC 1 的路由和浮动 IP 地址。
+
++
+image:screenshot_transit_gateway2.png["AWS 控制台的屏幕截图显示了 VPC 2 的路由表，其中包括到 VPC 1 的路由和浮动 IP 地址。"]
+
+
+
+. 通过向需要访问浮动 IP 地址的 VPC 添加路由来修改 HA 对的 VPC 的路由表。
++
+这一步很重要，因为它完成了 VPC 之间的路由。
+
++
+以下示例图像显示了 VPC 1 的路由表。它包括到浮动 IP 地址和客户端所在的 VPC 2 的路由。控制台在部署 HA 对时会自动将浮动 IP 添加到路由表中。
+
++
+image:screenshot_transit_gateway3.png["AWS 控制台的屏幕截图，显示了 VPC 1 的路由表。它包括到浮动 IP 地址和客户端所在的 VPC 2 的路由。"]
+
+. 将安全组设置更新为 VPC 的所有流量。
++
+.. 在虚拟私有云下，单击*子网*。
+.. 单击“*路由表*”选项卡，为 HA 对的其中一个浮动 IP 地址选择所需的环境。
+.. 单击“安全组”。
+.. 选择*编辑入站规则*。
+.. 单击“添加规则”。
+.. 在类型下，选择*所有流量*，然后选择 VPC IP 地址。
+.. 单击“保存规则”以应用更改。
+
+
+. 使用浮动 IP 地址将卷挂载到客户端。
++
+您可以通过控制台中“管理卷”面板下的“*Mount Command*”选项在控制台中找到正确的 IP 地址。
+
++
+image::screenshot_mount_option.png[400]
+
+. 如果您正在挂载 NFS 卷，请配置导出策略以匹配客户端 VPC 的子网。
++
+link:task-manage-volumes.html["了解如何编辑卷"] 。
+
+
+
+相关链接
+
+* link:concept-ha.html["AWS 中的高可用性对"]
+* link:reference-networking-aws.html["AWS 中Cloud Volumes ONTAP的网络要求"]
+

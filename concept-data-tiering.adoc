@@ -1,0 +1,220 @@
+---
+sidebar: sidebar 
+permalink: concept-data-tiering.html 
+keywords: storage tiering, tier, tiering, data tiering, s3, s3 tiering, capacity, performance, s3 endpoint, fabric pool, fabricpool, s3 bucket, requirement, vpc endpoint, policy, policies, tiering policies, auto, snapshot only, backup, none, cooling period, volume tiering policies, blob, standard, infrequent access, hot, cool, tiering level, storage tier, storage class 
+summary: 通过将冷数据自动分层到低成本对象存储来降低存储成本。 
+---
+= 了解 AWS、Azure 或 Google Cloud 中的Cloud Volumes ONTAP数据分层
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+通过将非活动数据自动分层到低成本对象存储来降低存储成本。活动数据保留在高性能 SSD 或 HDD 中，而非活动数据则分层到低成本对象存储中。这使您能够回收主存储上的空间并缩小辅助存储。
+
+image:diagram_data_tiering.png["这是概念图，显示热数据进入 EBS 存储，非活动数据进入 S3 存储。"]
+
+数据分层由FabricPool技术提供支持。 Cloud Volumes ONTAP为所有Cloud Volumes ONTAP集群提供数据分层，无需额外的许可证。当您启用数据分层时，分层到对象存储的数据会产生费用。有关对象存储成本的详细信息，请参阅云提供商的文档。
+
+ifdef::aws[]
+
+
+
+== AWS 中的数据分层
+
+当您在 AWS 中启用数据分层时， Cloud Volumes ONTAP使用 EBS 作为热数据的性能层，并使用 AWS S3 作为非活动数据的容量层。
+
+性能层:: 性能层可以是通用 SSD（gp3 或 gp2）或预配置 IOPS SSD（io1）。
++
+--
+使用吞吐量优化 HDD (st1) 时，不建议将数据分层到对象存储。
+
+--
+容量层:: Cloud Volumes ONTAP系统将非活动数据分层到单个 S3 存储桶。
++
+--
+NetApp控制台为每个系统创建一个 S3 存储桶，并将其命名为 fabric-pool-_cluster unique identifier_。不会为每个卷创建不同的 S3 存储桶。
+
+当控制台创建 S3 存储桶时，它使用以下默认设置：
+
+* 存储类别：标准
+* 默认加密：已禁用
+* 阻止公共访问：阻止所有公共访问
+* 对象所有权：已启用 ACL
+* 存储桶版本控制：已禁用
+* 对象锁定：已禁用
+
+
+--
+存储类别:: AWS 中分层数据的默认存储类别是“标准”。标准非常适合跨多个可用区域存储的频繁访问的数据。
++
+--
+如果您不打算访问非活动数据，则可以通过将存储类别更改为以下之一来降低存储成本：_智能分层_、_单区不频繁访问_、_标准不频繁访问_或_S3 Glacier 即时检索_。当您更改存储类别时，非活动数据将从标准存储类别开始，如果 30 天后未访问该数据，则将转换到您选择的存储类别。
+
+如果访问数据，访问成本会更高，因此在更改存储类之前请考虑这一点。 https://aws.amazon.com/s3/storage-classes["Amazon S3 文档：了解有关 Amazon S3 存储类的更多信息"^] 。
+
+您可以在创建系统时选择一个存储类，之后可以随时更改它。有关更改存储类别的说明，请参阅link:task-tiering.html["将非活动数据分层到低成本对象存储"]。
+
+数据分层的存储类别是系统范围的 - 而不是每个卷的。
+
+--
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+
+
+== Azure 中的数据分层
+
+当您在 Azure 中启用数据分层时， Cloud Volumes ONTAP会使用 Azure 托管磁盘作为热数据的性能层，并使用 Azure Blob 存储作为非活动数据的容量层。
+
+性能层:: 性能层可以是 SSD 或 HDD。
+容量层:: Cloud Volumes ONTAP系统将非活动数据分层到单个 Blob 容器。
++
+--
+控制台为每个Cloud Volumes ONTAP系统创建一个带有容器的新存储帐户。存储帐户的名称是随机的。不会为每个卷创建不同的容器。
+
+控制台使用以下设置创建存储帐户：
+
+* 访问层：热
+* 性能：标准
+* 冗余：根据 Cloud Volume ONTAP部署
++
+** 单一可用区：本地冗余存储（LRS）
+** 多可用区域：区域冗余存储（ZRS）
+
+
+* 帐户：StorageV2（通用 v2）
+* 要求 REST API 操作进行安全传输：已启用
+* 存储帐户密钥访问：已启用
+* 最低 TLS 版本：版本 1.2
+* 基础设施加密：已禁用
+
+
+--
+存储访问层:: Azure 中分层数据的默认存储访问层是_热_层。热层非常适合容量层中频繁访问的数据。
++
+--
+如果您不打算访问容量层中的非活动数据，则可以选择_cool_存储层，其中非活动数据至少保留 30 天。您还可以选择冷层，其中非活动数据至少存储 90 天。根据您的存储要求和成本考虑，您可以选择最适合您需求的层。当您将存储层更改为_cool_或_cold_时，非活动容量层数据将直接移动到冷存储层。与热层相比，冷层提供的存储成本较低，但访问成本较高，因此在更改存储层之前请考虑到这一点。参考 https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-storage-tiers["Microsoft Azure 文档：了解有关 Azure Blob 存储访问层的更多信息"^]。
+
+您可以在添加Cloud Volumes ONTAP系统时选择一个存储层，之后可以随时更改它。有关更改存储层的详细信息，请参阅link:task-tiering.html["将非活动数据分层到低成本对象存储"]。
+
+数据分层的存储访问层是系统范围的，而不是每个卷的。
+
+--
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+
+
+== Google Cloud 中的数据分层
+
+当您在 Google Cloud 中启用数据分层时， Cloud Volumes ONTAP会使用持久磁盘作为热数据的性能层，并使用 Google Cloud Storage 存储桶作为非活动数据的容量层。
+
+性能层:: 性能层可以是 SSD 持久磁盘、平衡持久磁盘或标准持久磁盘。
+容量层:: Cloud Volumes ONTAP系统将非活动数据分层到单个 Google Cloud Storage 存储桶。
++
+--
+控制台为每个系统创建一个存储桶并将其命名为 fabric-pool-_cluster unique identifier_。不会为每个卷创建不同的存储桶。
+
+当控制台创建存储桶时，它使用以下默认设置：
+
+* 位置类型：区域
+* 存储类别：标准
+* 公共访问：受对象 ACL 约束
+* 访问控制：细粒度
+* 保护：无
+* 数据加密：Google 管理的密钥
+
+
+--
+存储类别:: 分层数据的默认存储类是“标准存储”类。如果数据不经常访问，您可以通过更改为_Nearline Storage_或_Coldline Storage_来降低存储成本。当您更改存储类别时，后续非活动数据将直接移动到您选择的类别。
++
+--
+
+NOTE: 当您更改存储类别时，任何现有的非活动数据都将保持默认存储类别。要更改现有非活动数据的存储类别，您必须手动执行指定。
+
+如果您确实访问数据，访问成本会更高，因此在更改存储类之前请考虑到这一点。要了解更多信息，请参阅 https://cloud.google.com/storage/docs/storage-classes["Google Cloud 文档：存储类别"^]。
+
+您可以在创建系统时选择一个存储层，之后可以随时更改它。有关更改存储类别的详细信息，请参阅link:task-tiering.html["将非活动数据分层到低成本对象存储"]。
+
+数据分层的存储类别是系统范围的 - 而不是每个卷的。
+
+--
+
+
+endif::gcp[]
+
+
+
+== 数据分层和容量限制
+
+如果启用数据分层，系统的容量限制将保持不变。该限制分布在性能层和容量层。
+
+
+
+== 卷分层策略
+
+要启用数据分层，您必须在创建、修改或复制卷时选择卷分层策略。您可以为每个卷选择不同的策略。
+
+一些分层策略具有相关的最小冷却期，该冷却期规定了卷中的用户数据必须保持不活动的时间，以便数据被视为“冷”并移动到容量层。当数据写入聚合时，冷却期开始。
+
+
+TIP: 您可以更改最短冷却期和 50% 的默认聚合阈值（更多内容见下文）。 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mgng-stor-tier-fp/GUID-AD522711-01F9-4413-A254-929EAE871EBF.html["了解如何更改冷却时间"^]和 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-mgng-stor-tier-fp/GUID-8FC4BFD5-F258-4AA6-9FCB-663D42D92CAA.html["学习如何改变阈值"^]。
+
+控制台允许您在创建或修改卷时从以下卷分层策略中进行选择：
+
+仅限快照:: 当聚合达到 50% 容量后， Cloud Volumes ONTAP会将与活动文件系统不关联的 Snapshot 副本的冷用户数据分层到容量层。冷却期约为2天。
++
+--
+如果读取，容量层上的冷数据块会变热并被移动到性能层。
+
+--
+全部:: 所有数据（不包括元数据）都会立即标记为冷数据，并尽快分层到对象存储。无需等待 48 小时让卷中的新块变冷。请注意，在设置全部策略之前位于卷中的块需要 48 小时才能冷却。
++
+--
+如果读取，云层上的冷数据块将保持冷状态并且不会写回性能层。此策略从ONTAP 9.6 开始可用。
+
+--
+自动:: 当聚合达到 50% 容量后， Cloud Volumes ONTAP会将卷中的冷数据块分层到容量层。冷数据不仅包括 Snapshot 副本，还包括来自活动文件系统的冷用户数据。冷却期约为31天。
++
+--
+从Cloud Volumes ONTAP 9.4 开始支持此策略。
+
+如果通过随机读取，容量层中的冷数据块会变热并移动到性能层。如果通过顺序读取（例如与索引和防病毒扫描相关的读取），冷数据块将保持冷状态并且不会移动到性能层。
+
+--
+无:: 将卷的数据保留在性能层中，防止其移动到容量层。
+
+
+复制卷时，您可以选择是否将数据分层到对象存储。如果这样做，控制台会将*备份*策略应用于数据保护卷。从Cloud Volumes ONTAP 9.6 开始，*全部*分层策略取代了备份策略。
+
+
+
+=== 关闭Cloud Volumes ONTAP会影响冷却期
+
+数据块通过冷却扫描进行冷却。在此过程中，未使用的块的温度将移动（冷却）到下一个较低的值。默认冷却时间取决于卷分层策略：
+
+* 自动：31天
+* 仅限快照：2 天
+
+
+必须运行Cloud Volumes ONTAP才能使冷却扫描正常工作。如果关闭Cloud Volumes ONTAP ，冷却也会停止。因此，您可以体验更长的冷却时间。
+
+
+TIP: 当Cloud Volumes ONTAP关闭时，每个块的温度都会保留，直到您重新启动系统。例如，如果关闭系统时某个块的温度为 5，则重新打开系统时温度仍为 5。
+
+
+
+== 设置数据分层
+
+有关说明和受支持配置的列表，请参阅link:task-tiering.html["将非活动数据分层到低成本对象存储"]。

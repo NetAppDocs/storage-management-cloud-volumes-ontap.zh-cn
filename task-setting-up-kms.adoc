@@ -1,0 +1,111 @@
+---
+sidebar: sidebar 
+permalink: task-setting-up-kms.html 
+keywords: encryption, kms, key management service, cmk, customer master key, master key, key, permissions 
+summary: 如果您想将 Amazon 加密与Cloud Volumes ONTAP一起使用，则需要设置 AWS 密钥管理服务。 
+---
+= 设置Cloud Volumes ONTAP以在 AWS 中使用客户管理的密钥
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+如果您想将 Amazon 加密与Cloud Volumes ONTAP一起使用，则需要设置 AWS 密钥管理服务 (KMS)。
+
+.步骤
+. 确保存在有效的客户主密钥 (CMK)。
++
+CMK 可以是 AWS 管理的 CMK 或客户管理的 CMK。它可以与NetApp控制台和Cloud Volumes ONTAP位于同一个 AWS 账户中，也可以位于不同的 AWS 账户中。
+
++
+https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys["AWS 文档：客户主密钥 (CMK)"^]
+
+. 通过添加以_密钥用户_身份向控制台提供权限的 IAM 角色来修改每个 CMK 的密钥策略。
++
+将身份和访问管理 (IAM) 角色添加为关键用户，可授予控制台使用 CMK 与Cloud Volumes ONTAP 的权限。
+
++
+https://docs.aws.amazon.com/kms/latest/developerguide/editing-keys.html["AWS 文档：编辑密钥"^]
+
+. 如果 CMK 位于不同的 AWS 账户中，请完成以下步骤：
++
+.. 从 CMK 所在的账户进入 KMS 控制台。
+.. 选择键。
+.. 在“常规配置”窗格中，复制密钥的 ARN。
++
+创建Cloud Volumes ONTAP系统时，您需要向控制台提供 ARN。
+
+.. 在 *其他 AWS 账户* 窗格中，添加为控制台提供权限的 AWS 账户。
++
+通常，这是部署控制台的帐户。如果 AWS 中未安装控制台，请使用您向控制台提供 AWS 访问密钥的帐户。
+
++
+image:screenshot_cmk_add_accounts.gif["此屏幕截图显示了 AWS KMS 控制台中的“添加其他 AWS 账户”按钮。"]
+
++
+image:screenshot_cmk_add_accounts_dialog.gif["此屏幕截图显示了 AWS KMS 控制台中的“其他 AWS 账户”对话框。"]
+
+.. 现在切换到为控制台提供权限的 AWS 账户并打开 IAM 控制台。
+.. 创建包含下面列出的权限的 IAM 策略。
+.. 将策略附加到向控制台提供权限的 IAM 角色或 IAM 用户。
++
+以下策略提供控制台使用来自外部 AWS 账户的 CMK 所需的权限。请务必修改“资源”部分中的区域和帐户 ID。
+
++
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowUseOfTheKey",
+            "Effect": "Allow",
+            "Action": [
+                "kms:Encrypt",
+                "kms:Decrypt",
+                "kms:ReEncrypt*",
+                "kms:GenerateDataKey*",
+                "kms:DescribeKey"
+            ],
+            "Resource": [
+                "arn:aws:kms:us-east-1:externalaccountid:key/externalkeyid"
+            ]
+        },
+        {
+            "Sid": "AllowAttachmentOfPersistentResources",
+            "Effect": "Allow",
+            "Action": [
+                "kms:CreateGrant",
+                "kms:ListGrants",
+                "kms:RevokeGrant"
+            ],
+            "Resource": [
+                "arn:aws:kms:us-east-1:externalaccountid:key/externalaccountid"
+            ],
+            "Condition": {
+                "Bool": {
+                    "kms:GrantIsForAWSResource": true
+                }
+            }
+        }
+    ]
+}
+----
++
+有关此过程的更多详细信息，请参阅 https://docs.aws.amazon.com/kms/latest/developerguide/key-policy-modifying-external-accounts.html["AWS 文档：允许其他账户中的用户使用 KMS 密钥"^]。
+
+
+
+. 如果您使用的是客户管理的 CMK，请通过将Cloud Volumes ONTAP IAM 角色添加为_密钥用户_来修改 CMK 的密钥策略。
++
+如果您在Cloud Volumes ONTAP上启用了数据分层并想要加密存储在 S3 存储桶中的数据，则需要执行此步骤。
+
+
+
+您需要在部署Cloud Volumes ONTAP之后执行此步骤，因为 IAM 角色是在创建Cloud Volumes ONTAP系统时创建的。  （当然，您可以选择使用现有的Cloud Volumes ONTAP IAM 角色，因此可以先执行此步骤。）
+
+https://docs.aws.amazon.com/kms/latest/developerguide/editing-keys.html["AWS 文档：编辑密钥"^]

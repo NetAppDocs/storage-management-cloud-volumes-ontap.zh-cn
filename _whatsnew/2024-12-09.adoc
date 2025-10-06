@@ -1,0 +1,11 @@
+= 已更新 Azure 支持的虚拟机列表，以符合最佳实践
+:allow-uri-read: 
+
+
+
+
+=== 已更新 Azure 支持的虚拟机列表，以符合最佳实践
+
+在 Azure 中部署Cloud Volumes ONTAP的新实例时， BlueXP上不再可选择 DS_v2 和 Es_v3 机器系列。这些系列将仅在较旧的现有系统中保留和支持。从 9.12.1 版本开始，Azure 仅支持Cloud Volumes ONTAP的新部署。我们建议您切换到 Es_v4 或任何其他与Cloud Volumes ONTAP 9.12.1 及更高版本兼容的系列。但是，DS_v2 和 Es_v3 系列机器将可用于通过 API 进行的新部署。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Azure 中支持的配置"^]

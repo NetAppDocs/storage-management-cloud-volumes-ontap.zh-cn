@@ -1,0 +1,45 @@
+---
+sidebar: sidebar 
+permalink: task-deleting-system.html 
+keywords: terminate, delete, system, remove, terminate system, terminate instance, delete cloud volumes ontap, delete instance, delete system, delete backups, cloud backup, cloud data sense 
+summary: 您应该始终删除Cloud Volumes ONTAP系统，而不是从云提供商的控制台中删除。例如，如果您终止了云提供商许可的Cloud Volumes ONTAP实例，则您不能将该许可证密钥用于另一个实例。您必须删除系统才能释放许可证。 
+---
+= 从NetApp控制台删除Cloud Volumes ONTAP系统
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您应该始终从NetApp控制台删除Cloud Volumes ONTAP系统，而不是从云提供商的应用程序中删除。例如，如果您终止了云提供商许可的Cloud Volumes ONTAP实例，则您不能将该许可证密钥用于另一个实例。您必须从控制台中删除Cloud Volumes ONTAP系统才能释放许可证。
+
+当您删除系统时，控制台会终止Cloud Volumes ONTAP实例并删除磁盘和快照。
+
+
+NOTE: 删除系统时，其他资源（例如NetApp Backup and Recovery 管理的备份以及NetApp Data Classification 的实例）不会被删除。您需要手动删除它们。如果您不这样做，那么您将继续为这些资源支付费用。
+
+当控制台在您的云提供商中部署Cloud Volumes ONTAP时，它会对实例启用终止保护。此选项有助于防止意外终止。
+
+.步骤
+. 如果您在系统上启用了备份和恢复，请确定是否仍然需要备份数据，然后 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backups-ontap.html#deleting-backups["如有必要，删除备份"^]。
++
+备份和恢复在设计上独立于Cloud Volumes ONTAP 。当您删除Cloud Volumes ONTAP系统时，备份和恢复不会自动删除备份，并且 UI 中当前不支持在系统被删除后删除备份。
+
+. 如果您在此系统上启用了数据分类，并且没有其他系统使用此服务，那么您需要删除该服务的实例。
++
+https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html#the-cloud-data-sense-instance["了解有关数据分类实例的更多信息"^] 。
+
+. 删除Cloud Volumes ONTAP系统。
++
+.. 在“*系统*”页面上，双击要删除的Cloud Volumes ONTAP系统的名称。
+.. 在控制台的右上角，单击image:icon-action.png[""]图标，然后选择*删除*。
+.. 输入要删除的系统的名称，然后单击“*删除*”。删除系统最多可能需要五分钟。
+
+
+
+
+
+NOTE: 仅对于Cloud Volumes ONTAP Professional 许可证，备份和恢复是免费的。此免费福利不适用于已删除的环境。如果Cloud Volumes ONTAP环境的备份副本保留在备份和恢复实例中，则您将需要为备份副本付费，直到它们被删除为止。

@@ -1,0 +1,152 @@
+---
+sidebar: sidebar 
+permalink: task-managing-svms-gcp.html 
+keywords: storage virtual machine, vserver, svm, storage vm, supported number, number supported, create svm, create storage vm, create vserver 
+summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端提供存储和数据服务。您可能知道这是 SVM 或 vserver。  Cloud Volumes ONTAP默认配置一个存储虚拟机，但某些配置支持额外的存储虚拟机。 
+---
+= 在 Google Cloud 中管理Cloud Volumes ONTAP的数据服务存储虚拟机
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端提供存储和数据服务。您可能知道这是一个_SVM_或_vserver_。  Cloud Volumes ONTAP默认配置一个存储虚拟机，但某些配置支持额外的存储虚拟机。
+
+要在 Google Cloud 中创建和管理其他数据服务存储虚拟机，您应该使用 API。这是因为 API 自动化了创建存储虚拟机和配置所需网络接口的过程。创建存储虚拟机时， NetApp控制台会配置所需的 LIF 服务，以及存储虚拟机出站 SMB/CIFS 通信所需的 iSCSI LIF。
+
+有关运行Cloud Volumes ONTAP API 调用的信息，请参阅 https://docs.netapp.com/us-en/bluexp-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一个 API 调用"^]。
+
+
+
+== 支持的存储虚拟机数量
+
+从Cloud Volumes ONTAP 9.11.1 开始，根据您的许可证，支持具有特定配置的多个存储虚拟机。请参阅 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP发行说明"^]验证您的Cloud Volumes ONTAP版本支持的存储虚拟机数量。
+
+9.11.1 之前的所有Cloud Volumes ONTAP版本都支持一个数据服务存储虚拟机和一个用于灾难恢复的目标存储虚拟机。如果源存储虚拟机发生中断，您可以激活目标存储虚拟机进行数据访问。
+
+
+
+== 创建存储虚拟机
+
+根据您的配置和许可证类型，您可以使用 API 在单节点系统或高可用性 (HA) 配置中创建多个存储虚拟机。
+
+.关于此任务
+当您使用 API 创建存储虚拟机并配置所需的网络接口时，控制台还会修改 `default-data-files`通过从 NAS 数据 LIF 中删除以下服务并将其添加到用于出站管理连接的 iSCSI 数据 LIF，可以在数据存储虚拟机上实施策略：
+
+* `data-fpolicy-client`
+* `management-ad-client`
+* `management-dns-client`
+* `management-ldap-client`
+* `management-nis-client`
+
+
+.开始之前
+控制台代理需要特定权限才能为Cloud Volumes ONTAP HA 对创建存储虚拟机。所需权限包含在 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-gcp.html["NetApp提供的政策"^]。
+
+
+
+=== 单节点系统
+
+使用以下 API 调用在单节点系统上创建存储 VM。
+
+`POST /gcp/vsa/working-environments/{workingEnvironmentId}/svm`
+
+在请求主体中包含以下参数：
+
+[source, json]
+----
+{ "svmName": "NewSvmName"
+   "svmPassword": "optional value, the API takes the cluster password if not provided"
+   "mgmtLif": "optional value, to create an additional management LIF, if you want to use the storage VM for management purposes"}
+----
+
+
+=== HA 对
+
+使用以下 API 调用在 HA 对上创建存储虚拟机：
+
+`POST /gcp/ha/working-environments/{workingEnvironmentId}/svm/`
+
+在请求主体中包含以下参数：
+
+[source, json]
+----
+{ "svmName": "NewSvmName"
+   "svmPassword": "optional value, the API takes the cluster password if not provided"
+}
+----
+
+
+== 管理存储虚拟机
+
+使用 API，您可以重命名和删除单节点和 HA 配置中的存储虚拟机。
+
+.开始之前
+控制台代理需要特定权限来管理Cloud Volumes ONTAP HA 对的存储虚拟机。所需权限包含在 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-gcp.html["NetApp提供的政策"^]。
+
+
+
+=== 重命名存储虚拟机
+
+要重命名存储虚拟机，您应该提供现有存储虚拟机和新存储虚拟机的名称作为参数。
+
+.步骤
+* 使用以下 API 调用在单节点系统上重命名存储虚拟机：
++
+`PUT /gcp/vsa/working-environments/{workingEnvironmentId}/svm`
+
++
+在请求主体中包含以下参数：
+
++
+[source, json]
+----
+{
+  "svmNewName": "NewSvmName",
+  "svmName": "OldSvmName"
+}
+----
+* 使用以下 API 调用重命名 HA 对上的存储虚拟机：
++
+`PUT /gcp/ha/working-environments/{workingEnvironmentId}/svm`
+
++
+在请求主体中包含以下参数：
+
++
+[source, json]
+----
+{
+  "svmNewName": "NewSvmName",
+  "svmName": "OldSvmName"
+}
+----
+
+
+
+
+=== 删除存储虚拟机
+
+在单节点或 HA 配置中，如果存储虚拟机没有任何活动卷，则可以将其删除。
+
+.步骤
+* 使用以下 API 调用删除单节点系统上的存储虚拟机：
++
+`DELETE /gcp/vsa/working-environments/{workingEnvironmentId}/svm/{svmName}`
+
+* 使用以下 API 调用删除 HA 对上的存储虚拟机：
++
+`DELETE /gcp/ha/working-environments/{workingEnvironmentId}/svm/{svmName}`
+
+
+
+.相关信息
+* https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html["准备使用 API"^]
+* https://docs.netapp.com/us-en/bluexp-automation/cm/workflow_processes.html#organization-of-cloud-volumes-ontap-workflows["Cloud Volumes ONTAP工作流程"^]
+* https://docs.netapp.com/us-en/bluexp-automation/platform/get_identifiers.html#get-the-connector-identifier["获取所需的标识符"^]
+* https://docs.netapp.com/us-en/bluexp-automation/platform/use_rest_apis.html["使用NetApp控制台的 REST API"^]
+

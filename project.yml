@@ -1,0 +1,329 @@
+---
+settings:
+  name: Cloud Volumes ONTAP
+  harmony_integration: maestro
+  internal:
+    pdf_enabled: true
+  prod:
+    pdf_enabled: true
+    harmony_enabled: false
+  rss_page: whats-new.html
+  filter:
+    label: 云提供商
+    default: 所有云提供商
+    options:
+    - name: Amazon Web Services
+      alias: AWS
+      id: aws
+    - name: Google Cloud
+      alias: Google Cloud
+      id: gcp
+    - name: Microsoft Azure
+      alias: Azure
+      id: azure
+  langs: zh-cn,us-en,de-de,es-es,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-tw
+sidebar:
+  entries:
+  - title: Cloud Volumes ONTAP文档
+    url: "/index.html"
+  - title: 发行说明
+    entries:
+    - title: 什么是新的
+      url: "/whats-new.html"
+    - title: 已知限制
+      url: "/reference-limitations.html"
+    - title: Cloud Volumes ONTAP发行说明
+      url: "/whats-new-ontap.html"
+  - title: 开始使用
+    entries:
+    - title: 了解Cloud Volumes ONTAP
+      url: "/concept-overview-cvo.html"
+    - title: 新部署支持的ONTAP版本
+      url: "/reference-versions.html"
+    - title: 开始使用 Amazon Web Services
+      flavor: aws
+      entries:
+      - title: 快速启动
+        url: "/task-getting-started-aws.html"
+      - title: 规划您的配置
+        url: "/task-planning-your-config.html"
+      - title: 设置网络
+        entries:
+        - title: 设置 AWS 网络
+          url: "/reference-networking-aws.html"
+        - title: 设置 AWS 中转网关
+          url: "/task-setting-up-transit-gateway.html"
+        - title: 在共享子网中部署 HA 对
+          url: "/task-deploy-aws-shared-vpc.html"
+        - title: 配置Cloud Volumes ONTAP以创建 AWS 放置组
+          url: "/task-configure-placement-group-failure-aws.html"
+        - title: AWS 的安全组规则
+          url: "/reference-security-groups.html"
+      - title: 设置 AWS KMS
+        url: "/task-setting-up-kms.html"
+      - title: 设置 IAM 角色
+        url: "/task-set-up-iam-roles.html"
+      - title: 设置许可
+        url: "/task-set-up-licensing-aws.html"
+      - title: 在 AWS 中使用Cloud Volumes ONTAP 的快速部署方法
+        url: "/task-quick-deploy-aws.html"
+      - title: 在 AWS 中使用Cloud Volumes ONTAP的高级部署方法
+        url: "/task-deploying-otc-aws.html"
+      - title: 在 AWS Secret 区域部署Cloud Volumes ONTAP
+        url: "/task-getting-started-aws-c2s.html"
+    - title: 开始使用 Microsoft Azure
+      flavor: azure
+      entries:
+      - title: 了解 Azure 中的Cloud Volumes ONTAP部署选项
+        url: "/concept-azure-mktplace-direct.html"
+      - title: NetApp控制台入门
+        entries:
+        - title: 快速启动
+          url: "/task-getting-started-azure.html"
+        - title: 规划您的配置
+          url: "/task-planning-your-config-azure.html"
+        - title: 设置网络
+          url: "/reference-networking-azure.html"
+        - title: 使用您的密钥设置加密
+          url: "/task-set-up-azure-encryption.html"
+        - title: 设置许可
+          url: "/task-set-up-licensing-azure.html"
+        - title: 启用高可用性模式
+          url: "/task-azure-high-availability-mode.html"
+        - title: 为单个可用区域启用 VMOrchestratorZonalMultiFD
+          url: "/task-saz-feature.html"
+        - title: 在 Azure 中启动Cloud Volumes ONTAP
+          url: "/task-deploying-otc-azure.html"
+        - title: 验证 Azure 平台映像
+          entries:
+          - title: 概述
+            url: "/concept-azure-image-verification.html"
+          - title: 下载 Azure 映像文件
+            url: "/task-azure-download-digest-file.html"
+          - title: 导出 Azure 映像文件
+            url: "/task-azure-image-export.html"
+          - title: 验证文件签名
+            entries:
+            - title: 了解文件签名验证
+              url: "/concept-azure-file-sig-verify.html"
+            - title: 在 Linux 上验证文件签名
+              url: "/task-file-verification-linux.html"
+            - title: 在 macOS 上验证文件签名
+              url: "/task-file-verification-mac.html"
+      - title: 开始进入市场
+        url: "/task-deploy-cvo-azure-mktplc.html"
+    - title: 开始使用 Google Cloud
+      flavor: gcp
+      entries:
+      - title: 快速启动
+        url: "/task-getting-started-gcp.html"
+      - title: 规划您的配置
+        url: "/task-planning-your-config-gcp.html"
+      - title: 设置网络
+        url: "/reference-networking-gcp.html"
+      - title: VPC 服务控制规划
+        url: "/reference-vpc-service-controls-gcp.html"
+      - title: 创建服务帐户
+        url: "/task-creating-gcp-service-account.html"
+      - title: 使用客户管理的加密密钥
+        url: "/task-setting-up-gcp-encryption.html"
+      - title: 设置许可
+        url: "/task-set-up-licensing-google.html"
+      - title: 在 Google Cloud 中启动Cloud Volumes ONTAP
+        url: "/task-deploying-gcp.html"
+      - title: Google Cloud Platform 图像验证
+        entries:
+        - title: 概述
+          url: "/concept-gcp-image-verification.html"
+        - title: 在 GCP 上将图像转换为 Raw 格式
+          url: "/task-gcp-convert-image-raw.html"
+        - title: 图像签名验证
+          entries:
+          - title: 验证 GCP 签名的图像
+            url: "/concept-gcp-verify-signed-image.html"
+          - title: 使用 OpenSSL 验证内容
+            url: "/task-verify-openssl-gcp.html"
+  - title: 使用Cloud Volumes ONTAP
+    entries:
+    - title: 许可证管理
+      entries:
+      - title: 管理基于容量的许可证
+        url: "/task-manage-capacity-licenses.html"
+      - title: 管理Keystone订阅
+        url: "/task-manage-keystone.html"
+      - title: 管理基于节点的许可证
+        url: "/task-manage-node-licenses.html"
+    - title: 卷和 LUN 管理
+      entries:
+      - title: 创建卷
+        url: "/task-create-volumes.html"
+      - title: 管理现有卷
+        url: "/task-manage-volumes.html"
+      - title: 将非活动数据分层到对象存储
+        url: "/task-tiering.html"
+      - title: 将 LUN 连接到主机
+        url: "/task-connect-lun.html"
+      - title: 使用FlexCache加速数据访问
+        url: "/task-accelerate-data-access.html"
+    - title: 聚合管理
+      entries:
+      - title: 创建聚合
+        url: "/task-create-aggregates.html"
+      - title: 管理现有聚合
+        url: "/task-manage-aggregates.html"
+      - title: 管理容量设置
+        url: "/task-manage-capacity-settings.html"
+    - title: 存储虚拟机管理
+      entries:
+      - title: 使用存储虚拟机
+        url: "/task-managing-svms.html"
+      - title: 管理 AWS 中的存储虚拟机
+        flavor: aws
+        url: "/task-managing-svms-aws.html"
+      - title: 管理 Azure 中的存储 VM
+        flavor: azure
+        url: "/task-managing-svms-azure.html"
+      - title: 管理 Google Cloud 中的存储虚拟机
+        flavor: gcp
+        url: "/task-managing-svms-gcp.html"
+      - title: 设置 SVM 灾难恢复
+        url: "/task-manage-svm-dr.html"
+    - title: 安全和数据加密
+      entries:
+      - title: 使用NetApp加密技术加密卷
+        url: "/task-encrypting-volumes.html"
+      - title: 使用 AWS Key Management Service 管理密钥
+        flavor: aws
+        url: "/task-aws-key-management.html"
+      - title: 使用 Azure Key Vault 管理密钥
+        flavor: azure
+        url: "/task-azure-key-vault.html"
+      - title: 使用 Google Cloud KMS 管理密钥
+        flavor: gcp
+        url: "/task-google-key-manager.html"
+      - title: 提高勒索软件防护
+        url: "/task-protecting-ransomware.html"
+      - title: 为 WORM 存储创建防篡改 Snapshot 副本
+        url: "/reference-worm-snaplock.html"
+    - title: 系统管理
+      entries:
+      - title: 升级Cloud Volumes ONTAP
+        url: "/task-updating-ontap-cloud.html"
+      - title: 注册现收现付系统
+        url: "/task-registering.html"
+      - title: 转换基于节点的许可证
+        url: "/task-convert-node-capacity.html"
+      - title: 停止和启动系统
+        url: "/task-managing-state.html"
+      - title: 同步系统时间
+        url: "/task-sync-time.html"
+      - title: 修改系统写入速度
+        url: "/task-modify-write-speed.html"
+      - title: 更改系统密码
+        url: "/task-change-password.html"
+      - title: 添加、移除或删除系统
+        entries:
+        - title: 添加现有系统
+          url: "/task-adding-systems.html"
+        - title: 删除系统
+          url: "/task-removing.html"
+        - title: 删除系统
+          url: "/task-deleting-system.html"
+      - title: AWS 管理
+        flavor: aws
+        entries:
+        - title: 在 AWS 中使用 EC2 实例
+          url: "/task-change-ec2-instance.html"
+        - title: 更改 HA 对的路由表
+          url: "/task-change-route-tables.html"
+        - title: 配置放置组创建
+          url: task-configure-placement-group-failure-aws.html
+      - title: Azure 管理
+        flavor: azure
+        entries:
+        - title: 更改 Azure VM 类型
+          url: "/task-change-azure-vm.html"
+        - title: 覆盖 CIFS 锁
+          url: "/task-overriding-cifs-locks.html"
+        - title: 使用 Azure 专用链接或服务终结点
+          url: "/task-enabling-private-link.html"
+        - title: 移动资源组
+          url: "/task-moving-resource-groups-azure.html"
+        - title: 在 Azure 中隔离SnapMirror流量
+          url: "/task-segregate-snapmirror-azure.html"
+      - title: Google Cloud 管理
+        flavor: gcp
+        entries:
+        - title: 更改机器类型
+          url: "/task-change-gcp-machine.html"
+      - title: 通过系统管理器进行管理
+        url: "/task-administer-advanced-view.html"
+      - title: 从 CLI 进行管理
+        url: "/task-connecting-to-otc.html"
+    - title: 系统健康和事件
+      entries:
+      - title: 验证AutoSupport设置
+        url: "/task-verify-autosupport.html"
+      - title: 配置 EMS
+        url: "/task-configure-ems.html"
+  - title: 概念
+    entries:
+    - title: 许可
+      entries:
+      - title: Cloud Volumes ONTAP中的许可
+        url: "/concept-licensing.html"
+      - title: 了解有关基于容量的许可证的更多信息
+        url: "/concept-licensing-charging.html"
+    - title: 存储
+      entries:
+      - title: 客户端协议
+        url: "/concept-client-protocols.html"
+      - title: 磁盘和聚合
+        url: "/concept-storage.html"
+      - title: AWS 中的弹性卷
+        flavor: aws
+        url: "/concept-aws-elastic-volumes.html"
+      - title: 数据分层
+        url: "/concept-data-tiering.html"
+      - title: 存储管理
+        url: "/concept-storage-management.html"
+      - title: 写入速度
+        url: "/concept-write-speed.html"
+      - title: Flash Cache
+        url: "/concept-flash-cache.html"
+      - title: WORM存储
+        url: "/concept-worm.html"
+    - title: 高可用性对
+      entries:
+      - title: AWS 中的 HA 对
+        flavor: aws
+        url: "/concept-ha.html"
+      - title: Azure 中的 HA 对
+        flavor: azure
+        url: "/concept-ha-azure.html"
+      - title: GCP 中的 HA 对
+        flavor: gcp
+        url: "/concept-ha-google-cloud.html"
+      - title: 存储接管期间的操作
+        url: "/concept-degraded-ha-pair.html"
+    - title: 安全性
+      url: "/concept-security.html"
+    - title: 性能
+      url: "/concept-performance.html"
+    - title: 基于节点的 BYOL 管理
+      url: "/concept-license-management.html"
+    - title: AutoSupport和Digital Advisor
+      url: "/concept-active-iq.html"
+    - title: 默认配置
+      url: "/reference-default-configs.html"
+  - title: 知识和支持
+    entries:
+    - title: 注册以获得支持
+      url: "/task-support-registration.html"
+    - title: 获取帮助
+      url: "/task-get-help.html"
+  - title: 法律声明
+    url: "/legal-notices.html"
+product-family:
+  name: Storage Management
+  repo: storage-management-family

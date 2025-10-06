@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: reference-worm-snaplock.html 
+keywords: WORM, SnapLock, Snapshot copies, 
+summary: '您可以在Cloud Volumes ONTAP系统上创建一次写入、多次读取 (WORM) 文件的防篡改 Snapshot 副本，并在特定保留期内以未修改的形式保留快照。' 
+---
+= 在Cloud Volumes ONTAP上创建 WORM 文件的防篡改 Snapshot 副本
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以在Cloud Volumes ONTAP系统上创建一次写入、多次读取 (WORM) 文件的防篡改 Snapshot 副本，并在特定保留期内以未修改的形式保留快照。此功能由SnapLock技术提供支持，并提供了额外的数据保护和合规性层。
+
+.开始之前
+确保用于创建 Snapshot 副本的卷是SnapLock卷。有关在卷上启用SnapLock保护的信息，请参阅 https://docs.netapp.com/us-en/ontap/snaplock/snaplock-config-overview-concept.html["ONTAP文档：配置SnapLock"^]。
+
+.步骤
+. 从SnapLock卷创建 Snapshot 副本。有关使用 CLI 或系统管理器创建 Snapshot 副本的信息，请参阅 https://docs.netapp.com/us-en/ontap/data-protection/manage-local-snapshot-copies-concept.html["ONTAP文档：管理本地 Snapshot 副本概述"^]。
++
+Snapshot 副本继承了卷的 WORM 属性，使其具有防篡改功能。底层的SnapLock技术可确保快照在指定的保留期结束之前受到保护，不会被编辑和删除。
+
+. 如果需要编辑这些快照，您可以修改保留期。欲了解更多信息，请参阅 https://docs.netapp.com/us-en/ontap/snaplock/set-retention-period-task.html#set-the-default-retention-period["ONTAP文档：设置保留时间"^]。
+
+
+
+NOTE: 即使 Snapshot 副本在特定保留期内受到保护，集群管理员也可以删除源卷，因为Cloud Volumes ONTAP中的 WORM 存储在“可信存储管理员”模型下运行。此外，受信任的云管理员可以通过操作云存储资源来删除WORM数据。

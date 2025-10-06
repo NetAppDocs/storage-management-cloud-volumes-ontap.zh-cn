@@ -1,0 +1,56 @@
+---
+sidebar: sidebar 
+permalink: task-aws-key-management.html 
+keywords: aws, amazon, encryption, NVE, NetApp volume encryption, KMIP, kms, key manager service 
+summary: 利用 AWS 的密钥管理服务作为您的第三方密钥管理服务。 
+---
+= 使用 AWS 密钥管理服务管理Cloud Volumes ONTAP加密密钥
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用link:https://docs.aws.amazon.com/kms/latest/developerguide/overview.html["AWS 的密钥管理服务 (KMS)"^]在 AWS 部署的应用程序中保护您的ONTAP加密密钥。
+
+可以使用 CLI 或ONTAP REST API 启用 AWS KMS 的密钥管理。
+
+使用 KMS 时，请注意默认情况下使用数据 SVM 的 LIF 与云密钥管理端点进行通信。节点管理网络用于与 AWS 的身份验证服务进行通信。如果集群网络配置不正确，集群将无法正确利用密钥管理服务。
+
+.开始之前
+* Cloud Volumes ONTAP必须运行 9.12.0 或更高版本
+* 您必须已安装卷加密 (VE) 许可证，并且
+* 您必须已安装多租户加密密钥管理 (MTEKM) 许可证。
+* 您必须是集群或 SVM 管理员
+* 您必须拥有有效的 AWS 订阅
+
+
+
+NOTE: 您只能为数据 SVM 配置密钥。
+
+
+
+== 配置
+
+.AWS
+. 您必须创建一个link:https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant["授予"^]用于管理加密的 IAM 角色将使用的 AWS KMS 密钥。  IAM 角色必须包含允许以下操作的策略：
++
+** `DescribeKey`
+** `Encrypt`
+** `Decrypt`要创建赠款，请参阅link:https://docs.aws.amazon.com/kms/latest/developerguide/create-grant-overview.html["AWS 文档"^]。
+
+
+. link:https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html["向适当的 IAM 角色添加策略。"^]政策应该支持 `DescribeKey`， `Encrypt` ， 和 `Decrypt`运营。
+
+
+.Cloud Volumes ONTAP
+. 切换到您的Cloud Volumes ONTAP环境。
+. 切换到高级权限级别：
+`set -privilege advanced`
+. 启用 AWS 密钥管理器：
+`security key-manager external aws enable -vserver _data_svm_name_ -region _AWS_region_ -key-id _key_ID_ -encryption-context _encryption_context_`
+. 出现提示时，输入密钥。
+. 确认 AWS KMS 已正确配置：
+`security key-manager external aws show -vserver _svm_name_`
+

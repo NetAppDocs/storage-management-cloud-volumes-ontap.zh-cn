@@ -1,0 +1,168 @@
+---
+sidebar: sidebar 
+permalink: task-set-up-licensing-google.html 
+keywords: freemium, professional, essentials, licensing, licenses, cloud volumes ontap charging, cloud volumes ontap licenses, cloud volumes ontap licensing, cvo licenses, cvo licensing, byol, bring your own license, paygo, pay as you go, keystone flex, keystone, digital wallet 
+summary: 在您决定要为Cloud Volumes ONTAP使用哪种许可选项后，在部署新系统时选择该许可选项之前，需要执行几个步骤。 
+---
+= 在 Google Cloud 中设置Cloud Volumes ONTAP许可
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+在您决定要与Cloud Volumes ONTAP一起使用哪种许可选项后，需要执行几个步骤才能在创建新系统时选择该许可选项。
+
+
+
+== 免费增值
+
+选择免费增值服务，免费使用Cloud Volumes ONTAP，最高可提供 500 GiB 的配置容量。link:concept-licensing.html#packages["了解有关免费增值服务的更多信息"] 。
+
+.步骤
+. 从左侧导航菜单中，选择“存储”>“管理”。
+. 在“*系统*”页面上，单击“*添加系统*”并按照NetApp控制台中的步骤进行操作。
++
+.. 在*详细信息和凭据*页面上，单击*编辑凭据>添加订阅*，然后按照提示订阅 Google Cloud Marketplace 中的即用即付产品。
++
+除非您超过 500 GiB 的预配置容量，否则您无需通过市场订阅付费，此时系统将自动转换为link:concept-licensing.html#packages["基本套餐"]。
+
+.. 返回控制台后，到达收费方式页面时选择“免费增值”。
++
+image:screenshot-freemium.png["创建Cloud Volumes ONTAP系统时免费增值选项的屏幕截图。"]
+
+
+
+
+
+link:task-deploying-gcp.html["查看在 Google Cloud 中启动Cloud Volumes ONTAP 的分步说明"] 。
+
+
+
+== 基于容量的许可证
+
+基于容量的许可使您能够按 TiB 容量支付Cloud Volumes ONTAP费用。基于容量的许可以_包_的形式提供：Essentials 或 Professional 包。
+
+Essentials 和 Professional 套餐提供以下消费模式：
+
+* 从NetApp购买的许可证（自带许可证 (BYOL)）
+* Google Cloud Marketplace 的按小时付费 (PAYGO) 订阅
+* 年度合同
+
+
+link:concept-licensing.html#capacity-based-licensing["了解有关基于容量的许可的更多信息"] 。
+
+以下部分介绍了如何开始使用每种消费模型。
+
+
+
+=== BYOL
+
+通过从NetApp购买许可证 (BYOL) 进行预付款，以便在任何云提供商处部署Cloud Volumes ONTAP系统。
+
+
+NOTE: 已限制 BYOL 许可证的购买、延期和续订。有关更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 许可可用性受限"^] 。
+
+.步骤
+. https://bluexp.netapp.com/contact-cds["联系NetApp销售人员获取许可证"^]
+. https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-nss-accounts.html#add-an-nss-account["将您的NetApp支持站点帐户添加到NetApp控制台"^]
++
+控制台会自动查询 NetApp 的许可服务，以获取与您的NetApp支持站点帐户相关的许可证的详细信息。如果没有错误，控制台将添加许可证。
+
++
+您必须先从控制台获取许可证，然后才能将其与Cloud Volumes ONTAP一起使用。如果需要的话，你可以link:task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account["手动将许可证添加到控制台"]。
+
+. 在*系统*页面上，单击*添加系统*并按照步骤操作。
++
+.. 在*详细信息和凭据*页面上，单击*编辑凭据>添加订阅*，然后按照提示订阅 Google Cloud Marketplace 中的即用即付产品。
++
+始终会先向您从NetApp购买的许可证收费，但如果您超出许可容量或许可证期限到期，则会按照市场上的小时费率向您收费。
+
+.. 返回控制台后，在到达收费方式页面时选择基于容量的套餐。
++
+image:screenshot-professional.png["创建Cloud Volumes ONTAP系统时专业选项的屏幕截图。"]
+
+
+
+
+
+link:task-deploying-gcp.html["查看在 Google Cloud 中启动Cloud Volumes ONTAP 的分步说明"] 。
+
+
+
+=== PAYGO 订阅
+
+通过订阅云提供商市场提供的服务按小时付费。
+
+当您创建Cloud Volumes ONTAP系统时，控制台会提示您订阅 Google Cloud Marketplace 中提供的协议。然后将该订阅与系统关联以进行收费。您可以将同一订阅用于其他系统。
+
+.步骤
+. 从左侧导航菜单中，选择“存储”>“管理”。
+. 在*系统*页面上，单击*添加系统*并按照步骤操作。
++
+.. 在*详细信息和凭据*页面上，单击*编辑凭据>添加订阅*，然后按照提示订阅 Google Cloud Marketplace 中的即用即付产品。
+.. 返回控制台后，在到达收费方式页面时选择基于容量的套餐。
++
+image:screenshot-professional.png["创建Cloud Volumes ONTAP系统时专业选项的屏幕截图。"]
+
+
+
+
+
+link:task-deploying-gcp.html["查看在 Google Cloud 中启动Cloud Volumes ONTAP 的分步说明"] 。
+
+
+TIP: 您可以从“设置”>“凭据”页面管理与您的帐户关联的 Google Cloud Marketplace 订阅。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html["了解如何管理您的 Google Cloud 凭据和订阅"^]
+
+
+
+=== 年度合同
+
+通过购买年度合同每年支付Cloud Volumes ONTAP 的费用。
+
+.步骤
+. 联系您的NetApp销售代表购买年度合同。
++
+该合同在 Google Cloud Marketplace 中以私人优惠形式提供。
+
++
+NetApp与您分享私人优惠后，您可以在系统创建期间从 Google Cloud Marketplace 订阅时选择年度计划。
+
+. 在*系统*页面上，单击*添加系统*并按照步骤操作。
++
+.. 在*详细信息和凭据*页面上，单击*编辑凭据>添加订阅*，然后按照提示在 Google Cloud Marketplace 中订阅年度计划。
+.. 在 Google Cloud 中，选择与您的帐户共享的年度计划，然后单击*订阅*。
+.. 返回控制台后，在到达收费方式页面时选择基于容量的套餐。
++
+image:screenshot-professional.png["创建Cloud Volumes ONTAP系统时专业选项的屏幕截图。"]
+
+
+
+
+
+link:task-deploying-gcp.html["查看在 Google Cloud 中启动Cloud Volumes ONTAP 的分步说明"] 。
+
+
+
+== Keystone订阅
+
+Keystone订阅是一种按需付费的订阅式服务。link:concept-licensing.html#keystone-subscription["了解有关NetApp Keystone订阅的更多信息"] 。
+
+.步骤
+. 如果您尚未订阅， https://www.netapp.com/forms/keystone-sales-contact/["联系NetApp"^]
+. mailto:ng-keystone-success@netapp.com[联系NetApp] 授权您的控制台用户帐户拥有一个或多个Keystone订阅。
+. NetApp授权您的帐户后，link:task-manage-keystone.html#link-a-subscription["链接您的订阅以用于Cloud Volumes ONTAP"] 。
+. 在*系统*页面上，单击*添加系统*并按照步骤操作。
++
+.. 当提示选择充电方式时，选择Keystone Subscription 充电方式。
++
+image:screenshot-keystone.png["创建Cloud Volumes ONTAP系统时Keystone订阅选项的屏幕截图。"]
+
+
+
+
+
+link:task-deploying-gcp.html["查看在 Google Cloud 中启动Cloud Volumes ONTAP 的分步说明"] 。

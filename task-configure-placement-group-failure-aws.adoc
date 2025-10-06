@@ -1,0 +1,32 @@
+---
+sidebar: sidebar 
+permalink: task-configure-placement-group-failure-aws.html 
+keywords: placement group, failure, HA single zone, app.conf, rollback, AWS 
+summary: Cloud Volumes ONTAP使用 Azure Private Link 连接到其关联的存储帐户。如果需要，您可以禁用 Azure Private Links 并改用服务端点。 
+---
+= 在 AWS 单可用区中为Cloud Volumes ONTAP HA 对配置放置组创建
+:allow-uri-read: 
+
+
+[role="lead"]
+如果放置组创建失败，AWS 单可用区 (AZ) 中的Cloud Volumes ONTAP高可用性 (HA) 部署可能会失败并回滚。如果Cloud Volumes ONTAP节点和中介实例不可用，则放置组的创建也会失败，并且部署会回滚。为了避免这种情况，您可以修改配置，以便即使放置组创建失败也能完成部署。
+
+绕过回滚过程后， Cloud Volumes ONTAP部署过程成功完成，并通知您放置组创建未完成。
+
+.步骤
+. 使用 SSH 连接到NetApp控制台代理主机并登录。
+. 导航至 `/opt/application/netapp/cloudmanager/docker_occm/data`。
+. 编辑 `app.conf`通过改变 `rollback-on-placement-group-failure`参数 `false`。该参数的默认值是 `true`。
++
+[listing]
+----
+{
+    "occm" : {
+        "aws" : {
+            "rollback-on-placement-group-failure" : false
+        }
+    }
+}
+----
+. 保存文件并注销控制台代理。您不需要重新启动控制台代理。
+

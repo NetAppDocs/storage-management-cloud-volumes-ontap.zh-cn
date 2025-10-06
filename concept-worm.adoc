@@ -1,0 +1,119 @@
+---
+sidebar: sidebar 
+permalink: concept-worm.html 
+keywords: worm, write once, read many, snaplock, retain, retention, period, cloud worm, worm storage, tiering 
+summary: '您可以在Cloud Volumes ONTAP系统上激活一次写入、多次读取 (WORM) 存储，以便在指定的保留期内以未修改的形式保留文件。云 WORM 存储由SnapLock技术提供支持，这意味着 WORM 文件在文件级别受到保护。' 
+---
+= 了解Cloud Volumes ONTAP上的 WORM 存储
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以在Cloud Volumes ONTAP系统上激活一次写入、多次读取 (WORM) 存储，以便在指定的保留期内以未修改的形式保留文件。云 WORM 存储由SnapLock技术提供支持，这意味着 WORM 文件在文件级别受到保护。
+
+WORM 功能可与自带许可证 (BYOL) 一起使用，并且无需额外付费即可在市场订阅您的许可证。请联系您的NetApp销售代表，将 WORM 添加到您当前的许可证中。
+
+
+
+== WORM存储的工作原理
+
+一旦文件被提交到 WORM 存储，即使保留期已过，也无法修改。防篡改时钟确定 WORM 文件的保留期何时结束。
+
+保留期过后，您有责任删除不再需要的任何文件。
+
+
+
+== 激活 WORM 存储
+
+如何激活 WORM 存储取决于您使用的Cloud Volumes ONTAP版本。
+
+
+
+=== 版本 9.10.1 及更高版本
+
+从Cloud Volumes ONTAP 9.10.1 开始，您可以选择在卷级别启用或禁用 WORM。
+
+添加Cloud Volumes ONTAP系统时，系统会提示您启用或禁用 WORM 存储：
+
+* 如果在添加系统时启用 WORM 存储，则从NetApp控制台创建的每个卷都将启用 WORM。但是您可以使用ONTAP系统管理器或ONTAP CLI 来创建已禁用 WORM 的卷。
+* 如果在添加系统时禁用 WORM 存储，则从控制台、 ONTAP系统管理器或ONTAP CLI 创建的每个卷都将被禁用 WORM。
+
+
+
+
+=== 版本 9.10.0 及更早版本
+
+添加新系统时，您可以在Cloud Volumes ONTAP系统上激活 WORM 存储。您从控制台创建的每个卷都启用了 WORM。您无法禁用单个卷上的 WORM 存储。
+
+
+
+== 将文件提交至 WORM
+
+您可以使用应用程序通过 NFS 或 CIFS 将文件提交到 WORM，或者使用ONTAP CLI 自动将文件提交到 WORM。您还可以使用 WORM 可附加文件来保留增量写入的数据，例如日志信息。
+
+在Cloud Volumes ONTAP系统上激活 WORM 存储后，您必须使用ONTAP CLI 进行所有 WORM 存储的管理。有关说明，请参阅 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-arch-con/home.html["有关SnapLock的ONTAP文档"^]。
+
+
+
+== 在Cloud Volumes ONTAP系统上启用 WORM
+
+您可以在控制台上创建Cloud Volumes ONTAP系统时启用 WORM 存储。如果在创建系统时未启用 WORM，您也可以在系统上启用 WORM。启用后，您将无法禁用 WORM。
+
+.关于此任务
+* ONTAP 9.10.1 及更高版本支持 WORM。
+* ONTAP 9.11.1 及更高版本支持带有备份的 WORM。
+
+
+.步骤
+. 在“*系统*”页面上，双击要启用 WORM 的系统的名称。
+. 在“概述”选项卡上，单击“功能”面板，然后单击“*WORM*”旁边的铅笔图标。
++
+如果系统上已启用 WORM，则铅笔图标将被禁用。
+
+. 在*WORM*页面上，设置集群合规时钟的保留期限。
++
+欲了解更多信息，请参阅 https://docs.netapp.com/us-en/ontap/snaplock/initialize-complianceclock-task.html["ONTAP文档：初始化合规时钟"^]。
+
+. 单击“*设置*”。
+
+
+.完成后
+您可以在“功能”面板上验证 *WORM* 的状态。启用 WORM 后， SnapLock许可证会自动安装在集群上。您可以在ONTAP系统管理器上查看SnapLock许可证。
+
+
+
+== 删除 WORM 文件
+
+您可以使用特权删除功能删除保留期内的 WORM 文件。
+
+有关说明，请参阅 https://docs.netapp.com/us-en/ontap/snaplock/delete-worm-files-concept.html["ONTAP 文档"^]。
+
+
+
+== WORM 和数据分层
+
+创建新的Cloud Volumes ONTAP 9.8 系统或更高版本时，您可以同时启用数据分层和 WORM 存储。使用 WORM 存储启用数据分层允许您将数据分层到云中的对象存储。
+
+您应该了解有关启用数据分层和 WORM 存储的以下内容：
+
+* 分层到对象存储的数据不包含ONTAP WORM 功能。为了确保端到端 WORM 功能，您需要正确设置存储桶权限。
+* 分层到对象存储的数据不具备 WORM 功能，这意味着从技术上讲，任何拥有存储桶和容器完全访问权限的人都可以删除由ONTAP分层的对象。
+* 启用 WORM 和分层后，恢复或降级到Cloud Volumes ONTAP 9.8 的操作将被阻止。
+
+
+
+
+== 限制
+
+* Cloud Volumes ONTAP中的 WORM 存储在“可信存储管理员”模型下运行。虽然 WORM 文件受到保护以防止更改或修改，但即使这些卷包含未过期的 WORM 数据，集群管理员也可以删除这些卷。
+* 除了可信存储管理员模型之外， Cloud Volumes ONTAP中的 WORM 存储也隐式地在“可信云管理员”模型下运行。云管理员可以通过直接从云提供商处删除或编辑云存储来在 WORM 数据到期之前将其删除。
+
+
+.相关链接
+* link:reference-worm-snaplock.html["为 WORM 存储创建防篡改 Snapshot 副本"]
+

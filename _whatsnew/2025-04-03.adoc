@@ -1,0 +1,11 @@
+= AWS 中Cloud Volumes ONTAP 9.13.1 对中国区域的支持
+:allow-uri-read: 
+
+
+
+
+=== AWS 中Cloud Volumes ONTAP 9.13.1 对中国区域的支持
+
+您现在可以在中国区域的 AWS 中部署Cloud Volumes ONTAP 9.13.1。这包括对单节点和高可用性 (HA) 部署的支持。仅支持直接从NetApp购买的许可证。
+
+有关区域可用性，请参阅 https://bluexp.netapp.com/cloud-volumes-global-regions["Cloud Volumes ONTAP的全球区域地图"^]。

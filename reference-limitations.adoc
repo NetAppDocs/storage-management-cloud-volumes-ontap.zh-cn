@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: reference-limitations.html 
+keywords: limitations, flexgroup, ontap s3, s3 configuration, svm dr, svm disaster recovery, disaster recovery, storage vm dr, BlueXP, Console, cloud manager 
+summary: 已知限制标识了该产品的此版本不支持或不能与其正确互操作的平台、设备或功能。仔细审查这些限制。 
+---
+= 已知限制
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+已知限制标识了该产品的此版本不支持或不能与其正确互操作的平台、设备或功能。仔细审查这些限制。
+
+这些限制特定于NetApp控制台中的Cloud Volumes ONTAP管理。要查看Cloud Volumes ONTAP软件本身的限制， https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limitations.html["转到Cloud Volumes ONTAP发行说明"^] 。
+
+
+
+== 控制台不支持创建FlexGroup卷
+
+虽然Cloud Volumes ONTAP支持FlexGroup卷，但控制台目前不支持创建FlexGroup卷。如果您从ONTAP系统管理器或ONTAP CLI 创建FlexGroup卷，则应将控制台中的容量管理模式设置为 `Manual`。 `Automatic`模式可能无法与FlexGroup卷正常配合使用。
+
+
+NOTE: 我们计划在未来的版本中提供在控制台中创建FlexGroup卷的功能。
+
+
+
+== 控制台不支持带有Cloud Volumes ONTAP 的S3
+
+虽然Cloud Volumes ONTAP支持 S3 作为横向扩展存储的选项，但控制台不提供此功能的任何管理功能。使用 CLI 是从Cloud Volumes ONTAP配置 S3 客户端访问的最佳实践。有关详细信息，请参阅 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-s3-cg/home.html["S3 配置电源指南"^]。
+
+link:concept-client-protocols.html["了解有关Cloud Volumes ONTAP对 S3 和其他客户端协议的支持的更多信息"] 。
+
+
+
+== 控制台不支持存储虚拟机的灾难恢复
+
+控制台不提供存储虚拟机 (SVM) 灾难恢复的任何设置或编排支持。您必须使用ONTAP系统管理器或ONTAP CLI。
+
+link:task-manage-svm-dr.html["了解有关 SVM 灾难恢复的更多信息"] 。

@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: task-connect-lun.html 
+keywords: lun, connect lun, iscsi lun, target iqn, iqn 
+summary: 当您创建 iSCSI 卷时， NetApp控制台会自动为您创建一个 LUN。我们通过为每个卷创建一个 LUN 来简化操作，因此无需进行任何管理。创建卷后，使用 IQN 从主机连接到 LUN。 
+---
+= 从主机系统连接到Cloud Volumes ONTAP上的 LUN
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+当您创建 iSCSI 卷时， NetApp控制台会自动为您创建一个 LUN。我们通过为每个卷创建一个 LUN 来简化操作，因此无需进行任何管理。创建卷后，使用 IQN 从主机连接到 LUN。
+
+请注意以下事项：
+
+* 控制台的自动容量管理不适用于 LUN。当它创建 LUN 时，它会禁用自动增长功能。
+* 您可以从ONTAP系统管理器或ONTAP CLI 创建其他 LUN。
+
+
+.步骤
+. 从左侧导航菜单中，选择“存储”>“管理”。
+. 在*系统*页面上，双击要管理卷的Cloud Volumes ONTAP系统。
+. 在系统中，选择*Volumes*选项卡。
+. 转到所需的卷图块，然后选择*管理卷*以访问右侧的管理卷面板。
+. 单击*目标 iQN*。
+. 单击*复制*以复制 iQN 名称。
+. 建立从主机到 LUN 的 iSCSI 连接。
++
+** http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-iscsi-rhel-cg/GUID-15E8C226-BED5-46D0-BAED-379EA4311340.html["适用于 Red Hat Enterprise Linux 的ONTAP 9 iSCSI 快速配置：启动与目标的 iSCSI 会话"^]
+** http://docs.netapp.com/ontap-9/topic/com.netapp.doc.exp-iscsi-cpg/GUID-857453EC-90E9-4AB6-B543-83827CF374BF.html["适用于 Windows 的ONTAP 9 iSCSI 快速配置：启动与目标的 iSCSI 会话"^]
+** https://docs.netapp.com/us-en/ontap-sanhost/["ONTAP SAN 主机配置"^]
+
+
+

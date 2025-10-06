@@ -1,0 +1,706 @@
+---
+sidebar: sidebar 
+permalink: task-getting-started-aws-c2s.html 
+keywords: commercial cloud services, c2s, secret cloud, top secret cloud, aws secret region, the Console 
+summary: 与标准 AWS 区域类似，您可以在 AWS Secret Cloud 和 Top Secret Cloud 环境中部署Cloud Volumes ONTAP ，为您的云存储提供企业级功能。  AWS Secret Cloud 和 Top Secret Cloud 区域是特定于美国情报界的封闭区域；本页上的说明仅适用于 AWS Secret Cloud 和 Top Secret Cloud 区域用户。 
+---
+= 在 AWS Secret Cloud 或 AWS Top Secret Cloud 中部署Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+与标准 AWS 区域NetApp，您可以在link:https://aws.amazon.com/federal/secret-cloud/["AWS 秘密云"^]并且在link:https://aws.amazon.com/federal/top-secret-cloud/["AWS 顶级机密云"^]部署Cloud Volumes ONTAP，为您的云存储提供企业级功能。  AWS Secret Cloud 和 Top Secret Cloud 是特定于美国情报界的封闭区域；本页上的说明仅适用于 AWS Secret Cloud 和 Top Secret Cloud 区域用户。
+
+.开始之前
+在开始之前，请查看 AWS Secret Cloud 和 Top Secret Cloud 中支持的版本，并了解控制台中的私有模式。
+
+* 查看 AWS Secret Cloud 和 Top Secret Cloud 中支持的以下版本：
++
+** Cloud Volumes ONTAP 9.12.1 P2
+** 控制台代理版本 3.9.32
++
+需要控制台代理才能在 AWS 中部署和管理Cloud Volumes ONTAP 。您将从安装在控制台代理实例上的软件登录到控制台。  AWS Secret Cloud 和 Top Secret Cloud 不支持控制台的 SaaS 网站。
+
+
+
+* 了解私人模式
++
+在 AWS Secret Cloud 和 Top Secret Cloud 中，控制台以_私有模式_运行。在私人模式下，控制台与 SaaS 层没有连接。您可以通过可以访问控制台代理的本地基于 Web 的应用程序来访问控制台。
+
++
+要了解有关隐私模式工作原理的更多信息，请参阅link:https://docs.netapp.com/us-en/bluexp-setup-admin/concept-modes.html#private-mode["控制台中的私有部署模式"^]。
+
+
+
+
+
+== 步骤 1：设置网络
+
+设置您的 AWS 网络，以便Cloud Volumes ONTAP可以正常运行。
+
+.步骤
+. 选择要在其中启动控制台代理实例和Cloud Volumes ONTAP实例的 VPC 和子网。
+. 确保您的 VPC 和子网将支持控制台代理和Cloud Volumes ONTAP之间的连接。
+. 设置到 S3 服务的 VPC 端点。
++
+如果您想将冷数据从Cloud Volumes ONTAP到低成本对象存储，则需要 VPC 端点。
+
+
+
+
+
+== 步骤 2：设置权限
+
+设置 IAM 策略和角色，为控制台代理和Cloud Volumes ONTAP提供在 AWS Secret Cloud 或 Top Secret Cloud 中执行操作所需的权限。
+
+您需要针对以下各项制定 IAM 策略和 IAM 角色：
+
+* 控制台代理实例
+* Cloud Volumes ONTAP实例
+* 对于 HA 对， Cloud Volumes ONTAP HA 中介实例（如果您要部署 HA 对）
+
+
+.步骤
+. 转到 AWS IAM 控制台并单击 *策略*。
+. 为控制台代理实例创建策略。
++
+
+NOTE: 您创建这些策略来支持 AWS 环境中的 S3 存储桶。稍后创建存储桶时，请确保存储桶名称以 `fabric-pool-`。此要求适用于 AWS Secret Cloud 和 Top Secret Cloud 区域。
+
++
+[role="tabbed-block"]
+====
+.秘密区域
+--
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstances",
+                "ec2:DescribeInstanceStatus",
+                "ec2:RunInstances",
+                "ec2:ModifyInstanceAttribute",
+                "ec2:DescribeRouteTables",
+                "ec2:DescribeImages",
+                "ec2:CreateTags",
+                "ec2:CreateVolume",
+                "ec2:DescribeVolumes",
+                "ec2:ModifyVolumeAttribute",
+                "ec2:DeleteVolume",
+                "ec2:CreateSecurityGroup",
+                "ec2:DeleteSecurityGroup",
+                "ec2:DescribeSecurityGroups",
+                "ec2:RevokeSecurityGroupEgress",
+                "ec2:RevokeSecurityGroupIngress",
+                "ec2:AuthorizeSecurityGroupEgress",
+                "ec2:AuthorizeSecurityGroupIngress",
+                "ec2:CreateNetworkInterface",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DeleteNetworkInterface",
+                "ec2:ModifyNetworkInterfaceAttribute",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeVpcs",
+                "ec2:DescribeDhcpOptions",
+                "ec2:CreateSnapshot",
+                "ec2:DeleteSnapshot",
+                "ec2:DescribeSnapshots",
+                "ec2:GetConsoleOutput",
+                "ec2:DescribeKeyPairs",
+                "ec2:DescribeRegions",
+                "ec2:DeleteTags",
+                "ec2:DescribeTags",
+                "cloudformation:CreateStack",
+                "cloudformation:DeleteStack",
+                "cloudformation:DescribeStacks",
+                "cloudformation:DescribeStackEvents",
+                "cloudformation:ValidateTemplate",
+                "iam:PassRole",
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:PutRolePolicy",
+                "iam:ListInstanceProfiles",
+                "iam:CreateInstanceProfile",
+                "iam:DeleteRolePolicy",
+                "iam:AddRoleToInstanceProfile",
+                "iam:RemoveRoleFromInstanceProfile",
+                "iam:DeleteInstanceProfile",
+                "s3:GetObject",
+                "s3:ListBucket",
+                "s3:GetBucketTagging",
+                "s3:GetBucketLocation",
+                "s3:ListAllMyBuckets",
+                "kms:List*",
+                "kms:Describe*",
+                "ec2:AssociateIamInstanceProfile",
+                "ec2:DescribeIamInstanceProfileAssociations",
+                "ec2:DisassociateIamInstanceProfile",
+                "ec2:DescribeInstanceAttribute",
+                "ec2:CreatePlacementGroup",
+                "ec2:DeletePlacementGroup"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "fabricPoolPolicy",
+            "Effect": "Allow",
+            "Action": [
+                "s3:DeleteBucket",
+                "s3:GetLifecycleConfiguration",
+                "s3:PutLifecycleConfiguration",
+                "s3:PutBucketTagging",
+                "s3:ListBucketVersions"
+            ],
+            "Resource": [
+                "arn:aws-iso-b:s3:::fabric-pool*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:StartInstances",
+                "ec2:StopInstances",
+                "ec2:TerminateInstances",
+                "ec2:AttachVolume",
+                "ec2:DetachVolume"
+            ],
+            "Condition": {
+                "StringLike": {
+                    "ec2:ResourceTag/WorkingEnvironment": "*"
+                }
+            },
+            "Resource": [
+                "arn:aws-iso-b:ec2:*:*:instance/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:AttachVolume",
+                "ec2:DetachVolume"
+            ],
+            "Resource": [
+                "arn:aws-iso-b:ec2:*:*:volume/*"
+            ]
+        }
+    ]
+}
+----
+--
+.绝密地区
+--
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstances",
+                "ec2:DescribeInstanceStatus",
+                "ec2:RunInstances",
+                "ec2:ModifyInstanceAttribute",
+                "ec2:DescribeRouteTables",
+                "ec2:DescribeImages",
+                "ec2:CreateTags",
+                "ec2:CreateVolume",
+                "ec2:DescribeVolumes",
+                "ec2:ModifyVolumeAttribute",
+                "ec2:DeleteVolume",
+                "ec2:CreateSecurityGroup",
+                "ec2:DeleteSecurityGroup",
+                "ec2:DescribeSecurityGroups",
+                "ec2:RevokeSecurityGroupEgress",
+                "ec2:RevokeSecurityGroupIngress",
+                "ec2:AuthorizeSecurityGroupEgress",
+                "ec2:AuthorizeSecurityGroupIngress",
+                "ec2:CreateNetworkInterface",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DeleteNetworkInterface",
+                "ec2:ModifyNetworkInterfaceAttribute",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeVpcs",
+                "ec2:DescribeDhcpOptions",
+                "ec2:CreateSnapshot",
+                "ec2:DeleteSnapshot",
+                "ec2:DescribeSnapshots",
+                "ec2:GetConsoleOutput",
+                "ec2:DescribeKeyPairs",
+                "ec2:DescribeRegions",
+                "ec2:DeleteTags",
+                "ec2:DescribeTags",
+                "cloudformation:CreateStack",
+                "cloudformation:DeleteStack",
+                "cloudformation:DescribeStacks",
+                "cloudformation:DescribeStackEvents",
+                "cloudformation:ValidateTemplate",
+                "iam:PassRole",
+                "iam:CreateRole",
+                "iam:DeleteRole",
+                "iam:PutRolePolicy",
+                "iam:ListInstanceProfiles",
+                "iam:CreateInstanceProfile",
+                "iam:DeleteRolePolicy",
+                "iam:AddRoleToInstanceProfile",
+                "iam:RemoveRoleFromInstanceProfile",
+                "iam:DeleteInstanceProfile",
+                "s3:GetObject",
+                "s3:ListBucket",
+                "s3:GetBucketTagging",
+                "s3:GetBucketLocation",
+                "s3:ListAllMyBuckets",
+                "kms:List*",
+                "kms:Describe*",
+                "ec2:AssociateIamInstanceProfile",
+                "ec2:DescribeIamInstanceProfileAssociations",
+                "ec2:DisassociateIamInstanceProfile",
+                "ec2:DescribeInstanceAttribute",
+                "ec2:CreatePlacementGroup",
+                "ec2:DeletePlacementGroup"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "fabricPoolPolicy",
+            "Effect": "Allow",
+            "Action": [
+                "s3:DeleteBucket",
+                "s3:GetLifecycleConfiguration",
+                "s3:PutLifecycleConfiguration",
+                "s3:PutBucketTagging",
+                "s3:ListBucketVersions"
+            ],
+            "Resource": [
+                "arn:aws-iso:s3:::fabric-pool*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:StartInstances",
+                "ec2:StopInstances",
+                "ec2:TerminateInstances",
+                "ec2:AttachVolume",
+                "ec2:DetachVolume"
+            ],
+            "Condition": {
+                "StringLike": {
+                    "ec2:ResourceTag/WorkingEnvironment": "*"
+                }
+            },
+            "Resource": [
+                "arn:aws-iso:ec2:*:*:instance/*"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ec2:AttachVolume",
+                "ec2:DetachVolume"
+            ],
+            "Resource": [
+                "arn:aws-iso:ec2:*:*:volume/*"
+            ]
+        }
+    ]
+}
+----
+--
+====
+. 为Cloud Volumes ONTAP创建策略。
++
+[role="tabbed-block"]
+====
+.秘密区域
+--
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Action": "s3:ListAllMyBuckets",
+        "Resource": "arn:aws-iso-b:s3:::*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:ListBucket",
+            "s3:GetBucketLocation"
+        ],
+        "Resource": "arn:aws-iso-b:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:GetObject",
+            "s3:PutObject",
+            "s3:DeleteObject"
+        ],
+        "Resource": "arn:aws-iso-b:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }]
+}
+----
+--
+.绝密地区
+--
+[source, json]
+----
+{
+    "Version": "2012-10-17",
+    "Statement": [{
+        "Action": "s3:ListAllMyBuckets",
+        "Resource": "arn:aws-iso:s3:::*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:ListBucket",
+            "s3:GetBucketLocation"
+        ],
+        "Resource": "arn:aws-iso:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }, {
+        "Action": [
+            "s3:GetObject",
+            "s3:PutObject",
+            "s3:DeleteObject"
+        ],
+        "Resource": "arn:aws-iso:s3:::fabric-pool-*",
+        "Effect": "Allow"
+    }]
+}
+----
+--
+====
++
+对于 HA 对，如果您计划部署Cloud Volumes ONTAP HA 对，请为 HA 中介创建策略。
+
++
+[source, json]
+----
+{
+	"Version": "2012-10-17",
+	"Statement": [{
+			"Effect": "Allow",
+			"Action": [
+				"ec2:AssignPrivateIpAddresses",
+				"ec2:CreateRoute",
+				"ec2:DeleteRoute",
+				"ec2:DescribeNetworkInterfaces",
+				"ec2:DescribeRouteTables",
+				"ec2:DescribeVpcs",
+				"ec2:ReplaceRoute",
+				"ec2:UnassignPrivateIpAddresses"
+			],
+			"Resource": "*"
+		}
+	]
+}
+----
+. 创建角色类型为 Amazon EC2 的 IAM 角色并附加您在前面步骤中创建的策略。
++
+.创建角色：
+与策略类似，您应该为控制台代理设置一个 IAM 角色，为Cloud Volumes ONTAP节点设置一个 IAM 角色。对于 HA 对：与策略类似，您应该为控制台代理设置一个 IAM 角色，为Cloud Volumes ONTAP节点设置一个 IAM 角色，为 HA 中介设置一个 IAM 角色（如果您想要部署 HA 对）。
+
++
+.选择角色：
+启动控制台代理实例时，必须选择控制台代理 IAM 角色。当您从控制台创建Cloud Volumes ONTAP系统时，您可以选择Cloud Volumes ONTAP的 IAM 角色。对于 HA 对，您可以在创建Cloud Volumes ONTAP系统时选择Cloud Volumes ONTAP和 HA 中介的 IAM 角色。
+
+
+
+
+
+== 步骤 3：设置 AWS KMS
+
+如果您想要将 Amazon 加密与Cloud Volumes ONTAP结合使用，请确保满足 AWS 密钥管理服务 (KMS) 的要求。
+
+.步骤
+. 确保您的账户或其他 AWS 账户中存在有效的客户主密钥 (CMK)。
++
+CMK 可以是 AWS 管理的 CMK 或客户管理的 CMK。
+
+. 如果 CMK 位于与您计划部署Cloud Volumes ONTAP 的账户不同的 AWS 账户中，则需要获取该密钥的 ARN。
++
+创建Cloud Volumes ONTAP系统时，您需要向控制台提供 ARN。
+
+. 将实例的 IAM 角色添加到 CMK 的密钥用户列表中。
++
+这授予控制台使用 CMK 和Cloud Volumes ONTAP 的权限。
+
+
+
+
+
+== 步骤 4：安装控制台代理并设置控制台
+
+在开始使用控制台在 AWS 中部署Cloud Volumes ONTAP之前，您必须安装并设置控制台代理。它使控制台能够管理公共云环境（包括Cloud Volumes ONTAP）内的资源和流程。
+
+.步骤
+. 获取由证书颁发机构 (CA) 签名的、采用隐私增强邮件 (PEM) Base-64 编码 X.509 格式的根证书。请查阅您所在组织的政策和程序以获取证书。
++
+
+NOTE: 对于 AWS Secret Cloud 区域，您应该上传 `NSS Root CA 2`证书，对于 Top Secret Cloud， `Amazon Root CA 4`证书。确保仅上传这些证书而不是整个链。证书链文件很大，上传可能会失败。如果您有其他证书，您可以稍后上传，如下一步所述。
+
++
+您需要在设置过程中上传证书。控制台通过 HTTPS 向 AWS 发送请求时使用受信任的证书。
+
+. 启动控制台代理实例：
++
+.. 转到控制台的 AWS Intelligence Community Marketplace 页面。
+.. 在“自定义启动”选项卡上，选择从 EC2 控制台启动实例的选项。
+.. 按照提示配置实例。
++
+配置实例时请注意以下事项：
+
++
+*** 我们推荐 t3.xlarge。
+*** 您必须选择在设置权限时创建的 IAM 角色。
+*** 您应该保留默认存储选项。
+*** 控制台代理所需的连接方法如下：SSH、HTTP 和 HTTPS。
+
+
+
+
+. 从与实例有连接的主机设置控制台：
++
+.. 打开网络浏览器并输入 https://_ipaddress_[]其中 _ipaddress_ 是安装控制台代理的 Linux 主机的 IP 地址。
+.. 指定用于连接 AWS 服务的代理服务器。
+.. 上传您在步骤 1 中获得的证书。
+.. 按照提示设置新系统。
++
+*** *系统详细信息*：输入控制台代理的名称和您的公司名称。
+*** *创建管理员用户*：为系统创建管理员用户。
++
+该用户帐户在系统本地运行。无法通过控制台连接到 auth0 服务。
+
+*** *审核*：审核详细信息，接受许可协议，然后选择*设置*。
+
+
+.. 要完成 CA 签名证书的安装，请从 EC2 控制台重新启动控制台代理实例。
+
+
+. 控制台代理重新启动后，使用您在安装向导中创建的管理员用户帐户登录。
+
+
+
+
+== 步骤 5：（可选）安装私有模式证书
+
+对于 AWS Secret Cloud 和 Top Secret Cloud 区域，此步骤是可选的，并且仅当您除了上一步中安装的根证书之外还有其他证书时才需要执行此步骤。
+
+.步骤
+. 列出现有安装的证书。
++
+.. 要收集 occm 容器 docker id（标识名称“ds-occm-1”），请运行以下命令：
++
+[source, CLI]
+----
+docker ps
+----
+.. 要进入 occm 容器，请运行以下命令：
++
+[source, CLI]
+----
+docker exec -it <docker-id> /bin/sh
+----
+.. 要从“TRUST_STORE_PASSWORD”环境变量收集密码，请运行以下命令：
++
+[source, CLI]
+----
+env
+----
+.. 要列出信任库中所有已安装的证书，请运行以下命令并使用上一步收集的密码：
++
+[source, CLI]
+----
+keytool -list -v -keystore occm.truststore
+----
+
+
+. 添加证书。
++
+.. 要收集 occm 容器 docker id（标识名称“ds-occm-1”），请运行以下命令：
++
+[source, CLI]
+----
+docker ps
+----
+.. 要进入 occm 容器，请运行以下命令：
++
+[source, CLI]
+----
+docker exec -it <docker-id> /bin/sh
+----
++
+将新的证书文件保存在里面。
+
+.. 要从“TRUST_STORE_PASSWORD”环境变量收集密码，请运行以下命令：
++
+[source, CLI]
+----
+env
+----
+.. 要将证书添加到信任库，请运行以下命令并使用上一步中的密码：
++
+[source, CLI]
+----
+keytool -import -alias <alias-name> -file <certificate-file-name> -keystore occm.truststore
+----
+.. 要检查证书是否已安装，请运行以下命令：
++
+[source, CLI]
+----
+keytool -list -v -keystore occm.truststore -alias <alias-name>
+----
+.. 要退出 occm 容器，请运行以下命令：
++
+[source, CLI]
+----
+exit
+----
+.. 要重置 occm 容器，请运行以下命令：
++
+[source, CLI]
+----
+docker restart <docker-id>
+----
+
+
+
+
+--
+
+--
+
+
+== 步骤 6：向控制台添加许可证
+
+如果您从NetApp购买了许可证，则需要将其添加到控制台，以便在创建新的Cloud Volumes ONTAP系统时选择该许可证。在将这些许可证与新的Cloud Volumes ONTAP系统关联之前，它们将保持未分配状态。
+
+.步骤
+. 从左侧导航菜单中，选择*许可证和订阅*。
+. 在 * Cloud Volumes ONTAP* 面板上，选择 *查看*。
+. 在 * Cloud Volumes ONTAP* 选项卡上，选择 *许可证>基于节点的许可证*。
+. 单击“*未分配*”。
+. 单击“添加未分配的许可证”。
+. 输入许可证的序列号或上传许可证文件。
+. 如果您还没有许可证文件，则需要从 netapp.com 手动上传许可证文件。
++
+.. 前往link:https://register.netapp.com/site/vsnr/register/getlicensefile["NetApp许可证文件生成器"^]并使用您的NetApp支持站点凭据登录。
+.. 输入您的密码，选择您的产品，输入序列号，确认您已阅读并接受隐私政策，然后单击*提交*。
+.. 选择您是否希望通过电子邮件或直接下载接收 serialnumber.NLF JSON 文件。
+
+
+. 单击“添加许可证”。
+
+
+.结果
+控制台会将许可证添加为未分配状态，直到您将其与新的Cloud Volumes ONTAP系统关联。您可以在左侧导航菜单的“*许可证和订阅 > Cloud Volumes ONTAP > 查看 > 许可证*”下看到许可证。
+
+
+
+== 步骤 7：从控制台启动Cloud Volumes ONTAP
+
+您可以通过在控制台中创建新系统来在 AWS Secret Cloud 和 Top Secret Cloud 中启动Cloud Volumes ONTAP实例。
+
+.开始之前
+对于 HA 对，需要密钥对来启用对 HA 中介的基于密钥的 SSH 身份验证。
+
+.步骤
+. 在“*系统*”页面上，单击“*添加系统*”。
+. 在“*创建*”下，选择Cloud Volumes ONTAP。
++
+对于 HA：在 *创建* 下，选择Cloud Volumes ONTAP或Cloud Volumes ONTAP HA。
+
+. 完成向导中的步骤以启动Cloud Volumes ONTAP系统。
++
+
+CAUTION: 通过向导进行选择时，请不要选择*服务*下的*数据感知与合规性*和*备份到云*。在*预配置包*下，仅选择*更改配置*，并确保您没有选择任何其他选项。  AWS Secret Cloud 和 Top Secret Cloud 区域不支持预配置包，如果选择，您的部署将失败。
+
+
+
+.在多个可用区中部署Cloud Volumes ONTAP HA 的注意事项
+完成 HA 对向导时请注意以下事项。
+
+* 在多个可用区 (AZ) 中部署Cloud Volumes ONTAP HA 时，您应该配置一个传输网关。有关说明，请参阅link:task-setting-up-transit-gateway.html["设置 AWS 中转网关"]。
+* 由于发布时 AWS Top Secret Cloud 中只有两个可用可用区，因此请按如下方式部署配置：
++
+** 节点 1：可用区 A
+** 节点 2：可用区 B
+** 调解员：可用区域 A 或 B
+
+
+
+
+.在单节点和 HA 节点中部署Cloud Volumes ONTAP 的注意事项
+完成向导时请注意以下事项：
+
+* 您应该保留默认选项以使用生成的安全组。
++
+预定义的安全组包含Cloud Volumes ONTAP成功运行所需的规则。如果您有使用自己的需求，可以参考下面的安全组部分。
+
+* 您必须选择在准备 AWS 环境时创建的 IAM 角色。
+* 底层 AWS 磁盘类型适用于初始Cloud Volumes ONTAP卷。
++
+您可以为后续卷选择不同的磁盘类型。
+
+* AWS 磁盘的性能与磁盘大小相关。
++
+您应该选择能够提供所需持续性能的磁盘大小。有关 EBS 性能的更多详细信息，请参阅 AWS 文档。
+
+* 磁盘大小是系统上所有磁盘的默认大小。
++
+
+NOTE: 如果您稍后需要不同的大小，则可以使用高级分配选项来创建使用特定大小磁盘的聚合。
+
+
+
+.结果
+Cloud Volumes ONTAP实例已启动。您可以在*审计*页面跟踪进度。
+
+
+
+== 步骤 8：安装数据分层的安全证书
+
+您需要手动安装安全证书才能在 AWS Secret Cloud 和 Top Secret Cloud 区域中启用数据分层。
+
+.开始之前
+. 创建 S3 存储桶。
++
+
+NOTE: 确保存储桶名称带有前缀 `fabric-pool-.`例如 `fabric-pool-testbucket`。
+
+. 保留您安装的根证书 `step 4`便利。
+
+
+.步骤
+. 复制您安装的根证书中的文本 `step 4`。
+. 使用 CLI 安全地连接到Cloud Volumes ONTAP系统。
+. 安装根证书。您可能需要按 `ENTER`多次键入：
++
+[listing]
+----
+security certificate install -type server-ca -cert-name <certificate-name>
+----
+. 出现提示时，输入复制的整个文本，包括 `----- BEGIN CERTIFICATE -----`到 `----- END CERTIFICATE -----`。
+. 保留 CA 签名的数字证书的副本以供将来参考。
+. 保留 CA 名称和证书序列号。
+. 为 AWS Secret Cloud 和 Top Secret Cloud 区域配置对象存储： `set -privilege advanced -confirmations off`
+. 运行此命令来配置对象存储。
++
+
+NOTE: 所有 Amazon 资源名称 (ARN) 都应以 `-iso-b`， 例如 `arn:aws-iso-b`。例如，如果资源需要具有区域的 ARN，对于 Top Secret Cloud，请使用以下命名约定 `us-iso-b`对于 `-server`旗帜。对于 AWS Secret Cloud，使用 `us-iso-b-1`。
+
++
+[listing]
+----
+storage aggregate object-store config create -object-store-name <S3Bucket> -provider-type AWS_S3 -auth-type EC2-IAM -server <s3.us-iso-b-1.server_name> -container-name <fabric-pool-testbucket> -is-ssl-enabled true -port 443
+----
+. 验证对象存储是否已成功创建： `storage aggregate object-store show -instance`
+. 将对象存储附加到聚合。对于每个新的聚合体都应重复此操作： `storage aggregate object-store attach -aggregate <aggr1> -object-store-name <S3Bucket>`
+

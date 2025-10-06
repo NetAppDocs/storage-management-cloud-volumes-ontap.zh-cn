@@ -1,0 +1,367 @@
+---
+sidebar: sidebar 
+permalink: task-tiering.html 
+keywords: tier, tiering, cold data, hot data, storage tiering, data tiering, fabricpool, fabric pool, s3 endpoint, endpoint, connection, performance tier, capacity tier, object store, blob tiering, container, inactive, tiering requirements, remove S3 bucket, delete S3 CVO bucket, tenant, multi-tenant tiering 
+summary: 您可以通过将用于热数据的 SSD 或 HDD 性能层与用于非活动数据的对象存储容量层相结合来降低Cloud Volumes ONTAP的存储成本。数据分层由FabricPool技术提供支持。 
+---
+= 将非活动Cloud Volumes ONTAP数据分层到低成本对象存储
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以通过将用于热数据的 SSD 或 HDD 性能层与用于非活动数据的对象存储容量层相结合来降低Cloud Volumes ONTAP的存储成本。数据分层由FabricPool技术提供支持。有关高级概述，请参阅link:concept-data-tiering.html["数据分层概述"]。
+
+要设置数据分层，您需要执行以下操作：
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]选择支持的配置
+[role="quick-margin-para"]
+大多数配置都受支持。如果您拥有运行最新版本的Cloud Volumes ONTAP系统，那么您就可以开始了。link:task-tiering.html#configurations-that-support-data-tiering["了解更多"] 。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]确保Cloud Volumes ONTAP与对象存储之间的连接
+[role="quick-margin-list"]
+ifdef::aws[]
+
+* 对于 AWS，您需要一个 VPC Endpoint 到 S3。<<将冷数据分层到 AWS S3 的要求,了解更多>> 。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* 对于 Azure，只要NetApp控制台具有所需的权限，您就不需要执行任何操作。<<将冷数据分层到 Azure Blob 存储的要求,了解更多>> 。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* 对于 Google Cloud，您需要配置私有 Google Access 子网并设置服务帐户。<<将冷数据分层到 Google Cloud Storage 存储桶的要求,了解更多>> 。
+
+
+endif::gcp[]
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]确保您已启用分层聚合
+[role="quick-margin-para"]
+应在聚合上启用数据分层，以便在卷上启用它。您应该了解新卷和现有卷的要求。<<确保在聚合上启用分层,了解更多>> 。
+
+.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]创建、修改或复制卷时选择分层策略
+[role="quick-margin-para"]
+当您创建、修改或复制卷时， NetApp控制台会提示您选择分层策略。
+
+[role="quick-margin-list"]
+* link:task-tiering.html#tier-data-from-read-write-volumes["来自读写卷的层数据"]
+* link:task-tiering.html#tier-data-from-data-protection-volumes["来自数据保护卷的分层数据"]
+
+
+[NOTE]
+.数据分层不需要什么？
+====
+* 您不需要安装功能许可证来启用数据分层。
+* 您不需要为容量层创建对象存储。控制台会为您完成该操作。
+* 您不需要在系统级别启用数据分层。
++
+控制台在创建系统时为冷数据创建对象存储，<<实现要求后启用数据分层,只要没有连接或权限问题>> 。之后，您只需要在卷上启用数据分层（在某些情况下，<<确保在聚合上启用分层,在聚合体上>> ）。
+
+
+
+====
+
+
+== 支持数据分层的配置
+
+您可以在使用特定配置和功能时启用数据分层。
+
+ifdef::aws[]
+
+
+
+=== AWS 支持
+
+* 从Cloud Volumes ONTAP 9.2 开始，AWS 支持数据分层。
+* 性能层可以是通用 SSD（gp3 或 gp2）或预配置 IOPS SSD（io1）。
++
+
+NOTE: 使用吞吐量优化 HDD (st1) 时，我们不建议将数据分层到对象存储。
+
+* 非活动数据分层存储到 Amazon S3 存储桶。不支持分层到其他提供商。
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+
+
+=== Azure 中的支持
+
+* Azure 支持数据分层，如下所示：
++
+** 9.4 版，带单节点系统
+** 9.6 版，配备 HA 对
+
+
+* 性能层可以是高级 SSD 托管磁盘、标准 SSD 托管磁盘或标准 HDD 托管磁盘。
+* 非活动数据分层到 Microsoft Azure Blob。不支持分层到其他提供商。
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+
+
+=== Google Cloud 支持
+
+* 从Cloud Volumes ONTAP 9.6 开始，Google Cloud 支持数据分层。
+* 性能层可以是 SSD 持久磁盘、平衡持久磁盘或标准持久磁盘。
+* 非活动数据分层存储到 Google Cloud Storage。不支持分层到其他提供商。
+
+
+endif::gcp[]
+
+
+
+=== 功能互操作性
+
+* 数据分层由加密技术支持。
+* 必须在卷上启用精简配置。
+
+
+
+
+== 要求
+
+根据您的云提供商，必须设置某些连接和权限，以便Cloud Volumes ONTAP可以将冷数据分层到对象存储。
+
+ifdef::aws[]
+
+
+
+=== 将冷数据分层到 AWS S3 的要求
+
+确保Cloud Volumes ONTAP与 S3 有连接。提供该连接的最佳方式是创建到 S3 服务的 VPC 端点。有关说明，请参阅 https://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/vpce-gateway.html#create-gateway-endpoint["AWS 文档：创建网关终端节点"^]。
+
+创建 VPC 端点时，请确保选择与Cloud Volumes ONTAP实例相对应的区域、VPC 和路由表。您还必须修改安全组以添加允许流量到 S3 端点的出站 HTTPS 规则。否则， Cloud Volumes ONTAP无法连接到 S3 服务。
+
+如果您遇到任何问题，请参阅 https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/["AWS Support 知识中心：为什么我无法使用网关 VPC 终端节点连接到 S3 存储桶？"^]。
+
+endif::aws[]
+
+ifdef::azure[]
+
+
+
+=== 将冷数据分层到 Azure Blob 存储的要求
+
+只要控制台具有所需的权限，您就不需要在性能层和容量层之间建立连接。如果控制台代理的自定义角色具有以下权限，则控制台将为您启用 VNet 服务终结点：
+
+[source, json]
+----
+"Microsoft.Network/virtualNetworks/subnets/write",
+"Microsoft.Network/routeTables/join/action",
+----
+自定义角色默认包含权限。 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html["查看控制台代理的 Azure 权限"^]
+
+endif::azure[]
+
+ifdef::gcp[]
+
+
+
+=== 将冷数据分层到 Google Cloud Storage 存储桶的要求
+
+* 必须为Cloud Volumes ONTAP所在的子网配置私有 Google Access。有关说明，请参阅 https://cloud.google.com/vpc/docs/configure-private-google-access["Google Cloud 文档：配置私有 Google 访问权限"^]。
+* 必须将服务帐户附加到Cloud Volumes ONTAP。
++
+link:task-creating-gcp-service-account.html["了解如何设置此服务帐号"] 。
+
++
+创建Cloud Volumes ONTAP系统时，系统会提示您选择此服务帐户。
+
++
+如果您在部署期间未选择服务帐户，则需要关闭Cloud Volumes ONTAP，转到 Google Cloud 控制台，然后将服务帐户附加到Cloud Volumes ONTAP实例。然后，您可以按照下一节中的描述启用数据分层。
+
+* 要使用客户管理的加密密钥加密存储桶，请启用 Google Cloud 存储桶以使用该密钥。
++
+link:task-setting-up-gcp-encryption.html["了解如何将客户管理的加密密钥与Cloud Volumes ONTAP结合使用"] 。
+
+
+
+endif::gcp[]
+
+
+
+=== 实现要求后启用数据分层
+
+只要没有连接或权限问题，控制台就会在创建系统时为冷数据创建对象存储。如果您在创建系统之后才实现上面列出的要求，那么您将需要通过 API 或ONTAP系统管理器手动启用分层，从而创建对象存储。
+
+
+NOTE: 通过控制台启用分层的功能将在未来的Cloud Volumes ONTAP版本中提供。
+
+
+
+== 确保在聚合上启用分层
+
+必须在聚合上启用数据分层才能在卷上启用数据分层。您应该了解新卷和现有卷的要求。
+
+* *新卷*
++
+如果您在新卷上启用数据分层，则无需担心在聚合上启用数据分层。控制台在已启用分层的现有聚合上创建卷，或者如果尚不存在启用数据分层的聚合，则为该卷创建新的聚合。
+
+* *现有卷*
++
+要在现有卷上启用数据分层，请确保在底层聚合上启用它。如果现有聚合上未启用数据分层，则需要使用ONTAP系统管理器将现有聚合附加到对象存储。
+
+
+
+.确认聚合上是否启用了分层的步骤
+. 从左侧导航菜单中，选择“存储”>“管理”。
+. 打开Cloud Volumes ONTAP系统。
+. 选择“*聚合*”选项卡并检查聚合上是否启用或禁用分层。
++
+image:screenshot_aggregate_tiering_enabled.png["屏幕截图显示了控制台中有关聚合的信息，其中包括分层状态。"]
+
+
+
+.在聚合上启用分层的步骤
+. 在ONTAP系统管理器中，单击“存储”>“层级”。
+. 单击聚合的操作菜单并选择*附加云层*。
+. 选择要附加的云层并单击*保存*。
+
+
+.下一步是什么？
+您现在可以在新卷和现有卷上启用数据分层，如下一节所述。
+
+
+
+== 来自读写卷的层数据
+
+Cloud Volumes ONTAP可以将读写卷上的非活动数据分层到经济高效的对象存储中，从而释放性能层以存储热数据。
+
+.步骤
+. 在系统下的*Volumes*选项卡中，创建一个新卷或更改现有卷的层：
++
+[cols="30,70"]
+|===
+| 任务 | 操作 
+
+
+| 创建新卷 | 单击“添加新卷”。 
+
+
+| 修改现有卷 | 选择所需的卷图块，单击*管理卷*以访问管理卷右侧面板，然后单击右侧面板下的*高级操作*和*更改分层策略*。 
+|===
+. 选择分层策略。
++
+有关这些政策的描述，请参阅link:concept-data-tiering.html["数据分层概述"]。
+
++
+*例子*
+
++
+image:screenshot_volumes_change_tiering_policy.png["屏幕截图显示了可用于更改卷分层策略的选项。"]
+
++
+如果尚不存在启用数据分层的聚合，则控制台会为卷创建一个新的聚合。
+
+
+
+
+
+== 来自数据保护卷的分层数据
+
+Cloud Volumes ONTAP可以将数据从数据保护卷分层到容量层。如果激活目标卷，数据在读取时会逐渐移动到性能层。
+
+.步骤
+. 从左侧导航菜单中，选择“存储”>“管理”。
+. 在 *系统* 页面上，选择包含源卷的Cloud Volumes ONTAP系统，然后将其拖动到要将卷复制到的系统。
+. 按照提示操作，直到到达分层页面并启用数据分层到对象存储。
++
+*例子*
+
++
+image:screenshot_replication_tiering.gif["屏幕截图显示了复制卷时的 S3 分层选项。"]
+
++
+有关复制数据的帮助，请参阅 https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["将数据复制到云端或从云端复制数据"^]。
+
+
+
+
+
+== 更改分层数据的存储类别
+
+部署Cloud Volumes ONTAP后，您可以通过更改 30 天未访问的非活动数据的存储类别来降低存储成本。如果您确实访问数据，则访问成本会更高，因此在更改存储类之前必须考虑到这一点。
+
+分层数据的存储类别是系统范围的，而不是每个卷的。
+
+有关受支持的存储类别的信息，请参阅link:concept-data-tiering.html["数据分层概述"]。
+
+.步骤
+. 在Cloud Volumes ONTAP系统上，单击菜单图标，然后单击 *存储类* 或 *Blob 存储分层*。
+. 选择一个存储类，然后单击*保存*。
+
+
+
+
+== 更改数据分层的可用空间比率
+
+数据分层的可用空间比率定义了将数据分层到对象存储时Cloud Volumes ONTAP SSD/HDD 上需要多少可用空间。默认设置是 10% 的可用空间，但您可以根据需要调整设置。
+
+例如，您可以选择少于 10% 的可用空间，以确保您利用所购买的容量。当需要额外容量时，控制台可以为您购买额外的磁盘（直到达到聚合的磁盘限制）。
+
+
+CAUTION: 如果没有足够的空间，那么Cloud Volumes ONTAP就无法移动数据，并且您可能会遇到性能下降的情况。任何改变都应谨慎进行。如果您不确定，请联系NetApp支持寻求指导。
+
+该比率对于灾难恢复场景很重要，因为当从对象存储读取数据时， Cloud Volumes ONTAP会将数据移动到 SSD/HDD 以提供更好的性能。如果没有足够的空间，那么Cloud Volumes ONTAP就无法移动数据。在更改比例时请考虑到这一点，以便满足您的业务需求。
+
+.步骤
+. 从左侧导航窗格转到*管理>代理*。
+. 点击image:icon-action.png[""]管理Cloud Volumes ONTAP系统的控制台代理的图标。
+. 选择* Cloud Volumes ONTAP设置*。
++
+image::screenshot-settings-cloud-volumes-ontap.png[设置图标下的Cloud Volumes ONTAP设置选项的屏幕截图。]
+
+. 在“*容量*”下，单击“*聚合容量阈值 - 数据分层的可用空间比率*”。
++
+image:screenshot-cvo-settings-page.png["Cloud Volumes ONTAP容量设置概述。"]
+
+. 根据您的要求更改可用空间比例，然后单击“保存”。
+
+
+
+
+== 更改自动分层策略的冷却期
+
+如果您使用自动分层策略在Cloud Volumes ONTAP卷上启用了数据分层，则可以根据业务需求调整默认冷却期。仅使用ONTAP CLI 和 API 支持此操作。
+
+冷却期是指卷中的用户数据在被视为“冷”并移动到对象存储之前必须保持不活动的天数。
+
+自动分层策略的默认冷却期为 31 天。您可以按如下方式更改冷却时间：
+
+* 9.8 或更高版本：2 天至 183 天
+* 9.7 或更早版本：2 天至 63 天
+
+
+.步骤
+. 创建卷或修改现有卷时，请在 API 请求中使用 _minimumCoolingDays_ 参数。
+
+
+
+
+== 在系统退役时删除 S3 存储桶
+
+当您退役环境时，您可以从Cloud Volumes ONTAP系统中删除包含分层数据的 S3 存储桶。
+
+仅当满足以下条件时，您才可以删除 S3 存储桶：
+
+* Cloud Volume ONTAP系统已从控制台中删除。
+* 所有对象都从存储桶中删除，并且 S3 存储桶为空。
+
+
+当您退役Cloud Volumes ONTAP系统时，为该环境创建的 S3 存储桶不会被自动删除。相反，它保持孤立状态以防止任何意外的数据丢失。您可以删除存储桶中的对象，然后移除 S3 存储桶本身，或者保留它以供日后使用。参考 https://docs.netapp.com/us-en/ontap-cli/vserver-object-store-server-bucket-delete.html#description["ONTAP CLI：vserver object-store-server bucket 删除"^]。

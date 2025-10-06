@@ -1,0 +1,110 @@
+---
+sidebar: sidebar 
+permalink: task-administer-advanced-view.html 
+keywords: system manager, advanced view, access system manager, load system manager, use system manager, cloud tiering 
+summary: 如果您需要对Cloud Volumes ONTAP执行高级管理，则可以使用ONTAP System Manager（它是ONTAP系统提供的管理界面）来执行此操作。我们已将系统管理器界面直接包含在控制台内，这样您无需离开控制台即可进行高级管理。 
+---
+= 使用系统管理器管理Cloud Volumes ONTAP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP中的高级存储管理功能可通过ONTAP系统管理器 (ONTAP System Manager) 使用，它是ONTAP系统提供的管理界面。您可以直接从NetApp控制台访问系统管理器。
+
+
+
+== 功能
+
+您可以使用控制台中的ONTAP系统管理器执行各种存储管理功能。以下列表包含其中一些功能，但并不详尽：
+
+* 高级存储管理：管理一致性组、共享、qtree、配额和存储虚拟机。
+* 成交量变动： link:task-manage-volumes.html#move-a-volume["将卷移动到不同的聚合。"]
+* 网络管理：管理 IP 空间、网络接口、端口集和以太网端口。
+* 管理FlexGroup卷：您只能通过系统管理器创建和管理FlexGroup卷。BlueXP控制台不支持FlexGroup卷创建。
+* 事件和作业：查看事件日志、系统警报、作业和审计日志。
+* 高级数据保护：保护存储虚拟机、LUN 和一致性组。
+* 主机管理：设置 SAN 启动器组和 NFS 客户端。
+* S3 对象存储管理： Cloud Volumes ONTAP中的 S3 存储管理功能仅在系统管理器中可用，而不在控制台中可用。
+
+
+
+
+== 支持的配置
+
+* 标准云区域中的Cloud Volumes ONTAP 9.10.0 及更高版本可通过ONTAP System Manager 进行高级存储管理。
+* GovCloud 区域或没有出站互联网访问的区域不支持系统管理器集成。
+
+
+
+
+== 限制
+
+Cloud Volumes ONTAP不支持系统管理器界面中显示的一些功能：
+
+* NetApp Cloud Tiering： Cloud Volumes ONTAP不支持 Cloud Tiering。创建卷时，您应该直接从标准视图设置数据分层到对象存储。
+* 层级：系统管理器不支持聚合管理（包括本地层级和云层级）。您必须直接从标准视图管理聚合。
+* 固件升级： Cloud Volumes ONTAP不支持从系统管理器的 *集群 > 设置* 页面进行自动固件更新。
+* 基于角色的访问控制：系统管理器不支持基于角色的访问控制。
+* SMB 持续可用性 (CA)： Cloud Volumes ONTAP不支持 https://kb.netapp.com/on-prem/ontap/da/NAS/NAS-KBs/What_are_SMB_Continuous_Availability_CA_Shares["持续可用的 SMB 共享"^]实现无中断运行。
+
+
+
+
+== 配置访问系统管理器的身份验证
+
+作为管理员，您可以为从控制台访问ONTAP系统管理器的用户激活身份验证。您可以根据ONTAP用户角色确定正确的访问权限级别，并根据需要启用或禁用身份验证。如果启用身份验证，则用户每次从控制台访问系统管理器或重新加载页面时都需要输入其ONTAP用户凭据，因为控制台不会在内部存储凭据。如果您禁用身份验证，用户可以使用管理员凭据访问系统管理器。
+
+
+NOTE: 此设置适用于您组织或帐户中的ONTAP用户的每个控制台代理，无论Cloud Volumes ONTAP系统如何。
+
+.所需权限
+您需要分配组织或帐户管理员权限才能修改Cloud Volumes ONTAP用户身份验证的控制台代理设置。
+
+.步骤
+. 从左侧导航窗格转到*管理>代理*。
+. 点击image:icon-action.png[""]所需控制台代理的图标并选择*编辑控制台代理*。
+. 在*强制用户凭据*下，选中*启用/禁用*复选框。默认情况下，身份验证是禁用的。
++
+
+NOTE: 如果将此值设置为*启用*，身份验证将被重置，并且您必须修改任何现有工作流程以适应此更改。
+
+. 单击“保存”。
+
+
+
+
+== 开始使用系统管理器
+
+您可以从Cloud Volumes ONTAP系统访问ONTAP System Manager。
+
+.步骤
+. 从左侧导航菜单中，选择“存储”>“管理”。
+. 在*系统*页面上，双击所需的Cloud Volumes ONTAP系统。
+. 单击“*系统管理器*”。
++
+image:screenshot_advanced_view.png["显示系统管理器按钮的屏幕截图。"]
+
+. 如果出现提示，请输入您的ONTAP用户凭据并单击 *登录*。
+. 如果出现确认消息，请仔细阅读并单击“*关闭*”。
+
+
+使用系统管理器来管理您的Cloud Volumes ONTAP系统。您可以单击“*返回*”返回控制台。
+
+
+
+== 有关使用系统管理器的帮助
+
+如果您需要有关使用 System Manager 和Cloud Volumes ONTAP 的帮助，您可以参考 https://docs.netapp.com/us-en/ontap/index.html["ONTAP 文档"^]以获得分步说明。以下是一些可能有帮助的ONTAP文档链接：
+
+* https://docs.netapp.com/us-en/ontap/ontap-security-hardening/roles-applications-authentication.html["ONTAP角色、应用程序和身份验证"^]
+* https://docs.netapp.com/us-en/ontap/system-admin/access-cluster-system-manager-browser-task.html["使用 System Manager 访问集群"^] 。
+* https://docs.netapp.com/us-en/ontap/volume-admin-overview-concept.html["卷和 LUN 管理"^]
+* https://docs.netapp.com/us-en/ontap/network-manage-overview-concept.html["网管"^]
+* https://docs.netapp.com/us-en/ontap/concept_dp_overview.html["数据保护"^]
+* https://docs.netapp.com/us-en/ontap/smb-hyper-v-sql/create-continuously-available-shares-task.html["创建持续可用的 SMB 共享"^]
+

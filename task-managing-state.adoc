@@ -1,0 +1,90 @@
+---
+sidebar: sidebar 
+permalink: task-managing-state.html 
+keywords: schedule, schedules, scheduling, shutdowns, shut down, restart, stop, stopping, turn off, weekday, weekend 
+summary: 您可以从NetApp控制台停止和启动Cloud Volumes ONTAP来管理您的云计算成本。 
+---
+= 启动和停止Cloud Volumes ONTAP系统
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以从NetApp控制台停止和启动Cloud Volumes ONTAP来管理您的云计算成本。
+
+
+
+== 安排Cloud Volumes ONTAP自动关闭
+
+您可能希望在特定时间间隔内关闭Cloud Volumes ONTAP以降低计算成本。您无需手动执行此操作，而是可以将控制台配置为在特定时间自动关闭然后重新启动系统。
+
+.关于此任务
+* 当您计划自动关闭Cloud Volumes ONTAP系统时，如果正在进行活动数据传输，控制台会推迟关闭。
++
+传输完成后，系统将关闭。
+
+* 此任务计划自动关闭 HA 对中的两个节点。
+* 通过计划关闭来关闭Cloud Volumes ONTAP时，不会创建启动磁盘和根磁盘的快照。
++
+如下一节所述，只有在执行手动关机时才会自动创建快照。
+
+
+
+.步骤
+. 在*系统*页面上，双击Cloud Volumes ONTAP系统。
+. 在“概览”选项卡上，单击“功能”面板，然后单击“*计划停机时间*”旁边的铅笔图标。
++
+image::screenshot_schedule_downtime.png[400]
+
+. 指定关机计划：
++
+.. 选择是否每天、每个工作日、每个周末或这三个选项的任意组合关闭系统。
+.. 指定您想要关闭系统的时间以及关闭系统的时间长度。
++
+*例子*
+
++
+下图显示了一个时间表，指示控制台每周六晚上 20:00（晚上 8:00）关闭系统 12 小时。控制台每周一凌晨 12:00 重启系统
+
++
+image:screenshot_schedule_downtime_window.png["屏幕截图：显示计划停机时间屏幕。"]
+
+
+
+. 单击“保存”。
+
+
+.结果
+时间表已保存。功能面板下相应的计划停机时间行项目显示“开启”。
+
+
+
+== 停止Cloud Volumes ONTAP
+
+停止Cloud Volumes ONTAP可节省计算成本并创建根磁盘和启动磁盘的快照，这有助于排除故障。
+
+
+NOTE: 为了降低成本，控制台会定期删除根和启动磁盘的旧快照。根磁盘和启动磁盘仅保留最近的两个快照。
+
+.关于此任务
+当您停止 HA 对时，控制台将关闭两个节点。
+
+.步骤
+. 在系统中，单击“*关闭*”图标。
++
+image:screenshot_turn_off_redesign.png["屏幕截图：显示关闭Cloud Volumes ONTAP系统的图标。"]
+
+. 保持创建快照的选项处于启用状态，因为快照可以启用系统恢复。
+. 单击“关闭”。
++
+停止系统可能需要几分钟的时间。您可以稍后从*系统*页面重新启动系统。
+
++
+
+NOTE: 重启时会自动创建快照。
+
+

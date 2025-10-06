@@ -1,0 +1,158 @@
+---
+sidebar: sidebar 
+permalink: concept-security.html 
+keywords: security, encryption, antivirus, concepts, key managers, safenet, kms, keys, vscan, encrypt, key management service, cmk, customer master key, data at rest, data-at-rest, netapp storage encryption, certificate signing request, csr, certificate, ca certificate, virus, scan, virus scan, certificate authority, netapp volume encryption, nve, volume encryption, key management server, ransomware, fpolicy, snapshots 
+summary: Cloud Volumes ONTAP支持数据加密并提供防病毒和勒索软件的保护。 
+---
+= 了解Cloud Volumes ONTAP数据加密和勒索软件防护
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP支持数据加密并提供防病毒和勒索软件的保护。
+
+
+
+== 静态数据加密
+
+Cloud Volumes ONTAP支持以下加密技术：
+
+* NetApp加密解决方案（NVE 和 NAE）
+
+
+ifdef::aws[]
+
+* AWS 密钥管理服务
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Azure 存储服务加密
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Google Cloud Platform 默认加密
+
+
+endif::gcp[]
+
+您可以将NetApp加密解决方案与云提供商提供的本机加密结合使用，以在虚拟机管理程序级别加密数据。这样做可以提供双重加密，这对于非常敏感的数据来说可能是必要的。当访问加密数据时，它会被解密两次 - 一次在虚拟机管理程序级别（使用来自云提供商的密钥），然后再次使用NetApp加密解决方案（使用来自外部密钥管理器的密钥）。
+
+
+
+=== NetApp加密解决方案（NVE 和 NAE）
+
+Cloud Volumes ONTAP支持 https://www.netapp.com/pdf.html?item=/media/17070-ds-3899.pdf["NetApp卷加密 (NVE) 和NetApp聚合加密 (NAE)"^]。  NVE 和 NAE 是基于软件的解决方案，可实现符合 (FIPS) 140-2 标准的卷静态数据加密。  NVE 和 NAE 都使用 AES 256 位加密。
+
+* NVE 每次对一个卷的静态数据进行加密。每个数据卷都有自己独特的加密密钥。
+* NAE 是 NVE 的扩展——它对每个卷的数据进行加密，并且卷在聚合体中共享一个密钥。  NAE 还允许对聚合中所有卷的公共块进行重复数据删除。
+
+
+Cloud Volumes ONTAP通过 AWS、Azure 和 Google Cloud 提供的外部密钥管理服务 (EKM) 支持 NVE 和 NAE，包括第三方解决方案，例如 Fortanix。与ONTAP不同，对于Cloud Volumes ONTAP，加密密钥是在云提供商端生成的，而不是在ONTAP中生成的。
+
+Cloud Volumes ONTAP使用ONTAP使用的标准密钥管理互操作性协议 (KMIP) 服务。有关支持服务的更多信息，请参阅 https://imt.netapp.com/imt/#welcome["互操作性表工具"^]。
+
+如果您使用 NVE，则可以选择使用云提供商的密钥保管库来保护ONTAP加密密钥：
+
+ifdef::aws[]
+
+* AWS 密钥管理服务 (KMS)
+
+
+endif::aws[]
+
+ifdef::azure[]
+
+* Azure 密钥保管库 (AKV)
+
+
+endif::azure[]
+
+ifdef::gcp[]
+
+* Google Cloud 密钥管理服务
+
+
+endif::gcp[]
+
+设置外部密钥管理器后，新聚合默认启用NetApp聚合加密 (NAE)。不属于 NAE 聚合的新卷默认启用 NVE（例如，如果您有在设置外部密钥管理器之前创建的现有聚合）。
+
+设置支持的密钥管理器是唯一需要的步骤。有关设置说明，请参阅link:task-encrypting-volumes.html["使用NetApp加密解决方案加密卷"]。
+
+ifdef::aws[]
+
+
+
+=== AWS 密钥管理服务
+
+在 AWS 中启动Cloud Volumes ONTAP系统时，您可以使用 http://docs.aws.amazon.com/kms/latest/developerguide/overview.html["AWS 密钥管理服务 (KMS)"^]。  NetApp控制台使用客户主密钥 (CMK) 请求数据密钥。
+
+
+TIP: 创建Cloud Volumes ONTAP系统后，您无法更改 AWS 数据加密方法。
+
+如果您想使用此加密选项，则必须确保 AWS KMS 已正确设置。有关信息，请参阅link:task-setting-up-kms.html["设置 AWS KMS"]。
+
+endif::aws[]
+
+ifdef::azure[]
+
+
+
+=== Azure 存储服务加密
+
+使用以下方式在 Azure 中的Cloud Volumes ONTAP上自动加密数据 https://learn.microsoft.com/en-us/azure/security/fundamentals/encryption-overview["Azure 存储服务加密"^]使用 Microsoft 管理的密钥。
+
+如果您愿意，您可以使用自己的加密密钥。link:task-set-up-azure-encryption.html["了解如何设置Cloud Volumes ONTAP以在 Azure 中使用客户管理的密钥"] 。
+
+endif::azure[]
+
+ifdef::gcp[]
+
+
+
+=== Google Cloud Platform 默认加密
+
+https://cloud.google.com/security/encryption-at-rest/["Google Cloud Platform 静态数据加密"^]对于Cloud Volumes ONTAP ，默认启用。无需设置。
+
+虽然 Google Cloud Storage 始终会在将数据写入磁盘之前对其进行加密，但您可以使用控制台 API 创建使用_客户管理加密密钥_的Cloud Volumes ONTAP系统。这些是您使用云密钥管理服务在 GCP 中生成和管理的密钥。link:task-setting-up-gcp-encryption.html["了解更多"] 。
+
+endif::gcp[]
+
+
+
+== ONTAP病毒扫描
+
+您可以使用ONTAP系统上的集成防病毒功能来保护数据免受病毒或其他恶意代码的侵害。
+
+ONTAP病毒扫描（称为“Vscan”）将一流的第三方防病毒软件与ONTAP功能相结合，让您可以灵活地控制扫描哪些文件以及何时扫描。
+
+有关 Vscan 支持的供应商、软件和版本的信息，请参阅 http://mysupport.netapp.com/matrix["NetApp互操作性表"^]。
+
+有关如何在ONTAP系统上配置和管理防病毒功能的信息，请参阅 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-acg/home.html["ONTAP 9 防病毒配置指南"^]。
+
+
+
+== 勒索软件防护
+
+勒索软件攻击会浪费企业的时间、资源和声誉。控制台使您能够实施针对勒索软件的NetApp解决方案，该解决方案提供了有效的可见性、检测和补救工具。
+
+* 控制台识别未受快照策略保护的卷，并允许您在这些卷上激活默认快照策略。
++
+快照副本是只读的，可防止勒索软件破坏。他们还可以提供创建单个文件副本或完整灾难恢复解决方案的图像的粒度。
+
+* 通过启用 ONTAP 的 FPolicy 解决方案，控制台还允许您阻止常见的勒索软件文件扩展名。
+
+
+image:screenshot_ransomware_protection.gif["屏幕截图显示了系统内部可用的勒索软件防护页面。屏幕显示了没有快照策略的卷的数量以及阻止勒索软件文件扩展名的能力。"]
+
+link:task-protecting-ransomware.html["了解如何实施NetApp勒索软件解决方案"] 。

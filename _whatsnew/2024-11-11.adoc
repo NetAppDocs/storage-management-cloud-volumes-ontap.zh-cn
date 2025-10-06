@@ -1,0 +1,53 @@
+= 基于节点的许可证的可用性终止
+:allow-uri-read: 
+
+
+
+
+=== 基于节点的许可证的可用性终止
+
+NetApp已计划终止提供 (EOA) 和终止支持 (EOS) Cloud Volumes ONTAP基于节点的许可。从 2024 年 11 月 11 日起，基于节点的许可证的有限可用性已终止。基于节点的许可支持将于 2024 年 12 月 31 日结束。在基于节点的许可证 EOA 之后，您应该使用BlueXP许可证转换工具过渡到基于容量的许可证。
+
+对于年度或长期承诺， NetApp建议您在 EOA 日期或许可证到期日之前联系您的NetApp代表，以确保过渡的先决条件到位。如果您没有Cloud Volumes ONTAP节点的长期合同，并且根据按需付费 (PAYGO) 订阅运行您的系统，那么在 EOS 日期之前规划您的转换非常重要。对于长期合同和 PAYGO 订阅，您都可以使用BlueXP许可证转换工具进行无缝转换。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基于节点的许可证的可用性终止"^] https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-convert-node-capacity.html["将Cloud Volumes ONTAP基于节点的许可证转换为基于容量的许可证"^]
+
+
+
+=== 从BlueXP中删除基于节点的部署
+
+使用基于节点的许可证部署Cloud Volumes ONTAP系统的选项在BlueXP上已弃用。除少数特殊情况外，您不能对任何云提供商的Cloud Volumes ONTAP部署使用基于节点的许可证。
+
+NetApp认识到符合合同义务和运营需求的以下独特许可要求，并将在这些情况下继续支持基于节点的许可证：
+
+* 美国公共部门客户
+* 私有模式下的部署
+* AWS 上的Cloud Volumes ONTAP中国区部署
+* 如果您拥有有效、未过期的按节点自带许可证（BYOL 许可证）
+
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基于节点的许可证的可用性终止"^]
+
+
+
+=== 在 Azure Blob 存储上为Cloud Volumes ONTAP数据添加冷层
+
+BlueXP现在允许您选择冷层来存储 Azure Blob 存储上的非活动容量层数据。在现有的热层和冷层中添加冷层可为您提供更实惠的存储选项并提高成本效率。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html#data-tiering-in-azure["Azure 中的数据分层"^]
+
+
+
+=== 限制 Azure 存储帐户公共访问的选项
+
+您现在可以选择限制对 Azure 中Cloud Volumes ONTAP系统的存储帐户的公共访问。通过禁用访问，您可以保护您的私有 IP 地址不被泄露，即使在同一个 VNet 内，也需要遵守您组织的安全策略。此选项还会禁用Cloud Volumes ONTAP系统的数据分层，并且适用于单节点和高可用性对。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-azure.html#security-group-rules["安全组规则"^] 。
+
+
+
+=== 部署Cloud Volumes ONTAP后启用 WORM
+
+现在，您可以使用BlueXP在现有的Cloud Volumes ONTAP系统上激活一次写入、多次读取 (WORM) 存储。此功能为您提供了在工作环境中启用 WORM 的灵活性，即使在创建期间未启用 WORM。一旦启用，您就无法禁用 WORM。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-worm.html#enabling-worm-on-a-cloud-volumes-ontap-working-environment["在Cloud Volumes ONTAP工作环境中启用 WORM"^]

@@ -1,0 +1,364 @@
+---
+sidebar: sidebar 
+permalink: reference-security-groups.html 
+keywords: security group, security groups, rules, ports, aws, inbound, outbound, rules 
+summary: NetApp控制台创建 AWS 安全组，其中包括Cloud Volumes ONTAP成功运行所需的入站和出站规则。您可能希望参考端口以进行测试，或者您更喜欢使用自己的安全组。 
+---
+= Cloud Volumes ONTAP的 AWS 安全组入站和出站规则
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp控制台创建 AWS 安全组，其中包括Cloud Volumes ONTAP成功运行所需的入站和出站规则。您可能希望参考端口以进行测试，或者您更喜欢使用自己的安全组。
+
+
+
+== Cloud Volumes ONTAP规则
+
+Cloud Volumes ONTAP的安全组需要入站和出站规则。
+
+
+
+=== 入站规则
+
+添加Cloud Volumes ONTAP系统并选择预定义安全组时，您可以选择允许以下之一内的流量：
+
+* *仅限选定的 VPC*：入站流量的来源是Cloud Volumes ONTAP系统的 VPC 子网范围和控制台代理所在的 VPC 子网范围。这是推荐的选项。
+* *所有 VPC*：入站流量的来源是 0.0.0.0/0 IP 范围。
+
+
+[cols="10,10,80"]
+|===
+| 协议 | 端口 | 目的 
+
+
+| 所有 ICMP | 全部 | 对实例执行 ping 操作 
+
+
+| HTTP | 80 | 使用集群管理 LIF 的 IP 地址通过 HTTP 访问ONTAP System Manager Web 控制台 
+
+
+| HTTPS | 443 | 使用集群管理 LIF 的 IP 地址与控制台代理建立连接并通过 HTTPS 访问ONTAP System Manager Web 控制台 
+
+
+| SSH | 22 | 通过 SSH 访问集群管理 LIF 或节点管理 LIF 的 IP 地址 
+
+
+| TCP | 111 | NFS 的远程过程调用 
+
+
+| TCP | 139 | CIFS 的 NetBIOS 服务会话 
+
+
+| TCP | 161-162 | 简单网络管理协议 
+
+
+| TCP | 445 | 使用 NetBIOS 框架的 TCP 上的 Microsoft SMB/CIFS 
+
+
+| TCP | 635 | NFS 挂载 
+
+
+| TCP | 749 | Kerberos 
+
+
+| TCP | 2049 | NFS 服务器守护进程 
+
+
+| TCP | 3260 | 通过 iSCSI 数据 LIF 进行 iSCSI 访问 
+
+
+| TCP | 4045 | NFS 锁守护进程 
+
+
+| TCP | 4046 | NFS 网络状态监视器 
+
+
+| TCP | 10000 | 使用 NDMP 备份 
+
+
+| TCP | 11104 | SnapMirror集群间通信会话的管理 
+
+
+| TCP | 11105 | 使用集群间 LIF 进行SnapMirror数据传输 
+
+
+| UDP | 111 | NFS 的远程过程调用 
+
+
+| UDP | 161-162 | 简单网络管理协议 
+
+
+| UDP | 635 | NFS 挂载 
+
+
+| UDP | 2049 | NFS 服务器守护进程 
+
+
+| UDP | 4045 | NFS 锁守护进程 
+
+
+| UDP | 4046 | NFS 网络状态监视器 
+
+
+| UDP | 4049 | NFS rquotad 协议 
+|===
+
+
+=== 出站规则
+
+Cloud Volumes ONTAP的预定义安全组打开所有出站流量。如果可以接受，请遵循基本的出站规则。如果您需要更严格的规则，请使用高级出站规则。
+
+
+
+==== 基本出站规则
+
+Cloud Volumes ONTAP的预定义安全组包括以下出站规则。
+
+[cols="20,20,60"]
+|===
+| 协议 | 端口 | 目的 
+
+
+| 所有 ICMP | 全部 | 所有出站流量 
+
+
+| 所有 TCP | 全部 | 所有出站流量 
+
+
+| 所有 UDP | 全部 | 所有出站流量 
+|===
+
+
+==== 高级出站规则
+
+如果您需要对出站流量制定严格的规则，则可以使用以下信息仅打开Cloud Volumes ONTAP出站通信所需的端口。
+
+
+NOTE: 源是Cloud Volumes ONTAP系统上的接口（IP 地址）。
+
+[cols="10,10,6,20,20,34"]
+|===
+| 服务 | 协议 | 端口 | 源 | 目标 | 目的 
+
+
+.18+| Active Directory | TCP | 88 | 节点管理 LIF | Active Directory 林 | Kerberos V 身份验证 
+
+
+| UDP | 137 | 节点管理 LIF | Active Directory 林 | NetBIOS 名称服务 
+
+
+| UDP | 138 | 节点管理 LIF | Active Directory 林 | NetBIOS 数据报服务 
+
+
+| TCP | 139 | 节点管理 LIF | Active Directory 林 | NetBIOS 服务会话 
+
+
+| TCP 和 UDP | 389 | 节点管理 LIF | Active Directory 林 | LDAP 
+
+
+| TCP | 445 | 节点管理 LIF | Active Directory 林 | 使用 NetBIOS 框架的 TCP 上的 Microsoft SMB/CIFS 
+
+
+| TCP | 464 | 节点管理 LIF | Active Directory 林 | Kerberos V 更改和设置密码（SET_CHANGE） 
+
+
+| UDP | 464 | 节点管理 LIF | Active Directory 林 | Kerberos 密钥管理 
+
+
+| TCP | 749 | 节点管理 LIF | Active Directory 林 | Kerberos V 更改和设置密码（RPCSEC_GSS） 
+
+
+| TCP | 88 | 数据 LIF（NFS、CIFS、iSCSI） | Active Directory 林 | Kerberos V 身份验证 
+
+
+| UDP | 137 | 数据 LIF（NFS、CIFS） | Active Directory 林 | NetBIOS 名称服务 
+
+
+| UDP | 138 | 数据 LIF（NFS、CIFS） | Active Directory 林 | NetBIOS 数据报服务 
+
+
+| TCP | 139 | 数据 LIF（NFS、CIFS） | Active Directory 林 | NetBIOS 服务会话 
+
+
+| TCP 和 UDP | 389 | 数据 LIF（NFS、CIFS） | Active Directory 林 | LDAP 
+
+
+| TCP | 445 | 数据 LIF（NFS、CIFS） | Active Directory 林 | 使用 NetBIOS 框架的 TCP 上的 Microsoft SMB/CIFS 
+
+
+| TCP | 464 | 数据 LIF（NFS、CIFS） | Active Directory 林 | Kerberos V 更改和设置密码（SET_CHANGE） 
+
+
+| UDP | 464 | 数据 LIF（NFS、CIFS） | Active Directory 林 | Kerberos 密钥管理 
+
+
+| TCP | 749 | 数据 LIF（NFS、CIFS） | Active Directory 林 | Kerberos V 更改和设置密码（RPCSEC_GSS） 
+
+
+.3+| AutoSupport | HTTPS | 443 | 节点管理 LIF | mysupport.netapp.com | AutoSupport （默认为 HTTPS） 
+
+
+| HTTP | 80 | 节点管理 LIF | mysupport.netapp.com | AutoSupport （仅当传输协议从 HTTPS 更改为 HTTP 时） 
+
+
+| TCP | 3128 | 节点管理 LIF | 控制台代理 | 如果出站互联网连接不可用，则通过控制台代理上的代理服务器发送AutoSupport消息 
+
+
+| 备份到 S3 | TCP | 5010 | 集群间 LIF | 备份端点或恢复端点 | 备份到 S3 功能的备份和还原操作 
+
+
+.3+| 集群 | 所有流量 | 所有流量 | 一个节点上的所有 LIF | 另一个节点上的所有 LIF | 集群间通信（仅限Cloud Volumes ONTAP HA） 
+
+
+| TCP | 3000 | 节点管理 LIF | HA介导者 | ZAPI 调用（仅限Cloud Volumes ONTAP HA） 
+
+
+| ICMP | 1 | 节点管理 LIF | HA介导者 | 保持活动状态（仅限Cloud Volumes ONTAP HA） 
+
+
+| 配置备份 | HTTP | 80 | 节点管理 LIF | \http://<控制台代理 IP 地址>/occm/offboxconfig | 将配置备份发送到控制台代理。link:https://docs.netapp.com/us-en/ontap/system-admin/node-cluster-config-backed-up-automatically-concept.html["ONTAP 文档"^] 
+
+
+| DHCP | UDP | 68 | 节点管理 LIF | DHCP | DHCP 客户端首次设置 
+
+
+| DHCP服务 | UDP | 67 | 节点管理 LIF | DHCP | DHCP 服务器 
+
+
+| DNS | UDP | 53 | 节点管理 LIF 和数据 LIF（NFS、CIFS） | DNS | DNS 
+
+
+| NDMP | TCP | 18600-18699 | 节点管理 LIF | 目标服务器 | NDMP 拷贝 
+
+
+| SMTP | TCP | 25 | 节点管理 LIF | 邮件服务器 | SMTP 警报，可用于AutoSupport 
+
+
+.4+| SNMP | TCP | 161 | 节点管理 LIF | 监控服务器 | 通过 SNMP 陷阱进行监控 
+
+
+| UDP | 161 | 节点管理 LIF | 监控服务器 | 通过 SNMP 陷阱进行监控 
+
+
+| TCP | 162 | 节点管理 LIF | 监控服务器 | 通过 SNMP 陷阱进行监控 
+
+
+| UDP | 162 | 节点管理 LIF | 监控服务器 | 通过 SNMP 陷阱进行监控 
+
+
+.2+| SnapMirror | TCP | 11104 | 集群间 LIF | ONTAP集群间 LIF | SnapMirror集群间通信会话的管理 
+
+
+| TCP | 11105 | 集群间 LIF | ONTAP集群间 LIF | SnapMirror数据传输 
+
+
+| 系统日志 | UDP | 514 | 节点管理 LIF | 系统日志服务器 | Syslog 转发消息 
+|===
+
+
+== HA 调解器外部安全组的规则
+
+Cloud Volumes ONTAP HA 中介的预定义外部安全组包括以下入站和出站规则。
+
+
+
+=== 入站规则
+
+HA 中介的预定义安全组包括以下入站规则。
+
+[cols="20,20,20,40"]
+|===
+| 协议 | 端口 | 源 | 目的 
+
+
+| TCP | 3000 | 控制台代理的 CIDR | 通过控制台代理访问 RESTful API 
+|===
+
+
+=== 出站规则
+
+HA 中介的预定义安全组打开所有出站流量。如果可以接受，请遵循基本的出站规则。如果您需要更严格的规则，请使用高级出站规则。
+
+
+
+==== 基本出站规则
+
+HA 中介的预定义安全组包括以下出站规则。
+
+[cols="20,20,60"]
+|===
+| 协议 | 端口 | 目的 
+
+
+| 所有 TCP | 全部 | 所有出站流量 
+
+
+| 所有 UDP | 全部 | 所有出站流量 
+|===
+
+
+==== 高级出站规则
+
+如果您需要对出站流量制定严格的规则，则可以使用以下信息仅打开 HA 中介器出站通信所需的端口。
+
+[cols="10,10,30,40"]
+|===
+| 协议 | 端口 | 目标 | 目的 
+
+
+| HTTP | 80 | AWS EC2 实例上的控制台代理的 IP 地址 | 下载中介器的升级版本 
+
+
+| HTTPS | 443 | ec2.amazonaws.com | 协助存储故障转移 
+
+
+| UDP | 53 | ec2.amazonaws.com | 协助存储故障转移 
+|===
+
+NOTE: 您可以创建从目标子网到 AWS EC2 服务的接口 VPC 端点，而不是打开端口 443 和 53。
+
+
+
+== HA 配置内部安全组的规则
+
+Cloud Volumes ONTAP HA 配置的预定义内部安全组包括以下规则。该安全组支持 HA 节点之间以及中介与节点之间的通信。
+
+控制台始终创建此安全组。您没有选择使用自己的。
+
+
+
+=== 入站规则
+
+预定义安全组包括以下入站规则。
+
+[cols="20,20,60"]
+|===
+| 协议 | 端口 | 目的 
+
+
+| 所有流量 | 全部 | HA 中介器和 HA 节点之间的通信 
+|===
+
+
+=== 出站规则
+
+预定义安全组包括以下出站规则。
+
+[cols="20,20,60"]
+|===
+| 协议 | 端口 | 目的 
+
+
+| 所有流量 | 全部 | HA 中介器和 HA 节点之间的通信 
+|===
+
+
+== 控制台代理的规则
+
+https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-aws.html["查看控制台代理的安全组规则"^]
