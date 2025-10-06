@@ -16,10 +16,10 @@ summary:
 [role="lead"]
 您可以使用 Azure 市场直接部署来快速轻松地部署Cloud Volumes ONTAP。从 Azure 市场，您只需单击几下即可快速部署Cloud Volumes ONTAP ，并在您的环境中探索其核心特性和功能。
 
-有关该产品的更多信息，请参阅link:concept-azure-mktplace-direct.html["了解NetApp控制台和市场中的Cloud Volumes ONTAP产品"]。
+有关该产品的更多信息，请参阅link:concept-azure-mktplace-direct.html["了解NetApp Console和市场中的Cloud Volumes ONTAP产品"]。
 
 .关于此任务
-使用 Azure 市场直接部署部署的Cloud Volumes ONTAP系统具有这些属性。请注意，通过 Azure 市场部署的独立实例的功能在NetApp控制台中被发现时会发生变化。
+使用 Azure 市场直接部署部署的Cloud Volumes ONTAP系统具有这些属性。请注意，通过 Azure 市场部署的独立实例的功能在NetApp Console中被发现时会发生变化。
 
 * 最新的Cloud Volumes ONTAP版本（9.16.1 或更高版本）。
 * Cloud Volumes ONTAP的免费许可证，限制为 500 GiB 的配置容量。此许可证不包括NetApp支持，并且没有到期日期。
@@ -81,7 +81,7 @@ NOTE: 为了遵守 Microsoft Azure 限制，您应该在设置新的虚拟网络
 
 *** 要选择预定义的网络安全组，请选择“是”。选择“*否*”以分配具有必要流量规则的预定义 Azure 网络安全组。有关详细信息，请参阅link:reference-networking-azure.html#security-group-rules["Azure 的安全组规则"] 。
 *** 在“*高级*”选项卡中确认是否已设置此部署所需的两个 Azure 功能。参考link:task-saz-feature.html["为Cloud Volumes ONTAP单可用区部署启用 Azure 功能"]和link:task-azure-high-availability-mode.html["在 Azure 中为Cloud Volumes ONTAP启用高可用性模式"]。
-*** 您可以在*标签*选项卡中为资源或资源组定义名称和值对。
+*** 您可以在“*标签*”选项卡中为资源或资源组定义名称和值对。
 *** 在“*Review + create*”选项卡中，查看详细信息并开始部署。
 
 
@@ -139,7 +139,7 @@ NOTE: 为了遵守 Microsoft Azure 限制，您应该在设置新的虚拟网络
 在控制台中，您可以按照标准程序来发现现有系统。请参阅link:task-adding-systems.html["将现有的Cloud Volumes ONTAP系统添加到控制台"] 。
 
 .完成后
-发现完成后，您可以在控制台的“*系统*”页面上查看列出的系统。您可以执行各种管理任务，例如link:task-manage-aggregates.html["扩大总量"]，link:task-create-volumes.html["添加卷"] ，link:task-managing-svms-azure.html["配置额外的存储虚拟机"] ， 和link:task-change-azure-vm.html["更改实例类型"]。
+发现完成后，您可以在控制台中的“*系统*”页面上查看列出的系统。您可以执行各种管理任务，例如link:task-manage-aggregates.html["扩大总量"]，link:task-create-volumes.html["添加卷"] ，link:task-managing-svms-azure.html["配置额外的存储虚拟机"] ， 和link:task-change-azure-vm.html["更改实例类型"]。
 
 .相关链接
 有关创建存储的更多信息，请参阅ONTAP文档：

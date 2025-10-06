@@ -31,7 +31,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/GUID-3F50DE15-0D
 
 +
 
-TIP: NetApp控制台通过启动接管并等待返回来一次更改一个节点。 NetApp 的质量保证团队在此过程中对文件的写入和读取进行了测试，并且没有发现客户端的任何问题。随着连接的变化，在 I/O 级别观察到一些重试，但应用层克服了 NFS/CIFS 连接的重新连接。
+TIP: NetApp Console通过启动接管并等待返回来一次更改一个节点。 NetApp 的质量保证团队在此过程中对文件的写入和读取进行了测试，并且没有发现客户端的任何问题。随着连接的变化，在 I/O 级别观察到一些重试，但应用层克服了 NFS/CIFS 连接的重新连接。
 
 
 

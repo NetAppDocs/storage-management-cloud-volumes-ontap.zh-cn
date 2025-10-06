@@ -18,7 +18,7 @@ FlexCache卷是一种存储卷，用于缓存从原始（或源）卷读取的 S
 
 您可以使用FlexCache卷来加快数据访问速度或卸载访问量大的卷的流量。  FlexCache卷有助于提高性能，特别是当客户端需要重复访问相同数据时，因为可以直接提供数据而无需访问原始卷。  FlexCache卷非常适合读取密集型的系统工作负载。
 
-NetApp Console 提供FlexCache卷的管理link:https://docs.netapp.com/us-en/bluexp-volume-caching/index.html["NetApp卷缓存"^]。
+NetApp Console提供FlexCache卷的管理link:https://docs.netapp.com/us-en/bluexp-volume-caching/index.html["NetApp Volume Caching"^]。
 
 您还可以使用ONTAP CLI 或ONTAP系统管理器来创建和管理FlexCache卷：
 

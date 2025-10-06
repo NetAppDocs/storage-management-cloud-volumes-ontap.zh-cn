@@ -4,7 +4,7 @@ permalink: task-manage-keystone.html
 keywords: license, licensing, install, keystone, request capacity, link subscription, add keystone subscription, keystone subscription, digital wallet, keystone flex 
 summary: 通过启用与Cloud Volumes ONTAP一起使用的订阅并请求更改订阅服务级别的承诺容量来管理您的Keystone订阅。请求服务级别的额外容量可为本地ONTAP集群或Cloud Volumes ONTAP系统提供更多存储空间。 
 ---
-= 通过NetApp控制台管理Cloud Volumes ONTAP 的Keystone订阅
+= 通过NetApp Console管理Cloud Volumes ONTAP 的Keystone订阅
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-networking-aws.html 
 keywords: networking, network, requirements, connection, connections, vpc, security group, security groups, subnets, vpn, internet, nat, s3, dns, ad, active directory, az, availability zone, floating IP, floating, SVM, management LIF, route, route tables, proxy, HTTP, private, tier, s3 endpoint, proxy server, nat device, vpn, snapmanager, snapcenter, iscsi, nfs, cifs, nas, san, outbound, inbound, connections, autosupport, ha, ha pair, high availability 
-summary: NetApp控制台负责设置Cloud Volumes ONTAP的网络组件，例如 IP 地址、网络掩码和路由。您需要确保可以访问出站互联网、有足够的私有 IP 地址、有正确的连接等等。 
+summary: NetApp Console负责设置Cloud Volumes ONTAP的网络组件，例如 IP 地址、网络掩码和路由。您需要确保可以访问出站互联网、有足够的私有 IP 地址、有正确的连接等等。 
 ---
 = 为Cloud Volumes ONTAP设置 AWS 网络
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: NetApp控制台负责设置Cloud Volumes ONTAP的网络组件，例如 
 
 
 [role="lead"]
-NetApp控制台负责设置Cloud Volumes ONTAP的网络组件，例如 IP 地址、网络掩码和路由。您需要确保可以访问出站互联网、有足够的私有 IP 地址、有正确的连接等等。
+NetApp Console负责设置Cloud Volumes ONTAP的网络组件，例如 IP 地址、网络掩码和路由。您需要确保可以访问出站互联网、有足够的私有 IP 地址、有正确的连接等等。
 
 
 
@@ -90,9 +90,9 @@ HA 中介实例必须具有与 AWS EC2 服务的出站连接，以便它可以�
 
 
 
-=== NetApp Console 代理的网络代理配置
+=== NetApp Console代理的网络代理配置
 
-您可以使用NetApp控制台代理的代理服务器配置来启用来自Cloud Volumes ONTAP 的出站互联网访问。控制台支持两种类型的代理：
+您可以使用NetApp Console代理的代理服务器配置来启用来自Cloud Volumes ONTAP 的出站互联网访问。控制台支持两种类型的代理：
 
 * *显式代理*：来自Cloud Volumes ONTAP 的出站流量使用在控制台代理的代理配置期间指定的代理服务器的 HTTP 地址。管理员可能还配置了用户凭据和根 CA 证书以进行额外的身份验证。Cloud Volumes ONTAP显式代理有可用的根 CA 证书，请确保使用 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全证书安装"^]命令。
 * *透明代理*：网络配置为通过控制台代理的代理自动路由来自Cloud Volumes ONTAP 的出站流量。设置透明代理时，管理员只需要提供用于从Cloud Volumes ONTAP进行连接的根 CA 证书，而不是代理服务器的 HTTP 地址。确保使用以下方式获取相同的根 CA 证书并将其上传到您的Cloud Volumes ONTAP系统 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全证书安装"^]命令。
@@ -256,7 +256,7 @@ link:task-deploy-aws-shared-vpc.html["了解如何在共享子网中部署 HA �
 
 == 多可用区中 HA 对的要求
 
-额外的 AWS 网络要求适用于使用多个可用区 (AZ) 的Cloud Volumes ONTAP HA 配置。在启动 HA 对之前，您应该查看这些要求，因为在添加Cloud Volumes ONTAP系统时必须在控制台中输入网络详细信息。
+其他 AWS 网络要求适用于使用多个可用区 (AZ) 的Cloud Volumes ONTAP HA 配置。在启动 HA 对之前，您应该查看这些要求，因为在添加Cloud Volumes ONTAP系统时必须在控制台中输入网络详细信息。
 
 要了解 HA 对的工作原理，请参阅link:concept-ha.html["高可用性对"]。
 
@@ -266,7 +266,7 @@ link:task-deploy-aws-shared-vpc.html["了解如何在共享子网中部署 HA �
 每个可用区都应该有一个子网。
 
 [[floatingips]]
-用于 NAS 数据和集群/SVM 管理的浮动 IP 地址:: 多个可用区中的 HA 配置使用浮动 IP 地址，如果发生故障，这些地址会在节点之间迁移。它们无法从 VPC 外部本地访问，除非您link:task-setting-up-transit-gateway.html["设置 AWS 中转网关"]。
+用于 NAS 数据和集群/SVM 管理的浮动 IP 地址:: 多个可用区中的 HA 配置使用浮动 IP 地址，如果发生故障，这些地址会在节点之间迁移。它们无法从 VPC 外部本机访问，除非您link:task-setting-up-transit-gateway.html["设置 AWS 中转网关"]。
 +
 --
 一个浮动 IP 地址用于集群管理，一个用于节点 1 上的 NFS/CIFS 数据，一个用于节点 2 上的 NFS/CIFS 数据。用于 SVM 管理的第四个浮动 IP 地址是可选的。

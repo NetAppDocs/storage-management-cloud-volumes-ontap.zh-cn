@@ -27,7 +27,7 @@ NOTE: 当部署在多个 AZ 中时， Cloud Volumes ONTAP HA 配置使用浮动 
 endif::aws[]
 
 .步骤
-. 在NetApp控制台中，确定集群管理接口的 IP 地址：
+. 在NetApp Console中，确定集群管理接口的 IP 地址：
 +
 .. 从左侧导航菜单中，选择“存储”>“管理”。
 .. 在*系统*页面上，选择Cloud Volumes ONTAP系统。

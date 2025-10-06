@@ -88,7 +88,7 @@ EBS 磁盘类型:: 从高层次来看，EBS 磁盘类型之间的差异如下。
 --
 * _通用 SSD (gp3)_ 磁盘是成本最低的 SSD，可在广泛的工作负载中平衡成本和性能。性能以 IOPS 和吞吐量来定义。Cloud Cloud Volumes ONTAP 9.7 及更高版本支持 gp3 磁盘。
 +
-当您选择 gp3 磁盘时， NetApp控制台会填写默认 IOPS 和吞吐量值，这些值根据所选磁盘大小提供与 gp2 磁盘相当的性能。您可以增加这些值以更高的成本获得更好的性能，但我们不支持较低的值，因为这会导致性能下降。简而言之，坚持默认值或增加默认值。不要降低它们。 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#gp3-ebs-volume-type["AWS 文档：了解有关 gp3 磁盘及其性能的更多信息"^] 。
+当您选择 gp3 磁盘时， NetApp Console会填写默认 IOPS 和吞吐量值，这些值根据所选磁盘大小提供与 gp2 磁盘相当的性能。您可以增加这些值以更高的成本获得更好的性能，但我们不支持较低的值，因为这会导致性能下降。简而言之，坚持默认值或增加默认值。不要降低它们。 https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volume-types.html#gp3-ebs-volume-type["AWS 文档：了解有关 gp3 磁盘及其性能的更多信息"^] 。
 
 +
 请注意， Cloud Volumes ONTAP支持带有 gp3 磁盘的 Amazon EBS Elastic Volumes 功能。link:concept-aws-elastic-volumes.html["了解有关弹性卷支持的更多信息"] 。
@@ -213,7 +213,7 @@ TIP: 控制台代理还需要系统磁盘。 https://docs.netapp.com/us-en/bluex
 | 中介者的密钥对 |  
 
 
-| 集群管理口浮动IP地址 |  
+| 集群管理网口浮动IP地址 |  
 
 
 | 节点 1 上数据的浮动 IP 地址 |  

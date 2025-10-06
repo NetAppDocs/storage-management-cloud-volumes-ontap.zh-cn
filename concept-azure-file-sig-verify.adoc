@@ -22,7 +22,7 @@ Azure 映像验证过程通过剥离 VHD 文件的开头 1 MB 和结尾 512 字�
 
 以下是文件签名验证工作流程的概述。
 
-image::graphic_azure_check_signature.png[图形 Azure 检查签名]
+image::graphic_azure_check_signature.png[图形天蓝色检查签名]
 
 * 从下载 Azure 映像 https://mysupport.netapp.com/site/["NetApp 支持站点"^]并提取摘要（.sig）文件、公钥证书（.pem）文件和链证书（.pem）文件。请参阅link:task-azure-download-digest-file.html["下载 Azure 映像摘要文件"]了解更多信息。
 * 信任链的验证。

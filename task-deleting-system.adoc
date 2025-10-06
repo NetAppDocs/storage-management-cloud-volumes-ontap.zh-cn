@@ -4,7 +4,7 @@ permalink: task-deleting-system.html
 keywords: terminate, delete, system, remove, terminate system, terminate instance, delete cloud volumes ontap, delete instance, delete system, delete backups, cloud backup, cloud data sense 
 summary: 您应该始终删除Cloud Volumes ONTAP系统，而不是从云提供商的控制台中删除。例如，如果您终止了云提供商许可的Cloud Volumes ONTAP实例，则您不能将该许可证密钥用于另一个实例。您必须删除系统才能释放许可证。 
 ---
-= 从NetApp控制台删除Cloud Volumes ONTAP系统
+= 从NetApp Console删除Cloud Volumes ONTAP系统
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,12 +14,12 @@ summary: 您应该始终删除Cloud Volumes ONTAP系统，而不是从云提供�
 
 
 [role="lead"]
-您应该始终从NetApp控制台删除Cloud Volumes ONTAP系统，而不是从云提供商的应用程序中删除。例如，如果您终止了云提供商许可的Cloud Volumes ONTAP实例，则您不能将该许可证密钥用于另一个实例。您必须从控制台中删除Cloud Volumes ONTAP系统才能释放许可证。
+您应该始终从NetApp Console中删除Cloud Volumes ONTAP系统，而不是从云提供商的应用程序中删除。例如，如果您终止了云提供商许可的Cloud Volumes ONTAP实例，则您不能将该许可证密钥用于另一个实例。您必须从控制台中删除Cloud Volumes ONTAP系统才能释放许可证。
 
 当您删除系统时，控制台会终止Cloud Volumes ONTAP实例并删除磁盘和快照。
 
 
-NOTE: 删除系统时，其他资源（例如NetApp Backup and Recovery 管理的备份以及NetApp Data Classification 的实例）不会被删除。您需要手动删除它们。如果您不这样做，那么您将继续为这些资源支付费用。
+NOTE: 删除系统时，不会删除其他资源，例如NetApp Backup and Recovery管理的备份以及NetApp Data Classification的实例。您需要手动删除它们。如果您不这样做，那么您将继续为这些资源支付费用。
 
 当控制台在您的云提供商中部署Cloud Volumes ONTAP时，它会对实例启用终止保护。此选项有助于防止意外终止。
 

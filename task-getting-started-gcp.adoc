@@ -21,7 +21,7 @@ summary: 只需几个步骤即可开始使用适用于 Google Cloud 的Cloud Vol
 如果你没有 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["控制台代理"^]但是，您需要创建一个。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["了解如何在 Google Cloud 中创建控制台代理"^]
 
 [role="quick-margin-para"]
-请注意，如果您想在没有互联网访问的子网中部署Cloud Volumes ONTAP ，则需要手动安装控制台代理并访问在该控制台代理上运行的NetApp控制台。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["了解如何在没有互联网访问的地方手动安装控制台代理"^]
+请注意，如果您想在没有互联网访问的子网中部署Cloud Volumes ONTAP ，则需要手动安装控制台代理并访问在该控制台代理上运行的NetApp Console。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["了解如何在没有互联网访问的地方手动安装控制台代理"^]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]规划您的配置
 [role="quick-margin-para"]
@@ -47,7 +47,7 @@ link:reference-networking-gcp.html["了解有关网络要求的更多信息"] �
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]设置服务帐户
 [role="quick-margin-para"]
-Cloud Volumes ONTAP需要 Google Cloud 服务帐户来实现两个目的。第一个是当你启用link:concept-data-tiering.html["数据分层"]将冷数据分层到 Google Cloud 中的低成本对象存储。第二个是当你启用 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp备份和恢复"^]将卷备份到低成本的对象存储。
+Cloud Volumes ONTAP需要 Google Cloud 服务帐户来实现两个目的。第一个是当你启用link:concept-data-tiering.html["数据分层"]将冷数据分层到 Google Cloud 中的低成本对象存储。第二个是当你启用 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery"^]将卷备份到低成本的对象存储。
 
 [role="quick-margin-para"]
 您可以设置一个服务帐户并将其用于两种用途。服务帐户必须具有*存储管理员*角色。

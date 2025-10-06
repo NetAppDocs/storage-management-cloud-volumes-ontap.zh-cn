@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-create-aggregates.html 
 keywords: storage, provisioning, aggregates, provision, create, advanced allocation, creating aggregates, adding an aggregate, add an aggregate, create an aggregate 
-summary: 您可以自行创建聚合，也可以让NetApp Console 在创建卷时为您创建聚合。自行创建聚合的好处是您可以选择底层磁盘大小，从而可以根据所需的容量或性能调整聚合的大小。 
+summary: 您可以自行创建聚合，也可以让NetApp Console在创建卷时为您创建聚合。自行创建聚合的好处是您可以选择底层磁盘大小，从而可以根据所需的容量或性能调整聚合的大小。 
 ---
 = 为Cloud Volumes ONTAP系统创建聚合
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 您可以自行创建聚合，也可以让NetApp Console 在创建卷�
 
 
 [role="lead"]
-您可以自行创建聚合，也可以让NetApp控制台在创建卷时为您创建聚合。自行创建聚合的好处是您可以选择底层磁盘大小，从而可以根据所需的容量或性能调整聚合的大小。
+您可以自行创建聚合，也可以让NetApp Console在创建卷时为您创建聚合。自行创建聚合的好处是您可以选择底层磁盘大小，从而可以根据所需的容量或性能调整聚合的大小。
 
 
 CAUTION: 必须直接从控制台创建和删除所有磁盘和聚合。您不应从其他管理工具执行这些操作。这样做会影响系统稳定性，妨碍将来添加磁盘的能力，并可能产生冗余的云提供商费用。

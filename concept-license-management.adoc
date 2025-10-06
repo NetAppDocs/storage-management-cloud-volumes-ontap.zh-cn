@@ -14,7 +14,7 @@ summary: 每个具有基于节点的 BYOL 的Cloud Volumes ONTAP系统都必须�
 
 
 [role="lead"]
-每个具有基于节点的自带许可证 (BYOL) 的Cloud Volumes ONTAP系统都必须安装具有有效订阅的系统许可证。  NetApp控制台通过为您管理许可证并在许可证到期前显示警告来简化该流程。
+每个具有基于节点的自带许可证 (BYOL) 的Cloud Volumes ONTAP系统都必须安装具有有效订阅的系统许可证。  NetApp Console通过为您管理许可证并在许可证到期前显示警告来简化该流程。
 
 
 NOTE: 基于节点的许可证是Cloud Volumes ONTAP的上一代许可证。基于节点的许可证可以从NetApp (BYOL) 处购买，并且仅在特定情况下才可以续订许可证。

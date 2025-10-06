@@ -40,7 +40,7 @@ WORM 功能可与自带许可证 (BYOL) 一起使用，并且无需额外付费�
 
 添加Cloud Volumes ONTAP系统时，系统会提示您启用或禁用 WORM 存储：
 
-* 如果在添加系统时启用 WORM 存储，则从NetApp控制台创建的每个卷都将启用 WORM。但是您可以使用ONTAP系统管理器或ONTAP CLI 来创建已禁用 WORM 的卷。
+* 如果在添加系统时启用 WORM 存储，则从NetApp Console创建的每个卷都将启用 WORM。但是您可以使用ONTAP系统管理器或ONTAP CLI 来创建已禁用 WORM 的卷。
 * 如果在添加系统时禁用 WORM 存储，则从控制台、 ONTAP系统管理器或ONTAP CLI 创建的每个卷都将被禁用 WORM。
 
 

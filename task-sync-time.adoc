@@ -16,4 +16,4 @@ summary: 指定 NTP 服务器可同步网络中系统之间的时间，这有助
 [role="lead"]
 指定 NTP 服务器可同步网络中系统之间的时间，这有助于防止因时间差异而导致的问题。
 
-使用指定 NTP 服务器 https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html["NetApp控制台 API"^]或者从用户界面link:task-create-volumes.html#create-a-volume["创建 CIFS 服务器"]。
+使用指定 NTP 服务器 https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html["NetApp ConsoleAPI"^]或者从用户界面link:task-create-volumes.html#create-a-volume["创建 CIFS 服务器"]。

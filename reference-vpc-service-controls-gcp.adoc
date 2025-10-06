@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-vpc-service-controls-gcp.html 
 keywords: vpc, service controls, vpc-sc, google, psc, private service connect 
-summary: 当选择使用 VPC 服务控制锁定您的 Google 环境时，您应该了解NetApp控制台和Cloud Volumes ONTAP如何与 Google API 交互以及如何配置您的服务参数以部署Cloud Volumes ONTAP。 
+summary: 当选择使用 VPC 服务控制锁定您的 Google 环境时，您应该了解NetApp Console和Cloud Volumes ONTAP如何与 Google API 交互以及如何配置您的服务参数以部署Cloud Volumes ONTAP。 
 ---
 = 设置 VPC 服务控制以在 Google Cloud 中部署Cloud Volumes ONTAP
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 当选择使用 VPC 服务控制锁定您的 Google 环境时，您应�
 
 
 [role="lead"]
-当选择使用 VPC 服务控制锁定您的 Google Cloud 环境时，您应该了解NetApp控制台和Cloud Volumes ONTAP如何与 Google Cloud API 交互，以及如何配置您的服务边界以部署控制台和Cloud Volumes ONTAP。
+当选择使用 VPC 服务控制锁定您的 Google Cloud 环境时，您应该了解NetApp Console和Cloud Volumes ONTAP如何与 Google Cloud API 交互，以及如何配置您的服务边界以部署控制台和Cloud Volumes ONTAP。
 
 VPC 服务控制使您能够控制对受信任边界之外的 Google 管理服务的访问，阻止来自不受信任位置的数据访问，并降低未经授权的数据传输风险。 https://cloud.google.com/vpc-service-controls/docs["详细了解 Google Cloud VPC 服务控制"^] 。
 

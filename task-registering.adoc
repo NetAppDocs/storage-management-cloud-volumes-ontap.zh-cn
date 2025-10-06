@@ -19,7 +19,7 @@ Cloud Volumes ONTAP即用即付 (PAYGO) 系统包含NetApp的支持，但您必�
 需要向NetApp注册 PAYGO 系统才能使用任何方法升级ONTAP软件link:task-updating-ontap-cloud.html["本页描述"]。
 
 
-TIP: 未注册支持的系统仍会在有新版本可用时收到NetApp控制台中显示的软件更新通知。但您需要先注册系统才能升级软件。
+TIP: 未注册支持的系统仍会在有新版本可用时收到NetApp Console中显示的软件更新通知。但您需要先注册系统才能升级软件。
 
 .步骤
 . 如果您尚未将NetApp支持站点帐户添加到控制台，请转到 *帐户设置* 并立即添加。

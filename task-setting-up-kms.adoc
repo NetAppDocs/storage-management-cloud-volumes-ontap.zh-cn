@@ -19,7 +19,7 @@ summary: 如果您想将 Amazon 加密与Cloud Volumes ONTAP一起使用，则�
 .步骤
 . 确保存在有效的客户主密钥 (CMK)。
 +
-CMK 可以是 AWS 管理的 CMK 或客户管理的 CMK。它可以与NetApp控制台和Cloud Volumes ONTAP位于同一个 AWS 账户中，也可以位于不同的 AWS 账户中。
+CMK 可以是 AWS 管理的 CMK 或客户管理的 CMK。它可以与NetApp Console和Cloud Volumes ONTAP位于同一个 AWS 账户中，也可以位于不同的 AWS 账户中。
 
 +
 https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#master_keys["AWS 文档：客户主密钥 (CMK)"^]

@@ -14,7 +14,7 @@ summary: 设置您的 Azure 网络，以便Cloud Volumes ONTAP系统可以正常
 
 
 [role="lead"]
-NetApp控制台负责设置Cloud Volumes ONTAP的网络组件，例如 IP 地址、网络掩码和路由。您需要确保可以访问出站互联网、有足够的私有 IP 地址、有正确的连接等等。
+NetApp Console负责设置Cloud Volumes ONTAP的网络组件，例如 IP 地址、网络掩码和路由。您需要确保可以访问出站互联网、有足够的私有 IP 地址、有正确的连接等等。
 
 
 
@@ -78,9 +78,9 @@ Cloud Volumes ONTAP使用这些端点与各种服务进行通信。
 |===
 
 
-=== NetApp Console 代理的网络代理配置
+=== NetApp Console代理的网络代理配置
 
-您可以使用NetApp控制台代理的代理服务器配置来启用来自Cloud Volumes ONTAP 的出站互联网访问。控制台支持两种类型的代理：
+您可以使用NetApp Console代理的代理服务器配置来启用来自Cloud Volumes ONTAP 的出站互联网访问。控制台支持两种类型的代理：
 
 * *显式代理*：来自Cloud Volumes ONTAP 的出站流量使用在控制台代理的代理配置期间指定的代理服务器的 HTTP 地址。管理员可能还配置了用户凭据和根 CA 证书以进行额外的身份验证。Cloud Volumes ONTAP显式代理有可用的根 CA 证书，请确保使用 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全证书安装"^]命令。
 * *透明代理*：网络配置为通过控制台代理的代理自动路由来自Cloud Volumes ONTAP 的出站流量。设置透明代理时，管理员只需要提供用于从Cloud Volumes ONTAP进行连接的根 CA 证书，而不是代理服务器的 HTTP 地址。确保使用以下方式获取相同的根 CA 证书并将其上传到您的Cloud Volumes ONTAP系统 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全证书安装"^]命令。
@@ -443,7 +443,7 @@ NOTE: 源是Cloud Volumes ONTAP系统上的接口（IP 地址）。
 | 配置备份 | HTTP | 80 | 节点管理 LIF | \http://<控制台代理 IP 地址>/occm/offboxconfig | 将配置备份发送到控制台代理。link:https://docs.netapp.com/us-en/ontap/system-admin/node-cluster-config-backed-up-automatically-concept.html["ONTAP 文档"^] 。 
 
 
-| DHCP | 68 | UDP | 节点管理 LIF | DHCP | DHCP 客户端首次设置 
+| DHCP | 68 | UDP | 节点管理 LIF | DHCP | 首次设置的 DHCP 客户端 
 
 
 | DHCP服务 | 67 | UDP | 节点管理 LIF | DHCP | DHCP 服务器 

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-manage-capacity-licenses.html 
 keywords: license, licensing, capacity license, capacity based license, add license, install license, digital wallet 
-summary: 从NetApp控制台管理基于容量的许可证，以确保您的NetApp帐户具有足够的容量用于您的Cloud Volumes ONTAP系统。 
+summary: 从NetApp Console管理基于容量的许可证，以确保您的NetApp帐户具有足够的容量用于您的Cloud Volumes ONTAP系统。 
 ---
 = 管理Cloud Volumes ONTAP基于容量的许可
 :hardbreaks:
@@ -14,11 +14,11 @@ summary: 从NetApp控制台管理基于容量的许可证，以确保您的NetAp
 
 
 [role="lead"]
-从NetApp控制台管理基于容量的许可证，以确保您的NetApp帐户具有足够的容量用于您的Cloud Volumes ONTAP系统。
+从NetApp Console管理基于容量的许可证，以确保您的NetApp帐户具有足够的容量用于您的Cloud Volumes ONTAP系统。
 
 _基于容量的许可证_使您能够按 TiB 容量支付Cloud Volumes ONTAP 的费用。
 
-您可以从NetApp控制台管理基于容量的Cloud Volumes ONTAP许可证。
+您可以从NetApp Console管理基于容量的Cloud Volumes ONTAP许可证。
 
 
 NOTE: 虽然控制台中管理的产品和服务的实际使用情况和计量始终以 GiB 和 TiB 计算，但 GB/GiB 和 TB/TiB 这两个术语可互换使用。这反映在云市场列表、报价、列表描述和其他支持文档中
@@ -27,7 +27,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html[
 
 
 
-== 如何将许可证添加到NetApp控制台
+== 如何将许可证添加到NetApp Console
 
 从NetApp销售代表处购买许可证后， NetApp将向您发送一封电子邮件，其中包含序列号和其他许可详细信息。
 
@@ -37,15 +37,15 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html[
 
 
 
-== 查看账户中已消耗的容量
+== 查看您账户中已消耗的容量
 
 控制台显示您帐户中消耗的总容量以及按许可包消耗的容量。这可以帮助您了解收费方式以及是否需要购买额外的容量。
 
 .步骤
-. 从左侧导航窗格中，选择*管理>许可证和订阅*。
+. 从左侧导航窗格中，选择“管理”> “Licenses and subscriptions”。
 . 在“概览”选项卡上， Cloud Volumes ONTAP图块显示为您的帐户配置的当前容量。
 +
-image:screenshot_cvo_licensing_card.png["width=300 显示您的Cloud Volumes ONTAP许可证和订阅的容量摘要的屏幕截图。"]
+image:screenshot_cvo_licensing_card.png["width=300 屏幕截图显示了您的Cloud Volumes ONTAP许可证和订阅的容量摘要。"]
 
 +
 ** _直接许可证_是您的NetApp帐户中所有Cloud Volumes ONTAP系统的总配置容量。收费基于每个卷的配置大小，而不考虑卷内的本地、已用、存储或有效空间。
@@ -62,7 +62,7 @@ image:screenshot_cvo_licensing_card.png["width=300 显示您的Cloud Volumes ONT
 +
 您只会看到与您当前正在查看的组织相关的订阅。
 
-. 当您查看有关订阅的信息时，您可以与表中的详细信息进行交互。展开一行可以查看更多详细信息。
+. 当您查看有关订阅的信息时，您可以与表格中的详细信息进行交互。展开一行可以查看更多详细信息。
 +
 ** 选择image:icon-column-selector.png["表头末尾的加号图标"]选择表中显示的列。请注意，“期限”和“自动续订”列默认不会出现。自动续订列仅显示 Azure 合同的续订信息。
 
@@ -75,7 +75,7 @@ image:screenshot_cvo_licensing_card.png["width=300 显示您的Cloud Volumes ONT
 
 您可以通过在Cloud Volumes ONTAP页面上切换到传统模式来查看每个包使用的容量的详细信息。
 
-. 从左侧导航窗格中，选择*管理>许可证和订阅*。
+. 从左侧导航窗格中，选择“管理”> “Licenses and subscriptions”。
 . 在“概览”选项卡上， Cloud Volumes ONTAP图块显示为您的帐户配置的当前容量。
 . 选择“查看”以查看每个许可包的配置容量。
 . 选择*切换到高级视图*。
@@ -105,7 +105,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html[
 
 
 .步骤
-. 从左侧导航窗格中，选择*管理>许可证和订阅*。
+. 从左侧导航窗格中，选择“管理”> “Licenses and subscriptions”。
 . 选择“*概览*”选项卡。
 . 在Cloud Volumes ONTAP图块上，选择 *查看*。
 . 选择*切换到高级视图*。
@@ -180,7 +180,7 @@ NOTE: FlexClone卷不包含在此报告中，因为这些类型的卷不会产�
 
 
 .步骤
-. 从左侧导航窗格中，选择*管理>许可证和订阅*。
+. 从左侧导航窗格中，选择“管理”> “Licenses and subscriptions”。
 . 在*概览*选项卡上，从Cloud Volumes ONTAP图块中选择*查看*。
 . 选择*使用情况报告*。
 +

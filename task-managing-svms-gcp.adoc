@@ -16,9 +16,9 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 [role="lead"]
 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端提供存储和数据服务。您可能知道这是一个_SVM_或_vserver_。  Cloud Volumes ONTAP默认配置一个存储虚拟机，但某些配置支持额外的存储虚拟机。
 
-要在 Google Cloud 中创建和管理其他数据服务存储虚拟机，您应该使用 API。这是因为 API 自动化了创建存储虚拟机和配置所需网络接口的过程。创建存储虚拟机时， NetApp控制台会配置所需的 LIF 服务，以及存储虚拟机出站 SMB/CIFS 通信所需的 iSCSI LIF。
+要在 Google Cloud 中创建和管理其他数据服务存储虚拟机，您应该使用 API。这是因为 API 自动化了创建存储虚拟机和配置所需网络接口的过程。创建存储虚拟机时， NetApp Console会配置所需的 LIF 服务，以及存储虚拟机出站 SMB/CIFS 通信所需的 iSCSI LIF。
 
-有关运行Cloud Volumes ONTAP API 调用的信息，请参阅 https://docs.netapp.com/us-en/bluexp-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一个 API 调用"^]。
+有关运行Cloud Volumes ONTAP API 调用的信息，请参阅 https://docs.netapp.com/us-en/bluexp-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一次 API 调用"^]。
 
 
 
@@ -148,5 +148,5 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 * https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html["准备使用 API"^]
 * https://docs.netapp.com/us-en/bluexp-automation/cm/workflow_processes.html#organization-of-cloud-volumes-ontap-workflows["Cloud Volumes ONTAP工作流程"^]
 * https://docs.netapp.com/us-en/bluexp-automation/platform/get_identifiers.html#get-the-connector-identifier["获取所需的标识符"^]
-* https://docs.netapp.com/us-en/bluexp-automation/platform/use_rest_apis.html["使用NetApp控制台的 REST API"^]
+* https://docs.netapp.com/us-en/bluexp-automation/platform/use_rest_apis.html["使用NetApp Console的 REST API"^]
 

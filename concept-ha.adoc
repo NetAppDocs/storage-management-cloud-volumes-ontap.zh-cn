@@ -41,7 +41,7 @@ Cloud Volumes ONTAP高可用性 (HA) 配置提供无中断操作和容错功能�
 NOTE: 对于Cloud Volumes ONTAP 9.10.0 及更早版本，调解器上安装了 Debian 10。
 
 --
-升级:: 升级Cloud Volumes ONTAP时， NetApp控制台还会根据需要更新中介实例。
+升级:: 升级Cloud Volumes ONTAP时， NetApp Console还会根据需要更新中介实例。
 访问实例:: 当您从控制台创建Cloud Volumes ONTAP HA 对时，系统会提示您为中介实例提供密钥对。您可以使用该密钥对进行 SSH 访问 `admin`用户。
 第三方代理:: 中介实例不支持第三方代理或 VM 扩展。
 

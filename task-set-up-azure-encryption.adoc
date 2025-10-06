@@ -25,7 +25,7 @@ Cloud Volumes ONTAP数据在 Azure 中自动使用 https://learn.microsoft.com/e
 如果您想将客户管理的密钥与Cloud Volumes ONTAP一起使用，则需要完成以下步骤：
 
 . 从 Azure 创建一个密钥保管库，然后在该保管库中生成一个密钥。
-. 从NetApp控制台，使用 API 创建使用密钥的Cloud Volumes ONTAP系统。
+. 从NetApp Console，使用 API 创建使用密钥的Cloud Volumes ONTAP系统。
 
 
 
@@ -187,7 +187,7 @@ NOTE: 使用 Azure 客户管理加密密钥的前提是为密钥保管库启用 
 
 . https://docs.microsoft.com/en-us/azure/key-vault/keys/quick-create-portal#add-a-key-to-key-vault["在密钥保管库中生成密钥"^] 。
 +
-请注意密钥的以下要求：
+请注意以下密钥要求：
 
 +
 ** 密钥类型必须是*RSA*。

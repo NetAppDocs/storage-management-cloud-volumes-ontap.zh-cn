@@ -16,7 +16,7 @@ summary: 设置 AWS 传输网关，以允许 NAS 客户端从Cloud Volumes ONTAP
 [role="lead"]
 设置 AWS 中转网关以允许访问 HA 对的link:reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["浮动IP地址"]来自 HA 对所在的 VPC 外部。
 
-当Cloud Volumes ONTAP HA 配置分布在多个 AWS 可用区时，需要浮动 IP 地址才能从 VPC 内部访问 NAS 数据。当发生故障时，这些浮动 IP 地址可以在节点之间迁移，但它们无法从 VPC 外部进行本机访问。单独的私有 IP 地址提供从 VPC 外部的数据访问，但它们不提供自动故障转移。
+当Cloud Volumes ONTAP HA 配置分布在多个 AWS 可用区时，需要浮动 IP 地址才能从 VPC 内部访问 NAS 数据。当发生故障时，这些浮动 IP 地址可以在节点之间迁移，但无法从 VPC 外部进行本机访问。单独的私有 IP 地址提供从 VPC 外部的数据访问，但它们不提供自动故障转移。
 
 集群管理接口和可选的 SVM 管理 LIF 也需要浮动 IP 地址。
 
@@ -40,7 +40,7 @@ image:diagram_transit_gateway.png["该图显示了一个 VPC 中的 HA 配置，
 
 . 通过指定 HA 对的浮动 IP 地址在传输网关的路由表中创建路由。
 +
-您可以在NetApp控制台的系统信息页面上找到浮动 IP 地址。以下是一个例子：
+您可以在NetApp Console的系统信息页面上找到浮动 IP 地址。以下是一个例子：
 
 +
 image:screenshot_floating_ips.gif["该屏幕截图显示了集群管理接口、两个 NFS 和 CIFS 数据接口以及 SVM 管理接口的浮动 IP 地址。"]

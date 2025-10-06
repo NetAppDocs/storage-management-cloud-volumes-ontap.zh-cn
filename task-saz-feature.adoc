@@ -14,7 +14,7 @@ summary: 启用此 Microsoft Azure 功能以在 SAZ 中部署 HA。
 
 
 [role="lead"]
-要在本地冗余存储 (LRS) 单可用区 (AZ) 中部署 VM 实例，您应该激活 Microsoft `Microsoft.Compute/VMOrchestratorZonalMultiFD`您的订阅功能。在高可用性 (HA) 模式下，此功能有助于在同一可用区域内的不同故障域中部署节点。
+要在本地冗余存储 (LRS) 单可用区 (AZ) 中部署虚拟机实例，您应该激活 Microsoft `Microsoft.Compute/VMOrchestratorZonalMultiFD`您的订阅功能。在高可用性 (HA) 模式下，此功能有助于在同一可用区域内的不同故障域中部署节点。
 
 除非您激活此功能，否则不会发生区域部署，并且之前的 LRS 非区域部署将生效。
 

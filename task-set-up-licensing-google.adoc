@@ -14,7 +14,7 @@ summary: 在您决定要为Cloud Volumes ONTAP使用哪种许可选项后，在�
 
 
 [role="lead"]
-在您决定要与Cloud Volumes ONTAP一起使用哪种许可选项后，需要执行几个步骤才能在创建新系统时选择该许可选项。
+在您决定要对Cloud Volumes ONTAP使用哪种许可选项后，需要执行几个步骤才能在创建新系统时选择该许可选项。
 
 
 
@@ -24,7 +24,7 @@ summary: 在您决定要为Cloud Volumes ONTAP使用哪种许可选项后，在�
 
 .步骤
 . 从左侧导航菜单中，选择“存储”>“管理”。
-. 在“*系统*”页面上，单击“*添加系统*”并按照NetApp控制台中的步骤进行操作。
+. 在“*系统*”页面上，单击“*添加系统*”并按照NetApp Console中的步骤进行操作。
 +
 .. 在*详细信息和凭据*页面上，单击*编辑凭据>添加订阅*，然后按照提示订阅 Google Cloud Marketplace 中的即用即付产品。
 +
@@ -68,7 +68,7 @@ NOTE: 已限制 BYOL 许可证的购买、延期和续订。有关更多信息�
 
 .步骤
 . https://bluexp.netapp.com/contact-cds["联系NetApp销售人员获取许可证"^]
-. https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-nss-accounts.html#add-an-nss-account["将您的NetApp支持站点帐户添加到NetApp控制台"^]
+. https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-nss-accounts.html#add-an-nss-account["将您的NetApp支持站点帐户添加到NetApp Console"^]
 +
 控制台会自动查询 NetApp 的许可服务，以获取与您的NetApp支持站点帐户相关的许可证的详细信息。如果没有错误，控制台将添加许可证。
 
@@ -81,7 +81,7 @@ NOTE: 已限制 BYOL 许可证的购买、延期和续订。有关更多信息�
 +
 始终会先向您从NetApp购买的许可证收费，但如果您超出许可容量或许可证期限到期，则会按照市场上的小时费率向您收费。
 
-.. 返回控制台后，在到达收费方式页面时选择基于容量的套餐。
+.. 返回控制台后，在进入收费方式页面时选择基于容量的套餐。
 +
 image:screenshot-professional.png["创建Cloud Volumes ONTAP系统时专业选项的屏幕截图。"]
 
@@ -104,7 +104,7 @@ link:task-deploying-gcp.html["查看在 Google Cloud 中启动Cloud Volumes ONTA
 . 在*系统*页面上，单击*添加系统*并按照步骤操作。
 +
 .. 在*详细信息和凭据*页面上，单击*编辑凭据>添加订阅*，然后按照提示订阅 Google Cloud Marketplace 中的即用即付产品。
-.. 返回控制台后，在到达收费方式页面时选择基于容量的套餐。
+.. 返回控制台后，在进入收费方式页面时选择基于容量的套餐。
 +
 image:screenshot-professional.png["创建Cloud Volumes ONTAP系统时专业选项的屏幕截图。"]
 
@@ -135,7 +135,7 @@ NetApp与您分享私人优惠后，您可以在系统创建期间从 Google Clo
 +
 .. 在*详细信息和凭据*页面上，单击*编辑凭据>添加订阅*，然后按照提示在 Google Cloud Marketplace 中订阅年度计划。
 .. 在 Google Cloud 中，选择与您的帐户共享的年度计划，然后单击*订阅*。
-.. 返回控制台后，在到达收费方式页面时选择基于容量的套餐。
+.. 返回控制台后，在进入收费方式页面时选择基于容量的套餐。
 +
 image:screenshot-professional.png["创建Cloud Volumes ONTAP系统时专业选项的屏幕截图。"]
 
@@ -157,7 +157,7 @@ Keystone订阅是一种按需付费的订阅式服务。link:concept-licensing.h
 . NetApp授权您的帐户后，link:task-manage-keystone.html#link-a-subscription["链接您的订阅以用于Cloud Volumes ONTAP"] 。
 . 在*系统*页面上，单击*添加系统*并按照步骤操作。
 +
-.. 当提示选择充电方式时，选择Keystone Subscription 充电方式。
+.. 当提示选择收费方式时，选择Keystone Subscription 收费方式。
 +
 image:screenshot-keystone.png["创建Cloud Volumes ONTAP系统时Keystone订阅选项的屏幕截图。"]
 

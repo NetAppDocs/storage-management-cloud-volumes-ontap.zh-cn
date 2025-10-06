@@ -95,7 +95,7 @@ ifdef::aws[]
 
 === AWS 密钥管理服务
 
-在 AWS 中启动Cloud Volumes ONTAP系统时，您可以使用 http://docs.aws.amazon.com/kms/latest/developerguide/overview.html["AWS 密钥管理服务 (KMS)"^]。  NetApp控制台使用客户主密钥 (CMK) 请求数据密钥。
+在 AWS 中启动Cloud Volumes ONTAP系统时，您可以使用 http://docs.aws.amazon.com/kms/latest/developerguide/overview.html["AWS 密钥管理服务 (KMS)"^]。  NetApp Console使用客户主密钥 (CMK) 请求数据密钥。
 
 
 TIP: 创建Cloud Volumes ONTAP系统后，您无法更改 AWS 数据加密方法。

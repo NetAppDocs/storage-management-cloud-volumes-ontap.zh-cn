@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-create-volumes.html 
 keywords: storage, provisioning, iscsi, nfs, cifs, volumes, create a volume, add a volume, create volumes, add volumes, creating a volume, adding a volume, provision volume, provision a volume, provisioning volumes, add volume to second node, add volume to node 2, cloud backup 
-summary: 如果在启动初始Cloud Volumes ONTAP系统后需要更多存储，则可以从NetApp控制台为 NFS、CIFS 或 iSCSI 创建新的FlexVol卷。 
+summary: 如果在启动初始Cloud Volumes ONTAP系统后需要更多存储，您可以从NetApp Console为 NFS、CIFS 或 iSCSI 创建新的FlexVol卷。 
 ---
 = 在Cloud Volumes ONTAP系统上创建FlexVol volume
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 如果在启动初始Cloud Volumes ONTAP系统后需要更多存储，�
 
 
 [role="lead"]
-如果在启动初始Cloud Volumes ONTAP系统后需要更多存储，则可以从NetApp控制台为 NFS、CIFS 或 iSCSI 创建新的FlexVol卷。
+如果在启动初始Cloud Volumes ONTAP系统后需要更多存储，您可以从NetApp Console为 NFS、CIFS 或 iSCSI 创建新的FlexVol卷。
 
 您可以通过多种方式创建新卷：
 
@@ -94,7 +94,7 @@ endif::aws[]
 |===
 .. *协议*：为卷选择一个协议（NFS、CIFS 或 iSCSI），然后提供所需的信息。
 +
-如果您选择 CIFS 但尚未设置服务器，则单击“下一步”后控制台会提示您设置 CIFS 连接。
+如果您选择 CIFS 但未设置服务器，则单击“下一步”后控制台会提示您设置 CIFS 连接。
 
 +
 link:concept-client-protocols.html["了解支持的客户端协议和版本"] 。
@@ -155,7 +155,7 @@ ifdef::gcp[]
 endif::gcp[]
 
 DNS 域:: Cloud Volumes ONTAP存储虚拟机 (SVM) 的 DNS 域。大多数情况下，该域与 AD 域相同。
-NTP 服务器:: 选择“使用 Active Directory 域”以使用 Active Directory DNS 配置 NTP 服务器。如果您需要使用不同的地址配置 NTP 服务器，那么您应该使用 API。欲了解更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自动化文档"^]。
+NTP 服务器:: 选择“使用 Active Directory 域”以使用 Active Directory DNS 配置 NTP 服务器。如果您需要使用不同的地址配置 NTP 服务器，那么您应该使用 API。欲了解更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自动化文档"^]。
 +
 --
 请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。创建 CIFS 服务器后，它不可配置。

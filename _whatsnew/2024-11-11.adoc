@@ -22,7 +22,7 @@ NetApp认识到符合合同义务和运营需求的以下独特许可要求，�
 
 * 美国公共部门客户
 * 私有模式下的部署
-* AWS 上的Cloud Volumes ONTAP中国区部署
+* AWS 中国区Cloud Volumes ONTAP部署
 * 如果您拥有有效、未过期的按节点自带许可证（BYOL 许可证）
 
 

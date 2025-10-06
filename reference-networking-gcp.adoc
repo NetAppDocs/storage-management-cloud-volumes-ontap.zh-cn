@@ -14,7 +14,7 @@ summary: 设置您的 Google Cloud 网络，以便Cloud Volumes ONTAP系统可�
 
 
 [role="lead"]
-NetApp控制台负责设置Cloud Volumes ONTAP的网络组件，例如 IP 地址、网络掩码和路由。您需要确保可以访问出站互联网、有足够的私有 IP 地址、有正确的连接等等。
+NetApp Console负责设置Cloud Volumes ONTAP的网络组件，例如 IP 地址、网络掩码和路由。您需要确保可以访问出站互联网、有足够的私有 IP 地址、有正确的连接等等。
 
 如果你想部署 HA 对，你应该link:concept-ha-google-cloud.html["了解 HA 对在 Google Cloud 中的工作原理"]。
 
@@ -453,7 +453,7 @@ NOTE: 源是Cloud Volumes ONTAP系统的接口（IP 地址）。
 | 配置备份 | HTTP | 80 | 节点管理 LIF | \http://<控制台代理 IP 地址>/occm/offboxconfig | 将配置备份发送到控制台代理。link:https://docs.netapp.com/us-en/ontap/system-admin/node-cluster-config-backed-up-automatically-concept.html["ONTAP 文档"^] 
 
 
-| DHCP | UDP | 68 | 节点管理 LIF | DHCP | DHCP 客户端首次设置 
+| DHCP | UDP | 68 | 节点管理 LIF | DHCP | 首次设置的 DHCP 客户端 
 
 
 | DHCP服务 | UDP | 67 | 节点管理 LIF | DHCP | DHCP 服务器 

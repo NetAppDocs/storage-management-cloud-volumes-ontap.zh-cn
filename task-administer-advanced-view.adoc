@@ -14,7 +14,7 @@ summary: 如果您需要对Cloud Volumes ONTAP执行高级管理，则可以使�
 
 
 [role="lead"]
-Cloud Volumes ONTAP中的高级存储管理功能可通过ONTAP系统管理器 (ONTAP System Manager) 使用，它是ONTAP系统提供的管理界面。您可以直接从NetApp控制台访问系统管理器。
+Cloud Volumes ONTAP中的高级存储管理功能可通过ONTAP系统管理器 (ONTAP System Manager) 使用，它是ONTAP系统提供的管理界面。您可以直接从NetApp Console访问系统管理器。
 
 
 

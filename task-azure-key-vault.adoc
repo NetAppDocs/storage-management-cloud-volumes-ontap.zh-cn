@@ -22,7 +22,7 @@ AKV 仅可用于保护数据 SVM 的NetApp卷加密 (NVE) 密钥。欲了解更�
 
 .开始之前
 * Cloud Volumes ONTAP必须运行 9.10.1 或更高版本
-* 已安装卷加密 (VE) 许可证（NetApp卷加密许可证会自动安装在每个向NetApp支持注册的Cloud Volumes ONTAP系统上）
+* 已安装卷加密 (VE) 许可证（NetApp卷加密许可证会自动安装在每个在NetApp支持中注册的Cloud Volumes ONTAP系统上）
 * 您必须拥有多租户加密密钥管理 (MT_EK_MGMT) 许可证
 * 您必须是集群或 SVM 管理员
 * 有效的 Azure 订阅
@@ -60,7 +60,7 @@ AKV 仅可用于保护数据 SVM 的NetApp卷加密 (NVE) 密钥。欲了解更�
 .创建 Azure 客户端机密
 . 在 Azure Key Vault 应用注册的 Azure 门户中，选择“证书和机密”窗格。
 . 选择**新客户端密钥**。为您的客户端密钥输入一个有意义的名称。  NetApp建议的有效期为 24 个月；但是，您的特定云治理策略可能需要不同的设置。
-. 单击**添加**以创建客户端密钥。复制**值**列中列出的秘密字符串，并将其存储在安全的位置，以便稍后使用<<ontap>>。当您离开该页面后，秘密值将不再显示。
+. 单击**添加**以创建客户端密钥。复制**值**列中列出的秘密字符串，并将其存储在安全的位置，以便稍后使用<<ontap>>。离开该页面后，秘密值将不再显示。
 
 
 [[create-akv]]
@@ -186,7 +186,7 @@ Category: kms_wrapped_key_status
 如果 `service_reachability`状态不是 `OK`，SVM 无法通过所有必需的连接和权限访问 Azure Key Vault 服务。确保您的 Azure 网络策略和路由不会阻止您的私有 vNet 到达 Azure Key Vault 公共终结点。如果确实如此，请考虑使用 Azure Private 端点从 vNet 内部访问 Key Vault。您可能还需要在 SVM 上添加静态主机条目来解析端点的私有 IP 地址。
 
 +
-这 `kms_wrapped_key_status`将报告 `UNKNOWN`在初始配置时。其状态将变为 `OK`第一卷加密后。
+这 `kms_wrapped_key_status`将会报告 `UNKNOWN`在初始配置时。其状态将变为 `OK`第一卷加密后。
 
 . 可选：创建测试卷以验证 NVE 的功能。
 +

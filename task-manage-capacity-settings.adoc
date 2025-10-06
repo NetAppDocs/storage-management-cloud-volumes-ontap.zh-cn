@@ -19,7 +19,7 @@ summary: 通过添加磁盘、查看有关聚合的信息以及删除聚合来�
 这些设置会影响控制台代理管理的所有Cloud Volumes ONTAP系统。如果您有另一个控制台代理，则可以进行不同的配置。
 
 .所需权限
-您需要NetApp控制台的组织或帐户管理员权限才能修改Cloud Volumes ONTAP设置。
+您需要NetApp Console的组织或帐户管理员权限才能修改Cloud Volumes ONTAP设置。
 
 .步骤
 . 从左侧导航窗格转到*管理>代理*。

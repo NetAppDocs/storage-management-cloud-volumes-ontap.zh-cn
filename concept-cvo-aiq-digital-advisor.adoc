@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: concept-cvo-aiq-digital-advisor.html 
 keywords: concepts, digital advisor, cloud volumes ontap, cloud manager, BlueXP, NetApp Console 
-summary: Digital Advisor集成到NetApp控制台中，以便您可以在单一管理平台中优化ONTAP集群的操作、安全性和性能。 
+summary: Digital Advisor集成到NetApp Console中，以便您可以在单一管理平台中优化ONTAP集群的操作、安全性和性能。 
 ---
 = 使用Digital Advisor优化您的Cloud Volumes ONTAP系统
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: Digital Advisor集成到NetApp控制台中，以便您可以在单一�
 
 
 [role="lead"]
-https://www.netapp.com/services/support/active-iq/["Active IQ Digital Advisor"]（也称为Digital Advisor）集成到NetApp控制台中，以便您可以在单一管理平台中优化Cloud Volumes ONTAP系统的操作、安全性和性能。
+https://www.netapp.com/services/support/active-iq/["Active IQ Digital Advisor"]（也称为Digital Advisor）集成到NetApp Console中，以便您可以在单一管理平台中优化Cloud Volumes ONTAP系统的操作、安全性和性能。
 
 
 
@@ -42,7 +42,7 @@ Digital Advisor提供您 NSS 帐户内所有本地ONTAP系统和Cloud Volumes ON
 
 
 
-== Digital Advisor如何与NetApp Console 配合使用
+== Digital Advisor如何与NetApp Console配合使用
 
 Digital Advisor用户界面完全集成在控制台中。
 

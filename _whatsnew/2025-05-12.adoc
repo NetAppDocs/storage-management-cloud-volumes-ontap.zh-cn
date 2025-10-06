@@ -6,6 +6,6 @@
 
 === 在BlueXP中发现通过 Azure 市场进行的部署
 
-BlueXP现在能够发现通过 Azure 市场直接部署的Cloud Volumes ONTAP系统。这意味着您现在可以在BlueXP中将这些系统添加和管理为工作环境，就像任何其他Cloud Volumes ONTAP系统一样。
+BlueXP现在能够发现通过 Azure 市场直接部署的Cloud Volumes ONTAP系统。这意味着您现在可以在BlueXP中将这些系统作为工作环境添加和管理，就像任何其他Cloud Volumes ONTAP系统一样。
 
 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploy-cvo-azure-mktplc.html["从 Azure 市场部署Cloud Volumes ONTAP"^]

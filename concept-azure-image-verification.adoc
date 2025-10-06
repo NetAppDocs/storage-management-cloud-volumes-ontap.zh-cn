@@ -14,7 +14,7 @@ summary: 验证 Azure VHD 映像文件签名文件。
 
 
 [role="lead"]
-Azure 映像验证符合增强的NetApp安全要求。验证图像文件是一个简单的过程。但是，Azure 映像签名验证需要特别注意 Azure VHD 映像文件，因为它在 Azure 市场中被更改。
+Azure 映像验证符合增强的NetApp安全要求。验证图像文件是一个简单的过程。但是，Azure 映像签名验证需要特别注意 Azure VHD 映像文件，因为它在 Azure 市场中被更改了。
 
 
 NOTE: Cloud Volumes ONTAP 9.15.0 及更高版本支持 Azure 映像验证。

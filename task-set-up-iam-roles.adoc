@@ -14,9 +14,9 @@ summary: 必须将具有所需权限的 IAM 角色附加到每个Cloud Volumes O
 
 
 [role="lead"]
-必须将具有所需权限的 AWS 身份和访问管理 (IAM) 角色附加到每个Cloud Volumes ONTAP节点。对于 HA 调解员来说也是如此。最简单的方法是让NetApp控制台为您创建 IAM 角色，但您也可以使用自己的角色。
+必须将具有所需权限的 AWS 身份和访问管理 (IAM) 角色附加到每个Cloud Volumes ONTAP节点。对于 HA 调解员来说也是如此。最简单的方法是让NetApp Console为您创建 IAM 角色，但您也可以使用自己的角色。
 
-此任务是可选的。创建Cloud Volumes ONTAP系统时，默认选项是让控制台为您创建 IAM 角色。如果您企业的安全策略要求您自己创建 IAM 角色，请按照以下步骤操作。
+此任务是可选的。当您创建Cloud Volumes ONTAP系统时，默认选项是让控制台为您创建 IAM 角色。如果您企业的安全策略要求您自己创建 IAM 角色，请按照以下步骤操作。
 
 
 NOTE: AWS Secret Cloud 需要提供您自己的 IAM 角色。link:task-getting-started-aws-c2s.html["了解如何在 C2S 中部署Cloud Volumes ONTAP"] 。
@@ -149,7 +149,7 @@ NOTE: AWS Secret Cloud 需要提供您自己的 IAM 角色。link:task-getting-s
 ====
 ** Cloud Volumes ONTAP节点的备份策略
 +
-如果您计划将NetApp Backup and Recovery 与Cloud Volumes ONTAP系统一起使用，则节点的 IAM 角色必须包括下面显示的第二个策略。
+如果您计划将NetApp Backup and Recovery与Cloud Volumes ONTAP系统一起使用，则节点的 IAM 角色必须包括下面显示的第二个策略。
 
 +
 [role="tabbed-block"]

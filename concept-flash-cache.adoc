@@ -36,7 +36,7 @@ ifdef::aws[]
 
 * 在 AWS 中为Cloud Volumes ONTAP 9.12.0 或更早版本配置 Flash Cache 时，必须在所有卷上禁用压缩才能利用 Flash Cache 性能改进。当您部署或升级到Cloud Volumes ONTAP 9.12.1 或更高版本时，您无需禁用压缩。
 +
-从NetApp控制台创建卷时跳过选择存储效率设置，或者创建卷然后 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/GUID-8508A4CB-DB43-4D0D-97EB-859F58B29054.html["使用 CLI 禁用数据压缩"^]。
+从NetApp Console创建卷时跳过选择存储效率设置，或者创建卷然后 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/GUID-8508A4CB-DB43-4D0D-97EB-859F58B29054.html["使用 CLI 禁用数据压缩"^]。
 
 
 

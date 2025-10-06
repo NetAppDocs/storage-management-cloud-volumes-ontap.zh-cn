@@ -4,7 +4,7 @@ permalink: task-removing.html
 keywords: systems, removing, remove, rediscover 
 summary: 您可以删除Cloud Volumes ONTAP系统以将其移动到另一个系统或解决发现问题。 
 ---
-= 从NetApp控制台中删除Cloud Volumes ONTAP系统
+= 从NetApp Console中删除Cloud Volumes ONTAP系统
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -17,10 +17,10 @@ summary: 您可以删除Cloud Volumes ONTAP系统以将其移动到另一个系�
 您可以删除Cloud Volumes ONTAP系统以将其移动到另一个系统或解决发现问题。
 
 .关于此任务
-删除Cloud Volumes ONTAP系统会将其从NetApp控制台中删除。它不会删除Cloud Volumes ONTAP系统。如果需要，您可以稍后重新发现该系统。
+删除Cloud Volumes ONTAP系统会将其从NetApp Console中删除。它不会删除Cloud Volumes ONTAP系统。如果需要，您可以稍后重新发现该系统。
 
 .步骤
-. 在“*系统*”页面上，双击要删除的系统。
+. 在*系统*页面上，双击要删除的系统。
 . 在控制台的右上角，单击image:icon-action.png[""]图标，然后选择*从工作区中删除*。
 . 在*从工作区中删除*窗口中，单击*删除*。
 

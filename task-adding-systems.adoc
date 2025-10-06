@@ -4,7 +4,7 @@ permalink: task-adding-systems.html
 keywords: discover, discovering, add, adding, existing 
 summary: 您可以发现现有的Cloud Volumes ONTAP系统并将其添加到控制台。如果您部署了新系统，您可能会这样做。 
 ---
-= 将现有的Cloud Volumes ONTAP系统添加到NetApp控制台
+= 将现有的Cloud Volumes ONTAP系统添加到NetApp Console
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 您可以发现现有的Cloud Volumes ONTAP系统并将其添加到控�
 
 
 [role="lead"]
-您可以发现现有的Cloud Volumes ONTAP系统并将其添加到NetApp控制台。如果您部署了新系统，您可能会这样做。
+您可以发现现有的Cloud Volumes ONTAP系统并将其添加到NetApp Console。如果您部署了新系统，您可能会这样做。
 
 .开始之前
 您必须知道Cloud Volumes ONTAP管理员用户帐户的密码。

@@ -20,7 +20,7 @@ Cloud Volumes ONTAP使用 Azure Private Link 连接到其关联的存储帐户�
 
 == 概述
 
-默认情况下， NetApp控制台启用 Azure Private Link 来建立Cloud Volumes ONTAP与其关联存储帐户之间的连接。  Azure 专用链接可保护 Azure 中端点之间的连接并提供性能优势。
+默认情况下， NetApp Console启用 Azure Private Link 来建立Cloud Volumes ONTAP与其关联存储帐户之间的连接。  Azure 专用链接可保护 Azure 中端点之间的连接并提供性能优势。
 
 如果需要，您可以将Cloud Volumes ONTAP配置为使用服务端点而不是 Azure Private Link。
 

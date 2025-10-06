@@ -14,7 +14,7 @@ summary: 随着存储需求的变化，您可能需要更改Cloud Volumes ONTAP�
 
 
 [role="lead"]
-您可以在NetApp控制台中为Cloud Volumes ONTAP选择正常或高速写入速度。默认写入速度正常。如果您的工作负载需要快速写入性能，您可以更改为高写入速度。
+您可以在NetApp Console中为Cloud Volumes ONTAP选择正常或高写入速度。默认写入速度正常。如果您的工作负载需要快速写入性能，您可以更改为高写入速度。
 
 所有类型的单节点系统和一些 HA 对配置都支持高写入速度。查看支持的配置 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/["Cloud Volumes ONTAP发行说明"^]
 

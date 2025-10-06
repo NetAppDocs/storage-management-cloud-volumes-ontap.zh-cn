@@ -14,7 +14,7 @@ summary: 了解BlueXP中Cloud Volumes ONTAP管理的新功能。
 
 
 [role="lead"]
-了解NetApp控制台中Cloud Volumes ONTAP管理的新功能。
+了解NetApp Console中Cloud Volumes ONTAP管理的新功能。
 
 本页描述的增强功能特定于通过控制台管理Cloud Volumes ONTAP 。要了解Cloud Volumes ONTAP软件本身的新功能， https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["转到Cloud Volumes ONTAP发行说明"^] 。
 
@@ -24,11 +24,11 @@ summary: 了解BlueXP中Cloud Volumes ONTAP管理的新功能。
 
 
 
-=== BlueXP现在是NetApp控制台
+=== BlueXP现在是NetApp Console
 
-NetApp控制台建立在增强和重组的BlueXP基础之上，可在企业级内部和云环境中集中管理NetApp存储和NetApp数据服务，提供实时洞察、更快的工作流程和简化的管理，并且高度安全且合规。
+NetApp Console建立在增强和重组的BlueXP基础之上，可在企业级内部和云环境中集中管理NetApp存储和NetApp Data Services，提供实时洞察、更快的工作流程和简化的管理，并且高度安全且合规。
 
-有关更改的详细信息，请参阅 https://docs.netapp.com/us-en/bluexp-relnotes/index.html["NetApp控制台发行说明"^]。
+有关更改的详细信息，请参阅 https://docs.netapp.com/us-en/bluexp-relnotes/index.html["NetApp Console发行说明"^]。
 
 
 
@@ -125,7 +125,7 @@ NetApp支持和服务将持续到您的 BYOL 合同到期，但已过期的许�
 
 === 在BlueXP中发现通过 Azure 市场进行的部署
 
-BlueXP现在能够发现通过 Azure 市场直接部署的Cloud Volumes ONTAP系统。这意味着您现在可以在BlueXP中将这些系统添加和管理为工作环境，就像任何其他Cloud Volumes ONTAP系统一样。
+BlueXP现在能够发现通过 Azure 市场直接部署的Cloud Volumes ONTAP系统。这意味着您现在可以在BlueXP中将这些系统作为工作环境添加和管理，就像任何其他Cloud Volumes ONTAP系统一样。
 
 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploy-cvo-azure-mktplc.html["从 Azure 市场部署Cloud Volumes ONTAP"^]
 
@@ -207,7 +207,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-managing-svms-gcp.
 
 您现在可以使用BlueXP API 在 Azure 中为Cloud Volumes ONTAP创建、重命名和删除其他数据服务存储虚拟机。如果您需要使用存储虚拟机进行管理，则使用 API 可以自动执行存储虚拟机的创建过程，包括所需网络接口、LIF 和管理 LIF 的配置。
 
-https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-managing-svms-azure.html["在 Azure 中管理Cloud Volumes ONTAP的数据服务存储虚拟机"^]
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-managing-svms-azure.html["管理 Azure 中Cloud Volumes ONTAP的数据服务存储虚拟机"^]
 
 
 
@@ -273,7 +273,7 @@ link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-administer-ad
 
 现在，您可以通过使用BlueXP digital wallet中改进的导航点来体验简化的Cloud Volumes ONTAP许可证管理：
 
-* 通过*管理>许可证和订阅>概述/直接许可证*选项卡轻松访问您的Cloud Volumes ONTAP许可证信息。
+* 通过*管理>Licenses and subscriptions>概述/直接许可证*选项卡轻松访问您的Cloud Volumes ONTAP许可证信息。
 * 单击“概览”选项卡中 Cloud Volume ONTAP面板上的“查看”以全面了解基于容量的许可证。此高级视图提供有关您的许可证和订阅的详细信息。
 * 如果您更喜欢以前的界面，您可以单击“切换到旧视图”按钮按类型查看许可证详细信息并修改许可证的收费方式。
 
@@ -316,7 +316,7 @@ NetApp认识到符合合同义务和运营需求的以下独特许可要求，�
 
 * 美国公共部门客户
 * 私有模式下的部署
-* AWS 上的Cloud Volumes ONTAP中国区部署
+* AWS 中国区Cloud Volumes ONTAP部署
 * 如果您拥有有效、未过期的按节点自带许可证（BYOL 许可证）
 
 
@@ -703,7 +703,7 @@ Azure 中的以下区域现在支持Cloud Volumes ONTAP 9.12.1 GA 及更高版�
 * 美国西部 2
 
 
-有关支持多个可用区域的所有区域的列表，请参阅 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球区域地图"^]。
+有关支持多个可用区的所有区域的列表，请参阅 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球区域地图"^]。
 
 
 
@@ -797,7 +797,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-9131-relnotes/["了解此版�
 
 Azure 中的日本东部和韩国中部现在支持Cloud Volumes ONTAP 9.12.1 GA 及更高版本的 HA 多可用区域部署。
 
-有关支持多个可用区域的所有区域的列表，请参阅 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球区域地图"^]。
+有关支持多个可用区的所有区域的列表，请参阅 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球区域地图"^]。
 
 
 
@@ -1195,7 +1195,7 @@ image:https://raw.githubusercontent.com/NetAppDocs/bluexp-cloud-volumes-ontap/ma
 
 === MTEKM 许可证
 
-多租户加密密钥管理 (MTEKM) 许可证现在包含在运行 9.11.1 或更高版本的新和现有Cloud Volumes ONTAP系统中。
+多租户加密密钥管理 (MTEKM) 许可证现在包含在运行 9.11.1 或更高版本的新旧Cloud Volumes ONTAP系统中。
 
 多租户外部密钥管理使单个存储虚拟机 (SVM) 能够在使用NetApp卷加密时通过 KMIP 服务器维护自己的密钥。
 
@@ -1463,7 +1463,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp
 
 === Google Cloud 服务帐户的增强功能
 
-当您选择与Cloud Volumes ONTAP一起使用的 Google Cloud 服务帐户时， BlueXP现在会显示与每个服务帐户关联的电子邮件地址。查看电子邮件地址可以更容易区分具有相同名称的服务帐户。
+当您选择与Cloud Volumes ONTAP一起使用的 Google Cloud 服务帐户时， BlueXP现在会显示与每个服务帐户关联的电子邮件地址。查看电子邮件地址可以更容易区分同名的服务帐户。
 
 image:https://raw.githubusercontent.com/NetAppDocs/bluexp-cloud-volumes-ontap/main/media/screenshot-google-cloud-service-account.png["服务帐户字段的屏幕截图"]
 
@@ -1591,7 +1591,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-node-licens
 
 BlueXP现在在 Canvas 的右侧面板中显示每个Cloud Volumes ONTAP工作环境的收费方式。
 
-image:screenshot-cvo-charging-method.png["该屏幕截图显示了Cloud Volumes ONTAP工作环境的收费方式，从“画布”中选择工作环境后，该方式出现在右侧面板中。"]
+image:screenshot-cvo-charging-method.png["该屏幕截图显示了Cloud Volumes ONTAP工作环境的收费方式，从 Canvas 中选择工作环境后，该方式出现在右侧面板中。"]
 
 
 
@@ -1996,7 +1996,7 @@ Cloud Volumes ONTAP现在支持以下机器类型：
 
 == 2020年11月3日
 
-连接器 3.9.0 版本引入了以下更改。
+连接器 3.9.0 版本引入了以下变化。
 
 
 

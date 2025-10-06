@@ -8,4 +8,4 @@
 
 您现在可以使用BlueXP API 在 Azure 中为Cloud Volumes ONTAP创建、重命名和删除其他数据服务存储虚拟机。如果您需要使用存储虚拟机进行管理，则使用 API 可以自动执行存储虚拟机的创建过程，包括所需网络接口、LIF 和管理 LIF 的配置。
 
-https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-managing-svms-azure.html["在 Azure 中管理Cloud Volumes ONTAP的数据服务存储虚拟机"^]
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-managing-svms-azure.html["管理 Azure 中Cloud Volumes ONTAP的数据服务存储虚拟机"^]

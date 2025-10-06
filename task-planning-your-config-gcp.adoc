@@ -76,7 +76,7 @@ GCP 磁盘类型:: 为Cloud Volumes ONTAP创建卷时，您需要选择Cloud Vol
 
 
 --
-GCP 磁盘大小:: 部署Cloud Volumes ONTAP系统时，您需要选择初始磁盘大小。之后，您可以让NetApp控制台为您管理系统的容量，但如果您想自己构建聚合，请注意以下事项：
+GCP 磁盘大小:: 部署Cloud Volumes ONTAP系统时，您需要选择初始磁盘大小。之后，您可以让NetApp Console为您管理系统的容量，但如果您想自己构建聚合，请注意以下事项：
 +
 --
 * 聚合中的所有磁盘必须具有相同的大小。

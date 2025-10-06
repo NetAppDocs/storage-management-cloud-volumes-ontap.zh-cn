@@ -14,7 +14,7 @@ summary:
 
 
 [role="lead"]
-NetApp提供了两种在 Azure 上部署Cloud Volumes ONTAP 的选项。 Cloud Volumes ONTAP传统上依赖NetApp控制台进行部署和编排。从Cloud Volumes ONTAP 9.16.1 开始，您可以利用 Azure 市场直接部署，这是一个简化的过程，可以访问有限但仍然强大的Cloud Volumes ONTAP功能和选项。
+NetApp提供了两种在 Azure 上部署Cloud Volumes ONTAP 的选项。 Cloud Volumes ONTAP传统上依赖NetApp Console进行部署和编排。从Cloud Volumes ONTAP 9.16.1 开始，您可以利用 Azure 市场直接部署，这是一个简化的过程，可以访问有限但仍然强大的Cloud Volumes ONTAP功能和选项。
 
 当您直接从 Azure 市场部署Cloud Volumes ONTAP时，您无需设置控制台代理或满足通过控制台部署Cloud Volumes ONTAP所需的其他安全和入职标准。从 Azure 市场，您只需单击几下即可快速部署Cloud Volumes ONTAP ，并在您的环境中探索其核心特性和功能。
 
@@ -24,7 +24,7 @@ NetApp提供了两种在 Azure 上部署Cloud Volumes ONTAP 的选项。 Cloud V
 
 [cols="3*"]
 |===
-|  | Azure 市场 | NetApp控制台 
+|  | Azure 市场 | NetApp Console 
 
 
 | *入职培训* | 更短、更简单，直接部署所需的准备工作最少 | 更长的入职流程，包括控制台代理的安装 
@@ -53,7 +53,7 @@ Eds_v5 和 Ls_v3 实例类型
 | *写入速度（快速写入模式）* | 不支持 | 根据您的配置，支持。link:concept-write-speed.html["了解Cloud Volumes ONTAP中的写入速度"] 。 
 
 
-| *编排功能* | 不可用 | 根据许可证类型，可通过NetApp控制台获取 
+| *编排功能* | 不可用 | 根据许可证类型，可通过NetApp Console获取 
 
 
 | *支持的存储虚拟机数量* | 每个部署一个 | 根据您的配置，多个存储虚拟机。link:task-managing-svms-azure.html#supported-number-of-storage-vms["支持的存储虚拟机数量"] 
@@ -67,5 +67,5 @@ Eds_v5 和 Ls_v3 实例类型
 .相关链接
 * Azure 市场直接部署：link:task-deploy-cvo-azure-mktplc.html["从 Azure 市场部署Cloud Volumes ONTAP"]
 * 通过控制台部署：link:task-getting-started-azure.html["Azure 中的Cloud Volumes ONTAP快速入门"]
-* https://docs.netapp.com/us-en/bluexp-family/index.html["NetApp控制台文档"^]
+* https://docs.netapp.com/us-en/bluexp-family/index.html["NetApp Console文档"^]
 

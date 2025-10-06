@@ -53,7 +53,7 @@ link:task-set-up-licensing-google.html["了解如何设置许可"] 。
 
 == 在 Google Cloud 中启动单节点系统
 
-在NetApp控制台中创建一个系统以在 Google Cloud 中启动Cloud Volumes ONTAP 。
+在NetApp Console中创建一个系统以在 Google Cloud 中启动Cloud Volumes ONTAP 。
 
 .步骤
 . 从左侧导航菜单中，选择“存储”>“管理”。
@@ -73,7 +73,7 @@ link:task-set-up-licensing-google.html["了解如何设置许可"] 。
 | 系统名称 | 控制台使用系统名称来命名Cloud Volumes ONTAP系统和 Google Cloud VM 实例。如果您选择该选项，它还会使用该名称作为预定义安全组的前缀。 
 
 
-| 服务帐户名称 | 如果你打算使用link:concept-data-tiering.html["数据分层"]或者 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp备份和恢复"^]使用Cloud Volumes ONTAP，则需要启用*服务帐户*并选择具有预定义存储管理员角色的服务帐户。link:task-creating-gcp-service-account.html["了解如何创建服务帐号"^] 。 
+| 服务帐户名称 | 如果你打算使用link:concept-data-tiering.html["数据分层"]或者 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery"^]使用Cloud Volumes ONTAP，则需要启用*服务帐户*并选择具有预定义存储管理员角色的服务帐户。link:task-creating-gcp-service-account.html["了解如何创建服务帐号"^] 。 
 
 
 | 添加标签 | 标签是您的 Google Cloud 资源的元数据。控制台将标签添加到Cloud Volumes ONTAP系统以及与该系统关联的 Google Cloud 资源。创建系统时，您可以从用户界面添加最多四个标签，然后可以在创建系统后添加更多标签。请注意，创建系统时，API 不会将您限制为四个标签。有关标签的信息，请参阅 https://cloud.google.com/compute/docs/labeling-resources["Google Cloud 文档：标记资源"^]。 
@@ -164,7 +164,7 @@ link:concept-write-speed.html["了解有关写入速度的更多信息"] 。
 
 NOTE: 通过*高*写入速度选项可实现高写入速度和更高的 8,896 字节最大传输单元 (MTU)。此外，8,896 的更高 MTU 要求选择 VPC-1、VPC-2 和 VPC-3 进行部署。有关 VPC-1、VPC-2 和 VPC-3 的更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-gcp.html#requirements-for-the-connector["VPC-1、VPC-2 和 VPC-3 的规则"^]。
 
-.. 如果需要，请激活一次写入，多次读取 (WORM) 存储。
+.. 如果需要，请激活一次写入、多次读取 (WORM) 存储。
 +
 如果为Cloud Volumes ONTAP 9.7 及更低版本启用了数据分层，则无法启用 WORM。启用 WORM 和分层后，恢复或降级到Cloud Volumes ONTAP 9.8 的操作将被阻止。
 
@@ -224,7 +224,7 @@ link:concept-client-protocols.html["了解支持的客户端协议和版本"^] �
 +
 image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例填写的卷页面。"]
 
-. *CIFS 设置*：如果您选择 CIFS 协议，请设置 CIFS 服务器。
+. *CIFS 设置*：如果您选择了 CIFS 协议，请设置 CIFS 服务器。
 +
 [cols="25,75"]
 |===
@@ -249,7 +249,7 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例�
 | DNS 域 | Cloud Volumes ONTAP存储虚拟机 (SVM) 的 DNS 域。大多数情况下，该域与 AD 域相同。 
 
 
-| NTP 服务器 | 选择“使用 Active Directory 域”以使用 Active Directory DNS 配置 NTP 服务器。如果您需要使用不同的地址配置 NTP 服务器，那么您应该使用 API。欲了解更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自动化文档"^]了解详情。请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。创建 CIFS 服务器后，它不可配置。 
+| NTP 服务器 | 选择“使用 Active Directory 域”以使用 Active Directory DNS 配置 NTP 服务器。如果您需要使用不同的地址配置 NTP 服务器，那么您应该使用 API。欲了解更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自动化文档"^]了解详情。请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。创建 CIFS 服务器后，它不可配置。 
 |===
 . *使用情况配置文件、磁盘类型和分层策略*：选择是否要启用存储效率功能并更改卷分层策略（如果需要）。
 +
@@ -303,7 +303,7 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例�
 | 系统名称 | 控制台使用系统名称来命名Cloud Volumes ONTAP系统和 Google Cloud VM 实例。如果您选择该选项，它还会使用该名称作为预定义安全组的前缀。 
 
 
-| 服务帐户名称 | 如果您打算使用link:concept-data-tiering.html["NetApp云分层"]或者 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["备份和恢复"^]服务，您需要启用*服务帐户*开关，然后选择具有预定义存储管理员角色的服务帐户。 
+| 服务帐户名称 | 如果您打算使用link:concept-data-tiering.html["NetApp Cloud Tiering"]或者 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["备份和恢复"^]服务，您需要启用*服务帐户*开关，然后选择具有预定义存储管理员角色的服务帐户。 
 
 
 | 添加标签 | 标签是您的 Google Cloud 资源的元数据。控制台将标签添加到Cloud Volumes ONTAP系统以及与该系统关联的 Google Cloud 资源。创建系统时，您可以从用户界面添加最多四个标签，然后可以在创建系统后添加更多标签。请注意，创建系统时，API 不会将您限制为四个标签。有关标签的信息，请参阅 https://cloud.google.com/compute/docs/labeling-resources["Google Cloud 文档：标记资源"^]。 
@@ -396,9 +396,9 @@ link:concept-write-speed.html["了解有关写入速度的更多信息"^] 。
 
 +
 
-NOTE: 通过 n2-standard-16、n2-standard-32、n2-standard-48 和 n2-standard-64 实例类型的 *高* 写入速度选项，可以获得高写入速度和更高的 8,896 字节的最大传输单元 (MTU)。此外，8,896 的更高 MTU 要求选择 VPC-1、VPC-2 和 VPC-3 进行部署。高写入速度和 8,896 的 MTU 取决于功能，并且无法在配置的实例中单独禁用。有关 VPC-1、VPC-2 和 VPC-3 的更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-gcp.html#requirements-for-the-connector["VPC-1、VPC-2 和 VPC-3 的规则"^]。
+NOTE: 通过 n2-standard-16、n2-standard-32、n2-standard-48 和 n2-standard-64 实例类型的 *高* 写入速度选项，可以获得高写入速度和更高的 8,896 字节的最大传输单元 (MTU)。此外，8,896 的更高 MTU 要求选择 VPC-1、VPC-2 和 VPC-3 进行部署。高写入速度和 8,896 的 MTU 取决于功能，无法在配置的实例中单独禁用。有关 VPC-1、VPC-2 和 VPC-3 的更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-gcp.html#requirements-for-the-connector["VPC-1、VPC-2 和 VPC-3 的规则"^]。
 
-.. 如果需要，请激活一次写入，多次读取 (WORM) 存储。
+.. 如果需要，请激活一次写入、多次读取 (WORM) 存储。
 +
 如果为Cloud Volumes ONTAP 9.7 及更低版本启用了数据分层，则无法启用 WORM。启用 WORM 和分层后，恢复或降级到Cloud Volumes ONTAP 9.8 的操作将被阻止。
 
@@ -457,7 +457,7 @@ link:concept-client-protocols.html["了解支持的客户端协议和版本"^] �
 +
 image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例填写的卷页面。"]
 
-. *CIFS 设置*：如果您选择 CIFS 协议，请设置 CIFS 服务器。
+. *CIFS 设置*：如果您选择了 CIFS 协议，请设置 CIFS 服务器。
 +
 [cols="25,75"]
 |===
@@ -482,7 +482,7 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例�
 | DNS 域 | Cloud Volumes ONTAP存储虚拟机 (SVM) 的 DNS 域。大多数情况下，该域与 AD 域相同。 
 
 
-| NTP 服务器 | 选择“使用 Active Directory 域”以使用 Active Directory DNS 配置 NTP 服务器。如果您需要使用不同的地址配置 NTP 服务器，那么您应该使用 API。请参阅 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自动化文档"^]了解详情。请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。创建 CIFS 服务器后，它不可配置。 
+| NTP 服务器 | 选择“使用 Active Directory 域”以使用 Active Directory DNS 配置 NTP 服务器。如果您需要使用不同的地址配置 NTP 服务器，那么您应该使用 API。请参阅 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自动化文档"^]了解详情。请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。创建 CIFS 服务器后，它不可配置。 
 |===
 . *使用情况配置文件、磁盘类型和分层策略*：选择是否要启用存储效率功能并更改卷分层策略（如果需要）。
 +

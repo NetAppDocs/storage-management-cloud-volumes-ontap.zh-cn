@@ -67,7 +67,7 @@ sidebar:
         url: "/task-set-up-licensing-aws.html"
       - title: 在 AWS 中使用Cloud Volumes ONTAP 的快速部署方法
         url: "/task-quick-deploy-aws.html"
-      - title: 在 AWS 中使用Cloud Volumes ONTAP的高级部署方法
+      - title: 在 AWS 中使用Cloud Volumes ONTAP 的高级部署方法
         url: "/task-deploying-otc-aws.html"
       - title: 在 AWS Secret 区域部署Cloud Volumes ONTAP
         url: "/task-getting-started-aws-c2s.html"
@@ -76,7 +76,7 @@ sidebar:
       entries:
       - title: 了解 Azure 中的Cloud Volumes ONTAP部署选项
         url: "/concept-azure-mktplace-direct.html"
-      - title: NetApp控制台入门
+      - title: 开始使用NetApp Console
         entries:
         - title: 快速启动
           url: "/task-getting-started-azure.html"

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-versions.html 
 keywords: versions, supported versions, new versions, cloud volumes ontap version 
-summary: 当您创建新的Cloud Volumes ONTAP系统时， NetApp Console 可让您从多个不同的ONTAP版本中进行选择。 
+summary: 当您创建新的Cloud Volumes ONTAP系统时， NetApp Console可让您从多个不同的ONTAP版本中进行选择。 
 ---
 = Cloud Volumes ONTAP部署支持的ONTAP版本
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 当您创建新的Cloud Volumes ONTAP系统时， NetApp Console 可让
 
 
 [role="lead"]
-当您添加Cloud Volumes ONTAP系统时， NetApp控制台可让您从多个不同的ONTAP版本中进行选择。
+当您添加Cloud Volumes ONTAP系统时， NetApp Console可让您从多个不同的ONTAP版本中进行选择。
 
 除此处列出的版本之外的Cloud Volumes ONTAP版本不适用于新部署。有关升级的信息，请参阅link:task-updating-ontap-cloud.html#supported-upgrade-paths["支持的升级路径"]。
 

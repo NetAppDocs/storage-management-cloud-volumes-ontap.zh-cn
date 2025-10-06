@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-updating-ontap-cloud.html 
 keywords: update, updating, upgrading, upgrade, software, downgrade, downgrading, FTP, HTTP, mediator, local image, revert, reverting, downgrading, cloud backup 
-summary: 从NetApp控制台升级Cloud Volumes ONTAP以获取最新的功能和增强功能。在升级软件之前，您应该准备好Cloud Volumes ONTAP系统。 
+summary: 从NetApp Console升级Cloud Volumes ONTAP以获取最新的功能和增强功能。在升级软件之前，您应该准备好Cloud Volumes ONTAP系统。 
 ---
 = 升级Cloud Volumes ONTAP软件
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 从NetApp控制台升级Cloud Volumes ONTAP以获取最新的功能和�
 
 
 [role="lead"]
-从NetApp控制台升级Cloud Volumes ONTAP以获取最新的功能和增强功能。在升级软件之前，您应该准备好Cloud Volumes ONTAP系统。
+从NetApp Console升级Cloud Volumes ONTAP以获取最新的功能和增强功能。在升级软件之前，您应该准备好Cloud Volumes ONTAP系统。
 
 
 
@@ -251,7 +251,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/GUID-3F50DE15-0D
 如果Cloud Volumes ONTAP系统具有活动的SnapMirror关系，最好在更新Cloud Volumes ONTAP软件之前暂停传输。暂停传输可防止SnapMirror故障。您必须暂停从目标系统的传输。
 
 
-NOTE: 尽管NetApp Backup and Recovery 使用SnapMirror的实现来创建备份文件（称为SnapMirror Cloud），但在系统升级时无需暂停备份。
+NOTE: 尽管NetApp Backup and Recovery使用SnapMirror的实现来创建备份文件（称为SnapMirror Cloud），但在系统升级时无需暂停备份。
 
 .关于此任务
 以下步骤介绍了如何使用ONTAP System Manager 9.3 及更高版本。
@@ -336,7 +336,7 @@ image:screenshot_overview_upgrade.png["显示“概览”选项卡下“立即�
 image:screenshot_upgrade_select_versions.png["升级Cloud Volumes ONTAP版本页面的屏幕截图。"]
 
 +
-如果要升级到其他版本，请点击*选择其他版本*。您会看到列出的最新Cloud Volumes ONTAP版本也与您系统上安装的版本兼容。例如，您的系统上安装的版本是9.12.1P3，并且有以下兼容版本可用：
+如果要升级到其他版本，请单击“选择其他版本”。您会看到列出的最新Cloud Volumes ONTAP版本，这些版本也与您系统上安装的版本兼容。例如，您的系统上安装的版本是9.12.1P3，并且有以下兼容版本可用：
 
 +
 ** 9.12.1P4 至 9.12.1P14

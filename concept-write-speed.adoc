@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: concept-write-speed.html 
 keywords: write speed, high write speed, normal write speed, nvfail, writing speed, ldm, low durability mode 
-summary: NetApp Console 使您能够为Cloud Volumes ONTAP选择正常或高写入速度。在选择写入速度之前，您应该了解正常设置和高设置之间的差异以及使用高写入速度时的风险和建议。 
+summary: NetApp Console使您能够为Cloud Volumes ONTAP选择正常或高写入速度。在选择写入速度之前，您应该了解正常设置和高设置之间的差异以及使用高写入速度时的风险和建议。 
 ---
 = 写入速度
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: NetApp Console 使您能够为Cloud Volumes ONTAP选择正常或高写�
 
 
 [role="lead"]
-NetApp Console 使您能够为大多数Cloud Volumes ONTAP配置选择正常或高写入速度。在选择写入速度之前，您应该了解正常设置和高设置之间的差异以及使用高写入速度时的风险和建议。
+NetApp Console使您能够为大多数Cloud Volumes ONTAP配置选择正常或高写入速度。在选择写入速度之前，您应该了解正常设置和高设置之间的差异以及使用高写入速度时的风险和建议。
 
 
 

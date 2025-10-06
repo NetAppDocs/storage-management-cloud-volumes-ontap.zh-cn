@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-manage-svm-dr.html 
 keywords: storage virtual machine, vserver, svm, storage vm, svm dr, disaster recovery, svm disaster recovery, storage vm dr 
-summary: NetApp Console 不为存储 VM 灾难恢复提供任何设置或编排支持。您必须使用系统管理器或 CLI。 
+summary: NetApp Console不为存储 VM 灾难恢复提供任何设置或编排支持。您必须使用系统管理器或 CLI。 
 ---
 = 为Cloud Volumes ONTAP设置存储虚拟机灾难恢复
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: NetApp Console 不为存储 VM 灾难恢复提供任何设置或编排�
 
 
 [role="lead"]
-NetApp控制台不提供存储虚拟机 (SVM) 灾难恢复的设置或编排支持。要执行这些任务，请使用ONTAP System Manager 或ONTAP CLI。
+NetApp Console不提供存储虚拟机 (SVM) 灾难恢复的设置或编排支持。要执行这些任务，请使用ONTAP System Manager 或ONTAP CLI。
 
 如果在两个Cloud Volumes ONTAP系统之间设置SnapMirror SVM 复制，则复制必须在两个 HA 对系统或两个单节点系统之间进行。您无法在 HA 对和单节点系统之间设置SnapMirror SVM 复制。
 

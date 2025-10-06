@@ -33,7 +33,7 @@ endif::aws[]
 
 ifdef::azure[]
 
-* 对于 Azure，只要NetApp控制台具有所需的权限，您就不需要执行任何操作。<<将冷数据分层到 Azure Blob 存储的要求,了解更多>> 。
+* 对于 Azure，只要NetApp Console具有所需的权限，您就不需要执行任何操作。<<将冷数据分层到 Azure Blob 存储的要求,了解更多>> 。
 
 
 endif::azure[]
@@ -51,7 +51,7 @@ endif::gcp[]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]创建、修改或复制卷时选择分层策略
 [role="quick-margin-para"]
-当您创建、修改或复制卷时， NetApp控制台会提示您选择分层策略。
+当您创建、修改或复制卷时， NetApp Console会提示您选择分层策略。
 
 [role="quick-margin-list"]
 * link:task-tiering.html#tier-data-from-read-write-volumes["来自读写卷的层数据"]
@@ -229,7 +229,7 @@ image:screenshot_aggregate_tiering_enabled.png["屏幕截图显示了控制台�
 
 
 .在聚合上启用分层的步骤
-. 在ONTAP系统管理器中，单击“存储”>“层级”。
+. 在ONTAP系统管理器中，单击 *存储 > 层级*。
 . 单击聚合的操作菜单并选择*附加云层*。
 . 选择要附加的云层并单击*保存*。
 

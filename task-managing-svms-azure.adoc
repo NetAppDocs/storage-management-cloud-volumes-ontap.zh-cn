@@ -4,7 +4,7 @@ permalink: task-managing-svms-azure.html
 keywords: storage virtual machine, vserver, svm, storage vm, supported number, number supported 
 summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端提供存储和数据服务。您可能知道这是 SVM 或 vserver。  Cloud Volumes ONTAP默认配置一个存储虚拟机，但某些配置支持额外的存储虚拟机。 
 ---
-= 在 Azure 中管理Cloud Volumes ONTAP的数据服务存储虚拟机
+= 管理 Azure 中Cloud Volumes ONTAP的数据服务存储虚拟机
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -16,9 +16,9 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 [role="lead"]
 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端提供存储和数据服务。您可能知道这是一个_SVM_或_vserver_。  Cloud Volumes ONTAP默认配置一个存储虚拟机，但您可以在 Azure 中运行Cloud Volumes ONTAP时创建其他存储虚拟机。
 
-要在 Azure 中创建和管理其他数据服务存储虚拟机，您应该使用 API。这是因为 API 自动化了创建存储虚拟机和配置所需网络接口的过程。创建存储虚拟机时， NetApp控制台会配置所需的 LIF 服务，以及存储虚拟机出站 SMB/CIFS 通信所需的 iSCSI LIF。
+要在 Azure 中创建和管理其他数据服务存储虚拟机，您应该使用 API。这是因为 API 自动化了创建存储虚拟机和配置所需网络接口的过程。创建存储虚拟机时， NetApp Console会配置所需的 LIF 服务，以及存储虚拟机出站 SMB/CIFS 通信所需的 iSCSI LIF。
 
-有关运行Cloud Volumes ONTAP API 调用的信息，请参阅 https://docs.netapp.com/us-en/bluexp-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一个 API 调用"^]。
+有关运行Cloud Volumes ONTAP API 调用的信息，请参阅 https://docs.netapp.com/us-en/bluexp-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一次 API 调用"^]。
 
 
 
@@ -26,13 +26,13 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 
 从Cloud Volumes ONTAP 9.9.0 开始，根据您的许可证，支持具有特定配置的多个存储虚拟机。请参阅 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-azure.html["Cloud Volumes ONTAP发行说明"^]验证您的Cloud Volumes ONTAP版本支持的存储虚拟机数量。
 
-9.9.0 之前的所有版本的Cloud Volumes ONTAP都支持一个数据服务存储虚拟机和一个用于灾难恢复的目标存储虚拟机。如果源存储虚拟机发生中断，您可以激活目标存储虚拟机进行数据访问。
+9.9.0 之前的所有Cloud Volumes ONTAP版本都支持一个数据服务存储虚拟机和一个用于灾难恢复的目标存储虚拟机。如果源存储虚拟机发生中断，您可以激活目标存储虚拟机进行数据访问。
 
 
 
 == 创建存储虚拟机
 
-根据您的配置和许可证类型，您可以使用NetApp控制台的 API 在单节点系统或高可用性 (HA) 配置中创建多个存储虚拟机。
+根据您的配置和许可证类型，您可以使用NetApp Console的 API 在单节点系统或高可用性 (HA) 配置中创建多个存储虚拟机。
 
 .关于此任务
 当您使用 API 创建存储虚拟机并配置所需的网络接口时，控制台还会修改 `default-data-files`通过从 NAS 数据 LIF 中删除以下服务并将其添加到用于出站管理连接的 iSCSI 数据 LIF，可以在数据存储虚拟机上实施策略：
@@ -148,5 +148,5 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 * https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html["准备使用 API"^]
 * https://docs.netapp.com/us-en/bluexp-automation/cm/workflow_processes.html#organization-of-cloud-volumes-ontap-workflows["Cloud Volumes ONTAP工作流程"^]
 * https://docs.netapp.com/us-en/bluexp-automation/platform/get_identifiers.html#get-the-connector-identifier["获取所需的标识符"^]
-* https://docs.netapp.com/us-en/bluexp-automation/platform/use_rest_apis.html["使用NetApp控制台的 REST API"^]
+* https://docs.netapp.com/us-en/bluexp-automation/platform/use_rest_apis.html["使用NetApp Console的 REST API"^]
 

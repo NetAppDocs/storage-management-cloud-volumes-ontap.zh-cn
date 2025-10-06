@@ -14,7 +14,7 @@ summary: Cloud Volumes ONTAP使用 Azure Private Link 连接到其关联的存�
 绕过回滚过程后， Cloud Volumes ONTAP部署过程成功完成，并通知您放置组创建未完成。
 
 .步骤
-. 使用 SSH 连接到NetApp控制台代理主机并登录。
+. 使用 SSH 连接到NetApp Console代理主机并登录。
 . 导航至 `/opt/application/netapp/cloudmanager/docker_occm/data`。
 . 编辑 `app.conf`通过改变 `rollback-on-placement-group-failure`参数 `false`。该参数的默认值是 `true`。
 +

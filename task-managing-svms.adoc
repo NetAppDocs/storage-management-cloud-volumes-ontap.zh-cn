@@ -26,7 +26,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 
 == 使用多个存储虚拟机
 
-NetApp控制台支持您从ONTAP系统管理器或ONTAP CLI 创建的任何其他存储虚拟机。
+NetApp Console支持您从ONTAP系统管理器或ONTAP CLI 创建的任何其他存储虚拟机。
 
 例如，下图显示了如何在创建卷时选择存储虚拟机。
 

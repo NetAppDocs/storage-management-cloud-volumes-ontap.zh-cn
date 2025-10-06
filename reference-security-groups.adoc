@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-security-groups.html 
 keywords: security group, security groups, rules, ports, aws, inbound, outbound, rules 
-summary: NetApp控制台创建 AWS 安全组，其中包括Cloud Volumes ONTAP成功运行所需的入站和出站规则。您可能希望参考端口以进行测试，或者您更喜欢使用自己的安全组。 
+summary: NetApp Console创建 AWS 安全组，其中包括Cloud Volumes ONTAP成功运行所需的入站和出站规则。您可能希望参考端口以进行测试，或者您更喜欢使用自己的安全组。 
 ---
 = Cloud Volumes ONTAP的 AWS 安全组入站和出站规则
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: NetApp控制台创建 AWS 安全组，其中包括Cloud Volumes ONTAP�
 
 
 [role="lead"]
-NetApp控制台创建 AWS 安全组，其中包括Cloud Volumes ONTAP成功运行所需的入站和出站规则。您可能希望参考端口以进行测试，或者您更喜欢使用自己的安全组。
+NetApp Console创建 AWS 安全组，其中包括Cloud Volumes ONTAP成功运行所需的入站和出站规则。您可能希望参考端口以进行测试，或者您更喜欢使用自己的安全组。
 
 
 
@@ -225,7 +225,7 @@ NOTE: 源是Cloud Volumes ONTAP系统上的接口（IP 地址）。
 | 配置备份 | HTTP | 80 | 节点管理 LIF | \http://<控制台代理 IP 地址>/occm/offboxconfig | 将配置备份发送到控制台代理。link:https://docs.netapp.com/us-en/ontap/system-admin/node-cluster-config-backed-up-automatically-concept.html["ONTAP 文档"^] 
 
 
-| DHCP | UDP | 68 | 节点管理 LIF | DHCP | DHCP 客户端首次设置 
+| DHCP | UDP | 68 | 节点管理 LIF | DHCP | 首次设置的 DHCP 客户端 
 
 
 | DHCP服务 | UDP | 67 | 节点管理 LIF | DHCP | DHCP 服务器 

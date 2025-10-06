@@ -14,7 +14,7 @@ summary: 与标准 AWS 区域类似，您可以在 AWS Secret Cloud 和 Top Secr
 
 
 [role="lead"]
-与标准 AWS 区域NetApp，您可以在link:https://aws.amazon.com/federal/secret-cloud/["AWS 秘密云"^]并且在link:https://aws.amazon.com/federal/top-secret-cloud/["AWS 顶级机密云"^]部署Cloud Volumes ONTAP，为您的云存储提供企业级功能。  AWS Secret Cloud 和 Top Secret Cloud 是特定于美国情报界的封闭区域；本页上的说明仅适用于 AWS Secret Cloud 和 Top Secret Cloud 区域用户。
+与标准 AWS 区域NetApp Console，您可以在link:https://aws.amazon.com/federal/secret-cloud/["AWS 秘密云"^]并且在link:https://aws.amazon.com/federal/top-secret-cloud/["AWS 顶级机密云"^]部署Cloud Volumes ONTAP，为您的云存储提供企业级功能。  AWS Secret Cloud 和 Top Secret Cloud 是特定于美国情报界的封闭区域；本页上的说明仅适用于 AWS Secret Cloud 和 Top Secret Cloud 区域用户。
 
 .开始之前
 在开始之前，请查看 AWS Secret Cloud 和 Top Secret Cloud 中支持的版本，并了解控制台中的私有模式。
@@ -444,7 +444,7 @@ CMK 可以是 AWS 管理的 CMK 或客户管理的 CMK。
 . 获取由证书颁发机构 (CA) 签名的、采用隐私增强邮件 (PEM) Base-64 编码 X.509 格式的根证书。请查阅您所在组织的政策和程序以获取证书。
 +
 
-NOTE: 对于 AWS Secret Cloud 区域，您应该上传 `NSS Root CA 2`证书，对于 Top Secret Cloud， `Amazon Root CA 4`证书。确保仅上传这些证书而不是整个链。证书链文件很大，上传可能会失败。如果您有其他证书，您可以稍后上传，如下一步所述。
+NOTE: 对于 AWS Secret Cloud 区域，您应该上传 `NSS Root CA 2`证书，对于 Top Secret Cloud， `Amazon Root CA 4`证书。确保仅上传这些证书而不是整个链。证书链文件较大，上传可能会失败。如果您有其他证书，您可以稍后上传，如下一步所述。
 
 +
 您需要在设置过程中上传证书。控制台通过 HTTPS 向 AWS 发送请求时使用受信任的证书。
@@ -583,7 +583,7 @@ docker restart <docker-id>
 如果您从NetApp购买了许可证，则需要将其添加到控制台，以便在创建新的Cloud Volumes ONTAP系统时选择该许可证。在将这些许可证与新的Cloud Volumes ONTAP系统关联之前，它们将保持未分配状态。
 
 .步骤
-. 从左侧导航菜单中，选择*许可证和订阅*。
+. 从左侧导航菜单中，选择*Licenses and subscriptions*。
 . 在 * Cloud Volumes ONTAP* 面板上，选择 *查看*。
 . 在 * Cloud Volumes ONTAP* 选项卡上，选择 *许可证>基于节点的许可证*。
 . 单击“*未分配*”。
@@ -600,7 +600,7 @@ docker restart <docker-id>
 
 
 .结果
-控制台会将许可证添加为未分配状态，直到您将其与新的Cloud Volumes ONTAP系统关联。您可以在左侧导航菜单的“*许可证和订阅 > Cloud Volumes ONTAP > 查看 > 许可证*”下看到许可证。
+控制台会将许可证添加为未分配状态，直到您将其与新的Cloud Volumes ONTAP系统关联。您可以在左侧导航菜单的 *Licenses and subscriptions> Cloud Volumes ONTAP > 查看 > 许可证* 下看到许可证。
 
 
 

@@ -30,7 +30,7 @@ Cloud Volumes ONTAP节点需要NetApp AutoSupport的出站互联网访问权限�
 * \ https://mysupport.netapp.com/asupprod/post/1.0/postAsup
 
 
-如果没有可用的出站互联网连接来发送AutoSupport消息， NetApp控制台会自动配置您的Cloud Volumes ONTAP系统以使用控制台代理作为代理服务器。唯一的要求是确保控制台代理的安全组允许通过端口 3128 进行入站连接。部署控制台代理后，您需要打开此端口。
+如果没有可用的出站互联网连接来发送AutoSupport消息， NetApp Console会自动配置您的Cloud Volumes ONTAP系统以使用控制台代理作为代理服务器。唯一的要求是确保控制台代理的安全组允许通过端口 3128 进行入站连接。部署控制台代理后，您需要打开此端口。
 
 如果您为Cloud Volumes ONTAP定义了严格的出站规则，那么您还需要确保Cloud Volumes ONTAP安全组允许通过端口 3128 进行出站连接。
 

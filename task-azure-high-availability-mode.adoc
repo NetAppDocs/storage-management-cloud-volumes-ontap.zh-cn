@@ -18,7 +18,7 @@ summary: 应启用 Microsoft Azure 的高可用性模式，以减少计划外故
 
 从Cloud Volumes ONTAP 9.10.1 开始，我们减少了在 Microsoft Azure 中运行的Cloud Volumes ONTAP HA 对的计划外故障转移时间，并增加了对 NFSv4 的支持。要使这些增强功能可用于Cloud Volumes ONTAP，您需要在 Azure 订阅上启用高可用性功能。
 
-当需要在 Azure 订阅上启用该功能时， NetApp Console 会提示您提供这些详细信息。
+当需要在 Azure 订阅上启用该功能时， NetApp Console会提示您提供这些详细信息。
 
 请注意以下事项：
 

@@ -23,4 +23,4 @@ summary: 您可以修改 AWS 路由表，其中包含部署在多个 AWS 可用�
 
 
 .结果
-NetApp控制台发送 AWS 请求来修改路由表。
+NetApp Console发送 AWS 请求来修改路由表。

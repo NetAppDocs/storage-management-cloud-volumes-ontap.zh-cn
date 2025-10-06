@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-manage-volumes.html 
 keywords: volumes, managing, cloning, editing, CIFS server, edit, flexclone, snapshot copy, restore, mount, delete, cifs setup, DNS, active directory, AD, domain, NetBIOS, identify, move, capacity, action required, clone, snapshot copies, restoring, vol move, volume move, move a volume, volume move slow, volume move performance 
-summary: NetApp控制台使您能够管理卷和 CIFS 服务器。它还会提示您移动卷以避免容量问题。 
+summary: NetApp Console使您能够管理卷和 CIFS 服务器。它还会提示您移动卷以避免容量问题。 
 ---
 = 管理Cloud Volumes ONTAP系统上的卷
 :hardbreaks:
@@ -14,9 +14,9 @@ summary: NetApp控制台使您能够管理卷和 CIFS 服务器。它还会提�
 
 
 [role="lead"]
-您可以在NetApp控制台中管理卷和 CIFS 服务器。您还可以移动卷以避免容量问题。
+您可以在NetApp Console中管理卷和 CIFS 服务器。您还可以移动卷以避免容量问题。
 
-您可以在NetApp控制台标准视图中管理卷，也可以通过控制台中包含的ONTAP系统管理器管理卷，以实现高级卷管理。标准视图提供了一组有限的选项来修改您的卷。系统管理器提供高级管理，例如克隆、调整大小、更改反勒索软件、分析、保护和活动跟踪的设置以及跨层移动卷。有关信息，请参阅link:task-administer-advanced-view.html["使用系统管理器管理Cloud Volumes ONTAP"]。
+您可以在NetApp Console标准视图中管理卷，也可以通过控制台中包含的ONTAP系统管理器管理卷，以实现高级卷管理。标准视图提供了一组有限的选项来修改您的卷。系统管理器提供高级管理，例如克隆、调整大小、更改反勒索软件、分析、保护和活动跟踪的设置以及跨层移动卷。有关信息，请参阅link:task-administer-advanced-view.html["使用系统管理器管理Cloud Volumes ONTAP"]。
 
 
 
@@ -43,7 +43,7 @@ image:screenshot_manage_vol_button.png["“卷”选项卡下的“管理卷”�
 
 | 获取NFS挂载命令  a| 
 .. 在“管理卷”面板的“卷操作”下，单击“安装命令”。
-.. 单击“*复制*”。
+.. 单击“复制”。
 
 
 
@@ -238,7 +238,7 @@ TIP: 当聚合已达到 90% 的使用容量时，控制台会显示这些“需�
 . <<确定如何纠正容量问题>> 。
 . 根据您的分析，移动卷以避免容量问题：
 +
-** <<将卷移动到另一个系统以避免容量问题>> 。
+** <<将卷移至另一个系统以避免容量问题>> 。
 ** <<将卷移动到另一个聚合以避免容量问题>> 。
 
 
@@ -289,7 +289,7 @@ image::screenshot_aggr_volume_overview.png[屏幕截图聚合量概览]
 
 
 
-=== 将卷移动到另一个系统以避免容量问题
+=== 将卷移至另一个系统以避免容量问题
 
 您可以将一个或多个卷移动到另一个Cloud Volumes ONTAP系统以避免容量问题。如果系统达到其磁盘限制，您可能需要执行此操作。
 

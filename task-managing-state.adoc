@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-managing-state.html 
 keywords: schedule, schedules, scheduling, shutdowns, shut down, restart, stop, stopping, turn off, weekday, weekend 
-summary: 您可以从NetApp控制台停止和启动Cloud Volumes ONTAP来管理您的云计算成本。 
+summary: 您可以从NetApp Console停止和启动Cloud Volumes ONTAP来管理您的云计算成本。 
 ---
 = 启动和停止Cloud Volumes ONTAP系统
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 您可以从NetApp控制台停止和启动Cloud Volumes ONTAP来管理�
 
 
 [role="lead"]
-您可以从NetApp控制台停止和启动Cloud Volumes ONTAP来管理您的云计算成本。
+您可以从NetApp Console停止和启动Cloud Volumes ONTAP来管理您的云计算成本。
 
 
 
@@ -42,7 +42,7 @@ image::screenshot_schedule_downtime.png[400]
 
 . 指定关机计划：
 +
-.. 选择是否每天、每个工作日、每个周末或这三个选项的任意组合关闭系统。
+.. 选择是否每天、每个工作日、每个周末或三个选项的任意组合关闭系统。
 .. 指定您想要关闭系统的时间以及关闭系统的时间长度。
 +
 *例子*

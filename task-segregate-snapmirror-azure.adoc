@@ -20,10 +20,10 @@ summary: 借助 Azure 中的Cloud Volumes ONTAP ，您可以使用不同的网�
 
 == 关于 Azure 中的SnapMirror流量隔离
 
-默认情况下， NetApp控制台会在同一子网上配置Cloud Volumes ONTAP部署中的所有 NIC 和 LIF。在这样的配置中， SnapMirror复制流量和数据和管理流量使用相同的子网。隔离SnapMirror流量利用了无法路由到用于数据和管理流量的现有子网的额外子网。
+默认情况下， NetApp Console会在同一子网上配置Cloud Volumes ONTAP部署中的所有 NIC 和 LIF。在这样的配置中， SnapMirror复制流量和数据和管理流量使用相同的子网。隔离SnapMirror流量利用了无法路由到用于数据和管理流量的现有子网的额外子网。
 
 .图 1
-下图显示了在单节点部署中，使用附加 NIC、关联的集群间 LIF 和不可路由子网对SnapMirror复制流量进行隔离。  HA 对部署略有不同。
+下图显示了在单节点部署中使用附加 NIC、关联的集群间 LIF 和不可路由子网对SnapMirror复制流量进行隔离。  HA 对部署略有不同。
 
 image:diagram-segregate-snapmirror-traffic.png["该图展示了单节点配置中SnapMirror复制流量的隔离"]
 
@@ -42,7 +42,7 @@ image:diagram-segregate-snapmirror-traffic.png["该图展示了单节点配置�
 本节提供有关如何创建附加 NIC 并将其附加到目标 VM 的说明。目标 VM 是 Azure 中Cloud Volumes ONTAP中的单节点或 HA 对系统，您要在其中设置额外的 NIC。
 
 .步骤
-. 在ONTAP CLI 中，停止该节点。
+. 在ONTAP CLI 中，停止节点。
 +
 [source, cli]
 ----
@@ -100,7 +100,7 @@ az vm nic add -g <dest_node-rg> --vm-name <dest_node-vm> --nics <dest_node-vm-ni
 ----
 az vm start --resource-group <dest_node-rg>  --name <dest_node-vm>
 ----
-. 在 Azure 门户中，转到 *网络* 并确认新 NIC（例如 nic-new）存在并且加速网络已启用。
+. 在 Azure 门户中，转到 *网络* 并确认新的 NIC（例如 nic-new）存在并且加速网络已启用。
 +
 [source, cli]
 ----
@@ -222,7 +222,7 @@ dest::> vserver peer create -vserver <dest_svm> -peer-vserver <src_svm> -peer-cl
 ----
 src::> vserver peer accept -vserver <src_svm> -peer-vserver <dest_svm>
 ----
-. 检查 SVM 是否对等。
+. 检查 SVM 是否已对等。
 +
 [source, cli]
 ----

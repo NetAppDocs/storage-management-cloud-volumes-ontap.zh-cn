@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-deploying-otc-azure.html 
 keywords: Cloud Volumes ONTAP, deploying, launching, creating, deploy, launch, create, azure, license key, serial number, tags, azure tags, location, license, preconfigured packages, programmatic deployments, disk size, write speed, access control, volume protection, usage profile, register, CIFS share, quota, qtree, HA, HA pair, associate subscription, azure marketplace, marketplace subscription, cloud data sense, cloud backup 
-summary: 您可以通过在NetApp控制台中创建 Cloud Volumes Cloud Volumes ONTAP Cloud Volumes ONTAP系统。 
+summary: 您可以通过在NetApp Console中创建 Cloud Volumes Cloud Volumes ONTAP Cloud Volumes ONTAP系统。 
 ---
 = 在 Azure 中启动Cloud Volumes ONTAP
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 您可以通过在NetApp控制台中创建 Cloud Volumes Cloud Volumes 
 
 
 [role="lead"]
-您可以通过在NetApp控制台中创建Cloud Volumes ONTAP系统在 Azure 中启动单节点系统或 HA 对。
+您可以通过在NetApp Console中创建Cloud Volumes ONTAP系统在 Azure 中启动单节点系统或 HA 对。
 
 .开始之前
 开始之前您需要以下内容。
@@ -81,8 +81,8 @@ link:task-set-up-licensing-azure.html["了解如何设置许可"^] 。
 |===
 . *服务*：启用或禁用您想要或不想与Cloud Volumes ONTAP一起使用的单个服务。
 +
-** https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有关NetApp数据分类的更多信息"^]
-** https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有关NetApp备份和恢复的更多信息"^]
+** https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有关NetApp Data Classification的更多信息"^]
+** https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有关NetApp Backup and Recovery的更多信息"^]
 +
 
 TIP: 如果您想使用 WORM 和数据分层，则必须禁用备份和恢复并部署版本 9.8 或更高版本的Cloud Volumes ONTAP系统。
@@ -163,7 +163,7 @@ link:concept-data-tiering.html["了解有关数据分层的更多信息"^] 。
 +
 link:concept-write-speed.html["了解有关写入速度的更多信息"^] 。
 
-.. 如果需要，请激活一次写入，多次读取 (WORM) 存储。
+.. 如果需要，请激活一次写入、多次读取 (WORM) 存储。
 +
 此选项仅适用于某些 VM 类型。要了解受支持的 VM 类型，请参阅link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html#ha-pairs["HA 对许可证支持的配置"^]。
 
@@ -212,7 +212,7 @@ link:concept-client-protocols.html["了解支持的客户端协议和版本"^] �
 +
 image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例填写的卷页面。"]
 
-. *CIFS 设置*：如果您选择 CIFS 协议，请设置 CIFS 服务器。
+. *CIFS 设置*：如果您选择了 CIFS 协议，请设置 CIFS 服务器。
 +
 [cols="25,75"]
 |===
@@ -237,7 +237,7 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例�
 | DNS 域 | Cloud Volumes ONTAP存储虚拟机 (SVM) 的 DNS 域。大多数情况下，该域与 AD 域相同。 
 
 
-| NTP 服务器 | 选择“使用 Active Directory 域”以使用 Active Directory DNS 配置 NTP 服务器。如果您需要使用不同的地址配置 NTP 服务器，那么您应该使用 API。请参阅 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自动化文档"^]了解详情。请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。创建 CIFS 服务器后，它不可配置。 
+| NTP 服务器 | 选择“使用 Active Directory 域”以使用 Active Directory DNS 配置 NTP 服务器。如果您需要使用不同的地址配置 NTP 服务器，那么您应该使用 API。请参阅 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自动化文档"^]了解详情。请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。创建 CIFS 服务器后，它不可配置。 
 |===
 . *使用情况配置文件、磁盘类型和分层策略*：选择是否要启用存储效率功能并更改卷分层策略（如果需要）。
 +
@@ -301,8 +301,8 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例�
 |===
 . *服务*：根据您是否要将各个服务与Cloud Volumes ONTAP一起使用来启用或禁用它们。
 +
-** https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有关NetApp数据分类的更多信息"^]
-** https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有关NetApp备份和恢复的更多信息"^]
+** https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.html["了解有关NetApp Data Classification的更多信息"^]
+** https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解有关NetApp Backup and Recovery的更多信息"^]
 +
 
 TIP: 如果您想使用 WORM 和数据分层，则必须禁用备份和恢复并部署版本 9.8 或更高版本的Cloud Volumes ONTAP系统。
@@ -397,7 +397,7 @@ link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-config
 +
 link:concept-write-speed.html["了解有关写入速度的更多信息"^] 。
 
-.. 如果需要，请激活一次写入，多次读取 (WORM) 存储。
+.. 如果需要，请激活一次写入、多次读取 (WORM) 存储。
 +
 此选项仅适用于某些 VM 类型。要了解受支持的 VM 类型，请参阅link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html#ha-pairs["HA 对许可证支持的配置"^]。
 
@@ -459,7 +459,7 @@ link:concept-client-protocols.html["了解支持的客户端协议和版本"^] �
 +
 image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例填写的卷页面。"]
 
-. *CIFS 设置*：如果您选择 CIFS 协议，请设置 CIFS 服务器。
+. *CIFS 设置*：如果您选择了 CIFS 协议，请设置 CIFS 服务器。
 +
 [cols="25,75"]
 |===
@@ -484,7 +484,7 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例�
 | DNS 域 | Cloud Volumes ONTAP存储虚拟机 (SVM) 的 DNS 域。大多数情况下，该域与 AD 域相同。 
 
 
-| NTP 服务器 | 选择“使用 Active Directory 域”以使用 Active Directory DNS 配置 NTP 服务器。如果您需要使用不同的地址配置 NTP 服务器，那么您应该使用 API。请参阅 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp控制台自动化文档"^]了解详情。请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。创建 CIFS 服务器后，它不可配置。 
+| NTP 服务器 | 选择“使用 Active Directory 域”以使用 Active Directory DNS 配置 NTP 服务器。如果您需要使用不同的地址配置 NTP 服务器，那么您应该使用 API。请参阅 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自动化文档"^]了解详情。请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。创建 CIFS 服务器后，它不可配置。 
 |===
 . *使用情况配置文件、磁盘类型和分层策略*：选择是否要启用存储效率功能并更改卷分层策略（如果需要）。
 +
