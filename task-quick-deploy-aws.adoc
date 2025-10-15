@@ -110,6 +110,9 @@ TIP: 如果您想利用 WORM 和数据分层，则必须禁用备份和恢复并
 .摘要
 检查或编辑您输入的详细信息，然后单击*创建*。
 
+
+CAUTION: 部署过程完成后，请勿修改 AWS 云门户中系统生成的Cloud Volumes ONTAP配置，尤其是系统标签。对这些配置所做的任何更改都可能导致意外行为或数据丢失。
+
 .相关链接
 * link:task-planning-your-config.html["规划您的Cloud Volumes ONTAP配置"]
 * link:task-deploying-otc-aws.html["使用高级部署在 AWS 中部署Cloud Volumes ONTAP"]

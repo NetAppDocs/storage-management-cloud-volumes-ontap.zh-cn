@@ -3203,39 +3203,24 @@
   <block id="035c0882c124b8a714a0ccb5b2edc977" category="admonition">有关如何通过 Google Cloud 导出图像的更多信息，请参阅<block ref="c7e947f0888e30efd1d729c87ccc8502" category="inline-link-rx"></block>。</block>
   <block id="5ae9e7fffccf52fce94c993af9db9dfa" category="summary">NetApp以多种方式提供支持。全天候提供广泛的免费自助支持选项，例如知识库 (KB) 文章和社区论坛。您的支持注册包含通过网络工单获取的远程技术支持。</block>
   <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="doc">获取帮助</block>
-  <block id="bbbc9b55f08bfe80f146b5207bdb7728" category="paragraph">NetApp以多种方式为BlueXP及其云服务提供支持。我们提供全天候 (24/7) 的大量免费自助支持选项，例如知识库 (KB) 文章和社区论坛。您的支持注册包含通过网络工单获取的远程技术支持。</block>
   <block id="522cbb900314aeb84eb5a961c5f94672" category="section-title">获取云提供商文件服务的支持</block>
-  <block id="f6185bb12f5e53c800be8cda7fbca65b" category="paragraph">有关云提供商文件服务、其基础设施或使用该服务的任何解决方案的技术支持，请参阅该产品的BlueXP文档中的“获取帮助”。</block>
   <block id="18cf072964a583150dd247485ba75b92" category="inline-link-macro">适用于ONTAP 的Amazon FSx</block>
-  <block id="9d06990508d25d367d9158c6558eb9c8" category="list-text"><block ref="9d06990508d25d367d9158c6558eb9c8" category="inline-link-macro-rx"></block></block>
   <block id="7450cfde7058dc5e1f7909d0280fd7ae" category="inline-link-macro">Azure NetApp Files</block>
-  <block id="2e0c742f4616eb27b5b7646aa790edfe" category="list-text"><block ref="2e0c742f4616eb27b5b7646aa790edfe" category="inline-link-macro-rx"></block></block>
   <block id="1215f8190533dfdf63d2224a6d88266f" category="inline-link-macro">Google Cloud NetApp Volumes</block>
-  <block id="cb4bf32603c89d08cad17e7e7dd302f2" category="list-text"><block ref="cb4bf32603c89d08cad17e7e7dd302f2" category="inline-link-macro-rx"></block></block>
-  <block id="3880ae5df9fdc4d0fc4a6d00a2239530" category="paragraph">要获得针对BlueXP及其存储解决方案和服务的技术支持，请使用下面描述的支持选项。</block>
   <block id="edd15fbeb7b2dffa163336ecd4f3e80c" category="section-title">使用自助选项</block>
   <block id="5e4b821a1a82558dead1ef6961e90666" category="paragraph">这些选项每周 7 天、每天 24 小时免费提供：</block>
   <block id="5b6cf869265c13af8566f192b4ab3d2a" category="list-text">文档</block>
-  <block id="a4a6c2ea0078252eac2d74ef3e6c917c" category="paragraph">您当前正在查看的BlueXP文档。</block>
   <block id="19111351b69b6b15668130b38b7f6038" category="inline-link">知识库</block>
   <block id="942c9249796cf6b78c981ebf15195809" category="list-text"><block ref="942c9249796cf6b78c981ebf15195809" category="inline-link-rx"></block></block>
-  <block id="9a3db1abe5491d0eb9bb5d125981356c" category="paragraph">搜索BlueXP知识库以查找有助于解决问题的文章。</block>
   <block id="14526abd8bda5af347775025cd5342cf" category="inline-link">社区</block>
   <block id="410fdb9caa9c64da2ff3f88f4836960d" category="list-text"><block ref="410fdb9caa9c64da2ff3f88f4836960d" category="inline-link-rx"></block></block>
-  <block id="00c5fef3bb9d593ae96bf5d2ee60354a" category="paragraph">加入BlueXP社区以关注正在进行的讨论或创建新的讨论。</block>
   <block id="d88bacf2a9fdcbbc844edcba97c34e30" category="section-title">向NetApp支持创建案例</block>
   <block id="82812db645b6ff5e9c2a24ddfb66c8d6" category="paragraph">除了上述自助支持选项之外，您还可以在激活支持后与NetApp支持专家合作解决任何问题。</block>
   <block id="8fece025a1a8fef7018449bf104a2527" category="list-title">开始之前</block>
-  <block id="920fe1428c19533eda6222fe7e58efbe" category="inline-link">了解如何管理与BlueXP登录相关的凭据</block>
-  <block id="e1d2e1a634647fd631081bc4f6f8e523" category="list-text">要使用“创建案例”功能，您必须首先将您的NetApp支持站点凭据与您的BlueXP登录名关联。<block ref="2a0d8b66ca9e99d023b48cf25f40fb12" category="inline-link-rx"></block> 。</block>
   <block id="e49aa971c20ec071f1b5bbc3c7266769" category="list-text">如果您要为具有序列号的ONTAP系统打开案例，那么您的 NSS 帐户必须与该系统的序列号相关联。</block>
-  <block id="7fe6981833e8fe7fd89e0a99a55573da" category="list-text">在BlueXP中，选择 *帮助 &gt; 支持*。</block>
   <block id="08d96fdd1a845d80db99e6e1dffb8bc7" category="list-text">在“*资源*”页面上，选择“技术支持”下的可用选项之一：</block>
   <block id="6a1b74969231967ed071d465206b15c7" category="list-text">如果您想通过电话与某人交谈，请选择“致电我们”。您将被引导至 netapp.com 上的一个页面，其中列出了您可以拨打的电话号码。</block>
   <block id="d65a2a6fc9caad1867728d4382eeb989" category="list-text">选择“创建案例”向NetApp支持专家开具一张票：</block>
-  <block id="d63bf50426f4c712554faec55b30c548" category="list-text">*服务*：选择与问题相关的服务。例如， BlueXP专门针对服务中的工作流程或功能的技术支持问题。</block>
-  <block id="2e50c5f85523f0aba9ff2db10f18279c" category="list-text">*工作环境*：如果适用于存储，请选择* Cloud Volumes ONTAP* 或 *On-Prem*，然后选择相关的工作环境。</block>
-  <block id="98d90e398fc56688ddc647e5f49075ec" category="paragraph">工作环境列表在您在服务顶部横幅中选择的BlueXP组织（或帐户）、项目（或工作区）和连接器的范围内。</block>
   <block id="e6f29fb3c7636dc0040600dd0e84bb79" category="list-text">*案例优先级*：选择案例的优先级，可以是低、中、高或严重。</block>
   <block id="835eb4008e97c2a7f69bbb2725285e34" category="paragraph">要了解有关这些优先事项的更多详细信息，请将鼠标悬停在字段名称旁边的信息图标上。</block>
   <block id="0f7d9319c95a8be1492e74601c4b3259" category="list-text">*问题描述*：提供问题的详细描述，包括任何适用的错误消息或您执行的故障排除步骤。</block>
@@ -3243,17 +3228,11 @@
   <block id="c7f5c1a75acc58c6f004efc0ce1eba09" category="list-text">*附件（可选）*：一次最多上传五个附件。</block>
   <block id="bfa80e7aaad6da353b431bff3a0e12d6" category="paragraph">每个附件文件大小限制为 25 MB。支持以下文件扩展名：txt、log、pdf、jpg/jpeg、rtf、doc/docx、xls/xlsx 和 csv。</block>
   <block id="baaf0e61add7d12cf8d12e023d5aef18" category="inline-image-macro">创建案例表单的屏幕截图，可让您向NetApp支持创建案例。</block>
-  <block id="509259be6d5e15d8959f705cbe0cbcc1" category="paragraph"><block ref="509259be6d5e15d8959f705cbe0cbcc1" category="inline-image-macro-rx" type="image"></block></block>
   <block id="18f487556417bb6d9721a7005ae097c9" category="paragraph">将会出现一个弹出窗口，其中显示您的支持案例编号。NetApp支持专家将审查您的案例并尽快回复您。</block>
   <block id="0ff9b4b8684b9e03c9c1e1320935eae3" category="paragraph">要查看支持案例的历史记录，您可以选择*设置&gt;时间线*并查找名为“创建支持案例”的操作。最右边的按钮可让您展开操作以查看详细信息。</block>
   <block id="5c56753585e89a84941bb3a78bc681af" category="paragraph">尝试创建案例时，您可能会遇到以下错误消息：</block>
   <block id="a30f69ab0ec85d427a3e8835713525bd" category="paragraph">“您无权针对所选服务创建案例”</block>
-  <block id="c7b7a5ae9f37fd7d24e4d641b9186fe9" category="paragraph">此错误可能意味着 NSS 帐户及其关联的记录公司与BlueXP帐户序列号的记录公司不是同一家（即。960xxxx）或工作环境序列号。您可以使用以下选项之一寻求帮助：</block>
-  <block id="e01df0b4dfd95eba2c59333419e4fac6" category="list-text">使用产品内聊天</block>
   <block id="639be990cfca56ab4b63685d8bacd437" category="list-text">提交非技术案例<block ref="2298f47e4dad19a3156da7ce6116d9b1" category="inline-link-rx"></block></block>
-  <block id="898e35e1a4bf4b025c3edec879439b08" category="section-title">管理您的支持案例（预览）</block>
-  <block id="8b74b053fbeeff5c3b6f4991cb1d028d" category="paragraph">您可以直接从BlueXP查看和管理活动和已解决的支持案例。您可以管理与您的 NSS 帐户和公司相关的案例。</block>
-  <block id="394ef093ad3259b9ff0fe7406f015b83" category="paragraph">案例管理目前可作为预览版使用。我们计划在即将发布的版本中完善这种体验并增加增强功能。请使用产品内聊天向我们发送反馈。</block>
   <block id="5e4e7672ec2ba2b8a763da7f6714e212" category="list-text">页面顶部的案例管理仪表板提供两种视图：</block>
   <block id="01c3ffea552d74a5ae390b10e71a1f26" category="list-text">左侧视图显示了您提供的用户 NSS 帐户在过去 3 个月内打开的案件总数。</block>
   <block id="e3b6c09a5686233f72ce1ea60a1eb088" category="list-text">右侧的视图根据您的用户 NSS 帐户显示了过去 3 个月内贵公司级别开设的案件总数。</block>
@@ -3261,27 +3240,15 @@
   <block id="56dcadeee6b0e5c47a52673f9b5a0bb3" category="list-text">您可以添加或删除感兴趣的列，并且可以过滤优先级和状态等列的内容。其他列仅提供排序功能。</block>
   <block id="6f936762e1223311f031685422fcd3a4" category="paragraph">请查看以下步骤以了解更多详细信息。</block>
   <block id="b14929795a61440e9b4ec9f8a4885ae3" category="list-text">在每个案件级别，我们提供更新案件记录或关闭尚未关闭或待关闭状态的案件的功能。</block>
-  <block id="0a4050ac39772e9281a9aba225254bf8" category="list-text">选择*案例管理*，如果出现提示，请将您的 NSS 帐户添加到BlueXP。</block>
-  <block id="d8ce1865cf1fe3cffd60300b4b86ad63" category="paragraph">*案例管理*页面显示与您的BlueXP用户帐户关联的 NSS 帐户相关的未结案例。这与出现在 *NSS 管理* 页面顶部的 NSS 帐户相同。</block>
   <block id="2ae5ae78bdb2d222f15fd8e89248709c" category="list-text">（可选）修改表中显示的信息：</block>
   <block id="1d39d3ab518e1e3f16cbafb2a56e1fd9" category="list-text">在“组织的案例”下，选择“查看”以查看与您的公司相关的所有案例。</block>
   <block id="059e856250b59be3069246887b74a23c" category="list-text">通过选择精确的日期范围或选择不同的时间范围来修改日期范围。</block>
-  <block id="dfb3764bce2548df4e06357403f9c7d0" category="inline-image-macro">案例管理页面表格上方选项的屏幕截图，可让您选择确切的日期范围或过去 7 天、30 天或 3 个月。</block>
-  <block id="0972db30d942fdb65d1732e6e84bde99" category="paragraph"><block ref="0972db30d942fdb65d1732e6e84bde99" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a1bb576be9e5a356290f231efb51b3f5" category="list-text">过滤列的内容。</block>
-  <block id="3753f10a59e21f58b30e3e67d416453e" category="inline-image-macro">状态列中的过滤选项的屏幕截图，可让您过滤出符合特定状态（例如“活动”或“已关闭”）的案例。</block>
-  <block id="cb6a777dd3c6e43b0dc441d38519d219" category="paragraph"><block ref="cb6a777dd3c6e43b0dc441d38519d219" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1c6ea5ef583389e18e7d7bda70beaa71" category="inline-image-macro">表格中出现的加号图标</block>
-  <block id="cdf14d2156528231a5dbd12ad5c95d3f" category="list-text">通过选择<block ref="b574dd55d604ddb721d869a0fc302007" category="inline-image-macro-rx" type="image"></block>然后选择您想要显示的列。</block>
-  <block id="370b44009f1b82d0b6b178bb80cc62fa" category="inline-image-macro">屏幕截图显示了您可以在表格中显示的列。</block>
-  <block id="e65065c4fd326b9f3a1eeb9453c30d73" category="paragraph"><block ref="e65065c4fd326b9f3a1eeb9453c30d73" category="inline-image-macro-rx" type="image"></block></block>
   <block id="ad0ae9ea1f2e8d973a9a0f6bb169f494" category="inline-image-macro">表格最后一列中出现的带有三个点的图标</block>
-  <block id="348552521b849746260fe8d296d34c15" category="list-text">通过选择管理现有案例<block ref="566c029d89e7d5421080767a37bf443e" category="inline-image-macro-rx" type="image"></block>并选择其中一个可用选项：</block>
   <block id="6d9dd74e7709ef802d299966f7898f6b" category="list-text">*查看案例*：查看有关特定案例的完整详细信息。</block>
   <block id="8e6b52a532a4fbbfc98dca3ebfa5f1e6" category="list-text">*更新案例说明*：提供有关您的问题的更多详细信息，或选择*上传文件*以附加最多五个文件。</block>
   <block id="bb6d5d351525342dd6b3cf4d15b6f298" category="list-text">*结案*：提供有关结案原因的详细信息，然后选择*结案*。</block>
-  <block id="e93217b2f709a398ce3c0fb753beb05f" category="inline-image-macro">屏幕截图显示了选择表格最后一列的菜单后可以采取的操作。</block>
-  <block id="2ea260929e27ffcb623c8aa35689bd18" category="paragraph"><block ref="2ea260929e27ffcb623c8aa35689bd18" category="inline-image-macro-rx" type="image"></block></block>
   <block id="1bb7d523f879b7ed72e5a67092958718" category="summary">与标准 AWS 区域类似，您可以在 AWS Secret Cloud 和 Top Secret Cloud 环境中部署Cloud Volumes ONTAP ，为您的云存储提供企业级功能。  AWS Secret Cloud 和 Top Secret Cloud 区域是特定于美国情报界的封闭区域；本页上的说明仅适用于 AWS Secret Cloud 和 Top Secret Cloud 区域用户。</block>
   <block id="240de91fb65f5d6acac3d891ccd57289" category="doc">在 AWS Secret Cloud 或 AWS Top Secret Cloud 中部署Cloud Volumes ONTAP</block>
   <block id="ff2c9914d275ee17c3f22e89e7ca1ef7" category="inline-link-macro">AWS 秘密云</block>
@@ -3653,43 +3620,27 @@
   <block id="3e230a58ba269a917d314abcc623818e" category="paragraph">该比率对于灾难恢复场景很重要。当从容量层读取数据时， Cloud Volumes ONTAP会将数据移动到性能层以提供更好的性能。如果没有足够的空间，那么Cloud Volumes ONTAP就无法移动数据。</block>
   <block id="b79fc07275bca01b493a455a8be6b1c5" category="summary">通过启用与Cloud Volumes ONTAP一起使用的订阅并请求更改订阅服务级别的承诺容量来管理您的Keystone订阅。请求服务级别的额外容量可为本地ONTAP集群或Cloud Volumes ONTAP系统提供更多存储空间。</block>
   <block id="03d5be8119fbdaabcbb9f81a27e41b6a" category="doc">通过NetApp Console管理Cloud Volumes ONTAP 的Keystone订阅</block>
-  <block id="c27b8e6a4f797d237583ca6d38a92cd6" category="paragraph">通过启用与Cloud Volumes ONTAP一起使用的订阅并请求更改订阅服务级别的承诺容量，从BlueXP digital wallet管理您的Keystone订阅。请求服务级别的额外容量可为本地ONTAP集群或Cloud Volumes ONTAP系统提供更多存储空间。</block>
   <block id="a3b1d6e06d4fd8ccc20c61ce51e45853" category="paragraph">NetApp Keystone是一种灵活的按需付费订阅服务，可为喜欢 OpEx 而非 CapEx 或租赁的客户提供混合云体验。</block>
   <block id="8635fd9dae0faf14591abf5c00ba4c36" category="inline-link">了解有关Keystone的更多信息</block>
   <block id="d9e1f569a60d13d4540b611846d761f5" category="paragraph"><block ref="d9e1f569a60d13d4540b611846d761f5" category="inline-link-rx"></block></block>
   <block id="4edb70089cdbc18de22fa9ead5189bc8" category="section-title">授权您的帐户</block>
-  <block id="79554ac40a8f3a03c9aaedab34165bd3" category="paragraph">在您能够在BlueXP中使用和管理Keystone订阅之前，您需要联系NetApp以授权您的BlueXP用户帐户使用Keystone订阅。</block>
-  <block id="43bfd35e9b57eaace0eafa6750af5ff7" category="list-text">从BlueXP导航菜单中，选择 *治理 &gt; 数字钱包*。</block>
   <block id="1ce97cc664bad2b8b354b3220e6331e7" category="list-text">选择* Keystone订阅*。</block>
   <block id="daf4ae396784c74ec2cbf002eaaa25f4" category="list-text">如果您看到“欢迎使用NetApp Keystone”页面，请向页面上列出的地址发送电子邮件。</block>
-  <block id="16692c26ca4528e651bbb36d93c465c7" category="paragraph">NetApp代表将通过授权您的用户帐户访问订阅来处理您的请求。</block>
   <block id="23698106a2d9dc1f2df20e97a71a625c" category="list-text">返回“Keystone订阅”选项卡查看您的订阅。</block>
-  <block id="3d6aabe991edb10f282fd60995e725ca" category="inline-image-macro">显示Keystone订阅列表的屏幕截图。</block>
-  <block id="6fd94fda3665b39867817d4700d184e8" category="paragraph"><block ref="6fd94fda3665b39867817d4700d184e8" category="inline-image-macro-rx" type="image"></block></block>
   <block id="06f358c39bc3b4633cefd78beb67e671" category="section-title">链接订阅</block>
   <block id="8afaab6946e4a914b70539d7502e26ac" category="paragraph">在NetApp授权您的帐户后，您可以链接Keystone订阅以用于Cloud Volumes ONTAP。此操作使用户能够选择订阅作为新Cloud Volumes ONTAP系统的收费方式。</block>
   <block id="b0afff19aa3343a6f86619d833dbd316" category="inline-image-macro">三个并排的点组成的图标</block>
   <block id="fc6ada65ff8f08c80e7d6167f68c89c2" category="list-text">对于您想要链接的订阅，单击<block ref="c9c50c6d591d91ccce1ee232fa490fb4" category="inline-image-macro-rx" type="image"></block>并选择*链接*。</block>
-  <block id="a71102951bc0488f4ec3cb5e52602100" category="inline-image-macro">显示订阅链接选项的屏幕截图。</block>
-  <block id="53dd6d03631eca7d8e89d0d7d8cdeb77" category="paragraph"><block ref="53dd6d03631eca7d8e89d0d7d8cdeb77" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="7c27c9e51d561399ee84fb8d2259328c" category="paragraph">该订阅现已链接到您的BlueXP组织或帐户，并可在创建Cloud Volumes ONTAP工作环境时进行选择。</block>
   <block id="1b02ed65c5ea56c85fffa6b88378d762" category="section-title">请求更多或更少的承诺容量</block>
-  <block id="6659aa983422f26fe41e5bcc67fa8466" category="paragraph">如果您想要更改订阅服务级别的承诺容量，您可以直接从BlueXP向NetApp发送请求。请求服务级别的额外容量可为本地集群或Cloud Volumes ONTAP系统提供更多存储空间。</block>
-  <block id="a2748c51966db7db689a8801f6ae4150" category="list-text">对于您想要调整容量的订阅，单击<block ref="c9c50c6d591d91ccce1ee232fa490fb4" category="inline-image-macro-rx" type="image"></block>并选择*查看详细信息和编辑*。</block>
   <block id="56ecf988dec174f4d23028e78eeed82c" category="list-text">输入一个或多个订阅所请求的承诺容量。</block>
-  <block id="b21f9c14aa5cab57ac732dac504b7b63" category="inline-image-macro">屏幕截图显示了请求更改订阅的承诺容量的能力。</block>
-  <block id="6a39e9f54ea83c3684d0fc38cb4ce576" category="paragraph"><block ref="6a39e9f54ea83c3684d0fc38cb4ce576" category="inline-image-macro-rx" type="image"></block></block>
   <block id="dbae9df22f08344d5508b91cb73c6d15" category="list-text">向下滚动，输入请求的任何其他详细信息，然后单击“*提交*”。</block>
   <block id="8f140d9c4d508c36e3d4c57102f117eb" category="paragraph">您的请求将在 NetApp 系统中创建一张票以供处理。</block>
   <block id="ec6e0d1bd46f010ced65478c609b1636" category="section-title">监控使用情况</block>
-  <block id="4bb37917188b518967d0e67a2b819327" category="paragraph">BlueXP digital advisor仪表板使您能够监控Keystone订阅使用情况并生成报告。</block>
   <block id="20ea4c62f4c9e4254314fe7fbbef0319" category="inline-link">了解有关监控订阅使用情况的更多信息</block>
   <block id="d7105dd212dc96a8b292b6b48f84916f" category="paragraph"><block ref="d7105dd212dc96a8b292b6b48f84916f" category="inline-link-rx"></block></block>
   <block id="0c0401d1e9169d6dd38462b1e0d04126" category="section-title">取消订阅链接</block>
-  <block id="436fa170392050162dd4653f969cf048" category="paragraph">如果您不再想使用Keystone订阅和BlueXP，您可以取消订阅链接。请注意，您只能取消链接未附加到现有Cloud Volumes ONTAP订阅的订阅。</block>
   <block id="492847bcbc9ec0bd3075b612aa43e4a7" category="list-text">选择* Keystone*。</block>
   <block id="a666a430e484ea214384aefaa30da852" category="list-text">对于要取消链接的订阅，点击<block ref="c9c50c6d591d91ccce1ee232fa490fb4" category="inline-image-macro-rx" type="image"></block>并选择*取消链接*。</block>
-  <block id="287c693dd0bc6ec48aa0fc3f4b950a9e" category="paragraph">该订阅已与您的BlueXP组织或帐户取消链接，并且在创建Cloud Volumes ONTAP工作环境时不再可供选择。</block>
   <block id="6e1a9790b199742bec95dea2070e2f3f" category="summary">在NetApp Console中管理基于节点的许可证，以确保每个Cloud Volumes ONTAP系统都具有所需容量的有效许可证。</block>
   <block id="160221c1e99e53b72af8a65c2440852b" category="doc">管理Cloud Volumes ONTAP 的基于节点的许可</block>
   <block id="63e5ea33dc9b9a10458ac73abae91075" category="paragraph">在NetApp Console中管理基于节点的许可证，以确保每个Cloud Volumes ONTAP系统都具有所需容量的有效许可证。</block>
@@ -4788,37 +4739,18 @@
   <block id="5e41481253f1e5476c9db04d39b740c0" category="list-text"><block ref="5e41481253f1e5476c9db04d39b740c0" category="inline-link-macro-rx"></block></block>
   <block id="cf6c57784f8a4a391aba92ff47d6fb8f" category="summary">在您向NetApp技术支持部门提交支持案例之前，您需要添加一个NetApp支持站点帐户，然后注册以获得支持。</block>
   <block id="42748df9eaa0be17ddc5cc1593cf57ab" category="doc">注册以获得支持</block>
-  <block id="ece19bab46695021f109a5e50f08bebe" category="paragraph">需要注册支持才能获得针对BlueXP及其存储解决方案和服务的技术支持。还需要支持注册才能启用Cloud Volumes ONTAP系统的关键工作流程。</block>
-  <block id="8a3d807608e632d188a288fc5f4aa7eb" category="paragraph">注册支持并不能使NetApp获得云提供商文件服务的支持。有关云提供商文件服务、其基础设施或使用该服务的任何解决方案的技术支持，请参阅该产品的BlueXP文档中的“获取帮助”。</block>
   <block id="0b0e252af8897fbe981ec6682d2aa33b" category="section-title">支持注册概述</block>
   <block id="192054ad7601240a3e8be54cc5cc548e" category="paragraph">激活支持权利的注册方式有两种：</block>
-  <block id="29360bfcdbc91d3f1514c372b4585965" category="list-text">注册您的BlueXP帐户序列号（您的 20 位 960xxxxxxxxx 序列号位于BlueXP中的支持资源页面上）。</block>
-  <block id="23fdcbefa6d9cd877be7ceb7a18bb936" category="paragraph">这是您在BlueXP内任何服务的单一支持订阅 ID。每个BlueXP帐户级支持订阅都必须注册。</block>
   <block id="55ff64467cd508971910145ab5d6b3b8" category="list-text">在您的云提供商市场中注册与订阅相关的Cloud Volumes ONTAP序列号（这些是 20 位 909201xxxxxxxx 序列号）。</block>
-  <block id="67dbdeb11e22ea7def810bade59ce818" category="paragraph">这些序列号通常被称为_PAYGO 序列号_，由BlueXP在Cloud Volumes ONTAP部署时生成。</block>
-  <block id="28164bf9e881ddc9e7ff74744bfce180" category="paragraph">注册两种类型的序列号可以实现开立支持票和自动生成案例等功能。按照如下所述，通过将NetApp支持站点 (NSS) 帐户添加到BlueXP来完成注册。</block>
-  <block id="444b74bc81e823cc1c4c704219ad8ed3" category="section-title">注册BlueXP以获得NetApp支持</block>
-  <block id="b3bf31f8a918c712f26cdf493a908825" category="paragraph">要注册支持并激活支持权利，您的BlueXP组织（或帐户）中的一名用户必须将NetApp支持站点帐户与其BlueXP登录名关联。如何注册NetApp支持取决于您是否已经拥有NetApp支持站点 (NSS) 帐户。</block>
   <block id="bf4c731c0ee7f60c8018ad8f96828dda" category="section-title">拥有 NSS 帐户的现有客户</block>
-  <block id="7e177185e7eddff33dd8f3aeb7551132" category="paragraph">如果您是拥有 NSS 帐户的NetApp客户，则只需通过BlueXP注册即可获得支持。</block>
-  <block id="0307a12e5749f8dd930472ee78f69d2c" category="list-text">在BlueXP控制台的右上角，选择“设置”图标，然后选择“*凭据*”。</block>
   <block id="f19ab635e6d5f884a22ee4ce067fdbfd" category="list-text">选择*用户凭证*。</block>
-  <block id="0c788a722f31f8f0cf36539ee04615cf" category="list-text">选择*添加 NSS 凭据*并按照NetApp支持站点 (NSS) 身份验证提示进行操作。</block>
   <block id="cfc5506589d5a4d055e721267d5f0732" category="list-text">要确认注册过程是否成功，请选择“帮助”图标，然后选择“*支持*”。</block>
-  <block id="2ba7f9eae7a02f9c3ac0fc07517d1c48" category="paragraph">*资源*页面应显示您的BlueXP组织已注册以获得支持。</block>
-  <block id="759d32287efdf88cd8ac71dccc0ecf8d" category="inline-image-macro">屏幕截图显示了帐户序列号、绿色复选框和文本“已注册支持”。</block>
-  <block id="4c441b388bebcddf8c08fb782095b864" category="paragraph"><block ref="4c441b388bebcddf8c08fb782095b864" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="c05e530d1466e986d570cfe3f92656c3" category="paragraph">请注意，如果其他BlueXP用户尚未将NetApp支持站点帐户与其BlueXP登录名关联，他们将看不到相同的支持注册状态。但是，这并不意味着您的BlueXP组织没有注册支持。只要组织中的一名用户遵循了这些步骤，那么您的组织就已注册。</block>
   <block id="1ff5aefce774ec72a211f2b3bb10b950" category="section-title">现有客户但没有 NSS 账户</block>
-  <block id="bdd862f49d428a850400bcf2f53cdaf2" category="paragraph">如果您是现有的NetApp客户，拥有现有许可证和序列号但没有 NSS 帐户，则需要创建一个 NSS 帐户并将其与您的BlueXP登录关联。</block>
   <block id="5b2b7f628f804bcb786a097c7e45aa41" category="inline-link">NetApp支持站点用户注册表</block>
   <block id="0c4a8b62da9473fbd5401273c4f85ee0" category="list-text">通过完成以下操作创建NetApp支持站点帐户<block ref="041bcb6d9bdf91f7d6ac92ae3a196e12" category="inline-link-rx"></block></block>
   <block id="d61c9f72493817776f392db42ac446a2" category="list-text">请务必选择适当的用户级别，通常为* NetApp客户/最终用户*。</block>
-  <block id="5226d4ec1f4f81b740cbbd27635b441f" category="list-text">请务必复制上面用于序列号字段的BlueXP帐户序列号 (960xxxx)。这将加快账户处理速度。</block>
-  <block id="0499bba105f8a891a2c671f1ba99dd34" category="list-text">完成以下步骤，将您的新 NSS 帐户与您的BlueXP登录名关联<block ref="2f3aba04ec49ee5f0573a6c80a1b9df2" category="inline-xref-macro-rx"></block>。</block>
   <block id="e9b1f53d6cabb3394833a4e102eb6a69" category="section-title">NetApp全新产品</block>
   <block id="c20c107d0d4eef6351660f3590324232" category="paragraph">如果您是NetApp新用户并且没有 NSS 帐户，请按照以下步骤操作。</block>
-  <block id="d889e6e7cc4c5509ab5b37f8fc894e46" category="list-text">在BlueXP控制台的右上角，选择“帮助”图标，然后选择“*支持*”。</block>
   <block id="b50f0a46135bcb7083b1f2f82032fc26" category="inline-image-macro">帮助菜单的屏幕截图，其中支持是第一个选项</block>
   <block id="e8d4092baef6680c6a35d5228ae31de2" category="paragraph"><block ref="e8d4092baef6680c6a35d5228ae31de2" category="inline-image-macro-rx" type="image"></block></block>
   <block id="2974170a8b1b5b4a2ac69aacd4c1c9c3" category="list-text">从支持注册页面找到您的帐户 ID 序列号。</block>
@@ -4833,23 +4765,17 @@
   <block id="201080500e946070a2e4873042507c77" category="paragraph">确认向NetApp提交您的请求并建议您创建NetApp支持站点帐户。</block>
   <block id="a2454703f88e5bf5b433ae850a87151b" category="list-text">请务必复制上面用于序列号字段的帐户序列号（960xxxx）。这将加快处理速度。</block>
   <block id="684375e279a289295b72a006d93e2c4c" category="paragraph">NetApp应该在此过程中与您联系。这是针对新用户的一次性入职培训。</block>
-  <block id="5cdee814e2d9ba3490a8f16d00c65759" category="paragraph">拥有NetApp支持站点帐户后，请按照以下步骤将该帐户与您的BlueXP登录关联<block ref="2f3aba04ec49ee5f0573a6c80a1b9df2" category="inline-xref-macro-rx"></block>。</block>
   <block id="3e616bae81890a6c8fae17c9b45af152" category="section-title">关联 NSS 凭据以获得Cloud Volumes ONTAP支持</block>
-  <block id="0ca08a23718c0a91743dd6c0146ca353" category="paragraph">需要将NetApp支持站点凭据与您的BlueXP组织关联才能为Cloud Volumes ONTAP启用以下关键工作流程：</block>
   <block id="a0518a10626dc11fd00e2d20265ad240" category="list-text">注册即用即付Cloud Volumes ONTAP系统以获得支持</block>
   <block id="321aadf78ef73521712291b7aba6411f" category="paragraph">需要提供您的 NSS 帐户才能激活对您的系统的支持并获得对NetApp技术支持资源的访问权限。</block>
   <block id="d51b2b497db445a16b1c9583c1abbb59" category="list-text">自带许可证 (BYOL) 时部署Cloud Volumes ONTAP</block>
-  <block id="2ebfeabed40c2270d9fa8325080a4b3e" category="paragraph">需要提供您的 NSS 帐户，以便BlueXP可以上传您的许可证密钥并启用您购买的期限的订阅。这包括期限续订的自动更新。</block>
   <block id="f5135b68b75a8404803a1eb438e40c5e" category="list-text">将Cloud Volumes ONTAP软件升级到最新版本</block>
-  <block id="c81c8e01f5d906ae1ab0c5c606f06b05" category="paragraph">将 NSS 凭证与您的BlueXP组织关联与与BlueXP用户登录关联的 NSS 帐户不同。</block>
-  <block id="8166996cb4a59c147200d89a061bb49c" category="paragraph">这些 NSS 凭证与您的特定BlueXP组织 ID 相关联。属于BlueXP组织的用户可以从 *支持 &gt; NSS 管理* 访问这些凭据。</block>
   <block id="328a2c1e7778e9edaf79d90c51409ac4" category="list-text">如果您有客户级帐户，则可以添加一个或多个 NSS 帐户。</block>
   <block id="e3cd99e4aa330ae6bdfb3754d83ae962" category="list-text">如果您有合作伙伴或经销商帐户，则可以添加一个或多个 NSS 帐户，但不能与客户级帐户一起添加。</block>
   <block id="c0e0b7ff0de9558404e9b77ece42948a" category="list-text">选择*NSS 管理 &gt; 添加 NSS 帐户*。</block>
   <block id="85b9386ed443776127e099931d73448a" category="list-text">当出现提示时，选择“*继续*”以重定向到 Microsoft 登录页面。</block>
   <block id="d59e0b46782e48a01966e5c7ccc38d17" category="paragraph">NetApp使用 Microsoft Entra ID 作为特定于支持和许可的身份验证服务的身份提供者。</block>
   <block id="465ec6d5eafa3524c948c99d8bfcd306" category="list-text">在登录页面，提供您的NetApp支持站点注册的电子邮件地址和密码以执行身份验证过程。</block>
-  <block id="cbc6cc3bb022583403171b447b2a962c" category="paragraph">这些操作使BlueXP能够使用您的 NSS 帐户进行许可证下载、软件升级验证和未来支持注册等操作。</block>
   <block id="ec084bb25ed5b934c09b361069c246b2" category="list-text">NSS 帐户必须是客户级帐户（不是访客或临时帐户）。您可以拥有多个客户级 NSS 帐户。</block>
   <block id="27387009488fe78dcc7cb7e3e432792f" category="list-text">如果该帐户是合作伙伴级别帐户，则只能有一个 NSS 帐户。如果您尝试添加客户级 NSS 帐户并且合作伙伴级帐户已存在，您将收到以下错误消息：</block>
   <block id="d926847e4634e19a1aa7358becc0fa27" category="paragraph">“此帐户不允许使用 NSS 客户类型，因为已经存在不同类型的 NSS 用户。”</block>
@@ -5210,8 +5136,6 @@
   <block id="9d72c2bef829db2eecf218dce9aa0f18" category="doc">Cloud Volumes ONTAP的新功能</block>
   <block id="282a076d9f3b028a74e6186a429822bd" category="paragraph">了解NetApp Console中Cloud Volumes ONTAP管理的新功能。</block>
   <block id="fba77b4c3f3b2f8af51a858aaf78b37e" category="paragraph">本页描述的增强功能特定于通过控制台管理Cloud Volumes ONTAP 。要了解Cloud Volumes ONTAP软件本身的新功能，<block ref="708e09e3f2783926556b9c6d77f63a27" category="inline-link-rx"></block> 。</block>
-  <block id="91d6aafc857e46203357e992ab4434f8" category="section-title">2025年10月6日</block>
-  <block id="ba3c0cba3a3d15ce8426fc737476a59c" category="section-title">2025年9月4日</block>
   <block id="b9d888f58b09c4007db0247286e392b5" category="section-title">2025年8月11日</block>
   <block id="f2673d4a3fe0162a501d43f5168ae950" category="section-title">2025年7月14日</block>
   <block id="98d06a8873f74ad318a67a8dee1dcd5f" category="section-title">2025年6月25日</block>
@@ -5219,19 +5143,14 @@
   <block id="e48502083eb8949c8f65b2ccddd5adec" category="section-title">2025年5月12日</block>
   <block id="801c0fa0d304ca22d8afec06189bcf93" category="section-title">2025年4月16日</block>
   <block id="4409983c60e456858bb3e9ef5737f98a" category="section-title">2025年4月14日</block>
-  <block id="f0d468a1074534e3b37c7322f2e97bb1" category="section-title">2025年4月3日</block>
   <block id="5f2734b84896bdabcf7fd3574325d116" category="section-title">2025年3月28日</block>
   <block id="0de5f5ade75808b90faefd69873b4b3c" category="section-title">2025年3月12日</block>
   <block id="f070435ef55d6c7cc1db59f0a41a4609" category="section-title">2025年3月10日</block>
-  <block id="278edfabbac204688aa13f79c6f52497" category="section-title">2025年3月6日</block>
   <block id="4fbdcdf3c2d8694d5e358b3175b867da" category="section-title">2025年3月3日</block>
   <block id="df3f743aae5476a7b16bbbc329251f85" category="section-title">2025年2月18日</block>
   <block id="c523b074da0b63e607578686184d5981" category="section-title">2025年2月10日</block>
-  <block id="1f86b1e4048d088ce153a6f451fb30d6" category="section-title">2024年12月9日</block>
   <block id="ecbeaffbfe15c72e3bf702b0d0bf9694" category="section-title">2024年11月11日</block>
   <block id="2bb8a9ed1433f0f845b92c7da5440dea" category="section-title">2024年10月25日</block>
-  <block id="e5182edc3707e8e354c40ab7fa819f39" category="section-title">2024年10月7日</block>
-  <block id="c842acaca9e3ea9ec2dc61f28e69ea15" category="section-title">2024年9月9日</block>
   <block id="caf47538a5b97cacf4aba3098b6f9924" category="section-title">2024年8月23日</block>
   <block id="2c8ad7deb621eae9ecb23ccf84d9c22c" category="section-title">AWS 现已支持加拿大西部地区</block>
   <block id="184c928c73aa00c7569ba55c0b9e0064" category="paragraph">AWS 现已支持加拿大西部地区的Cloud Volumes ONTAP 9.12.1 GA 及更高版本。</block>
@@ -5241,7 +5160,6 @@
   <block id="cf153c7d2cb432b6e772832926525a09" category="section-title">Cloud Volumes ONTAP 9.15.1 正式版</block>
   <block id="ffa2c93a775db2cb6243bf2a224cf240" category="paragraph">BlueXP现在可以在 AWS、Azure 和 Google Cloud 中部署和管理Cloud Volumes ONTAP 9.15.1 通用可用性版本。</block>
   <block id="2d93be549c6c029e62524e3226b41f6e" category="paragraph"><block ref="7691c42cf5400dcb073921e2ec9b2ea3" category="inline-link-rx"></block> 。</block>
-  <block id="9cc3df8e0a65f95d62b0d0dc557d0fa9" category="section-title">2024年8月8日</block>
   <block id="e84c1e70dc9a2186ec21e22a3e9cbda0" category="section-title">Edge Cache 许可包已弃用</block>
   <block id="882b50ca44d46bfb8d9502390cfeaf96" category="paragraph">Edge Cache 基于容量的许可包将不再适用于Cloud Volumes ONTAP的未来部署。但是，您可以使用 API 来实现此功能。</block>
   <block id="fdcb4cfaa6fda318a31e37ce29a14e92" category="section-title">Azure 中闪存缓存的最低版本支持</block>
@@ -5271,16 +5189,13 @@
   <block id="9b699d89d2577245514962357937a87b" category="paragraph">有关所有地区的列表，请参阅<block ref="5328f934c7a30e2b8b67732fc162a525" category="inline-link-rx"></block>。</block>
   <block id="ee94ea94211470599a81d49f8c4b586f" category="section-title">不再支持卷模板和标签</block>
   <block id="96b0b2a19dd9deb6b94e53f2e29f4387" category="paragraph">您无法再从模板创建卷或编辑卷的标签。这些操作与BlueXP修复服务相关，但该服务已不再可用。</block>
-  <block id="4a1a05ee22994e328d9ec0402052b926" category="section-title">2024年3月8日</block>
   <block id="1582ce9c3a0b0079717e0b0c6edf2347" category="section-title">Amazon Instant Metadata Service v2 支持</block>
   <block id="4ac5b49185bd4b8f8b0ef6b8869d149f" category="paragraph">在 AWS 中， Cloud Volumes ONTAP、Mediator 和 Connector 现在支持 Amazon Instant Metadata Service v2 (IMDSv2) 的所有功能。 IMDSv2 提供了增强的针对漏洞的保护。之前仅支持 IMDSv1。</block>
   <block id="7fcd14ee7d62b2a6f712b7ed775cdbc3" category="inline-link">用于管理现有连接器的BlueXP设置和管理文档</block>
   <block id="bbe2b5062d2c900ca465f9eb12592a92" category="paragraph">如果您的安全策略需要，您可以将 EC2 实例配置为使用 IMDSv2。有关说明，请参阅<block ref="a1765820625d1912b35ab79a3305fdea" category="inline-link-rx"></block>。</block>
-  <block id="592997dde366d5775e7e052816854f74" category="section-title">2024年3月5日</block>
   <block id="cf8f238c2116738b5ed3bacdbd527d14" category="section-title">Cloud Volumes ONTAP 9.14.1 正式版</block>
   <block id="fc0f9e3eef3a6eff3efe2fe7cf358466" category="paragraph">BlueXP现在可以在 AWS、Azure 和 Google Cloud 中部署和管理Cloud Volumes ONTAP 9.14.1 通用可用性版本。</block>
   <block id="60312cd5568ee3c0f5f813da72552193" category="paragraph"><block ref="171679ac61de97fa7c70db7bcf8d4dc9" category="inline-link-rx"></block> 。</block>
-  <block id="d4eb5b4412a01c5991086dff8c51a89f" category="section-title">2024年2月2日</block>
   <block id="4b2d018110adbf4819b09a7a28283445" category="section-title">Azure 中对 Edv5 系列 VM 的支持</block>
   <block id="d94bc26a7eea05003dc921a469161911" category="paragraph">从 9.14.1 版本开始， Cloud Volumes ONTAP现在支持以下 Edv5 系列虚拟机。</block>
   <block id="0ce1565dc58071deb098bde3e5a6a4b6" category="list-text">E4ds_v5</block>
@@ -5293,14 +5208,12 @@
   <block id="9ed7d4ae8d042664394e899e9c1f5e9a" category="section-title">BlueXP中的补丁版本</block>
   <block id="5c04c0351e9f1e168f13ca5689c21d92" category="paragraph">BlueXP中仅提供针对Cloud Volumes ONTAP最新三个版本的补丁版本。</block>
   <block id="8a3a4f00c796912ebcba47bd2cec89b3" category="paragraph"><block ref="8a3a4f00c796912ebcba47bd2cec89b3" category="inline-link-rx"></block></block>
-  <block id="fd9107be3db2a4144e054c68a7eab15f" category="section-title">2024年1月8日</block>
   <block id="dba248d0d18e6170f9bd4a4286edda53" category="section-title">适用于 Azure 多可用区域的新 VM</block>
   <block id="c8d113632e2ef2b901829a0843658f2c" category="paragraph">从Cloud Volumes ONTAP 9.13.1 开始，以下 VM 类型支持 Azure 多个可用区域，用于新的和现有的高可用性对部署：</block>
   <block id="ceac2355e7d70d7e31592bc8ded88ab3" category="list-text">L16s_v3</block>
   <block id="2b89a58d3269391f70f9c7fb8d68f746" category="list-text">L32s_v3</block>
   <block id="c7316b16841dc002d14d45c38a750287" category="list-text">L48s_v3</block>
   <block id="b9f4aa39433f5232d4ce50f2a9a3c403" category="list-text">L64s_v3</block>
-  <block id="a037be7aafc2f071c4517e8f2c6e58e9" category="section-title">2023年12月6日</block>
   <block id="4a76045b19fb3233070f77ae414d5810" category="section-title">Cloud Volumes ONTAP 9.14.1 RC1</block>
   <block id="efb4d9478ba663f514e18b3310c2de65" category="paragraph">BlueXP现在可以在 AWS、Azure 和 Google Cloud 中部署和管理Cloud Volumes ONTAP 9.14.1。</block>
   <block id="055c53a891e1dcea17b9e4c18351c1e5" category="section-title">FlexVol volume最大限制为 300 TiB</block>
@@ -5311,7 +5224,6 @@
   <block id="b5c0350cd0b56d1a63f43cdbd710cfc0" category="list-text"><block ref="b5c0350cd0b56d1a63f43cdbd710cfc0" category="inline-link-rx"></block></block>
   <block id="c73908091fadeb9dec16abab42821644" category="inline-link">Google Cloud 中的存储限制</block>
   <block id="c30ed2673a711ac69f82211d6d5cf5f0" category="list-text"><block ref="c30ed2673a711ac69f82211d6d5cf5f0" category="inline-link-rx"></block></block>
-  <block id="e8a0c291b754a75e0e91ecf69d567912" category="section-title">2023年12月5日</block>
   <block id="1fdbf90814a4e25f5b9e765470846181" category="paragraph">引入了以下变化。</block>
   <block id="de3678aecacdbfc2cde1f365589103a8" category="section-title">Azure 中的新区域支持</block>
   <block id="2d87524b148f67773bbd84eaceabd1a8" category="paragraph-title">单一可用区域区域支持</block>
@@ -5329,11 +5241,9 @@
   <block id="8e40e7e4940e30b2ce260ff97ad74d25" category="paragraph">连接器 3.9.35 版本引入了以下更改。</block>
   <block id="1c13ec96dac1171608b6dbd65bb2245c" category="section-title">Google Cloud 现已支持柏林地区</block>
   <block id="56e0da46254ac9c6f784da40f466bda0" category="paragraph">Google Cloud for Cloud Volumes ONTAP 9.12.1 GA 及更高版本现已支持柏林地区。</block>
-  <block id="d64cd771f2e77e7c0e4209d28afed019" category="section-title">2023年11月8日</block>
   <block id="bbb4cf526641d95bbb8ab8bada56fa79" category="section-title">AWS 现已支持特拉维夫地区</block>
   <block id="04afad264aa486baec91a1ade145665a" category="paragraph">AWS 现已支持特拉维夫地区的Cloud Volumes ONTAP 9.12.1 GA 及更高版本。</block>
   <block id="a3146a355baed19983a62f97e9e33a8e" category="paragraph">有关所有地区的列表，请参阅<block ref="24faa078890c2d8c97de1a6b5a5789e3" category="inline-link-rx"></block>。</block>
-  <block id="499efcb2be11e80e5bdfc003278352e3" category="section-title">2023年11月1日</block>
   <block id="8904b1f88c62ce8a8381c8474f2ccb42" category="paragraph">连接器 3.9.34 版本引入了以下更改。</block>
   <block id="992f57af99811ae146ed6df67eccc26f" category="section-title">Google Cloud 现已支持沙特阿拉伯地区</block>
   <block id="9e06c986efeeff600f0b04c67d5d6354" category="paragraph">Google Cloud for Cloud Volumes ONTAP和 Connector for Cloud Volumes ONTAP 9.12.1 GA 及更高版本现已支持沙特阿拉伯地区。</block>
@@ -5349,7 +5259,6 @@
   <block id="8fb2033d01e3efa2825282a13f86c14e" category="list-text">西欧</block>
   <block id="c349d3a26cf4231660785a0c5b4cb007" category="list-text">美国西部 2</block>
   <block id="52183d0603ae187e1b8670c9880c570c" category="paragraph">有关支持多个可用区的所有区域的列表，请参阅<block ref="0f1c2d6a84741595f86a459e46c2a400" category="inline-link-rx"></block>。</block>
-  <block id="69483d973a063c873a5a66f6edcc241c" category="section-title">2023年10月6日</block>
   <block id="44d133359b344c4542acdebe6209e101" category="section-title">Cloud Volumes ONTAP 9.14.0</block>
   <block id="c5fa627d231c9a8813c9a2421d86136f" category="paragraph">BlueXP现在可以在 AWS、Azure 和 Google Cloud 中部署和管理Cloud Volumes ONTAP 9.14.0 通用可用性版本。</block>
   <block id="24444e2a682bc377b24836f577ac4475" category="paragraph"><block ref="81dc441c35d41d83534cfed9e9baa0db" category="inline-link-rx"></block> 。</block>
@@ -5384,7 +5293,6 @@
   <block id="eccfb2b7d21b722b7e6659bf39e0f295" category="section-title">Cloud Volumes ONTAP 9.13.1 正式版</block>
   <block id="64118c9781a8b98caa35463a68a24220" category="paragraph">BlueXP现在可以在 AWS、Azure 和 Google Cloud 中部署和管理Cloud Volumes ONTAP 9.13.1 通用可用性版本。</block>
   <block id="48b6419f92dbb3241a38ce6cc867e8ea" category="paragraph"><block ref="8b474bbdd1819ae628b9eaf17be40c38" category="inline-link-rx"></block> 。</block>
-  <block id="f73b546b2cf111d3a080443f2cd3b97f" category="section-title">2023年7月2日</block>
   <block id="0888a7f5d81ff73f5ec9fa719b091bdc" category="section-title">支持 Azure 中的 HA 多可用区域部署</block>
   <block id="4df3cde02df4d7a411534f5e0a1565bc" category="paragraph">Azure 中的日本东部和韩国中部现在支持Cloud Volumes ONTAP 9.12.1 GA 及更高版本的 HA 多可用区域部署。</block>
   <block id="bdecbec2a6c25b03595e885ec64c0ea0" category="section-title">自主勒索软件防护支持</block>
@@ -5395,11 +5303,9 @@
   <block id="ba106db82d3577b52130dde5ddd372b4" category="section-title">Cloud Volumes ONTAP 9.13.1 RC1</block>
   <block id="9bc26bf4259fc1662eaaa13a7534abb1" category="paragraph">BlueXP现在可以在 AWS、Azure 和 Google Cloud 中部署和管理Cloud Volumes ONTAP 9.13.1。</block>
   <block id="97a4e219dca6e7d10f98bae2e8bffec5" category="paragraph"><block ref="b51e72d129db508138e20f7a4f67c8ee" category="inline-link-rx"></block> 。</block>
-  <block id="381c003443d0dbcf14a51f216a4e01dc" category="section-title">2023年6月4日</block>
   <block id="46f41748d329a2f863d5f787b783bcc5" category="section-title">Cloud Volumes ONTAP升级版本选择器更新</block>
   <block id="25c3dcdd6e2c69b30eba973a10e656d8" category="paragraph">通过升级Cloud Volumes ONTAP页面，您现在可以选择升级到最新可用的Cloud Volumes ONTAP版本或旧版本。</block>
   <block id="0923bc63beecd14d6e9a4d5d82331fce" category="paragraph">要了解有关通过BlueXP升级Cloud Volumes ONTAP 的更多信息，请参阅<block ref="9777e426a24de9582e7ed3fdb1795e0a" category="inline-link-rx"></block>。</block>
-  <block id="71bff2737bdd059023a4784358e71a64" category="section-title">2023年5月7日</block>
   <block id="3b9e0ca0be1cb4ee263fc0a386a705bc" category="paragraph">连接器 3.9.29 版本引入了以下更改。</block>
   <block id="ef33a11b5d2090c4cf0e98ca1b79cc2d" category="section-title">Google Cloud 现已支持卡塔尔地区</block>
   <block id="357b47742b71d8fe5b5936de05c522ec" category="paragraph">Google Cloud for Cloud Volumes ONTAP和 Connector for Cloud Volumes ONTAP 9.12.1 GA 及更高版本现已支持卡塔尔地区。</block>
@@ -5416,7 +5322,6 @@
   <block id="3edccc804ac0fbfabb9606fd1fbdab3f" category="paragraph">有关更多信息，请参阅<block ref="f804dc172fcb99ad8f5d652f7ebae769" category="inline-link-rx"></block> 。</block>
   <block id="eaf72ee058835b38b417b55e2fb1c0af" category="section-title">现在，无需订阅市场即可访问BlueXP并显示通知</block>
   <block id="5cc1493ad28334fdb28f7ed57f0e1d41" category="paragraph">现在，只要您在没有市场订阅的情况下访问BlueXP中的Cloud Volumes ONTAP，就会显示一条通知。通知指出“此工作环境的市场订阅必须符合Cloud Volumes ONTAP条款和条件。”</block>
-  <block id="38d4d167f6dd9174c3535fc5c7ba4b76" category="section-title">2023年4月4日</block>
   <block id="7e05b6b897bc796c472e8ff108657518" category="section-title">对 AWS 中国区域的支持</block>
   <block id="ebef32c1ba0aec7a39eb2ce8370a97d5" category="paragraph">从Cloud Volumes ONTAP 9.12.1 GA 开始，AWS 现在支持中国地区，如下所示。</block>
   <block id="fcf30aaa0348521d4d4752992c9db378" category="list-text">支持单节点系统。</block>
@@ -5448,7 +5353,6 @@
   <block id="6a0a3b4a70751949aff5d08a618793d7" category="section-title">Azure 对中国区域的支持</block>
   <block id="d9275343917167133b5d4b9c0f788071" category="paragraph">现在，中国北方 3 区域支持在 Azure 中单节点部署Cloud Volumes ONTAP 9.12.1 GA 和 9.13.0 GA。这些地区仅支持直接从NetApp购买的许可证（BYOL 许可证）。</block>
   <block id="8bd7cd8ca4a0f6685fc0baed4ead4dd1" category="admonition">仅 9.12.1 GA 和 9.13.0 GA 支持在中国区域全新部署Cloud Volumes ONTAP 。您可以将这些版本升级到Cloud Volumes ONTAP的更高补丁和版本。如果您想在中国地区部署更高版本的Cloud Volumes ONTAP ，请联系NetApp支持。</block>
-  <block id="d0693e7bf28b7bbc94287cee0e4b0768" category="section-title">2023年3月5日</block>
   <block id="eed8585d0b45afc4676b1c89f6f22a9a" category="paragraph">连接器 3.9.27 版本引入了以下更改。</block>
   <block id="5b420079bca1c870914caa221b31442e" category="section-title">Cloud Volumes ONTAP 9.13.0</block>
   <block id="ad598f033e541927e862b0c5e17319ec" category="paragraph">BlueXP现在可以在 AWS、Azure 和 Google Cloud 中部署和管理Cloud Volumes ONTAP 9.13.0。</block>
@@ -5474,7 +5378,6 @@
   <block id="77e5d57bae938bc31208cded57756dc8" category="paragraph">现在， Cloud Volumes ONTAP 9.13.0 版本的选定实例可以支持闪存、高写入速度和 8,896 字节的高最大传输单元 (MTU)。</block>
   <block id="80d41628bf38145af2326ce3d52d8e91" category="inline-link">Google Cloud 许可证支持的配置</block>
   <block id="f35904f4bd1ce935cc8591f549ff879c" category="paragraph">详细了解<block ref="6d4cd0cf64ff5942d587e84372ce2a39" category="inline-link-rx"></block>。</block>
-  <block id="e1bc7b26155063f1ce71b76f655669ef" category="section-title">2023年2月5日</block>
   <block id="078640757da4b274abf89709c42d7741" category="paragraph">连接器 3.9.26 版本引入了以下更改。</block>
   <block id="72c6f65b45015ee1135ff4bc2cce8860" category="section-title">在 AWS 中创建置放群组</block>
   <block id="b743dbbfdeafb74e0c5a918472cb8000" category="paragraph">现在可以使用新的配置设置来通过 AWS HA 单可用区 (AZ) 部署创建放置组。现在您可以选择绕过失败的放置组创建并允许 AWS HA 单可用区部署成功完成。</block>
@@ -5500,11 +5403,9 @@
   <block id="bf748f930fa11e46773ff6f7b815e480" category="section-title">Cloud Volumes ONTAP 9.12.0</block>
   <block id="80df4292f7c986dbd0920bb576487060" category="paragraph">BlueXP现在可以在 AWS 和 Google Cloud 中部署和管理Cloud Volumes ONTAP 9.12.0。</block>
   <block id="64885a300b31929a1b0ea6b5a20128d3" category="paragraph"><block ref="065aa84d514cfdc6fc00d8cb3eaf6ec4" category="inline-link-rx"></block> 。</block>
-  <block id="708ffc372ba6f36174a7930961b956ab" category="section-title">2022年12月8日</block>
   <block id="dba89da91170934734e847dcfe4ad5d0" category="section-title">Cloud Volumes ONTAP 9.12.1</block>
   <block id="abd10f7bee2f791a9e8f76bf98163c27" category="paragraph">BlueXP现在可以部署和管理Cloud Volumes ONTAP 9.12.1，其中包括对新功能和额外云提供商区域的支持。</block>
   <block id="ea949d9a7c8d0243148a6ff1179b5684" category="paragraph"><block ref="ea949d9a7c8d0243148a6ff1179b5684" category="inline-link-rx"></block></block>
-  <block id="83ec139c80a3d5b2f11f1a94eed47cd2" category="section-title">2022年12月4日</block>
   <block id="612111851a1740ab34a9d35045621084" category="paragraph">连接器 3.9.24 版本引入了以下更改。</block>
   <block id="afb589d73d8814d7f9075b4db6f76911" category="section-title">WORM + 云备份现在可在Cloud Volumes ONTAP创建期间使用</block>
   <block id="4d0c93d7ce5ce6f6010669f660c38d43" category="paragraph">现在可以在Cloud Volumes ONTAP创建过程中激活一次写入、多次读取 (WORM) 和云备份功能。</block>
@@ -5516,7 +5417,6 @@
   <block id="44f72ae2127b89a470e082ae9f772acf" category="paragraph">现在，在 Google Cloud Platform 中运行 9.12.1 或更高版本的新版和现有Cloud Volumes ONTAP系统均包含ONTAP S3 许可证。</block>
   <block id="093148786d1a31fd0a192e71709f0922" category="inline-link">ONTAP文档：了解如何配置和管理 S3 对象存储服务</block>
   <block id="0c3f43bec2f6fa7d6a2774e7e460e607" category="paragraph"><block ref="0c3f43bec2f6fa7d6a2774e7e460e607" category="inline-link-rx"></block></block>
-  <block id="5a4346a01828d72104a6540080377b25" category="section-title">2022年11月6日</block>
   <block id="6d5ba1b41fa03c2fdf0d747769a6b053" category="section-title">在 Azure 中移动资源组</block>
   <block id="ea55da5ec5028d99103c938ded49761c" category="paragraph">现在，您可以将工作环境从同一 Azure 订阅中的一个资源组移动到 Azure 中的另一个资源组。</block>
   <block id="6c2dc09b272a4aed6d56a3438a190129" category="inline-link">移动资源组</block>
@@ -5582,7 +5482,6 @@
   <block id="c1a328cf0660e851f6654745d3aca99e" category="paragraph"><block ref="c1a328cf0660e851f6654745d3aca99e" category="inline-link-rx"></block></block>
   <block id="1a3362a1b5304a4e1e1112496974b9ae" category="section-title">Azure 中的ONTAP S3 许可证</block>
   <block id="f225a4f57ea32da8b983d7bffd20b6eb" category="paragraph">现在，在 Azure 中运行 9.9.1 或更高版本的新版和现有Cloud Volumes ONTAP系统均包含ONTAP S3 许可证。</block>
-  <block id="f8b475a3fefebada77a30229238d0a1a" category="section-title">2022年6月7日</block>
   <block id="650bbb3fd1c3ec1cf13fbf6dc440ce1c" category="paragraph">连接器 3.9.19 版本引入了以下更改。</block>
   <block id="daa1014700acb24b76e93296bfc813fb" category="section-title">Cloud Volumes ONTAP 9.11.1</block>
   <block id="4bfb887290c16fe970b0fa22da35045f" category="paragraph">BlueXP现在可以部署和管理Cloud Volumes ONTAP 9.11.1，其中包括对新功能和额外云提供商区域的支持。</block>
@@ -5614,7 +5513,6 @@
   <block id="7859fc06f13ff8714740aa72213f86e7" category="list-text"><block ref="7859fc06f13ff8714740aa72213f86e7" category="inline-link-rx"></block></block>
   <block id="3a7eebf972f838daafe4ea7948002b3d" category="inline-link">了解如何在 Google Cloud 中为Cloud Volumes ONTAP创建数据服务存储虚拟机</block>
   <block id="07e4a4acdb333fe3d7b8dac1958d6459" category="list-text"><block ref="07e4a4acdb333fe3d7b8dac1958d6459" category="inline-link-rx"></block></block>
-  <block id="49644953fd4e9612a9842d17bef5e79b" category="section-title">2022年5月2日</block>
   <block id="e76164b285bb635d604e86db0ddefffb" category="paragraph">连接器 3.9.18 版本引入了以下更改。</block>
   <block id="44521137c9499dbef6a006058d0d9127" category="section-title">Cloud Volumes ONTAP 9.11.0</block>
   <block id="dbb2a3618007fc68b403b5db7a27888c" category="paragraph">BlueXP现在可以部署和管理Cloud Volumes ONTAP 9.11.0。</block>
@@ -5668,7 +5566,6 @@
   <block id="dd787088b52e69b3d8bf590e16c8413c" category="paragraph">我们最近推出的创建新卷向导现在可在从“高级分配”选项在特定聚合上创建卷时使用。</block>
   <block id="c4abca012bce01614c5a65c5b0e6ecd6" category="inline-link">了解如何在特定聚合上创建卷</block>
   <block id="d893ce87ea9f6df084bb3d852a2354b3" category="paragraph"><block ref="605d69c57f8b225887c72fad0e48e71d" category="inline-link-rx"></block> 。</block>
-  <block id="17fc50243c5a80f407e83d268bcab18e" category="section-title">2022年2月9日</block>
   <block id="b1894f3de88322c422613dce3ce8f4cd" category="section-title">市场更新</block>
   <block id="181e3299a212253d089ee23c58a37a10" category="list-text">现在，所有云提供商市场均提供 Essentials 套餐和 Professional 套餐。</block>
   <block id="8b5bbca61d06a4ab0106010904673191" category="paragraph">这些按容量收费的方法使您能够按小时付费或直接从云提供商处购买年度合同。您仍然可以选择直接从NetApp购买按容量许可证。</block>
@@ -5678,7 +5575,6 @@
   <block id="b353203eeb0af0c192ef9706121d7227" category="paragraph">此收费方式仍适用于拥有有效订阅的现有客户。</block>
   <block id="ad66e158a2e414eee17bb2c5185f011a" category="inline-link">了解有关Cloud Volumes ONTAP许可选项的更多信息</block>
   <block id="d58551678962298b964dc7f6b47bc31b" category="paragraph"><block ref="9709b770cd9cbbc5d1c2ba41ef1c9a01" category="inline-link-rx"></block> 。</block>
-  <block id="5c46bd67ae4b5c23f9c243b5f396c088" category="section-title">2022年2月6日</block>
   <block id="089a91d1490be155439f7062afd61de6" category="section-title">交换未分配的许可证</block>
   <block id="7d01c1cc395e0cffba4499f340107e1a" category="paragraph">如果您有未分配的基于节点的Cloud Volumes ONTAP许可证且尚未使用，您现在可以将其转换为 Cloud Backup 许可证、Cloud Data Sense 许可证或 Cloud Tiering 许可证来交换该许可证。</block>
   <block id="cc326b8fcf3d9827bf4c76a2355d4982" category="paragraph">此操作将撤销Cloud Volumes ONTAP许可证，并为该服务创建具有相同到期日期的等值美元许可证。</block>
@@ -5690,7 +5586,6 @@
   <block id="cc3717c29172e7c4beafc5f30f3639ac" category="paragraph">我们重新设计了创建新的Cloud Volumes ONTAP工作环境时的许可选择屏幕。这些变化凸显了 2021 年 7 月推出的按容量收费方法，并支持通过云提供商市场推出的即将推出的产品。</block>
   <block id="cb859e966c34323b5da18c0c77998603" category="section-title">数字钱包更新</block>
   <block id="912b97680395d2b9dfdd2d9fcfded8bf" category="paragraph">我们通过将Cloud Volumes ONTAP许可证整合到一个选项卡中来更新*数字钱包*。</block>
-  <block id="586301717819197e24001cac47efdaaa" category="section-title">2022年1月2日</block>
   <block id="424543ac82fbe709685dcec8b007bf63" category="paragraph">连接器 3.9.14 版本引入了以下更改。</block>
   <block id="73af9e90d6d077cf277e49f829259963" category="section-title">支持其他 Azure VM 类型</block>
   <block id="bbbee7961ccb9cea5bdfe8ab78e43452" category="paragraph">从 9.10.1 版本开始， Cloud Volumes ONTAP现在支持 Microsoft Azure 中的以下 VM 类型：</block>
@@ -5733,21 +5628,18 @@
   <block id="81e5e1bf62f444795eff3721d2872fb5" category="section-title">端口减少</block>
   <block id="0cc520b9133a409c63dec80a3107fdda" category="paragraph">Azure 中的Cloud Volumes ONTAP系统上的端口 8023 和 49000 不再针对单节点系统和 HA 对开放。</block>
   <block id="524d299ea985e3a42c95b0980478eba1" category="paragraph">此更改适用于从 Connector 3.9.13 版本开始的_new_ Cloud Volumes ONTAP系统。</block>
-  <block id="d1c47d8bf748c203ff983262e6c108cb" category="section-title">2021年10月4日</block>
   <block id="190323ddb2d35098aa0adb62b3b4fb4c" category="paragraph">连接器 3.9.11 版本引入了以下更改。</block>
   <block id="1217a2d42a5d039798ff2ec7be351708" category="section-title">Cloud Volumes ONTAP 9.10.0</block>
   <block id="d00e19dd07fcbaafee85f9234348a483" category="paragraph">BlueXP现在可以部署和管理Cloud Volumes ONTAP 9.10.0。</block>
   <block id="32f35594134f3fdc6f434e91ec798f50" category="paragraph"><block ref="adde97be46da5fda88041fd113726d44" category="inline-link-rx"></block> 。</block>
   <block id="9cc2b6cdaf0b50459353a2d67c0baa80" category="section-title">减少部署时间</block>
   <block id="66d5639668d7c3e585771304940a252b" category="paragraph">当启用正常写入速度时，我们减少了在 Microsoft Azure 或 Google Cloud 中部署Cloud Volumes ONTAP工作环境所需的时间。现在部署时间平均缩短了 3-4 分钟。</block>
-  <block id="d798cbf5a08fbeb9fdd3652e5b00bb4c" category="section-title">2021年9月2日</block>
   <block id="d1ef4823428a4819165321552b0897ec" category="paragraph">连接器 3.9.10 版本引入了以下更改。</block>
   <block id="e272f662e26b78ec82fb7603aa62b559" category="section-title">Azure 中的客户管理加密密钥</block>
   <block id="c02b5fa56aae4296da253938ec788b53" category="paragraph">使用以下方式在 Azure 中的Cloud Volumes ONTAP上自动加密数据<block ref="840493a517ea59018e3217960e80e550" category="inline-link-rx"></block>使用 Microsoft 管理的密钥。但现在您可以通过完成以下步骤来使用您自己的客户管理的加密密钥：</block>
   <block id="3edd67199a30046ea036a0ca1ad0c525" category="list-text">从BlueXP中，使用 API 创建使用密钥的Cloud Volumes ONTAP工作环境。</block>
   <block id="25fb98f9fcb3127bfe7be5f0a105ca99" category="inline-link">了解有关这些步骤的更多信息</block>
   <block id="57f9636cd409eae93029008f8472bae7" category="paragraph"><block ref="9a0e1bea1b9830b0afb9757f4f2727bb" category="inline-link-rx"></block> 。</block>
-  <block id="916678dfdf53de83f6afdf8fca563fb3" category="section-title">2021年7月7日</block>
   <block id="5378cd3122f1a8d3bcbde490c71a0f72" category="paragraph">连接器 3.9.8 版本引入了以下更改。</block>
   <block id="438f6ef2e21494cd9b1748584c8803b6" category="section-title">新的充电方式</block>
   <block id="561845a67258d27b2238c95a99e36fe6" category="paragraph">Cloud Volumes ONTAP有新的计费方式。</block>
@@ -5822,7 +5714,6 @@
   <block id="46d98c0abb13a137de84cc92dabaf4ee" category="paragraph">Cloud Volumes ONTAP不再支持 Cold HDD (sc1) 磁盘。</block>
   <block id="bdbf3117384807375f6bdb241cc66adc" category="section-title">Azure 存储帐户的 TLS 1.2</block>
   <block id="add5a3253463a24d188001e4ea9295b1" category="paragraph">当BlueXP在 Azure 中为Cloud Volumes ONTAP创建存储帐户时，该存储帐户的 TLS 版本现在为 1.2 版。</block>
-  <block id="1758589feb07955b2d0a7b0b09d739c8" category="section-title">2021年3月8日</block>
   <block id="2d1fda237e9c9e24215e9d1450991976" category="paragraph">连接器 3.9.4 版本引入了以下更改。</block>
   <block id="4e9e74671f654c298cca727d225f4898" category="section-title">Cloud Volumes ONTAP 9.9.0</block>
   <block id="20f60b90b0876668750f23023759547d" category="paragraph">BlueXP现在可以部署和管理Cloud Volumes ONTAP 9.9.0。</block>
@@ -5845,7 +5736,6 @@
   <block id="933d399c3cb0f03992675d49630ab818" category="paragraph">在 Google Cloud 中部署Cloud Volumes ONTAP HA 对时，您现在可以为 VPC-1、VPC-2 和 VPC-3 选择共享 VPC。以前，只有 VPC-0 可以成为共享 VPC。  Cloud Volumes ONTAP 9.8 及更高版本支持此更改。</block>
   <block id="fcc0572bd798a75498f99e20a8093f04" category="inline-link">详细了解 Google Cloud 网络要求</block>
   <block id="bec79676b2ce0546012a9fc41c70594d" category="paragraph"><block ref="4ceb822d951ddd5a03b9ed7c03d9145b" category="inline-link-rx"></block> 。</block>
-  <block id="450eec7ccd07d2edbfc01a9a848e5c25" category="section-title">2021年1月4日</block>
   <block id="5a93c02f6d4fbb65f4f91aed3ecc5f9a" category="paragraph">连接器 3.9.2 版本引入了以下更改。</block>
   <block id="712a05ea9972d967387ea5a160a19a21" category="section-title">AWS Outposts</block>
   <block id="43b4e2bfc7554b142c2e386bdb5e5828" category="paragraph">几个月前，我们宣布Cloud Volumes ONTAP已获得 Amazon Web Services (AWS) Outposts Ready 认证。今天，我们很高兴地宣布，我们已经通过 AWS Outposts 验证了BlueXP和Cloud Volumes ONTAP 。</block>
@@ -5866,7 +5756,6 @@
   <block id="1ac4c5bf1cc05cf3d4aa859843ec87b4" category="list-text">n2-standard-4 带有 Explore 许可证和 BYOL</block>
   <block id="e73d4d7c476b6b18ed15adb41d3ea1b2" category="list-text">n2-standard-8 具有标准许可证和 BYOL</block>
   <block id="08ce51aefda2c98505d3ef29ab430caf" category="list-text">具有 Premium 许可证和 BYOL 的 n2-standard-32</block>
-  <block id="998eefc7687a412e9a842ebf95b04347" category="section-title">2020年11月3日</block>
   <block id="908acbbcae243fd1f200e44e637db120" category="paragraph">连接器 3.9.0 版本引入了以下变化。</block>
   <block id="d9bdad4a2680b0998135ed5fd46e50e3" category="section-title">适用于Cloud Volumes ONTAP 的Azure Private Link</block>
   <block id="4f0678a9e095858a4fa747c1c08210ee" category="paragraph">默认情况下， BlueXP现在启用Cloud Volumes ONTAP及其关联存储帐户之间的 Azure Private Link 连接。专用链接可保护 Azure 中端点之间的连接。</block>
@@ -6007,4 +5896,107 @@
   <block id="879701946bb2bc7241d0f85fd843455a" category="paragraph">endif::azure[]</block>
   <block id="6e1e9c83b80f4d22d34cbdf60a71383b" category="paragraph">ifdef::gcp[]</block>
   <block id="310c228207a0f8446bbe4c5d16978cb7" category="paragraph">endif::gcp[]</block>
+  <block id="f99b3d89987ba6dd6d51c370eaeea8f2" category="admonition">在发现过程中，您可能会看到失败消息，但您可以忽略它们，直到发现过程完成。在发现期间，请勿修改 Azure 市场门户中系统生成的Cloud Volumes ONTAP配置，尤其是系统标签。对这些配置所做的任何更改都可能导致意外的系统行为。</block>
+  <block id="bd8fc35f01f5d1ff5b0cec1a099bfb1d" category="admonition">部署过程完成后，请勿修改 Google Cloud 门户中系统生成的Cloud Volumes ONTAP配置，尤其是系统标签。对这些配置所做的任何更改都可能导致意外行为或数据丢失。</block>
+  <block id="950e7e695356602272f63f5a229978c6" category="inline-link-macro">在 Google Cloud 中规划Cloud Volumes ONTAP配置</block>
+  <block id="b64ce252b77116ca032fd6f285079df7" category="list-text"><block ref="b64ce252b77116ca032fd6f285079df7" category="inline-link-macro-rx"></block></block>
+  <block id="306ce3f6735e643338e201f2701d07a8" category="admonition">部署过程完成后，请勿修改 AWS 云门户中系统生成的Cloud Volumes ONTAP配置，尤其是系统标签。对这些配置所做的任何更改都可能导致意外行为或数据丢失。</block>
+  <block id="3be958f0e24818beb81a2910a8f49340" category="admonition">部署过程完成后，请勿修改 Azure 门户中系统生成的Cloud Volumes ONTAP配置，尤其是系统标签。对这些配置所做的任何更改都可能导致意外行为或数据丢失。</block>
+  <block id="4735ad3a3627a06b0af62dc5a9601e18" category="inline-link-macro">在 Azure 中规划Cloud Volumes ONTAP配置</block>
+  <block id="a2ac5dc61ef964446fc94b364b6cd75e" category="inline-link-macro">从 Azure 市场在 Azure 中部署Cloud Volumes ONTAP</block>
+  <block id="c139bb93c68d020d61606c6d1a5d5885" category="paragraph">*<block ref="4a7b975a18d85ad734dcfacfe5d6fc6a" category="inline-link-macro-rx"></block> *<block ref="e6805077b3f74e1d1c4a35647779c4ab" category="inline-link-macro-rx"></block></block>
+  <block id="2feeca48692986e9cc471ec61f847fca" category="paragraph">NetApp以多种方式为NetApp Console及其云服务提供支持。全天候提供广泛的免费自助支持选项，例如知识库 (KB) 文章和社区论坛。您的支持注册包含通过网络工单获取的远程技术支持。</block>
+  <block id="317cbd2c4fdbfd06a6c66bcd3f57d7ad" category="paragraph">有关云提供商文件服务、其基础设施或使用该服务的任何解决方案的技术支持，请参阅该产品的文档。</block>
+  <block id="359d8b16e442ffaa72e03c95fcd60448" category="list-text"><block ref="359d8b16e442ffaa72e03c95fcd60448" category="inline-link-macro-rx"></block></block>
+  <block id="153836c062a78213f2aa165322254aa4" category="list-text"><block ref="153836c062a78213f2aa165322254aa4" category="inline-link-macro-rx"></block></block>
+  <block id="0d592360c983f234b130127efee38805" category="list-text"><block ref="0d592360c983f234b130127efee38805" category="inline-link-macro-rx"></block></block>
+  <block id="68e6fe8cde496154d24fd032b4262070" category="paragraph">要获得特定于NetApp及其存储解决方案和数据服务的技术支持，请使用下面描述的支持选项。</block>
+  <block id="5bb94d173380c00577f5e04b6f26bb94" category="paragraph">您当前正在查看的NetApp Console文档。</block>
+  <block id="0e20091afcea2d83d0033a933ba85092" category="paragraph">搜索NetApp知识库以查找有助于解决问题的文章。</block>
+  <block id="777d75a90b107e4f18469f82c4f81fe2" category="paragraph">加入NetApp Console社区，关注正在进行的讨论或创建新的讨论。</block>
+  <block id="c406bf0ac8ac87bc5bb7132a7351b2ae" category="inline-link">了解如何管理与控制台登录相关的凭据</block>
+  <block id="377118f28487e70bd456993144b72fc7" category="list-text">要使用“创建案例”功能，您必须首先将您的NetApp支持站点凭据与您的控制台登录关联。<block ref="68c4321a756e3ffe955b62cff6fea46d" category="inline-link-rx"></block> 。</block>
+  <block id="0ab80a63088581d58dcf067051f4c894" category="list-text">在NetApp Console中，选择“帮助”&gt;“支持”。</block>
+  <block id="a1123cd59d7bd876c080c33906ae65ce" category="list-text">*服务*：选择与问题相关的服务。例如，* NetApp Console* 特定于控制台内的工作流或功能的技术支持问题。</block>
+  <block id="987df7518e2afb50a860647c832afd13" category="list-text">*系统*：如果适用于存储，请选择* Cloud Volumes ONTAP* 或 *On-Prem*，然后选择相关的工作环境。</block>
+  <block id="8f8e8a86e5f52b6186a37bdf266c4320" category="paragraph">系统列表位于控制台组织范围内，并且您在顶部横幅中选择了控制台代理。</block>
+  <block id="77c89527ec8a9f89b24c5579d19b3b4b" category="paragraph"><block ref="77c89527ec8a9f89b24c5579d19b3b4b" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="178fdaf97b1d1577437f11ee9d5e5229" category="paragraph">此错误可能意味着 NSS 帐户及其关联的记录公司与NetApp Console帐户序列号的记录公司不同（即。960xxxx）或工作环境序列号。您可以使用以下选项之一寻求帮助：</block>
+  <block id="e1100b46295d42ed50ba7a4630710164" category="section-title">管理您的支持案例</block>
+  <block id="316508a3483178100806a9d44b49aba2" category="paragraph">您可以直接从控制台查看和管理活动和已解决的支持案例。您可以管理与您的 NSS 帐户和公司相关的案例。</block>
+  <block id="9163e8bca6fd93c080d35ab49e3efdfa" category="list-text">在NetApp Console中，选择“帮助”&gt;“支持”。</block>
+  <block id="2019fd19051c3ef493dbbb9ca65bab87" category="list-text">选择*案例管理*，如果出现提示，请将您的 NSS 帐户添加到控制台。</block>
+  <block id="75e54e3a6fdbf43ed890669e079d7594" category="paragraph">*案例管理*页面显示与您的控制台用户帐户关联的 NSS 帐户相关的未结案例。这与出现在 *NSS 管理* 页面顶部的 NSS 帐户相同。</block>
+  <block id="8ac6be88c1aa79062825a147fb263b0e" category="list-text">通过选择<block ref="500a336e7ba1c54bcffba4e27bda4eb6" category="inline-image-macro-rx" type="image"></block>然后选择您想要显示的列。</block>
+  <block id="049b7b9fab1242f5e715952973c9474d" category="list-text">通过选择管理现有案例<block ref="7381d9baeaf62eb099ce84f1a21ed5ca" category="inline-image-macro-rx" type="image"></block>并选择其中一个可用选项：</block>
+  <block id="a58a19877ed0bf7f9b6d06fdd8387763" category="paragraph">通过启用与Cloud Volumes ONTAP一起使用的订阅并请求更改订阅服务级别的承诺容量，在NetApp Console中管理您的Keystone订阅。请求服务级别的额外容量可为Cloud Volumes ONTAP系统提供更多存储空间。</block>
+  <block id="df5e66b5e7999995b53a0f100212d79f" category="paragraph">您需要先联系NetApp授权您的控制台帐户使用Keystone订阅，然后才能在控制台中使用和管理Keystone订阅。</block>
+  <block id="0aa8bceb217782b5e4390aefe60d271f" category="list-text">从NetApp Console菜单中，选择 *治理 &gt;Licenses and subscriptions*。</block>
+  <block id="a53c428d90f592127da49a8d5a558130" category="paragraph">NetApp代表将通过授权您的帐户访问订阅来处理您的请求。</block>
+  <block id="9c2f6d6e4376237ad065b1baa0ad822d" category="paragraph">订阅现已链接到您的控制台组织或帐户，并可在创建Cloud Volumes ONTAP工作环境时进行选择。</block>
+  <block id="10d2905ee5dfcb309d64e3633fb774c1" category="paragraph">如果您想要更改订阅服务级别的承诺容量，您可以直接从控制台向NetApp发送请求。请求服务级别的额外容量可为Cloud Volumes ONTAP系统提供更多存储空间。</block>
+  <block id="e45b542fbde799582edd5059bc1991a9" category="list-text">对于要调整容量的订阅，单击 <block ref="c9c50c6d591d91ccce1ee232fa490fb4" category="inline-image-macro-rx" type="image"></block> 并选择*查看详细信息和编辑*。</block>
+  <block id="a3a13a09504a7f25eb72dede89db4f24" category="paragraph">Digital Advisor仪表板使您能够监控Keystone订阅使用情况并生成报告。</block>
+  <block id="e29343f0ee1c0051a367e02b49c1c5ff" category="paragraph">如果您不再想将Keystone订阅与控制台一起使用，您可以取消订阅链接。请注意，您只能取消链接未附加到现有Cloud Volumes ONTAP订阅的订阅。</block>
+  <block id="0e1096776546966fb22c4752766d55a9" category="paragraph">该订阅已与您的控制台组织或帐户取消链接，并且在创建Cloud Volumes ONTAP工作环境时不再可供选择。</block>
+  <block id="776abbf4d80cbef17bd3c86ff37b2257" category="paragraph">需要进行支持注册才能获得针对NetApp Console及其存储解决方案和数据服务的技术支持。还需要支持注册才能启用Cloud Volumes ONTAP系统的关键工作流程。</block>
+  <block id="ba4e23e03f4354a0f1ef2781272c8477" category="paragraph">注册支持并不能使NetApp获得云提供商文件服务的支持。有关云提供商文件服务、其基础设施或使用该服务的任何解决方案的技术支持，请参阅该产品文档中的“获取帮助”。</block>
+  <block id="869a868c87f6fb61410cfd773b4f1bab" category="list-text">注册您的NetApp Console帐户序列号（您的 20 位 960xxxxxxxxx 序列号位于控制台中的“支持资源”页面上）。</block>
+  <block id="be0b51de4268d87101344aa0368b4403" category="paragraph">这可作为控制台内任何服务的单一支持订阅 ID。每个控制台帐户都必须注册。</block>
+  <block id="3cf9fb70d6921dd90583621f028a395f" category="paragraph">这些序列号通常称为_PAYGO 序列号_，由NetApp Console在Cloud Volumes ONTAP部署时生成。</block>
+  <block id="bf516b6498e37e816d29ae43ae132f74" category="paragraph">注册两种类型的序列号可以实现开立支持票和自动生成案例等功能。通过将NetApp支持站点 (NSS) 帐户添加到控制台即可完成注册，如下所述。</block>
+  <block id="ba5983207e417797fefd5b9374ab4a97" category="section-title">注册NetApp Console以获取NetApp支持</block>
+  <block id="dcb7105ba6e3d9411b05e726848feb80" category="paragraph">要注册支持并激活支持权利，您的NetApp Console帐户中的一名用户必须将NetApp支持站点帐户与其控制台登录名关联。如何注册NetApp支持取决于您是否已经拥有NetApp支持站点 (NSS) 帐户。</block>
+  <block id="ed5bddb699a442b85bc1bb8e1516fe57" category="paragraph">如果您是拥有 NSS 帐户的NetApp客户，则只需通过控制台注册即可获得支持。</block>
+  <block id="76bc427c3d9c4b81dc353078b942f991" category="list-text">选择“*管理*”&gt;“*凭证*”。</block>
+  <block id="e9451600769b4bf4b20ca941ba9e6d19" category="list-text">选择*添加 NSS 凭据*并按照NetApp支持站点 (NSS) 身份验证提示进行操作。</block>
+  <block id="1d4ea9fd10f6cfcd6f6fe1f861d354a4" category="paragraph">*资源*页面应显示您的控制台帐户已注册以获得支持。</block>
+  <block id="afe8240ca62f4b72006980ff64d371b8" category="paragraph">请注意，如果其他控制台用户尚未将NetApp支持站点帐户与其登录名关联，他们将看不到相同的支持注册状态。但是，这并不意味着您的帐户没有注册支持。只要组织中的一名用户遵循了这些步骤，您的帐户就已注册。</block>
+  <block id="42eaca1e1c2d9e1f04e932eeaa6d129d" category="paragraph">如果您是现有的NetApp客户，拥有现有许可证和序列号但没有 NSS 帐户，则需要创建一个 NSS 帐户并将其与您的控制台登录关联。</block>
+  <block id="bd33c4539c7d6985f6edafd4a4f2ba1d" category="list-text">请务必复制上面用于序列号字段的控制台帐户序列号（960xxxx）。这将加快账户处理速度。</block>
+  <block id="9b1f48f88cd439b7a50fe3e76eb8a853" category="list-text">完成以下步骤，将您的新 NSS 帐户与您的控制台登录名关联<block ref="2f3aba04ec49ee5f0573a6c80a1b9df2" category="inline-xref-macro-rx"></block>。</block>
+  <block id="e7e9f49f4584c68b9d97c578e73b7583" category="list-text">在控制台的右上角，选择“帮助”图标，然后选择“*支持*”。</block>
+  <block id="629757336278be576456cf315303b178" category="paragraph">拥有NetApp支持站点帐户后，请按照以下步骤将该帐户与您的控制台登录关联<block ref="2f3aba04ec49ee5f0573a6c80a1b9df2" category="inline-xref-macro-rx"></block>。</block>
+  <block id="f22d1a855e255746a6b925a3b22f7838" category="paragraph">需要将NetApp支持站点凭据与您的控制台帐户关联，才能为Cloud Volumes ONTAP启用以下关键工作流程：</block>
+  <block id="f3cd224f9506684fa3b5e2b89b2a566c" category="paragraph">需要提供您的 NSS 帐户，以便控制台可以上传您的许可证密钥并启用您购买的期限的订阅。这包括期限续订的自动更新。</block>
+  <block id="daf104544b5203a46e1580e1b8583f1f" category="paragraph">将 NSS 凭据与您的NetApp Console帐户关联与将 NSS 帐户与控制台用户登录关联不同。</block>
+  <block id="5bc1315a63455544e7a917a7cc968939" category="paragraph">这些 NSS 凭证与您的特定控制台帐户 ID 相关联。属于控制台组织的用户可以从*支持 &gt; NSS 管理*访问这些凭据。</block>
+  <block id="7687b0a57d5cb728d9fb892dfc814715" category="paragraph">这些操作使控制台能够使用您的 NSS 帐户进行许可证下载、软件升级验证和未来支持注册等操作。</block>
+  <block id="a41dd7aa7d921f9f0881a705d3679e6c" category="section-title">2025年10月6日</block>
+  <block id="f5377e9f6a36b07ca646f48e10af80d8" category="section-title">2025年9月4日</block>
+  <block id="7ca8399d9458bd23bcc87fad14dc0d0b" category="section-title">2025年4月3日</block>
+  <block id="cceeb5ea78b799b3b8575b2829590616" category="section-title">2025年3月6日</block>
+  <block id="527d18dfa760fc67196d102d429a8ea0" category="section-title">2024年12月9日</block>
+  <block id="f66c63cf0ff76c19209f85ca687a2fb4" category="section-title">2024年10月7日</block>
+  <block id="827939177a8e56e6d981ae1fc3dcb065" category="section-title">2024年9月9日</block>
+  <block id="a2c5fe7d69df0be5501c3a0611feca39" category="section-title">2024年8月8日</block>
+  <block id="83f5e5c47142e1bacd47bf84c93fe2da" category="section-title">2024年3月8日</block>
+  <block id="c3084a9e2d458e9a14fb0606a505126d" category="section-title">2024年3月5日</block>
+  <block id="190265b58025063c7706910e94d55f78" category="section-title">2024年2月2日</block>
+  <block id="9d9f1bbe6fc0fcc79eaf29c5cfb502cd" category="section-title">2024年1月8日</block>
+  <block id="096c8b6d8e141d39a5a768f7c0250751" category="section-title">2023年12月6日</block>
+  <block id="446239518c2ef0623c0d18406a68c7e5" category="section-title">2023年12月5日</block>
+  <block id="41e96c41b82196674a6b6c99d0c0b8ad" category="section-title">2023年11月8日</block>
+  <block id="ffb580001d0ebfc2f4c5b4e79a47168a" category="section-title">2023年11月1日</block>
+  <block id="ff1c2e86cdd326544983c6d6affd39a5" category="section-title">2023年10月6日</block>
+  <block id="942e802a236d6542c0c6f797428d8abb" category="section-title">2023年7月2日</block>
+  <block id="a6aef5e3bbd8b059764f33a4044e30d6" category="section-title">2023年6月4日</block>
+  <block id="a018fc35c6be59c0e9c90d4bd464dc47" category="section-title">2023年5月7日</block>
+  <block id="1f80cfa485c3ac35340f554ed273a58f" category="section-title">2023年4月4日</block>
+  <block id="eea1e3b9ecdd5e32692761a0a78b9463" category="section-title">2023年3月5日</block>
+  <block id="7d04cce0092e695d038c8ac0c2c6c212" category="section-title">2023年2月5日</block>
+  <block id="8aaa9ee6a13e1ed4364f8b79f668800a" category="section-title">2022年12月8日</block>
+  <block id="d637c017da015de69f96f21acd8ef91a" category="section-title">2022年12月4日</block>
+  <block id="88268cce7d1b83c765c3f7010df80df5" category="section-title">2022年11月6日</block>
+  <block id="774d45f21a2750a8e5f5b989e1851e75" category="section-title">2022年6月7日</block>
+  <block id="a2196cea92e51db7ddcfaeb055603b67" category="section-title">2022年5月2日</block>
+  <block id="a4d9ec15ed8b3688c08c647c34a00b5e" category="section-title">2022年2月9日</block>
+  <block id="32669a6fa42c5a557a45c4d6cbe299eb" category="section-title">2022年2月6日</block>
+  <block id="f8cd23c769793fc26c0573678e2a2d07" category="section-title">2022年1月2日</block>
+  <block id="082c0044d00a111e7b5f1e9d7edd6dbb" category="section-title">2021年10月4日</block>
+  <block id="c0c4e254eb7382750d30e5d2119f551b" category="section-title">2021年9月2日</block>
+  <block id="4ec78699b23bbdb93ac30d4bf4a1abbb" category="section-title">2021年7月7日</block>
+  <block id="0f9e6273eeca8972509b0aa49385189a" category="section-title">2021年3月8日</block>
+  <block id="47c670fdbd357ec4b6b3895f473eae3c" category="section-title">2021年1月4日</block>
+  <block id="6337732b75aa62e45d9707965f327458" category="section-title">2020年11月3日</block>
 </blocks>

@@ -272,6 +272,9 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例�
 
 如需更多帮助，请访问 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP支持"^]。
 
+
+CAUTION: 部署过程完成后，请勿修改 Google Cloud 门户中系统生成的Cloud Volumes ONTAP配置，尤其是系统标签。对这些配置所做的任何更改都可能导致意外行为或数据丢失。
+
 .完成后
 * 如果您配置了 CIFS 共享，请授予用户或组对文件和文件夹的权限，并验证这些用户是否可以访问共享并创建文件。
 * 如果要将配额应用于卷，请使用ONTAP系统管理器或ONTAP CLI。
@@ -511,4 +514,11 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例�
 +
 配额使您能够限制或跟踪用户、组或 qtree 使用的磁盘空间和文件数量。
 
+
+
+
+CAUTION: 部署过程完成后，请勿修改 Google Cloud 门户中系统生成的Cloud Volumes ONTAP配置，尤其是系统标签。对这些配置所做的任何更改都可能导致意外行为或数据丢失。
+
+.相关链接
+* link:task-planning-your-config-gcp.html["在 Google Cloud 中规划Cloud Volumes ONTAP配置"]
 
