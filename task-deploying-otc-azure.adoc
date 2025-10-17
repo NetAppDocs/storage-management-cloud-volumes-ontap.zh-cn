@@ -92,7 +92,7 @@ TIP: 如果您想使用 WORM 和数据分层，则必须禁用备份和恢复并
 . *位置*：选择区域、可用区域、VNet 和子网，然后选中复选框以确认控制台代理和目标位置之间的网络连接。
 +
 
-NOTE: 对于中国区域，仅Cloud Volumes ONTAP 9.12.1 GA 和 9.13.0 GA 支持单节点部署。您可以将这些版本升级到Cloud Volumes ONTAP的更高补丁和版本。如果您想在中国地区部署更高版本的Cloud Volumes ONTAP ，请联系NetApp支持。中国地区仅支持直接从NetApp购买的许可证，不提供市场订阅。
+NOTE: 对于中国区域，仅Cloud Volumes ONTAP 9.12.1 GA 和 9.13.0 GA 支持单节点部署。您可以将这些版本升级到Cloud Volumes ONTAP的更高补丁和版本，如下所示link:task-updating-ontap-cloud.html["Azure 中支持"]。如果您想在中国地区部署更高版本的Cloud Volumes ONTAP ，请联系NetApp支持。中国地区仅支持直接从NetApp购买的许可证，不提供市场订阅。
 
 . *连接*：选择一个新的或现有的资源组，然后选择是否使用预定义的安全组或使用您自己的安全组。
 +
@@ -136,7 +136,7 @@ TIP: 如果您使用的 Azure 帐户具有 https://docs.netapp.com/us-en/bluexp-
 . *许可*：如果需要，更改Cloud Volumes ONTAP版本，并选择虚拟机类型。
 +
 
-NOTE: 如果所选版本有较新的候选版本、通用版本或补丁版本，则控制台在创建系统时会将其更新到该版本。例如，如果您选择Cloud Volumes ONTAP 9.13.1 并且 9.13.1 P4 可用，则会发生更新。更新不会从一个版本发生到另一个版本 - 例如，从 9.13 到 9.14。
+NOTE: 如果所选版本有较新的候选版本、通用版本或补丁版本，则BlueXP会在创建工作环境时将系统更新到该版本。例如，如果您选择Cloud Volumes ONTAP 9.16.1 P3 并且 9.16.1 P4 可用，则会发生更新。更新不会从一个版本发生到另一个版本 - 例如，从 9.15 到 9.16。
 
 . *从 Azure 市场订阅*：如果控制台无法启用Cloud Volumes ONTAP的编程部署，您将看到此页面。按照屏幕上列出的步骤操作。请参阅 https://learn.microsoft.com/en-us/marketplace/programmatic-deploy-of-marketplace-products["以编程方式部署 Marketplace 产品"^]了解更多信息。
 . *底层存储资源*：选择初始聚合的设置：磁盘类型、每个磁盘的大小以及是否应启用数据分层到 Blob 存储。
