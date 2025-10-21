@@ -58,7 +58,7 @@ Cloud Volumes ONTAP支持 https://www.netapp.com/pdf.html?item=/media/17070-ds-3
 * NAE 是 NVE 的扩展——它对每个卷的数据进行加密，并且卷在聚合体中共享一个密钥。  NAE 还允许对聚合中所有卷的公共块进行重复数据删除。
 
 
-Cloud Volumes ONTAP通过 AWS、Azure 和 Google Cloud 提供的外部密钥管理服务 (EKM) 支持 NVE 和 NAE，包括第三方解决方案，例如 Fortanix。与ONTAP不同，对于Cloud Volumes ONTAP，加密密钥是在云提供商端生成的，而不是在ONTAP中生成的。
+Cloud Volumes ONTAP通过 AWS、Azure 和 Google Cloud 提供的外部密钥管理服务 (EKM) 支持 NVE 和 NAE，包括第三方解决方案，例如 Fortanix。与ONTAP不同，对于Cloud Volumes ONTAP，加密密钥是在云提供商端生成的，而不是在ONTAP中生成的。Cloud Volumes ONTAP不支持 https://docs.netapp.com/us-en/ontap/encryption-at-rest/enable-onboard-key-management-96-later-nve-task.html["板载密钥管理器"^]。
 
 Cloud Volumes ONTAP使用ONTAP使用的标准密钥管理互操作性协议 (KMIP) 服务。有关支持服务的更多信息，请参阅 https://imt.netapp.com/imt/#welcome["互操作性表工具"^]。
 
