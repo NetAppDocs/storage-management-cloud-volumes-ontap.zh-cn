@@ -20,6 +20,20 @@ summary: 了解BlueXP中Cloud Volumes ONTAP管理的新功能。
 
 
 
+== 2025年11月10日
+
+
+
+=== 增强的 NVMe-TCP 支持
+
+以前，在 NVMe-TCP 上部署Cloud Volumes ONTAP实例时，您必须在部署之前手动获取和应用 NVMe 许可证。通过此次更新， Cloud Volumes ONTAP现在会在部署期间自动安装所需的 NVMe 许可证，从而简化设置过程。
+
+对于缺少许可证的现有 NVMe-TCP 部署， Cloud Volumes ONTAP会自动应用许可证。您必须重启系统才能使许可证生效。
+
+更多信息请参见 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-client-protocols.html#nvme-tcp["Cloud Volumes ONTAP支持的客户端协议：NVMe-TCP"^]。
+
+
+
 == 2025年10月17日
 
 

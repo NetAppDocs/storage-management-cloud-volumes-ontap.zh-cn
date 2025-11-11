@@ -29,3 +29,8 @@ Snapshot 副本继承了卷的 WORM 属性，使其具有防篡改功能。底�
 
 
 NOTE: 即使 Snapshot 副本在特定保留期内受到保护，集群管理员也可以删除源卷，因为Cloud Volumes ONTAP中的 WORM 存储在“可信存储管理员”模型下运行。此外，受信任的云管理员可以通过操作云存储资源来删除WORM数据。
+
+.相关链接
+* 有关 WORM 的更多信息，请参阅link:concept-worm.html["了解Cloud Volumes ONTAP上的 WORM 存储"]。
+* 有关SnapLock卷的充电信息，请参阅link:concept-licensing-charging.html["Cloud Volumes ONTAP中的许可和计费"]。
+

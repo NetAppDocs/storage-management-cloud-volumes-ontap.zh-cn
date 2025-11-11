@@ -48,6 +48,8 @@ link:https://docs.netapp.com/us-en/ontap/s3-multiprotocol/index.html#how-s3-mult
 
 == NVMe-TCP
 
-从ONTAP版本 9.12.1 开始，云提供商支持 NVMe-TCP。  NetApp Console不提供任何针对 NVMe-TCP 的管理功能。
+从ONTAP版本 9.12.1 开始，所有云提供商均支持 NVMe-TCP。  Cloud Volumes ONTAP在部署期间支持 NVMe-TCP 作为存储虚拟机 (SVM) 的块协议，并自动安装所需的 NVMe 许可证。
+
+NetApp Console不提供任何针对 NVMe-TCP 的管理功能。
 
 有关通过ONTAP配置 NVMe 的更多信息，请参阅 https://docs.netapp.com/us-en/ontap/san-admin/configure-svm-nvme-task.html["ONTAP文档：为 NVMe 配置存储虚拟机"^]。

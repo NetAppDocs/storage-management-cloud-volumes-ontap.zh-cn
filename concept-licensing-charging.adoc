@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-licensing-charging.html 
-keywords: capacity-based license charging, consumption for licenses, pricing for licenses, CVO licensing, CVO charging 
+keywords: capacity-based license charging, consumption for licenses, pricing for licenses, CVO licensing, CVO charging, SnapLock charging, CIFS charging, audit volumes, primary volumes, volume-based charging 
 summary: 熟悉基于容量的许可证的收费、消费模式、定价和配置。 
 ---
 = 了解有关Cloud Volumes ONTAP基于容量的许可证的更多信息
@@ -64,11 +64,11 @@ link:task-manage-capacity-licenses.html["了解如何更改充电方式"] 。
 
 
 
-== 定价和支持的配置
+== 基于容量的许可中的计费和支持的配置
+
+Cloud Volumes ONTAP的计费基于多种因素，例如套餐和卷类型。Cloud Volumes ONTAP 9.7 及更高版本提供基于容量的许可包。
 
 有关定价的详细信息，请访问 https://bluexp.netapp.com/pricing/["NetApp Console网站"^]。
-
-Cloud Volumes ONTAP 9.7 及更高版本提供基于容量的许可包。
 
 
 
@@ -109,7 +109,7 @@ Cloud Volumes ONTAP 9.7 及更高版本提供基于容量的许可包。
 
 == 最大系统数量
 
-使用基于容量的许可，每个NetApp Console帐户的Cloud Volumes ONTAP系统的最大数量限制为 24 个。 _系统_ 是Cloud Volumes ONTAP HA 对、 Cloud Volumes ONTAP单节点系统或您创建的任何其他存储虚拟机。默认存储虚拟机不计入限制。此限制适用于所有许可模式。
+采用基于容量的许可方式，每个NetApp Console组织最多可拥有 24 个Cloud Volumes ONTAP系统。_系统_ 是Cloud Volumes ONTAP HA 对、 Cloud Volumes ONTAP单节点系统或您创建的任何其他存储虚拟机。默认存储虚拟机不计入限制。此限制适用于所有许可模式。
 
 例如，假设您有三个系统：
 
@@ -127,13 +127,17 @@ Cloud Volumes ONTAP 9.7 及更高版本提供基于容量的许可包。
 
 
 
-总共有六个系统。然后您的帐户中将有空间容纳另外 14 个系统。
+总共有六个系统。这样一来，您的组织中就可以再容纳 14 个系统。
 
-如果您的部署规模较大，需要超过 24 个系统，请联系您的客户代表或销售团队。
-
-https://docs.netapp.com/us-en/bluexp-setup-admin/concept-netapp-accounts.html["了解有关控制台帐户的更多信息"^] 。
+如果您需要部署超过 24 台系统，请联系您的客户代表或销售团队。
 
 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["了解 AWS、Azure 和 Google Cloud 的存储限制"^] 。
+
+
+
+== 读写卷收费
+
+如果您创建或使用可写（读/写）卷，则该卷将被视为主卷，并按每个存储虚拟机 (SVM) 的最低费用收取已配置容量的费用。例如FlexVol读/写卷、 SnapLock审计卷和 CIFS/NFS 审计卷。所有用户创建的数据量均按您的订阅和套餐类型收费。  ONTAP内部自动创建且无法存储数据的卷（例如 SVM 根卷）不收费。
 
 
 

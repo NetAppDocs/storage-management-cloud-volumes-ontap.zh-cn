@@ -373,7 +373,6 @@
   <block id="6cd0c6e49e7da9df4ec8ac28e99ac268" category="inline-link-macro">ONTAP文档：了解如何在ONTAP中配置和管理 S3 对象存储服务</block>
   <block id="0beeb4ae08209eddf791d03de9fcf654" category="paragraph"><block ref="47bbca2f135630a58718ba92e2c739ed" category="inline-link-macro-rx"></block> 。<block ref="3c369a9b68ac3984a3598ff92fe5ee61" category="inline-link-macro-rx"></block> 。</block>
   <block id="ad18d9aa7c4c9bdbf86e39bd6dd5b727" category="section-title">NVMe-TCP</block>
-  <block id="0d214dea9d89c7c64a7c82de615920d2" category="paragraph">从ONTAP版本 9.12.1 开始，云提供商支持 NVMe-TCP。  NetApp Console不提供任何针对 NVMe-TCP 的管理功能。</block>
   <block id="0c4ab7dbbb0c4e5098fca90084a314bb" category="inline-link">ONTAP文档：为 NVMe 配置存储虚拟机</block>
   <block id="86658a348e09419591c8b4b3fa13e84e" category="paragraph">有关通过ONTAP配置 NVMe 的更多信息，请参阅<block ref="0585d9dca18b467d388c2056c53b835d" category="inline-link-rx"></block>。</block>
   <block id="d5a5fd8fd787bf62e6dfdbce64a40648" category="summary">Digital Advisor集成到NetApp Console中，以便您可以在单一管理平台中优化ONTAP集群的操作、安全性和性能。</block>
@@ -490,7 +489,6 @@
   <block id="cd092c954573d47ecd37b6e5d96c0c03" category="paragraph">如果通过随机读取，容量层中的冷数据块会变热并移动到性能层。如果通过顺序读取（例如与索引和防病毒扫描相关的读取），冷数据块将保持冷状态并且不会移动到性能层。</block>
   <block id="6adf97f83acf6453d4a6a4b1070f3754" category="list-text">无</block>
   <block id="1fabb891be898874fa999bd6c6178645" category="list-text">将卷的数据保留在性能层中，防止其移动到容量层。</block>
-  <block id="769159c4f9b24256ff288a267877baab" category="paragraph">复制卷时，您可以选择是否将数据分层到对象存储。如果这样做，控制台会将*备份*策略应用于数据保护卷。从Cloud Volumes ONTAP 9.6 开始，*全部*分层策略取代了备份策略。</block>
   <block id="4768992c9064e7930243f41cf12e51be" category="section-title">关闭Cloud Volumes ONTAP会影响冷却期</block>
   <block id="98c767d4b7fc2be4f0613184e8e83485" category="paragraph">数据块通过冷却扫描进行冷却。在此过程中，未使用的块的温度将移动（冷却）到下一个较低的值。默认冷却时间取决于卷分层策略：</block>
   <block id="44e3ba7e22b4e4f9e276efbf6443273d" category="list-text">自动：31天</block>
@@ -793,10 +791,8 @@
   <block id="63b54c0d3b4fb8e35270bfdf7b2bdcbb" category="inline-link-macro">了解如何更改充电方式</block>
   <block id="ec3e25d80cfc0e5561493729eadecef7" category="paragraph"><block ref="ea19fa0e06a6047bcaabb9af62b066c3" category="inline-link-macro-rx"></block> 。</block>
   <block id="2b0470da2a26cbbea5d95f4e261d82ee" category="paragraph">有关将基于节点的许可证转换为基于容量的许可证的信息，请参阅</block>
-  <block id="7af9b0ab22150a40b2c1c451de82db3c" category="section-title">定价和支持的配置</block>
   <block id="35582eb3752ea3397836cc80ba8c8d00" category="inline-link">NetApp Console网站</block>
   <block id="2a739686df6dee81bda20f0beee8ad43" category="paragraph">有关定价的详细信息，请访问<block ref="6dd6e0ebeffdbf7b0b2bee2f498a2c82" category="inline-link-rx"></block>。</block>
-  <block id="4e4c431843fe55f93c074808800bf7d0" category="paragraph">Cloud Volumes ONTAP 9.7 及更高版本提供基于容量的许可包。</block>
   <block id="2204b0f79985b7b0565114e8305937a5" category="section-title">Storage VM</block>
   <block id="ee095a2fd0990ba785c303c6524d8145" category="list-text">额外的数据服务存储虚拟机 (SVM) 无需额外的许可费用，但每个数据服务 SVM 至少需支付 4 TiB 的容量费用。</block>
   <block id="cc331a0f761602982769cdbb99e71272" category="list-text">灾难恢复 SVM 根据预置容量收费。</block>
@@ -817,7 +813,6 @@
   <block id="b0cd7667098b2a3439c52ba1f9334faa" category="inline-link">Google Cloud 文档</block>
   <block id="9ccfe59c1252cf7f615b4c7dab763516" category="list-text"><block ref="9ccfe59c1252cf7f615b4c7dab763516" category="inline-link-rx"></block></block>
   <block id="170d227d215fb560bb4c8ad4e345183a" category="section-title">最大系统数量</block>
-  <block id="f27b74a698b22465262eeaf1de67760f" category="paragraph">使用基于容量的许可，每个NetApp Console帐户的Cloud Volumes ONTAP系统的最大数量限制为 24 个。 _系统_ 是Cloud Volumes ONTAP HA 对、 Cloud Volumes ONTAP单节点系统或您创建的任何其他存储虚拟机。默认存储虚拟机不计入限制。此限制适用于所有许可模式。</block>
   <block id="21e39e83d5fa1c8ef2eacd7021384a1a" category="paragraph">例如，假设您有三个系统：</block>
   <block id="35851ad4214e2cb5358ee8d010fd31e9" category="list-text">具有一个存储虚拟机的单节点Cloud Volumes ONTAP系统（这是部署Cloud Volumes ONTAP时创建的默认存储虚拟机）</block>
   <block id="8cff626e0f3fb63bbf88dedb4fd98712" category="paragraph">该系统算作一个系统。</block>
@@ -825,10 +820,6 @@
   <block id="f37d86fef13241720dc9ebcc64539e54" category="paragraph">该系统算作两个系统：一个用于单节点系统，一个用于附加存储 VM。</block>
   <block id="4c41d499b08fed91769d6d2c3b51157a" category="list-text">具有三个存储虚拟机（默认存储虚拟机，以及您创建的两个额外的存储虚拟机）的Cloud Volumes ONTAP HA 对</block>
   <block id="67850a8a97f903485494427b0d760819" category="paragraph">该系统计为三个系统：一个用于 HA 对，两个用于附加存储虚拟机。</block>
-  <block id="e1d61ff8b15b12854145940279164504" category="paragraph">总共有六个系统。然后您的帐户中将有空间容纳另外 14 个系统。</block>
-  <block id="2357265e1fb763337b05d3b30d1a7528" category="paragraph">如果您的部署规模较大，需要超过 24 个系统，请联系您的客户代表或销售团队。</block>
-  <block id="591d2349852174089342827b8714fe4f" category="inline-link">了解有关控制台帐户的更多信息</block>
-  <block id="59906c19ffde10145ac7617d3934aef8" category="paragraph"><block ref="f004206da9034ec17bce4edb7ce72c1d" category="inline-link-rx"></block> 。</block>
   <block id="a0aa07133f0223d64ee6522e4e293e43" category="inline-link">了解 AWS、Azure 和 Google Cloud 的存储限制</block>
   <block id="9f909224987b48cbe22536ad43c7ca22" category="paragraph"><block ref="1d60a77806a2b83c9b2383a4fa2b7908" category="inline-link-rx"></block> 。</block>
   <block id="25827e83a178b9b140976a356e0ea48a" category="section-title">充电注意事项</block>
@@ -2083,7 +2074,6 @@
   <block id="51aa8ce93131e7a6746f62c49df04fe2" category="paragraph">使用加密源卷在Cloud Volumes ONTAP系统上创建FlexCache卷。有关详细步骤和其他注意事项，请参阅以下部分：</block>
   <block id="d2fab9f48db0caec032fdea6ff523a5e" category="summary">您可以发现现有的Cloud Volumes ONTAP系统并将其添加到控制台。如果您部署了新系统，您可能会这样做。</block>
   <block id="243a4a66eb491b4d9b47fe9b5bb0f644" category="doc">将现有的Cloud Volumes ONTAP系统添加到NetApp Console</block>
-  <block id="87864c021fc7861daab126724867211c" category="paragraph">您可以发现现有的Cloud Volumes ONTAP系统并将其添加到NetApp Console。如果您部署了新系统，您可能会这样做。</block>
   <block id="ddf67437a4757d7231aaedf4fdf85f02" category="paragraph">您必须知道Cloud Volumes ONTAP管理员用户帐户的密码。</block>
   <block id="f18b3bd3fb25ef360dc2c49e02897678" category="list-text">从左侧导航菜单中，选择“存储”&gt;“管理”。</block>
   <block id="074cf21e03ff50b13273298d7f278b00" category="list-text">在*系统*页面上，单击*添加系统*。</block>
@@ -6016,4 +6006,27 @@
   <block id="b2f564ccc8dab8d25ce5727e3ac0f553" category="inline-link">Azure 支持的升级路径</block>
   <block id="cd28d8af5b4308747357925ae313e125" category="list-text">升级：<block ref="9fd9abde9fac7cd4edc5e352cd251056" category="inline-link-rx"></block></block>
   <block id="810ddecf604478d8ee317e1ac69d7971" category="section-title">2025年10月17日</block>
+  <block id="6e4298fbeec2cc865308057fb6986a86" category="doc">增强的 NVMe-TCP 支持</block>
+  <block id="84b4c7fa59d88db266b9be7eb3cff08e" category="paragraph">以前，在 NVMe-TCP 上部署Cloud Volumes ONTAP实例时，您必须在部署之前手动获取和应用 NVMe 许可证。通过此次更新， Cloud Volumes ONTAP现在会在部署期间自动安装所需的 NVMe 许可证，从而简化设置过程。</block>
+  <block id="14579d19ae9f1a43eae607d4450c7546" category="paragraph">对于缺少许可证的现有 NVMe-TCP 部署， Cloud Volumes ONTAP会自动应用许可证。您必须重启系统才能使许可证生效。</block>
+  <block id="b3a4d40f62316bd15534c438b8057c89" category="inline-link">Cloud Volumes ONTAP支持的客户端协议：NVMe-TCP</block>
+  <block id="748f500c59212ec947a9dc03913e95cb" category="paragraph">更多信息请参见<block ref="b12aae47ee00e2542df4c8a098a5e7ff" category="inline-link-rx"></block>。</block>
+  <block id="fa21e183126dded03797496a925ceb6f" category="paragraph">从ONTAP版本 9.12.1 开始，所有云提供商均支持 NVMe-TCP。  Cloud Volumes ONTAP在部署期间支持 NVMe-TCP 作为存储虚拟机 (SVM) 的块协议，并自动安装所需的 NVMe 许可证。</block>
+  <block id="bb688477c24b42186c3751ddefb728f4" category="paragraph">NetApp Console不提供任何针对 NVMe-TCP 的管理功能。</block>
+  <block id="8c340dc334134096f68b880b42a8692c" category="paragraph-title">复制</block>
+  <block id="6c6851f26dd089ac8e2cd4699f9f3ceb" category="paragraph">复制卷时，您可以选择是否将数据分层到对象存储。如果这样做，控制台会将*备份*策略应用于数据保护卷。从Cloud Volumes ONTAP 9.6 开始，*全部*分层策略取代了备份策略。删除复制关系时，目标卷将保留复制期间生效的分层策略。</block>
+  <block id="09438e246bb1f06dffcb0bf379d85c2d" category="section-title">基于容量的许可中的计费和支持的配置</block>
+  <block id="42c1e1bd55f7468cc1c1f67bd3b2e55e" category="paragraph">Cloud Volumes ONTAP的计费基于多种因素，例如套餐和卷类型。Cloud Volumes ONTAP 9.7 及更高版本提供基于容量的许可包。</block>
+  <block id="d52f05c9c9a1d28edf0a8c353fa4005c" category="paragraph">采用基于容量的许可方式，每个NetApp Console组织最多可拥有 24 个Cloud Volumes ONTAP系统。_系统_ 是Cloud Volumes ONTAP HA 对、 Cloud Volumes ONTAP单节点系统或您创建的任何其他存储虚拟机。默认存储虚拟机不计入限制。此限制适用于所有许可模式。</block>
+  <block id="f06bb25c94e6b1aa8710c80dd3586a02" category="paragraph">总共有六个系统。这样一来，您的组织中就可以再容纳 14 个系统。</block>
+  <block id="39f86900550d222b0169a7f96cfef9a1" category="paragraph">如果您需要部署超过 24 台系统，请联系您的客户代表或销售团队。</block>
+  <block id="a8fb53b4243112b2693e2c613f675091" category="section-title">读写卷收费</block>
+  <block id="84bd415e73410ff40bbdb14fc761f16b" category="paragraph">如果您创建或使用可写（读/写）卷，则该卷将被视为主卷，并按每个存储虚拟机 (SVM) 的最低费用收取已配置容量的费用。例如FlexVol读/写卷、 SnapLock审计卷和 CIFS/NFS 审计卷。所有用户创建的数据量均按您的订阅和套餐类型收费。  ONTAP内部自动创建且无法存储数据的卷（例如 SVM 根卷）不收费。</block>
+  <block id="1c7cc97d04b2c06b7aed1dbd999a1224" category="inline-link-macro">Cloud Volumes ONTAP中的许可和计费</block>
+  <block id="fbba812442fbd9038d179b574eadad39" category="list-text"><block ref="fbba812442fbd9038d179b574eadad39" category="inline-link-macro-rx"></block></block>
+  <block id="d6719354559c5d34c9043df89f6f5853" category="list-text">有关 WORM 的更多信息，请参阅<block ref="ff3d1f58a19f3b8e0bab491b41acecc3" category="inline-link-macro-rx"></block>。</block>
+  <block id="faacd8dd11a17b7255f09589dcbcd3eb" category="list-text">有关SnapLock卷的充电信息，请参阅<block ref="fbba812442fbd9038d179b574eadad39" category="inline-link-macro-rx"></block>。</block>
+  <block id="d3a90b06c127d63ce537a10a93397d85" category="paragraph">您可以将现有的Cloud Volumes ONTAP系统添加到NetApp Console。如果您部署了新系统，您可能会这样做。</block>
+  <block id="b478e45f14d8c22f3f75f65edd503adc" category="admonition">您只能添加已注册到您登录控制台所用帐户的系统。如果您有多个帐户或组织，请确保在添加系统之前已登录到正确的帐户。您无法发现、查看或管理已注册到其他帐户或组织的系统。</block>
+  <block id="77750efa6f5ff153acdc42067058017f" category="section-title">2025年11月10日</block>
 </blocks>

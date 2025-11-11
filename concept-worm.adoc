@@ -116,4 +116,5 @@ WORM 功能可与自带许可证 (BYOL) 一起使用，并且无需额外付费�
 
 .相关链接
 * link:reference-worm-snaplock.html["为 WORM 存储创建防篡改 Snapshot 副本"]
+* link:concept-licensing-charging.html["Cloud Volumes ONTAP中的许可和计费"]
 

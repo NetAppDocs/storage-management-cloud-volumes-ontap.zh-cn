@@ -14,7 +14,10 @@ summary: 您可以发现现有的Cloud Volumes ONTAP系统并将其添加到控�
 
 
 [role="lead"]
-您可以发现现有的Cloud Volumes ONTAP系统并将其添加到NetApp Console。如果您部署了新系统，您可能会这样做。
+您可以将现有的Cloud Volumes ONTAP系统添加到NetApp Console。如果您部署了新系统，您可能会这样做。
+
+
+NOTE: 您只能添加已注册到您登录控制台所用帐户的系统。如果您有多个帐户或组织，请确保在添加系统之前已登录到正确的帐户。您无法发现、查看或管理已注册到其他帐户或组织的系统。
 
 .开始之前
 您必须知道Cloud Volumes ONTAP管理员用户帐户的密码。
