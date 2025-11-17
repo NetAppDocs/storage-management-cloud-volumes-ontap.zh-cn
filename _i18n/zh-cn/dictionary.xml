@@ -5910,7 +5910,6 @@
   <block id="049b7b9fab1242f5e715952973c9474d" category="list-text">通过选择管理现有案例<block ref="7381d9baeaf62eb099ce84f1a21ed5ca" category="inline-image-macro-rx" type="image"></block>并选择其中一个可用选项：</block>
   <block id="a58a19877ed0bf7f9b6d06fdd8387763" category="paragraph">通过启用与Cloud Volumes ONTAP一起使用的订阅并请求更改订阅服务级别的承诺容量，在NetApp Console中管理您的Keystone订阅。请求服务级别的额外容量可为Cloud Volumes ONTAP系统提供更多存储空间。</block>
   <block id="df5e66b5e7999995b53a0f100212d79f" category="paragraph">您需要先联系NetApp授权您的控制台帐户使用Keystone订阅，然后才能在控制台中使用和管理Keystone订阅。</block>
-  <block id="0aa8bceb217782b5e4390aefe60d271f" category="list-text">从NetApp Console菜单中，选择 *治理 &gt;Licenses and subscriptions*。</block>
   <block id="a53c428d90f592127da49a8d5a558130" category="paragraph">NetApp代表将通过授权您的帐户访问订阅来处理您的请求。</block>
   <block id="9c2f6d6e4376237ad065b1baa0ad822d" category="paragraph">订阅现已链接到您的控制台组织或帐户，并可在创建Cloud Volumes ONTAP工作环境时进行选择。</block>
   <block id="10d2905ee5dfcb309d64e3633fb774c1" category="paragraph">如果您想要更改订阅服务级别的承诺容量，您可以直接从控制台向NetApp发送请求。请求服务级别的额外容量可为Cloud Volumes ONTAP系统提供更多存储空间。</block>
@@ -6029,4 +6028,6 @@
   <block id="d3a90b06c127d63ce537a10a93397d85" category="paragraph">您可以将现有的Cloud Volumes ONTAP系统添加到NetApp Console。如果您部署了新系统，您可能会这样做。</block>
   <block id="b478e45f14d8c22f3f75f65edd503adc" category="admonition">您只能添加已注册到您登录控制台所用帐户的系统。如果您有多个帐户或组织，请确保在添加系统之前已登录到正确的帐户。您无法发现、查看或管理已注册到其他帐户或组织的系统。</block>
   <block id="77750efa6f5ff153acdc42067058017f" category="section-title">2025年11月10日</block>
+  <block id="02fd9216d7e373ffe2ab6061c04d9957" category="list-text">9.17.1 P1</block>
+  <block id="9ef810f213faea9695f8494f68387049" category="list-text">从NetApp Console菜单中，选择“管理 &gt;Licenses and subscriptions”。</block>
 </blocks>
