@@ -1082,7 +1082,6 @@
   <block id="20610cb7f9c01ec73f383961d032fd84" category="section-title">使用自动容量管理来管理 LUN</block>
   <block id="17b0cc3e5f14a91cfcc6496ce4a6d2bb" category="paragraph">控制台的自动容量管理不适用于 LUN。当它创建 LUN 时，它会禁用自动增长功能。</block>
   <block id="4a09d3372bdfe35169604b0ed1fbee82" category="section-title">手动容量管理</block>
-  <block id="e85198150465fb4cf07b21acf011383b" category="paragraph">如果组织或帐户管理员将容量管理模式设置为手动，控制台会通知您采取适当的措施来做出容量决策。自动模式中描述的相同示例也适用于手动模式，但是否接受操作取决于您。</block>
   <block id="825ccc8f97f155807b31877cfd383216" category="inline-link-macro">了解如何修改容量管理模式</block>
   <block id="bb4793d3293acae6810aa94d7a19444b" category="paragraph"><block ref="efe15a4f6f400360bbcb54034c690ce4" category="inline-link-macro-rx"></block> 。</block>
   <block id="96b6d7d9126b9ae9264c568037532584" category="summary">了解Cloud Volumes ONTAP如何使用云存储可以帮助您了解存储成本。</block>
@@ -2635,7 +2634,6 @@
   <block id="a2b1af79a0f94f695030edeea7a21702" category="admonition">删除系统时，不会删除其他资源，例如NetApp Backup and Recovery管理的备份以及NetApp Data Classification的实例。您需要手动删除它们。如果您不这样做，那么您将继续为这些资源支付费用。</block>
   <block id="95577520cea6f8173e87fa791e2365b8" category="paragraph">当控制台在您的云提供商中部署Cloud Volumes ONTAP时，它会对实例启用终止保护。此选项有助于防止意外终止。</block>
   <block id="ab3fdba113c7d85bf4272c78761ef0b8" category="inline-link">如有必要，删除备份</block>
-  <block id="0f0a4f0cccb90ea6bfef7bb0d1f9d2c9" category="list-text">如果您在系统上启用了备份和恢复，请确定是否仍然需要备份数据，然后<block ref="2a5c41aae5ca819c9524ed1201853c58" category="inline-link-rx"></block>。</block>
   <block id="1b60b27456fbe084c8c788ebbad90eff" category="paragraph">备份和恢复在设计上独立于Cloud Volumes ONTAP 。当您删除Cloud Volumes ONTAP系统时，备份和恢复不会自动删除备份，并且 UI 中当前不支持在系统被删除后删除备份。</block>
   <block id="faef7db08045a1d71583348ff520160d" category="list-text">如果您在此系统上启用了数据分类，并且没有其他系统使用此服务，那么您需要删除该服务的实例。</block>
   <block id="ccc89c2b79e2ed7fa75b3fa7d7a9f916" category="inline-link">了解有关数据分类实例的更多信息</block>
@@ -2774,7 +2772,6 @@
   <block id="b7f6f4ab7ce08c85d615be92cf33e6db" category="inline-link">您应该准备好让控制台代理始终处于运行状态</block>
   <block id="26e1bf530d3ece2cf7aab90bf74d9739" category="list-text"><block ref="a817e8410ae889ec41fd9709ecf1d2bc" category="inline-link-rx"></block> 。</block>
   <block id="9e1dbaa97d16ff9bc20f90cb1663f522" category="inline-link">应该具有所需的权限</block>
-  <block id="53c0bc0378050198ab17f7dddcfe518f" category="list-text">与控制台代理关联的服务帐户<block ref="5646254c2ac34b48f56ed296d6fb66e7" category="inline-link-rx"></block></block>
   <block id="72fa1e29e831adb71ca0ce01f7356dc9" category="list-text">了解您想要使用的配置。</block>
   <block id="754f5b76b77778c181ca6deb0a7427f4" category="inline-link-macro">规划您的Cloud Volumes ONTAP配置</block>
   <block id="cc0c9a4f6d41d2ea7045898c413c3600" category="paragraph">您应该已经做好准备，选择配置并从管理员处获取 Google Cloud 网络信息。有关详细信息，请参阅<block ref="7c40283f4f533a5903d1033c57ef27f4" category="inline-link-macro-rx"></block>。</block>
@@ -3041,7 +3038,6 @@
   <block id="c6189845a8e8cd3c6c3d3790264aa5be" category="cell">控制台使用系统名称来命名Cloud Volumes ONTAP系统和 Azure 虚拟机。如果您选择该选项，它还会使用该名称作为预定义安全组的前缀。</block>
   <block id="e6b23054bef4ec575744ddc3cfaabc73" category="cell">资源组标签</block>
   <block id="94ab77fff502c8ffadf0c887c9a4a9c3" category="inline-link">Microsoft Azure 文档：使用标签来组织您的 Azure 资源</block>
-  <block id="387a33bf2c5bf8ccf292dd04744efe80" category="cell">标签是 Azure 资源的元数据。当您在此字段中输入标签时，控制台会将它们添加到与Cloud Volumes ONTAP系统关联的资源组中。创建系统时，您可以从用户界面添加最多四个标签，然后可以在创建系统后添加更多标签。请注意，创建系统时，API 不会将您限制为四个标签。有关标签的信息，请参阅<block ref="d48332411dd188e35b1ff8d0be4353c1" category="inline-link-rx"></block>。</block>
   <block id="544654a10596f8a1a75cb081d4b60b46" category="inline-link">了解如何添加凭证</block>
   <block id="7eb393339c85197e4c21e6d90a00ba99" category="cell">您可以选择不同的 Azure 凭据和不同的 Azure 订阅来与此Cloud Volumes ONTAP系统一起使用。您需要将 Azure 市场订阅与选定的 Azure 订阅关联，以便部署即用即付的Cloud Volumes ONTAP系统。<block ref="98943363349c15c5ca45ca1071953478" category="inline-link-rx"></block> 。</block>
   <block id="6e978eee8b2ba1df5efd8ad23190d2b1" category="list-text">*服务*：启用或禁用您想要或不想与Cloud Volumes ONTAP一起使用的单个服务。</block>
@@ -3429,7 +3425,6 @@
   <block id="c816d65f45a034b0842bc039567fcb6b" category="doc">Google Cloud 中的Cloud Volumes ONTAP快速入门</block>
   <block id="7eabb2e6d7d4264da61ea84926d7fe73" category="paragraph">只需几个步骤即可在 Google Cloud 中开始使用Cloud Volumes ONTAP 。</block>
   <block id="bc618e169a194e52cf3cda45248d2233" category="inline-link">了解如何在 Google Cloud 中创建控制台代理</block>
-  <block id="897df6d645b3314e697336433766c964" category="paragraph">如果你没有<block ref="4904e0ade41e67aed0599ec8d3057702" category="inline-link-rx"></block>但是，您需要创建一个。<block ref="6fbe20fc98df7fdcdfda6aa4ca0d8457" category="inline-link-rx"></block></block>
   <block id="a33f1bc6dad6a67c55fc88bee144e89a" category="paragraph">控制台提供符合您的工作负载要求的预配置包，或者您可以创建自己的配置。如果您选择自己的配置，您应该了解可用的选项。</block>
   <block id="2529fbdc4c253bec28669839cfb92bd4" category="inline-link-macro">了解有关规划配置的更多信息</block>
   <block id="e0bce116621fe62848ab384f3d3a607f" category="paragraph"><block ref="efb0a51bcf2d14d25bf3c3e32647f9b6" category="inline-link-macro-rx"></block> 。</block>
@@ -3448,8 +3443,6 @@
   <block id="7da2790af32ce3a63a33070eb62bb34c" category="paragraph">单击“*添加系统*”，选择您想要部署的系统类型，然后完成向导中的步骤。<block ref="e7b659d6e9cf4401150cabbf78e23874" category="inline-link-macro-rx"></block> 。</block>
   <block id="197777354bca1ba571710196ebfa88ed" category="inline-link">创建控制台代理</block>
   <block id="ee909f7ffffad98d1888aab3e0e63db9" category="list-text"><block ref="ee909f7ffffad98d1888aab3e0e63db9" category="inline-link-rx"></block></block>
-  <block id="cc01937e80a0b2fa1bea286192bd76e7" category="inline-link">控制台如何处理 Google Cloud 权限</block>
-  <block id="ece29c1b0997073e0c67c5e9e1c7f930" category="list-text"><block ref="ece29c1b0997073e0c67c5e9e1c7f930" category="inline-link-rx"></block></block>
   <block id="3522be3c31d2b76f91f779f655a0d48e" category="summary">将 Google 的密钥管理服务用于您的第三方密钥管理服务。</block>
   <block id="e35e4a3b0dde1d61e0fbd30f69e261c0" category="doc">使用 Google Cloud KMS 管理Cloud Volumes ONTAP加密密钥</block>
   <block id="0dbdff8ed1ef0e78c4dc84ace48205d6" category="inline-link-macro">Google Cloud Platform 的密钥管理服务（Cloud KMS）</block>
@@ -3993,11 +3986,9 @@
   <block id="a0d106b3df91a5c40e846d04e0e0b072" category="paragraph">从Cloud Volumes ONTAP 9.11.1 开始，根据您的许可证，支持具有特定配置的多个存储虚拟机。请参阅<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block>验证您的Cloud Volumes ONTAP版本支持的存储虚拟机数量。</block>
   <block id="ff1d242daadf495829811b6d2313264b" category="paragraph">9.11.1 之前的所有Cloud Volumes ONTAP版本都支持一个数据服务存储虚拟机和一个用于灾难恢复的目标存储虚拟机。如果源存储虚拟机发生中断，您可以激活目标存储虚拟机进行数据访问。</block>
   <block id="9fb17f61d770951d327021f3fa633d3a" category="paragraph">根据您的配置和许可证类型，您可以使用 API 在单节点系统或高可用性 (HA) 配置中创建多个存储虚拟机。</block>
-  <block id="348da0153d95a4ebac8d5064003d4c78" category="paragraph">控制台代理需要特定权限才能为Cloud Volumes ONTAP HA 对创建存储虚拟机。所需权限包含在<block ref="fef452a667b371049bf1cd426aa1994a" category="inline-link-rx"></block>。</block>
   <block id="e977b05b15a8ef8166d6f1b02e35c6b2" category="paragraph"><block ref="6e37cda7be8f481fee7b895bd6ef924b" prefix="" category="inline-code"></block></block>
   <block id="3fab6f26ccc1354a7fda62c947fe176d" category="paragraph"><block ref="4ae3965c67ec8b00b8c07c6aa50d0d55" prefix="" category="inline-code"></block></block>
   <block id="2ee20619a771993544eaaa7e388816d1" category="section-title">管理存储虚拟机</block>
-  <block id="caf223860199c4d0ca4f7a300227f107" category="paragraph">控制台代理需要特定权限来管理Cloud Volumes ONTAP HA 对的存储虚拟机。所需权限包含在<block ref="fef452a667b371049bf1cd426aa1994a" category="inline-link-rx"></block>。</block>
   <block id="6e83351c7140a73a80f6aa71737f9b85" category="paragraph"><block ref="45b320aa1fbd1ba6a383c6d97e969596" prefix="" category="inline-code"></block></block>
   <block id="491f4afb4d76ae587fca5e7ac986bec8" category="paragraph"><block ref="6c678c0fbac1c8687769d59bba8c2b43" prefix="" category="inline-code"></block></block>
   <block id="a9af7c87eb41a9d84e4ba955ed5e362a" category="paragraph"><block ref="ebad9fc4a1b1055372f941aefa20d14b" prefix="" category="inline-code"></block></block>
@@ -4122,7 +4113,6 @@
   <block id="0d705fad98d8ea6c4ffe75e2508e2f92" category="section-title">在 GCP 中调整系统规模</block>
   <block id="d1d964d1db8731b3b8174fa845b85de0" category="paragraph">调整Cloud Volumes ONTAP系统的大小可以帮助您满足性能和容量要求。在选择机器类型、磁盘类型和磁盘大小时，您应该注意几个关键点：</block>
   <block id="3ea4bf9da7622edeeae1bf80e9c5cded" category="list-text">机器类型</block>
-  <block id="c216ce09fef0e1ef250512b3b43005f3" category="list-text">查看支持的机器类型<block ref="f922a7787320953a33ee2591f979f78c" category="inline-link-rx"></block>然后查看 Google 提供的有关每种受支持机器类型的详细信息。将您的工作负载要求与机器类型的 vCPU 和内存数量相匹配。请注意，每个 CPU 核心都会提高网络性能。</block>
   <block id="33163c406a5fa4e618c360f9d6a2cf33" category="paragraph">请参阅以下内容以了解更多详细信息：</block>
   <block id="0bf615a24a0089df1397d456b7c9a111" category="inline-link">Google Cloud 文档：N1 标准机器类型</block>
   <block id="4a8c0d1957b124297f183a32fe967b94" category="list-text"><block ref="4a8c0d1957b124297f183a32fe967b94" category="inline-link-rx"></block></block>
@@ -4144,8 +4134,6 @@
   <block id="d29db19a7031b577f72b1a54c1c332f9" category="list-text"><block ref="d29db19a7031b577f72b1a54c1c332f9" category="inline-link-rx"></block></block>
   <block id="355d42a7e00bcba864628f034b15cddb" category="inline-link-macro">查看 Google Cloud 中Cloud Volumes ONTAP系统数据的默认磁盘</block>
   <block id="b40468f6a6f2e8fcdc8714311aa1ef49" category="list-text"><block ref="009f20ff08fc44a35d564f14d4f86898" category="inline-link-macro-rx"></block> 。</block>
-  <block id="c5a8d51eba7ea9cbd6a8802865ba4525" category="inline-link">Google Cloud 文档：资源配额</block>
-  <block id="145245423d8490935c244989b30c7cd8" category="list-text"><block ref="145245423d8490935c244989b30c7cd8" category="inline-link-rx"></block></block>
   <block id="a4f07a5384bf6c0ff50811b7cfdaf1a5" category="paragraph">Google Cloud Compute Engine 对资源使用实施配额，因此您应确保在部署Cloud Volumes ONTAP之前尚未达到限制。</block>
   <block id="24cf7e4ba799cb013c8978351f09a675" category="paragraph">在 GCP 中部署Cloud Volumes ONTAP时，您需要指定有关虚拟网络的详细信息。您可以使用工作表从管理员那里收集信息。</block>
   <block id="0708e6ef30240c1f7018e5cefe7026d8" category="paragraph">*单节点系统的网络信息*</block>
@@ -4545,7 +4533,6 @@
   <block id="896eba38b8484b6d3105e61aa3b17005" category="paragraph">以下部分介绍了如何开始使用每种消费模型。</block>
   <block id="824003e884884d7a86760223b7f8e790" category="paragraph">通过从NetApp购买许可证 (BYOL) 进行预付款，以便在任何云提供商处部署Cloud Volumes ONTAP系统。</block>
   <block id="e8e4b0657c553a7e676cdc5f933acb44" category="inline-link">联系NetApp销售人员获取许可证</block>
-  <block id="c444f079b1cbf4fc53cc057613986256" category="list-text"><block ref="c444f079b1cbf4fc53cc057613986256" category="inline-link-rx"></block></block>
   <block id="31cfe21e9465f2898f2b13f830136b3b" category="inline-link">将您的NetApp支持站点帐户添加到控制台</block>
   <block id="5ecf86303666823b0a4cd97ebaa3b7f1" category="list-text"><block ref="5ecf86303666823b0a4cd97ebaa3b7f1" category="inline-link-rx"></block></block>
   <block id="3207026ba19ccd796b2c4277be209fbb" category="paragraph">控制台会自动查询 NetApp 的许可服务，以获取与您的NetApp支持站点帐户相关的许可证的详细信息。如果没有错误，控制台会自动将许可证添加到控制台。</block>
@@ -4622,7 +4609,6 @@
   <block id="c76b7315caaa70d158328adc6f2de71a" category="paragraph">虽然 Google Cloud Storage 始终会在将数据写入磁盘之前对其进行加密，但您可以使用 API 创建使用_客户管理加密密钥_的Cloud Volumes ONTAP系统。这些是您使用云密钥管理服务在 GCP 中生成和管理的密钥。</block>
   <block id="a8f2d7f368adf46fb8b80685bfc25d43" category="list-text">确保控制台代理服务帐户在存储密钥的项目中具有项目级别的正确权限。</block>
   <block id="d8691a039deef120e0fc9c805510b54a" category="inline-link">默认的服务帐户权限</block>
-  <block id="c48f5fc93390384ed93fb9ae8e4e9ba1" category="paragraph">权限在<block ref="614605843f942b2bd654aa991560ae3f" category="inline-link-rx"></block>，但如果您使用云密钥管理服务的替代项目，则可能无法应用。</block>
   <block id="8d6f8ae15f085c0f77796ef25c3e542f" category="paragraph">权限如下：</block>
   <block id="e58a4fe969b25e78703eca19dbe150f4" category="inline-link">Google Compute Engine 服务代理</block>
   <block id="f83957d35ae58c124cdefecdb0acb6d2" category="list-text">确保<block ref="20c753a1b4fa297bc9e2c3ab9d93174c" category="inline-link-rx"></block>对密钥具有 Cloud KMS 加密器/解密器权限。</block>
@@ -6030,4 +6016,19 @@
   <block id="77750efa6f5ff153acdc42067058017f" category="section-title">2025年11月10日</block>
   <block id="02fd9216d7e373ffe2ab6061c04d9957" category="list-text">9.17.1 P1</block>
   <block id="9ef810f213faea9695f8494f68387049" category="list-text">从NetApp Console菜单中，选择“管理 &gt;Licenses and subscriptions”。</block>
+  <block id="0dcf4bc566ef97d86ea5d4e8c9eeb47e" category="paragraph">如果组织或帐户管理员将*容量管理模式*设置为手动，控制台会通知您采取适当的容量决策措施。自动模式中描述的相同示例也适用于手动模式，但是否接受操作取决于您。</block>
+  <block id="960e4aa9a89b27c853f0f0ec13923352" category="list-text">如果您在系统上启用了备份和恢复功能，请确定是否仍然需要备份的数据，然后……<block ref="bc8ff6550ddd07d56e1ed6fd01d313a7" category="inline-link-rx"></block> 。</block>
+  <block id="a58939c6666594ae00b1f74a1f9e7acf" category="list-text">与控制台代理关联的服务帐户<block ref="7bbaad5d325a365e141c19bc8c6c20e4" category="inline-link-rx"></block></block>
+  <block id="ab07277ba1726fb034dc1a5175c30991" category="cell">标签是 Azure 资源的元数据。当您在此字段中输入标签时，控制台会将它们添加到与Cloud Volumes ONTAP系统关联的资源组中。创建系统时，您可以从用户界面添加最多四个标签，然后可以在创建系统后添加更多标签。请注意，创建系统时，API 不会将您限制为四个标签。有关标签的信息，请参阅<block ref="1abe0bcd3eb326e50bf146cbf3498676" category="inline-link-rx"></block>。</block>
+  <block id="2c92ed1407e789cf148d4d3fef74fce2" category="paragraph">如果你没有<block ref="4904e0ade41e67aed0599ec8d3057702" category="inline-link-rx"></block>但是，你需要创建一个。<block ref="542284e53a05e7716b016385b411b993" category="inline-link-rx"></block></block>
+  <block id="1a24ebef5708132569792a414e03e094" category="inline-link">控制台代理的 Google Cloud 权限</block>
+  <block id="5cd6234ed5876cfff4313c1059d5b2d4" category="list-text"><block ref="5cd6234ed5876cfff4313c1059d5b2d4" category="inline-link-rx"></block></block>
+  <block id="66c139f63f65d235c84902ac03c6222b" category="paragraph">控制台代理需要特定权限才能为Cloud Volumes ONTAP HA 对创建存储虚拟机。所需的权限包含在……<block ref="150cae8225659a5aa7675c881f9a5cc1" category="inline-link-rx"></block> 。</block>
+  <block id="ce8827210c3695ea4f8a100643e30b69" category="paragraph">控制台代理需要特定权限来管理Cloud Volumes ONTAP HA 对的存储虚拟机。所需的权限包含在……<block ref="150cae8225659a5aa7675c881f9a5cc1" category="inline-link-rx"></block> 。</block>
+  <block id="0149e90332ffede347c082297556533c" category="list-text">请查看支持的机器类型。<block ref="1c9d0b8b3abbf8a3a9e9744cc2e07f2b" category="inline-link-rx"></block>然后查看谷歌提供的关于每种受支持机器类型的详细信息。将您的工作负载要求与机器类型的 vCPU 和内存数量相匹配。请注意，每个 CPU 核心都会提高网络性能。</block>
+  <block id="8d93fa64665aea42b7a074ee109fdf53" category="inline-link">Google Cloud 文档：云配额概述</block>
+  <block id="95e8ca8e33414869057ed1788b0a3337" category="list-text"><block ref="95e8ca8e33414869057ed1788b0a3337" category="inline-link-rx"></block></block>
+  <block id="6920fd41cd14b48105100b96e3d5d510" category="list-text"><block ref="6920fd41cd14b48105100b96e3d5d510" category="inline-link-rx"></block></block>
+  <block id="d2a3fb07a2adcb8cca2382c6d3d5d7a6" category="list-text"><block ref="d2a3fb07a2adcb8cca2382c6d3d5d7a6" category="inline-link-rx"></block></block>
+  <block id="5ef66ec02fde350f8efc4a0010bc6510" category="paragraph">权限已在以下文件中提供：<block ref="a04e88f94f3a5bdf7ad6d93ac83509bb" category="inline-link-rx"></block>但如果您使用其他项目来管理云密钥服务，则可能无法应用此功能。</block>
 </blocks>

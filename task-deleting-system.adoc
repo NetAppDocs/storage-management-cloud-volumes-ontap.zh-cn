@@ -24,7 +24,7 @@ NOTE: 删除系统时，不会删除其他资源，例如NetApp Backup and Recov
 当控制台在您的云提供商中部署Cloud Volumes ONTAP时，它会对实例启用终止保护。此选项有助于防止意外终止。
 
 .步骤
-. 如果您在系统上启用了备份和恢复，请确定是否仍然需要备份数据，然后 https://docs.netapp.com/us-en/bluexp-backup-recovery/task-manage-backups-ontap.html#deleting-backups["如有必要，删除备份"^]。
+. 如果您在系统上启用了备份和恢复功能，请确定是否仍然需要备份的数据，然后…… https://docs.netapp.com/us-en/data-services-backup-recovery/prev-ontap-backup-manage.html#delete-backups["如有必要，删除备份"^] 。
 +
 备份和恢复在设计上独立于Cloud Volumes ONTAP 。当您删除Cloud Volumes ONTAP系统时，备份和恢复不会自动删除备份，并且 UI 中当前不支持在系统被删除后删除备份。
 

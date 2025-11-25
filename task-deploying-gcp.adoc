@@ -27,7 +27,7 @@ summary: 您可以在单系统配置中启动Cloud Volumes ONTAP ，也可以在
 +
 ** 你应该有一个 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["与您的系统关联的控制台代理"^]。
 ** https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["您应该准备好让控制台代理始终处于运行状态"^] 。
-** 与控制台代理关联的服务帐户 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-gcp.html["应该具有所需的权限"^]
+** 与控制台代理关联的服务帐户 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html["应该具有所需的权限"^]
 
 
 * 了解您想要使用的配置。

@@ -54,7 +54,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.
 
 调整Cloud Volumes ONTAP系统的大小可以帮助您满足性能和容量要求。在选择机器类型、磁盘类型和磁盘大小时，您应该注意几个关键点：
 
-机器类型:: 查看支持的机器类型 http://docs.netapp.com/cloud-volumes-ontap/us-en/index.html["Cloud Volumes ONTAP发行说明"^]然后查看 Google 提供的有关每种受支持机器类型的详细信息。将您的工作负载要求与机器类型的 vCPU 和内存数量相匹配。请注意，每个 CPU 核心都会提高网络性能。
+机器类型:: 请查看支持的机器类型。 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["Cloud Volumes ONTAP发行说明"^]然后查看谷歌提供的关于每种受支持机器类型的详细信息。将您的工作负载要求与机器类型的 vCPU 和内存数量相匹配。请注意，每个 CPU 核心都会提高网络性能。
 +
 --
 请参阅以下内容以了解更多详细信息：
@@ -102,7 +102,7 @@ GCP 磁盘大小:: 部署Cloud Volumes ONTAP系统时，您需要选择初始磁
 除了用户数据的存储之外，控制台还购买了Cloud Volumes ONTAP系统数据（启动数据、根数据、核心数据和NVRAM）的云存储。出于规划目的，在部署Cloud Volumes ONTAP之前查看这些详细信息可能会有所帮助。
 
 * link:reference-default-configs.html#google-cloud-single-node["查看 Google Cloud 中Cloud Volumes ONTAP系统数据的默认磁盘"] 。
-* https://cloud.google.com/compute/quotas["Google Cloud 文档：资源配额"^]
+* https://docs.cloud.google.com/docs/quotas/overview["Google Cloud 文档：云配额概述"^]
 +
 Google Cloud Compute Engine 对资源使用实施配额，因此您应确保在部署Cloud Volumes ONTAP之前尚未达到限制。
 

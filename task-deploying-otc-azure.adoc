@@ -71,7 +71,7 @@ link:task-set-up-licensing-azure.html["了解如何设置许可"^] 。
 | 系统名称 | 控制台使用系统名称来命名Cloud Volumes ONTAP系统和 Azure 虚拟机。如果您选择该选项，它还会使用该名称作为预定义安全组的前缀。 
 
 
-| 资源组标签 | 标签是 Azure 资源的元数据。当您在此字段中输入标签时，控制台会将它们添加到与Cloud Volumes ONTAP系统关联的资源组中。创建系统时，您可以从用户界面添加最多四个标签，然后可以在创建系统后添加更多标签。请注意，创建系统时，API 不会将您限制为四个标签。有关标签的信息，请参阅 https://azure.microsoft.com/documentation/articles/resource-group-using-tags/["Microsoft Azure 文档：使用标签来组织您的 Azure 资源"^]。 
+| 资源组标签 | 标签是 Azure 资源的元数据。当您在此字段中输入标签时，控制台会将它们添加到与Cloud Volumes ONTAP系统关联的资源组中。创建系统时，您可以从用户界面添加最多四个标签，然后可以在创建系统后添加更多标签。请注意，创建系统时，API 不会将您限制为四个标签。有关标签的信息，请参阅 https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources["Microsoft Azure 文档：使用标签来组织您的 Azure 资源"^]。 
 
 
 | 用户名和密码 | 这些是Cloud Volumes ONTAP集群管理员帐户的凭据。您可以使用这些凭据通过ONTAP System Manager 或ONTAP CLI 连接到Cloud Volumes ONTAP 。保留默认的_admin_用户名或将其更改为自定义用户名。 
@@ -294,7 +294,7 @@ CAUTION: 部署过程完成后，请勿修改 Azure 门户中系统生成的Clou
 | 系统名称 | 控制台使用系统名称来命名Cloud Volumes ONTAP系统和 Azure 虚拟机。如果您选择该选项，它还会使用该名称作为预定义安全组的前缀。 
 
 
-| 资源组标签 | 标签是 Azure 资源的元数据。当您在此字段中输入标签时，控制台会将它们添加到与Cloud Volumes ONTAP系统关联的资源组中。创建系统时，您可以从用户界面添加最多四个标签，然后可以在创建系统后添加更多标签。请注意，创建系统时，API 不会将您限制为四个标签。有关标签的信息，请参阅 https://azure.microsoft.com/documentation/articles/resource-group-using-tags/["Microsoft Azure 文档：使用标签来组织您的 Azure 资源"^]。 
+| 资源组标签 | 标签是 Azure 资源的元数据。当您在此字段中输入标签时，控制台会将它们添加到与Cloud Volumes ONTAP系统关联的资源组中。创建系统时，您可以从用户界面添加最多四个标签，然后可以在创建系统后添加更多标签。请注意，创建系统时，API 不会将您限制为四个标签。有关标签的信息，请参阅 https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources["Microsoft Azure 文档：使用标签来组织您的 Azure 资源"^]。 
 
 
 | 用户名和密码 | 这些是Cloud Volumes ONTAP集群管理员帐户的凭据。您可以使用这些凭据通过ONTAP System Manager 或ONTAP CLI 连接到Cloud Volumes ONTAP 。保留默认的_admin_用户名或将其更改为自定义用户名。 
