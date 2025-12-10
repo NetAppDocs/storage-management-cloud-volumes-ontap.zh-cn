@@ -1,0 +1,27 @@
+= 提升 Azure 中 Premium SSD v2 磁盘性能的能力
+:allow-uri-read: 
+
+
+
+
+=== 提升 Azure 中 Premium SSD v2 磁盘性能的能力
+
+现在，您可以通过修改 IOPS 和吞吐量参数来提高 Azure 中 Premium SSD v2 托管磁盘的性能。利用此功能，您可以根据工作负载需求优化系统的存储性能。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-perf-params-azure.html["在 Azure 中管理Cloud Volumes ONTAP的 Premium SSD v2 磁盘性能"^]。
+
+
+
+=== Essentials 许可证超额收费简化
+
+对于Cloud Volumes ONTAP市场年度合同/私有报价，Essentials 许可证的超额使用计算现在与自带许可证 (BYOL) 套餐保持一致。此前，超出部分按基本套餐的每小时市场价格计费。现在，如果您的市场年度合同包含多个 Essentials 套餐， NetApp Console会将 Essentials 套餐的超额费用计入您订阅中价格更高的 Essentials 套餐的可用容量。这简化了 Essentials 套餐的超额费用计算，并确保从 BYOL 许可模式平稳过渡到订阅模式。
+
+https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing-charging.html#how-overages-are-charged-for-essentials-licenses["Essentials许可证超额费用如何收取"^]
+
+
+
+=== 支持 Azure Edsv6 尺寸系列
+
+从Cloud Volumes ONTAP 9.17.1 开始，您可以通过NetApp Console为新的Cloud Volumes ONTAP实例部署 Azure Edsv6 系列虚拟机。 Cloud Volumes ONTAP 9.17.1 及更高版本将仅支持新部署的第二代虚拟机。这些第二代机器与最新技术兼容，例如统一可扩展固件接口 (UEFI)、Azure Boost 系统和 NVMe。它们非常适合内存密集型系统和需要快速本地存储的应用，例如数据库服务器和分析引擎。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html#supported-configurations-by-license["Azure 中Cloud Volumes ONTAP支持的配置"^]

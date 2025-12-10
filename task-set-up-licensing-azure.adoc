@@ -49,7 +49,7 @@ link:task-deploying-otc-azure.html["查看在 Azure 中启动Cloud Volumes ONTAP
 
 基于容量的许可使您能够按 TiB 容量支付Cloud Volumes ONTAP费用。基于容量的许可以_包_的形式提供：Essentials 包或 Professional 包。
 
-Essentials 和 Professional 套餐提供以下消费模式：
+Essentials 和 Professional 套餐提供以下几种消费模式或购买选项：
 
 * 从NetApp购买的许可证（自带许可证 (BYOL)）
 * Azure 市场提供的按小时付费 (PAYGO) 订阅
@@ -175,3 +175,14 @@ image:screenshot-keystone.png["创建Cloud Volumes ONTAP系统时Keystone订阅�
 
 
 link:task-deploying-otc-azure.html["查看在 Azure 中启动Cloud Volumes ONTAP 的分步说明"] 。
+
+
+
+== 基于节点的许可证
+
+基于节点的许可证是Cloud Volumes ONTAP的上一代许可证。基于节点的许可证可以从NetApp (BYOL) 处购买，并且仅在特定情况下才可以续订许可证。有关信息，请参阅：
+
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#end-of-availability-for-node-based-licenses["基于节点的许可证的可用性终止"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基于节点的许可证的可用性终止"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-convert-node-capacity.html["将基于节点的许可证转换为基于容量的许可证"^]
+

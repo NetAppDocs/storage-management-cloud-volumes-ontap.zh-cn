@@ -1,0 +1,74 @@
+---
+sidebar: sidebar 
+permalink: task-manage-perf-params-azure.html 
+keywords: azure, premium ssd v2, Premium SSDv2, performance parameters, cloud volumes ontap 
+summary: 在 Azure 中配置 Premium SSD v2 磁盘的性能参数。 
+---
+= 在 Azure 中管理Cloud Volumes ONTAP的 Premium SSD v2 磁盘性能
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以通过配置 Premium SSD v2 磁盘的 IOPS 和吞吐量参数来优化 Azure 中的Cloud Volumes ONTAP性能。此功能仅在Cloud Volumes ONTAP已部署 Azure Premium SSD v2 磁盘类型时可用，在初始部署期间不可用。通过提升性能，您可以充分利用 Azure Premium SSD v2 磁盘的灵活性和高性能功能。
+
+Premium SSD v2 磁盘支持需要快速、可靠性能、低延迟、高 IOPS 和高吞吐量的工作负载。通过调整 IOPS 和吞吐量设置，您可以定制部署中聚合的性能。有关 Premium SSD v2 磁盘的更多信息，请参阅 https://learn.microsoft.com/en-us/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli["部署高级 SSD v2 磁盘"]。
+
+使用 API 实现修改 Premium SSD v2 磁盘设置的自动化过程。有关运行Cloud Volumes ONTAP API 调用的信息，请参阅 https://docs.netapp.com/us-en/bluexp-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一次 API 调用"^]。
+
+.关于此任务
+* 此功能适用于 Azure 单一可用性区域中的Cloud Volumes ONTAP部署。
+* 更改磁盘设置会统一改变 RAID 组或聚合的性能。为了确保整个集群性能的一致性，集群中所有磁盘的性能都调整到同一水平。
+* 这些变更仅影响单个聚合体，不会影响组内的其他聚合体。
+* 在NetApp Console中部署Cloud Volumes ONTAP或进行容量优化时自动配置的高级 SSD v2 磁盘，或通过 API 添加的高级 SSD v2 磁盘，均可进行修改。
+* 不支持磁盘调整大小（更改磁盘容量）。
+
+
+.开始之前
+在配置 Premium SSD v2 磁盘的 IOPS 和吞吐量参数之前，请注意以下几点：
+
+* 请确保您仅选择了高级 SSD v2 数据磁盘。  Premium SSD v1 磁盘或根磁盘和启动磁盘不符合此更改条件。
+* 使用Cloud Volumes ONTAP在部署期间建立的预配置基线设置作为相应磁盘大小的最小 IOPS 和吞吐量值。这些基准设置与 Premium SSD v1 的性能特点相符。
+* 将 IOPS 和吞吐量值设置为等于或高于磁盘大小的最低基准值。例如，对于 1TB 的磁盘大小，将最小 IOPS 值设置为 5,000，将最小吞吐量值设置为 200 MBps。您可以设置高于这些最小值的值，但不能低于这些最小值。
+* 在支持的 Premium SSD v2 范围内配置值：IOPS 在 3000 到 80000 之间，吞吐量在 125 到 1200 MBps 之间。
+* 请确保您的 Premium SSD v2 磁盘大小在 Azure Cloud Volumes ONTAP支持的 500GB 到 32TB 范围内。请注意，这些大小限制与 Azure 为高级 SSD v2 磁盘提供的最小值和最大值不同。
+
+
+.步骤
+* 使用以下 API 调用来更改 IOPS 和吞吐量的属性值：
++
+
+NOTE: 在 24 小时内，您最多可以调用此 API 四次。
+
++
+`PUT /azure/vsa/aggregates/{workingEnvironmentId}/{aggregateName}`
+
++
+在请求主体中包含以下参数：
+
++
+[source, json]
+----
+{
+  "aggregateName": "aggr_name",
+  "iops": "modified_iops_value",
+  "throughput": "modified_throughput_value",
+  "workingEnvironmentId": "we_id"
+}
+----
+
+
+.完成后
+API 返回响应表明操作成功后，请在 Azure 门户中检查Cloud Volumes ONTAP系统的磁盘详细信息，以验证修改后的参数。
+
+.相关信息
+* https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html["准备使用 API"^]
+* https://docs.netapp.com/us-en/bluexp-automation/cm/workflow_processes.html#organization-of-cloud-volumes-ontap-workflows["Cloud Volumes ONTAP工作流程"^]
+* https://docs.netapp.com/us-en/bluexp-automation/platform/get_identifiers.html#get-the-connector-identifier["获取所需的标识符"^]
+* https://docs.netapp.com/us-en/bluexp-automation/platform/use_rest_apis.html["使用 REST API 访问Cloud Volumes ONTAP"^]
+* https://learn.microsoft.com/en-us/azure/virtual-machines/use-premium-ssd-v2-with-availability-set?tabs=CLI["在可用性集中将 Premium SSD v2 与虚拟机一起使用"^]
+

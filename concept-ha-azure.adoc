@@ -74,6 +74,11 @@ Azure 标准负载均衡器:: 负载均衡器管理传入Cloud Volumes ONTAP HA 
 
 
 --
+
+
+
+NOTE: 如果您为符合上述条件的环境选择高级 SSD 管理磁盘，控制台将自动部署高级 SSD v2 管理磁盘。您无法切换到高级 SSD v1 管理磁盘。
+
 磁盘:: 客户数据驻留在本地冗余存储 (LRS) 管理的磁盘上。每个节点都可以访问其他节点的存储。还需要额外的存储空间link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-default-configs.html#azure-ha-pair["启动、根、合作伙伴根、核心和NVRAM数据"^]。
 存储帐户:: 存储帐户用于基于托管磁盘的部署，以处理诊断日志和分层到 Blob 存储。
 

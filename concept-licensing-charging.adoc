@@ -14,13 +14,13 @@ summary: 熟悉基于容量的许可证的收费、消费模式、定价和配�
 
 
 [role="lead"]
-您应该熟悉基于容量的许可证的收费和容量使用情况
+您应该熟悉基于容量的许可证的收费方式和容量使用情况。
 
 
 
-== 消费模式
+== 消费模式或许可购买选项
 
-基于容量的许可包适用于以下消费模式：
+我们提供基于容量的许可套餐，并有以下几种消费模式或购买选项：
 
 * *BYOL*：自带许可证（BYOL）。从NetApp购买的许可证，可用于在任何云提供商中部署Cloud Volumes ONTAP 。
 +
@@ -54,7 +54,7 @@ endif::azure[]
 
 
 
-== 更换包裹
+== 更改许可证包
 
 部署后，您可以更改使用基于容量的许可的Cloud Volumes ONTAP系统的软件包。例如，如果您使用 Essentials 包部署了Cloud Volumes ONTAP系统，则可以在业务需求发生变化时将其更改为 Professional 包。
 
@@ -64,7 +64,7 @@ link:task-manage-capacity-licenses.html["了解如何更改充电方式"] 。
 
 
 
-== 基于容量的许可中的计费和支持的配置
+== 支持的存储类型和套餐如何收费
 
 Cloud Volumes ONTAP的计费基于多种因素，例如套餐和卷类型。Cloud Volumes ONTAP 9.7 及更高版本提供基于容量的许可包。
 
@@ -90,6 +90,30 @@ Cloud Volumes ONTAP的计费基于多种因素，例如套餐和卷类型。Clou
 
 * 您无需为FlexClone卷使用的容量付费。
 * 源和目标FlexCache卷被视为主数据，并根据配置的空间收费。
+
+
+
+
+=== 读/写卷
+
+如果您创建或使用可写（读/写）卷，则该卷将被视为主卷，并按每个存储虚拟机 (SVM) 的最低费用收取已配置容量的费用。例如FlexVol读/写卷、 SnapLock审计卷和 CIFS/NFS 审计卷。所有用户创建的数据量均按您的订阅和套餐类型收费。  ONTAP内部自动创建且无法存储数据的卷（例如 SVM 根卷）不收费。
+
+
+
+=== 基本套装
+
+使用 Essentials 套餐时，您需要根据部署类型（HA 或单节点）和卷类型（主卷或辅助卷）付费。价格从高到低的顺序如下：_Essentials Primary HA_、_Essentials Primary Single Node_、_Essentials Secondary HA_ 和 _Essentials Secondary Single Node_。或者，当您购买市场合同或接受私人优惠时，任何部署或卷类型的容量费用都是相同的。
+
+许可完全基于Cloud Volumes ONTAP系统内创建的卷类型：
+
+* 基本单节点：仅使用一个ONTAP节点在Cloud Volumes ONTAP系统上创建的读/写卷。
+* Essentials HA：使用两个ONTAP节点读取/写入卷，这两个节点可以相互故障转移，以实现无中断数据访问。
+* 基本辅助单节点：仅使用一个ONTAP节点在Cloud Volumes ONTAP系统上创建的数据保护 (DP) 类型卷（通常是只读的SnapMirror或SnapVault目标卷）。
++
+
+NOTE: 如果只读/DP 卷成为主卷，则控制台会将其视为主数据，并且收费成本将根据卷处于读/写模式的时间来计算。当卷再次变为只读/DP 时，它会再次将该卷视为辅助数据，并使用控制台中最匹配的许可证进行相应的收费。
+
+* 基本辅助 HA：在Cloud Volumes ONTAP系统上使用两个可以相互故障转移以实现无中断数据访问的ONTAP节点创建的数据保护 (DP) 类型卷（通常是只读的SnapMirror或SnapVault目标卷）。
 
 
 
@@ -135,19 +159,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["了解 AW
 
 
 
-== 读写卷收费
-
-如果您创建或使用可写（读/写）卷，则该卷将被视为主卷，并按每个存储虚拟机 (SVM) 的最低费用收取已配置容量的费用。例如FlexVol读/写卷、 SnapLock审计卷和 CIFS/NFS 审计卷。所有用户创建的数据量均按您的订阅和套餐类型收费。  ONTAP内部自动创建且无法存储数据的卷（例如 SVM 根卷）不收费。
-
-
-
-== 充电注意事项
-
-以下详细信息可以帮助您了解基于容量的许可的收费方式。
-
-
-
-=== 最低收费
+== 最低收费
 
 对于每个具有至少一个主（读写）卷的提供数据的存储虚拟机，最低收费为 4 TiB。如果主卷的总和小于 4 TiB，则控制台将对该存储虚拟机应用 4 TiB 的最低费用。
 
@@ -157,30 +169,19 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["了解 AW
 
 
 
-=== 超额
+== 超额费用如何收取
 
-如果您超出了 BYOL 容量，我们将根据您的市场订阅按小时费率向您收取超额费用。超额部分将按市场费率收费，并优先使用其他许可证中的可用容量。如果您的 BYOL 许可证到期，您需要通过云市场过渡到基于容量的许可模式。
-
-
-
-=== 基本套餐
-
-使用 Essentials 套餐时，您需要根据部署类型（HA 或单节点）和卷类型（主卷或辅助卷）付费。价格从高到低的顺序如下：_Essentials Primary HA_、_Essentials Primary Single Node_、_Essentials Secondary HA_ 和 _Essentials Secondary Single Node_。或者，当您购买市场合同或接受私人优惠时，任何部署或卷类型的容量费用都是相同的。
-
-许可完全基于Cloud Volumes ONTAP系统内创建的卷类型：
-
-* 基本单节点：仅使用一个ONTAP节点在Cloud Volumes ONTAP系统上创建的读/写卷。
-* Essentials HA：使用两个ONTAP节点读取/写入卷，这两个节点可以相互故障转移，以实现无中断数据访问。
-* 基本辅助单节点：仅使用一个ONTAP节点在Cloud Volumes ONTAP系统上创建的数据保护 (DP) 类型卷（通常是只读的SnapMirror或SnapVault目标卷）。
-+
-
-NOTE: 如果只读/DP 卷成为主卷，则控制台会将其视为主数据，并且收费成本将根据卷处于读/写模式的时间来计算。当卷再次变为只读/DP 时，它会再次将该卷视为辅助数据，并使用控制台中最匹配的许可证进行相应的收费。
-
-* 基本辅助 HA：在Cloud Volumes ONTAP系统上使用两个可以相互故障转移以实现无中断数据访问的ONTAP节点创建的数据保护 (DP) 类型卷（通常是只读的SnapMirror或SnapVault目标卷）。
+如果您超出了 BYOL 容量，我们将根据您的市场订阅按小时费率向您收取超额费用。超额部分将按市场费率收费，并优先使用其他许可证中的可用容量。如果您的 BYOL 许可证到期，您需要通过云市场过渡到基于容量的许可模式。更多信息请参阅link:task-convert-node-capacity.html["将Cloud Volumes ONTAP基于节点的许可证转换为基于容量的许可证"]。
 
 
-.BYOL
-如果您从NetApp (BYOL) 购买了 Essentials 许可证，并且超出了该部署和卷类型的许可容量，则控制台将根据价格更高的 Essentials 许可证（如果您拥有该许可证并且有可用容量）收取超额费用。发生这种情况的原因是，在向市场收费之前，我们首先使用您已购买的可用容量作为预付费容量。如果您的 BYOL 许可证没有可用容量，超出的容量将按市场按需小时费率 (PAYGO) 收费，并将费用添加到您的每月账单中。
+
+=== Essentials许可证超额费用如何收取
+
+如果您从NetApp购买 Essentials 许可证（自带许可证），并且超出了特定 Essentials 软件包的许可容量，则控制台会将超出部分的费用计入价格更高的 Essentials 许可证（如果您有可用容量的许可证）。游戏主机首先会使用您已付费的可用容量，然后再向市场收费。如果您的 BYOL 许可证没有可用容量，超出容量的部分将按市场按需小时费率 (PAYGO) 收费，并添加到您的月账单中。
+
+同样，如果您签订了年度市场合同或包含多个 Essentials 套餐的私人优惠，并且您的使用量超过了特定套餐的部署和容量类型的承诺容量，则控制台会根据可用容量，向价格更高的 Essentials 套餐收取超额费用。当该容量耗尽后，剩余的超额容量将按市场按需（PAYGO）小时费率计费，并添加到您的月账单中。
+
+有关 Essentials 许可证收费的信息，请参阅link:concept-licensing-charging.html#essentialscharging["基本套装"]。
 
 这是一个例子。假设您拥有 Essentials 包的以下许可证：
 
@@ -201,8 +202,3 @@ NOTE: 如果只读/DP 卷成为主卷，则控制台会将其视为主数据，�
 另外 100 TiB 在具有主卷的 HA 对上进行配置。您购买的许可证没有_Essentials Primary HA_承诺容量。  _Essentials Primary HA_ 许可证的价格高于 _Essentials Primary Single Node_ 和 _Essentials Secondary HA_ 许可证。
 
 在此示例中，控制台按照市场价格对额外的 100 TiB 收取超额费用。超额费用将出现在您的每月账单上。
-
-.市场合同或私人优惠
-如果您作为市场合同或私人优惠的一部分购买了 Essentials 许可证，则 BYOL 逻辑不适用，并且您必须拥有与使用完全相同的许可证类型。许可证类型包括卷类型（主或辅助）和部署类型（HA 或单节点）。
-
-例如，假设您使用 Essentials 许可证部署Cloud Volumes ONTAP实例。然后，您可以配置读写卷（主单节点）和只读卷（辅助单节点）。您的市场合同或私人优惠必须包括_Essentials Single Node_和_Essentials Secondary Single Node_的容量，以覆盖预配置的容量。任何不属于您的市场合同或私人优惠的预配置容量都将按按需小时费率（PAYGO）收费，并将费用添加到您的每月账单中。

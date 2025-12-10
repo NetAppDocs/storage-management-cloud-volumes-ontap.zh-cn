@@ -1,0 +1,11 @@
+= Cloud Volumes ONTAP的首选计费方式
+:allow-uri-read: 
+
+
+
+
+=== Cloud Volumes ONTAP的首选计费方式
+
+现在您可以选择您喜欢的计费方式来计算您的使用量和超额费用。自 2025 年 6 月 25 日起，BYOL 许可将不再提供， NetApp在NetApp Console的“许可和订阅”部分中提供了首选的收费方式。您可以选择使用年度市场订阅进行计费和超额费用结算，或者使用现有的许可（自带许可）模式。这样，您可以灵活选择最适合您组织财务战略和使用模式的充电方式。
+
+更多信息请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing-charging.html#minimum-charge["账单和超额费用"^]。

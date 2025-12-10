@@ -22,7 +22,7 @@ Cloud Volumes ONTAP有多种许可选项。每个选项都可以让您选择符�
 
 新客户可以使用以下许可选项。
 
-基于容量的许可:: 按配置容量支付NetApp帐户中的多个Cloud Volumes ONTAP系统的费用。包括购买附加云数据服务的能力。有关基于容量的许可证消费模型的更多信息，请参阅link:concept-licensing-charging.html["了解有关基于容量的许可证的更多信息"]。
+基于容量的许可:: 按配置容量支付NetApp帐户中的多个Cloud Volumes ONTAP系统的费用。包括购买附加云数据服务的能力。有关基于容量的许可证的消费模式或购买选项的更多信息，请参阅：link:concept-licensing-charging.html["了解有关基于容量的许可证的更多信息"] 。
 Keystone订阅:: 一种按需付费的订阅式服务，为高可用性 (HA) 对提供无缝的混合云体验。
 
 
