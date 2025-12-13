@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: task-upgrade-disk-perf-azure.html 
+keywords: azure, premium ssd v2, Premium SSDv2, performance parameters, cloud volumes ontap 
+summary: 在 Azure 中配置 Premium SSD v2 磁盘的性能参数。 
+---
+= 在 Azure Cloud Volumes ONTAP中更改高级 SSD 磁盘的性能层级
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以使用 Azure 门户升级 Azure Cloud Volumes ONTAP中高级 SSD 托管磁盘的性能层级。这是一个手动过程，涉及将每个高级 SSD 磁盘的磁盘层级更改为更高性能的层级。更改NVRAM磁盘的性能层级可以通过提供更高的 IOPS 和吞吐量能力来帮助缓解性能瓶颈并提高Cloud Volumes ONTAP系统的效率。
+
+.关于此任务
+* 默认情况下，Azure 中的Cloud Volumes ONTAP在 P20 层部署高级 SSD 磁盘作为NVRAM 。P20 层级提供均衡的性能，适合大多数工作负载。但是，如果您的工作负载需要更高的性能，您可以将NVRAM磁盘升级到更高的级别，例如 P30。
++
+
+TIP: 目前，您只能通过 Azure 门户将NVRAM磁盘从 P20 层升级到 P30 层。
+
+* 您无需更改磁盘大小。容量仍然是 512 GB。此操作只会改变磁盘的性能等级。
+
+
+.开始之前
+* 您的Cloud Volumes ONTAP版本必须为 9.11.1 或更高版本。对于较低版本，您可以升级到 9.11.1 或更高版本，或者向NetApp支持部门提出功能策略变更请求 (FPVR)。
+* 请务必与NetApp支持团队合作，确定您环境中遇到的瓶颈是由于NVRAM磁盘引起的，升级该层级可以解决该问题。
++
+
+NOTE: 将NVRAM磁盘升级到更高性能级别会产生额外的成本，因此仔细评估此更改的必要性非常重要。
+
+
+
+.步骤
+此场景假设有两个节点 `node01` 和 `node02` 在Cloud Volumes ONTAP高可用性 (HA) 部署中。使用 Azure 门户升级层级。
+
+. 运行此命令以生成 `node1` 活动节点。手动故障转移 `node02`。
++
+`storage failover takeover -ofnode <Node02>`
+
+. Sign inAzure 门户。
+. 接管完成后，请转到虚拟机实例。 `node02`然后点击“停止”按钮将其关闭。
+. 导航至资源组 `node02` 从磁盘列表中选择NVRAM磁盘以更改层级。
+. 选择*尺寸+性能*。
+. 在“性能等级”下拉菜单中，选择 `P30 - 5000 IOPS, 200MB/s`。
+. 选择*调整大小*。
+. 打开 `node02` 实例。
+. 检查 Azure 串行控制台，直到看到以下消息： `waiting for giveback`。
+. 运行此命令即可回馈 `node02`：
++
+`storage failover giveback -ofnode <Node02>`
+
+. 重复这些步骤 `node01` 制作 `node02` 接管 `node01`这样您就可以升级NVRAM磁盘层。 `node01`。
+
+
+.完成后
+当您启动两个节点后，请在 Azure 门户中检查Cloud Volumes ONTAP系统的磁盘详细信息，以验证修改后的参数。
+
+.相关信息
+* Azure 文档： https://learn.microsoft.com/en-us/azure/virtual-machines/disks-performance-tiers?tabs=portal["无需停机即可更改性能等级"^]
+* 支持团队知识库： https://kb.netapp.com/Cloud/Azure_NetApp_Files/How_to_upgrade_performance_tier_of_NVRAM_disk_in_Azure_CVO["如何在 Azure CVO 中升级NVRAM磁盘的性能层"^]
+* link:task-updating-ontap-cloud.html["升级Cloud Volumes ONTAP软件版本"]
+

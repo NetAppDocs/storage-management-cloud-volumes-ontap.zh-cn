@@ -4,7 +4,7 @@ permalink: task-updating-ontap-cloud.html
 keywords: update, updating, upgrading, upgrade, software, downgrade, downgrading, FTP, HTTP, mediator, local image, revert, reverting, downgrading, cloud backup 
 summary: 从NetApp Console升级Cloud Volumes ONTAP以获取最新的功能和增强功能。在升级软件之前，您应该准备好Cloud Volumes ONTAP系统。 
 ---
-= 升级Cloud Volumes ONTAP软件
+= 升级Cloud Volumes ONTAP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
