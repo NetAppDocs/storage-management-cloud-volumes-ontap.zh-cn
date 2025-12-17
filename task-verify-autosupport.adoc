@@ -43,23 +43,19 @@ TIP: 如果您使用 HA 对，则 HA 中介不需要出站互联网访问。
 
 == 排除AutoSupport配置故障
 
-如果出站连接不可用，并且控制台无法将您的Cloud Volumes ONTAP系统配置为使用控制台代理作为代理服务器，您将收到来自控制台的通知，标题为“<系统名称> 无法发送AutoSupport消息”。
-
-您收到此消息很可能是因为网络问题。
-
-请按照以下步骤解决此问题。
+如果出站连接不可用，并且控制台无法配置您的Cloud Volumes ONTAP系统以使用控制台代理作为代理服务器，您将收到来自控制台的通知，提示您的系统无法发送AutoSupport消息。请按照以下步骤解决此问题。
 
 .步骤
-. 通过 SSH 连接到Cloud Volumes ONTAP系统，以便您可以从ONTAP CLI 管理系统。
+. 使用 SSH 安全地连接到Cloud Volumes ONTAP系统，以使用ONTAP CLI。
 +
 link:task-connecting-to-otc.html["了解如何通过 SSH 连接到Cloud Volumes ONTAP"] 。
 
-. 显示AutoSupport子系统的详细状态：
+. 查看AutoSupport子系统的详细状态：
 +
 `autosupport check show-details`
 
 +
-响应应类似于以下内容：
+回复内容如下：
 
 +
 [listing]
@@ -95,9 +91,9 @@ link:task-connecting-to-otc.html["了解如何通过 SSH 连接到Cloud Volumes 
     5 entries were displayed.
 ----
 +
-如果 http-https 类别的状态为“ok”，则表示AutoSupport配置正确，可以发送消息。
+如果 http-https 类别的状态是 `OK` 这意味着AutoSupport已正确配置，可以发送消息。
 
-. 如果状态不正常，请验证每个Cloud Volumes ONTAP节点的代理 URL：
+. 否则，请验证每个Cloud Volumes ONTAP节点的代理 URL：
 +
 `autosupport show -fields proxy-url`
 
@@ -105,41 +101,31 @@ link:task-connecting-to-otc.html["了解如何通过 SSH 连接到Cloud Volumes 
 +
 `autosupport modify -proxy-url \http://<console agent private ip>:3128`
 
-. 再次验证AutoSupport状态：
+. 再次确认AutoSupport状态：
 +
 `autosupport check show-details`
 
-. 如果状态仍然失败，请验证Cloud Volumes ONTAP和控制台代理之间是否通过端口 3128 建立连接。
-. 如果验证连接后状态 ID 仍然失败，则通过 SSH 连接到控制台代理。
+. 如果状态仍然为失败，请验证Cloud Volumes ONTAP和控制台代理之间是否通过端口建立连接。 `3128`。
+. 如果验证后状态仍然失败，请通过 SSH 连接到控制台代理。
 +
 https://docs.netapp.com/us-en/bluexp-setup-admin/task-maintain-connectors.html#connect-to-the-linux-vm["了解有关控制台代理连接到 Linux VM 的更多信息"^]
 
-. 前往 `/opt/application/netapp/cloudmanager/docker_occm/data/`
-. 打开代理配置文件 `squid.conf`
-+
-该文件的基本结构如下：
-
+. 前往 `/opt/application/netapp/cloudmanager/docker_occm/data/`。
+. 打开代理配置文件 `squid.conf`。这是文件的结构：
 +
 [listing]
 ----
         http_port 3128
-        acl localnet src 172.31.0.0/16
-        acl azure_aws_metadata dst 169.254.169.254
-
-        http_access allow localnet
-        http_access deny azure_aws_metadata
-        http_access allow localhost
+        acl netapp_support dst support.netapp.com
+        http_access allow netapp_support
+        request_header_max_size 21 KB
+        reply_header_max_size 21 KB
         http_access deny all
+        httpd_suppress_version_string on
 ----
-+
-localnet src 值是Cloud Volumes ONTAP系统的 CIDR。
-
-. 如果Cloud Volumes ONTAP系统的 CIDR 块不在文件中指定的范围内，请更新值或添加新条目，如下所示：
+. 如果您的文件中没有Cloud Volumes ONTAP系统的 CIDR 块条目，请添加新条目并允许访问：
 +
 `acl cvonet src <cidr>`
-
-+
-如果您添加此新条目，请不要忘记添加允许条目：
 
 +
 `http_access allow cvonet`
@@ -151,21 +137,24 @@ localnet src 值是Cloud Volumes ONTAP系统的 CIDR。
 [listing]
 ----
         http_port 3128
-        acl localnet src 172.31.0.0/16
-        acl cvonet src 172.33.0.0/16
-        acl azure_aws_metadata dst 169.254.169.254
-
-        http_access allow localnet
+        acl netapp_support dst support.netapp.com
+        acl cvonet src <cidr>
+        http_access allow netapp_support
         http_access allow cvonet
-        http_access deny azure_aws_metadata
-        http_access allow localhost
+        request_header_max_size 21 KB
+        reply_header_max_size 21 KB
         http_access deny all
-----
-. 编辑配置文件后，以 sudo 身份重新启动代理容器：
-+
-`docker restart squid`
+        httpd_suppress_version_string on
 
-. 返回Cloud Volumes ONTAP CLI 并验证Cloud Volumes ONTAP是否可以发送AutoSupport消息：
+----
+. 编辑配置文件后，重启代理容器。 `sudo`。然后，根据您使用的是 Docker 还是 Podman，运行以下命令：
++
+对于 Docker，请运行 `docker restart squid`。
+
++
+如果您使用的是 Podman，请运行 `podman restart squid`。
+
+. 返回ONTAP CLI 并验证Cloud Volumes ONTAP是否可以发送AutoSupport消息：
 +
 `autosupport check show-details`
 
