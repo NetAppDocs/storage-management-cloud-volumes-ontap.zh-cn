@@ -169,9 +169,15 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["了解 AW
 
 
 
-== 超额费用如何收取
+== 计费偏好和超额费用
 
-如果您超出了 BYOL 容量，我们将根据您的市场订阅按小时费率向您收取超额费用。超额部分将按市场费率收费，并优先使用其他许可证中的可用容量。如果您的 BYOL 许可证到期，您需要通过云市场过渡到基于容量的许可模式。更多信息请参阅link:task-convert-node-capacity.html["将Cloud Volumes ONTAP基于节点的许可证转换为基于容量的许可证"]。
+您可以在控制台的“*Licenses and subscriptions*”部分选择您的收费方式。当您的使用量超过许可证套餐或年度订阅中规定的容量时，就会产生超额费用。
+
+* * NetApp优先授权*：在此模式下，您的使用量首先会根据您的许可证包（自带许可证）的容量进行计费。如果您超出许可容量，超出部分将根据您的年度市场订阅或市场按需小时费率（PAYGO）收取费用。如果您的 BYOL 许可证到期，您必须通过云市场过渡到基于容量的许可模式。更多信息请参阅 link:task-convert-node-capacity.html["将Cloud Volumes ONTAP基于节点的许可证转换为基于容量的许可证"]。
+* *仅限市场订阅用户*：在此模式下，您的使用费用将首先计入您的年度市场订阅费用。任何额外使用均按市场按需小时费率（PAYGO）收费。任何未使用的许可证容量在计费时均不予考虑。
+
+
+有关账单偏好设置的更多信息，请参阅 https://docs.netapp.com/us-en/console-licenses-subscriptions/concept-billing-preferences.html["了解许可证和订阅的计费方式"^]。
 
 
 
