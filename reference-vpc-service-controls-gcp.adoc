@@ -30,7 +30,7 @@ VPC 服务控制使您能够控制对受信任边界之外的 Google 管理服�
 
 == 图片
 
-Cloud Volumes ONTAP和控制台都使用由NetApp管理的 GCP 内项目的图像。如果您的组织有阻止使用未在组织内托管的图像的策略，则这可能会影响控制台代理和Cloud Volumes ONTAP 的部署。
+Cloud Volumes ONTAP 和 Console 都使用来自 Google Cloud 中由 NetApp 管理的项目的映像。如果您的组织具有阻止使用未在组织内托管的映像的策略，这可能会影响 Console 代理和 Cloud Volumes ONTAP 的部署。
 
 您可以使用手动安装方法手动部署控制台代理，但Cloud Volumes ONTAP还需要从NetApp项目中提取图像。您必须提供允许列表才能部署控制台代理和Cloud Volumes ONTAP。
 
@@ -54,7 +54,7 @@ Cloud Volumes ONTAP和控制台都使用由NetApp管理的 GCP 内项目的图�
 
 == VPC 服务控制边界策略
 
-策略允许 VPC 服务控制规则集的例外。有关政策的更多信息，请访问 https://cloud.google.com/vpc-service-controls/docs/ingress-egress-rules#policy-model["GCP VPC 服务控制政策文档"^]。
+策略允许对 VPC Service Controls 规则集进行例外。有关策略的详细信息，请访问 https://cloud.google.com/vpc-service-controls/docs/ingress-egress-rules#policy-model["Google Cloud VPC Service Controls Policy 文档"^]。
 
 要设置控制台所需的策略，请导航到您组织内的 VPC 服务控制边界并添加以下策略。这些字段应与 VPC 服务控制策略页面中给出的选项相匹配。还要注意，*所有*规则都是必需的，并且规则集中应该使用*OR*参数。
 

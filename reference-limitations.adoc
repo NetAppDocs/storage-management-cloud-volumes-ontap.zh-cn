@@ -31,9 +31,9 @@ NOTE: 我们计划在未来的版本中提供在控制台中创建FlexGroup卷�
 
 == 控制台不支持带有Cloud Volumes ONTAP 的S3
 
-虽然Cloud Volumes ONTAP支持 S3 作为横向扩展存储的选项，但控制台不提供此功能的任何管理功能。使用 CLI 是从Cloud Volumes ONTAP配置 S3 客户端访问的最佳实践。有关详细信息，请参阅 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-s3-cg/home.html["S3 配置电源指南"^]。
+虽然 Cloud Volumes ONTAP 支持 S3 作为横向扩展存储的选项，但 Console 不为此功能提供任何管理功能。使用 CLI 是从 Cloud Volumes ONTAP 配置 S3 客户端访问的最佳实践。有关详细信息，请参阅 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.pow-s3-cg/home.html["ONTAP S3 配置电源指南"^]。
 
-link:concept-client-protocols.html["了解有关Cloud Volumes ONTAP对 S3 和其他客户端协议的支持的更多信息"] 。
+link:concept-client-protocols.html["详细了解 Cloud Volumes ONTAP 对 ONTAP S3 和其他客户端协议的支持"]。
 
 
 

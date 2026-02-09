@@ -29,7 +29,7 @@ Cloud Volumes ONTAP中的高级存储管理功能可通过ONTAP系统管理器 (
 * 事件和作业：查看事件日志、系统警报、作业和审计日志。
 * 高级数据保护：保护存储虚拟机、LUN 和一致性组。
 * 主机管理：设置 SAN 启动器组和 NFS 客户端。
-* S3 对象存储管理： Cloud Volumes ONTAP中的 S3 存储管理功能仅在系统管理器中可用，而不在控制台中可用。
+* ONTAP S3 对象存储管理：Cloud Volumes ONTAP 中的 ONTAP S3 存储管理功能仅在 System Manager 中可用，在 Console 中不可用。
 
 
 

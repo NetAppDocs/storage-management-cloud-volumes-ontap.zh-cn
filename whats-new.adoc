@@ -20,6 +20,30 @@ summary: 了解BlueXP中Cloud Volumes ONTAP管理的新功能。
 
 
 
+== 2026 年 2 月 9 日
+
+
+
+=== 支持 Google Cloud Infrastructure Manager
+
+Cloud Volumes ONTAP 9.16.1 及更高版本现在支持 https://docs.cloud.google.com/infrastructure-manager/docs/overview["Google Cloud Infrastructure Manager"^] (IM) 而不是 https://docs.cloud.google.com/deployment-manager/docs/deprecations["Cloud Deployment Manager"^] (DM) 用于 Google Cloud 中的新部署。Google 将在不久的将来弃用 Deployment Manager 作为基础架构服务，转而使用更高级的 Infrastructure Manager。
+
+现在，自动部署 Cloud Volumes ONTAP 以使用 Infrastructure Manager 或通过运行转换工具将 Deployment Manager 中的现有部署切换到 Infrastructure Manager。转换是一次性过程，之后您的系统将自动开始使用 Infrastructure Manager。有关运行转换工具的说明，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-gcp-dm-im-conv.html["为 Google Cloud Infrastructure Manager 配置现有的 Cloud Volumes ONTAP 部署"^]。
+
+使用 Infrastructure Manager 的 Cloud Volumes ONTAP 系统使用 Google Cloud Storage 存储桶在第一次部署的区域中存储数据和记录，以存储部署记录，这些记录可重复用于后续部署。您可能需要为这些存储桶支付额外费用，但不要编辑或删除存储桶或其内容：
+
+* `gs://netapp-cvo-infrastructure-manager-<project id>/dm-to-im-convert`: 用于存储 Cloud Volumes ONTAP Terraform 文件
+* `<gcp project number>-<region>-blueprint-config`: 用于存储 Google Cloud Terraform 工件
+
+
+.相关链接
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-getting-started-gcp.html["在 Google Cloud 中开始使用 Cloud Volumes ONTAP"^]
+* https://docs.netapp.com/us-en/console-setup-admin/whats-new.html#console-agent-4-2-0["NetApp Console Agent 4.2.0 发行说明"^]
+* https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html#gcp-permissions-change-log["Google Cloud Infrastructure Manager 所需的权限"^]
+
+
+
+
 == 2026年1月12日
 
 
@@ -1487,7 +1511,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html[
 
 === S3 Glacier 即时检索
 
-您现在可以将分层数据存储在 Amazon S3 Glacier 即时检索存储类中。
+现在，您可以将分层数据存储在 Amazon Simple Storage Service (Amazon S3) Glacier Instant Retrieval 存储类中。
 
 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-tiering.html#changing-the-storage-class-for-tiered-data["了解如何更改分层数据的存储类别"] 。
 
@@ -1861,7 +1885,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-enabling-private-l
 
 如果您现有的系统正在此机器类型上运行，您可以继续使用它，但我们建议切换到 n2-standard-4 机器类型。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["查看 GCP 中Cloud Volumes ONTAP支持的配置"^] 。
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["查看 Google Cloud 中Cloud Volumes ONTAP支持的配置"^]。
 
 
 
@@ -2056,10 +2080,10 @@ image:screenshot_azure_az.gif["选择区域后可用的可用区域下拉列表�
 
 === Google Cloud 中的更大磁盘
 
-Cloud Volumes ONTAP现在在 GCP 中支持 64 TB 磁盘。
+Cloud Volumes ONTAP 现在支持 Google Cloud 中的 64 TB 磁盘。
 
 
-NOTE: 由于 GCP 限制，仅磁盘的系统最大容量仍为 256 TB。
+NOTE: 由于 Google Cloud 的限制，仅使用磁盘的最大系统容量仍为 256 TB。
 
 
 

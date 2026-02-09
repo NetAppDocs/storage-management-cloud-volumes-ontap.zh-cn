@@ -38,7 +38,7 @@ Cloud Volumes ONTAP有多种许可选项。每个选项都可以让您选择符�
 
 Cloud Volumes ONTAP支持多种机器类型，具体取决于您选择的许可证类型。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["GCP 中Cloud Volumes ONTAP支持的配置"^]
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["Google Cloud 中 Cloud Volumes ONTAP 支持的配置"^]
 
 
 
@@ -46,11 +46,11 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp
 
 Cloud Volumes ONTAP系统的原始容量限制与许可证相关。额外的限制会影响聚合和卷的大小。在规划配置时您应该注意这些限制。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.html["GCP 中Cloud Volumes ONTAP的存储限制"^]
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.html["Google Cloud 中 Cloud Volumes ONTAP 的存储限制"^]
 
 
 
-== 在 GCP 中调整系统规模
+== 在 Google Cloud 中调整系统大小
 
 调整Cloud Volumes ONTAP系统的大小可以帮助您满足性能和容量要求。在选择机器类型、磁盘类型和磁盘大小时，您应该注意几个关键点：
 
@@ -64,7 +64,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-gcp.
 
 
 --
-GCP 磁盘类型:: 为Cloud Volumes ONTAP创建卷时，您需要选择Cloud Volumes ONTAP用于磁盘的底层云存储。磁盘类型可以是以下任意一种：
+磁盘类型:: 为Cloud Volumes ONTAP创建卷时，您需要选择Cloud Volumes ONTAP用于磁盘的底层云存储。磁盘类型可以是以下任意一种：
 +
 --
 * _区域 SSD 持久磁盘_：SSD 持久磁盘最适合需要高随机 IOPS 率的工作负载。
@@ -76,7 +76,7 @@ GCP 磁盘类型:: 为Cloud Volumes ONTAP创建卷时，您需要选择Cloud Vol
 
 
 --
-GCP 磁盘大小:: 部署Cloud Volumes ONTAP系统时，您需要选择初始磁盘大小。之后，您可以让NetApp Console为您管理系统的容量，但如果您想自己构建聚合，请注意以下事项：
+磁盘大小:: 部署Cloud Volumes ONTAP系统时，您需要选择初始磁盘大小。之后，您可以让NetApp Console为您管理系统的容量，但如果您想自己构建聚合，请注意以下事项：
 +
 --
 * 聚合中的所有磁盘必须具有相同的大小。
@@ -115,13 +115,13 @@ TIP: 控制台代理还需要系统磁盘。 https://docs.netapp.com/us-en/bluex
 
 == 收集网络信息
 
-在 GCP 中部署Cloud Volumes ONTAP时，您需要指定有关虚拟网络的详细信息。您可以使用工作表从管理员那里收集信息。
+在 Google Cloud 中部署 Cloud Volumes ONTAP 时，您需要指定有关虚拟网络的详细信息。您可以使用工作表从管理员处收集信息。
 
 *单节点系统的网络信息*
 
 [cols="30,70"]
 |===
-| GCP 信息 | 你的价值 
+| Google Cloud 信息 | 你的价值 
 
 
 | 地区 |  
@@ -142,7 +142,7 @@ TIP: 控制台代理还需要系统磁盘。 https://docs.netapp.com/us-en/bluex
 
 [cols="30,70"]
 |===
-| GCP 信息 | 你的价值 
+| Google Cloud 信息 | 你的价值 
 
 
 | 地区 |  
@@ -175,7 +175,7 @@ TIP: 控制台代理还需要系统磁盘。 https://docs.netapp.com/us-en/bluex
 
 [cols="30,70"]
 |===
-| GCP 信息 | 你的价值 
+| Google Cloud 信息 | 你的价值 
 
 
 | 地区 |  

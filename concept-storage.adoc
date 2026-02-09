@@ -45,7 +45,7 @@ EBS 存储:: 在 AWS 中，一个聚合最多可以包含 6 个大小相同的�
 --
 最大磁盘大小为 16 TiB。
 
-底层 EBS 磁盘类型可以是通用 SSD（gp3 或 gp2）、预配置 IOPS SSD（io1）或吞吐量优化 HDD（st1）。您可以将 EBS 磁盘与 Amazon S3 配对，以link:concept-data-tiering.html["低成本对象存储"]。
+底层 EBS 磁盘类型可以是通用 SSD（gp3 或 gp2）、预配置 IOPS SSD（io1）或吞吐量优化 HDD（st1）。您可以将 EBS 磁盘与 Amazon Simple Storage Service (Amazon S3) 配对以link:concept-data-tiering.html["低成本对象存储"]。
 
 
 NOTE: 使用吞吐量优化 HDD (st1) 时，不建议将数据分层到对象存储。

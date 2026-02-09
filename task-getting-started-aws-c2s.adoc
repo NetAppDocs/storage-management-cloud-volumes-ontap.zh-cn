@@ -46,7 +46,7 @@ summary: 与标准 AWS 区域类似，您可以在 AWS Secret Cloud 和 Top Secr
 .步骤
 . 选择要在其中启动控制台代理实例和Cloud Volumes ONTAP实例的 VPC 和子网。
 . 确保您的 VPC 和子网将支持控制台代理和Cloud Volumes ONTAP之间的连接。
-. 设置到 S3 服务的 VPC 端点。
+. 设置 Amazon Simple Storage Service (Amazon S3) 服务的 VPC 端点。
 +
 如果您想将冷数据从Cloud Volumes ONTAP到低成本对象存储，则需要 VPC 端点。
 

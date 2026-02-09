@@ -57,7 +57,7 @@ NOTE: 对于Cloud Volumes ONTAP 9.10.0 及更早版本，调解器上安装了 D
 
 --
 升级:: 升级Cloud Volumes ONTAP时， NetApp Console还会根据需要更新中介实例。
-访问实例:: 对于 Debian，默认云用户是 `admin`。 Google Cloud 为 `admin`当通过 Google Cloud 控制台或 gcloud 命令行请求 SSH 访问时的用户。您可以指定 `sudo`获得root权限。
+访问实例:: 对于 Debian，默认的云用户是 `admin`。当通过 Google Cloud Console 或 gcloud 命令行请求 SSH 访问时，Google Cloud 会为 `admin`用户创建并添加证书。您可以指定 `sudo`以获得 root 权限。
 第三方代理:: 中介实例不支持第三方代理或 VM 扩展。
 
 

@@ -101,7 +101,7 @@ EBS 磁盘类型:: 从高层次来看，EBS 磁盘类型之间的差异如下。
 * _吞吐量优化 HDD (st1)_ 磁盘适用于需要以较低价格实现快速、一致吞吐量的频繁访问的工作负载。
 +
 
-NOTE: 由于缺乏连接，AWS 本地区域无法将数据分层到 AWS S3。
+NOTE: 如果您的 Cloud Volumes ONTAP 系统位于 AWS Local Zone 中，则不支持到 Amazon Simple Storage Service (Amazon S3) 的数据分层，因为在 Local Zone 之外访问 Amazon S3 存储桶涉及更高的延迟并影响 Cloud Volumes ONTAP 活动。
 
 
 

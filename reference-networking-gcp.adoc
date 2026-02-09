@@ -236,7 +236,7 @@ Cloud Volumes ONTAP使用这些端点与各种服务进行通信。
 | \ https://mysupport.netapp.com/aods/asupmessage \ https://mysupport.netapp.com/asupprod/post/1.0/postAsup | AutoSupport | 用于将AutoSupport遥测数据发送给NetApp支持。 | 标准和限制模式。 | AutoSupport信息仍未送达。 
 
 
-| \ https://www.googleapis.com/compute/v1/projects/ \ https://cloudresourcemanager.googleapis.com/v1/projects \ https://www.googleapis.com/compute/beta \ https://storage.googleapis.com/storage/v1 \ https://www.googleapis.com/storage/v1 \ https://iam.googleapis.com/v1 \ https://cloudkms.googleapis.com/v1 \ https://www.googleapis.com/deploymentmanager/v2/projects \ https://compute.googleapis.com/compute/v1 | Google Cloud（商业用途）。 | 与 Google Cloud 服务通信。 | 标准、受限和私人模式。 | Cloud Volumes ONTAP无法与 Google Cloud 服务通信以对 Google Cloud 中的控制台执行特定操作。 
+| \https://cloudbuild.googleapis.com/v1 （仅适用于私有模式部署） \https://cloudkms.googleapis.com/v1 \https://cloudresourcemanager.googleapis.com/v1/projects \https://compute.googleapis.com/compute/v1 \https://www.googleapis.com/compute/beta \https://www.googleapis.com/compute/v1/projects/ \https://www.googleapis.com/deploymentmanager/v2/projects \https://www.googleapis.com/storage/v1 \https://www.googleapis.com/upload/storage/v1 \https://config.googleapis.com/v1 \https://iam.googleapis.com/v1 \https://storage.googleapis.com/storage/v1 | Google Cloud（商业用途）。 | 与 Google Cloud 服务通信。 | 标准、受限和私人模式。 | Cloud Volumes ONTAP无法与 Google Cloud 服务通信以对 Google Cloud 中的控制台执行特定操作。 
 |===
 
 
@@ -526,7 +526,7 @@ NOTE: 为了使新的 Google Cloud HA 对部署实现较高的写入速度，VPC
 .在 Google Cloud 中为Cloud Volumes ONTAP配置网络标签
 在控制台代理的透明代理配置期间，管理员为 Google Cloud 添加网络标签。您需要获取并手动添加Cloud Volumes ONTAP配置的相同网络标签。此标签对于代理服务器正常运行是必需的。
 
-. 在 Google Cloud 控制台中，找到您的Cloud Volumes ONTAP系统。
+. 在 Google Cloud Console 中，找到 Cloud Volumes ONTAP 系统。
 . 转到*详细信息>网络>网络标签*。
 . 添加用于控制台代理的标签并保存配置。
 
