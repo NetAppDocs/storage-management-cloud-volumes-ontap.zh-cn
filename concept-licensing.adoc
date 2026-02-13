@@ -172,7 +172,7 @@ link:https://docs.netapp.com/us-en/keystone-staas/index.html["了解有关NetApp
 
 === 支持的配置
 
-Keystone订阅支持 HA 对。目前，单节点系统不支持此许可选项。
+HA 对支持 Keystone 订阅。此时单节点系统不支持此许可选项。
 
 
 

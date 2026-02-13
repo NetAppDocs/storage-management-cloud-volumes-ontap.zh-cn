@@ -32,7 +32,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 
 == 创建存储虚拟机
 
-根据您的配置和许可证类型，您可以使用NetApp Console的 API 在单节点系统或高可用性 (HA) 配置中创建多个存储虚拟机。
+根据您的配置和许可证类型，您可以使用 NetApp Console 的 API 在单节点系统或高可用性 (HA) 配置中创建多个存储虚拟机。
 
 .关于此任务
 当您使用 API 创建存储虚拟机并配置所需的网络接口时，控制台还会修改 `default-data-files`通过从 NAS 数据 LIF 中删除以下服务并将其添加到用于出站管理连接的 iSCSI 数据 LIF，可以在数据存储虚拟机上实施策略：
@@ -81,7 +81,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 ----
 
 
-== 管理单节点系统和 HA 对上的存储虚拟机
+== 管理单节点系统和 HA 对上的 Storage VM
 
 使用 API，您可以重命名和删除单节点和 HA 配置中的存储虚拟机。
 
@@ -95,7 +95,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 要重命名存储虚拟机，您应该提供现有存储虚拟机和新存储虚拟机的名称作为参数。
 
 .步骤
-* 使用以下 API 调用在单节点系统上重命名存储虚拟机：
+* 使用以下 API 调用来重命名单节点系统上的存储 VM：
 +
 `PUT /azure/vsa/working-environments/{workingEnvironmentId}/svm`
 
@@ -134,7 +134,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 在单节点或 HA 配置中，如果存储虚拟机没有任何活动卷，则可以将其删除。
 
 .步骤
-* 使用以下 API 调用删除单节点系统上的存储虚拟机：
+* 使用以下 API 调用来删除单节点系统上的存储 VM：
 +
 `DELETE /azure/vsa/working-environments/{workingEnvironmentId}/svm/{svmName}`
 

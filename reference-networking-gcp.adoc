@@ -26,21 +26,21 @@ Google Cloud 必须满足以下要求。
 
 
 
-=== 单节点系统的特定要求
+=== 特定于单节点系统的要求
 
-如果您要部署单节点系统，请确保您的网络满足以下要求。
+如果要部署单节点系统，请确保网络满足以下要求。
 
 
 
 ==== 一个 VPC
 
-单节点系统需要一个虚拟私有云（VPC）。
+单节点系统需要一个虚拟私有云 (VPC)。
 
 
 
 ==== 私有 IP 地址
 
-对于 Google Cloud 中的单节点系统，控制台会将私有 IP 地址分配给以下对象：
+对于 Google Cloud 中的单节点系统，Console 将私有 IP 地址分配给以下内容：
 
 * 节点
 * 集群
@@ -111,9 +111,9 @@ image:diagram_gcp_ha.png["概念图展示了 Cloud Volume HA 对和配置所需�
 
 控制台会自动为 Google Cloud 中的Cloud Volumes ONTAP分配所需数量的私有 IP 地址。您需要确保您的网络有足够的可用私有地址。
 
-为Cloud Volumes ONTAP分配的 LIF 数量取决于您部署的是单节点系统还是 HA 对。  LIF 是与物理端口关联的 IP 地址。  SnapCenter等管理工具需要 SVM 管理 LIF。
+为 Cloud Volumes ONTAP 分配的 LIF 数量取决于您是部署单节点系统还是 HA 对。LIF 是与物理端口关联的 IP 地址。像 SnapCenter 这样的管理工具需要 SVM 管理 LIF。
 
-* *单节点* 控制台为单节点系统分配 4 个 IP 地址：
+* *单节点* Console 为单节点系统分配 4 个 IP 地址：
 +
 ** 节点管理 LIF
 ** 集群管理 LIF
@@ -185,7 +185,7 @@ NOTE: iSCSI LIF 通过 iSCSI 协议提供客户端访问，并被系统用于其
 
 Google Cloud 共享 VPC 和独立 VPC 均支持Cloud Volumes ONTAP和控制台代理。
 
-对于单节点系统，VPC 可以是共享 VPC，也可以是独立 VPC。
+对于单节点系统，VPC 可以是共享 VPC 或独立 VPC。
 
 对于 HA 对，需要四个 VPC。每个 VPC 可以是共享的，也可以是独立的。例如，VPC-0 可以是共享 VPC，而 VPC-1、VPC-2 和 VPC-3 可以是独立 VPC。
 

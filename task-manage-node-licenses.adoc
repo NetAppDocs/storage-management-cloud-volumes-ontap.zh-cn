@@ -156,7 +156,7 @@ image:screenshot-license-generator.png["屏幕截图：显示包含可用产品�
 
 您可以为Cloud Volumes ONTAP BYOL 系统购买额外的容量许可证，以分配超过 BYOL 系统许可证提供的 368 TiB 的容量。例如，您可以购买一个额外的许可证容量，为Cloud Volumes ONTAP分配最多 736 TiB 的容量。或者您可以购买三个额外的容量许可证以获得高达 1.4 PiB。
 
-您可以为单节点系统或 HA 对购买的许可证数量不受限制。
+可以为单节点系统或 HA 对购买的许可证数量是无限的。
 
 
 

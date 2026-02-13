@@ -49,7 +49,7 @@ endif::azure[]
 
 
 * 如果您与市场签订了年度合同，则您部署的所有Cloud Volumes ONTAP系统都将根据该合同收费。您不能将年度市场合同与 BYOL 混合搭配。
-* 中国区域仅支持支持 BYOL 的单节点系统。中国区域部署不受 BYOL 许可限制。
+* 中国地区仅支持具有 BYOL 的单节点系统。中国地区的部署不受 BYOL 许可限制。
 
 
 
@@ -133,7 +133,7 @@ NOTE: 如果只读/DP 卷成为主卷，则控制台会将其视为主数据，�
 
 == 最大系统数量
 
-采用基于容量的许可方式，每个NetApp Console组织最多可拥有 24 个Cloud Volumes ONTAP系统。_系统_ 是Cloud Volumes ONTAP HA 对、 Cloud Volumes ONTAP单节点系统或您创建的任何其他存储虚拟机。默认存储虚拟机不计入限制。此限制适用于所有许可模式。
+通过基于容量的许可，Cloud Volumes ONTAP 系统的最大数量限制为每个 NetApp Console 组织 24 个。_系统_是 Cloud Volumes ONTAP HA 对、Cloud Volumes ONTAP 单节点系统或您创建的任何其他存储 VM。默认存储 VM 不计入限制。此限制适用于所有许可模式。
 
 例如，假设您有三个系统：
 
@@ -143,7 +143,7 @@ NOTE: 如果只读/DP 卷成为主卷，则控制台会将其视为主数据，�
 
 * 具有两个存储虚拟机（默认存储虚拟机，加上您创建的一个额外的存储虚拟机）的单节点Cloud Volumes ONTAP系统
 +
-该系统算作两个系统：一个用于单节点系统，一个用于附加存储 VM。
+此系统计为两个系统：一个用于单节点系统，一个用于附加存储 VM。
 
 * 具有三个存储虚拟机（默认存储虚拟机，以及您创建的两个额外的存储虚拟机）的Cloud Volumes ONTAP HA 对
 +

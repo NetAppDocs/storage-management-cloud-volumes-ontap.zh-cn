@@ -153,7 +153,7 @@ NOTE: 配置密钥后，请确保已选择 https://learn.microsoft.com/en-us/azu
 +
 *** *软删除*（此选项默认启用，但不能禁用）
 *** *清除保护*
-*** *用于卷加密的 Azure 磁盘加密*（适用于单节点系统、多个区域中的 HA 对以及 HA 单 AZ 部署）
+*** *用于卷加密的 Azure Disk Encryption*（适用于单节点系统、多个区域中的 HA 对和 HA 单 AZ 部署）
 +
 
 NOTE: 使用 Azure 客户管理加密密钥的前提是为密钥保管库启用 Azure 磁盘加密。

@@ -106,13 +106,13 @@ HA 中介实例必须具有与 AWS EC2 服务的出站连接，以便它可以�
 
 控制台会自动为Cloud Volumes ONTAP分配所需数量的私有 IP 地址。您需要确保您的网络有足够的可用私有 IP 地址。
 
-控制台为Cloud Volumes ONTAP分配的 LIF 数量取决于您部署的是单节点系统还是 HA 对。  LIF 是与物理端口关联的 IP 地址。
+Console 为 Cloud Volumes ONTAP 分配的 LIF 数量取决于您是部署单节点系统还是 HA 对。LIF 是与物理端口关联的 IP 地址。
 
 
 
 ==== 单节点系统的 IP 地址
 
-控制台为单节点系统分配6个IP地址。
+Console 为单节点系统分配 6 个 IP 地址。
 
 下表提供了与每个私有 IP 地址关联的 LIF 的详细信息。
 
@@ -142,7 +142,7 @@ HA 中介实例必须具有与 AWS EC2 服务的出站连接，以便它可以�
 
 ==== HA 对的 IP 地址
 
-HA 对需要比单节点系统更多的 IP 地址。这些 IP 地址分布在不同的以太网接口上，如下图所示：
+HA 对比单节点系统需要更多的 IP 地址。这些 IP 地址分布在不同的以太网接口上，如下图所示：
 
 image:diagram_cvo_aws_networking_ha.png["该图表显示了 AWS 中Cloud Volumes ONTAP HA 配置上的 eth0、eth1、eth2。"]
 

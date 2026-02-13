@@ -131,7 +131,7 @@ dest::> network ipspace create -ipspace <new_ipspace>
 ----
 dest::> network port show
 ----
-. 对于单节点系统，新添加的端口是_e0b_。对于具有托管磁盘的 HA 对部署，新添加的端口是 _e0d_。对于具有页 Blob 的 HA 对部署，新添加的端口是 _e0e_。使用节点名称而不是虚拟机名称。通过运行查找节点名称 `node show`。
+. 对于单节点系统，新添加的端口为 _e0b_。对于具有托管磁盘的 HA 对部署，新添加的端口为 _e0d_。对于具有页面 blob 的 HA 对部署，新添加的端口为 _e0e_。使用节点名称而不是 VM 名称。通过运行 `node show`查找节点名称。
 +
 [source, cli]
 ----
