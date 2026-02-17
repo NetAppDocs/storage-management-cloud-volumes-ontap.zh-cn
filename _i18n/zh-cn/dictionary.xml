@@ -2116,15 +2116,12 @@
   <block id="7926415a130a1678f0dd302e6e12b7fc" category="paragraph">*提取 tar.gz 文件后的示例输出：*</block>
   <block id="d2a65c4b3d7d612fe9fcff1cd53a7468" category="summary">应启用 Microsoft Azure 的高可用性模式，以减少计划外故障转移时间，并为Cloud Volumes ONTAP启用 NFSv4 支持。</block>
   <block id="2c01d75f7ab3854f30dad654b7836fd5" category="doc">在 Azure 中为Cloud Volumes ONTAP启用高可用性模式</block>
-  <block id="b34a5fc19862373955bdfd46a3aadace" category="paragraph">应启用 Microsoft Azure 的高可用性 (HA) 模式，以减少计划外故障转移时间并为Cloud Volumes ONTAP启用 NFSv4 支持。在此模式下，您的Cloud Volumes ONTAP HA 节点可以在 CIFS 和 NFSv4 客户端上的计划外故障转移期间实现较低（60 秒）的恢复时间目标 (RTO)。</block>
   <block id="3cf5fe492293bbbf3d99776de821b378" category="paragraph">从Cloud Volumes ONTAP 9.10.1 开始，我们减少了在 Microsoft Azure 中运行的Cloud Volumes ONTAP HA 对的计划外故障转移时间，并增加了对 NFSv4 的支持。要使这些增强功能可用于Cloud Volumes ONTAP，您需要在 Azure 订阅上启用高可用性功能。</block>
-  <block id="9147c9811be891d51c8afc6c661283bd" category="paragraph">当需要在 Azure 订阅上启用该功能时， NetApp Console会提示您提供这些详细信息。</block>
   <block id="4b86a9bfe35da8d5b3e1175b8664656d" category="list-text">您的Cloud Volumes ONTAP HA 对的高可用性没有问题。此 Azure 功能与ONTAP协同工作，以减少客户端观察到的因计划外故障转移事件导致的 NFS 协议应用程序中断时间。</block>
   <block id="74c86f2714a033254b4bc8058a066937" category="list-text">启用此功能不会对Cloud Volumes ONTAP HA 对造成破坏。</block>
   <block id="aede641e1d7acdfda83bae4962f9cad6" category="list-text">在您的 Azure 订阅上启用此功能不会给其他虚拟机带来问题。</block>
   <block id="61d250b56c4dbcf65efb9a23e69575b2" category="list-text">Cloud Volumes ONTAP在 CIFS 和 NFS 客户端上的集群和 SVM 管理 LIF 故障转移期间使用内部 Azure 负载均衡器。</block>
   <block id="7d8b7e414092c32abfb47d483a738b9f" category="list-text">启用 HA 模式后，控制台每 12 小时扫描一次系统以更新内部 Azure 负载均衡器规则。</block>
-  <block id="3a3aee537f8eb946ce95b303a0b0cde6" category="paragraph">具有“所有者”权限的 Azure 用户可以从 Azure CLI 启用该功能。</block>
   <block id="dede8f1d754e5872747fd6fdd219a9da" category="inline-link">从 Azure 门户访问 Azure Cloud Shell</block>
   <block id="826fb3564b49a63adcbf5c36eec58144" category="list-text"><block ref="826fb3564b49a63adcbf5c36eec58144" category="inline-link-rx"></block></block>
   <block id="3cad9b9a9f4d8a66f7f9dabc18c3c350" category="list-text">注册高可用性模式功能：</block>
@@ -2768,11 +2765,8 @@
   <block id="29868f2b604fe0144f8b5619cde525cf" category="inline-link-macro">在 Google Cloud 中调整系统大小</block>
   <block id="c950e3b51bb08a611e2a2af4583fb4af" category="paragraph">有关选择磁盘类型和大小的帮助，请参阅<block ref="0698168794a3d08b82649f1da0ecee6b" category="inline-link-macro-rx"></block>。</block>
   <block id="80f98bfa8cbe0d66021e6448047c1b5c" category="list-text">*闪存缓存、写入速度和 WORM*：</block>
-  <block id="b67eda3e3db596eb1c104f55326e3754" category="list-text">如果需要，启用*Flash Cache*。</block>
-  <block id="5f33cf47c262adc4871d3556fcd8c00f" category="admonition">从Cloud Volumes ONTAP 9.13.1 开始，n2-standard-16、n2-standard-32、n2-standard-48 和 n2-standard-64 实例类型支持_Flash Cache_。部署后您无法禁用 Flash Cache。</block>
   <block id="8423b054b8164151c3151be7c37415ed" category="list-text">如果需要，选择*正常*或*高*写入速度。</block>
   <block id="7e747f6f397a13c9ddfd3cf35ed0a063" category="inline-link-macro">了解有关写入速度的更多信息</block>
-  <block id="154182f595466ead49f0896392c37343" category="paragraph"><block ref="12222f10612c9f092ca31c9e99478649" category="inline-link-macro-rx"></block> 。</block>
   <block id="e149ca9f0289610cb8ad6fd5b12512d8" category="admonition">通过*高*写入速度选项可实现高写入速度和更高的 8,896 字节最大传输单元 (MTU)。此外，8,896 的更高 MTU 要求选择 VPC-1、VPC-2 和 VPC-3 进行部署。有关 VPC-1、VPC-2 和 VPC-3 的更多信息，请参阅<block ref="e0d6e9ceb3d5d27a7e0dc7b744a8cf4a" category="inline-link-rx"></block>。</block>
   <block id="0a44bfce0bc775d87f0ac6a57bdba584" category="list-text">如果需要，请激活一次写入、多次读取 (WORM) 存储。</block>
   <block id="6aeb3713e488b71d0dcbb96914a7951f" category="paragraph">如果为Cloud Volumes ONTAP 9.7 及更低版本启用了数据分层，则无法启用 WORM。启用 WORM 和分层后，恢复或降级到Cloud Volumes ONTAP 9.8 的操作将被阻止。</block>
@@ -6161,7 +6155,6 @@
   <block id="76cbac4940f2698f4ebff7e15e3f58d3" category="sidebar">将现有部署转换为 Infrastructure Manager</block>
   <block id="f2fb1415fe6f0897322288a65d13cbe6" category="paragraph"><block ref="898c710561b0ef0c4b53a21f017ccedb" category="inline-link-macro-rx"></block>。</block>
   <block id="58c2e5e5a047673f65b81d644b2c2212" category="doc">Cloud Volumes ONTAP 9.18.1 GA</block>
-  <block id="8e81597f054e81e7a100572a5b085cc4" category="paragraph">您现在可以使用 NetApp Console 在 AWS 和 Azure 中部署和管理 Cloud Volumes ONTAP 9.18.1 的 General Availability 版本。此版本无法在 Google Cloud 中进行部署和升级。</block>
   <block id="91ad01180cc40d6b3d3543999846bc67" category="inline-link">版本化发行说明</block>
   <block id="a5706ddb4dd0758395027c729169ae81" category="paragraph">除此处列出的版本外，Cloud Volumes ONTAP 的其他版本不可用于新部署。此处版本中的修补程序或通用（通用可用性）版本表示可用于部署的基本版本。有关可用修补程序的详细信息，请参阅每个版本的<block ref="673899d074c44dd34154296773a3ae8d" category="inline-link-rx"></block>。</block>
   <block id="ffffe244c116c915298c78778fcab40f" category="paragraph">有关升级的信息，请参阅 <block ref="edc516954278e6b04bf6c1ef0d737956" category="inline-link-macro-rx"></block>。</block>
@@ -6230,4 +6223,33 @@
   <block id="11fea9e356efb178182b5bba66bbe697" category="list-text">现在，在 Google Cloud 中创建 Cloud Volumes ONTAP 单节点系统时，您可以选择是否希望预定义的防火墙策略仅允许所选 VPC 内的流量（推荐）或所有 VPC。</block>
   <block id="44b22df2c7850da4e8deb57e1d017983" category="paragraph">对于单节点系统和 HA 对，端口 8023 和 49000 不再在 Azure 中的 Cloud Volumes ONTAP 系统上打开。</block>
   <block id="d245f28751732b176b91cfbee0179905" category="paragraph">现在，当您将 E32s_v3 VM 类型与单节点系统一起使用时，Cloud Volumes ONTAP 可以将 Ultra SSD 用作 VNVRAM<block ref="6f5d8baab146de724d052d505bbe4745" category="inline-link-rx"></block>。</block>
+  <block id="f6d799b704394020520cc669c2ed108e" category="paragraph">您现在可以使用 NetApp Console 在 AWS、Azure 和 Google Cloud 中部署和管理 Cloud Volumes ONTAP 9.18.1 的 General Availability (GA) 版本。</block>
+  <block id="bf89f4b1f72b6398bcca3a3ff4b6f7c1" category="doc">Cloud Volumes ONTAP 支持下一代 Google Cloud 虚拟机</block>
+  <block id="1a00162d4bdf4a56a4d4efde8a5c2f13" category="paragraph">借助 9.18.1，NetApp 将新的 Cloud Volumes ONTAP 部署从 N2 虚拟机过渡到下一代 Google Cloud C3 系列虚拟机，以获得更快、更具可扩展性的体验。现在，您可以在 Google Cloud 中部署 Cloud Volumes ONTAP 9.18.1 及更高版本时利用 C3 系列虚拟机。C3 系列机器通过使用 Google Virtual NIC (gVNIC) 和 Hyperdisk Balanced 磁盘，确保密集型工作负载的动态性能，从而提供更高的性能和更高的容量限制。</block>
+  <block id="af3ff68729b6eef28a7439636a40000a" category="admonition">目前，Cloud Volumes ONTAP 仅在单节点部署中支持 C3 系列。</block>
+  <block id="506a0b7b76d0386b3d56de15882686c0" category="paragraph">如果您的 Cloud Volumes ONTAP 系统运行 9.18.1 或更高版本，则用于轻松部署单节点的预配置包将自动使用 C3 虚拟机，同时使您能够根据工作负载需求自定义 IOPS 和吞吐量参数。同样，在创建聚合时，您可以添加 Hyperdisk Balanced 磁盘，以在 Google Cloud 中实现更好的性能和可扩展性。此外，您可以为默认 Flash Cache 支持选择 C3 系列计算机的 LSSD 变体。</block>
+  <block id="4e97495efaaec030c995f03b84344009" category="paragraph">将卷添加到聚合时，无法更改 C3 VM 的磁盘类型，因为 C3 仅支持 Hyperdisk Balanced 磁盘。同样，将具有 N2 VM 类型的系统复制到 C3 VM 时，磁盘类型默认设置为 Hyperdisk Balanced。</block>
+  <block id="fe7bf6c599e29ac1b663b6261745a091" category="inline-link">Google 文档：C3 机器系列</block>
+  <block id="51f6395b88f3891175360eb16ab814d6" category="paragraph"><block ref="51f6395b88f3891175360eb16ab814d6" category="inline-link-rx"></block></block>
+  <block id="1a7265e4a0716c5c59fbf92d4b2b8f8b" category="section-title">Azure 中 Cloud Volumes ONTAP 的 VNet 安全性</block>
+  <block id="a128f7270c0bfb9c5f5d16ec39f0d354" category="paragraph">Azure 单个和多个可用区域中的 Cloud Volumes ONTAP 9.18.1 及更高版本部署支持 Azure Virtual Network (VNet) 加密，作为其分层安全策略的一部分来保护传输中的数据。Cloud Volumes ONTAP 利用 Azure 的本机数据报传输层安全性 (DTLS) 协议来保护 ONTAP 节点、管理接口和其他 Azure 服务之间的通信，防止拦截和未经授权的访问。这种网络级加密是对 ONTAP 内置存储和静态数据保护的补充，可为您的数据提供端到端的安全性。</block>
+  <block id="472b8c31c7082d1e8c4c46bb6921f950" category="inline-link">用于 Azure VNet 加密的网络</block>
+  <block id="2f932ac183ffb505894bacafe67a78d0" category="paragraph"><block ref="2f932ac183ffb505894bacafe67a78d0" category="inline-link-rx"></block></block>
+  <block id="9c297e88761d2ab159b96b1ba8f49580" category="inline-link">Azure 虚拟网络 (VNet) 加密</block>
+  <block id="539afb5045a490ab5c07c8b2f81797d3" category="paragraph">Cloud Volumes ONTAP 支持<block ref="a484d984d3918d739142ebb03b7cf0fe" category="inline-link-rx"></block>对 VNet 内部或跨对等 VNet 的 VM 到 VM 流量进行加密。此功能在 Azure VNet 层配置，独立于 Cloud Volumes ONTAP 拓扑（单节点或 HA）。</block>
+  <block id="6da8d6e9b798741f378936006c625899" category="paragraph">只需确保在虚拟机的 NIC 上启用加速网络，并在启用该功能之前查看 Azure VNet 加密要求和限制即可。不应修改 NetApp 托管负载平衡器对象。</block>
+  <block id="ce656a6c436f0486370929df8fb1dd1a" category="inline-link">Azure 文档：VNet 加密和 Accelerated Networking</block>
+  <block id="9bdbdeebdd8331589ab921db85db9669" category="paragraph"><block ref="d39bae656ec8bf75660159dea5c8b6ec" category="inline-link-rx"></block>。</block>
+  <block id="8408e1736cfbdeef8576825010d4866f" category="paragraph">您应该启用 Microsoft Azure 的高可用性 (HA) 模式，以减少计划外故障转移时间，并为 Cloud Volumes ONTAP 启用 NFSv4 支持。如果启用此模式，您的 Cloud Volumes ONTAP HA 节点可以在 CIFS 和 NFSv4 客户端上的计划外故障转移期间实现较低（60 秒）的恢复时间目标 (RTO)。</block>
+  <block id="c3d76ca45edb967ae8d1d50df0d945fb" category="paragraph">当需要在 Azure 订阅上启用此功能时，NetApp Console 会提示您这些详细信息。请注意以下事项：</block>
+  <block id="81d14f46835576af9278d9a0c55be147" category="paragraph">具有 _Owner_ 权限的 Azure 用户可以从 Azure CLI 启用该功能。</block>
+  <block id="b191fed57e777b1ef44aa24007d4733f" category="inline-link">Microsoft Azure 文档：高可用性端口概述</block>
+  <block id="1a6a578d19caca99a2abe3dad51430c7" category="list-text"><block ref="1a6a578d19caca99a2abe3dad51430c7" category="inline-link-rx"></block></block>
+  <block id="1dc3e27b9e18035ada1acc10400265ac" category="inline-link">Microsoft Azure 文档：Azure CLI 入门</block>
+  <block id="f81d98bcf31e7ac1317c603d76f286b0" category="list-text"><block ref="f81d98bcf31e7ac1317c603d76f286b0" category="inline-link-rx"></block></block>
+  <block id="ac077a5c7cfc4a076e9f0b21a0e6642f" category="list-text">*预配置的软件包*：选择其中一个软件包以快速部署 Cloud Volumes ONTAP 系统，或单击*创建我自己的配置*。预配置的软件包因所选 Cloud Volumes ONTAP 版本而异。例如，对于 Cloud Volumes ONTAP 9.18.1 及更高版本，Console 显示包含 C3 VM 的软件包，包括 Hyperdisk Balanced 磁盘。您可以根据工作负载需求修改配置，例如 IOPS 和吞吐量参数。</block>
+  <block id="f2bb7d1ab1c407492761d63a4496fd20" category="list-text">如果需要，启用 *Flash Cache* 或选择*普通*或*高*写入速度。</block>
+  <block id="bb41ea5660ecddc241b709d8fb56bd32" category="inline-link-macro">写入速度</block>
+  <block id="4c7d5b651d61ce6cb278c3d6a67d053f" category="paragraph">详细了解 <block ref="5fded6a6cbe6874c2576d554c91aa019" category="inline-link-rx"></block> 和 <block ref="534bf928908b00c855f51b75d262cee7" category="inline-link-macro-rx"></block>。</block>
+  <block id="d71e7e243c134c41083284d79bb58c37" category="section-title">2026 年 2 月 17 日</block>
 </blocks>

@@ -1,0 +1,28 @@
+= Cloud Volumes ONTAP 支持下一代 Google Cloud 虚拟机
+:allow-uri-read: 
+
+
+
+
+=== Cloud Volumes ONTAP 支持下一代 Google Cloud 虚拟机
+
+借助 9.18.1，NetApp 将新的 Cloud Volumes ONTAP 部署从 N2 虚拟机过渡到下一代 Google Cloud C3 系列虚拟机，以获得更快、更具可扩展性的体验。现在，您可以在 Google Cloud 中部署 Cloud Volumes ONTAP 9.18.1 及更高版本时利用 C3 系列虚拟机。C3 系列机器通过使用 Google Virtual NIC (gVNIC) 和 Hyperdisk Balanced 磁盘，确保密集型工作负载的动态性能，从而提供更高的性能和更高的容量限制。
+
+
+NOTE: 目前，Cloud Volumes ONTAP 仅在单节点部署中支持 C3 系列。
+
+如果您的 Cloud Volumes ONTAP 系统运行 9.18.1 或更高版本，则用于轻松部署单节点的预配置包将自动使用 C3 虚拟机，同时使您能够根据工作负载需求自定义 IOPS 和吞吐量参数。同样，在创建聚合时，您可以添加 Hyperdisk Balanced 磁盘，以在 Google Cloud 中实现更好的性能和可扩展性。此外，您可以为默认 Flash Cache 支持选择 C3 系列计算机的 LSSD 变体。
+
+将卷添加到聚合时，无法更改 C3 VM 的磁盘类型，因为 C3 仅支持 Hyperdisk Balanced 磁盘。同样，将具有 N2 VM 类型的系统复制到 C3 VM 时，磁盘类型默认设置为 Hyperdisk Balanced。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["Google Cloud 中 Cloud Volumes ONTAP 支持的配置"^]
+
+https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3_series["Google 文档：C3 机器系列"^]
+
+
+
+=== Azure 中 Cloud Volumes ONTAP 的 VNet 安全性
+
+Azure 单个和多个可用区域中的 Cloud Volumes ONTAP 9.18.1 及更高版本部署支持 Azure Virtual Network (VNet) 加密，作为其分层安全策略的一部分来保护传输中的数据。Cloud Volumes ONTAP 利用 Azure 的本机数据报传输层安全性 (DTLS) 协议来保护 ONTAP 节点、管理接口和其他 Azure 服务之间的通信，防止拦截和未经授权的访问。这种网络级加密是对 ONTAP 内置存储和静态数据保护的补充，可为您的数据提供端到端的安全性。
+
+https://review.docs.netapp.com/us-en/storage-management-cloud-volumes-ontap_gcp-sn-c3-support/reference-networking-azure.html#networking-for-azure-vnet-encryption["用于 Azure VNet 加密的网络"^]
