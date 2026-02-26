@@ -4,7 +4,7 @@
 
 
 
-== 在 Azure 中支持 Ebdsv5 和 E104ids_v5 虚拟机
+=== 在 Azure 中支持 Ebdsv5 和 E104ids_v5 虚拟机
 
 从 Cloud Volumes ONTAP 9.18.1 开始，您可以部署 Ebdsv5 和 E104ids_v5 虚拟机，用于单节点和高可用性 (HA) 部署和升级。
 

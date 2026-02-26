@@ -311,7 +311,7 @@ CAUTION: 部署流程完成后，请勿修改 Google Cloud 门户中系统生成
 
 
 | 编辑项目  a| 
-选择您希望Cloud Volumes ONTAP驻留的项目。默认项目是控制台的项目。
+选择要让 Cloud Volumes ONTAP 驻留的项目。
 
 如果您在下拉列表中没有看到任何其他项目，则表示您尚未将服务帐户与其他项目关联。转到 Google Cloud Console，打开 IAM 服务，然后选择项目。将具有用于 Console 的角色的服务帐户添加到该项目。您需要为每个项目重复此步骤。
 
