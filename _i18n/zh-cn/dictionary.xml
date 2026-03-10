@@ -4634,7 +4634,6 @@
   <block id="1dcb63fd55c4d22e87cb32275b8cc808" category="inline-image-macro">三个水平点的图标</block>
   <block id="b14d512a3c64fb5df16f6721b0603c63" category="paragraph">使用此选项会提示您再次登录。请注意，这些帐户的令牌将在 90 天后过期。我们将发布通知来提醒您此事。</block>
   <block id="29e5950813e59366056c85a091ad2206" category="summary">指定 NTP 服务器可同步网络中系统之间的时间，这有助于防止因时间差异而导致的问题。</block>
-  <block id="b50f1f0d50a2ec5cb27990e7dcd7bc5a" category="doc">使用 NTP 服务器同步Cloud Volumes ONTAP系统时间</block>
   <block id="b6f2459d07813a329f10d1f5ef7babc2" category="summary">您可以通过将用于热数据的 SSD 或 HDD 性能层与用于非活动数据的对象存储容量层相结合来降低Cloud Volumes ONTAP的存储成本。数据分层由FabricPool技术提供支持。</block>
   <block id="dc856ecc0acf613e6f450c313f378cfd" category="doc">将非活动Cloud Volumes ONTAP数据分层到低成本对象存储</block>
   <block id="caf4154dd66e202bf9f092a3b5b9f070" category="paragraph">您可以通过将用于热数据的 SSD 或 HDD 性能层与用于非活动数据的对象存储容量层相结合来降低Cloud Volumes ONTAP的存储成本。数据分层由FabricPool技术提供支持。有关高级概述，请参阅<block ref="69d3706831f999336fb27703356dae22" category="inline-link-macro-rx"></block>。</block>
@@ -5973,7 +5972,6 @@
   <block id="980dfdd6fab780885793f0ec42399ae0" category="paragraph">对于 Docker，请运行<block ref="b1831e4c01f17e88347609d404d308c0" prefix=" " category="inline-code"></block>。</block>
   <block id="007b7067c04893459ac324df1874eb1e" category="paragraph">如果您使用的是 Podman，请运行<block ref="db80c2b4c5690b79ed051a59a7bb3556" prefix=" " category="inline-code"></block>。</block>
   <block id="1432f9e7501db8840fbc871624751a97" category="list-text">返回ONTAP CLI 并验证Cloud Volumes ONTAP是否可以发送AutoSupport消息：</block>
-  <block id="64a4db9697928f2dbd10d78715e195e9" category="paragraph">为确保准确的时间同步，您必须为Cloud Volumes ONTAP系统设置网络时间协议 (NTP) 服务器。请确保在所有云提供商上为Cloud Volumes ONTAP系统配置 NTP 服务器，以保持网络内时间同步的一致性。</block>
   <block id="f1b0d7a969d501d016a0fd481082d0c1" category="admonition">如果您不配置 NTP 服务器，可能会遇到服务中断和时间同步不准确的情况。</block>
   <block id="3d2f72d3a57dc2978e458a4280c76291" category="paragraph">您可以使用以下命令指定 NTP 服务器：</block>
   <block id="29cb192badbe18daa5e6987be7d6ee48" category="inline-link">NetApp ConsoleAPI</block>
@@ -6355,4 +6353,14 @@
   <block id="fbf12f5b0c848baad453322be1474e53" category="inline-link">这些 API</block>
   <block id="d6c639979f19e4b6ee894da109e92143" category="paragraph"><block ref="72d9b6cdd2035c34510a674b3e79e7cf" category="inline-link-rx"></block>。<block ref="274a8d4ce254fa7ad9c059c75fad96a6" category="inline-link-rx"></block>，您可能已经在创建 Console 代理时启用了这些功能，这些功能是在 Google Cloud 中部署 Cloud Volumes ONTAP 所必需的。</block>
   <block id="56a5c925d77740ea69d50272863f3f75" category="section-title">2026 年 2 月 26 日</block>
+  <block id="3204a863a3a1a57abe7546af70eb77cf" category="doc">能够管理 Cloud Volumes ONTAP 的 Console 代理设置</block>
+  <block id="a51be83082fba5b4dcf135a536ea8b1d" category="paragraph">现在，即使失去连接或代理设置不正确，也可以在 NetApp Console 代理上管理 Cloud Volumes ONTAP 的代理设置。以前，如果 Console 代理在 20 分钟内无法连接到 Cloud Volumes ONTAP，它将使用默认设置覆盖您的手动代理设置。这导致通信失败，包括 AutoSupport 消息问题。若要保留现有系统的代理设置，请运行以下 API 调用：</block>
+  <block id="2ed7e2686c6c63422cc2a66168ff6a41" category="paragraph"><block ref="f4868aca388daf10284f58112e13f2bd" prefix="" category="inline-code"></block></block>
+  <block id="2bfe294417f6af6fb18d7ac186551586" category="paragraph">在请求正文中包含以下参数：</block>
+  <block id="7e6627b4e37aede8d2d720694c07915e" category="paragraph">默认模式为标准模式，这意味着如果 Console 代理在 20 分钟内无法连接到 Cloud Volumes ONTAP，它将使用默认设置覆盖您的代理设置。</block>
+  <block id="7bfa46b18158f588f3fb87cc98bc501b" category="inline-link">配置可修改的 NetApp Console 参数</block>
+  <block id="0383a3079d971b2242c6d61352ea3ab4" category="paragraph"><block ref="0383a3079d971b2242c6d61352ea3ab4" category="inline-link-rx"></block></block>
+  <block id="ff18cbae63293952942e32e52d2873b4" category="doc">使用 NTP 服务器同步 Cloud Volumes ONTAP 系统时间</block>
+  <block id="29b0f551bb46a64e0ba83250d3fa3e71" category="paragraph">为 Cloud Volumes ONTAP 群集配置网络时间协议 (NTP) 服务器可确保群集时间与网络和外部服务器中的其他系统准确时间同步。将群集时间与外部 NTP 服务器同步有助于保持整个基础架构的一致性。NetApp 默认为新的 Cloud Volumes ONTAP 部署配置 NTP 服务器。但是，如果没有为现有的 Cloud Volumes ONTAP 群集进行配置，则必须配置 NTP 服务器，以便在网络内外进行准确的时间同步。</block>
+  <block id="34df2c4da19b4e31f0349125e9cabfc7" category="section-title">2026 年 3 月 10 日</block>
 </blocks>

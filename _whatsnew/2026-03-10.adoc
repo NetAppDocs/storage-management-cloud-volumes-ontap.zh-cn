@@ -1,0 +1,23 @@
+= 能够管理 Cloud Volumes ONTAP 的 Console 代理设置
+:allow-uri-read: 
+
+
+
+
+=== 能够管理 Cloud Volumes ONTAP 的 Console 代理设置
+
+现在，即使失去连接或代理设置不正确，也可以在 NetApp Console 代理上管理 Cloud Volumes ONTAP 的代理设置。以前，如果 Console 代理在 20 分钟内无法连接到 Cloud Volumes ONTAP，它将使用默认设置覆盖您的手动代理设置。这导致通信失败，包括 AutoSupport 消息问题。若要保留现有系统的代理设置，请运行以下 API 调用：
+
+`PUT /occm/config`
+
+在请求正文中包含以下参数：
+
+[source, json]
+----
+{
+  "proxyMode": "No_Overwrites"
+}
+----
+默认模式为标准模式，这意味着如果 Console 代理在 20 分钟内无法连接到 Cloud Volumes ONTAP，它将使用默认设置覆盖您的代理设置。
+
+https://docs.netapp.com/us-en/console-automation/cvo/put-occm-config.html["配置可修改的 NetApp Console 参数"^]
