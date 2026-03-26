@@ -1,5 +1,6 @@
 ---
 indexpage:
+  title: Cloud Volumes ONTAP文档
   lead: Cloud Volumes ONTAP使您能够优化云存储成本和性能，同时增强数据保护、安全性和合规性。
   tiles:
   - title: 开始使用
