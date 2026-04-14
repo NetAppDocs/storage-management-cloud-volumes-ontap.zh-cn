@@ -129,3 +129,9 @@ NOTE: 有关哪些特定主机配置支持 ALUA 的信息，请参阅 http://mys
 == 存储配置
 
 您可以将 HA 对用作主动-主动配置，其中两个节点都向客户端提供数据，或者用作主动-被动配置，其中被动节点仅在接管主动节点的存储后才会响应数据请求。
+
+
+NOTE: Cloud Volumes ONTAP 在主动-被动模式下使用负载均衡器进行探测。在 Azure 中，只有活动节点响应探测。被动节点可能显示为非活动状态，并带有 X 标记。这是预期行为，无需担心。
+
+.相关链接
+link:task-azure-high-availability-mode.html["在 Azure 中为Cloud Volumes ONTAP启用高可用性模式"^]

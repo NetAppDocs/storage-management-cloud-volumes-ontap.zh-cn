@@ -1,0 +1,25 @@
+= 借助 Google Cloud C3 VM 改进了 Cloud Volumes ONTAP 支持
+:allow-uri-read: 
+
+
+
+
+=== 借助 Google Cloud C3 VM 改进了 Cloud Volumes ONTAP 支持
+
+Cloud Volumes ONTAP 现在增强了对 Google Cloud C3 系列虚拟机的支持，实现了以下附加功能：
+
+* 在 Cloud Volumes ONTAP 部署中，您可以在 C3 系列中的不同变体之间切换实例类型。
+* 更改实例类型时，如果选择 c3-standard-44 或 c3-standard-88 及其 LSSD 变体作为目标 VM，则会自动应用 Google 网络服务出口网络层 Tier-1。如果切换到任何其他 C3 变体，则出口网络层设置为 Standard。
++
+
+NOTE: 将出口网络层更改为 Tier-1 会产生额外费用。相应地规划部署和升级。
+
+* 如果您选择 C3 的本地 SSD (LSSD) 变体，默认情况下会启用 Flash Cache。无法在 Cloud Volumes ONTAP 部署中的 C3 LSSD 变体之间切换，即使目标变体支持 Flash Cache。
+* 现在，您可以在 C3 虚拟机上向新的和现有的聚合添加卷。
+* 通过 NetApp Console 或使用 `PUT /gcp/vsa/aggregates/{workingEnvironmentId}/{aggregateName}` API 添加卷时，可以更改 IOPS 和吞吐量设置。
+
+
+.相关链接
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["Google Cloud 中 Cloud Volumes ONTAP 支持的配置"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#cloud-volumes-ontap-support-for-next-generation-google-cloud-vms["Cloud Volumes ONTAP 支持下一代 Google Cloud 虚拟机"^]
+

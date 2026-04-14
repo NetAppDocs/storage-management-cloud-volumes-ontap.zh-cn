@@ -777,7 +777,6 @@
   <block id="0956d25698d6ea6e452e1cd574ab1eea" category="paragraph">您的许可证始终会被首先收费，但在以下情况下，我们将按照市场上的小时费率向您收费：</block>
   <block id="6246af80c9ea9c857c70d2c643fcb249" category="list-text">如果您超出许可容量</block>
   <block id="fdde7a7f3783aa0ce1e585f8be9c2def" category="list-text">如果您的许可证期限已到期</block>
-  <block id="36e4d5ff70cec517180ae18f1c34d2fd" category="list-text">如果您与市场签订了年度合同，则您部署的所有Cloud Volumes ONTAP系统都将根据该合同收费。您不能将年度市场合同与 BYOL 混合搭配。</block>
   <block id="5bdd4028830bea76f4939d67baa460ff" category="paragraph">部署后，您可以更改使用基于容量的许可的Cloud Volumes ONTAP系统的软件包。例如，如果您使用 Essentials 包部署了Cloud Volumes ONTAP系统，则可以在业务需求发生变化时将其更改为 Professional 包。</block>
   <block id="63b54c0d3b4fb8e35270bfdf7b2bdcbb" category="inline-link-macro">了解如何更改充电方式</block>
   <block id="ec3e25d80cfc0e5561493729eadecef7" category="paragraph"><block ref="ea19fa0e06a6047bcaabb9af62b066c3" category="inline-link-macro-rx"></block> 。</block>
@@ -6426,4 +6425,17 @@
   <block id="aefa282f16e03c096e52d22b7d41c04b" category="list-text">了解 Cloud Volumes ONTAP</block>
   <block id="53f76082b918614f3c41bfae0d7985c6" category="inline-link">使用 ONTAP SnapLock 将文件提交到 WORM</block>
   <block id="90cbc44f5ba3581965b21132dff04d0e" category="paragraph">您可以使用应用程序将文件提交到 WORM over NFS 或 CIFS，或使用 ONTAP CLI 自动将文件提交到 WORM。您还可以使用 WORM 可追加文件来保留增量写入的数据，如日志信息。有关信息，请参阅<block ref="e55de3a3f9aa1cb3686a8e1324558ed7" category="inline-link-rx"></block>。</block>
+  <block id="d5affa88c9505737da2bd460b6fd43bb" category="doc">借助 Google Cloud C3 VM 改进了 Cloud Volumes ONTAP 支持</block>
+  <block id="0c095222c728afb1d3c25c10e5f27e3c" category="paragraph">Cloud Volumes ONTAP 现在增强了对 Google Cloud C3 系列虚拟机的支持，实现了以下附加功能：</block>
+  <block id="f0de228b367386d27d7b8cbf65c47859" category="list-text">在 Cloud Volumes ONTAP 部署中，您可以在 C3 系列中的不同变体之间切换实例类型。</block>
+  <block id="b6d05c51f23a9bec9f5098e25088be1b" category="list-text">更改实例类型时，如果选择 c3-standard-44 或 c3-standard-88 及其 LSSD 变体作为目标 VM，则会自动应用 Google 网络服务出口网络层 Tier-1。如果切换到任何其他 C3 变体，则出口网络层设置为 Standard。</block>
+  <block id="8c530a5dacbdac6ea799436763592a2b" category="admonition">将出口网络层更改为 Tier-1 会产生额外费用。相应地规划部署和升级。</block>
+  <block id="592c8c8f58ba9f6037877ba4f12bbd27" category="list-text">如果您选择 C3 的本地 SSD (LSSD) 变体，默认情况下会启用 Flash Cache。无法在 Cloud Volumes ONTAP 部署中的 C3 LSSD 变体之间切换，即使目标变体支持 Flash Cache。</block>
+  <block id="03fe422ae9ed1fe4cea49e5cfeeac9b8" category="list-text">现在，您可以在 C3 虚拟机上向新的和现有的聚合添加卷。</block>
+  <block id="5aaea3e4d288404c9e29a557265127f4" category="list-text">通过 NetApp Console 或使用<block ref="a27faf3e52367bc8d4429006be3dde82" prefix=" " category="inline-code"></block> API 添加卷时，可以更改 IOPS 和吞吐量设置。</block>
+  <block id="79755a85cb08431038b7bbe13d99c64f" category="list-text"><block ref="79755a85cb08431038b7bbe13d99c64f" category="inline-link-rx"></block></block>
+  <block id="5a1b1460ab07c6363c5bbb60593e8ced" category="admonition">Cloud Volumes ONTAP 在主动-被动模式下使用负载均衡器进行探测。在 Azure 中，只有活动节点响应探测。被动节点可能显示为非活动状态，并带有 X 标记。这是预期行为，无需担心。</block>
+  <block id="fe4b627e339ef56fd051464a11d7b4aa" category="paragraph"><block ref="fe4b627e339ef56fd051464a11d7b4aa" category="inline-link-macro-rx"></block></block>
+  <block id="9472db468c3c681023f3ca03b59df38b" category="list-text">如果您拥有 BYOL 许可证和来自市场的年度合同，我们将根据您设置的账单偏好向您收取消费和超额费用。要了解如何收取费用，请参阅<block ref="0b707007d6575618559747cfb2737b16" category="inline-link-macro-rx"></block>。</block>
+  <block id="403f4a170e2d1c03d329e0f0dd8d1b84" category="section-title">2026 年 4 月 13 日</block>
 </blocks>
