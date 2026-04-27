@@ -227,4 +227,6 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deleting-system.ht
 
 
 .相关链接
-关联：link:concept-licensing.html#end-of-availability-of-node-based-licenses["基于节点的许可证的可用性终止"] link:task-convert-node-capacity.html["将基于节点的许可证转换为基于容量的许可证"]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基于节点的许可证的可用性终止"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-convert-node-capacity.html["将基于节点的许可证转换为基于容量的许可证"^]
+
