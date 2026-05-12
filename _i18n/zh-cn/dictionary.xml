@@ -4348,24 +4348,14 @@
   <block id="ced56e040f2bc500101207628f04b8bb" category="paragraph">如果要在单节点Cloud Volumes ONTAP系统中使用客户管理密钥，请确保控制台代理具有以下权限：</block>
   <block id="791fab48bebea2a79a35d70b5cc07227" category="inline-link">查看最新的权限列表</block>
   <block id="78b9037265070d084c1d8bcd663811e7" category="paragraph"><block ref="78b9037265070d084c1d8bcd663811e7" category="inline-link-rx"></block></block>
-  <block id="6c4f57df7db9a2fd3182761ed256a263" category="list-text">使用以下 API 调用获取 Azure 订阅中的密钥保管库列表。</block>
-  <block id="b5bc96f48f2241c984568df161fa1a37" category="paragraph">对于 HA 对：<block ref="77c22cb91fef3c1e85c041013cec246d" prefix=" " category="inline-code"></block></block>
-  <block id="ac20be2c156e351d08e2cd3c7c63b584" category="paragraph">对于单节点：<block ref="842256d0af833acbb8f3ef6a213881aa" prefix=" " category="inline-code"></block></block>
   <block id="b6f3298f001780c2e92cb754103fc2fa" category="paragraph">记下*名称*和*资源组*。您需要在下一步中指定这些值。</block>
-  <block id="212141c3add693db818cb1f0846d9175" category="inline-link">了解有关此 API 调用的更多信息</block>
-  <block id="a83ee83b3849362150d7c85a1be1dc34" category="paragraph"><block ref="4cff09ac69609cc9da2148aed42c5230" category="inline-link-rx"></block> 。</block>
   <block id="2b5fd7dc9f96f2389712995daa429eff" category="list-text">使用以下 API 调用获取保管库中的密钥列表。</block>
-  <block id="36f6292958809659e87a23e35367128f" category="paragraph">对于 HA 对：<block ref="f8a0d0d5fcdc5c84dd440a7298a8034e" prefix=" " category="inline-code"></block></block>
-  <block id="c68587c00641c7e16e2241848fb1cbae" category="paragraph">对于单节点：<block ref="920cfb8c95c81320bbcb032fcf04cd84" prefix=" " category="inline-code"></block></block>
   <block id="6e4db7c4c3e0f9865e99813a78473894" category="paragraph">记下*keyName*。您需要在下一步中指定该值（以及保险库名称）。</block>
   <block id="bc44d65a22e6f0480445dda8a4a6d4a5" category="list-text">使用以下 API 调用创建Cloud Volumes ONTAP系统。</block>
-  <block id="29a9f6ccdce3262a08caf70f33efc623" category="list-text">对于 HA 对：</block>
   <block id="d2327a7fa1604c97fc1263d7cfae3fa7" category="paragraph"><block ref="d0063cc3da358487623c7a9f922d502c" prefix="" category="inline-code"></block></block>
   <block id="0b026614551113ad09fa76895c5dd5ce" category="paragraph">请求主体必须包含以下字段：</block>
   <block id="1f8370f663ec71e8fac7dc386794543c" category="admonition">包括<block ref="d740baa07e4af19d0de1f45650cf4bc0" prefix=" " category="inline-code"></block>如果您创建此资源是为了用于存储帐户加密，则字段。</block>
-  <block id="2ffa17dd74caa90edaf33636b3e374b1" category="paragraph"><block ref="792ba555e1629fb9b0b5e00711256a74" category="inline-link-rx"></block> 。</block>
   <block id="6507ffa8d8b9388092f62e253e32e85d" category="paragraph"><block ref="d1a53319a230158b10e72e4bd96c5bbc" prefix="" category="inline-code"></block></block>
-  <block id="7881621c3d4c91216ebe58ee1cdc87e0" category="paragraph"><block ref="52c47b6a301b0fb242044f1b14c5f663" category="inline-link-rx"></block> 。</block>
   <block id="c9a9b22c97e2474e63fdb09a6f5f4a75" category="paragraph">您有一个新的Cloud Volumes ONTAP系统，该系统配置为使用客户管理的密钥进行数据加密。</block>
   <block id="cbb7648d740bfbc79c9b844ff98a7694" category="summary">必须将具有所需权限的 IAM 角色附加到每个Cloud Volumes ONTAP节点。对于 HA 调解员来说也是如此。最简单的方法是让控制台为您创建 IAM 角色，但您也可以使用自己的角色。</block>
   <block id="84a333a53e4f22cbaaa6d41a10b81021" category="doc">为Cloud Volumes ONTAP节点设置 AWS IAM 角色</block>
@@ -6190,7 +6180,6 @@
   <block id="f3d300c94dc8da268fd71f595a4b1c36" category="list-text">具有单节点系统的 Azure 磁盘类型</block>
   <block id="3c283478e1082153da1a28f6cae2070a" category="list-text">对于单节点系统，新添加的端口为 _e0b_。对于具有托管磁盘的 HA 对部署，新添加的端口为 _e0d_。对于具有页面 blob 的 HA 对部署，新添加的端口为 _e0e_。使用节点名称而不是 VM 名称。通过运行<block ref="9cd5e832790132a87592f2958fc2b1a6" prefix=" " category="inline-code"></block>查找节点名称。</block>
   <block id="e22a8b8a02dd778a344b734bd97fdc83" category="list-text">*用于卷加密的 Azure Disk Encryption*（适用于单节点系统、多个区域中的 HA 对和 HA 单 AZ 部署）</block>
-  <block id="41fc554ff7fbcb7b9ef31dbfe008e047" category="list-text">对于单节点系统：</block>
   <block id="929a94de085a28985069e5a8fe181ffa" category="list-text">使用单节点系统的 9.4 版</block>
   <block id="70d92c1e2419b7500249e84f56bfda5d" category="section-title">2026 年 2 月 12 日</block>
   <block id="4da572800ccc44d02dab68a24d7ba671" category="list-text">支持单节点系统。</block>
@@ -6438,4 +6427,57 @@
   <block id="f638b98047aa1e2c9642d2de1bcdd0d0" category="list-text">向下滚动，输入请求的其他详细信息，然后选择 *Submit*。</block>
   <block id="dc96e19fba7ac18b79e69398a4792825" category="list-text">对于要取消链接的订阅，请选择 <block ref="c9c50c6d591d91ccce1ee232fa490fb4" category="inline-image-macro-rx" type="image"></block> 并选择 *Unlink*。</block>
   <block id="5e5b6fbbd6a3b4edf3913541e4fecf17" category="list-text"><block ref="5e5b6fbbd6a3b4edf3913541e4fecf17" category="inline-link-rx"></block></block>
+  <block id="66f0f207e553b92ff141bcd4fe27ad0f" category="doc">AWS 中 Cloud Volumes ONTAP 和数据服务的灵活计费</block>
+  <block id="55abafc1dd088c3ce83eae8e4a747314" category="paragraph">NetApp 为您在 AWS 中的 Cloud Volumes ONTAP 订阅提供了增强的计费选项，让您可以更好地控制如何支付 Cloud Volumes ONTAP 容量和 NetApp 数据服务费用，例如 BlueXP 备份和恢复。以前，所有 Cloud Volumes ONTAP 和数据服务的使用都是通过 AWS 市场中的 NetApp Intelligent Services (NIS) 列表一起计费的。</block>
+  <block id="c6527bb2f1b87269be16603057b53a2c" category="paragraph">由于 AWS 企业折扣计划 (EDP) 的变化，NetApp 在 AWS 市场中引入了独立的 Cloud Volumes ONTAP 订阅，允许您将 Cloud Volumes ONTAP 容量的计费与数据服务分开。这种分离使您可以更灵活地管理 EDP 积分和成本。NetApp 建议使用独立订阅来更好地管理 Cloud Volumes ONTAP 使用情况的成本，同时在 2026 年 7 月 31 日 EDP 要求生效后继续使用 NIS 订阅进行数据服务计费。</block>
+  <block id="bc5abfb3f56ed8d61846aead3435d204" category="paragraph">AWS 中的独立 Cloud Volumes ONTAP 订阅仅支持基于容量的有效 Essentials 或 Freemium 许可证包。不支持 Professional 包。您可以选择最适合您需求的账单方式：</block>
+  <block id="620ae1035cf673b2bf4915b820a55641" category="list-text">*独立 Cloud Volumes ONTAP 订阅（推荐）*：通过 AWS 市场中的独立订阅支付您的 Cloud Volumes ONTAP 使用费用，同时继续通过 NIS 订阅收取数据服务费用。对于在 NetApp Console 中同时拥有与其 AWS 帐户相关联的独立订阅和 NIS 订阅的大多数客户，这是推荐的选项。</block>
+  <block id="89df3be47eb3a96e140986018ec88f25" category="list-text">*组合 NIS 订阅*：通过现有的 NIS 列表同时支付 Cloud Volumes ONTAP 和数据服务。组合方法适用于在 NetApp Console 中仅与其 AWS 帐户关联的 NIS 订阅的现有客户。但是，NetApp 建议您为 Cloud Volumes ONTAP 使用量设置计费首选项，并切换到独立订阅以更好地管理成本。</block>
+  <block id="f0bbf3eb80d447bdeec06a404e0deecc" category="paragraph">根据您的订阅类型，您将获得以下方案：</block>
+  <block id="136ebd87e9330d7c5a86db1bea619a09" category="paragraph-title">仅限独立订阅（新客户）</block>
+  <block id="4878475e6c6d651007ba24b57dd8f52c" category="paragraph">如果您在 NetApp Console 中仅有一个与您的 AWS 账户关联的独立 AWS 订阅，并且没有 NIS 订阅，则可以在部署期间仅选择 Essentials 许可证包。您无法使用数据服务*备份和恢复*选项。</block>
+  <block id="b841a0c2e7683cb86c696f570ce9b7c5" category="paragraph-title">独立订阅和 NIS 订阅（现有客户）</block>
+  <block id="e5f964639d2d368944a708c9d9159fb8" category="paragraph">如果您有与 AWS 账户关联的 NIS 和独立订阅，并且尚未通过 NetApp Console 中的*计费首选项*选项卡设置计费首选项，则默认情况下，Cloud Volumes ONTAP 的使用将继续通过 NIS 计费。这也是运行 Professional 包的任何 Cloud Volumes ONTAP 实例的默认值，因为独立列表不支持 Professional。您可以设置计费首选项，并选择如何对每项服务计费：</block>
+  <block id="6dd79ef85372ac622a4d4c5dc46a3c46" category="list-text">将独立订阅设置为 Cloud Volumes ONTAP（使用 Essentials 包）的首选计费账户。如果您只有 Professional 包，则可以将其转换为 Essentials 包，并通过设置计费首选项对您的 Cloud Volumes ONTAP 使用量收费。我们推荐这种方法，因为它可以帮助您更有效地管理 Cloud Volumes ONTAP EDP 积分。</block>
+  <block id="a77b7d4efa6f963267f588c46c34df1b" category="list-text">使用 NIS 订阅进行计费数据服务，或通过 Professional 包使用 Cloud Volumes ONTAP。在部署期间，启用 *Backup and Recovery* 数据服务，并选择 Professional 许可证包以通过 NIS 订阅向数据服务收费。</block>
+  <block id="8c746863961baaa82aba27b4fd37e769" category="paragraph-title">仅限 NIS 订阅（现有客户）</block>
+  <block id="f838fe2f68473e970c4c89e5cbfc3369" category="paragraph">如果您是拥有与 AWS 帐户关联的 NIS 订阅的现有客户，则适用此规则。您可以继续像现在一样同时计费 Cloud Volumes ONTAP 和数据服务。但是，NetApp 建议切换到独立订阅方法，以便更好地管理您的 Cloud Volumes ONTAP 使用情况：</block>
+  <block id="2a4095338c2cb1e2257dd4e02f2451ce" category="list-text">订阅 AWS 门户上的新独立列表。</block>
+  <block id="ee8232a8731e2273fe25bf49ea87389a" category="list-text">将独立订阅链接到您的 AWS 帐户。</block>
+  <block id="46568565f79aa968105d34a67e84131a" category="list-text">使用 Essentials 包将计费首选项设置为 Cloud Volumes ONTAP 使用的独立订阅。</block>
+  <block id="ef9583ff5df47277e937b49f54639572" category="list-text">（如适用）将您的 Professional 套餐转换为 Essentials 套餐并设置账单首选项。</block>
+  <block id="8460f8e45452fdd819096e78fca80090" category="list-text">通过您的 NIS 订阅继续计费数据服务。</block>
+  <block id="2aef8c7aa3736a735e2c270ba5fba388" category="admonition">当您使用多种订阅类型或在房源之间迁移时，不会出现重复的计量。</block>
+  <block id="d813fcacf432155f3260728eb45bbdba" category="list-text"><block ref="d813fcacf432155f3260728eb45bbdba" category="inline-link-rx"></block></block>
+  <block id="4271feea4f5dd0d69f423f75fc48dbde" category="inline-link">更改容量许可证的收费方式</block>
+  <block id="9e2298e44558506acec619a75ec64821" category="list-text"><block ref="9e2298e44558506acec619a75ec64821" category="inline-link-rx"></block></block>
+  <block id="49edf2231803c3970b4111ca04fcaa6c" category="paragraph">在 Cloud Volumes ONTAP 部署期间，AWS mediator 代理字段接受服务器地址。如果输入完全限定的域名 (FQDN) 而不是 IP 地址，则除非使用自定义 DNS 服务器配置 AWS VPC，否则 FQDN 将无法解析。这是因为默认的 AWS 提供的 DNS 仅解析公共 DNS 记录和内部 AWS 主机，无法解析外部 FQDN，例如客户代理服务器。如果这种情况适用于您，您有两种选择：</block>
+  <block id="7a6c754b06c29e6aace6db3f477f89ef" category="list-text">直接在 mediator proxy 字段中添加代理服务器的 IP 地址，而不是 FQDN。</block>
+  <block id="6b1fcef9c5f9f96f0e1006fa2c790eaf" category="list-text">在您的 VPC 中配置 DHCP 选项集，其中包括您的自定义 DNS 服务器地址。这允许 AWS 在部署期间您在代理服务器字段中输入 FQDN 时解析该 FQDN。有关详细信息，请参阅<block ref="969ddf18b8d2c2a0ea7f2f758bfa092b" category="inline-link-rx"></block>。</block>
+  <block id="f1786d348e00a4d81c8256bfab2317bf" category="list-text">使用以下 API 调用获取 Azure 订阅中的密钥保管库列表。</block>
+  <block id="271091fec63fe3a7ae5ab9329c07fa38" category="inline-link">对于 HA 对</block>
+  <block id="642952a918ce09b4f08372d3c04cf646" category="paragraph"><block ref="6128714d4f22124bb54e7e5f6deb8b10" category="inline-link-rx"></block>:<block ref="77c22cb91fef3c1e85c041013cec246d" prefix=" " category="inline-code"></block></block>
+  <block id="849916757860d46d7e8a7cb162993e59" category="inline-link">对于单个节点</block>
+  <block id="5431d1164495e657ec4e4557ecdfc072" category="paragraph"><block ref="0b2344536f5c6ce02c9c82e07e278eec" category="inline-link-rx"></block>:<block ref="842256d0af833acbb8f3ef6a213881aa" prefix=" " category="inline-code"></block></block>
+  <block id="37cd30060e66dbd940c6e8bde54f715b" category="paragraph">对于 HA 对：<block ref="16653123b6ee27115a225558fd9da1c0" prefix=" " category="inline-code"></block></block>
+  <block id="89f7751e2475c204f6d76abe7aaee02b" category="paragraph">对于单个节点：<block ref="8092e0725ee020a83a92ad74dc7efae2" prefix=" " category="inline-code"></block></block>
+  <block id="3fe773fa56c2b46ff7ef74a505be49ae" category="inline-link">此 API 调用</block>
+  <block id="f14649643d91bddc807cd1ecaec59c6b" category="list-text">对于 HA 对，请使用<block ref="6802f329e6a1f640b155b8257c09eb6a" category="inline-link-rx"></block>：</block>
+  <block id="14a0873ed547bbfb56894fcdf062b28d" category="list-text">对于单节点系统，请使用<block ref="0065b883a121c3c77a0cfc4bb1492b9b" category="inline-link-rx"></block>：</block>
+  <block id="6d8ebc410ea7b66d3c2aaf33b8e39094" category="inline-link">准备使用 Cloud Volumes ONTAP API 工作流程</block>
+  <block id="6ca12661dc1853ba82377290ca0b3bc2" category="list-text"><block ref="d16c17f65bc41006807ee1e260dfb738" category="inline-link-rx"></block>.</block>
+  <block id="08764d6f7da0033c29de0076a443fe0c" category="inline-link">了解 ONTAP 管理 REST API</block>
+  <block id="5baeba7934fe8a34975ccc38f19366dd" category="list-text"><block ref="d1a64a155005c90f3066c3fa3b060d30" category="inline-link-rx"></block>.</block>
+  <block id="37ddcf030b7d3101678de58c0621fc89" category="section-title">为独立 AWS 列表设置首选账单</block>
+  <block id="ec2384719451e3975840b6469dfcfbf4" category="paragraph">如果您有链接到 AWS 账户的独立 AWS 订阅，则可以通过该订阅支付 Cloud Volumes ONTAP 费用。如果您还具有 NetApp Intelligent Services (NIS) 订阅，则可以通过与 NIS 订阅关联的程序包为数据服务付费。对于现有订阅，NetApp 建议切换到独立订阅方法，以更好地管理您的 Cloud Volumes ONTAP 使用成本。</block>
+  <block id="b41b9dda9f87c33a6102264990ae2f8a" category="paragraph">如果您是具有与 AWS 帐户相关联的 NIS 订阅的现有客户，NetApp 建议切换到独立订阅方法，以更好地管理 Cloud Volumes ONTAP 使用情况。此为完整流程：</block>
+  <block id="01368c26a9edc2b99ad0caa355acb956" category="list-text">（如适用）将您的 Professional 套餐转换为 Essentials 套餐，并设置账单偏好。有关将 Professional 套餐转换为 Essentials 套餐的信息，请参阅<block ref="3a4158127b53937d0c91a79e9c5866e1" category="inline-link-rx"></block>。</block>
+  <block id="9eab041ce6a01ba028dd95a8c5f1992c" category="list-text">在 NetApp Console 的左侧面板上，选择 *Administration &gt; Licenses and subscriptions &gt; Billing preferences &gt; Cloud Volumes ONTAP*。</block>
+  <block id="055fe1da24359dd71a9c8b67896496aa" category="list-text">在 AWS 选项卡上，选择独立订阅，然后单击选项图标 <block ref="ac91b27a7720c4844510cacb9be7afe5" category="inline-image-macro-rx" type="image"></block>。</block>
+  <block id="ca114d54630fd2217b0a7f7b707b2524" category="list-text">在编辑配置窗口中，在 *AWS 帐户凭据* 字段中选择独立列表的订阅号。</block>
+  <block id="1a8a4084eaf9e7b7e14963049e616310" category="list-text">单击 *Configure*。您可以将订阅视为 AWS 中 Cloud Volumes ONTAP 计费的首选选项。</block>
+  <block id="5308f0957f4f665b7b8a7a70e7f26dbb" category="inline-link">使用快速创建部署 Cloud Volumes ONTAP</block>
+  <block id="69bad18c1431b72e27676656dcb02294" category="list-text">部署新的 Cloud Volumes ONTAP 系统时，选择 Essentials 包以通过独立订阅进行计费。有关信息，请参阅<block ref="3bd26a21bb4b5b57e3e4e28150d4f309" category="inline-link-rx"></block>。</block>
+  <block id="a731966b7a272e5b052ef9a7b9ea958e" category="paragraph">在 *数据服务* 选项卡上对 NIS 订阅重复相同的步骤，以使用数据服务的 NIS 订阅。部署新的 Cloud Volumes ONTAP 系统时，选择 Professional 包以通过 NIS 订阅计费。</block>
+  <block id="55a36fface9a3342eae20532f4dd2f82" category="section-title">2026 年 5 月 12 日</block>
 </blocks>

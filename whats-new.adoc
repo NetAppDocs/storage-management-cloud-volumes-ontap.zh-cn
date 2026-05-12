@@ -20,6 +20,54 @@ summary: 了解BlueXP中Cloud Volumes ONTAP管理的新功能。
 
 
 
+== 2026 年 5 月 12 日
+
+
+
+=== AWS 中 Cloud Volumes ONTAP 和数据服务的灵活计费
+
+NetApp 为您在 AWS 中的 Cloud Volumes ONTAP 订阅提供了增强的计费选项，让您可以更好地控制如何支付 Cloud Volumes ONTAP 容量和 NetApp 数据服务费用，例如 BlueXP 备份和恢复。以前，所有 Cloud Volumes ONTAP 和数据服务的使用都是通过 AWS 市场中的 NetApp Intelligent Services (NIS) 列表一起计费的。
+
+由于 AWS 企业折扣计划 (EDP) 的变化，NetApp 在 AWS 市场中引入了独立的 Cloud Volumes ONTAP 订阅，允许您将 Cloud Volumes ONTAP 容量的计费与数据服务分开。这种分离使您可以更灵活地管理 EDP 积分和成本。NetApp 建议使用独立订阅来更好地管理 Cloud Volumes ONTAP 使用情况的成本，同时在 2026 年 7 月 31 日 EDP 要求生效后继续使用 NIS 订阅进行数据服务计费。
+
+AWS 中的独立 Cloud Volumes ONTAP 订阅仅支持基于容量的有效 Essentials 或 Freemium 许可证包。不支持 Professional 包。您可以选择最适合您需求的账单方式：
+
+* *独立 Cloud Volumes ONTAP 订阅（推荐）*：通过 AWS 市场中的独立订阅支付您的 Cloud Volumes ONTAP 使用费用，同时继续通过 NIS 订阅收取数据服务费用。对于在 NetApp Console 中同时拥有与其 AWS 帐户相关联的独立订阅和 NIS 订阅的大多数客户，这是推荐的选项。
+* *组合 NIS 订阅*：通过现有的 NIS 列表同时支付 Cloud Volumes ONTAP 和数据服务。组合方法适用于在 NetApp Console 中仅与其 AWS 帐户关联的 NIS 订阅的现有客户。但是，NetApp 建议您为 Cloud Volumes ONTAP 使用量设置计费首选项，并切换到独立订阅以更好地管理成本。
+
+
+根据您的订阅类型，您将获得以下方案：
+
+.仅限独立订阅（新客户）
+如果您在 NetApp Console 中仅有一个与您的 AWS 账户关联的独立 AWS 订阅，并且没有 NIS 订阅，则可以在部署期间仅选择 Essentials 许可证包。您无法使用数据服务*备份和恢复*选项。
+
+.独立订阅和 NIS 订阅（现有客户）
+如果您有与 AWS 账户关联的 NIS 和独立订阅，并且尚未通过 NetApp Console 中的*计费首选项*选项卡设置计费首选项，则默认情况下，Cloud Volumes ONTAP 的使用将继续通过 NIS 计费。这也是运行 Professional 包的任何 Cloud Volumes ONTAP 实例的默认值，因为独立列表不支持 Professional。您可以设置计费首选项，并选择如何对每项服务计费：
+
+* 将独立订阅设置为 Cloud Volumes ONTAP（使用 Essentials 包）的首选计费账户。如果您只有 Professional 包，则可以将其转换为 Essentials 包，并通过设置计费首选项对您的 Cloud Volumes ONTAP 使用量收费。我们推荐这种方法，因为它可以帮助您更有效地管理 Cloud Volumes ONTAP EDP 积分。
+* 使用 NIS 订阅进行计费数据服务，或通过 Professional 包使用 Cloud Volumes ONTAP。在部署期间，启用 *Backup and Recovery* 数据服务，并选择 Professional 许可证包以通过 NIS 订阅向数据服务收费。
+
+
+.仅限 NIS 订阅（现有客户）
+如果您是拥有与 AWS 帐户关联的 NIS 订阅的现有客户，则适用此规则。您可以继续像现在一样同时计费 Cloud Volumes ONTAP 和数据服务。但是，NetApp 建议切换到独立订阅方法，以便更好地管理您的 Cloud Volumes ONTAP 使用情况：
+
+* 订阅 AWS 门户上的新独立列表。
+* 将独立订阅链接到您的 AWS 帐户。
+* 使用 Essentials 包将计费首选项设置为 Cloud Volumes ONTAP 使用的独立订阅。
+* （如适用）将您的 Professional 套餐转换为 Essentials 套餐并设置账单首选项。
+* 通过您的 NIS 订阅继续计费数据服务。
+
+
+
+NOTE: 当您使用多种订阅类型或在房源之间迁移时，不会出现重复的计量。
+
+.相关链接
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-set-up-licensing-aws.html["在 AWS 中设置Cloud Volumes ONTAP许可"^]
+* https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-capacity-licenses.html#change-charging-methods["更改容量许可证的收费方式"^]
+
+
+
+
 == 2026 年 4 月 13 日
 
 
