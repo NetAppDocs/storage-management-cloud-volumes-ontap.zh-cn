@@ -1,6 +1,6 @@
 ---
 sidebar: sidebar 
-permalink: task-quick-deploy-aws.html 
+permalink: task-quick-deploy-azure.html 
 keywords: aws quick deploy, quick deploy, aws, single screen deployment AWS, SAZ, MAZ, single node, HA pair 
 summary: 您可以在单系统配置中或 AWS 中以 HA 对的形式快速部署Cloud Volumes ONTAP实例。 
 ---
@@ -185,6 +185,6 @@ TIP: 如果您想利用 WORM 和数据分层，则必须禁用备份和恢复并
 CAUTION: 部署过程完成后，请勿在 AWS 或 Azure 云门户中修改系统生成的 Cloud Volumes ONTAP 配置，尤其是系统标记。对这些配置所做的任何更改都可能导致意外行为或数据丢失。
 
 .相关链接
-* link:task-planning-your-config.html["规划您的Cloud Volumes ONTAP配置"] *
-* link:task-deploying-otc-aws.html["使用高级部署在 AWS 中部署Cloud Volumes ONTAP"]
+* link:task-planning-your-config-azure.html["规划您的Cloud Volumes ONTAP配置"]
+* link:task-deploying-otc-azure.html["使用高级部署在 Azure 中部署 Cloud Volumes ONTAP"]
 
