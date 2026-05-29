@@ -5988,7 +5988,6 @@
   <block id="233af50e7ac5078d6cabb58ab95095b9" category="summary">对于 Google Cloud 中的现有部署，需要将系统升级到 Cloud Volumes ONTAP 9.16.1 或更高版本，然后手动运行过渡工具，以便从 Google Cloud Deployment Manager 转换为 Cloud Infrastructure Manager。</block>
   <block id="b9e5aa43ec2007eccaf097117438e531" category="doc">将现有 Cloud Volumes ONTAP 部署转换为 Infrastructure Manager</block>
   <block id="8c41baf1ca98e1184f48c4721d44d431" category="inline-link">NetApp 支持站点</block>
-  <block id="416146100ffb7fc54fb8a24ca7b63ae8" category="paragraph">转换工具在 <block ref="33e3c3ba324846178fad333329821dd2" category="inline-link-rx"></block> 中可用，并创建以下工件：</block>
   <block id="fe91a45b95e89e219ea69631edff8521" category="list-text">Terraform 工件，保存在<block ref="b1042b7d7203a022c297b13679f7d1f8" prefix=" " category="inline-code"></block>中。</block>
   <block id="787ab3bb526ace3e3d9f5b857facafbf" category="list-text">调试日志，保存在 <block ref="abecaca0429ea0c44adcba537eb94f89" prefix=" " category="inline-code"></block> 目录中。您需要这些日志来进行故障排除。<block ref="6ec9e5b046607d57923aee80f990225d" prefix=" " category="inline-code"></block> 存储桶存储 Terraform 日志。</block>
   <block id="07f770dff2ab3ed070b0fafe70eae22a" category="paragraph">使用 Infrastructure Manager 的 Cloud Volumes ONTAP 系统将数据和记录存储在 Google Cloud Storage 存储桶中。您可能需要为这些存储桶支付额外费用，但不要编辑或删除存储桶或其内容：</block>
@@ -6139,7 +6138,6 @@
   <block id="1eee4678eb4e1cadd4e212ce0bba084d" category="section-title">在单节点系统上创建存储虚拟机</block>
   <block id="a547059e96288e55a3cd3b932e2c4157" category="paragraph">这些步骤在单节点系统上创建新的存储虚拟机。创建 NAS LIF 需要一个私有 IP 地址，如果要创建管理 LIF，则需要另一个可选私有 IP 地址。</block>
   <block id="cc7c35c7684e4d7f8bffed328fc1b629" category="paragraph">根据您的配置和许可证类型，您可以使用 NetApp Console 的 API 在单节点系统或高可用性 (HA) 配置中创建多个存储虚拟机。</block>
-  <block id="9f0e6a06ff24050ef4f1a71b2eb1d838" category="section-title">单节点系统</block>
   <block id="070c7339120bbab9748136420da7e629" category="paragraph">使用以下 API 调用在单节点系统上创建存储 VM。</block>
   <block id="dda2b753a17e4e4abcca100288667de4" category="section-title">管理单节点系统和 HA 对上的 Storage VM</block>
   <block id="d05761c1dc243186f9c42f463199d5a9" category="list-text">使用以下 API 调用来重命名单节点系统上的存储 VM：</block>
@@ -6526,4 +6524,6 @@
   <block id="1c568211164221a5a183fa65ce0d8ad7" category="list-text"><block ref="f5fb311c04d189ade108ad02dc187c52" prefix="" category="inline-code"></block> 表示 IP 地址不会在节点之间迁移。</block>
   <block id="090499247beb18776ed4674afbd7c45d" category="paragraph">NetApp 为您在 AWS 中的 Cloud Volumes ONTAP 订阅提供了增强的计费选项，让您可以更好地控制如何支付 Cloud Volumes ONTAP 容量和 NetApp 数据服务（如 NetApp Backup and Recovery）的费用。以前，所有 Cloud Volumes ONTAP 和数据服务的使用都是通过 AWS 市场中的 NetApp Intelligent Services (NIS) 列表一起计费的。</block>
   <block id="3ac842cf432c6d2ce6346cfe9dea6126" category="admonition">如果较新的候选发行版、一般可用性或修补程序版本可用于选定版本，则 Console 会在创建工作环境时将系统更新到该版本。例如，如果您选择 Cloud Volumes ONTAP 9.16.1 P3 且 9.16.1 P4 可用，则会发生更新。此更新不会从一个版本更新到另一个版本，例如从 9.15 到 9.16。</block>
+  <block id="120dc003edb30e1d44fc4426ef7b9e3d" category="paragraph">转换工具在 NetApp 支持站点中提供，并创建以下项目：</block>
+  <block id="f669698de3cebd29244fce6e24b7e95d" category="section-title">单节点系统</block>
 </blocks>
