@@ -53,7 +53,7 @@ Cloud Volumes ONTAP使用这些端点与各种服务进行通信。
 
 
 
-| https://vault.azure.net[] | 密钥保管库 | 用于在使用客户管理密钥 (CMK) 时从 Azure Key Vault 检索客户端密钥。 | 标准、受限和私人模式。 | Cloud Volumes ONTAP服务不可用。 
+| \https://vault.azure.net | 密钥保管库 | 用于在使用客户管理密钥 (CMK) 时从 Azure Key Vault 检索客户端密钥。 | 标准、受限和私人模式。 | Cloud Volumes ONTAP服务不可用。 
 
 
 | \ https://api.bluexp.netapp.com/tenancy | 租户 | 用于从控制台检索Cloud Volumes ONTAP资源以授权资源和用户。 | 标准和限制模式。 | Cloud Volumes ONTAP资源和用户未获得授权。 

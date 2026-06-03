@@ -85,7 +85,7 @@ az network vnet subnet show -g <src_vnet-rg> -n <src_subnet> --vnet-name <vnet> 
 ----
 az network nic create -g <dest_node-rg> -n <dest_node-vm-nic-new> --subnet <id_from_prev_command> --accelerated-networking true
 ----
-.. 保存私有IP地址。此 IP 地址 <new_added_nic_primary_addr> 用于在<<Step 2: Create a new IPspace,广播域，新 NIC 的集群间 LIF>>。
+.. 保存 privateIPAddress。此 IP 地址 <new_added_nic_primary_addr> 用于在 <<step-second,新网卡的广播域和集群间 LIF>> 中创建集群间 LIF。
 
 
 . 将新的 NIC 附加到 VM。
@@ -112,7 +112,7 @@ az network nic list --resource-group azure-59806175-60147103-azure-rg --query "[
 
 
 
-== 步骤 2：为新 NIC 创建新的 IP 空间、广播域和集群间 LIF
+== [[step-second]]第 2 步：为新网卡创建新的 IPspace、广播域和集群间 LIF
 
 集群间 LIF 的单独 IP 空间为集群间复制的网络功能提供了逻辑分离。
 

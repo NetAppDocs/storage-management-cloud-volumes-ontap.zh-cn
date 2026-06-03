@@ -524,7 +524,7 @@ NOTE: 为了使新的 Google Cloud HA 对部署实现较高的写入速度，VPC
 ** 磁盘大小：100 GB
 ** 分配外部 IP：False
 ** 网络：Default 或 private。
-** 配置为访问 http://googleapis.com/["Google APIs"]的子网。执行以下步骤以确保子网可以访问 Google API：
+** 配置为访问 https://cloud.google.com/apis["Google Cloud API"^]的子网。执行以下步骤以确保子网可以访问 Google API：
 +
 ... 确保子网的 "Private Google Access" 已打开。
 ... 转到 *VPC Network level > Private Service Access Tab > Allocated IP ranges for services*。
