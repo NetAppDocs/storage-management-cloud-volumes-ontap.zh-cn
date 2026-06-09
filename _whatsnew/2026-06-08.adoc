@@ -1,0 +1,17 @@
+= AWS 中 Cloud Volumes ONTAP 支持的新 EC2 实例
+:allow-uri-read: 
+
+
+
+
+=== AWS 中 Cloud Volumes ONTAP 支持的新 EC2 实例
+
+Cloud Volumes ONTAP 9.16.1 及更高版本支持 M6id 和 M6idn EC2 实例系列，用于 AWS 中的新建和现有单节点和高可用性 (HA) 对部署。与第 5 代通用系统相比，这些第 6 代实例具有更快的处理能力、更强的网络功能和更高的性能。
+
+* *M6id 实例*：通过高速、低延迟的本地 NVMe 存储提供计算和内存的平衡。所有 M6id 实例大小都支持 Flash Cache。这些实例非常适合数据记录和媒体处理等工作负载。
+* *M6idn 实例*：提供与 M6id 实例相同的本地 NVMe 存储功能。所有 M6idn 实例大小都支持 Flash Cache。
+
+
+我们不建议使用较小尺寸的 m6id.xlarge、m6id.2xlarge、m6idn.xlarge 和 m6idn.2xlarge 实例类型进行高性能或内存密集型工作负载。对于这些工作负载，请使用具有更高核心计数和更大内存的实例类型。
+
+有关详细信息，请参阅 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["AWS 中Cloud Volumes ONTAP支持的配置"^]。
