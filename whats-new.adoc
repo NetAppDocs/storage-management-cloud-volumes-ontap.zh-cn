@@ -24,7 +24,7 @@ summary: 了解BlueXP中Cloud Volumes ONTAP管理的新功能。
 
 
 
-=== AWS 中 Cloud Volumes ONTAP 支持的新 EC2 实例
+=== 支持 AWS 中 Cloud Volumes ONTAP 的新 EC2 实例
 
 Cloud Volumes ONTAP 9.16.1 及更高版本支持 M6id 和 M6idn EC2 实例系列，用于 AWS 中的新建和现有单节点和高可用性 (HA) 对部署。与第 5 代通用系统相比，这些第 6 代实例具有更快的处理能力、更强的网络功能和更高的性能。
 

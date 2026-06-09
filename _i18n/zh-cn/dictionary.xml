@@ -6525,11 +6525,11 @@
   <block id="bc076a99113847f4719da894c77ecddb" category="inline-xref">新网卡的广播域和集群间 LIF</block>
   <block id="f1d926658b88d28bd7f5b0cf55a6dd7a" category="list-text">保存 privateIPAddress。此 IP 地址 &lt;new_added_nic_primary_addr&gt; 用于在 <block ref="dad33d52d8c169ff9af931bc22cbdf4c" category="inline-xref-macro-rx"></block> 中创建集群间 LIF。</block>
   <block id="e8ffd3ffeea761edd5ebf0cfb97c0bb0" category="section-title">[[step-second]]第 2 步：为新网卡创建新的 IPspace、广播域和集群间 LIF</block>
-  <block id="f73d059120d4b302e53d6f7bec91ff6d" category="doc">AWS 中 Cloud Volumes ONTAP 支持的新 EC2 实例</block>
   <block id="957b7705b307b4f695a7cdb201c42bcb" category="paragraph">Cloud Volumes ONTAP 9.16.1 及更高版本支持 M6id 和 M6idn EC2 实例系列，用于 AWS 中的新建和现有单节点和高可用性 (HA) 对部署。与第 5 代通用系统相比，这些第 6 代实例具有更快的处理能力、更强的网络功能和更高的性能。</block>
   <block id="fa4aff7e4e5120dec944acc145df3c1a" category="list-text">*M6id 实例*：通过高速、低延迟的本地 NVMe 存储提供计算和内存的平衡。所有 M6id 实例大小都支持 Flash Cache。这些实例非常适合数据记录和媒体处理等工作负载。</block>
   <block id="bfe5730fc311788c5b5e63755351140c" category="list-text">*M6idn 实例*：提供与 M6id 实例相同的本地 NVMe 存储功能。所有 M6idn 实例大小都支持 Flash Cache。</block>
   <block id="15172b1a76b99972ddc77977722e7eda" category="paragraph">我们不建议使用较小尺寸的 m6id.xlarge、m6id.2xlarge、m6idn.xlarge 和 m6idn.2xlarge 实例类型进行高性能或内存密集型工作负载。对于这些工作负载，请使用具有更高核心计数和更大内存的实例类型。</block>
   <block id="2723587cecc87d757adc3d7f42677613" category="paragraph">有关详细信息，请参阅<block ref="5facb34de99943f35a6951018b8a6bef" category="inline-link-rx"></block>。</block>
   <block id="3e323562bd488e4cbd90a025b9424181" category="section-title">2026 年 6 月 08 日</block>
+  <block id="ee679c5a83450dd8f0c139cea8a1cc40" category="doc">支持 AWS 中 Cloud Volumes ONTAP 的新 EC2 实例</block>
 </blocks>
