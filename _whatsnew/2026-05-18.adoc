@@ -8,9 +8,6 @@
 
 现在，您可以使用快速创建在 Azure 中部署单节点和高可用性 (HA) 配置的 Cloud Volumes ONTAP。这种简化的流程与高级方法相比减少了步骤数，自动在单个页面上设置默认值，并最大限度地减少导航，使部署更快、更轻松。
 
-
-NOTE: 如果使用快速创建在 Azure 中部署新的 Cloud Volumes ONTAP 系统，则 NetApp Console 将默认选择 Azure 凭据。可以使用初始 Azure 凭据部署所有 Cloud Volumes ONTAP 系统。如果要使用其他订阅和/或凭据，则需要切换到高级模式部署。将在未来版本中解决此限制问题。
-
 .相关链接
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-azure.html["使用快速创建在 Azure 中部署 Cloud Volumes ONTAP"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-otc-azure.html["使用 Azure 中的高级选项部署 Cloud Volumes ONTAP"^]
