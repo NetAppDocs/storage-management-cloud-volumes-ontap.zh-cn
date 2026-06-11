@@ -20,6 +20,18 @@ summary: 了解BlueXP中Cloud Volumes ONTAP管理的新功能。
 
 
 
+== 2026 年 6 月 11 日
+
+
+
+=== 支持 Cloud Volumes ONTAP 中的新 Azure 区域
+
+您现在可以在 Azure 的马来西亚西部（malaysiawest）区域的单个和多个可用性区域中部署 Cloud Volumes ONTAP 9.12.1 GA 及更高版本。这包括对单节点和高可用性 (HA) 部署的支持。
+
+有关所有地区的列表，请参阅 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球区域地图"^]。
+
+
+
 == 2026 年 6 月 08 日
 
 
