@@ -118,7 +118,7 @@ ifdef::gcp[]
 
 == Google Cloud 中的数据分层
 
-当您在 Google Cloud 中启用数据分层时， Cloud Volumes ONTAP会使用持久磁盘作为热数据的性能层，并使用 Google Cloud Storage 存储桶作为非活动数据的容量层。
+当您在 Google Cloud 中启用数据分层时，Cloud Volumes ONTAP 使用永久性磁盘作为热数据的性能层，并将 Google Cloud Storage 存储桶用作非活动数据的容量层。您可以在创建系统时选择存储层，并在此后随时更改。有关更改存储类的信息，请参阅 link:task-tiering.html["将非活动数据分层到低成本对象存储"]。
 
 性能层:: 性能层可以是 SSD 持久磁盘、平衡持久磁盘或标准持久磁盘。
 容量层:: Cloud Volumes ONTAP系统将非活动数据分层到单个 Google Cloud Storage 存储桶。
@@ -137,16 +137,9 @@ ifdef::gcp[]
 
 
 --
-存储类别:: 分层数据的默认存储类是“标准存储”类。如果数据不经常访问，您可以通过更改为_Nearline Storage_或_Coldline Storage_来降低存储成本。当您更改存储类别时，后续非活动数据将直接移动到您选择的类别。
+存储类别:: Google Cloud 使用 https://cloud.google.com/storage/docs/storage-classes["存储类"^]来管理成本和数据可用性。我们建议您根据预期的数据访问频率选择存储类，因为访问数据会产生更高的成本。分层数据的默认存储类为 _Standard Storage_。除非手动更改，否则所有非活动数据都保持默认存储类。要更改非活动数据的存储类，请参阅 https://docs.cloud.google.com/storage/docs/managing-lifecycles["Google Cloud 文档：管理对象生命周期"^]。
 +
 --
-
-NOTE: 当您更改存储类别时，任何现有的非活动数据都将保持默认存储类别。要更改现有非活动数据的存储类别，您必须手动执行指定。
-
-如果您确实访问数据，访问成本会更高，因此在更改存储类之前请考虑到这一点。要了解更多信息，请参阅 https://cloud.google.com/storage/docs/storage-classes["Google Cloud 文档：存储类别"^]。
-
-您可以在创建系统时选择一个存储层，之后可以随时更改它。有关更改存储类别的详细信息，请参阅link:task-tiering.html["将非活动数据分层到低成本对象存储"]。
-
 数据分层的存储类别是系统范围的 - 而不是每个卷的。
 
 --

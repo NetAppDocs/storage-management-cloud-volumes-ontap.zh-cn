@@ -452,7 +452,6 @@
   <block id="8b35709cd044db5067d3521df2dcaf1e" category="paragraph">您可以在添加Cloud Volumes ONTAP系统时选择一个存储层，之后可以随时更改它。有关更改存储层的详细信息，请参阅<block ref="689d305972679ec3d62f87ce158f78a1" category="inline-link-macro-rx"></block>。</block>
   <block id="a38b9b490932e9d5b5db3e24784ec656" category="paragraph">数据分层的存储访问层是系统范围的，而不是每个卷的。</block>
   <block id="3844834e9306a66948e49d6149c5a299" category="section-title">Google Cloud 中的数据分层</block>
-  <block id="f6535844f45781691afa19e3fe67a627" category="paragraph">当您在 Google Cloud 中启用数据分层时， Cloud Volumes ONTAP会使用持久磁盘作为热数据的性能层，并使用 Google Cloud Storage 存储桶作为非活动数据的容量层。</block>
   <block id="3b8940895816a07ee6f7b4cd2d7353e3" category="list-text">性能层可以是 SSD 持久磁盘、平衡持久磁盘或标准持久磁盘。</block>
   <block id="f2bc66356d174d95b97b4e9b8b873540" category="list-text">Cloud Volumes ONTAP系统将非活动数据分层到单个 Google Cloud Storage 存储桶。</block>
   <block id="c70455c0571fb32b900ce3ff0f662cbf" category="paragraph">控制台为每个系统创建一个存储桶并将其命名为 fabric-pool-_cluster unique identifier_。不会为每个卷创建不同的存储桶。</block>
@@ -462,11 +461,6 @@
   <block id="ed2bfa2a7df130888132e9df08fe91a7" category="list-text">访问控制：细粒度</block>
   <block id="59ec9a96a05b9ff668ebee36565638b7" category="list-text">保护：无</block>
   <block id="77d680745644d1c19a022cc0a306f88b" category="list-text">数据加密：Google 管理的密钥</block>
-  <block id="1a09137ca087e36b72504f4276c7cd08" category="list-text">分层数据的默认存储类是“标准存储”类。如果数据不经常访问，您可以通过更改为_Nearline Storage_或_Coldline Storage_来降低存储成本。当您更改存储类别时，后续非活动数据将直接移动到您选择的类别。</block>
-  <block id="0d79695d01dd236a00fcb17dec14227f" category="admonition">当您更改存储类别时，任何现有的非活动数据都将保持默认存储类别。要更改现有非活动数据的存储类别，您必须手动执行指定。</block>
-  <block id="2071f090de049a0bafd6e8e9ebc886a4" category="inline-link">Google Cloud 文档：存储类别</block>
-  <block id="5cb074dc9cd7d3ff4cc8d81685f4cf8b" category="paragraph">如果您确实访问数据，访问成本会更高，因此在更改存储类之前请考虑到这一点。要了解更多信息，请参阅<block ref="3f6491f63b376fc9e505b3fd50e825aa" category="inline-link-rx"></block>。</block>
-  <block id="f24b126c7812ed3265acaed1b04b6cd4" category="paragraph">您可以在创建系统时选择一个存储层，之后可以随时更改它。有关更改存储类别的详细信息，请参阅<block ref="689d305972679ec3d62f87ce158f78a1" category="inline-link-macro-rx"></block>。</block>
   <block id="238d935e644053bb35c58e2b34583131" category="section-title">数据分层和容量限制</block>
   <block id="2646e089c806882f23bac38369cf85f4" category="paragraph">如果启用数据分层，系统的容量限制将保持不变。该限制分布在性能层和容量层。</block>
   <block id="837170b3ba6314929f53008e61dfc57b" category="section-title">卷分层策略</block>
@@ -6535,4 +6529,8 @@
   <block id="f1e8426ee8789bca46b26081b788d901" category="doc">支持 Cloud Volumes ONTAP 中的新 Azure 区域</block>
   <block id="58c64fbe360d29edfbfa0f1e30f23980" category="paragraph">您现在可以在 Azure 的马来西亚西部（malaysiawest）区域的单个和多个可用性区域中部署 Cloud Volumes ONTAP 9.12.1 GA 及更高版本。这包括对单节点和高可用性 (HA) 部署的支持。</block>
   <block id="13a1b8a317b4b6dbe05a3757a911ea12" category="section-title">2026 年 6 月 11 日</block>
+  <block id="7cf6c49769b974e82419eeccae1b1712" category="paragraph">当您在 Google Cloud 中启用数据分层时，Cloud Volumes ONTAP 使用永久性磁盘作为热数据的性能层，并将 Google Cloud Storage 存储桶用作非活动数据的容量层。您可以在创建系统时选择存储层，并在此后随时更改。有关更改存储类的信息，请参阅 <block ref="689d305972679ec3d62f87ce158f78a1" category="inline-link-macro-rx"></block>。</block>
+  <block id="c3d731221ec9d09a910395abd309640a" category="inline-link">存储类</block>
+  <block id="40377bff33838260be995513a1e2c8e6" category="inline-link">Google Cloud 文档：管理对象生命周期</block>
+  <block id="0a69db980802dac8e0b54038dc2364d0" category="list-text">Google Cloud 使用<block ref="ec8949881e2dffa4d0e8750c51cd0497" category="inline-link-rx"></block>来管理成本和数据可用性。我们建议您根据预期的数据访问频率选择存储类，因为访问数据会产生更高的成本。分层数据的默认存储类为 _Standard Storage_。除非手动更改，否则所有非活动数据都保持默认存储类。要更改非活动数据的存储类，请参阅<block ref="9f653ab672497f99d3217a50d3927264" category="inline-link-rx"></block>。</block>
 </blocks>
