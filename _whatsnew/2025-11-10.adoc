@@ -4,6 +4,7 @@
 
 
 
+[[enhanced-nvme-tcp-support]]
 === 增强的 NVMe-TCP 支持
 
 以前，在 NVMe-TCP 上部署Cloud Volumes ONTAP实例时，您必须在部署之前手动获取和应用 NVMe 许可证。通过此次更新， Cloud Volumes ONTAP现在会在部署期间自动安装所需的 NVMe 许可证，从而简化设置过程。

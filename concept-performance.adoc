@@ -18,6 +18,7 @@ summary: 您可以查看性能结果以帮助您确定哪些工作负载适合Cl
 
 
 
+[[performance-technical-reports]]
 == 性能技术报告
 
 ifdef::aws[]
@@ -52,6 +53,7 @@ endif::gcp[]
 
 
 
+[[cpu-performance]]
 == CPU 性能
 
 从您的云提供商的监控工具来看， Cloud Volumes ONTAP节点的利用率很高（超过 90%）。这是因为ONTAP保留了虚拟机中存在的所有 vCPU，以便在需要时可用。

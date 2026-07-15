@@ -4,6 +4,7 @@
 
 
 
+[[flexible-billing-for-cloud-volumes-ontap-and-data-services-in-aws]]
 === AWS 中 Cloud Volumes ONTAP 和数据服务的灵活计费
 
 NetApp 为您在 AWS 中的 Cloud Volumes ONTAP 订阅提供了增强的计费选项，让您可以更好地控制如何支付 Cloud Volumes ONTAP 容量和 NetApp 数据服务（如 NetApp Backup and Recovery）的费用。以前，所有 Cloud Volumes ONTAP 和数据服务的使用都是通过 AWS 市场中的 NetApp Intelligent Services (NIS) 列表一起计费的。

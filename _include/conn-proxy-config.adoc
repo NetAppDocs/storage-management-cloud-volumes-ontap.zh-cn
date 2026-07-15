@@ -4,6 +4,7 @@
 
 
 
+[[network-proxy-configuration-of-netapp-console-agent]]
 === NetApp Console代理的网络代理配置
 
 您可以使用NetApp Console代理的代理服务器配置来启用来自Cloud Volumes ONTAP 的出站互联网访问。控制台支持两种类型的代理：

@@ -4,6 +4,7 @@
 
 
 
+[[introducing-azure-marketplace-direct-deployment]]
 === 介绍 Azure 市场直接部署
 
 您现在可以利用 Azure 市场直接部署功能，直接从 Azure 市场轻松快速地部署Cloud Volumes ONTAP 。使用这种简化的方法，您可以在您的环境中探索Cloud Volumes ONTAP的核心特性和功能，而无需设置BlueXP Connector 或满足通过BlueXP部署Cloud Volumes ONTAP所需的其他入职标准。

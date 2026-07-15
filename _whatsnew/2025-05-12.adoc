@@ -4,6 +4,7 @@
 
 
 
+[[discovery-of-deployments-made-through-the-azure-marketplace-in-bluexp]]
 === 在BlueXP中发现通过 Azure 市场进行的部署
 
 BlueXP现在能够发现通过 Azure 市场直接部署的Cloud Volumes ONTAP系统。这意味着您现在可以在BlueXP中将这些系统作为工作环境添加和管理，就像任何其他Cloud Volumes ONTAP系统一样。

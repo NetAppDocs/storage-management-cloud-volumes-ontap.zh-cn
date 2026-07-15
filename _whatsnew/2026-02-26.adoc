@@ -4,6 +4,7 @@
 
 
 
+[[support-for-google-infrastructure-manager-for-private-mode-deployments]]
 === 支持用于私有模式部署的 Google Infrastructure Manager
 
 Cloud Volumes ONTAP 9.16.1 及更高版本现在支持 https://docs.cloud.google.com/infrastructure-manager/docs/overview["Google Cloud Infrastructure Manager"^] (IM) 而不是 https://docs.cloud.google.com/deployment-manager/docs/deprecations["Cloud Deployment Manager"^] (DM) 用于 Google Cloud 中的新私有模式部署。Google 将在不久的将来弃用 Deployment Manager 作为基础架构服务，转而使用更高级的 Infrastructure Manager。

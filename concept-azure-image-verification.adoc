@@ -21,6 +21,7 @@ NOTE: Cloud Volumes ONTAP 9.15.0 及更高版本支持 Azure 映像验证。
 
 
 
+[[azures-alteration-of-published-vhd-files]]
 == Azure 对已发布 VHD 文件的更改
 
 VHD 文件开头的 1 MB（1048576 字节）和结尾的 512 字节已被 Azure 修改。  NetApp对剩余的 VHD 文件进行签名。

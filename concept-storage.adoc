@@ -21,6 +21,7 @@ CAUTION: 您必须从NetApp Console创建和删除所有磁盘和聚合。您不
 
 
 
+[[overview]]
 == 概述
 
 Cloud Volumes ONTAP使用云提供商存储作为磁盘并将它们分组为一个或多个聚合。聚合为一个或多个卷提供存储。
@@ -36,6 +37,7 @@ ifdef::aws[]
 
 
 
+[[aws-storage]]
 == AWS 存储
 
 在 AWS 中， Cloud Volumes ONTAP使用 EBS 存储来存储用户数据，并在某些 EC2 实例类型上使用本地 NVMe 存储作为闪存缓存。
@@ -68,6 +70,7 @@ ifdef::azure[]
 
 
 
+[[azure-storage]]
 == Azure 存储
 
 在 Azure 中，一个聚合最多可包含 12 个大小相同的磁盘。磁盘类型和最大磁盘大小取决于您使用的是单节点系统还是 HA 对：
@@ -113,11 +116,14 @@ ifdef::gcp[]
 
 
 
+[[google-cloud-storage]]
 == Google 云端存储
 
 在 Google Cloud 中，聚合最多可以包含 6 个大小相同的磁盘。最大磁盘大小为 64 TiB。
 
 磁盘类型可以是_区域 SSD 持久磁盘_、_区域平衡持久磁盘_或_区域标准持久磁盘_。您可以将永久性磁盘与 Google 存储桶配对，以link:concept-data-tiering.html["低成本对象存储"]。
+
+Cloud Volumes ONTAP 支持 Hyperdisk Balanced 磁盘，适用于 9.18.1 及更高版本的单节点部署，以及 9.19.1 及更高版本的单可用区 (AZ) 中的高可用性 (HA) 配置。
 
 相关链接
 
@@ -129,12 +135,14 @@ endif::gcp[]
 
 
 
+[[raid-type]]
 == RAID 类型
 
 每个Cloud Volumes ONTAP聚合的 RAID 类型是 RAID0（条带化）。 Cloud Volumes ONTAP依赖云提供商来实现磁盘的可用性和耐用性。不支持其他 RAID 类型。
 
 
 
+[[hot-spares]]
 === 热备件
 
 RAID0 不支持使用热备件实现冗余。

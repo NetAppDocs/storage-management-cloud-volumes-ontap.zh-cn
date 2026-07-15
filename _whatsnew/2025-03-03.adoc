@@ -4,6 +4,7 @@
 
 
 
+[[support-for-new-zealand-north-region-in-azure]]
 === Azure 对新西兰北部地区的支持
 
 Azure 现已支持新西兰北部地区的Cloud Volumes ONTAP 9.12.1 GA 及更高版本的单节点和高可用性 (HA) 配置。请注意，此区域不支持 Lsv3 实例类型。

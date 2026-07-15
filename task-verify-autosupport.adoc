@@ -20,6 +20,7 @@ AutoSupport主动监控系统的健康状况并向NetApp技术支持发送消息
 
 
 
+[[autosupport-requirements]]
 == AutoSupport要求
 
 Cloud Volumes ONTAP节点需要NetApp AutoSupport的出站互联网访问权限，它可以主动监控系统的健康状况并向NetApp技术支持发送消息。
@@ -41,6 +42,7 @@ TIP: 如果您使用 HA 对，则 HA 中介不需要出站互联网访问。
 
 
 
+[[troubleshoot-your-autosupport-configuration]]
 == 排除AutoSupport配置故障
 
 如果出站连接不可用，并且控制台无法配置您的Cloud Volumes ONTAP系统以使用控制台代理作为代理服务器，您将收到来自控制台的通知，提示您的系统无法发送AutoSupport消息。请按照以下步骤解决此问题。

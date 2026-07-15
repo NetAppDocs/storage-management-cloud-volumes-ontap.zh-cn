@@ -29,6 +29,7 @@ NetApp Console提供FlexCache卷的管理link:https://docs.netapp.com/us-en/blue
 video::PBNPVRUeT1o[youtube,width=848,height=480]
 
 
+[[work-with-flexcache-when-the-origin-is-encrypted]]
 == 当源加密时使用FlexCache
 
 在原始卷已加密的Cloud Volumes ONTAP系统上配置FlexCache时，需要执行额外的步骤，以确保FlexCache卷可以正确访问和缓存加密数据。

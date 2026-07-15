@@ -4,6 +4,7 @@
 
 
 
+[[simplified-cloud-volumes-ontap-deployment-in-azure]]
 === Azure 中的简化 Cloud Volumes ONTAP 部署
 
 现在，您可以使用快速创建在 Azure 中部署单节点和高可用性 (HA) 配置的 Cloud Volumes ONTAP。这种简化的流程与高级方法相比减少了步骤数，自动在单个页面上设置默认值，并最大限度地减少导航，使部署更快、更轻松。

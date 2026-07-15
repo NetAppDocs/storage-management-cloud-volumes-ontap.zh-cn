@@ -4,6 +4,7 @@
 
 
 
+[[restricted-availability-of-byol-licensing-for-cloud-volumes-ontap]]
 === Cloud Volumes ONTAP的 BYOL 许可可用性受限
 
 自 2025 年 6 月 25 日起， NetApp已限制Cloud Volumes ONTAP的自带许可证 (BYOL) 许可模式。此限制适用于 AWS、Azure 和 Google Cloud 中的所有客户和Cloud Volumes ONTAP部署。唯一的例外是美国公共部门客户和中国区域部署。

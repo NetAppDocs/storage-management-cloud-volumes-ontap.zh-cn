@@ -49,6 +49,7 @@ link:task-set-up-licensing-azure.html["了解如何设置许可"^] 。
 ====
 
 
+[[launch-a-single-node-cloud-volumes-ontap-system-in-azure]]
 == 在 Azure 中启动单节点Cloud Volumes ONTAP系统
 
 如果要在 Azure 中启动单节点 Cloud Volumes ONTAP 系统，需要在 Console 中创建单节点系统。
@@ -273,6 +274,7 @@ CAUTION: 部署过程完成后，请勿修改 Azure 门户中系统生成的Clou
 
 
 
+[[launch-a-cloud-volumes-ontap-ha-pair-in-azure]]
 == 在 Azure 中启动Cloud Volumes ONTAP HA 对
 
 如果您想在 Azure 中启动Cloud Volumes ONTAP HA 对，则需要在控制台中创建一个 HA 系统。

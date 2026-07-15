@@ -96,6 +96,7 @@ NOTE: 为了遵守 Microsoft Azure 限制，您应该在设置新的虚拟网络
 
 
 
+[[troubleshoot-deployment-issues]]
 == 解决部署问题
 
 直接通过 Azure 市场部署的Cloud Volumes ONTAP系统不包括NetApp的支持。如果部署过程中出现任何问题，您可以独立排除故障并解决。
@@ -114,6 +115,7 @@ NOTE: 为了遵守 Microsoft Azure 限制，您应该在设置新的虚拟网络
 
 
 
+[[discover-the-deployed-systems-in-console]]
 == 在控制台中发现已部署的系统
 
 您可以发现使用 Azure 市场直接部署部署的Cloud Volumes ONTAP系统，并在控制台中的 *系统* 页面上对其进行管理。控制台代理发现系统、添加系统并应用必要的许可证，并为这些系统解锁控制台的全部功能。保留具有 PSSD v2 托管磁盘的单个 AZ 中的原始 HA 配置，并且系统注册到与原始部署相同的 Azure 订阅和资源组。

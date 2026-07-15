@@ -4,6 +4,7 @@
 
 
 
+[[support-for-a-new-azure-region-in-cloud-volumes-ontap]]
 === 支持 Cloud Volumes ONTAP 中的新 Azure 区域
 
 您现在可以在 Azure 的马来西亚西部（malaysiawest）区域的单个和多个可用性区域中部署 Cloud Volumes ONTAP 9.12.1 GA 及更高版本。这包括对单节点和高可用性 (HA) 部署的支持。

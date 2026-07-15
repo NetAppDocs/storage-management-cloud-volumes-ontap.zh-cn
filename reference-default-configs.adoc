@@ -18,6 +18,7 @@ summary: 了解Cloud Volumes ONTAP 的默认配置方式可以帮助您设置和
 
 
 
+[[default-setup]]
 == 默认设置
 
 * NetApp Console在部署Cloud Volumes ONTAP时会创建一个数据服务存储虚拟机。某些配置支持额外的存储虚拟机。link:task-managing-svms.html["了解有关管理存储虚拟机的更多信息"] 。
@@ -128,6 +129,7 @@ NOTE: 组织或帐户管理员可以从“设置”页面修改此值。
 
 
 
+[[internal-disks-for-system-data]]
 == 用于系统数据的内部磁盘
 
 除了用户数据的存储外，控制台还购买了系统数据的云存储。
@@ -136,6 +138,7 @@ ifdef::aws[]
 
 
 
+[[aws]]
 === AWS
 
 * 每个节点有三个磁盘用于启动、根和核心数据：
@@ -172,6 +175,7 @@ ifdef::azure[]
 
 
 
+[[azure-single-node]]
 === Azure（单节点）
 
 * 三个高级 SSD 磁盘：
@@ -194,6 +198,7 @@ ifdef::azure[]
 
 
 
+[[azure-ha-pair]]
 === Azure（HA 对）
 
 .HA 与页 Blob 对
@@ -244,6 +249,7 @@ ifdef::gcp[]
 
 
 
+[[google-cloud-single-node]]
 === Google Cloud（单节点）
 
 * 一个 10 GiB SSD 永久磁盘，用于存储启动数据
@@ -260,6 +266,7 @@ NOTE: 重启时会自动创建快照。
 
 
 
+[[google-cloud-ha-pair]]
 === Google Cloud（高可用性对）
 
 * 两个 10 GiB SSD 持久磁盘用于启动数据
@@ -280,6 +287,7 @@ endif::gcp[]
 
 
 
+[[where-the-disks-reside]]
 === 磁盘所在位置
 
 存储布局：

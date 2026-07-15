@@ -18,12 +18,14 @@ Cloud Volumes ONTAP支持 iSCSI、NFS、SMB、NVMe-TCP 和 S3 客户端协议。
 
 
 
+[[iscsi]]
 == iSCSI
 
 iSCSI 是一种可以在标准以太网网络上运行的块协议。大多数客户端操作系统都提供通过标准以太网端口运行的软件启动器。
 
 
 
+[[nfs]]
 == NFS
 
 NFS是UNIX和LINUX系统的传统文件访问协议。客户端可以使用 NFSv3、NFSv4 和 NFSv4.1 协议访问ONTAP卷中的文件。您可以使用 UNIX 样式权限、NTFS 样式权限或两者的混合来控制文件访问。
@@ -32,12 +34,14 @@ NFS是UNIX和LINUX系统的传统文件访问协议。客户端可以使用 NFSv
 
 
 
+[[smb]]
 == SMB
 
 SMB是Windows系统的传统文件访问协议。客户端可以使用 SMB 2.0、SMB 2.1、SMB 3.0 和 SMB 3.1.1 协议访问ONTAP卷中的文件。与 NFS 一样，支持混合的权限样式。
 
 
 
+[[s3]]
 == S3
 
 Cloud Volumes ONTAP支持 S3 作为横向扩展存储的选项。  S3 协议支持使您能够配置 S3 客户端对存储虚拟机 (SVM) 中存储桶所含对象的访问。
@@ -46,6 +50,7 @@ link:https://docs.netapp.com/us-en/ontap/s3-multiprotocol/index.html#how-s3-mult
 
 
 
+[[nvme-tcp]]
 == NVMe-TCP
 
 从ONTAP版本 9.12.1 开始，所有云提供商均支持 NVMe-TCP。  Cloud Volumes ONTAP在部署期间支持 NVMe-TCP 作为存储虚拟机 (SVM) 的块协议，并自动安装所需的 NVMe 许可证。

@@ -22,6 +22,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 
 
 
+[[supported-number-of-storage-vms]]
 == 支持的存储虚拟机数量
 
 从Cloud Volumes ONTAP 9.11.1 开始，根据您的许可证，支持具有特定配置的多个存储虚拟机。请参阅 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["Cloud Volumes ONTAP发行说明"^]验证您的Cloud Volumes ONTAP版本支持的存储虚拟机数量。
@@ -30,6 +31,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 
 
 
+[[create-a-storage-vm]]
 == 创建存储虚拟机
 
 根据您的配置和许可证类型，您可以使用 API 在单节点系统上或在高可用性 (HA) 配置中创建多个存储 VM。
@@ -49,6 +51,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 
 
 
+[[single-node-system]]
 === 单节点系统
 
 使用以下 API 调用在单节点系统上创建存储 VM。
@@ -65,6 +68,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 ----
 
 
+[[ha-pair]]
 === HA 对
 
 使用以下 API 调用在 HA 对上创建存储虚拟机：
@@ -81,6 +85,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 ----
 
 
+[[manage-storage-vms]]
 == 管理存储虚拟机
 
 使用 API，您可以重命名和删除单节点和 HA 配置中的存储虚拟机。
@@ -90,6 +95,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 
 
 
+[[rename-a-storage-vm]]
 === 重命名存储虚拟机
 
 要重命名存储虚拟机，您应该提供现有存储虚拟机和新存储虚拟机的名称作为参数。
@@ -129,6 +135,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 
 
 
+[[delete-a-storage-vm]]
 === 删除存储虚拟机
 
 在单节点或 HA 配置中，如果存储虚拟机没有任何活动卷，则可以将其删除。

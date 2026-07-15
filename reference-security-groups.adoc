@@ -18,12 +18,14 @@ NetApp Console创建 AWS 安全组，其中包括Cloud Volumes ONTAP成功运行
 
 
 
+[[rules-for-cloud-volumes-ontap]]
 == Cloud Volumes ONTAP规则
 
 Cloud Volumes ONTAP的安全组需要入站和出站规则。
 
 
 
+[[inbound-rules]]
 === 入站规则
 
 添加Cloud Volumes ONTAP系统并选择预定义安全组时，您可以选择允许以下之一内的流量：
@@ -110,6 +112,7 @@ Cloud Volumes ONTAP的安全组需要入站和出站规则。
 |===
 
 
+[[outbound-rules]]
 === 出站规则
 
 Cloud Volumes ONTAP的预定义安全组打开所有出站流量。如果可以接受，请遵循基本的出站规则。如果您需要更严格的规则，请使用高级出站规则。
@@ -262,12 +265,14 @@ NOTE: 源是Cloud Volumes ONTAP系统上的接口（IP 地址）。
 |===
 
 
+[[rules-for-the-ha-mediator-external-security-group]]
 == HA 调解器外部安全组的规则
 
 Cloud Volumes ONTAP HA 中介的预定义外部安全组包括以下入站和出站规则。
 
 
 
+[[inbound-rules]]
 === 入站规则
 
 HA 中介的预定义安全组包括以下入站规则。
@@ -281,6 +286,7 @@ HA 中介的预定义安全组包括以下入站规则。
 |===
 
 
+[[outbound-rules]]
 === 出站规则
 
 HA 中介的预定义安全组打开所有出站流量。如果可以接受，请遵循基本的出站规则。如果您需要更严格的规则，请使用高级出站规则。
@@ -325,6 +331,7 @@ NOTE: 您可以创建从目标子网到 AWS EC2 服务的接口 VPC 端点，而
 
 
 
+[[rules-for-the-ha-configuration-internal-security-group]]
 == HA 配置内部安全组的规则
 
 Cloud Volumes ONTAP HA 配置的预定义内部安全组包括以下规则。该安全组支持 HA 节点之间以及中介与节点之间的通信。
@@ -333,6 +340,7 @@ Cloud Volumes ONTAP HA 配置的预定义内部安全组包括以下规则。该
 
 
 
+[[inbound-rules]]
 === 入站规则
 
 预定义安全组包括以下入站规则。
@@ -346,6 +354,7 @@ Cloud Volumes ONTAP HA 配置的预定义内部安全组包括以下规则。该
 |===
 
 
+[[outbound-rules]]
 === 出站规则
 
 预定义安全组包括以下出站规则。
@@ -359,6 +368,7 @@ Cloud Volumes ONTAP HA 配置的预定义内部安全组包括以下规则。该
 |===
 
 
+[[rules-for-the-console-agent]]
 == 控制台代理的规则
 
 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-aws.html["查看控制台代理的安全组规则"^]
