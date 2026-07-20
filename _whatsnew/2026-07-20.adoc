@@ -1,0 +1,46 @@
+= 简化从 AWS Marketplace 载入 Cloud Volumes ONTAP 的流程
+:allow-uri-read: 
+
+
+
+
+[[introducing-simplified-onboarding-of-cloud-volumes-ontap-from-aws-marketplace]]
+=== 简化从 AWS Marketplace 载入 Cloud Volumes ONTAP 的流程
+
+NetApp 为来自 AWS Marketplace 的 Cloud Volumes ONTAP 引入了简化的入门流程，减少了手动步骤和入门阻力。
+
+以前，从 AWS Marketplace 部署 Cloud Volumes ONTAP 需要在多个屏幕之间导航，并手动配置角色、策略和凭据。这使得入门流程缓慢且容易出错。
+
+新的入职流程通过以下功能简化了从市场订阅到全面运行的 Cloud Volumes ONTAP 环境的过渡：
+
+. 订阅 AWS Marketplace 上的专用 Cloud Volumes ONTAP 列表：您在 AWS Marketplace 上订阅 Cloud Volumes ONTAP 独立列表，购买订阅并设置您的 AWS 帐户（如果您还没有）。
+. 在 NetApp Console 上的引导路径：您在 NetApp Console 中设置帐户，Console 会自动引导您进入部署过程，并在右侧显示引导路径。如果您需要离开 Console，可以稍后继续引导行程。
+. 关联您的订阅：您可以自动将订阅与 Console 关联，从而避免手动链接的步骤。
+. 使用 AWS 凭据配置的控制台代理部署：您可以自动创建所需的 AWS 角色。该流程在您的 AWS 账户中部署 AWS CloudFormation 堆栈，其中包含供您查看的角色和策略，然后将其与 NetApp Console 相关联，从而无需手动设置 IAM。然后继续完成代理配置、网络和安全组设置，以开始代理部署。
+. 在 AWS 中部署新的 Cloud Volumes ONTAP 系统：您可以直接导航到 `Quick create`向导，以实现更快、更简化的 Cloud Volumes ONTAP 部署。
+
+
+.相关链接
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用快速创建部署 Cloud Volumes ONTAP"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#flexible-billing-for-cloud-volumes-ontap-and-data-services-in-aws["AWS 中 Cloud Volumes ONTAP 和数据服务的灵活计费"^]
+
+
+
+
+[[well-architected-configuration-analysis-for-cloud-volumes-ontap-in-azure]]
+=== Azure 中 Cloud Volumes ONTAP 的良好架构配置分析
+
+NetApp Console 现在支持对在 Microsoft Azure 中运行的 Cloud Volumes ONTAP 系统进行良好架构配置分析。Console 每天分析您的部署，并提供良好架构状态、见解和建议，以帮助您维护符合 NetApp 最佳实践和良好架构框架的系统。
+
+精心设计的仪表板显示已分析系统的总数，并按配置和严重级别对其资源进行分类。如果您是系统管理员，您可以直接从 Console 仪表板查看组织内任何配置问题的建议，并下载所有建议的 CSV 报告。配置根据以下内容进行分类：
+
+* *可靠性*：即使在发生中断时，也能确保工作负载正常一致地运行。
+* *安全*：通过风险评估和缓解来保护数据、系统和资产。
+* *卓越运营*：优化架构，实现业务价值最大化。
+* *成本优化*：降低和优化成本，实现更大的业务价值。
+
+
+.相关链接
+* https://docs.netapp.com/us-en/console-well-architected/cvo/configuration-analysis-cvo.html["Cloud Volumes ONTAP 的配置分析"^]
+* https://docs.netapp.com/us-en/console-well-architected/improve-configurations-cvo.html["实施精心设计的系统配置"^]
+
