@@ -63,7 +63,7 @@ NetApp Console 现在支持对在 Microsoft Azure 中运行的 Cloud Volumes ONT
 
 .相关链接
 * https://docs.netapp.com/us-en/console-well-architected/cvo/configuration-analysis-cvo.html["Cloud Volumes ONTAP 的配置分析"^]
-* https://docs.netapp.com/us-en/console-well-architected/improve-configurations-cvo.html["实施精心设计的系统配置"^]
+* https://docs.netapp.com/us-en/console-well-architected/cvo/improve-configurations-cvo.html["实施架构良好的 Cloud Volumes ONTAP 系统配置"^]
 
 
 
