@@ -57,7 +57,7 @@ link:https://docs.aws.amazon.com/local-zones/latest/ug/getting-started.html["AWS
 
 Cloud Volumes ONTAP支持多种实例类型，具体取决于您选择的许可证类型。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["AWS 中Cloud Volumes ONTAP支持的配置"^]
+link:reference-configs-aws.html["AWS 中Cloud Volumes ONTAP支持的配置"]
 
 
 

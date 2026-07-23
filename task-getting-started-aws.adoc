@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: task-getting-started-aws.html 
 keywords: amazon web services, aws, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, vpc, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, get started, network, vpn, multi-cloud, tier, storage tier, data tier, vpc endpoint, endpoint, S3, subscribe, subscribing, marketplace, granting, permissions, policy, iam policy, ec2 console, ami, mediator, connectivity, internet, outbound, endpoint, connection, networks, replicating, ec2 service, policies, attach, iam user, access key, secret key, keys, sign up, cloud manager, cloud volumes ontap, cloud ontap, create, console 
-summary: 只需几个步骤即可开始使用Cloud Volumes ONTAP for AWS。 
+summary: 验证您已完成在 AWS 中部署 Cloud Volumes ONTAP 的先决条件。 
 ---
-= AWS 中的Cloud Volumes ONTAP快速入门
+= Cloud Volumes ONTAP 在 AWS 中的部署概述
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,43 +14,78 @@ summary: 只需几个步骤即可开始使用Cloud Volumes ONTAP for AWS。
 
 
 [role="lead"]
-只需几个步骤即可开始在 AWS 中使用Cloud Volumes ONTAP 。
+要部署 Cloud Volumes ONTAP，您首先需要了解 AWS 订阅和 Cloud Volumes ONTAP 许可证。您还必须验证是否为 AWS 帐户创建了 NetApp Console 代理。本主题中的大部分信息需要在开始部署 Cloud Volumes ONTAP 之前作为 Console 设置的一部分来执行。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]创建控制台代理
-[role="quick-margin-para"]
-如果你没有 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["控制台代理"^]但是，您需要创建一个。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html["了解如何在 AWS 中创建控制台代理"^] 。
+[cols="20,35,25,25"]
+|===
+| 任务 | 描述 | 参考 | 专用模式部署注意事项 
 
-[role="quick-margin-para"]
-请注意，如果您想在没有互联网访问的子网中部署Cloud Volumes ONTAP ，则需要手动安装控制台代理并访问在该控制台代理上运行的NetApp Console用户界面。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["了解如何在没有互联网访问的地方手动安装控制台代理"^] 。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]规划您的配置
-[role="quick-margin-para"]
-控制台提供符合您的工作负载要求的预配置包，或者您可以创建自己的配置。如果您选择自己的配置，您应该了解可用的选项。link:task-planning-your-config.html["了解更多"] 。
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]设置网络
-[role="quick-margin-list"]
-. 确保您的 VPC 和子网将支持控制台代理和Cloud Volumes ONTAP之间的连接。
-. 为NetApp AutoSupport启用从目标 VPC 的出站互联网访问。
-+
-如果您在没有互联网访问的位置部署Cloud Volumes ONTAP，则不需要执行此步骤。
-
-. 设置 Amazon Simple Storage Service (Amazon S3) 服务的 VPC 端点。
-+
-如果您想将冷数据从Cloud Volumes ONTAP到低成本对象存储，则需要 VPC 端点。
+ a| 
+创建 Console 代理
+ a| 
+如果您还没有 Console 代理，请在部署 Cloud Volumes ONTAP 之前创建一个。如果部署在没有 Internet 访问权限的子网中，请手动安装 Console 代理并访问在该代理上运行的 NetApp Console。
+ a| 
+请参见 Console 设置指南：https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html["在 AWS 中创建 Console 代理"^]
+ a| 
+如果部署在没有 Internet 访问权限的子网中，请手动安装 Console 代理并访问该 NetApp Console 代理上运行的 Console 用户界面。请参阅 Console 设置指南：https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["在没有互联网访问的情况下手动安装 Console 代理"^]
 
 
 
-[role="quick-margin-para"]
-link:reference-networking-aws.html["了解有关网络要求的更多信息"] 。
+ a| 
+规划您的配置
+ a| 
+控制台提供符合您的工作负载要求的预配置包，或者您可以创建自己的配置。如果您选择自己的配置，您应该了解可用的选项。
+ a| 
+link:task-planning-your-config.html["规划您的配置"]
+ a| 
+对于私有模式部署，您需要具有类似的规划考虑因素。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]设置 AWS KMS
-[role="quick-margin-para"]
-如果您想将 Amazon 加密与Cloud Volumes ONTAP结合使用，则需要确保存在有效的客户主密钥 (CMK)。您还需要通过添加以_密钥用户_身份向控制台代理提供权限的 IAM 角色来修改每个 CMK 的密钥策略。link:task-setting-up-kms.html["了解更多"] 。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五"]使用控制台启动Cloud Volumes ONTAP
-[role="quick-margin-para"]
-单击“*添加系统*”，选择您想要部署的系统类型，然后完成向导中的步骤。link:task-deploying-otc-aws.html["阅读分步说明"] 。
 
+ a| 
+设置网络
+ a| 
+. 确保您的 VPC 和子网支持 Console 代理与 Cloud Volumes ONTAP 之间的连接。
+. 为 AutoSupport 启用出站 Internet 访问。
+. 为数据分层设置 Amazon S3 的 VPC 端点。如果要将冷数据从 Cloud Volumes ONTAP 分层到低成本对象存储，则需要 VPC 端点。
+
+ a| 
+link:reference-networking-aws.html["AWS 的网络要求"]
+ a| 
+无需为 AutoSupport 提供出站互联网访问。所有其他网络要求保持不变。
+
+
+
+ a| 
+设置 AWS KMS
+ a| 
+如果要将 Amazon 加密与 Cloud Volumes ONTAP 结合使用，请确保存在活动的客户主密钥 (CMK)，并修改密钥策略以将 Console 代理的 IAM 角色添加为密钥用户。
+ a| 
+link:task-setting-up-kms.html["设置 AWS KMS"]
+ a| 
+类似的步骤也适用于私有模式部署。
+
+
+
+ a| 
+从控制台部署 Cloud Volumes ONTAP
+ a| 
+完成所有先决条件后，您可以完成向导中的步骤，在 AWS 中部署 Cloud Volumes ONTAP。
+ a| 
+* link:task-quick-deploy-aws.html["使用快速创建部署 Cloud Volumes ONTAP"]
+* link:task-deploying-otc-aws.html["使用高级选项部署 Cloud Volumes ONTAP"]
+
+ a| 
+开始部署前，请确保已从 NetApp 购买 Cloud Volumes ONTAP 许可证。专用模式部署需要基于节点的 BYOL 许可证。市场订阅不支持对您的 Cloud Volumes ONTAP 使用量计费。请从 NetApp 获取许可证文件，并在部署过程中上传。请参阅：
+
+* link:concept-license-management.html["基于节点的 BYOL 许可证管理"]
+* link:task-manage-node-licenses.html["管理基于节点的 BYOL 许可证"]
+* link:task-quick-deploy-aws.html["使用快速创建部署 Cloud Volumes ONTAP"]
+* link:task-deploying-otc-aws.html["使用高级选项部署 Cloud Volumes ONTAP"]
+
+
+|===
 .相关链接
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-bluexp.html["为 AWS 创建控制台代理"^]
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-marketplace.html["从 AWS Marketplace 创建控制台代理"^]

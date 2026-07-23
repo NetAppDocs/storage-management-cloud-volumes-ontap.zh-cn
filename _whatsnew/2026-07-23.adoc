@@ -1,0 +1,17 @@
+= 支持 Azure 中的智利中部地区
+:allow-uri-read: 
+
+
+
+
+[[support-for-chile-central-region-in-azure]]
+=== 支持 Azure 中的智利中部地区
+
+现在可以在 Azure 的智利中部（chilecentral）区域部署 Cloud Volumes ONTAP 9.12.1 GA 及更高版本。支持以下部署类型：
+
+* 单节点
+* 使用本地冗余存储 (LRS) 的单个可用性区域中的 HA
+* 使用区域冗余存储 (ZRS) 在多个可用区中实现 HA
+
+
+有关所有受支持区域的列表，请参阅 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球区域地图"^]。

@@ -4,7 +4,7 @@ permalink: task-managing-svms.html
 keywords: storage virtual machine, vserver, svm, storage vm, supported number, number supported 
 summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端提供存储和数据服务。您可能知道这是 SVM 或 vserver。  Cloud Volumes ONTAP默认配置一个存储虚拟机，但某些配置支持额外的存储虚拟机。 
 ---
-= 管理Cloud Volumes ONTAP 的存储虚拟机
+= Cloud Volumes ONTAP 存储 VM
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 
 
 [role="lead"]
-存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端提供存储和数据服务。您可能知道这是一个_SVM_或_vserver_。  Cloud Volumes ONTAP默认配置一个存储虚拟机，但某些配置支持额外的存储虚拟机。
+存储虚拟机 (SVM) 是在 ONTAP 中运行的虚拟机，可为您的客户端提供存储和数据服务。您可能会将其称为 _SVM_ 或 _vserver_。Cloud Volumes ONTAP 默认配置一个存储虚拟机，但某些配置支持额外的存储虚拟机。
 
 
 

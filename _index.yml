@@ -5,76 +5,105 @@ indexpage:
   tiles:
   - title: 开始使用
     links:
-    - title: 了解Cloud Volumes ONTAP
+    - title: 什么是新的
+      url: whats-new.html
+    - title: 什么是 Cloud Volumes ONTAP？
       url: concept-overview-cvo.html
-    - title: AWS 快速入门
-      url: task-getting-started-aws.html
-    - title: AWS Top Secret/Secret Cloud 区域快速入门
-      url: task-getting-started-aws-c2s.html
-      flavor: aws
-    - title: Azure 快速入门
-      url: task-getting-started-azure.html
-      flavor: azure
-    - title: Google Cloud 快速入门
-      url: task-getting-started-gcp.html
-      flavor: gcp
-  - title: 许可
+    - title: 安全与合规性
+      url: concept-security.html
+    - title: 支持的版本
+      url: reference-versions.html
+    - title: 支持的升级路径
+      url: task-updating-ontap-cloud.html#supported-upgrade-paths
+    - title: 默认配置
+      url: reference-default-configs.html
+  - title: 了解Cloud Volumes ONTAP
     links:
-    - title: 许可概述
+    - title: 许可
       url: concept-licensing.html
-    - title: 管理基于容量的许可证
-      url: task-manage-capacity-licenses.html
-    - title: 交换未分配的基于节点的许可证
-      url: task-manage-node-licenses.html#exchange-unassigned-node-based-licenses
-    - title: 管理Keystone订阅
-      url: task-manage-keystone.html
-  - title: 存储管理
-    links:
-    - title: 创建卷
-      url: task-create-volumes.html
-    - title: 将非活动数据分层到对象存储
-      url: task-tiering.html
-    - title: 使用FlexCache加速数据访问
-      url: task-accelerate-data-access.html
-    - title: ONTAP SAN 主机配置
-      url: https://docs.netapp.com/us-en/ontap-sanhost
-  - title: 系统管理
-    links:
-    - title: 升级Cloud Volumes ONTAP
-      url: task-updating-ontap-cloud.html
-    - title: 停止并启动Cloud Volumes ONTAP
-      url: task-managing-state.html
-  - title: 安全性
-    links:
-    - title: 使用NetApp加密技术加密卷
-      url: task-encrypting-volumes.html
-    - title: 提高勒索软件防护
-      url: task-protecting-ransomware.html
-  - title: API
-    links:
-    - title: Cloud Volumes ONTAP API 概述
-      url: https://docs.netapp.com/us-en/bluexp-automation/cm/overview.html
-    - title: 准备使用 API
-      url: https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html
-    - title: API 参考
-      url: https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html
-  - title: 故障排除
-    links:
-    - title: NetApp知识库
-      url: https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Volumes_ONTAP_(CVO)
-  - title: 参考
+    - title: 安全性
+      url: concept-security.html
+    - title: 了解加密
+      url: concept-security.html
+    - title: 存储管理
+      url: concept-storage-management.html
+    - title: 用于Cloud Volumes ONTAP集群的磁盘和聚合
+      url: reference-default-configs.html
+    - title: Cloud Volumes ONTAP 工作负载的性能监控
+      url: concept-performance.html
+  - title: AWS
     links:
     - title: 支持的配置
-      url: https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html
+      url: reference-configs-aws.html
+    - title: 了解 AWS 中的Cloud Volumes ONTAP HA 对
+      url: concept-ha.html
+    - title: AWS 中的网络要求/安全要求
+      url: reference-networking-aws.html
+    - title: 快速部署
+      url: task-quick-deploy-aws.html
+    - title: 在秘密云中部署 AWS
+      url: task-getting-started-aws-c2s.html
+    - title: 使用 AWS Key Management Service 管理加密密钥
+      url: task-aws-key-management.html
+  - title: Azure
+    links:
+    - title: 支持的配置
+      url: reference-configs-azure.html
+    - title: 了解 Azure 中的Cloud Volumes ONTAP HA 对
+      url: concept-ha-azure.html
+    - title: Azure 中的网络要求/安全要求
+      url: reference-networking-azure.html
+    - title: 快速部署
+      url: task-quick-deploy-azure.html
+    - title: 在市场中部署
+      url: task-deploy-cvo-azure-mktplc.html
+    - title: 使用 Azure Key Vault 管理加密密钥
+      url: task-azure-key-vault.html
+  - title: Google Cloud
+    links:
+    - title: 支持的配置
+      url: reference-configs-gcp.html
+    - title: 了解 Google Cloud 中的Cloud Volumes ONTAP HA 对
+      url: concept-ha-google-cloud.html
+    - title: Google Cloud 中的网络要求/安全要求
+      url: reference-networking-gcp.html
+    - title: 快速部署
+      url: task-getting-started-gcp.html
+    - title: 使用 Google Cloud KMS 管理加密密钥
+      url: task-google-key-manager.html
+  - title: 系统和存储管理
+    links:
+    - title: 管理基于容量的许可
+      url: task-manage-capacity-licenses.html
+    - title: 将基于节点的许可证转换为基于容量的许可证
+      url: task-convert-node-capacity.html
+    - title: 在系统上创建 FlexVol volume
+      url: task-create-volumes.html
+    - title: 将非活动数据分层
+      url: task-tiering.html
+    - title: 管理存储虚拟机
+      url: task-managing-svms.html
+    - title: 在 Cloud Volumes ONTAP 上加密卷
+      url: task-encrypting-volumes.html
+  - title: API 参考（NetApp Console Automation）
+    links:
+    - title: API 参考
+      url: https://docs.netapp.com/us-en/console-automation/cm/overview.html
+    - title: Cloud Volumes ONTAP API 概述
+      url: https://docs.netapp.com/us-en/console-automation/cm/prepare.html
+    - title: 准备使用 API
+      url: https://docs.netapp.com/us-en/console-automation/cm/prepare.html
+  - title: 更多资源
+    links:
+    - title: 故障排除
+      url: https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Cloud_Volumes_ONTAP_(CVO)
+    - title: ONTAP 用户界面
+      url: https://docs.netapp.com/us-en/ontap/concepts/introducing-ontap-interfaces-concept.html
+    - title: 将 ONTAP CLI 用于 Cloud Volumes ONTAP
+      url: https://docs.netapp.com/us-en/ontap-cli/index.html
     - title: 支持的云区域
       url: https://bluexp.netapp.com/cloud-volumes-global-regions
     - title: 计算器
       url: https://www.netapp.com/ontap-cloud/pricing/
-  - title: 博客和社区
-    links:
-    - title: NetApp Console
-      url: https://www.netapp.com/console
-    - title: NetApp Data Services
-      url: https://www.netapp.com/data-services/
     - title: NetApp 社区
       url: https://community.netapp.com/

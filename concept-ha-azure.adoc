@@ -52,7 +52,7 @@ https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-target
 
 
 
-NOTE: 从Cloud Volumes ONTAP 9.15.0P1 开始，Azure 页面 blob 不再支持新的高可用性对部署。如果您当前在现有的高可用性对部署中使用 Azure 页 Blob，则可以迁移到 Edsv4 系列 VM 和 Edsv5 系列 VM 中较新的 VM 实例类型。link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html#ha-pairs["详细了解 Azure 中支持的配置"^] 。
+NOTE: 从 Cloud Volumes ONTAP 9.15.0P1 开始，新的高可用性对部署不再支持 Azure 页面 Blob。如果当前在现有的高可用性对部署中使用 Azure 页面 Blob，则可以迁移到 Edsv4 系列虚拟机和 Edsv5 系列虚拟机中较新的虚拟机实例类型。link:link:reference-configs-azure.html#ha-pairs["详细了解 Azure 中支持的配置"]。
 
 
 

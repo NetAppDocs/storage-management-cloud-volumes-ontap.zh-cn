@@ -4,7 +4,7 @@ permalink: task-segregate-snapmirror-azure.html
 keywords: segregate, SnapMirror, SnapMirror traffic, SnapMirror replication, add, additional NIC, new NIC, intercluster LIF, non-routable subnet, subnet 
 summary: 借助 Azure 中的Cloud Volumes ONTAP ，您可以使用不同的网络隔离SnapMirror复制流量，以增强数据的安全性和性能。 
 ---
-= 在 Azure 中隔离SnapMirror流量
+= 在 Azure 中隔离 Cloud Volumes ONTAP 中的 SnapMirror 流量
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

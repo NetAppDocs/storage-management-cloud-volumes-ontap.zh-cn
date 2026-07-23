@@ -1,0 +1,1307 @@
+---
+sidebar: sidebar 
+permalink: reference-configs-azure.html 
+keywords: vm, explore, standard, premium, byol, capacity, maximum, virtual machine, Cloud Volumes ONTAP, supported, configurations, disks, sizes 
+summary: Azure 支持多个 Cloud Volumes ONTAP 配置。 
+---
+= Azure 中Cloud Volumes ONTAP支持的配置
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Azure 支持多个 Cloud Volumes ONTAP 配置。
+
+
+
+[[supported-disk-types]]
+== 支持的磁盘类型
+
+除了用户数据的存储之外，NetApp 还为 Azure 中的系统数据购买云存储。
+
+
+
+[[internal-disks-for-system-data-azure-single-node]]
+=== 系统数据 Azure 的内部磁盘（单节点）
+
+以下内部磁盘用于 Azure 中的系统数据：
+
+* 三个高级 SSD 磁盘：
++
+** 一个 10 GiB 磁盘用于启动数据
+** 一个 140 GiB 磁盘用于根数据
+** 一个 512 GiB 磁盘用于NVRAM
++
+如果您为Cloud Volumes ONTAP选择的虚拟机支持 Ultra SSD，则系统将使用 32 GiB Ultra SSD 作为NVRAM，而不是 Premium SSD。
+
+
+
+* 一个 1024 GiB 标准 HDD 磁盘，用于保存核心
+* 每个启动磁盘和根磁盘对应一个 Azure 快照
+* 默认情况下，Azure 中的每个磁盘都是静态加密的。
++
+如果您为Cloud Volumes ONTAP选择的虚拟机支持 Premium SSD v2 托管磁盘作为数据磁盘，则系统将使用 32 GiB Premium SSD v2 托管磁盘作为NVRAM，并使用另一个磁盘作为根磁盘。
+
+
+
+
+
+[[internal-disks-for-system-data-azure-ha-pair]]
+=== 用于系统数据 Azure HA 对的内部磁盘
+
+.HA 与页 Blob 对
+* 两个 10 GiB Premium SSD 磁盘用于启动卷（每个节点一个）
+* 两个用于根卷的 140 GiB 高级存储页 Blob（每个节点一个）
+* 两个 1024 GiB 标准 HDD 磁盘用于保存核心（每个节点一个）
+* 两个 512 GiB 高级 SSD 磁盘用于NVRAM （每个节点一个）
+* 每个启动磁盘和根磁盘对应一个 Azure 快照
++
+
+NOTE: 重启时会自动创建快照。
+
+* 默认情况下，Azure 中的每个磁盘都是静态加密的。
+
+
+.HA 对与多个可用区域中的共享托管磁盘
+* 两个 10 GiB Premium SSD 磁盘用于启动卷（每个节点一个）
+* 两个 512 GiB 高级 SSD 磁盘用于根卷（每个节点一个）
+* 两个 1024 GiB 标准 HDD 磁盘用于保存核心（每个节点一个）
+* 两个 512 GiB 高级 SSD 磁盘用于NVRAM （每个节点一个）
+* 每个启动磁盘和根磁盘对应一个 Azure 快照
++
+
+NOTE: 重启时会自动创建快照。
+
+* 默认情况下，Azure 中的每个磁盘都是静态加密的。
+
+
+.单个可用区域中具有共享托管磁盘的 HA 对
+* 两个 10 GiB Premium SSD 磁盘用于启动卷（每个节点一个）
+* 两个 512 GiB 高级 SSD 共享托管磁盘，用于根卷（每个节点一个）
+* 两个 1024 GiB 标准 HDD 磁盘用于保存核心（每个节点一个）
+* 两个 512 GiB 高级 SSD 托管磁盘用于NVRAM （每个节点一个）
+
+
+如果您的虚拟机支持高级 SSD v2 托管磁盘作为数据磁盘，它将使用 32 GiB 高级 SSD v2 托管磁盘作为NVRAM ，并使用 512 GiB 高级 SSD v2 共享托管磁盘作为根卷。
+
+当满足以下条件时，您可以在单个可用区域中部署 HA 对并使用高级 SSD v2 托管磁盘：
+
+* Cloud Volumes ONTAP的版本为 9.15.1 或更高版本。
+* 所选区域和区域支持高级 SSD v2 托管磁盘。有关受支持区域的信息，请参阅 https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/["Microsoft Azure 网站：按地区提供的产品"^]。
+* 订阅已注册为 Microsoftlink:task-saz-feature.html["Microsoft.Compute/VMOrchestratorZonalMultiFD 功能"] 。
+
+
+
+
+[[azure-storage-for-user-data]]
+=== 用于用户数据的 Azure 存储
+
+在 Azure 中，一个聚合最多可包含 12 个大小相同的磁盘。磁盘类型和最大磁盘大小取决于您使用的是单节点系统还是 HA 对：
+
+单节点系统:: 单节点系统可以使用以下类型的 Azure 托管磁盘：
++
+--
+* _高级 SSD 托管磁盘_ 以更高的成本为 I/O 密集型工作负载提供高性能。
+* 与高级 SSD 托管磁盘相比，_高级 SSD v2 托管磁盘_ 为单节点和 HA 对提供了更高的性能和更低的延迟，并且成本更低。
+* _标准 SSD 托管磁盘_为需要低 IOPS 的工作负载提供一致的性能。
+* 如果您不需要高 IOPS 并且想要降低成本，那么“标准 HDD 托管磁盘”是一个不错的选择。
++
+每种托管磁盘类型的最大磁盘大小为 32 TiB。
+
++
+您可以将托管磁盘与 Azure Blob 存储配对，以link:concept-data-tiering.html["低成本对象存储"]。
+
+
+
+--
+HA 对:: HA 对使用两种类型的磁盘，它们以更高的成本为 I/O 密集型工作负载提供高性能：
++
+--
+* _Premium page blob_，最大磁盘大小为 8 TiB
+* _托管磁盘_，最大磁盘大小为 32 TiB
+
+
+--
+
+
+
+
+[[supported-configurations-by-license]]
+== 按许可证支持的配置
+
+Cloud Volumes ONTAP 在 Azure 中可用作单节点系统和高可用性 (HA) 节点对，以实现容错和无中断操作。
+
+不支持将单节点系统升级到 HA 对。如果要在单节点系统和 HA 对之间切换，则需要部署新系统并将数据从现有系统复制到新系统。
+
+Cloud Volumes ONTAP 可以在云提供商提供的保留或按需 VM 实例上运行。不支持使用其他 VM 实例类型的解决方案。
+
+有关支持的实例规范，请参见  https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/overview["Microsoft Azure 文档"^]。
+
+
+
+[[single-node-systems]]
+=== 单节点系统
+
+在 Azure 中将 Cloud Volumes ONTAP 部署为单节点系统时，您可以从以下基于容量或基于节点的许可配置中进行选择。
+
+Cloud Volumes ONTAP 可以在云提供商提供的保留或按需 VM 实例上运行。不支持使用其他 VM 实例类型的解决方案。
+
+[role="tabbed-block"]
+====
+.基于容量的许可证
+--
+[cols="h,d,d,d"]
+|===
+|  | 免费增值 | 已优化^5^ | 基于容量的许可证（Essentials 和 Professional） 
+
+
+| 最大系统容量（磁盘 + 对象存储） | 500 GiB  a| 
+通过基于容量的许可，每个 Cloud Volumes ONTAP 系统都支持到对象存储的分层。总分层容量可以扩展到云提供商的存储桶限制。虽然许可证不会施加容量限制，但在配置和管理分层时，应遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳实践"^]以确保最佳性能、可靠性和成本效率。
+
+
+
+| 支持的虚拟机类型  a| 
+.DSv2 系列
+[%collapsible]
+=====
+* DS4_v2 ^1^
+* DS5_v2 ^1^
+* DS13_v2 ^1^
+* DS14_v2 ^1^
+* DS15_v2 ^1^
+
+
+=====
+.Ebdsv5 系列
+[%collapsible]
+=====
+* E4bds_v5 ^7^
+* E8bds_v5 ^7^
+* E16bds_v5 ^7^
+* E32bds_v5 ^7^
+* E48bds_v5 ^7^
+* E64bds_v5 ^7^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E4ds_v4
+* E8ds_v4
+* E32ds_v4 ^3^
+* E48ds_v4 ^3^
+* E80ids_v4 ^3^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E4ds_v5
+* E8ds_v5
+* E20ds_v5 ^3^
+* E32ds_v5 ^3^
+* E48ds_v5 ^3^
+* E64ds_v5 ^3^
+* E104ids_v5 ^7^
+
+
+=====
+.Edsv6 系列
+[%collapsible]
+=====
+* E4ds_v6 ^6^
+* E20ds_v6 ^6^
+* E32ds_v6 ^6^
+* E48ds_v6 ^6^
+* E64ds_v6 ^6^
+
+
+=====
+.Esv3 系列
+[%collapsible]
+=====
+* E4s_v3 ^1^
+* E8s_v3 ^1^
+* E32s_v3 ^1,3^
+* E48s_v3 ^1,3^
+* E64is_v3 ^1,3^
+
+
+=====
+.Lsv3 系列
+[%collapsible]
+=====
+* L8s_v3 ^2^
+* L16s_v3 ^2^
+* L32s_v3 ^2^
+* L48s_v3 ^2^
+* L64s_v3 ^2^
+
+
+===== a| 
+.DSv2 系列
+[%collapsible]
+=====
+* DS4_v2 ^1^
+* DS13_v2 ^1^
+
+
+=====
+.Esv3 系列
+[%collapsible]
+=====
+* E4s_v3 ^1^
+* E8s_v3 ^1^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E4ds_v4 ^3^
+* E8ds_v4 ^3^
+* E4ds_v5
+* E8ds_v5
+
+
+===== a| 
+.DSv2 系列
+[%collapsible]
+=====
+* DS4_v2 ^1^
+* DS5_v2 ^1^
+* DS13_v2 ^1^
+* DS14_v2 ^1^
+* DS15_v2 ^1^
+
+
+=====
+.Ebdsv5 系列
+[%collapsible]
+=====
+* E4bds_v5 ^7^
+* E8bds_v5 ^7^
+* E16bds_v5 ^7^
+* E32bds_v5 ^7^
+* E48bds_v5 ^7^
+* E64bds_v5 ^7^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E4ds_v4 ^3^
+* E8ds_v4 ^3^
+* E32ds_v4 ^3^
+* E48ds_v4 ^3^
+* E80ids_v4 ^3^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E4ds_v5
+* E8ds_v5
+* E20ds_v5 ^3^
+* E32ds_v5 ^3^
+* E48ds_v5 ^3^
+* E64ds_v5 ^3^
+* E104ids_v5 ^7^
+
+
+=====
+.Edsv6 系列
+[%collapsible]
+=====
+* E4ds_v6 ^6^
+* E20ds_v6 ^6^
+* E32ds_v6 ^6^
+* E48ds_v6 ^6^
+* E64ds_v6 ^6^
+
+
+=====
+.Esv3 系列
+[%collapsible]
+=====
+* E4s_v3 ^1^
+* E8s_v3 ^1^
+* E32s_v3 ^1,3^
+* E48s_v3 ^1,3^
+* E64is_v3 ^1,3^
+
+
+=====
+.Lsv3 系列
+[%collapsible]
+=====
+* L8s_v3 ^2^
+* L16s_v3 ^2^
+* L32s_v3 ^2^
+* L48s_v3 ^2^
+* L64s_v3 ^2^
+
+
+=====
+
+
+| 支持的磁盘类型 ^4^ 3+| 标准 HDD Managed Disks、标准 SSD Managed Disks、高级 SSD Managed Disks 和高级 SSD v2 Managed Disks。 
+|===
+注：
+
+. ^1^ 在 Azure 中部署 Cloud Volumes ONTAP 的新实例时，DSv2 和 Esv3 机器系列在 NetApp Console 上不再可供选择。这些系列将仅在较旧的现有系统中保留和支持。仅从 9.12.1 版本开始，Azure 才支持 Cloud Volumes ONTAP 的新部署。我们建议您切换到 Es_v4 或与 Cloud Volumes ONTAP 9.12.1 及更高版本兼容的任何其他系列。但是，DS_v2 和 Es_v3 系列机器将可用于通过 API 进行的新部署。
+. ^2^ 此 VM 类型包括本地 NVMe 存储，Cloud Volumes ONTAP 将其用作 _Flash Cache_。Flash Cache 通过对最近读取的用户数据和 NetApp 元数据进行实时智能缓存，加快了对数据的访问速度。它适用于随机读取密集型工作负载，包括数据库、电子邮件和文件服务 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-flash-cache.html["了解更多"^]。
++
+在 Azure 上配置 Flash Cache 所需的最低 ONTAP 版本为 9.13.1 GA。
+
+. ^3^ 这些 VM 类型使用 https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-enable-ultra-ssd["Ultra SSD"^]for VNVRAM，可提供更好的写入性能。
++
+如果在部署新的 Cloud Volumes ONTAP 系统时选择了这些虚拟机类型中的任何一种，则无法更改为另一种_不_使用 Ultra SSD 进行 VNVRAM 的虚拟机类型。例如，您无法从 E8ds_v4 更改为 E8s_v3，但可以从 E8ds_v4 更改为 E32ds_v4，因为这两种虚拟机类型都使用 Ultra SSD。相反，如果您使用任何其他虚拟机类型部署 Cloud Volumes ONTAP，则无法更改为另一种使用 Ultra SSD 进行 VNVRAM 的虚拟机类型。例如，您不能将不使用 Ultra SSD 进行 VNVRAM 的 E8s_v3 更改为使用 Ultra SSD 进行 VNVRAM 的 E8ds_v4。
+
++
+同样，如果您为满足 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-ha-azure.html#ha-single-availability-zone-configuration-with-shared-managed-disks["条件"^]高级 SSD v2 托管磁盘的环境选择了高级 SSD 托管磁盘，则 Console 会自动部署高级 SSD v2 托管磁盘。您无法切换到 Premium SSD v1 Managed Disks。
+
+. ^4^ 有关单节点部署中支持的磁盘类型的信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-default-configs.html#azure-single-node["Azure（单节点）"^]。使用单节点系统时，所有实例类型都支持高写入速度。您可以在部署期间或之后的任何时间从 Console 启用高写入速度 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-write-speed.html["详细了解如何选择写入速度"^]。使用 SSD 时启用增强的写入性能。
+. ^5^ 从 2025 年 8 月 11 日开始，Cloud Volumes ONTAP Optimized 许可证已弃用，将无法在 Azure 市场中购买或续订现收现付 (PAYGO) 订阅。有关详细信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#11-august-2025["优化许可证的可用性终止"^]。
+. ^6^ 对于 Cloud Volumes ONTAP 9.17.1 及更高版本的新部署，支持 Edsv6 VM 类型。您不能使用任何其他 VM 类型切换现有部署，例如从 Edsv5 切换到 Edsv6；仅支持 Edsv6 变体之间的大小变化（例如 E20ds_v6 → E32ds_v6）。有关此 VM 类型的信息，请参阅 https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/memory-optimized/edsv6-series?tabs=sizebasic["Azure 文档：Edsv6 尺寸系列"^]。
+. ^7^ Ebdsv5 和 E104ids_v5 VM 可用于 Cloud Volumes ONTAP 9.18.1 及更高版本的新部署和升级。您可以将现有的 Edsv4、Edsv5 或其他 Ebdsv5 VM 类型更改或升级到 Ebdsv5。您可以将 Ebdsv5 或 Eidsv5 VM 升级到 E104ids_v5。
+
+
+--
+.其他许可证
+--
+[cols="h,d,d,d,d"]
+|===
+|  | PAYGO Explore | PAYGO Standard | PAYGO Premium | 基于节点的 BYOL 
+
+
+| 最大系统容量（磁盘 + 对象存储） | 2 TiB ^5^ | 10 TiB | 368 TiB | 每个许可证 368 TiB 
+
+
+| 支持的虚拟机类型  a| 
+.Ebdsv5 系列
+[%collapsible]
+=====
+* E4bds_v5 ^7^
+
+
+=====
+.Esv3 系列
+[%collapsible]
+=====
+* E4s_v3 ^1^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E4ds_v4 ^3^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E4ds_v5
+
+
+=====
+.Edsv6 系列
+[%collapsible]
+=====
+* E4ds_v6 ^6^
+
+
+===== a| 
+.Dsv2 系列
+[%collapsible]
+=====
+* DS4_v2 ^1^
+* DS13_v2 ^1^
+
+
+=====
+.Ebdsv5 系列
+[%collapsible]
+=====
+* E8bds_v5 ^7^
+
+
+=====
+.Esv3 系列
+[%collapsible]
+=====
+* E8s_v3 ^1^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E8ds_v4 ^3^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E8ds_v5
+
+
+=====
+.Lsv3 系列
+[%collapsible]
+=====
+* L8s_v3 ^2^
+
+
+===== a| 
+.DSv2 系列
+[%collapsible]
+=====
+* DS5_v2 ^1^
+* DS14_v2 ^1^
+* DS15_v2 ^1^
+
+
+=====
+.Ebdsv5 系列
+[%collapsible]
+=====
+* E16bds_v5 ^7^
+* E32bds_v5 ^7^
+* E48bds_v5 ^7^
+* E64bds_v5 ^7^
+
+
+=====
+.Esv3 系列
+[%collapsible]
+=====
+* E32s_v3 ^1,3^
+* E48s_v3 ^1,3^
+* E64is_v3 ^1,3^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E32ds_v4 ^3^
+* E48ds_v4 ^3^
+* E80ids_v4 ^3^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E20ds_v5 ^3^
+* E32ds_v5 ^3^
+* E48ds_v5 ^3^
+* E64ds_v5 ^3^
+* E104ids_v5 ^7^
+
+
+=====
+.Edsv6 系列
+[%collapsible]
+=====
+* E20ds_v6 ^6^
+* E32ds_v6 ^6^
+* E48ds_v6 ^6^
+* E64ds_v6 ^6^
+
+
+===== a| 
+.DSv2 系列
+[%collapsible]
+=====
+* DS4_v2 ^1^
+* DS5_v2 ^1^
+* DS13_v2 ^1^
+* DS14_v2 ^1^
+* DS15_v2 ^1^
+
+
+=====
+.Ebdsv5 系列
+[%collapsible]
+=====
+* E4bds_v5 ^7^
+* E8bds_v5 ^7^
+* E16bds_v5 ^7^
+* E32bds_v5 ^7^
+* E48bds_v5 ^7^
+* E64bds_v5 ^7^
+
+
+=====
+.Esv3 系列
+[%collapsible]
+=====
+* E4s_v3 ^1^
+* E8s_v3 ^1^
+* E32s_v3 ^1,3^
+* E48s_v3 ^1,3^
+* E64is_v3 ^1,3^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E4ds_v4 ^3^
+* E8ds_v4 ^3^
+* E32ds_v4 ^3^
+* E48ds_v4 ^3^
+* E80ids_v4 ^3^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E4ds_v5
+* E8ds_v5
+* E20ds_v5 ^3^
+* E32ds_v5 ^3^
+* E48ds_v5 ^3^
+* E64ds_v5 ^3^
+* E104ids_v5 ^7^
+
+
+=====
+.Edsv6 系列
+[%collapsible]
+=====
+* E4ds_v6 ^6^
+* E20ds_v6 ^6^
+* E32ds_v6 ^6^
+* E48ds_v6 ^6^
+* E64ds_v6 ^6^
+
+
+=====
+.Lsv3 系列
+[%collapsible]
+=====
+* L8s_v3 ^2^
+* L16s_v3 ^2^
+* L32s_v3 ^2^
+* L48s_v3 ^2^
+* L64s_v3 ^2^
+
+
+=====
+
+
+| 支持的磁盘类型 ^4^ 4+| 标准 HDD 托管磁盘、标准 SSD 托管磁盘和高级 SSD 托管磁盘 
+|===
+注：
+
+. ^1^ DS_v2 和 Es_v3 机器系列在 Azure 中部署 Cloud Volumes ONTAP 的新实例时不再可在控制台上进行选择。这些系列将仅在较旧的现有系统中保留和支持。仅从 9.12.1 版本开始，Azure 才支持 Cloud Volumes ONTAP 的新部署。我们建议您切换到 Es_v4 或与 Cloud Volumes ONTAP 9.12.1 及更高版本兼容的任何其他系列。但是，DS_v2 和 Es_v3 系列机器将可用于通过 API 进行的新部署。
+. ^2^ 此 VM 类型包括本地 NVMe 存储，Cloud Volumes ONTAP 将其用作 _Flash Cache_。Flash Cache 通过对最近读取的用户数据和 NetApp 元数据进行实时智能缓存，加快了对数据的访问速度。它适用于随机读取密集型工作负载，包括数据库、电子邮件和文件服务 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-flash-cache.html["了解更多"^]。
+. ^3^ 这些 VM 类型使用 https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-enable-ultra-ssd["Ultra SSD"^]for VNVRAM，可提供更好的写入性能。
++
+如果在部署新的 Cloud Volumes ONTAP 系统时选择了这些虚拟机类型中的任何一种，则无法更改为另一种_不_使用 Ultra SSD 进行 VNVRAM 的虚拟机类型。例如，您无法从 E8ds_v4 更改为 E8s_v3，但可以从 E8ds_v4 更改为 E32ds_v4，因为这两种虚拟机类型都使用 Ultra SSD。相反，如果您使用任何其他虚拟机类型部署 Cloud Volumes ONTAP，则无法更改为另一种使用 Ultra SSD 进行 VNVRAM 的虚拟机类型。例如，您不能将不使用 Ultra SSD 进行 VNVRAM 的 E8s_v3 更改为使用 Ultra SSD 进行 VNVRAM 的 E8ds_v4。
+
++
+同样，如果您为满足 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-ha-azure.html#ha-single-availability-zone-configuration-with-shared-managed-disks["条件"^]高级 SSD v2 托管磁盘的环境选择了高级 SSD 托管磁盘，则 Console 会自动部署高级 SSD v2 托管磁盘。您无法切换到 Premium SSD v1 Managed Disks。
+
+. ^4^ 使用单节点系统时，所有实例类型均支持高写入速度。您可以在部署期间或之后的任何时间从 Console 启用高写入速度 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-write-speed.html["详细了解如何选择写入速度"^]。使用 SSD 时启用增强的写入性能。
+. ^5^PAYGO Explore 不支持数据分层到 Azure Blob 存储。
+. ^6^ 对于 Cloud Volumes ONTAP 9.17.1 及更高版本的新部署，支持 Edsv6 VM 类型。您不能使用任何其他 VM 类型切换现有部署，例如从 Edsv5 切换到 Edsv6；仅支持 Edsv6 变体之间的大小变化（例如 E20ds_v6 → E32ds_v6）。有关此 VM 类型的信息，请参阅 https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/memory-optimized/edsv6-series?tabs=sizebasic["Azure 文档：Edsv6 尺寸系列"^]。
+. ^7^ Ebdsv5 和 E104ids_v5 VM 可用于 Cloud Volumes ONTAP 9.18.1 及更高版本的新部署和升级。您可以将现有的 Edsv4、Edsv5 或其他 Ebdsv5 VM 类型更改或升级到 Ebdsv5。您可以将 Ebdsv5 或 Eidsv5 VM 升级到 E104ids_v5。
+
+
+--
+====
+
+
+[[ha-pairs]]
+=== HA 对
+
+在 Azure 中将 Cloud Volumes ONTAP 部署为 HA 对时，可以从以下配置中进行选择。
+
+
+
+==== 具有共享托管磁盘的 HA 对
+
+在 Azure 中将 Cloud Volumes ONTAP 部署为 HA 对时，可以从以下配置中进行选择。
+
+[role="tabbed-block"]
+====
+.基于容量的许可证
+--
+[cols="h,d,d,d"]
+|===
+|  | 免费增值 | 已优化^7^ | 基于容量的许可证（Essentials 和 Professional） 
+
+
+| 最大系统容量（磁盘 + 对象存储） | 500 GiB  a| 
+通过基于容量的许可，每个 Cloud Volumes ONTAP 系统都支持到对象存储的分层。总分层容量可以扩展到云提供商的存储桶限制。虽然许可证不会施加容量限制，但在配置和管理分层时，应遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳实践"^]以确保最佳性能、可靠性和成本效率。
+
+
+
+| 支持的虚拟机类型  a| 
+.Ebdsv5 系列
+[%collapsible]
+=====
+* E8bds_v5 ^9^
+* E16bds_v5 ^9^
+* E32bds_v5 ^9^
+* E48bds_v5 ^9^
+* E64bds_v5 ^9^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E8ds_v4
+* E32ds_v4 ^1^
+* E48ds_v4 ^1^
+* E80ids_v4 ^1,2^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E8ds_v5 ^4^
+* E20ds_v5 ^1,4^
+* E32ds_v5 ^1,4^
+* E48ds_v5 ^1,4^
+* E64ds_v5 ^1,4^
+* E104ids_v5 ^9^
+
+
+=====
+.Edsv6 系列
+[%collapsible]
+=====
+* E20ds_v6 ^8^
+* E32ds_v6 ^8^
+* E48ds_v6 ^8^
+* E64ds_v6 ^8^
+
+
+=====
+.Lsv3 系列
+[%collapsible]
+=====
+* L8s_v3 ^1,3,5^
+* L16s_v3 ^1,3,5^
+* L32s_v3 ^1,3,5^
+* L48s_v3 ^1,3,5^
+* L64s_v3 ^1,3,5^
+
+
+===== a| 
+.Edsv4 系列
+[%collapsible]
+=====
+* E8ds_v4
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E8ds_v5 ^4^
+
+
+===== a| 
+.Ebdsv5 系列
+[%collapsible]
+=====
+* E8bds_v5 ^9^
+* E16bds_v5 ^9^
+* E32bds_v5 ^9^
+* E48bds_v5 ^9^
+* E64bds_v5 ^9^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E8ds_v4
+* E32ds_v4 ^1^
+* E48ds_v4 ^1^
+* E80ids_v4 ^1,2^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E8ds_v5 ^4^
+* E20ds_v5 ^1,4^
+* E32ds_v5 ^1,4^
+* E48ds_v5 ^1,4^
+* E64ds_v5 ^1,4^
+* E104ids_v5 ^9^
+
+
+=====
+.Edsv6 系列
+[%collapsible]
+=====
+* E20ds_v6 ^8^
+* E32ds_v6 ^8^
+* E48ds_v6 ^8^
+* E64ds_v6 ^8^
+
+
+=====
+.Lsv3 系列
+[%collapsible]
+=====
+* L8s_v3 ^1,3,5^
+* L16s_v3 ^1,3,5^
+* L32s_v3 ^1,3,5^
+* L48s_v3 ^1,3,5^
+* L64s_v3 ^1,3,5^
+
+
+=====
+
+
+| 支持的磁盘类型 ^6^ 3+| 高级 SSD 托管磁盘或高级 SSD v2 托管磁盘。 
+|===
+注：
+
+. ^1^ 使用 HA 对时，Cloud Volumes ONTAP 支持这些 VM 类型的高写入速度。您可以在部署期间或之后的任何时间从 Console 启用高写入速度 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-write-speed.html["详细了解如何选择写入速度"^]。
+. ^2^ 仅当需要 Azure 维护控制时，才建议使用此 VM。由于定价较高，因此不建议将其用于任何其他用例。
+. ^3^ 多个可用区支持从 ONTAP 版本 9.13.1 开始。
+. ^4^ 多个可用区支持从 ONTAP 版本 9.14.1 RC1 开始。
+. ^5^ 此 VM 类型包括本地 NVMe 存储，Cloud Volumes ONTAP 将其用作 _Flash Cache_。Flash Cache 通过对最近读取的用户数据和 NetApp 元数据进行实时智能缓存，加快了对数据的访问速度。它适用于随机读取密集型工作负载，包括数据库、电子邮件和文件服务 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-flash-cache.html["了解更多"^]。
+. ^6^ 如果您为满足 Premium SSD v2 Managed Disks  https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-ha-azure.html#ha-single-availability-zone-configuration-with-shared-managed-disks["条件"^]的环境选择 Premium SSD Managed Disks，Console 将自动部署 Premium SSD v2 Managed Disks。您无法切换到 Premium SSD v1 Managed Disks。有关 HA 部署单个和多个可用区域的系统数据的内部磁盘的信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-default-configs.html#azure-ha-pair["Azure（HA 对）"^]。
+. ^7^ 从 2025 年 8 月 11 日开始，Cloud Volumes ONTAP Optimized 许可证已弃用，并且将无法在 Azure 市场中购买或续订现收现付 (PAYGO) 订阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#11-august-2025["优化许可证的可用性终止"^]
+. ^8^ 对于 Cloud Volumes ONTAP 9.17.1 及更高版本的新部署，支持 Edsv6 VM 类型。您不能使用任何其他 VM 类型切换现有部署，例如从 Edsv5 切换到 Edsv6；仅支持 Edsv6 变体之间的大小变化（例如 E20ds_v6 → E32ds_v6）。有关此 VM 类型的信息，请参阅 https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/memory-optimized/edsv6-series?tabs=sizebasic["Azure 文档：Edsv6 尺寸系列"^]。
+. ^9^ Ebdsv5 和 E104ids_v5 VM 可用于 Cloud Volumes ONTAP 9.18.1 及更高版本的新部署和升级。您可以将现有的 Edsv4、Edsv5 或其他 Ebdsv5 VM 类型更改或升级到 Ebdsv5。您可以将 Ebdsv5 或 Eidsv5 VM 升级到 E104ids_v5。
+
+
+--
+.其他许可证
+--
+[cols="h,d,d,d"]
+|===
+|  | PAYGO Standard | PAYGO Premium | 基于节点的 BYOL 
+
+
+| 最大系统容量（磁盘 + 对象存储） | 10 TiB | 368 TiB | 每个许可证 368 TiB 
+
+
+| 支持的虚拟机类型  a| 
+.Ebdsv5 系列
+[%collapsible]
+=====
+* E8bds_v5 ^7^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E8ds_v4 ^4^
+
+
+=====
+.Lsv3 系列
+[%collapsible]
+=====
+* L8s_v3 ^4,5^
+
+
+===== a| 
+.Ebdsv5 系列
+[%collapsible]
+=====
+* E16bds_v5 ^7^
+* E32bds_v5 ^7^
+* E48bds_v5 ^7^
+* E64bds_v5 ^7^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E32ds_v4 ^1,4^
+* E48ds_v4 ^1,4^
+* E80ids_v4 ^1,2,4^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E20ds_v5 ^1^
+* E32ds_v5 ^1^
+* E48ds_v5 ^1^
+* E64ds_v5 ^1^
+* E104ids_v5 ^7^
+
+
+=====
+.Edsv6 系列
+[%collapsible]
+=====
+* E20ds_v6 ^6^
+* E32ds_v6 ^6^
+* E48ds_v6 ^6^
+* E64ds_v6 ^6^
+
+
+=====
+.Lsv3 系列
+[%collapsible]
+=====
+* L16s_v3 ^1,4,5^
+* L32s_v3 ^1,4,5^
+* L48s_v3 ^1,4,5^
+* L64s_v3 ^1,4,5^
+
+
+===== a| 
+.Ebdsv5 系列
+[%collapsible]
+=====
+* E4bds_v5 ^7^
+* E8bds_v5 ^7^
+* E16bds_v5 ^7^
+* E32bds_v5 ^7^
+* E48bds_v5 ^7^
+* E64bds_v5 ^7^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E8ds_v4 ^4^
+* E32ds_v4 ^1,4^
+* E48ds_v4 ^1,4^
+* E80ids_v4 ^1,2,4^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E4ds_v5
+* E8ds_v5
+* E20ds_v5 ^1^
+* E32ds_v5 ^1^
+* E48ds_v5 ^1^
+* E64ds_v5 ^1^
+* E104ids_v5 ^7^
+
+
+=====
+.Edsv6 系列
+[%collapsible]
+=====
+* E20ds_v6 ^6^
+* E32ds_v6 ^6^
+* E48ds_v6 ^6^
+* E64ds_v6 ^6^
+
+
+=====
+.Lsv3 系列
+[%collapsible]
+=====
+* L16s_v3 ^1,4,5^
+* L32s_v3 ^1,4,5^
+* L48s_v3 ^1,4,5^
+* L64s_v3 ^1,4,5^
+
+
+=====
+
+
+| 支持的磁盘类型 3+| 高级 SSD 托管磁盘或高级 SSD v2 托管磁盘。 
+|===
+注：
+
+. ^1^ 使用 HA 对时，Cloud Volumes ONTAP 支持这些 VM 类型的高写入速度。您可以在部署期间或之后的任何时间从 Console 启用高写入速度 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-write-speed.html["详细了解如何选择写入速度"^]。
+. ^2^ 仅当需要 Azure 维护控制时，才建议使用此 VM。由于定价较高，因此不建议将其用于任何其他用例。
+. ^3^ 这些 VM 类型仅支持在共享托管磁盘上运行的单个可用性区域配置中的 HA 对。
+. ^4^ 这些 VM 类型支持在共享托管磁盘上运行的单个可用性区域和多个可用性区域配置中的 HA 对。对于 Ls_v3 VM 类型，多个可用性区域支持从 ONTAP 版本 9.13.1 开始。对于 Eds_v5 VM 类型，多个可用性区域支持从 ONTAP 版本 9.14.1 RC1 开始。
+. ^5^ 此 VM 类型包括本地 NVMe 存储，Cloud Volumes ONTAP 将其用作 _Flash Cache_。Flash Cache 通过对最近读取的用户数据和 NetApp 元数据进行实时智能缓存，加快了对数据的访问速度。它适用于随机读取密集型工作负载，包括数据库、电子邮件和文件服务 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-flash-cache.html["了解更多"^]。
+. ^6^ 对于 Cloud Volumes ONTAP 9.17.1 及更高版本的新部署，支持 Edsv6 VM 类型。您不能使用任何其他 VM 类型切换现有部署，例如从 Edsv5 切换到 Edsv6；仅支持 Edsv6 变体之间的大小变化（例如 E20ds_v6 → E32ds_v6）。有关此 VM 类型的信息，请参阅 https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/memory-optimized/edsv6-series?tabs=sizebasic["Azure 文档：Edsv6 尺寸系列"^]。
+. ^7^ Ebdsv5 和 E104ids_v5 VM 可用于 Cloud Volumes ONTAP 9.18.1 及更高版本的新部署和升级。您可以将现有的 Edsv4、Edsv5 或其他 Ebdsv5 VM 类型更改或升级到 Ebdsv5。您可以将 Ebdsv5 或 Eidsv5 VM 升级到 E104ids_v5。
+
+
+--
+====
+
+
+==== HA 与页 Blob 对
+
+您可以对 Azure 中现有的 Cloud Volumes ONTAP HA 页面 blob 部署使用以下配置。
+
+
+NOTE: 任何新部署都不支持 Azure 页面 blob。
+
+[role="tabbed-block"]
+====
+.基于容量的许可证
+--
+[cols="h,d,d,d"]
+|===
+|  | 免费增值 | 已优化^4^ | 基于容量的许可证（Essentials 和 Professional） 
+
+
+| 最大系统容量（磁盘 + 对象存储） | 500 GiB  a| 
+通过基于容量的许可，每个 Cloud Volumes ONTAP 系统都支持到对象存储的分层。总分层容量可以扩展到云提供商的存储桶限制。虽然许可证不会施加容量限制，但在配置和管理分层时，应遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳实践"^]以确保最佳性能、可靠性和成本效率。
+
+
+
+| 支持的虚拟机类型  a| 
+.DSv2 系列
+[%collapsible]
+=====
+* DS4_v2
+* DS5_v2 ^1^
+* DS13_v2
+* DS14_v2 ^1^
+* DS15_v2 ^1^
+
+
+=====
+.Esv3 系列
+[%collapsible]
+=====
+* E8s_v3
+* E48s_v3 ^1^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E8ds_v4 ^3^
+* E32ds_v4 ^1,3^
+* E48ds_v4 ^1,3^
+* E80ids_v4 ^1,2,3^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E8ds_v5
+* E20ds_v5 ^1^
+* E32ds_v5 ^1^
+* E48ds_v5 ^1^
+* E64ds_v5 ^1^
+
+
+===== a| 
+.DSv2 系列
+[%collapsible]
+=====
+* DS4_v2
+* DS13_v2
+
+
+=====
+.Esv3 系列
+[%collapsible]
+=====
+* E8s_v3
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E8ds_v4 ^3^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E8ds_v5
+
+
+===== a| 
+.DSv2 系列
+[%collapsible]
+=====
+* DS4_v2
+* DS5_v2 ^1^
+* DS13_v2
+* DS14_v2 ^1^
+* DS15_v2 ^1^
+
+
+=====
+.Esv3 系列
+[%collapsible]
+=====
+* E8s_v3
+* E48s_v3 ^1^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E8ds_v4 ^3^
+* E32ds_v4 ^1,3^
+* E48ds_v4 ^1,3^
+* E80ids_v4 ^1,2,3^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E8ds_v5
+* E20ds_v5 ^1^
+* E32ds_v5 ^1^
+* E48ds_v5 ^1^
+* E64ds_v5 ^1^
+
+
+=====
+
+
+| 支持的磁盘类型 3+| 页 Blob 
+|===
+注：
+
+. ^1^ 使用 HA 对时，Cloud Volumes ONTAP 支持这些 VM 类型的高写入速度。您可以在部署期间或之后的任何时间从 Console 启用高写入速度 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-write-speed.html["详细了解如何选择写入速度"^]。
+. ^2^ 仅当需要 Azure 维护控制时，才建议使用此 VM。由于定价较高，因此不建议将其用于任何其他用例。
+. ^3^ 这些 VM 仅在 Cloud Volumes ONTAP 9.11.1 或更早版本的部署中受支持。使用这些 VM 类型，您可以将现有页面 blob 部署从 Cloud Volumes ONTAP 9.11.1 升级到 9.12.1。您无法使用 Cloud Volumes ONTAP 9.12.1 或更高版本执行新的页面 blob 部署。
+. ^4^ 从 2025 年 8 月 11 日开始，Cloud Volumes ONTAP Optimized 许可证已弃用，将无法在 Azure 市场中购买或续订现收现付 (PAYGO) 订阅。有关详细信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#11-august-2025["优化许可证的可用性终止"^]。
+
+
+--
+.其他许可证
+--
+[cols="h,d,d,d"]
+|===
+|  | PAYGO Standard | PAYGO Premium | 基于节点的 BYOL 
+
+
+| 最大系统容量（磁盘 + 对象存储） | 10 TiB | 368 TiB | 每个许可证 368 TiB 
+
+
+| 支持的虚拟机类型  a| 
+.DSv2 系列
+[%collapsible]
+=====
+* DS4_v2
+* DS13_v2
+
+
+=====
+.Esv3 系列
+[%collapsible]
+=====
+* E8s_v3
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E8ds_v4 ^3^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E8ds_v5
+
+
+===== a| 
+.DSv2 系列
+[%collapsible]
+=====
+* DS5_v2 ^1^
+* DS14_v2 ^1^
+* DS15_v2 ^1^
+
+
+=====
+.Esv3 系列
+[%collapsible]
+=====
+* E48s_v3 ^1^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E32ds_v4 ^1,3^
+* E48ds_v4 ^1,3^
+* E80ids_v4 ^1,2,3^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E20ds_v5 ^1^
+* E32ds_v5 ^1^
+* E48ds_v5 ^1^
+* E64ds_v5 ^1^
+
+
+===== a| 
+.DSv2 系列
+[%collapsible]
+=====
+* DS4_v2
+* DS5_v2 ^1^
+* DS13_v2
+* DS14_v2 ^1^
+* DS15_v2 ^1^
+
+
+=====
+.Esv3 系列
+[%collapsible]
+=====
+* E8s_v3
+* E48s_v3 ^1^
+
+
+=====
+.Edsv4 系列
+[%collapsible]
+=====
+* E8ds_v4 ^3^
+* E32ds_v4 ^1,3^
+* E48ds_v4 ^1,3^
+* E80ids_v4 ^1,2,3^
+
+
+=====
+.Edsv5 系列
+[%collapsible]
+=====
+* E4ds_v5
+* E8ds_v5
+* E20ds_v5 ^1^
+* E32ds_v5 ^1^
+* E48ds_v5 ^1^
+* E64ds_v5 ^1^
+
+
+=====
+
+
+| 支持的数据磁盘类型 3+| 页 Blob 
+|===
+注：
+
+. ^1^ 使用 HA 对时，Cloud Volumes ONTAP 支持这些 VM 类型的高写入速度。您可以在部署期间或之后的任何时间从 Console 启用高写入速度 https://docs.netapp.com/us-en/cloud-manager-cloud-volumes-ontap/concept-write-speed.html["详细了解如何选择写入速度"^]。
+. ^2^ 仅当需要 Azure 维护控制时，才建议使用此 VM。由于定价较高，因此不建议将其用于任何其他用例。
+. ^3^ 这些 VM 仅在 Cloud Volumes ONTAP 9.11.1 或更早版本的部署中受支持。使用这些 VM 类型，您可以将现有页面 blob 部署从 Cloud Volumes ONTAP 9.11.1 升级到 9.12.1。您无法使用 Cloud Volumes ONTAP 9.12.1 或更高版本执行新的页面 blob 部署。
+
+
+--
+====
+
+
+[[supported-disk-sizes]]
+=== 支持的磁盘大小
+
+在 Azure 中，一个聚合最多可包含 12 个类型和大小相同的磁盘。
+
+
+
+==== 单节点系统
+
+单节点系统使用 Azure 托管磁盘。支持以下磁盘大小：
+
+[cols="3*"]
+|===
+| 高级 SSD | 标准 SSD | 标准 HDD 
+
+
+ a| 
+* 500 GiB
+* 1 TiB
+* 2 TiB
+* 4 TiB
+* 8 TiB
+* 16 TiB
+* 32 TiB
+
+ a| 
+* 100 GiB
+* 500 GiB
+* 1 TiB
+* 2 TiB
+* 4 TiB
+* 8 TiB
+* 16 TiB
+* 32 TiB
+
+ a| 
+* 100 GiB
+* 500 GiB
+* 1 TiB
+* 2 TiB
+* 4 TiB
+* 8 TiB
+* 16 TiB
+* 32 TiB
+
+
+|===
+
+
+==== HA 对
+
+HA 对使用 Azure 托管磁盘。支持以下磁盘类型和大小。
+
+（在 9.12.1 版本之前部署的 HA 对支持页面 blob。）
+
+*高级 SSD*
+
+* 500 GiB
+* 1 TiB
+* 2 TiB
+* 4 TiB
+* 8 TiB
+* 16 TiB（仅限托管磁盘）
+* 32 TiB（仅限托管磁盘）
+
+
+
+
+[[supported-regions]]
+=== 支持的区域
+
+有关 Azure 区域支持，请参见 https://bluexp.netapp.com/cloud-volumes-global-regions["Cloud Volumes 全球区域"^]。
+
+.相关链接
+* link:task-planning-your-config-azure.html["了解如何为 Azure 中的系统选择磁盘类型和磁盘大小"]
+* link:task-deploying-otc-azure.html#launching-a-cloud-volumes-ontap-ha-pair-in-azure["在 Azure 中启动Cloud Volumes ONTAP HA 对"]
+* https://docs.microsoft.com/en-us/azure/virtual-machines/disks-types["Microsoft Azure 文档：Azure 托管磁盘类型"^]
+* https://docs.microsoft.com/en-us/azure/storage/blobs/storage-blob-pageblob-overview["Microsoft Azure 文档：Azure 页 Blob 概述"^]
+* https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-azure.html["查看 Azure 中Cloud Volumes ONTAP的存储限制"^]
+

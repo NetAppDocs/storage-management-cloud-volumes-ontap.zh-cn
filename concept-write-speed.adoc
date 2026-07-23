@@ -4,7 +4,7 @@ permalink: concept-write-speed.html
 keywords: write speed, high write speed, normal write speed, nvfail, writing speed, ldm, low durability mode 
 summary: NetApp Console使您能够为Cloud Volumes ONTAP选择正常或高写入速度。在选择写入速度之前，您应该了解正常设置和高设置之间的差异以及使用高写入速度时的风险和建议。 
 ---
-= 写入速度
+= 了解 Cloud Volumes ONTAP 的写入速度
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -78,7 +78,7 @@ ifdef::aws[]
 
 从 9.8 版本开始， Cloud Volumes ONTAP在使用几乎所有受支持的 EC2 实例类型（m5.xlarge 和 r5.xlarge 除外）时都支持具有 HA 对的高写入速度。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["了解有关Cloud Volumes ONTAP支持的 Amazon EC2 实例的更多信息"^] 。
+link:reference-configs-aws.html["了解有关Cloud Volumes ONTAP支持的 Amazon EC2 实例的更多信息"]。
 
 endif::aws[]
 
@@ -90,7 +90,7 @@ ifdef::azure[]
 
 如果使用单节点系统，则 Cloud Volumes ONTAP 支持所有虚拟机类型的高写入速度。
 
-如果您使用 HA 对，从 9.8 版本开始， Cloud Volumes ONTAP支持多种 VM 类型的高写入速度。前往 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html["Cloud Volumes ONTAP发行说明"^]查看支持高写入速度的虚拟机类型。
+如果使用 HA 对，从 9.8 版本开始，Cloud Volumes ONTAP 支持多种 VM 类型的高写入速度。转到 link:reference-configs-azure.html["Cloud Volumes ONTAP发行说明"] 以查看支持高写入速度的 VM 类型。
 
 endif::azure[]
 
@@ -102,9 +102,9 @@ ifdef::gcp[]
 
 如果使用单节点系统，则 Cloud Volumes ONTAP 支持所有机器类型的高写入速度。
 
-如果您使用 HA 对，从 9.13.0 版本开始， Cloud Volumes ONTAP支持多种 VM 类型的高写入速度。前往 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html#supported-configurations-by-license["Cloud Volumes ONTAP发行说明"^]查看支持高写入速度的虚拟机类型。
+如果使用 HA 对，从 9.13.0 版本开始，Cloud Volumes ONTAP 支持多种 VM 类型的高写入速度。转到link:reference-configs-gcp.html#supported-configurations-by-license["Cloud Volumes ONTAP发行说明"^]以查看支持高写入速度的 VM 类型。
 
-https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp.html["详细了解Cloud Volumes ONTAP支持的 Google Cloud 机器类型"^] 。
+link:reference-configs-gcp.html["详细了解Cloud Volumes ONTAP支持的 Google Cloud 机器类型"^]。
 
 endif::gcp[]
 

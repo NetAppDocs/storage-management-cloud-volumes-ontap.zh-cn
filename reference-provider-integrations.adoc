@@ -1,0 +1,42 @@
+---
+sidebar: sidebar 
+permalink: reference-provider-integrations.html 
+keywords: maintenance event, azure maintenance event, cloud provider, issues, support, SMB CA in CVO 
+summary: 本页介绍 NetApp 如何与云提供商合作以解决可能出现的问题。 
+---
+= Cloud Volumes ONTAP 与云提供商的集成
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+了解 NetApp 如何与云提供商协作以解决潜在问题。
+
+
+
+[[collaborative-support-best-practices]]
+== 协作支持最佳实践
+
+NetApp 致力于为被许可方提供支持，并将在被许可方报告时尽商业上合理的努力解决 Cloud Volumes ONTAP 的技术支持问题。NetApp 和适用的云提供商对彼此的许可软件或基础设施不承担任何直接支持义务。
+
+NetApp 已实施旨在与适用的云提供商就客户技术问题进行联系的工具，这些问题可能是由适用的云提供商服务造成的。但是，保持无缝支持流程的最佳方式是客户 (i) 与 NetApp 和适用的云提供商都保持当前的支持合同，以及 (ii) 在出现技术问题并且客户需要明确哪些产品或服务导致这些技术问题时，与 NetApp 和适用的云提供商协调联合上报会议。
+
+
+
+[[azure-maintenance-events]]
+== Azure 维护事件
+
+Microsoft 计划并以编程方式宣布其 Azure 虚拟机 (VM) 基础架构上可能影响 Cloud Volumes ONTAP VM 的维护事件。这些事件将在维护窗口期前 15 分钟公布。
+
+Cloud Volumes ONTAP 高可用性 (HA) 对支持维护事件的特殊处理。为了维护应用程序的运行状况，我们执行预防性接管以优先考虑稳定性，因为任何超过 15 秒的连接丢失都将禁用故障转移功能。
+
+当维护窗口宣布时，目标节点的合作伙伴节点将执行接管。维护完成后，将启动回馈。回馈后，预计 HA 对将恢复到健康状态。如果没有出现这种情况，请联系 NetApp Support 寻求帮助。请注意，维护事件一次针对 HA 对中的一个 VM，并且通常在相对较短的时间内针对两个节点。
+
+使用 Cloud Volumes ONTAP 非连续可用 CIFS 共享的 CIFS/SMB 客户端在发生接管时以及当会话使用的聚合返回到聚合的主节点时都将遇到会话丢失。这是 CIFS/SMB 协议本身施加的限制。您可以使用经批准的第三方产品来避免因接管和交还而导致的问题。要获得更多帮助，请联系 NetApp Support。
+
+
+NOTE: https://kb.netapp.com/on-prem/ontap/da/NAS/NAS-KBs/What_are_SMB_Continuous_Availability_CA_Shares["连续可用 SMB 共享"^] 在 Cloud Volumes ONTAP 中不支持无中断操作。

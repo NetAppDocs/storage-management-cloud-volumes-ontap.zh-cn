@@ -4,7 +4,7 @@ permalink: task-getting-started-azure.html
 keywords: microsoft, azure, netapp, data fabric, hybrid cloud, cloud, public cloud, networking, marketplace, virtual machine, vnet, quick, getting started, install, installing, deploy, deploying, setup, setting up, launching, requirements, prerequisites, cloud central, permissions, custom role, role, json, permissions, virtual machine, connectivity, internet, outbound, endpoint, connection, networks, vpn, replicating, policy, iam, setupasservice, sign up, cloud manager, BlueXP, cloud volumes ontap, cloud ontap, subscription, create 
 summary: 只需几个步骤即可开始使用Cloud Volumes ONTAP for Azure。 
 ---
-= Azure 中的Cloud Volumes ONTAP快速入门
+= Azure 中 Cloud Volumes ONTAP 的部署概述
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,35 +14,68 @@ summary: 只需几个步骤即可开始使用Cloud Volumes ONTAP for Azure。
 
 
 [role="lead"]
-只需几个步骤即可开始使用Cloud Volumes ONTAP for Azure。
+要部署 Cloud Volumes ONTAP，首先需要了解 Azure 订阅和 Cloud Volumes ONTAP 许可证。还必须验证是否已为 Azure 订阅和组织创建 NetApp Console 代理。本主题中的大部分信息需要在开始部署 Cloud Volumes ONTAP 之前作为 Console 设置的一部分来完成。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]创建控制台代理
-[role="quick-margin-para"]
-如果你没有 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["控制台代理"^]但是，您需要创建一个。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html["了解如何在 Azure 中创建控制台代理"^]
+[cols="20,35,25,25"]
+|===
+| 任务 | 描述 | 参考 | 专用模式部署注意事项 
 
-[role="quick-margin-para"]
-请注意，如果您想在没有互联网访问的子网中部署Cloud Volumes ONTAP ，则需要手动安装控制台代理并访问在该控制台代理上运行的NetApp Console。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["了解如何在没有互联网访问的地方手动安装控制台代理"^]
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]规划您的配置
-[role="quick-margin-para"]
-控制台提供符合您的工作负载要求的预配置包，或者您可以创建自己的配置。如果您选择自己的配置，您应该了解可用的选项。有关信息，请参阅link:task-planning-your-config-azure.html["在 Azure 中规划Cloud Volumes ONTAP配置"]。
-
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]设置网络
-[role="quick-margin-list"]
-. 确保您的 VNet 和子网将支持控制台代理和Cloud Volumes ONTAP之间的连接。
-. 为NetApp AutoSupport启用从目标 VPC 的出站互联网访问。
-+
-如果您在没有互联网访问的位置部署Cloud Volumes ONTAP，则不需要执行此步骤。
+ a| 
+创建 Console 代理
+ a| 
+如果您还没有 Console 代理，请在部署 Cloud Volumes ONTAP 之前先创建一个。
+ a| 
+请参见 Console 设置指南：https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html["在 Azure 中创建 Console 代理"^]
+ a| 
+如果部署在没有 Internet 访问权限的子网中，请手动安装 Console 代理并访问该 NetApp Console 代理上运行的 Console 用户界面。请参阅 Console 设置指南：https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["在没有互联网访问的情况下手动安装 Console 代理"^]
 
 
 
-[role="quick-margin-para"]
-link:reference-networking-azure.html["了解有关网络要求的更多信息"] 。
+ a| 
+规划您的配置
+ a| 
+控制台提供符合您的工作负载要求的预配置包，或者您可以创建自己的配置。如果您选择自己的配置，您应该了解可用的选项。
+ a| 
+link:task-planning-your-config-azure.html["在 Azure 中规划Cloud Volumes ONTAP配置"]
+ a| 
+对于私有模式部署，您需要具有类似的规划考虑因素。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]启动Cloud Volumes ONTAP
-[role="quick-margin-para"]
-单击“*添加系统*”，选择您想要部署的系统类型，然后完成向导中的步骤。link:task-deploying-otc-azure.html["阅读分步说明"] 。
 
+
+ a| 
+设置网络
+ a| 
+. 确保您的 VNet 和子网支持 Console 代理与 Cloud Volumes ONTAP 之间的连接。
+. 为 NetApp AutoSupport 启用从目标 VNet 出站的互联网访问。
+
+ a| 
+link:reference-networking-azure.html["Azure 的网络要求"]
+ a| 
+无需为 AutoSupport 提供出站互联网访问。所有其他网络要求保持不变。
+
+
+
+ a| 
+从控制台部署 Cloud Volumes ONTAP
+ a| 
+完成所有先决条件后，您可以完成向导中的步骤，在 Azure 中部署 Cloud Volumes ONTAP。
+ a| 
+请参阅：
+
+* link:task-quick-deploy-azure.html["使用快速创建部署 Cloud Volumes ONTAP"]
+* link:task-deploying-otc-azure.html["使用高级选项部署 Cloud Volumes ONTAP"]
+
+ a| 
+开始部署前，请确保已从 NetApp 购买 Cloud Volumes ONTAP 许可证。专用模式部署需要基于节点的 BYOL 许可证。市场订阅不支持对您的 Cloud Volumes ONTAP 使用量计费。请从 NetApp 获取许可证文件，并在部署过程中上传。请参阅：
+
+* link:concept-license-management.html["基于节点的 BYOL 许可证管理"]
+* link:task-manage-node-licenses.html["管理基于节点的 BYOL 许可证"]
+* link:task-quick-deploy-azure.html["使用快速创建部署 Cloud Volumes ONTAP"]
+* link:task-deploying-otc-azure.html["使用高级选项部署 Cloud Volumes ONTAP"]
+
+
+|===
 .相关链接
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html["从控制台创建控制台代理"^]
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-azure-marketplace.html["从 Azure 市场创建控制台代理"^]

@@ -509,7 +509,7 @@ NOTE: 源是Cloud Volumes ONTAP系统上的接口（IP 地址）。
 * https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-azure.html["Azure 中的安全组规则"^]
 
 
-.相关主题
+.相关链接
 * link:task-verify-autosupport.html["验证Cloud Volumes ONTAP 的AutoSupport设置"]
 * https://docs.netapp.com/us-en/ontap/networking/ontap_internal_ports.html["了解ONTAP内部端口"^] 。
 

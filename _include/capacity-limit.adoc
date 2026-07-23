@@ -1,0 +1,5 @@
+= 
+:allow-uri-read: 
+
+
+通过基于容量的许可，每个 Cloud Volumes ONTAP 系统都支持到对象存储的分层。总分层容量可以扩展到云提供商的存储桶限制。虽然许可证不会施加容量限制，但在配置和管理分层时，应遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳实践"^]以确保最佳性能、可靠性和成本效率。

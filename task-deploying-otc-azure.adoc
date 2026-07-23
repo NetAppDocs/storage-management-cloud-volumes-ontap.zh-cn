@@ -166,7 +166,7 @@ link:concept-write-speed.html["了解有关写入速度的更多信息"^] 。
 
 .. 如果需要，请激活一次写入、多次读取 (WORM) 存储。
 +
-此选项仅适用于某些 VM 类型。要了解受支持的 VM 类型，请参阅link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html#ha-pairs["HA 对许可证支持的配置"^]。
+此选项仅适用于某些虚拟机类型。要了解支持哪些虚拟机类型，请参阅 link:link:reference-configs-azure.html#ha-pairs["HA 对许可证支持的配置"]。
 
 +
 如果为Cloud Volumes ONTAP 9.7 及更低版本启用了数据分层，则无法启用 WORM。启用 WORM 和分层后，恢复或降级到Cloud Volumes ONTAP 9.8 的操作将被阻止。
@@ -392,7 +392,7 @@ link:concept-data-tiering.html["了解有关数据分层的更多信息"^] 。
 
 ** 从Cloud Volumes ONTAP 9.15.0P1 开始，Azure 页面 blob 不再支持新的高可用性对部署。如果您当前在现有的高可用性对部署中使用 Azure 页 Blob，则可以迁移到 Edsv4 系列 VM 和 Edsv5 系列 VM 中较新的 VM 实例类型。
 +
-link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html#ha-pairs["详细了解 Azure 中支持的配置"^] 。
+link:link:reference-configs-azure.html#ha-pairs["详细了解 Azure 中支持的配置"^]。
 
 
 
@@ -404,7 +404,7 @@ link:concept-write-speed.html["了解有关写入速度的更多信息"^] 。
 
 .. 如果需要，请激活一次写入、多次读取 (WORM) 存储。
 +
-此选项仅适用于某些 VM 类型。要了解受支持的 VM 类型，请参阅link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html#ha-pairs["HA 对许可证支持的配置"^]。
+此选项仅适用于某些虚拟机类型。要了解支持哪些虚拟机类型，请参阅 link:link:reference-configs-azure.html#ha-pairs["HA 对许可证支持的配置"^]。
 
 +
 如果为Cloud Volumes ONTAP 9.7 及更低版本启用了数据分层，则无法启用 WORM。启用 WORM 和分层后，恢复或降级到Cloud Volumes ONTAP 9.8 的操作将被阻止。

@@ -4,7 +4,7 @@ permalink: task-getting-started-gcp.html
 keywords: google cloud platform, gcp, cloud manager, deploy the Console, launch the Console, create the Console, getting started, networking, gcp networking, service account, tiering, data tiering, bucket, fabricpool, cloud backup, storage access key, gcp role, role, iam role, permissions, gcp permissions, cloud backup, the Console 
 summary: 只需几个步骤即可开始使用适用于 Google Cloud 的Cloud Volumes ONTAP 。 
 ---
-= Google Cloud 中的Cloud Volumes ONTAP快速入门
+= Cloud Volumes ONTAP 在 Google Cloud 中的部署概述
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,55 +14,100 @@ summary: 只需几个步骤即可开始使用适用于 Google Cloud 的Cloud Vol
 
 
 [role="lead"]
-只需几个步骤即可在 Google Cloud 中开始使用Cloud Volumes ONTAP 。
+要部署 Cloud Volumes ONTAP，您首先需要了解 Google Cloud 订阅和 Cloud Volumes ONTAP 许可证。您还必须验证是否为 Google Cloud 项目和组织创建了 NetApp Console 代理。本主题中的大部分信息需要在开始部署 Cloud Volumes ONTAP 之前作为 Console 设置的一部分来完成。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-1.png["一个"]创建控制台代理
-[role="quick-margin-para"]
-如果你没有 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["控制台代理"^]但是，你需要创建一个。 https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html["了解如何在 Google Cloud 中创建控制台代理"^]
+[cols="20,35,25,25"]
+|===
+| 任务 | 描述 | 参考 | 专用模式部署注意事项 
 
-[role="quick-margin-para"]
-请注意，如果您想在没有互联网访问的子网中部署Cloud Volumes ONTAP ，则需要手动安装控制台代理并访问在该控制台代理上运行的NetApp Console。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["了解如何在没有互联网访问的地方手动安装控制台代理"^]
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]规划您的配置
-[role="quick-margin-para"]
+ a| 
+创建 Console 代理
+ a| 
+如果您还没有 Console 代理，请在部署 Cloud Volumes ONTAP 之前创建一个。如果部署在没有 Internet 访问权限的子网中，请手动安装 Console 代理并访问在该代理上运行的 NetApp Console。
+ a| 
+请参见 Console 设置指南：https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html["在 Google Cloud 中创建 Console 代理"^]
+ a| 
+如果部署在没有 Internet 访问权限的子网中，请手动安装 Console 代理并访问该 NetApp Console 代理上运行的 Console 用户界面。请参阅 Console 设置指南：https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["在没有互联网访问的情况下手动安装 Console 代理"^]
+
+
+
+ a| 
+规划您的配置
+ a| 
 控制台提供符合您的工作负载要求的预配置包，或者您可以创建自己的配置。如果您选择自己的配置，您应该了解可用的选项。
+ a| 
+link:task-planning-your-config-gcp.html["规划您的配置"]
+ a| 
+对于私有模式部署，您需要具有类似的规划考虑因素。
 
-[role="quick-margin-para"]
-link:task-planning-your-config-gcp.html["了解有关规划配置的更多信息"] 。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]设置网络
-[role="quick-margin-list"]
+
+ a| 
+设置网络
+ a| 
 . 确保您的 VPC 和子网将支持控制台代理和Cloud Volumes ONTAP之间的连接。
-. 如果您计划启用数据分层， https://cloud.google.com/vpc/docs/configure-private-google-access["为私有 Google 访问配置Cloud Volumes ONTAP子网"^] 。
+. 如果您计划启用数据分层，请为 Private Google Access 配置 Cloud Volumes ONTAP 子网。
 . 如果您正在部署 HA 对，请确保您有四个 VPC，每个 VPC 都有自己的子网。
 . 如果您使用共享 VPC，请向控制台代理服务帐户提供_计算网络用户_角色。
 . 为NetApp AutoSupport启用从目标 VPC 的出站互联网访问。
-+
-如果您在没有互联网访问的位置部署Cloud Volumes ONTAP，则不需要执行此步骤。
+
+ a| 
+请参阅：
+
+* link:reference-networking-gcp.html["Google Cloud 的网络要求"]
+* 请参见 Google Cloud 文档： https://cloud.google.com/vpc/docs/configure-private-google-access["配置 Private Google Access"^]
+
+ a| 
+无需为 AutoSupport 提供出站互联网访问。所有其他网络要求保持不变。
 
 
 
-[role="quick-margin-para"]
-link:reference-networking-gcp.html["了解有关网络要求的更多信息"] 。
+ a| 
+设置服务帐户
+ a| 
+Cloud Volumes ONTAP 需要一个 Google Cloud 服务帐户来启用数据分层，以便将冷数据分层到 Google Cloud 中的低成本对象存储，并启用 NetApp Backup and Recovery，以便将卷备份到低成本对象存储。
+ a| 
+* link:task-creating-gcp-service-account.html["设置服务帐户"]
+* link:concept-data-tiering.html["了解数据分层"]
+* 请参阅 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp 备份和恢复文档"^]
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-4.png["四个"]设置服务帐户
-[role="quick-margin-para"]
-Cloud Volumes ONTAP需要 Google Cloud 服务帐户来实现两个目的。第一个是当你启用link:concept-data-tiering.html["数据分层"]将冷数据分层到 Google Cloud 中的低成本对象存储。第二个是当你启用 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery"^]将卷备份到低成本的对象存储。
+ a| 
+私有模式部署没有其他注意事项。
 
-[role="quick-margin-para"]
-您可以设置一个服务帐户并将其用于两种用途。服务帐户必须具有*存储管理员*角色。
 
-[role="quick-margin-para"]
-link:task-creating-gcp-service-account.html["阅读分步说明"] 。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-5.png["五"]启用 Google Cloud API
-[role="quick-margin-para"]
-https://cloud.google.com/apis/docs/getting-started#enabling_apis["在项目中启用 Google Cloud API"^]。 https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["这些 API"^]，您可能已经在创建 Console 代理时启用了这些功能，这些功能是在 Google Cloud 中部署 Cloud Volumes ONTAP 所必需的。
+ a| 
+启用 Google Cloud API
+ a| 
+在项目中启用所需的 Google Cloud API。您可能已在创建 Console 代理时启用了这些 API。
+ a| 
+请参见 Google Cloud 文档：https://cloud.google.com/apis/docs/getting-started#enabling_apis["启用 Google Cloud API"^]
+ a| 
+必须启用 API。与云管理员合作，在专用环境中启用所需的 API。
 
-.image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-6.png["六"]使用控制台启动Cloud Volumes ONTAP
-[role="quick-margin-para"]
-单击“*添加系统*”，选择您想要部署的系统类型，然后完成向导中的步骤。link:task-deploying-gcp.html["阅读分步说明"] 。
 
+
+ a| 
+从控制台部署 Cloud Volumes ONTAP
+ a| 
+完成所有先决条件后，您可以完成向导中的步骤，在 Google Cloud 中部署 Cloud Volumes ONTAP。
+ a| 
+请参阅：
+
+* link:task-quick-deploy-gcp.html["使用快速创建部署 Cloud Volumes ONTAP"]
+* link:task-deploying-gcp.html["使用高级选项部署 Cloud Volumes ONTAP"]
+
+ a| 
+开始部署前，请确保已从 NetApp 购买 Cloud Volumes ONTAP 许可证。专用模式部署需要基于节点的 BYOL 许可证。市场订阅不支持对您的 Cloud Volumes ONTAP 使用量计费。请从 NetApp 获取许可证文件，并在部署过程中上传。请参阅：
+
+* link:concept-license-management.html["基于节点的 BYOL 许可证管理"]
+* link:task-manage-node-licenses.html["管理基于节点的 BYOL 许可证"]
+* link:task-quick-deploy-gcp.html["使用快速创建部署 Cloud Volumes ONTAP"]
+* link:task-deploying-gcp.html["使用高级选项部署 Cloud Volumes ONTAP"]
+
+
+|===
 .相关链接
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["创建控制台代理"^]
 * https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html["在 Linux 主机上安装控制台代理软件"^]

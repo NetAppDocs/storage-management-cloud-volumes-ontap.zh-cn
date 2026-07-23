@@ -1,0 +1,485 @@
+---
+sidebar: sidebar 
+permalink: reference-configs-gcp.html 
+keywords: google, gcp, google cloud platform, explore, standard, premium, byol, paygo, disks, supported, capacity, machine types, sizes, HA, high availability, HA pairs 
+summary: Google Cloud 中支持多种 Cloud Volumes ONTAP 配置。 
+---
+= Google Cloud 中 Cloud Volumes ONTAP 支持的配置
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Google Cloud 中支持多种 Cloud Volumes ONTAP 配置。
+
+
+
+[[supported-disk-types-in-google-cloud]]
+== Google Cloud 中支持的磁盘类型
+
+除了存储用户数据之外，NetApp 还为 Google Cloud 中的系统数据购买云存储。
+
+
+
+[[internal-disks-for-system-data-in-single-node-systems]]
+=== 单节点系统中用于系统数据的内部磁盘
+
+* 一个 10 GiB SSD 永久磁盘，用于存储启动数据
+* 一个 64 GiB SSD 持久磁盘，用于存储根数据
+* 一个 500 GiB SSD 持久磁盘，用于NVRAM
+* 一个 315 GiB 标准持久磁盘，用于保存核心
+* 启动和根数据的快照
++
+
+NOTE: 重启时会自动创建快照。
+
+* 默认情况下，启动磁盘和根磁盘是加密的。
+
+
+
+
+[[internal-disks-for-system-data-in-ha-pairs]]
+=== HA 对中系统数据的内部磁盘
+
+* 两个 10 GiB SSD 持久磁盘用于启动数据
+* 四个 64 GiB SSD 持久磁盘用于根数据
+* 两个 500 GiB SSD 持久磁盘用于NVRAM
+* 两个 315 GiB 标准持久磁盘，用于保存核心
+* 一个 10 GiB 标准持久磁盘，用于存储中介数据
+* 一个 10 GiB 标准永久磁盘，用于中介启动数据
+* 启动和根数据的快照
++
+
+NOTE: 重启时会自动创建快照。
+
+* 默认情况下，启动磁盘和根磁盘是加密的。
+
+
+
+
+[[google-cloud-storage-for-user-data]]
+=== Google Cloud 用户数据存储
+
+在 Google Cloud 中，聚合最多可以包含 6 个大小相同的磁盘。最大磁盘大小为 64 TiB。
+
+磁盘类型可以是_区域 SSD 持久磁盘_、_区域平衡持久磁盘_或_区域标准持久磁盘_。您可以将永久性磁盘与 Google 存储桶配对，以link:concept-data-tiering.html["低成本对象存储"]。
+
+Cloud Volumes ONTAP 支持 Hyperdisk Balanced 磁盘，适用于 9.18.1 及更高版本的单节点部署，以及 9.19.1 及更高版本的单可用区 (AZ) 中的高可用性 (HA) 配置。
+
+
+
+[[supported-disk-sizes]]
+=== 支持的磁盘大小
+
+在 Google Cloud 中，一个聚合最多可包含 6 个类型和大小相同的磁盘。支持以下磁盘大小：
+
+* 100 GB
+* 500 GB
+* 1 TB
+* 2 TB
+* 4 TB
+* 8 TB
+* 16 TB
+* 64 TB
+
+
+
+
+[[supported-configurations-by-license]]
+== 按许可证支持的配置
+
+Cloud Volumes ONTAP 在 Google Cloud 中作为单节点系统和高可用性 (HA) 节点对提供，用于容错和无中断操作。
+
+不支持将单节点系统升级到 HA 对。如果要在单节点系统和 HA 对之间切换，则需要部署新系统并将数据从现有系统复制到新系统。
+
+Cloud Volumes ONTAP 可以在云提供商提供的保留或按需 VM 实例上运行。不支持使用其他 VM 实例类型的解决方案。
+
+
+
+[[single-node-systems]]
+=== 单节点系统
+
+[role="tabbed-block"]
+====
+.基于容量的许可证
+--
+[cols="h,d,d,d"]
+|===
+|  | 免费增值 | 已优化^4^ | 基于容量的许可证（Essentials 和 Professional） 
+
+
+| 最大系统容量（磁盘 + 对象存储） | 500 GiB  a| 
+通过基于容量的许可，每个 Cloud Volumes ONTAP 系统都支持到对象存储的分层。总分层容量可以扩展到云提供商的存储桶限制。虽然许可证不会施加容量限制，但在配置和管理分层时，应遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳实践"^]以确保最佳性能、可靠性和成本效率。
+
+
+
+| 支持的计算机类型 ^1^  a| 
+* c3-standard-4，c3-standard-4-lssd ^5^
+* c3-standard-8，c3-standard-8-lssd ^5^
+* c3-standard-22，c3-standard-22-lssd ^5^
+* c3-standard-44，c3-standard-44-lssd ^5^
+* c3-standard-88，c3-standard-88-lssd ^5^
+* n1-standard-8 ^1^
+* n1-standard-32 ^1^
+* n2-standard-4
+* n2-standard-8
+* n2-标准-16
+* n2-标准-32
+* n2-标准-48
+* n2-标准-64
+
+ a| 
+* n2-standard-4
+* n2-standard-8
+
+ a| 
+* c3-standard-4，c3-standard-4-lssd ^5^
+* c3-standard-8，c3-standard-8-lssd ^5^
+* c3-standard-22，c3-standard-22-lssd ^5^
+* c3-standard-44，c3-standard-44-lssd ^5^
+* c3-standard-88，c3-standard-88-lssd ^5^
+* n1-standard-8 ^1^
+* n1-standard-32 ^1^
+* n2-standard-4
+* n2-standard-8
+* n2-标准-16
+* n2-标准-32
+* n2-标准-48
+* n2-标准-64
+
+
+
+
+| 支持的磁盘类型 ^2^ 3+| 平衡的永久磁盘^3^、性能 (SSD) 永久磁盘^3^和标准 (HDD) 永久磁盘。C3 VM 仅支持 Hyperdisk Balanced 磁盘。 
+|===
+注：
+
+. ^1^ 在 Google Cloud 中部署 Cloud Volumes ONTAP 的新实例时，NetApp Console 上不再提供 n1 系列机器供选择。n1 系列机器将仅在较旧的现有系统中保留和支持。仅从 9.8 版本开始，Google Cloud 中才支持 Cloud Volumes ONTAP 的新部署。我们建议您切换到与 Cloud Volumes ONTAP 9.8 及更高版本兼容的 n2 系列机器。但是，n1 系列机器将可用于通过 API 进行的新部署。
++
+新的 Cloud Volumes ONTAP 系统不再支持 custom-4-16384 机器类型。如果您在此机器类型上运行现有系统，则可以继续使用它，但我们建议切换到 n2-standard-4 机器类型。
+
+. ^2^ 磁盘限制可阻止您单独使用磁盘达到最大系统容量限制。您可以通过 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。
++
+link:reference-limits-gcp.html["详细了解 Google Cloud 中的磁盘限制"]。
+
+. ^3^ 使用平衡永久磁盘和性能 (SSD) 永久磁盘时，已启用增强的写入性能。
+. ^4^ 从 2025 年 8 月 11 日开始，Cloud Volumes ONTAP Optimized 许可证已弃用，将无法在 Google Cloud marketplace 中购买或续订现收现付 (PAYGO) 订阅。有关信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html["Cloud Volumes ONTAP 的新增功能"^]。
+. ^5^ 您可以在 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#improved-cloud-volumes-ontap-support-with-google-cloud-c3-vms["Cloud Volumes ONTAP 9.18.1 及更高版本"^]上部署下一代 C3 系列虚拟机。默认情况下，c3-standard-44 和 c3-standard-88 计算机及其 LSSD 变体支持 Google Cloud Console 中的 Tier-1 带宽。有关 LSSD 变体的更多信息，请参阅link:reference-configs-gcp.html#flash-cache-support["Flash Cache 支持"]。
+
+
+--
+.其他许可证
+--
+[cols="h,d,d,d,d"]
+|===
+|  | PAYGO Explore | PAYGO Standard | PAYGO Premium | 基于节点的 BYOL 
+
+
+| 最大系统容量（磁盘 + 对象存储） | 2 TB ^2^ | 10 TiB | 368 TiB | 每个许可证 368 TiB 
+
+
+| 支持的机器类型 ^3^  a| 
+* c3-standard-4，c3-standard-4-lssd ^5^
+* n2-standard-4
+
+ a| 
+* c3-standard-8，c3-standard-8-lssd ^5^
+* n1-standard-8 ^3^
+* n2-standard-8
+
+ a| 
+* c3-standard-22，c3-standard-22-lssd ^5^
+* c3-standard-44，c3-standard-44-lssd ^5^
+* c3-standard-88，c3-standard-88-lssd ^5^
+* n1-standard-32 ^3^
+* n2-标准-16
+* n2-标准-32
+* n2-标准-48
+* n2-标准-64
+
+ a| 
+* c3-standard-4，c3-standard-4-lssd ^5^
+* c3-standard-8，c3-standard-8-lssd ^5^
+* c3-standard-22，c3-standard-22-lssd ^5^
+* c3-standard-44，c3-standard-44-lssd ^5^
+* c3-standard-88，c3-standard-88-lssd ^5^
+* n1-standard-8 ^3^
+* n1-standard-32 ^3^
+* n2-standard-4
+* n2-standard-8
+* n2-标准-16
+* n2-标准-32
+* n2-标准-48
+* n2-标准-64
+
+
+
+
+| 支持的磁盘类型 4+| 平衡的永久磁盘^4^、性能 (SSD) 永久磁盘^4^和标准 (HDD) 永久磁盘。C3 VM 仅支持 Hyperdisk Balanced 磁盘。 
+|===
+注：
+
+. ^1^ 磁盘限制可阻止您单独使用磁盘达到最大系统容量限制。您可以通过 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。
++
+link:reference-limits-gcp.html["详细了解 Google Cloud 中的磁盘限制"]。
+
+. ^2^ PAYGO Explore 不支持将数据分层到 Google Cloud Storage。
+. ^3^ 在 Google Cloud 中部署 Cloud Volumes ONTAP 的新实例时，控制台上不再提供 n1 系列机器供选择。n1 系列机器将仅在较旧的现有系统中保留和支持。仅从 9.8 版本开始，Google Cloud 中才支持 Cloud Volumes ONTAP 的新部署。我们建议您切换到与 Cloud Volumes ONTAP 9.8 及更高版本兼容的 n2 系列机器。但是，n1 系列机器将可用于通过 API 执行的新部署。
++
+新的 Cloud Volumes ONTAP 系统不再支持 custom-4-16384 机器类型。如果您在此机器类型上运行现有系统，则可以继续使用它，但我们建议切换到 n2-standard-4 机器类型。
+
+. ^4^ 使用平衡永久磁盘和性能 (SSD) 永久磁盘时，已启用增强的写入性能。
+. ^5^ 您可以在 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#improved-cloud-volumes-ontap-support-with-google-cloud-c3-vms["Cloud Volumes ONTAP 9.18.1 及更高版本"^]上部署下一代 C3 系列虚拟机。默认情况下，c3-standard-44 和 c3-standard-88 计算机及其 LSSD 变体支持 Google Cloud Console 中的 Tier-1 带宽。有关 LSSD 变体的更多信息，请参阅link:reference-configs-gcp.html#flash-cache-support["Flash Cache 支持"]。
+
+
+Console 显示了 Standard 和 BYOL 支持的其他机器类型：n1-highmem-4。但是，此机器类型不适用于生产环境。我们仅将其用于特定的实验室环境。
+
+--
+====
+有关特定机器类型的详细信息，请参阅 Google Cloud 文档：
+
+* https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines["n1 系列通用机型"^]
+* https://cloud.google.com/compute/docs/general-purpose-machines#n2_series["N2 系列通用机型"^]
+
+
+
+
+[[high-availability-ha-pairs]]
+=== 高可用性 (HA) 对
+
+[role="tabbed-block"]
+====
+.基于容量的许可证
+--
+[cols="h,d,d,d"]
+|===
+|  | 免费增值 | 已优化^4^ | 基于容量的许可证（Essentials 和 Professional） 
+
+
+| 基于许可证的最大系统容量（磁盘 + 对象存储） | 500 GiB  a| 
+通过基于容量的许可，每个 Cloud Volumes ONTAP 系统都支持到对象存储的分层。总分层容量可以扩展到云提供商的存储桶限制。虽然许可证不会施加容量限制，但在配置和管理分层时，应遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳实践"^]以确保最佳性能、可靠性和成本效率。
+
+
+
+| 支持的计算机类型 ^1^  a| 
+* c3-standard-8 ^5^
+* c3-standard-22，c3-standard-22-lssd ^5^
+* c3-standard-44，c3-standard-44-lssd ^5^
+* c3-standard-88，c3-standard-88-lssd ^5^
+* n1-standard-32 ^3^
+* n2-标准-16
+* n2-标准-32
+* n2-标准-48
+* n2-标准-64
+* n1-standard-8 ^1^
+* n1-standard-32 ^1^
+* n2-standard-4
+* n2-standard-8
+* n2-标准-16
+* n2-标准-32
+* n2-标准-48
+* n2-标准-64
+
+ a| 
+* n2-standard-4
+* n2-standard-8
+
+ a| 
+* c3-standard-8 ^5^
+* c3-standard-22，c3-standard-22-lssd ^5^
+* c3-standard-44，c3-standard-44-lssd ^5^
+* c3-standard-88，c3-standard-88-lssd ^5^
+* n1-standard-8 ^1^
+* n1-standard-32 ^1^
+* n2-standard-4
+* n2-standard-8
+* n2-标准-16
+* n2-标准-32
+* n2-标准-48
+* n2-标准-64
+
+
+
+
+| 支持的磁盘类型 ^2^ 3+| 平衡的永久磁盘^3^、性能 (SSD) 永久磁盘^3^和标准 (HDD) 永久磁盘。C3 VM 仅支持 Hyperdisk Balanced 磁盘。 
+|===
+注：
+
+. ^1^ 在 Google Cloud 中部署 Cloud Volumes ONTAP 的新实例时，NetApp Console 上不再提供 n1 系列机器供选择。n1 系列机器将仅在较旧的现有系统中保留和支持。仅从 9.8 版本开始，Google Cloud 中才支持 Cloud Volumes ONTAP 的新部署。我们建议您切换到与 Cloud Volumes ONTAP 9.8 及更高版本兼容的 n2 系列机器。但是，n1 系列机器将可用于通过 API 进行的新部署。
++
+新的 Cloud Volumes ONTAP 系统不再支持 custom-4-16384 机器类型。如果您在此机器类型上运行现有系统，则可以继续使用它，但我们建议切换到 n2-standard-4 机器类型。
+
+. ^2^ 磁盘限制可阻止您单独使用磁盘达到最大系统容量限制。您可以通过 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。
++
+link:reference-limits-gcp.html["详细了解 Google Cloud 中的磁盘限制"]。
+
+. ^3^ 使用平衡永久磁盘和性能 (SSD) 永久磁盘时，已启用增强的写入性能。
+. ^4^ 从 2025 年 8 月 11 日开始，Cloud Volumes ONTAP Optimized 许可证已弃用，将无法在 Google Cloud marketplace 中购买或续订现收现付 (PAYGO) 订阅。有关信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html["Cloud Volumes ONTAP 的新增功能"^]。
+. ^5^ 您可以在 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#support-for-next-generation-google-cloud-vms-in-cloud-volumes-ontap-ha["适用于单 AZ HA 部署的 Cloud Volumes ONTAP 9.19.1 及更高版本"^]上部署下一代 C3 系列虚拟机。默认情况下，c3-standard-44 和 c3-standard-88 计算机及其 LSSD 变体支持 Google Cloud Console 中的 Tier-1 带宽。有关 LSSD 变体的更多信息，请参阅link:reference-configs-gcp.html#flash-cache-support["Flash Cache 支持"]。
+
+
+--
+.其他许可证
+--
+[cols="h,d,d,d,d"]
+|===
+|  | PAYGO Explore | PAYGO Standard | PAYGO Premium | 基于节点的 BYOL 
+
+
+| 基于许可证的最大系统容量（磁盘 + 对象存储） | 2 TB ^2^ | 10 TiB | 368 TiB | 每个许可证 368 TiB 
+
+
+| 支持的机器类型 ^3^  a| 
+* n2-standard-4
+
+ a| 
+* c3-standard-8 ^5^
+* c3-standard-22，c3-standard-22-lssd ^5^
+* n1-standard-8 ^3^
+* n2-standard-8
+
+ a| 
+* c3-standard-44，c3-standard-44-lssd ^5^
+* c3-standard-88，c3-standard-88-lssd ^5^
+* n1-standard-32 ^3^
+* n2-标准-16
+* n2-标准-32
+* n2-标准-48
+* n2-标准-64
+
+ a| 
+* c3-standard-8 ^5^
+* c3-standard-22，c3-standard-22-lssd ^5^
+* c3-standard-44，c3-standard-44-lssd ^5^
+* c3-standard-88，c3-standard-88-lssd ^5^
+* n1-standard-8 ^3^
+* n1-standard-32 ^3^
+* n2-standard-4
+* n2-standard-8
+* n2-标准-16
+* n2-标准-32
+* n2-标准-48
+* n2-标准-64
+
+
+
+
+| 支持的磁盘类型 4+| 平衡的永久磁盘^4^、性能 (SSD) 永久磁盘^4^和标准 (HDD) 永久磁盘。C3 VM 仅支持 Hyperdisk Balanced 磁盘。 
+|===
+注：
+
+. ^1^ 磁盘限制可阻止您单独使用磁盘达到最大系统容量限制。您可以通过 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。
++
+link:reference-limits-gcp.html["详细了解 Google Cloud 中的磁盘限制"]。
+
+. ^2^ PAYGO Explore 不支持将数据分层到 Google Cloud Storage。
+. ^3^ 在 Google Cloud 中部署 Cloud Volumes ONTAP 的新实例时，控制台上不再提供 n1 系列机器供选择。n1 系列机器将仅在较旧的现有系统中保留和支持。仅从 9.8 版本开始，Google Cloud 中才支持 Cloud Volumes ONTAP 的新部署。我们建议您切换到与 Cloud Volumes ONTAP 9.8 及更高版本兼容的 n2 系列机器。但是，n1 系列机器将可用于通过 API 执行的新部署。
++
+新的 Cloud Volumes ONTAP 系统不再支持 custom-4-16384 机器类型。如果您在此机器类型上运行现有系统，则可以继续使用它，但我们建议切换到 n2-standard-4 机器类型。
+
+. ^4^ 使用平衡永久磁盘和性能 (SSD) 永久磁盘时，已启用增强的写入性能。
+
+
+Console 显示了 Standard 和 BYOL 支持的其他机器类型：n1-highmem-4。但是，此机器类型不适用于生产环境。我们仅将其用于特定的实验室环境。。^5^ 您可以在 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#support-for-next-generation-google-cloud-vms-in-cloud-volumes-ontap-ha["适用于单 AZ HA 部署的 Cloud Volumes ONTAP 9.19.1 及更高版本"^]上部署下一代 C3 系列虚拟机。默认情况下，c3-standard-44 和 c3-standard-88 计算机及其 LSSD 变体支持 Google Cloud Console 中的 Tier-1 带宽。有关 LSSD 变体的更多信息，请参阅link:reference-configs-gcp.html#flash-cache-support["Flash Cache 支持"]。
+
+--
+====
+
+
+[[flash-cache-support]]
+== Flash Cache 支持
+
+从 Cloud Volumes ONTAP 9.13.0 开始，_Flash Cache_、高写入速度和 8,896 字节的更高最大传输单元 (MTU) 可用于以下 HA 对部署实例：
+
+* n2-标准-16
+* n2-标准-32
+* n2-标准-48
+* n2-标准-64
+
+
+部署符合条件的实例类型时，可以启用 Flash Cache 和高写入速度。要启用 8,896 字节的更高最大传输单元，必须选择 VPC-1、VPC-2 或 VPC-3 进行部署。更高的 MTU 可实现更高的网络吞吐量。有关启动其中一个部署的更多信息，请参见 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-gcp.html["在 Google Cloud 中启动 Cloud Volumes ONTAP"^]。
+
+
+NOTE: Flash Cache、高写入模式和 8,896 的 MTU 依赖于功能，并且不能在配置的实例中单独禁用。
+
+Cloud Volumes ONTAP 9.18.1 及更高版本支持 C3 系列虚拟机的本地 SSD (LSSD) 变体，适用于单节点部署；Cloud Volumes ONTAP 9.19.1 及更高版本支持 C3 系列虚拟机的本地 SSD (LSSD) 变体，适用于单个 AZ 中的 HA 部署。对于这些部署，如果选择 C3 系列虚拟机的本地 SSD (LSSD) 变体，则默认情况下会启用 Flash Cache。即使目标变体支持 Flash Cache，也无法在 Cloud Volumes ONTAP 部署中的 C3 LSSD 虚拟机变体之间切换。
+
+查看下表，了解 VM 变体及其支持的 LSSD 数量：
+
+[cols="1,1"]
+|===
+| VM 类型 | 连接的 LSSD 磁盘数量 
+
+
+| c3-standard-4-lssd | 1 
+
+
+| c3-standard-8-lssd | 2 
+
+
+| c3-standard-22-lssd | 4 
+
+
+| c3-standard-44-lssd | 8 
+
+
+| c3-standard-88-lssd | 16 
+|===
+
+
+[[maximum-system-capacity-based-on-vm-type]]
+== 基于 VM 类型的最大系统容量
+
+[cols="4*"]
+|===
+| VM 类型 | 单节点部署支持的最大数据磁盘数 | 单个 AZ HA 部署支持的最大数据磁盘数 | 最大容量（以 TiB 为单位） 
+
+
+| c3-standard-4 | 12 | 不适用 | 256 
+
+
+| c3-standard-8 | 12 | 11 | 256 
+
+
+| c3-standard-22 | 28 | 27 | 256 
+
+
+| c3-standard-44 | 28 | 27 | 512 
+
+
+| c3-standard-88 | 28 | 27 | 512 
+
+
+| c3-standard-4-lssd | 12 | 不适用 | 256 
+
+
+| c3-standard-8-lssd | 12 | 不适用 | 256 
+
+
+| c3-standard-22-lssd | 28 | 27 | 256 
+
+
+| c3-standard-44-lssd | 28 | 27 | 512 
+
+
+| c3-standard-88-lssd | 28 | 27 | 512 
+
+
+| n2（所有变体） | 124 | 124 | 257 
+|===
+
+
+[[supported-regions]]
+== 支持的区域
+
+有关 Google Cloud 区域支持，请参见 https://bluexp.netapp.com/cloud-volumes-global-regions["Cloud Volumes 全球区域"^]。
+
+.相关链接
+* https://cloud.google.com/compute/docs/disks/["Google Cloud 文档：存储选项"^]
+* https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines["Google Cloud 文档：N1 系列通用机器类型"^]
+* https://cloud.google.com/compute/docs/general-purpose-machines#n2_series["Google Cloud 文档：N2 系列通用机器类型"^]
+

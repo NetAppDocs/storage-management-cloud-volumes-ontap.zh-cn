@@ -1,0 +1,510 @@
+---
+sidebar: sidebar 
+permalink: reference-limits-aws.html 
+keywords: limits, maximum, storage, aggregates, disks, volumes, capacity, luns, size, storage virtual machine, SVM, ebs 
+summary: Cloud Volumes ONTAP 在 AWS 中具有存储配置限制，以提供可靠的操作。为获得最佳性能，请勿将系统配置为最大值。 
+---
+= AWS 中Cloud Volumes ONTAP的存储限制
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Cloud Volumes ONTAP 具有存储配置限制，以提供可靠的操作。为获得最佳性能，请勿将系统配置为最大值。
+
+
+
+[[maximum-system-capacity-by-license]]
+== 按许可证的最大系统容量
+
+最大系统容量包括基于磁盘的存储以及用于数据分层的对象存储。
+
+NetApp 不支持超出系统容量限制。如果达到许可容量限制，NetApp Console 将显示"需要执行操作"消息，并且不再允许您添加其他磁盘。
+
+对于某些配置，磁盘限制会阻止您仅通过使用磁盘来达到容量限制。在这些情况下，您可以通过 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。有关更多详细信息，请参见下面的容量和磁盘限制。
+
+[[cap-license-aws]]
+.基于容量的许可证的容量限制
+通过基于容量的许可，每个 Cloud Volumes ONTAP 系统都支持到对象存储的分层。总分层容量可以扩展到云提供商的存储桶限制。虽然许可证不会施加容量限制，但在配置和管理分层时，应遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳实践"^]以确保最佳性能、可靠性和成本效率。有关详细信息，请参见 https://docs.aws.amazon.com/AmazonS3/latest/userguide/BucketRestrictions.html["AWS 文档"^]。
+
+其他许可证类型的容量限制::
+
+
+[cols="25,75"]
+|===
+| 许可证 | 最大系统容量（磁盘 + 对象存储） 
+
+
+| 免费增值 | 500 GiB 
+
+
+| PAYGO Explore | 2 TiB（Explore 不支持数据分层） 
+
+
+| PAYGO Standard | 10 TiB 
+
+
+| PAYGO Premium | 368 TiB 
+
+
+| 基于节点的许可证 | 2 PiB（需要多个许可证） 
+|===
+.对于 HA，是每个节点的许可证容量限制还是整个 HA 对的许可证容量限制？
+容量限制适用于整个 HA 对。它不是每个节点。例如，Premium 许可证在两个节点上最多允许 368 TiB。
+
+.对于 AWS 中的 HA 系统，镜像数据是否计入容量限制？
+不，它不是。AWS HA 对中的数据在节点之间同步镜像，以便在发生故障时数据可用。例如，如果您在节点 A 上购买 8 TiB 磁盘，Console 还会在节点 B 上分配一个用于镜像数据的 8 TiB 磁盘。虽然提供了 16 TiB 的容量，但只有 8 TiB 计入许可证限制。
+
+
+
+[[aggregate-limits]]
+== 聚合限制
+
+Cloud Volumes ONTAP 使用 EBS 卷作为磁盘并将其分组到 _aggregates_ 中。聚合为卷提供存储。
+
+[cols="2*"]
+|===
+| 参数 | 限制 
+
+
+| 聚合的最大数量 | 单个节点：与磁盘限制相同 HA 对：一个节点中 18 个^1^ 
+
+
+| 最大聚合大小^2^  a| 
+* 96 TiB 的原始容量
+* 128 TiB 原始容量，具有 Elastic Volumes ^3^
+
+
+
+
+| 每个聚合的磁盘数^4^  a| 
+* 1-6
+* 4 或 8 个 Elastic Volumes ^3^
+
+
+
+
+| 每个聚合的最大 RAID 组数 | 2 
+|===
+注：
+
+. 无法在 HA 对中的两个节点上创建 18 个聚合，因为这将超过数据磁盘限制。
+. 最大聚合大小取决于其磁盘，不包括用于数据分层的对象存储。
+. 如果您的配置支持 Amazon EBS Elastic Volumes 功能，则一个聚合最多可包含 8 个磁盘，最多可提供 128 TiB 的容量。默认情况下，当您使用 gp3 或 io1 磁盘时，Cloud Volumes ONTAP 9.11.0 和更高版本系统会启用 Amazon EBS Elastic Volumes。 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-aws-elastic-volumes.html["了解有关弹性卷支持的更多信息"^]
+. 聚合中的所有磁盘必须具有相同的大小。
+
+
+
+
+[[disk-and-tiering-limits-by-ec2-instance]]
+== 按 EC2 实例划分的磁盘和分层限制
+
+容量限制因使用的 EC2 实例类型系列以及使用的是单节点系统还是 HA 对而异。
+
+以下注释提供了有关下表中数字的详细信息：
+
+* 磁盘限制特定于包含用户数据的磁盘。
++
+这些限制不包括启动磁盘和根磁盘。
+
+* 当单独使用磁盘以及使用磁盘和冷数据分层到对象存储时，会列出最大系统容量。
+* Cloud Volumes ONTAP 使用 EBS 卷作为磁盘，最大磁盘大小为 16 TiB。
+
+
+
+
+[[limits-for-different-deployment-modes-of-capacity-based-licensing]]
+=== 基于容量的许可的不同部署模式的限制
+
+以下磁盘限制适用于使用基于容量的许可包的 Cloud Volumes ONTAP 系统。 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html["了解 Cloud Volumes ONTAP 许可选项"^]
+
+
+NOTE: 要了解单节点和 HA 配置的最大系统容量和数据分层容量限制，请参阅 <<cap-license-aws>>。
+
+
+
+==== 单节点
+
+[cols="18,18,32,width=100%,options="]
+|===
+
+
+| 实例 | 每个节点的最大磁盘数 | 仅使用磁盘的最大系统容量 
+
+
+| c5、m5 和 r5 实例 | 21 | 336 TiB 
+
+
+ a| 
+* m5dn.24xlarge
+* m6id.32xlarge
+
+| 19 ^1^ | 304 TiB 
+|===
+. 此实例类型具有比其他实例类型更多的本地 NVMe 磁盘，这意味着支持的数据磁盘数量较少。
+
+
+
+
+==== HA 对
+
+[cols="18,18,32,width=100%,options="]
+|===
+
+
+| 实例 | 每个节点的最大磁盘数 | 仅使用磁盘的最大系统容量 
+
+
+| c5、m5 和 r5 实例 | 18 | 288 TiB 
+
+
+ a| 
+* m5dn.24xlarge
+* m6id.32xlarge
+
+| 16 ^1^ | 256 TiB 
+|===
+. 此实例类型具有比其他实例类型更多的本地 NVMe 磁盘，这意味着支持的数据磁盘数量较少。
+
+
+
+
+[[limits-for-different-deployment-modes-of-node-based-licensing]]
+=== 基于节点的许可的不同部署模式的限制
+
+以下磁盘限制适用于使用基于节点的许可的 Cloud Volumes ONTAP 系统，这是允许您按节点许可 Cloud Volumes ONTAP 的上一代许可模式。基于节点的许可仍可供现有客户使用。
+
+您可以为 Cloud Volumes ONTAP BYOL 单节点或 HA 对系统购买多个基于节点的许可证，以分配超过 368 TiB 的容量，最高可达经过测试和支持的系统容量限制 2 PiB。请注意，磁盘限制可能会阻止您仅使用磁盘达到容量限制。您可以通过 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]超出磁盘限制 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-node-licenses.html["了解如何向 Cloud Volumes ONTAP 添加其他系统许可证"^]。虽然 Cloud Volumes ONTAP 支持高达 2 PiB 的最大测试和支持系统容量，但超过 2 PiB 限制会导致不受支持的系统配置。
+
+AWS Secret Cloud 和 Top Secret Cloud 区域支持从 Cloud Volumes ONTAP 9.12.1 开始购买多个基于节点的许可证。
+
+
+
+==== 具有 PAYGO Premium 的单个节点
+
+[cols="18,18,32,32"]
+|===
+| 实例 | 每个节点的最大磁盘数 | 仅使用磁盘的最大系统容量 | 使用磁盘和数据分层的最大系统容量 
+
+
+| c5、m5 和 r5 实例 | 21 ^1^ | 336 TiB | 368 TiB 
+
+
+ a| 
+* m5dn.24xlarge
+* m6id.32xlarge
+
+| 19^2^ | 304 TiB | 368 TiB 
+|===
+. 21 个数据磁盘是 Cloud Volumes ONTAP _新_部署的限制。如果升级使用 9.7 版或更低版本创建的系统，则系统将继续支持 22 个磁盘。使用这些实例类型的新系统支持一个较少的数据磁盘，因为从 9.8 版本开始添加了核心磁盘。
+. 此实例类型具有比其他实例类型更多的本地 NVMe 磁盘，这意味着支持的数据磁盘数量较少。
+
+
+
+
+==== 带 BYOL 的单个节点
+
+[cols="18,18,16,16,16,16"]
+|===
+| 实例 | 每个节点的最大磁盘数 2+| 使用一个许可证的最大系统容量 2+| 具有多个许可证的最大系统容量 
+
+
+2+|  | *仅磁盘* | *磁盘 + 数据分层* | *仅磁盘* | *磁盘 + 数据分层* 
+
+
+| c5、m5 和 r5 实例 | 21 ^1^ | 336 TiB | 368 TiB | 336 TiB | 2 PiB 
+
+
+ a| 
+* m5dn.24xlarge
+* m6id.32xlarge
+
+| 19^2^ | 304 TiB | 368 TiB | 304 TiB | 2 PiB 
+|===
+. 21 个数据磁盘是 Cloud Volumes ONTAP _新_部署的限制。如果升级使用 9.7 版或更低版本创建的系统，则系统将继续支持 22 个磁盘。使用这些实例类型的新系统支持一个较少的数据磁盘，因为从 9.8 版本开始添加了核心磁盘。
+. 此实例类型具有比其他实例类型更多的本地 NVMe 磁盘，这意味着支持的数据磁盘数量较少。
+
+
+
+
+==== 采用 PAYGO Premium 的 HA 对
+
+[cols="18,18,32,32"]
+|===
+| 实例 | 每个节点的最大磁盘数 | 仅使用磁盘的最大系统容量 | 使用磁盘和数据分层的最大系统容量 
+
+
+| c5、m5 和 r5 实例 | 18 ^1^ | 288 TiB | 368 TiB 
+
+
+ a| 
+* m5dn.24xlarge
+* m6id.32xlarge
+
+| 16^2^ | 256 TiB | 368 TiB 
+|===
+. 18 个数据磁盘是 Cloud Volumes ONTAP _新_部署的限制。如果升级使用 9.7 版或更低版本创建的系统，则系统将继续支持 19 个磁盘。使用这些实例类型的新系统支持一个较少的数据磁盘，因为从 9.8 版本开始添加了核心磁盘。
+. 此实例类型具有比其他实例类型更多的本地 NVMe 磁盘，这意味着支持的数据磁盘数量较少。
+
+
+
+
+==== BYOL 的 HA 配对
+
+[cols="18,18,16,16,16,16"]
+|===
+| 实例 | 每个节点的最大磁盘数 2+| 使用一个许可证的最大系统容量 2+| 具有多个许可证的最大系统容量 
+
+
+2+|  | *仅磁盘* | *磁盘 + 数据分层* | *仅磁盘* | *磁盘 + 数据分层* 
+
+
+| c5、m5 和 r5 实例 | 18 ^1^ | 288 TiB | 368 TiB | 288 TiB | 2 PiB 
+
+
+ a| 
+* m5dn.24xlarge
+* m6id.32xlarge
+
+| 16^2^ | 256 TiB | 368 TiB | 256 TiB | 2 PiB 
+|===
+. 18 个数据磁盘是 Cloud Volumes ONTAP _新_部署的限制。如果升级使用 9.7 版或更低版本创建的系统，则系统将继续支持 19 个磁盘。使用这些实例类型的新系统支持一个较少的数据磁盘，因为从 9.8 版本开始添加了核心磁盘。
+. 此实例类型具有比其他实例类型更多的本地 NVMe 磁盘，这意味着支持的数据磁盘数量较少。
+
+
+
+
+[[storage-vm-limits]]
+== Storage VM 限制
+
+某些配置可让您为 Cloud Volumes ONTAP 创建其他存储 VM (SVM)。
+
+https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-managing-svms-aws.html["了解如何创建其他存储 VM"^]。
+
+[cols="40,60"]
+|===
+| 许可证类型 | Storage VM 限制 
+
+
+| *免费增值*  a| 
+24 个 Storage VM 总计^1,2^
+
+
+
+| *基于容量的 PAYGO 或 BYOL* ^3^  a| 
+24 个 Storage VM 总计^1,2^
+
+
+
+| *基于节点的 PAYGO*  a| 
+* 1 个用于提供数据的存储 VM
+* 1 个用于灾难恢复的 storage VM
+
+
+
+
+| *基于节点的 BYOL* ^4^  a| 
+* 24 个 Storage VM 总计^1,2^
+
+
+|===
+. 根据您使用的 EC2 实例类型，限制可以更低。以下部分列出了每个实例的限制。
+. 这 24 个存储虚拟机可以提供数据服务，也可以进行灾难恢复 (DR) 配置。
+. 对于基于容量的许可，额外的存储 VM 无需额外的许可成本，但每个存储 VM 的最低容量收费为 4 TiB。例如，如果您创建了两个存储 VM，并且每个都具有 2 TiB 的调配容量，则总共将向您收取 8 TiB 的费用。
+. 对于基于节点的 BYOL，除了 Cloud Volumes ONTAP 默认提供的第一个存储 VM 之外，每个额外的_数据服务_存储 VM 都需要附加许可证。请联系您的客户团队以获取存储 VM 附加许可证。
++
+为灾难恢复 (DR) 配置的存储 VM 不需要附加许可证（它们是免费的），但它们会计入存储 VM 限制。例如，如果您有 12 个数据服务存储 VM 和 12 个为灾难恢复配置的存储 VM，则已达到限制，无法创建任何其他存储 VM。
+
+
+
+
+
+[[storage-vm-limit-by-ec2-instance-type]]
+=== 按 EC2 实例类型的 Storage VM 限制
+
+创建其他存储 VM 时，需要为端口 e0a 分配专用 IP 地址。下表标识了每个接口的最大专用 IP 数，以及部署 Cloud Volumes ONTAP 后端口 e0a 上可用的 IP 地址数。可用 IP 地址的数量直接影响该配置的存储 VM 的最大数量。
+
+下面列出的实例适用于 c5、m5 和 r5 实例系列。
+
+[cols="6*"]
+|===
+| 配置 | 实例类型 | 每个接口的最大专用 IP | 部署后剩余的 IP ^1^ | 没有管理 LIF 的最大 Storage VM ^2,3^ | 使用管理 LIF ^2,3^ 的最大存储虚拟机数 
+
+
+.9+| *单节点* | *.xlarge | 15 | 9 | 10 | 5 
+
+
+| *.2xlarge | 15 | 9 | 10 | 5 
+
+
+| *.4xlarge | 30 | 24 | 24 | 12 
+
+
+| *.8xlarge | 30 | 24 | 24 | 12 
+
+
+| *.9xlarge | 30 | 24 | 24 | 12 
+
+
+| *.12xlarge | 30 | 24 | 24 | 12 
+
+
+| *.16xlarge | 50 | 44 | 24 | 12 
+
+
+| *.18xlarge | 50 | 44 | 24 | 12 
+
+
+| *.24xlarge | 50 | 44 | 24 | 12 
+
+
+.9+| *单个 AZ 中的 HA 对* | *.xlarge | 15 | 10 | 11 | 5 
+
+
+| *.2xlarge | 15 | 10 | 11 | 5 
+
+
+| *.4xlarge | 30 | 25 | 24 | 12 
+
+
+| *.8xlarge | 30 | 25 | 24 | 12 
+
+
+| *.9xlarge | 30 | 25 | 24 | 12 
+
+
+| *.12xlarge | 30 | 25 | 24 | 12 
+
+
+| *.16xlarge | 50 | 45 | 24 | 12 
+
+
+| *.18xlarge | 50 | 45 | 24 | 12 
+
+
+| *.24xlarge | 50 | 44 | 24 | 12 
+
+
+.9+| *多 AZ 中的 HA 对* | *.xlarge | 15 | 12 | 13 | 13 
+
+
+| *.2xlarge | 15 | 12 | 13 | 13 
+
+
+| *.4xlarge | 30 | 27 | 24 | 24 
+
+
+| *.8xlarge | 30 | 27 | 24 | 24 
+
+
+| *.9xlarge | 30 | 27 | 24 | 24 
+
+
+| *.12xlarge | 30 | 27 | 24 | 24 
+
+
+| *.16xlarge | 50 | 47 | 24 | 24 
+
+
+| *.18xlarge | 50 | 47 | 24 | 24 
+
+
+| *.24xlarge | 50 | 44 | 24 | 12 
+|===
+. 此数字表示在部署和设置 Cloud Volumes ONTAP 后，端口 e0a 上可用的_剩余_专用 IP 地址数量。例如，*.2xlarge 系统每个网络接口最多支持 15 个 IP 地址。在单个 AZ 中部署 HA 对时，将为端口 e0a 分配 5 个专用 IP 地址。因此，使用 *.2xlarge 实例类型的 HA 对为其他存储 VM 剩余 10 个专用 IP 地址。
+. 这些列中列出的数字包括 Console 默认创建的初始存储 VM。例如，如果此列中列出了 24，则意味着您可以创建 23 个额外的存储 VM，总共 24 个。
+. Storage VM 的管理 LIF 是可选的。管理 LIF 提供与 SnapCenter 等管理工具的连接。
++
+因为它需要一个专用 IP 地址，所以它将限制您可以创建的其他存储虚拟机的数量。唯一的例外是多个 AZ 中的 HA 对。在这种情况下，管理 LIF 的 IP 地址是 _floating_ IP 地址，因此不计入 _private_ IP 限制。
+
+
+
+
+
+[[file-and-volume-limits]]
+== 文件和卷限制
+
+[cols="22,22,56"]
+|===
+| 逻辑存储 | 参数 | 限制 
+
+
+.2+| *文件* | 最大尺寸^2^ | 128 TB 
+
+
+| 每个卷的最大值 | 取决于卷大小，高达 20 亿 
+
+
+| *FlexClone 卷* | 分层克隆深度 ^1^ | 499 
+
+
+.3+| *FlexVol 卷* | 每个节点的最大值 | 500 
+
+
+| 大小上限 | 20 MB 
+
+
+| 最大尺寸^3^ | 300 TiB 
+
+
+| *Qtrees* | 每个 FlexVol 卷的最大值 | 4,995 
+
+
+| *Snapshot 副本* | 每个 FlexVol 卷的最大值 | 1,023 
+|===
+. 层次克隆深度是指可以从单个 FlexVol volume 创建的嵌套层次结构中 FlexClone volumes 的最大深度。
+. 从 ONTAP 9.12.1P2 开始，限制为 128 TB。在 ONTAP 9.11.1 及早期版本中，限制为 16 TB。
+. 支持使用以下工具和最低版本创建最大大小为 300 TiB 的 FlexVol 卷：
++
+** 从 Cloud Volumes ONTAP 9.12.1 P2 和 9.13.0 P2 开始的 System Manager 和 ONTAP CLI
+** 从 Cloud Volumes ONTAP 9.13.1 开始
+
+
+
+
+
+
+[[iscsi-storage-limits]]
+== iSCSI 存储限制
+
+[cols="3*"]
+|===
+| iSCSI 存储 | 参数 | 限制 
+
+
+.4+| *LUN* | 每个节点的最大值 | 1,024 
+
+
+| LUN 映射的最大数量 | 1,024 
+
+
+| 最小大小 | 16 TiB 
+
+
+| 每个卷的最大值 | 512 
+
+
+| *igroup* | 每个节点的最大值 | 256 
+
+
+.2+| *启动程序* | 每个节点的最大值 | 512 
+
+
+| 每个 igroup 的最大值 | 128 
+
+
+| *iSCSI 会话* | 每个节点的最大值 | 1,024 
+
+
+.2+| *LIF* | 每个端口的最大值 | 32 
+
+
+| 每个端口集的最大值 | 32 
+
+
+| *端口集* | 每个节点的最大值 | 256 
+|===

@@ -23,7 +23,7 @@ summary: 了解Cloud Volumes ONTAP 的默认配置方式可以帮助您设置和
 
 * NetApp Console在部署Cloud Volumes ONTAP时会创建一个数据服务存储虚拟机。某些配置支持额外的存储虚拟机。link:task-managing-svms.html["了解有关管理存储虚拟机的更多信息"] 。
 +
-从 3.9.5 版本开始，初始存储虚拟机上启用逻辑空间报告。当逻辑报告空间时， ONTAP会报告卷空间，以便存储效率功能节省的所有物理空间也被报告为已使用。有关内联存储效率功能的信息，请参阅知识库文章 https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/What_Inline_Storage_Efficiency_features_are_supported_with_CVO#["KB：CVO 支持哪些内联存储效率功能？"^]
+初始存储 VM 上已启用逻辑空间报告功能。以逻辑方式报告空间时，ONTAP 报告卷空间的方式会将存储效率功能节省的所有物理空间也计为已用空间。有关内联存储效率功能的信息，请参阅知识库文章 https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/What_Inline_Storage_Efficiency_features_are_supported_with_CVO#["KB：CVO 支持哪些内联存储效率功能？"^]
 
 * 控制台会自动在Cloud Volumes ONTAP上安装以下ONTAP功能许可证：
 +
@@ -129,164 +129,6 @@ NOTE: 组织或帐户管理员可以从“设置”页面修改此值。
 
 
 
-[[internal-disks-for-system-data]]
-== 用于系统数据的内部磁盘
-
-除了用户数据的存储外，控制台还购买了系统数据的云存储。
-
-ifdef::aws[]
-
-
-
-[[aws]]
-=== AWS
-
-* 每个节点有三个磁盘用于启动、根和核心数据：
-+
-** 47 GiB io1 磁盘用于启动数据
-** 140 GiB gp3 磁盘用于根数据
-** 540 GiB gp2 磁盘用于核心数据
-
-
-* 对于 HA 对：
-+
-** 两个用于中介实例的 st1 EBS 卷，其中一个约 8 GiB，用作根磁盘，另一个约 4 GiB，用作数据磁盘
-** 每个节点中有一个 140 GiB gp3 磁盘，用于保存另一个节点的根数据副本
-+
-
-NOTE: 在某些区域中，可用的EBS磁盘类型只能是gp2。
-
-
-
-* 每个启动磁盘和根磁盘一个 EBS 快照
-+
-
-NOTE: 重启时会自动创建快照。
-
-* 当您使用密钥管理服务 (KMS) 在 AWS 中启用数据加密时， Cloud Volumes ONTAP的启动磁盘和根磁盘也会被加密。这包括 HA 对中中介实例的启动磁盘。磁盘使用您在添加Cloud Volumes ONTAP系统时选择的 CMK 进行加密。
-
-
-
-TIP: 在 AWS 中， NVRAM位于启动盘上。
-
-endif::aws[]
-
-ifdef::azure[]
-
-
-
-[[azure-single-node]]
-=== Azure（单节点）
-
-* 三个高级 SSD 磁盘：
-+
-** 一个 10 GiB 磁盘用于启动数据
-** 一个 140 GiB 磁盘用于根数据
-** 一个 512 GiB 磁盘用于NVRAM
-+
-如果您为Cloud Volumes ONTAP选择的虚拟机支持 Ultra SSD，则系统将使用 32 GiB Ultra SSD 作为NVRAM，而不是 Premium SSD。
-
-
-
-* 一个 1024 GiB 标准 HDD 磁盘，用于保存核心
-* 每个启动磁盘和根磁盘对应一个 Azure 快照
-* 默认情况下，Azure 中的每个磁盘都是静态加密的。
-+
-如果您为Cloud Volumes ONTAP选择的虚拟机支持 Premium SSD v2 托管磁盘作为数据磁盘，则系统将使用 32 GiB Premium SSD v2 托管磁盘作为NVRAM，并使用另一个磁盘作为根磁盘。
-
-
-
-
-
-[[azure-ha-pair]]
-=== Azure（HA 对）
-
-.HA 与页 Blob 对
-* 两个 10 GiB Premium SSD 磁盘用于启动卷（每个节点一个）
-* 两个用于根卷的 140 GiB 高级存储页 Blob（每个节点一个）
-* 两个 1024 GiB 标准 HDD 磁盘用于保存核心（每个节点一个）
-* 两个 512 GiB 高级 SSD 磁盘用于NVRAM （每个节点一个）
-* 每个启动磁盘和根磁盘对应一个 Azure 快照
-+
-
-NOTE: 重启时会自动创建快照。
-
-* 默认情况下，Azure 中的每个磁盘都是静态加密的。
-
-
-.HA 对与多个可用区域中的共享托管磁盘
-* 两个 10 GiB Premium SSD 磁盘用于启动卷（每个节点一个）
-* 两个 512 GiB 高级 SSD 磁盘用于根卷（每个节点一个）
-* 两个 1024 GiB 标准 HDD 磁盘用于保存核心（每个节点一个）
-* 两个 512 GiB 高级 SSD 磁盘用于NVRAM （每个节点一个）
-* 每个启动磁盘和根磁盘对应一个 Azure 快照
-+
-
-NOTE: 重启时会自动创建快照。
-
-* 默认情况下，Azure 中的每个磁盘都是静态加密的。
-
-
-.单个可用区域中具有共享托管磁盘的 HA 对
-* 两个 10 GiB Premium SSD 磁盘用于启动卷（每个节点一个）
-* 两个 512 GiB 高级 SSD 共享托管磁盘，用于根卷（每个节点一个）
-* 两个 1024 GiB 标准 HDD 磁盘用于保存核心（每个节点一个）
-* 两个 512 GiB 高级 SSD 托管磁盘用于NVRAM （每个节点一个）
-
-
-如果您的虚拟机支持高级 SSD v2 托管磁盘作为数据磁盘，它将使用 32 GiB 高级 SSD v2 托管磁盘作为NVRAM ，并使用 512 GiB 高级 SSD v2 共享托管磁盘作为根卷。
-
-当满足以下条件时，您可以在单个可用区域中部署 HA 对并使用高级 SSD v2 托管磁盘：
-
-* Cloud Volumes ONTAP的版本为 9.15.1 或更高版本。
-* 所选区域和区域支持高级 SSD v2 托管磁盘。有关受支持区域的信息，请参阅 https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/["Microsoft Azure 网站：按地区提供的产品"^]。
-* 订阅已注册为 Microsoftlink:task-saz-feature.html["Microsoft.Compute/VMOrchestratorZonalMultiFD 功能"] 。
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
-
-
-[[google-cloud-single-node]]
-=== Google Cloud（单节点）
-
-* 一个 10 GiB SSD 永久磁盘，用于存储启动数据
-* 一个 64 GiB SSD 持久磁盘，用于存储根数据
-* 一个 500 GiB SSD 持久磁盘，用于NVRAM
-* 一个 315 GiB 标准持久磁盘，用于保存核心
-* 启动和根数据的快照
-+
-
-NOTE: 重启时会自动创建快照。
-
-* 默认情况下，启动磁盘和根磁盘是加密的。
-
-
-
-
-[[google-cloud-ha-pair]]
-=== Google Cloud（高可用性对）
-
-* 两个 10 GiB SSD 持久磁盘用于启动数据
-* 四个 64 GiB SSD 持久磁盘用于根数据
-* 两个 500 GiB SSD 持久磁盘用于NVRAM
-* 两个 315 GiB 标准持久磁盘，用于保存核心
-* 一个 10 GiB 标准持久磁盘，用于存储中介数据
-* 一个 10 GiB 标准永久磁盘，用于中介启动数据
-* 启动和根数据的快照
-+
-
-NOTE: 重启时会自动创建快照。
-
-* 默认情况下，启动磁盘和根磁盘是加密的。
-
-
-endif::gcp[]
-
-
-
 [[where-the-disks-reside]]
 === 磁盘所在位置
 
@@ -299,4 +141,45 @@ endif::gcp[]
 * 包含系统配置和日志的根数据位于 aggr0 中。
 * 存储虚拟机 (SVM) 根卷位于 aggr1 中。
 * 数据卷也驻留在 aggr1 中。
+
+
+
+
+[[disks-and-aggregates-used-for-cloud-volumes-ontap-clusters]]
+== 用于Cloud Volumes ONTAP集群的磁盘和聚合
+
+了解Cloud Volumes ONTAP如何使用云存储可以帮助您了解存储成本。
+
+
+CAUTION: 您必须从NetApp Console创建和删除所有磁盘和聚合。您不应从其他管理工具执行这些操作。这样做会影响系统稳定性，妨碍将来添加磁盘的能力，并可能产生冗余的云提供商费用。
+
+Cloud Volumes ONTAP使用云提供商存储作为磁盘并将它们分组为一个或多个聚合。聚合为一个或多个卷提供存储。
+
+image:diagram_storage.png["此图显示了由磁盘组成的聚合以及Cloud Volumes ONTAP向主机提供的数据卷。"]
+
+支持多种类型的云盘。创建卷时选择磁盘类型，部署Cloud Volumes ONTAP时选择默认磁盘大小。
+
+
+TIP: 从云提供商处购买的存储总量是_原始容量_。 _可用容量_较少，因为大约 12% 到 14% 是为Cloud Volumes ONTAP使用保留的开销。例如，如果控制台创建 500 GiB 聚合，则可用容量为 442.94 GiB。
+
+
+
+[[raid-type]]
+=== RAID 类型
+
+每个Cloud Volumes ONTAP聚合的 RAID 类型是 RAID0（条带化）。 Cloud Volumes ONTAP依赖云提供商来实现磁盘的可用性和耐用性。不支持其他 RAID 类型。
+
+
+
+[[hot-spares]]
+=== 热备件
+
+RAID0 不支持使用热备件实现冗余。
+
+创建连接到Cloud Volumes ONTAP实例的未使用磁盘（热备用）是不必要的开支，并且可能会阻止根据需要配置额外的空间。因此，不建议这么做。
+
+.相关链接
+* link:reference-configs-aws.html["AWS 中Cloud Volumes ONTAP支持的配置"]
+* link:reference-configs-azure.html["Azure 中Cloud Volumes ONTAP支持的配置"]
+* link:reference-configs-gcp.html["Google Cloud 中 Cloud Volumes ONTAP 支持的配置"]
 
