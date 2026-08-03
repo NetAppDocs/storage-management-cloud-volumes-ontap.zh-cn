@@ -3294,90 +3294,7 @@
   <block id="f21c1bc5bcee9dae9d5eb025e4c6d884" category="paragraph">请注意，您必须将聚合的容量至少增加 256 GiB 或聚合大小的 10%。例如，如果您有 1.77 TiB 聚合，则 10% 就是 181 GiB。这低于 256 GiB，因此聚合的大小必须增加 256 GiB 的最小值。</block>
   <block id="2eb14dc3edd9fb392b8095df85f2f222" category="summary">从NetApp Console管理基于容量的许可证，以确保您的NetApp帐户具有足够的容量用于您的Cloud Volumes ONTAP系统。</block>
   <block id="05fef605ad17853dff22052e9ab0016f" category="doc">管理Cloud Volumes ONTAP基于容量的许可</block>
-  <block id="93ed65a89f306426be7980ddc22595e8" category="paragraph">_基于容量的许可证_使您能够按 TiB 容量支付Cloud Volumes ONTAP 的费用。</block>
-  <block id="96a603641f48a14047d20b26a1cfeefa" category="paragraph">您可以从NetApp Console管理基于容量的Cloud Volumes ONTAP许可证。</block>
-  <block id="d3c2fb9e07de60e097ad32d8e9ad56eb" category="admonition">虽然控制台中管理的产品和服务的实际使用情况和计量始终以 GiB 和 TiB 计算，但 GB/GiB 和 TB/TiB 这两个术语可互换使用。这反映在云市场列表、报价、列表描述和其他支持文档中</block>
-  <block id="8caaaa4afae93c31b741be21eed669cc" category="inline-link">了解有关Cloud Volumes ONTAP许可证的更多信息</block>
-  <block id="25e7b507c919c21847b291c84a88ba36" category="paragraph"><block ref="73e1a6a2075a5d292111b694a644abf3" category="inline-link-rx"></block> 。</block>
-  <block id="a5e948b3ddd458b93125330e6dde9f94" category="section-title">如何将许可证添加到NetApp Console</block>
-  <block id="792eeb7f686f2ad37b664f6478d40bed" category="paragraph">从NetApp销售代表处购买许可证后， NetApp将向您发送一封电子邮件，其中包含序列号和其他许可详细信息。</block>
-  <block id="8948f0f0bc878d55b118339a79ece349" category="paragraph">同时，控制台会自动查询 NetApp 的许可服务，以获取与您的NetApp支持站点帐户相关的许可证的详细信息。如果没有错误，它会添加许可证。</block>
-  <block id="ad0be4bc913a8026a3f5e42fc7656d23" category="inline-link">了解如何将购买的许可证添加到您的帐户</block>
-  <block id="4db74114ac6514de873c5bc9b5b30cf1" category="paragraph">如果控制台无法添加许可证，则需要手动添加它们。例如，如果控制台代理安装在没有互联网访问的位置，则您需要自己添加许可证。<block ref="21379db3c6d74c3a5d2d6d121cdcf537" category="inline-link-rx"></block> 。</block>
-  <block id="03021ab228ad1d1c921bbf536e2913a4" category="section-title">查看您账户中已消耗的容量</block>
-  <block id="61233c99902f0b66422b062168ba63a5" category="paragraph">控制台显示您帐户中消耗的总容量以及按许可包消耗的容量。这可以帮助您了解收费方式以及是否需要购买额外的容量。</block>
-  <block id="f6d5cd6d364915d1012d5e7d29aa3d78" category="list-text">从左侧导航窗格中，选择“管理”&gt; “Licenses and subscriptions”。</block>
-  <block id="a495aa39c60dc5d48d7bb146e6f7265a" category="list-text">在“概览”选项卡上， Cloud Volumes ONTAP图块显示为您的帐户配置的当前容量。</block>
-  <block id="85ac3ef33729a6408e85a09c9b5ebc4f" category="inline-image-macro">width=300 屏幕截图显示了您的Cloud Volumes ONTAP许可证和订阅的容量摘要。</block>
-  <block id="ef94465b68195bb5523f36cf2d8ea3bd" category="paragraph"><block ref="ef94465b68195bb5523f36cf2d8ea3bd" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b989e51822e011c35b6e3fc2f6e007cf" category="list-text">_直接许可证_是您的NetApp帐户中所有Cloud Volumes ONTAP系统的总配置容量。收费基于每个卷的配置大小，而不考虑卷内的本地、已用、存储或有效空间。</block>
-  <block id="80495a5c91b6e7cae60c8c5c750734bc" category="list-text">_年度合同_是您从NetApp购买的总许可容量（自带许可证 (BYOL) 或市场合同）。</block>
-  <block id="18ef4a3a3844dea97bcae43ccdf60b1e" category="list-text">_PAYGO_ 是使用云市场订阅的总配置容量。仅当消耗的容量高于许可容量或控制台中没有可用的 BYOL 许可证时，才使用 PAYGO 收费。</block>
-  <block id="d02d58b5b8770f720f9d912913a80f1a" category="list-text">选择“查看”以查看每个许可包所消耗的容量。</block>
-  <block id="a4f95858d82d890dcc9a5123e1f315e6" category="list-text">选择“*许可证*”选项卡查看您购买的每个包许可证的详细信息。</block>
-  <block id="d30bc4bd5cee7ac23a1df54311d1f4b3" category="inline-link">了解 Essentials 套餐的收费</block>
-  <block id="b2678f2b003e23f7f5f3a7cd8451a26b" category="paragraph">为了更好地了解 Essentials 套件所显示的容量，您应该熟悉充电的工作原理。<block ref="8d04d0643798fbb69d5260f477ea213c" category="inline-link-rx"></block> 。</block>
-  <block id="452cf2122664eef3e8c620ec413c8d43" category="list-text">选择“*订阅*”选项卡来查看按许可证消费模式消耗的容量。此选项卡包括 PAYGO 和年度合同许可证。</block>
-  <block id="a6fd7fff8d44ac917f29be623cc64da2" category="paragraph">您只会看到与您当前正在查看的组织相关的订阅。</block>
-  <block id="24456dcfa7781b6f3a972b5f11ed0d88" category="list-text">当您查看有关订阅的信息时，您可以与表格中的详细信息进行交互。展开一行可以查看更多详细信息。</block>
-  <block id="56594b7222b35921f9fe676eadf6bbdf" category="inline-image-macro">表头末尾的加号图标</block>
-  <block id="2eab7ff26639a8d2e45cece515ff781f" category="list-text">选择<block ref="98b11313fea6c4106e5a3c018f0ffbc9" category="inline-image-macro-rx" type="image"></block>选择表中显示的列。请注意，“期限”和“自动续订”列默认不会出现。自动续订列仅显示 Azure 合同的续订信息。</block>
-  <block id="8ac1ecc7ceb7a49d071b4f1b71f0e176" category="section-title">查看包裹详情</block>
-  <block id="f88e8fee4b6b78cbc9779b73098653b5" category="paragraph">您可以通过在Cloud Volumes ONTAP页面上切换到传统模式来查看每个包使用的容量的详细信息。</block>
-  <block id="4a95292c803539c8cf72591c54db0644" category="list-text">选择“查看”以查看每个许可包的配置容量。</block>
-  <block id="40d1f3228e91a00383279859612f7ba5" category="list-text">选择*切换到高级视图*。</block>
-  <block id="3df898a44cd4e747f0651fff3683bca8" category="inline-image-macro">切换到高级视图按钮的屏幕截图</block>
-  <block id="4247aeb98dbe93036110943452fb15a7" category="paragraph"><block ref="4247aeb98dbe93036110943452fb15a7" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="cf5e0e2d5e3b97433dcea18ed2c97b91" category="list-text">查看您想要查看的包裹的详细信息。</block>
-  <block id="f651647ac9ca970bf81f92917731dcbb" category="inline-image-macro">切换到标准视图按钮的屏幕截图</block>
-  <block id="322ba871ee257d334ca304536b56b324" category="paragraph"><block ref="322ba871ee257d334ca304536b56b324" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="662442d32a5fd91298fcf8b6391fdf17" category="section-title">改变充电方式</block>
-  <block id="3a320310638e1b673183daababec1ba0" category="paragraph">基于容量的许可以_包_的形式提供。创建Cloud Volumes ONTAP系统时，您可以根据业务需求从多个许可包中进行选择。如果您在创建系统后需求发生变化，您可以随时更改套餐。例如，您可以从 Essentials 包更改为 Professional 包。</block>
-  <block id="58dcfad3183b701a8f1b8781a5644d09" category="inline-link">了解有关基于容量的许可包的更多信息</block>
-  <block id="6b5c2460f150173d3723de8a857a4d33" category="paragraph"><block ref="179c8a3ed717f2c4de3149f0e9edf685" category="inline-link-rx"></block> 。</block>
-  <block id="31ccaa5879eee7a69ef3c48f1004c59c" category="list-text">更改收费方式不会影响您是通过从NetApp (BYOL) 购买的许可证还是通过云提供商的市场即用即付 (PAYGO) 订阅进行收费。</block>
-  <block id="ac2e949b0b6c58b83082083327f0fd77" category="paragraph">控制台始终会先尝试根据许可证收费。如果没有许可证，则会根据市场订阅收费。您不必将 BYOL 订阅转换为市场订阅，反之亦然。</block>
-  <block id="cfdb32f80009b1e5c5c0468dda9f013d" category="list-text">如果您拥有来自云提供商市场的私人优惠或合同，则更改为合同中未包含的收费方式将导致对 BYOL（如果您从NetApp购买了许可证）或 PAYGO 收费。</block>
-  <block id="2daabc6822724771970f17e8ae6a4cee" category="list-text">选择“*概览*”选项卡。</block>
-  <block id="5b37c7034b369fcc6d9b931180eef46f" category="list-text">在Cloud Volumes ONTAP图块上，选择 *查看*。</block>
-  <block id="13bb1907bdca20408e78b483332beab6" category="inline-image-macro">切换到旧版视图按钮的屏幕截图</block>
-  <block id="07d6c0208f77e132c7e96286497713f8" category="paragraph"><block ref="07d6c0208f77e132c7e96286497713f8" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="0e4bc6fa91df5edc0eafb52c324b38f3" category="list-text">向下滚动到*基于容量的许可证*表并选择*更改收费方式*。</block>
-  <block id="7c32cfa3b543a8f69513e758629bc263" category="inline-image-macro">控制台中Cloud Volumes ONTAP页面的屏幕截图，其中“更改收费方式”按钮位于表格上方。</block>
-  <block id="7c3ea09c5ec07ba244bc674f632d4c79" category="paragraph"><block ref="7c3ea09c5ec07ba244bc674f632d4c79" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="e6e33712a923fd615674fad11214317f" category="list-text">在*更改收费方式*弹出窗口中，选择一个Cloud Volumes ONTAP系统，选择新的收费方式，然后确认您了解更改套餐类型将影响服务费用。</block>
-  <block id="c2a404ae45ebabafb7f3598bcd8a1a18" category="list-text">选择*更改充电方式*。</block>
   <block id="37532cd27e3c53471b1caed0ba1f90ed" category="section-title">下载使用情况报告</block>
-  <block id="85be1733025dd0b3e190d956ed6e380c" category="paragraph">您可以从控制台下载四份使用情况报告。这些使用情况报告提供您的订阅的容量详细信息，并告诉您如何为Cloud Volumes ONTAP订阅中的资源付费。可下载的报告捕获某个时间点的数据，并且可以轻松地与他人共享。</block>
-  <block id="fe1db4ddb29c070770259869ba7aa5bb" category="inline-image-macro">屏幕截图显示了基于Cloud Volumes ONTAP容量的许可证页面，并突出显示了使用情况报告按钮。</block>
-  <block id="61b0c512c4663de969f8c21e23e50f0e" category="paragraph"><block ref="61b0c512c4663de969f8c21e23e50f0e" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="d11dcbec58d47bd13de1dcccfbd640ff" category="paragraph">以下报告可供下载。显示的容量值以 TiB 为单位。</block>
-  <block id="c596c9291f76a11af1aefc235c262de6" category="list-text">总消耗容量</block>
-  <block id="8dd7541d6c4e83402d88448119068a02" category="list-text">预先承诺的总容量</block>
-  <block id="b01a146aed01aa8af61e034befc116ce" category="list-text">总 BYOL 容量</block>
-  <block id="109323142d354af9ccc7eb636b1dcbce" category="list-text">市场合同总容量</block>
-  <block id="baf09c6c43fd26effd8f15e252649384" category="list-text">PAYGO 总容量</block>
-  <block id="a65d4ec7ff2941ad2ea2bc688a6dbbb3" category="list-text">*存储虚拟机使用情况*：此报告显示收费容量在Cloud Volumes ONTAP系统和存储虚拟机 (SVM) 之间的分配情况。此信息仅在报告中提供。它包含以下信息：</block>
-  <block id="c8e2277ecfb1427838c488c217f99466" category="list-text">云</block>
-  <block id="4736cd35bf5b3fe63e1b1785fb2aa664" category="list-text">NetApp帐户 ID</block>
-  <block id="3c4e32d95f12c00d16a76057a7af18f6" category="list-text">系统配置</block>
-  <block id="203c4205822c007d08ecafe163b02ea2" category="list-text">SVM 名称</block>
-  <block id="b567847dd629376ac84ed4958fd61687" category="list-text">预配置容量</block>
-  <block id="a09b8df9fd0007770b0a8c10f9a17d81" category="list-text">充电容量汇总</block>
-  <block id="671095c17b0e9e0deda06cff2fa103e6" category="list-text">市场计费条款</block>
-  <block id="d38764d5edf26bd9b744840cd2ea3c17" category="list-text">Cloud Volumes ONTAP软件包或功能</block>
-  <block id="a016fcdfd1d7159ffd537d78d4b68f74" category="list-text">收费 SaaS 市场订阅名称</block>
-  <block id="fe6ac599d13d94a0ee0800482bec7e41" category="list-text">收费 SaaS 市场订阅 ID</block>
-  <block id="427af860f9733f0c5427a1408195bb2b" category="list-text">工作负载类型</block>
-  <block id="2d0394437aca88cac134fb1bce72e08f" category="list-text">*卷使用情况*：此报告显示Cloud Volumes ONTAP系统中如何按卷细分收费容量。控制台中的任何屏幕上均不显示此信息。它包括以下信息：</block>
-  <block id="cccc95b62282240886ee975a3f122adb" category="list-text">Volume ID</block>
-  <block id="fc18634852d4299cd5f8c7ad55ddefbe" category="list-text">卷类型</block>
-  <block id="3756f66a273f440893f16ee968ce3450" category="list-text">卷配置容量</block>
-  <block id="8b3da2ed858ee5c956acde26c9ef7dd0" category="admonition">FlexClone卷不包含在此报告中，因为这些类型的卷不会产生费用。</block>
-  <block id="b2b74732b80350970fadfac4db3ba17e" category="list-text">在*概览*选项卡上，从Cloud Volumes ONTAP图块中选择*查看*。</block>
-  <block id="f4c2ce2a853a74c3742ccc54482c074e" category="list-text">选择*使用情况报告*。</block>
-  <block id="23e918e9f1c9f1bb5769dcc236489de2" category="paragraph">使用情况报告下载。</block>
-  <block id="05655bb3cbd3604d6c71a1db823ad94f" category="list-text">打开下载的文件以访问报告。</block>
   <block id="2edd8edb29f9d701956a9cdf8a5325c4" category="doc">在控制台代理上管理Cloud Volumes ONTAP聚合容量</block>
   <block id="bd20e2ea38068ff0b9b9efb708d88c42" category="paragraph">每个控制台代理都有设置来确定如何管理Cloud Volumes ONTAP的聚合容量。</block>
   <block id="5b930e91ec691a7af5d8bc5eb7a33ee7" category="paragraph">这些设置会影响控制台代理管理的所有Cloud Volumes ONTAP系统。如果您有另一个控制台代理，则可以进行不同的配置。</block>
@@ -3418,75 +3335,6 @@
   <block id="492847bcbc9ec0bd3075b612aa43e4a7" category="list-text">选择* Keystone*。</block>
   <block id="6e1a9790b199742bec95dea2070e2f3f" category="summary">在NetApp Console中管理基于节点的许可证，以确保每个Cloud Volumes ONTAP系统都具有所需容量的有效许可证。</block>
   <block id="160221c1e99e53b72af8a65c2440852b" category="doc">管理Cloud Volumes ONTAP 的基于节点的许可</block>
-  <block id="63e5ea33dc9b9a10458ac73abae91075" category="paragraph">在NetApp Console中管理基于节点的许可证，以确保每个Cloud Volumes ONTAP系统都具有所需容量的有效许可证。</block>
-  <block id="4627bd080634e9380c75a1cc04a09486" category="paragraph">_基于节点的许可证_是上一代许可模型（不适用于新客户）：</block>
-  <block id="0d4e36aae457a1001b3373de2fd510f1" category="list-text">从NetApp购买自带许可证 (BYOL)</block>
-  <block id="17ac9e85cf5b6f7b77acf61fb7721242" category="list-text">从云提供商的市场购买按小时付费 (PAYGO) 订阅</block>
-  <block id="3501754bb69f70ed8f72d23562bab97c" category="paragraph">您可以从NetApp Console管理基于节点的Cloud Volumes ONTAP许可证。</block>
-  <block id="9426b05d2fc423b761e34f9d75b4066d" category="section-title">管理 PAYGO 许可证</block>
-  <block id="fcd2026c30c1b902d032e35337e8888c" category="paragraph">Licenses and subscriptions菜单，您可以查看有关每个 PAYGO Cloud Volumes ONTAP系统的详细信息，包括序列号和 PAYGO 许可证类型。</block>
-  <block id="343c7ed77049523f4d99e8d4c436a330" category="list-text">从下拉菜单中选择*基于节点的许可证*。</block>
-  <block id="87089bacab591352ad6ad6579e34d93e" category="list-text">点击*PAYGO*。</block>
-  <block id="82be8e06ac169a3de0fce42cd01f5760" category="list-text">在表格中查看有关每个 PAYGO 许可证的详细信息。</block>
-  <block id="bbfa86a1d5f6c6f85f7a434a983b34e1" category="inline-image-macro">屏幕截图显示了Licenses and subscriptions页面中含有三个 paygo 许可证的表格。每行显示名称、系统类型、序列号、包以及管理许可证的链接。</block>
-  <block id="cf03ba6c2dea0eb29457f99fdcd69b82" category="paragraph"><block ref="cf03ba6c2dea0eb29457f99fdcd69b82" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="a45c9786e45613660f519d740b30671a" category="list-text">如果需要，单击*管理 PAYGO 许可证*来更改 PAYGO 许可证或更改实例类型。</block>
-  <block id="00b61e8d20d055a6505bd5bc88e18aeb" category="section-title">管理 BYOL 许可证</block>
-  <block id="33375e3f722897194d509130054856dd" category="paragraph">通过添加和删除系统许可证和额外容量许可证来管理您直接从NetApp购买的许可证。</block>
-  <block id="4742f5b0c38f7c105542ecb15a214212" category="section-title">添加未分配的许可证</block>
-  <block id="d0052e7943aa77623453a3374803765d" category="paragraph">将基于节点的许可证添加到控制台，以便您在创建新的Cloud Volumes ONTAP系统时可以选择该许可证。控制台将这些许可证标识为_未分配_。</block>
-  <block id="bec033f0535da0f58c9f0a7ccd96e793" category="paragraph">如果您还没有许可证文件，请参阅下面的部分。</block>
-  <block id="684d5df2e069e529d4a4c518d654dc44" category="paragraph">控制台添加许可证。在您将许可证与新的Cloud Volumes ONTAP系统关联之前，该许可证将被标识为未分配。此后，许可证将移至“Licenses and subscriptions”中的“BYOL”选项卡。</block>
-  <block id="df5b9d272738b4adaa43e7eb4949a0e5" category="section-title">交换未分配的基于节点的许可证</block>
-  <block id="76a67f9205ca80ce535686592126df9d" category="paragraph">如果您有未分配的基于节点的Cloud Volumes ONTAP许可证且尚未使用，则可以将其转换为NetApp Backup and Recovery许可证、 NetApp Data Classification许可证或NetApp Cloud Tiering许可证来交换该许可证。</block>
-  <block id="82330159ba1b86113008185841af38f9" category="paragraph">交换许可证将撤销Cloud Volumes ONTAP许可证并为该服务创建等值美元的许可证：</block>
-  <block id="488b3f4a79a8819dabc209f2405c7ba7" category="list-text">Cloud Volumes ONTAP HA 对的许可转换为 51 TiB 直接许可证</block>
-  <block id="d8961eb56e3c50e0da29ec362dcb385a" category="list-text">Cloud Volumes ONTAP单节点许可转换为 32 TiB 直接许可证</block>
-  <block id="89f1c05b91f27a0ccc4736c51deee49f" category="paragraph">转换后的许可证的到期日期与Cloud Volumes ONTAP许可证相同。</block>
-  <block id="e0225acc5a75bb0346dd94ed24206c81" category="inline-link-macro">查看如何交换基于节点的许可证的演练。</block>
-  <block id="d82de0388f091aa9d43371708eb95310" category="paragraph"><block ref="b4c22b5293d3ee433dee9c4b3632dbee" category="inline-link-macro-rx"></block></block>
-  <block id="fff69e388498c7da2216c0a49587cbc8" category="list-text">单击“*交换许可证*”。</block>
-  <block id="25abdaf706ab9bbfe1775de2626f958f" category="inline-image-macro">未分配许可证页面上显示的 Exchange 许可证选项的屏幕截图。</block>
-  <block id="59069c86e2c388bcb56b4ec04ba7c1b1" category="paragraph"><block ref="59069c86e2c388bcb56b4ec04ba7c1b1" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="b2bcb667f1a3e2cd665dce56fa38946c" category="list-text">选择您想要交换许可证的服务。</block>
-  <block id="d54ac11d311c4a7a85e11a557ee305e3" category="list-text">如果出现提示，请为 HA 对选择一个额外的许可证。</block>
-  <block id="1e4109afcb540c886b450b6944b83567" category="list-text">阅读法律同意并点击*同意*。</block>
-  <block id="f56693ead48da8f8372b53a387f22165" category="paragraph">控制台将未分配的许可证转换为您选择的服务。您可以在“数据服务许可证”选项卡中查看新的许可证。</block>
-  <block id="bed8ee00b54ae810def15122c80a9dba" category="section-title">获取系统许可证文件</block>
-  <block id="022919ed552faad7f4de98d1abe88fc1" category="paragraph">在大多数情况下，控制台可以使用您的NetApp支持站点帐户自动获取您的许可证文件。但如果不能，那么您将需要手动上传许可证文件。如果您没有许可证文件，您可以从 netapp.com 获取。</block>
-  <block id="3eff90cc077e6c35c01b4fa2ce08352e" category="list-text">前往<block ref="d4604fbd185a778fcb9e2d4bce6d880d" category="inline-link-rx"></block>并使用您的NetApp支持站点凭据登录。</block>
-  <block id="7260bbc39295ef94e60be19b73affac6" category="inline-image-macro">屏幕截图：显示包含可用产品线的NetApp许可证生成器网页示例。</block>
-  <block id="c7db6ec8c72cc25c90f19ebafe2ddfbd" category="paragraph"><block ref="c7db6ec8c72cc25c90f19ebafe2ddfbd" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="58f676020d30c00d4b3fb18fc835e7ca" category="section-title">更新系统许可证</block>
-  <block id="b0f33031496e38b99d72e702000365e8" category="paragraph">当您通过联系NetApp代表续订 BYOL 订阅时，控制台会自动从NetApp获取新许可证并将其安装在Cloud Volumes ONTAP系统上。如果控制台无法通过安全的互联网连接访问许可证文件，您可以自行获取该文件，然后手动上传该文件。</block>
-  <block id="eda4b0f5ee71694deda064c01799f329" category="list-text">在 *BYOL* 选项卡中，展开Cloud Volumes ONTAP系统的详细信息。</block>
-  <block id="d91a847294f18b5d31d438a059c2532d" category="list-text">单击系统许可证旁边的操作菜单，然后选择*更新许可证*。</block>
-  <block id="98022931ad96bfc8db710666a48e0416" category="list-text">上传许可证文件（如果您有 HA 对，则上传多个文件）。</block>
-  <block id="1c523ff18e24f3b5d4d5fa45c4410b01" category="list-text">单击“更新许可证”。</block>
-  <block id="825a0cb9a8312e85f3aa745487c0dbe9" category="paragraph">控制台更新Cloud Volumes ONTAP系统上的许可证。</block>
-  <block id="2c2e7695734e076306fc8ba50ca70c1b" category="section-title">管理额外容量许可证</block>
-  <block id="d452bdec5cf94a61fe23690b513f4a71" category="paragraph">您可以为Cloud Volumes ONTAP BYOL 系统购买额外的容量许可证，以分配超过 BYOL 系统许可证提供的 368 TiB 的容量。例如，您可以购买一个额外的许可证容量，为Cloud Volumes ONTAP分配最多 736 TiB 的容量。或者您可以购买三个额外的容量许可证以获得高达 1.4 PiB。</block>
-  <block id="6e869ff6c9fd5eb76baa394c52e2ef18" category="section-title">添加容量许可证</block>
-  <block id="41a0a4fe38c3f00a9fae3056955c9f80" category="paragraph">通过控制台右下角的聊天图标联系我们，购买额外容量许可证。购买许可证后，您可以将其应用于Cloud Volumes ONTAP系统。</block>
-  <block id="423cdc57679399d47229e2f74dfc102b" category="list-text">单击“添加容量许可证”。</block>
-  <block id="b0bfc70f0e7f3f10c4334bd53c2c2a27" category="list-text">输入序列号或上传许可证文件（如果您有 HA 对，则上传文件）。</block>
-  <block id="c4e9cc48e592b9354b10b9d54e14525c" category="section-title">更新容量许可证</block>
-  <block id="2526a0404b7268bca72e19dd834baa1e" category="paragraph">如果您延长了额外容量许可证的期限，则需要在控制台中更新许可证。</block>
-  <block id="555efdea73381bcd8582646f75b68253" category="list-text">单击容量许可证旁边的操作菜单，然后选择*更新许可证*。</block>
-  <block id="df478b8a8dcb38cfbba69a02ff5cae20" category="section-title">删除容量许可证</block>
-  <block id="9906134ee224bc081497b19c4269cc34" category="paragraph">如果额外容量许可证已过期且不再使用，那么您可以随时将其删除。</block>
-  <block id="c320af21170d1ca43751b7580a1125f4" category="list-text">单击容量许可证旁边的操作菜单，然后选择*删除许可证*。</block>
-  <block id="03b194a23dcb353466fbfb7acff64363" category="list-text">单击“*删除*”。</block>
-  <block id="594cb44c6500d8855ad820b0653e02c7" category="section-title">PAYGO 和 BYOL 之间的变化</block>
-  <block id="a704128156d562fe5860508e9584ee34" category="paragraph">不支持将系统从 PAYGO 按节点许可转换为 BYOL 按节点许可（反之亦然）。如果您想在按使用量付费订阅和 BYOL 订阅之间切换，那么您需要部署一个新系统并将数据从现有系统复制到新系统。</block>
-  <block id="c019dbada10848ba4363bd4710a34f6b" category="list-text">创建一个新的Cloud Volumes ONTAP系统。</block>
-  <block id="9bd20ffd5e91ec2bb61bc593be38bb13" category="list-text">对于需要复制的每个卷，在系统之间设置一次性数据复制。</block>
-  <block id="95b10ad2ca24b4c8bd5673b7383531a2" category="inline-link">了解如何在系统之间复制数据</block>
-  <block id="882d5f98206dd8157654127073c920f2" category="paragraph"><block ref="882d5f98206dd8157654127073c920f2" category="inline-link-rx"></block></block>
-  <block id="ebf88a96d90d43fcac8c0ab5a9fda0dd" category="list-text">通过删除原始系统来终止不再需要的Cloud Volumes ONTAP系统。</block>
-  <block id="f979ec1d84a4416797fae20cc61f839b" category="inline-link">了解如何删除Cloud Volumes ONTAP系统</block>
-  <block id="0d0947c9b1ebe3ee650df057f8192855" category="paragraph"><block ref="87175a08736eca79154ad91c69792fcd" category="inline-link-rx"></block> 。</block>
-  <block id="342dcce6bda294bb4b60fc9333bcafbe" category="inline-link-macro">将基于节点的许可证转换为基于容量的许可证</block>
   <block id="5b5068830882d3d6b54d331cdd743e62" category="paragraph">有关ONTAP CLI 说明，请参阅以下文档。</block>
   <block id="412af2a2404a4e920b18be59197204b0" category="inline-link">《SVM 灾难恢复准备快速指南》</block>
   <block id="c15bb50c43eaf0ceb1bc0ce3d7503ebd" category="list-text"><block ref="c15bb50c43eaf0ceb1bc0ce3d7503ebd" category="inline-link-rx"></block></block>
@@ -5949,7 +5797,6 @@
   <block id="4bd0b8ab4e553e751aa93406b40d5560" category="paragraph">对于单节点系统，I/O 被中断。</block>
   <block id="62fac2021144c76cdcd096ecd3c82eb4" category="paragraph">您可以通过在 NetApp Console 中创建 Cloud Volumes ONTAP 系统来在 Azure 中启动单节点系统或 HA 对。</block>
   <block id="3b8ca986ea730316924e61b984071d11" category="paragraph">如果要在 Azure 中启动单节点 Cloud Volumes ONTAP 系统，需要在 Console 中创建单节点系统。</block>
-  <block id="691e9010d46bcb06693d90df5c955334" category="paragraph">可以为单节点系统或 HA 对购买的许可证数量是无限的。</block>
   <block id="cdd566a2953665ed7135ca03058a8014" category="paragraph">如果在两个 Cloud Volumes ONTAP 系统之间设置 SnapMirror SVM 复制，则复制必须在两个 HA 对系统或两个单节点系统之间进行。无法在 HA 对和单节点系统之间设置 SnapMirror SVM 复制。</block>
   <block id="0af39724f1af28211a653a39e57d0598" category="paragraph">请注意，存储虚拟机的可选管理 LIF 需要单节点系统上的专用 IP 地址和单个 AZ 中的 HA 对。此管理 LIF 提供与 SnapCenter 等管理工具的连接。</block>
   <block id="2ec479bb11cd13a599380572acb1c0ce" category="list-text">单节点系统：需要一个未使用的辅助专用 IP。</block>
@@ -6139,7 +5986,6 @@
   <block id="665103db45058514d7e3b032c990783d" category="list-text">对于要调整容量的订阅，请选择 <block ref="c9c50c6d591d91ccce1ee232fa490fb4" category="inline-image-macro-rx" type="image"></block> 并选择 *View detail and edit*。</block>
   <block id="f638b98047aa1e2c9642d2de1bcdd0d0" category="list-text">向下滚动，输入请求的其他详细信息，然后选择 *Submit*。</block>
   <block id="dc96e19fba7ac18b79e69398a4792825" category="list-text">对于要取消链接的订阅，请选择 <block ref="c9c50c6d591d91ccce1ee232fa490fb4" category="inline-image-macro-rx" type="image"></block> 并选择 *Unlink*。</block>
-  <block id="5e5b6fbbd6a3b4edf3913541e4fecf17" category="list-text"><block ref="5e5b6fbbd6a3b4edf3913541e4fecf17" category="inline-link-rx"></block></block>
   <block id="66f0f207e553b92ff141bcd4fe27ad0f" category="doc">AWS 中 Cloud Volumes ONTAP 和数据服务的灵活计费</block>
   <block id="c6527bb2f1b87269be16603057b53a2c" category="paragraph">由于 AWS 企业折扣计划 (EDP) 的变化，NetApp 在 AWS 市场中引入了独立的 Cloud Volumes ONTAP 订阅，允许您将 Cloud Volumes ONTAP 容量的计费与数据服务分开。这种分离使您可以更灵活地管理 EDP 积分和成本。NetApp 建议使用独立订阅来更好地管理 Cloud Volumes ONTAP 使用情况的成本，同时在 2026 年 7 月 31 日 EDP 要求生效后继续使用 NIS 订阅进行数据服务计费。</block>
   <block id="bc5abfb3f56ed8d61846aead3435d204" category="paragraph">AWS 中的独立 Cloud Volumes ONTAP 订阅仅支持基于容量的有效 Essentials 或 Freemium 许可证包。不支持 Professional 包。您可以选择最适合您需求的账单方式：</block>
@@ -6372,37 +6218,6 @@
   <block id="a39062ee3ffebf8265972bbfd12218d1" category="list-text">*网络配置和连接*：选择相关区域和可用区。为 HA 配置选择四个不同的 VPC，在每个 VPC 中选择一个子网，然后选择防火墙策略。</block>
   <block id="308f6c85e4f05242ebe84d06edc1939e" category="admonition">Cloud Volumes ONTAP 9.19.1 及更高版本支持<block ref="bf5f8235b3ee6f722f42e2d7828e4aab" category="inline-link-macro-rx"></block>，使 Mediator 实例成为可选。在此配置中，您无需输入中介区域、相应的 VPC 和子网即可进行数据复制。</block>
   <block id="d0106c4491f5099769d6febfecd4ee36" category="paragraph">如果您选择其中一个程序包，则只需指定一个卷，然后查看并批准配置。预配置的程序包因所选 Cloud Volumes ONTAP 版本和配置类型而异。例如，如果您为 Cloud Volumes ONTAP 9.19.1 或更高版本选择单 AZ 部署，则可以看到带有 C3 系列计算机和 Hyperdisk Balanced 磁盘的预配置程序包。对于早期版本和多个 AZ，您仍然可以选择 n2-standard 计算机和 Persistent Disks。您可以根据工作负载需求修改配置，例如 IOPS 和吞吐量参数。</block>
-  <block id="821a4394ac44729da9f70ce04118fc86" category="list-text">*高级使用情况*：此报告汇总了您帐户中消耗的总容量，并按计费方式（预先提交的许可证与按需付费）进行细分。其中包含以下信息：</block>
-  <block id="1976d7f704de389d9fe064e08ea35b2d" category="cell">列</block>
-  <block id="51163c1c09d1460ef27f5dd97ed9ea7f" category="cell">帐户中所有 Cloud Volumes ONTAP 系统的总配置容量。</block>
-  <block id="f70b0a4d5f326e83950dad59aec6fa68" category="cell">您从 NetApp 购买的总许可容量，包括 BYOL 许可证和 Marketplace 合同。此值为 BYOL 总容量与 Marketplace 合同总容量之和。</block>
-  <block id="461f8f7091d5494362a76c93edc9a423" category="cell">直接从 NetApp 购买的自带许可证 (BYOL) 所涵盖的预承诺容量部分。</block>
-  <block id="78848eca2f87ad4a3c7b9b07889aae3a" category="cell">通过云提供商市场购买的年度市场合同或私人优惠所涵盖的预承诺容量部分。</block>
-  <block id="f343ac0562a9bcbf4a1f16afb4d9c944" category="cell">任何预先承诺的许可证未涵盖的已消耗容量部分，按即用即付（PAYGO）每小时市场费率计费。</block>
-  <block id="de061f005aa315f137edfbea4185d9cf" category="list-text">*Cloud Volumes ONTAP 包使用情况*：此报告提供与高级使用情况报告相同的容量明细，但按许可包组织。其中包含以下信息：</block>
-  <block id="0f8a95f201dfe022d77e0b59d46d4c77" category="cell">此包在您帐户中的所有 Cloud Volumes ONTAP 系统上配置的总容量。</block>
-  <block id="ba7a4b5109f3d946e68653e9dca24924" category="cell">您从 NetApp 购买的此套餐的总许可容量，包括 BYOL 许可证和 Marketplace 合同。此值为 BYOL 总容量与 Marketplace 合同总容量之和。</block>
-  <block id="da684f1b634af2847a1baa8db1db2ac7" category="cell">此软件包的预先承诺容量部分，由您直接从 NetApp 购买的自带许可证（BYOL）所覆盖。</block>
-  <block id="fa6bbae52be77ec691f2ed981782a8c3" category="cell">通过云提供商市场购买的年度市场合同或私人优惠所涵盖的此套餐的预承诺容量部分。</block>
-  <block id="7978965a49086eecb3f75ef44abb3cbe" category="cell">此套餐的已用容量中不受任何预先承诺的许可证保护的部分，按即用即付（PAYGO）每小时市场费率计费。</block>
-  <block id="40052c32370d83faceb0cb6dc62c2d53" category="cell">系统 ID 和名称</block>
-  <block id="d618d6f2db44ccd4eb860a4f494fc02b" category="cell">Cloud Volumes ONTAP 系统的唯一标识符 (UUID) 和显示名称。</block>
-  <block id="f36be790a1c0b2db000cad5e1f143392" category="cell">部署系统的云提供商（例如 AWS、Azure 或 Google Cloud）。</block>
-  <block id="63af7f48ddc938f8833d32b0716868d6" category="cell">与系统关联的 NetApp 帐户的标识符。</block>
-  <block id="ad5c67cce7e6fab8ce505f2ae3c2df11" category="cell">系统的部署配置（例如，单节点或 HA 对）。</block>
-  <block id="3355bd383b4614928e6109a99305d004" category="cell">Cloud Volumes ONTAP 系统中 Storage Virtual Machine (SVM) 的名称。</block>
-  <block id="c5f488f842043ae15f7cfa0e8b69385b" category="cell">在 SVM 上配置的总容量。</block>
-  <block id="f8ae5e430a4359a104373b4d18d6f868" category="cell">为 SVM 实际计费的容量。每个 SVM 都有最小可计费容量（默认情况下为 4 TiB，但这可能因账户而异）。如果 SVM 的已配置容量等于或低于该最小值，则此值将向上舍入到最小值；否则，它等于已配置的容量。</block>
-  <block id="4226ed0668452ac09bb7af302a7c9242" category="cell">关联平台订阅的账单周期（例如，按小时或按年）。</block>
-  <block id="ab31194e65fa04061f03e7c38298214e" category="cell">与 SVM 关联的许可包或功能（例如 Essentials 或 Professional）。</block>
-  <block id="aab205b2459de7a7ecd46aff12fc336e" category="cell">用于计费的市场订阅的名称。</block>
-  <block id="2c13015a3d1386955dffbbcbd1c49ce2" category="cell">用于计费的平台订阅的唯一标识符。</block>
-  <block id="e16dc33bf75ec44279b2f544d4b7a250" category="cell">指示 SVM 的卷是*主卷*（读/写卷），主动用于生产数据，还是*辅助卷*（DP 卷），数据保护目标卷，例如用于备份和复制的 SnapMirror 副本。</block>
-  <block id="de39b41004ed04a88578e2985a04fc6c" category="cell">包含此卷的 Cloud Volumes ONTAP 系统的唯一标识符 (UUID) 和显示名称。</block>
-  <block id="0d8e21203d5a81d1fa5620283cbeb8d9" category="cell">包含卷的Storage Virtual Machine (SVM)的名称。</block>
-  <block id="e7a38d895cb4f8d8f3a338217e14a339" category="cell">卷的唯一标识符。</block>
-  <block id="7860112ba253041aab5726c5a5f6777c" category="cell">卷的类型（例如，读写或数据保护）。</block>
-  <block id="b41f9ba0b51c7f3d54a31c655a83017f" category="cell">为卷调配的总容量。</block>
   <block id="b22fac92397ccbd6b8eaeaf6f44f36fe" category="summary">您可以在单系统配置中部署 Cloud Volumes ONTAP 实例，也可以在 Azure 中快速将其部署为 HA 对。</block>
   <block id="f733cea5538d157d9ae59fb10ffe2360" category="summary">您可以在单个系统配置中快速部署 Cloud Volumes ONTAP 实例，也可以在 Google Cloud 中快速部署为 HA 对。</block>
   <block id="7c40283f4f533a5903d1033c57ef27f4" category="list-text"><block ref="7c40283f4f533a5903d1033c57ef27f4" category="inline-link-macro-rx"></block></block>
@@ -7448,10 +7263,6 @@
   <block id="19d8bd352f2c40ce75403d13170b311b" category="paragraph">完成所有先决条件后，您可以完成向导中的步骤，在 Google Cloud 中部署 Cloud Volumes ONTAP。</block>
   <block id="8db3889b9094da1779e8e10e063742d5" category="list-text"><block ref="8db3889b9094da1779e8e10e063742d5" category="inline-link-macro-rx"></block></block>
   <block id="7c9fa6cfa8bf4914f6804681fe5a5c2d" category="list-text"><block ref="7c9fa6cfa8bf4914f6804681fe5a5c2d" category="inline-link-macro-rx"></block></block>
-  <block id="a5ee806b0006dbb717d76ab0978076d5" category="list-text"><block ref="a5ee806b0006dbb717d76ab0978076d5" category="inline-link-rx"></block></block>
-  <block id="795be46eebc5026a1d8753abd5db6e4e" category="list-text"><block ref="795be46eebc5026a1d8753abd5db6e4e" category="inline-link-rx"></block></block>
-  <block id="17bd8adea048946d31406e0958df510f" category="list-text"><block ref="17bd8adea048946d31406e0958df510f" category="inline-link-rx"></block></block>
-  <block id="83cfd515beb90b979f55f0e4df5ae35f" category="list-text"><block ref="83cfd515beb90b979f55f0e4df5ae35f" category="inline-link-rx"></block></block>
   <block id="0375af31d39c4bfde1c980cd053ab2b9" category="doc">Cloud Volumes ONTAP 存储 VM</block>
   <block id="54448f9a8312c7b08e3e97308160554c" category="paragraph">存储虚拟机 (SVM) 是在 ONTAP 中运行的虚拟机，可为您的客户端提供存储和数据服务。您可能会将其称为 _SVM_ 或 _vserver_。Cloud Volumes ONTAP 默认配置一个存储虚拟机，但某些配置支持额外的存储虚拟机。</block>
   <block id="3298e455b39f3323fcb1a4a41454ef56" category="doc">在 Cloud Volumes ONTAP 中修改系统写入速度</block>
@@ -7529,4 +7340,154 @@
   <block id="74daf668e35e08a20a58d1c4568fda62" category="sidebar">Cloud Volumes ONTAP 与其他产品的集成</block>
   <block id="b67ce24b0ef9db5e8910cc39a69b1ef6" category="sidebar">云提供商集成</block>
   <block id="e80ee78606b9fe45ef7d7303b64be29a" category="sidebar">Cloud Volumes ONTAP 和 AutoSupport-Digital Advisor</block>
+  <block id="aafe22f0aac02cfc773f108471a387c4" category="doc">Cloud Volumes ONTAP 与 Microsoft OneLake 的集成</block>
+  <block id="41aa5ef466861e25c87ddbb36de43edd" category="inline-link">Microsoft OneLake</block>
+  <block id="293c823b8d8e2da1959829a580b33c90" category="inline-link">Microsoft Fabric</block>
+  <block id="4d664b02ce777c1e4699e94fd7d34ae7" category="inline-link">ONTAP S3 多协议</block>
+  <block id="401d011b2377a7c64751160aa39ff55c" category="paragraph">Cloud Volumes ONTAP 现在支持与 <block ref="7296f85da7d270a15e9565051e07602b" category="inline-link-rx"></block> 集成（公开预览版）。您可以使用 <block ref="7296f85da7d270a15e9565051e07602b" category="inline-link-rx"></block> 将 Cloud Volumes ONTAP 与 <block ref="df6d917e247d0878fc8f4ddd737f9ab2" category="inline-link-rx"></block> 集成，从而使现有的 Cloud Volumes ONTAP NAS 数据可用于 Microsoft 分析和 AI 服务，例如 Power BI、Azure AI Search、OpenAI 和 Microsoft Copilot。此集成不需要进行数据移动或复制。该集成使用 <block ref="f8b4f97863c52739a61ab36e880c3d99" category="inline-link-rx"></block> 访问将 Cloud Volumes ONTAP 连接到现有的 Microsoft Fabric lakehouse。</block>
+  <block id="26ce65cbc7dbbe0f87186b28ea7c57b8" category="list-title">相关文章和资源：</block>
+  <block id="a66621d27a6944c58e46d1f565b22143" category="inline-link">NetApp blog：使用 Microsoft OneLake 和 NetApp Cloud Volumes ONTAP 优化人工智能和分析</block>
+  <block id="2b4194522887509da7c9b51c70067cea" category="list-text"><block ref="ada46b265e2235c5ece497b9f3c94b84" category="inline-link-rx"></block></block>
+  <block id="ecbaa51ea44293a13a4eb6ca8d26d642" category="inline-link">将 Cloud Volumes ONTAP 系统与 Microsoft OneLake 集成以实现 AI 和分析</block>
+  <block id="3dad4d1eeaf9a01a63764a9bd6deee29" category="list-text"><block ref="3dad4d1eeaf9a01a63764a9bd6deee29" category="inline-link-rx"></block></block>
+  <block id="a4bbb449ad6bcfc9df369b041d7730ed" category="inline-link">Cloud Volumes ONTAP 与 Microsoft OneLake 集成 - 技术简介</block>
+  <block id="4271db1842db28d08bc52fe3025bc7b1" category="list-text"><block ref="4271db1842db28d08bc52fe3025bc7b1" category="inline-link-rx"></block></block>
+  <block id="25a7621f5136df7ea1f50ee60bab4529" category="section-title">修复、关闭和重新激活 Microsoft Azure 中 Cloud Volumes ONTAP 的配置</block>
+  <block id="3f2d6026e86cfc3a3e872a2f3cd8f989" category="paragraph">NetApp Console 中精心设计的仪表板现在允许您修复 Cloud Volumes ONTAP 系统的配置建议。</block>
+  <block id="e4eac83bd4922d84fdd323f4afe1066b" category="paragraph">您还可以从良好架构分析中忽略一个或多个配置。这样，您可以忽略不适用于您的环境的特定配置。</block>
+  <block id="d45ddb9ce602eba8b90aee11b1ee25cf" category="paragraph">如果稍后要包含已取消的配置，可以在架构良好的控制面板中重新激活该配置。这会将配置还原到分析中，并允许您获取其建议和修复。</block>
+  <block id="37c159a88b5bcfaeea126c1581ba5f53" category="list-text"><block ref="37c159a88b5bcfaeea126c1581ba5f53" category="inline-link-macro-rx"></block></block>
+  <block id="6cb16892d109192c0cd1c62fbd1330a2" category="summary">NetApp Console 中的架构完善仪表板会定期分析存储系统配置，以确定您的 Cloud Volumes ONTAP 系统是否存在任何配置问题。发现问题时，仪表板会向您显示问题所在，并解释需要更改的内容，以确保您的存储系统实现最佳性能、成本效益和最佳实践合规性。</block>
+  <block id="d3884a08dbd1a0feb34aaf7e47b2fb8c" category="doc">基于架构良好的仪表板的 Cloud Volumes ONTAP 配置分析</block>
+  <block id="1c11d2e59190fe6a4e37f1e68abafcb4" category="paragraph">主要功能包括：</block>
+  <block id="ebc3bf5de769bc75ad8e36a90a0ed695" category="list-text">每日配置分析</block>
+  <block id="d0367f15d2fd772d543d692442807fa1" category="list-text">针对 NetApp ONTAP 存储系统和合作伙伴存储提供商的自动最佳实践验证</block>
+  <block id="3583e4a3e4e2e122cff65b8ad9045348" category="list-text">主动可观察性</block>
+  <block id="16fcd85dc9469370b62b4b46381f8e2a" category="list-text">从见解到行动</block>
+  <block id="3cf81f2251f5d2b923d6011214221dc4" category="paragraph">未解析的指令，位于<block ref="c491f271fb4c6f62c68f73c7ad844350" category="inline-link-rx"></block> - include::well-architected-workloads.adoc[]</block>
+  <block id="3f6f8b4e204fd3aa39cac35661de164d" category="section-title">分析要求</block>
+  <block id="021c4674734853c034b954078fa080f3" category="inline-link-macro">部署 NetApp Console agent</block>
+  <block id="ed3de084ebd57dfb5d10d8d07d5ff7c2" category="paragraph">要进行完整的 Cloud Volumes ONTAP 系统分析，您必须 <block ref="19a2c83f86e8c849ea6629f601093445" category="inline-link-macro-rx"></block> 在系统与 NetApp Console 之间建立连接。</block>
+  <block id="f064aed6dd86a2b762ecf9bcf528b941" category="section-title">Cloud Volumes ONTAP 系统的最佳实践和建议</block>
+  <block id="df022fa81268ad87abe9b34e29e60ea4" category="paragraph">架构良好的仪表板评估存储配置，以提供 ONTAP 配置最佳实践的深入视图，并符合 Azure Well-Architected Framework。该评估还提出了改进和修复建议。</block>
+  <block id="ffd9fc00ab43b8283346c6266e00d684" category="paragraph">架构完善的分析将配置归类为框架的以下支柱：_reliability_、_security_、_operational excellence_、_cost optimization_ 和 _performance efficiency_。</block>
+  <block id="820b8f74ad843d1574106ec4cadfc07e" category="section-title">可靠性</block>
+  <block id="f52eaa2b01823c61afb346f01ff37aec" category="paragraph">可靠性可确保工作负载正确一致地执行其预期功能，即使在中断期间也是如此。</block>
+  <block id="ca512a483bb26b1b253abc6b2cc463bd" category="list-text">*Snapshot 策略*</block>
+  <block id="ce36269ae95cd0ab7422d78bb843b720" category="paragraph">安排本地快照以实现高效备份和快速恢复。快照是卷的即时时间点映像。</block>
+  <block id="e5cdf4f9c0dda596826a91093d4f69f4" category="list-text">*SSD 容量余量*</block>
+  <block id="e1571d44d672c7a35fe7952a28f414b7" category="paragraph">SSD 存储层容量不应超过 80% 的利用率。这可能会影响对容量池存储层的数据读取和写入，并影响系统的吞吐量。当容量耗尽时，数据卷将变为只读。尝试写入新数据的服务也会失败。</block>
+  <block id="7d7265a6929882bb433fc74e8bee871a" category="paragraph">安全强调通过风险评估和缓解策略保护数据、系统和资产。</block>
+  <block id="d08117d717007eeb4d6273695d9a7725" category="list-text">*基于 AI 的自主勒索软件防护 (ARP/AI)*</block>
+  <block id="167fce45da752e074139dbfd85f1d96d" category="paragraph">NetApp Autonomous Ransomware Protection with AI (ARP/AI) 有助于增强网络弹性，并保护您的卷免受勒索软件威胁。我们建议为所有卷启用 ARP/AI。</block>
+  <block id="17d2a91a4f3c01de4c2f05b2242e49d3" category="section-title">卓越运营</block>
+  <block id="84c2d06d655e822b38b222df9c0aa965" category="paragraph">卓越运营的重点是提供最佳架构和业务价值。</block>
+  <block id="bca05dfe73df2536775bb543bb367fb6" category="list-text">*卷容量余量*</block>
+  <block id="70a83d0e2246f9bf751ee82d9d86782a" category="paragraph">我们建议卷容量不超过 80% 的利用率。这可能会影响对应用程序的数据读取和写入。卷容量可以手动增加，也可以使用卷自动增长功能自动增加。</block>
+  <block id="cb24245fc7fbb951739f0e037e8ed58f" category="list-text">*FlexCache 写入模式*</block>
+  <block id="fce6ac16b523a1ae826c8b02fe97af9a" category="paragraph">为了获得最佳性能，我们建议使用最适合您的工作负载的 FlexCache 写入模式。写入绕行模式为具有小文件的读取密集型工作负载提供更好的性能，而写回模式为具有大文件的写入密集型工作负载提供更好的性能。</block>
+  <block id="199b5a17e840b5e8165065942a5aba7f" category="list-text">*FlexCache 副本大小*</block>
+  <block id="7cba8fc6d012368d0bb1868a9da3aebb" category="paragraph">我们建议在缓存卷上启用卷自动调整大小和清理，以保持最佳大小，并将缓存集中在频繁访问（热）数据上，以实现最高效率。</block>
+  <block id="7f14df7d96b168d75780c47437a63021" category="list-text">*ONTAP 版本合规性*</block>
+  <block id="3bbb5a399ebdfb8d2d4a8a5c7bafb3fb" category="paragraph">升级到最新的 ONTAP 版本，以实现完全兼容性、获得支持并访问新功能。</block>
+  <block id="a39ae09f8be4327fc176cfeb76a0e366" category="section-title">成本优化</block>
+  <block id="394c926099d3d2cf7e0d7477f17faf38" category="paragraph">成本优化可帮助您在保持低成本的同时为业务创造最大价值。</block>
+  <block id="8611faa768b220ecb3795c6fda54fdaa" category="list-text">*过度配置的 SSD 容量*</block>
+  <block id="aafa79fe1c7925cadee2f2931c5a90a6" category="paragraph">过度配置的 SSD 容量层会增加不必要的成本。我们建议在保持 20% 可用空间缓冲区的同时减少 SSD 层容量。减少操作需要数小时到数天，在此期间不支持其他文件系统操作。</block>
+  <block id="01fd10a8e7ac161e328da4eaf6292046" category="list-text">*冷数据分层*</block>
+  <block id="038dede88376955fc6f5dc23c8915a6f" category="paragraph">启用冷数据分层，将冷数据从 SSD 存储层移动到成本较低的存储。我们建议对每个卷应用分层策略。Azure Blob Storage 用作非活动数据的容量层。</block>
+  <block id="01e12de62fa77fda2815719aed8ff892" category="paragraph-title">下一步</block>
+  <block id="8a4fd5d300e707a9269f6215138076a2" category="paragraph"><block ref="8a4fd5d300e707a9269f6215138076a2" category="inline-link-macro-rx"></block></block>
+  <block id="e99c9a581ad7f3ee001ba4518d21895d" category="list-text"><block ref="e99c9a581ad7f3ee001ba4518d21895d" category="inline-link-rx"></block></block>
+  <block id="1ec0779bb7e51cbc27ab486c62ef2d11" category="list-text">r5.12xlarge 实例类型具有已知的可支持性限制。如果节点因崩溃而意外重新启动，则系统可能无法收集用于诊断和查找问题根本原因的核心文件。如果出现这种情况，客户将接受风险和有限的支持条款，并承担所有支持责任。此限制会影响新部署的 HA 对和从 9.8 升级的 HA 对。该限制不影响新部署的单节点系统。</block>
+  <block id="6c826d16193263c31494836004943717" category="summary">使用 ONTAP S3 多协议访问配置 Cloud Volumes ONTAP，使 Azure AI 服务能够通过 Microsoft OneLake 读取存储在 Cloud Volumes ONTAP 系统中的数据。</block>
+  <block id="e95a1d02467b7046c0090db76aa4420a" category="paragraph">您可以将 Cloud Volumes ONTAP 与<block ref="df6d917e247d0878fc8f4ddd737f9ab2" category="inline-link-rx"></block>集成，使用<block ref="7296f85da7d270a15e9565051e07602b" category="inline-link-rx"></block>使现有 Cloud Volumes ONTAP NAS 数据可用于 Microsoft 分析和 AI 服务，例如 Power BI、Azure AI Search、OpenAI 和 Microsoft Copilot。集成不需要移动或复制数据。集成使用<block ref="f8b4f97863c52739a61ab36e880c3d99" category="inline-link-rx"></block>访问将 Cloud Volumes ONTAP 连接到现有的 Microsoft Fabric lakehouse。</block>
+  <block id="14fa8bd582301929e8385f26fb4ec09f" category="section-title">为 ONTAP S3 服务器创建根 CA 证书</block>
+  <block id="e691fa86faf7caa89b9c040d851cff9c" category="paragraph">需要证书才能保护 Microsoft OneLake 与 ONTAP S3 服务器之间的 HTTPS 连接。在此过程中，您需要在 Cloud Volumes ONTAP 上创建根 CA 证书，并为 ONTAP S3 服务器生成签名证书。</block>
+  <block id="2f5c4a8b4f40d04dc60b798b4f87d61b" category="inline-link">在启用 ONTAP S3 的 SVM 上创建并安装 CA 证书</block>
+  <block id="62198aa1c9add9893371192b1f2f6e2f" category="paragraph">有关创建和安装 CA 证书的详细信息，请参阅<block ref="4bf7ae93337dbf9f9de9c16f2d492cf8" category="inline-link-rx"></block>。</block>
+  <block id="7274530d966eaaa657523240e14811f5" category="paragraph">在开始集成过程之前，请验证是否有正在运行的 Cloud Volumes ONTAP 系统。</block>
+  <block id="ae31cff41732cc696d2678333829f065" category="list-text">使用 SSH 从虚拟网络中的虚拟机（vNet）或通过 Azure Bastion 连接到 Cloud Volumes ONTAP 系统。</block>
+  <block id="81403d48012b3b2861e271a61f7a2829" category="list-text">创建根 CA 证书。</block>
+  <block id="cabbc139b7f74771c47e3eb24d94c92b" category="paragraph">例如，</block>
+  <block id="b0058fd04d6de71a4c58b1e445912da1" category="list-text">生成证书签名请求（CSR）和私钥。</block>
+  <block id="6e804ca81415bed642c117104afeac86" category="admonition">为 ONTAP S3 端点（S3 服务器名称）选择一个完全限定域名 (FQDN)，例如<block ref="eceb512539b427304ff3412519742a01" prefix=" " category="inline-code"></block>，并将其指定为<block ref="54a24d5e55eeb31ed1eb935137d8595c" prefix=" " category="inline-code"></block>和<block ref="754e76564b6efaebbac938540dd62673" prefix=" " category="inline-code"></block>参数的值。请记下此值，因为稍后配置 ONTAP S3 服务器时需要用到它。</block>
+  <block id="c645bc85add0f467cf08ebcd6f31ebd5" category="list-text">该命令生成一个 CSR 和一个私钥。复制并保存这两个值。下一步需要 CSR，稍后配置 ONTAP S3 服务时需要私钥。从输出中复制 CSR 和私钥。</block>
+  <block id="67d09aace1a958f33bfaba43d85f7fe8" category="list-text">使用根 CA 证书对证书请求进行签名。出现提示时，粘贴上一步生成的 CSR。</block>
+  <block id="f2fe9285b875b0313c11d840886f4700" category="list-text"><block ref="dca93174085e70cccb0a8f1c070c09a0" prefix="" category="inline-code"></block> - 根 CA 证书的名称</block>
+  <block id="f00b6bdf3ff69b5bfe100f570af8512e" category="list-text"><block ref="c16b945125c7d944777f2b1cceb74253" prefix="" category="inline-code"></block> - CA 序列号</block>
+  <block id="32a525d1da59ec756e385cdc706f5ec6" category="list-text">该命令返回已签名的证书。复制并保存证书内容。配置 ONTAP S3 服务器时，使用此证书和在上一步中生成的私钥。</block>
+  <block id="aa6a1bd436e65d602a070b35436dfd9d" category="section-title">配置Cloud Volumes ONTAP S3</block>
+  <block id="064a2c328012b70c51cbf8f3bd2fe2d5" category="paragraph">配置 ONTAP S3 多协议访问，以允许 OneLake 读取存储在 Cloud Volumes ONTAP 卷中的数据。</block>
+  <block id="b7b2d385336edfb847c70a604f0a9e78" category="list-text">为 Cloud Volumes ONTAP 系统配置 ONTAP S3。</block>
+  <block id="84e08e813880edfaf996a3619b39b002" category="list-text">在 NetApp Console 的左侧导航菜单中，选择*存储 &gt; 管理*。</block>
+  <block id="d6beb0ccdf1bc3f6e242cc54c51be5b4" category="list-text">选择一个 Console 代理，然后单击 Cloud Volumes ONTAP 系统，然后从右侧菜单选项中选择 *System Manager*。</block>
+  <block id="f50e5bc31425433da453f5ee0ae8e51e" category="inline-link-macro">ONTAP 文档：启用 S3 客户端对 NAS 数据的访问</block>
+  <block id="6b40b000796d51a4e8a6dd7126ced660" category="list-text">在 SVM 上启用 S3 协议访问。有关信息，请参阅 <block ref="dbeab464985e009bbabd1dd197ac5939" category="inline-link-macro-rx"></block>。</block>
+  <block id="5e008871c60258045027f49ef4835f65" category="admonition">在配置过程中，请使用上一节中创建的签名证书和私钥。</block>
+  <block id="55bafea40aa0e49bf37c468d9e242f53" category="image-alt">ONTAP S3 SVM 配置截图</block>
+  <block id="95f74072e94491e390b2ad94e50b9b19" category="list-text">选择*重用用于 SMB/CIFS 或 NFS 协议的数据接口。*以重用现有 LIF 或配置新的数据 LIF。</block>
+  <block id="6dbcfd0a27aeb89ed693dcf158bc6e26" category="list-text">复制并保存访问密钥和秘密访问密钥。创建 OneLake 快捷方式时需要使用这些凭据。</block>
+  <block id="4d752f7b53d4730eb25b7e4bab2d74bc" category="list-text">创建只读组以从 OneLake 访问 S3 存储桶。</block>
+  <block id="e52bee75bef3c5a46ef4613b86e9830f" category="list-text">启用 S3 服务器后，配置 S3 服务器并添加新组。选择 *Groups* ，然后选择 *Add*。</block>
+  <block id="ba64542a5520c4dc9669fc65a53a4066" category="list-text">使用上一步中自动创建的 S3 用户添加新组，并为其分配<block ref="cfa5c6b0fe5c9c78f025a2833355f6cf" prefix=" " category="inline-code"></block>策略。</block>
+  <block id="447a706505ecbdc86aaf726d55fbe626" category="image-alt">screenshot onelake s3 grp</block>
+  <block id="378210ad44a694f6ef45d4433d52e23c" category="section-title">创建 S3 NAS 存储区</block>
+  <block id="e5d2716119163ccfee52c270b98e14c3" category="inline-link-macro">ONTAP 文档：创建 S3 NAS 存储桶</block>
+  <block id="b382fb5c130ba2293afd6a8d55e56632" category="paragraph">创建 S3 NAS 存储桶。有关信息，请参见 <block ref="50308563aff554c7d4eb86ecb557c148" category="inline-link-macro-rx"></block>。</block>
+  <block id="e883cb6de789c38add1bc2e1fcd07ccd" category="admonition">创建存储桶时，请选择包含要通过 OneLake 提供的数据的 NAS 卷。</block>
+  <block id="35c38964ebdc43e7241fadfbff972faf" category="section-title">安装和配置 Microsoft 本地数据网关</block>
+  <block id="4d68fcf2ed49734174a583f55b985474" category="paragraph">在与 Cloud Volumes ONTAP 系统相同的虚拟网络（vNet）中的虚拟机上安装和配置 Microsoft 本地数据网关。在虚拟机上安装 Cloud Volumes ONTAP 根 CA 证书，为与 ONTAP S3 服务器的 HTTPS 连接建立信任。</block>
+  <block id="deca143cbb2ed3185eae88ad300c852f" category="list-text">请确保 VM 与您在上一节中创建的 ONTAP S3 服务器之间存在网络连接。</block>
+  <block id="7a1c98bf276eb5b82ffacb6ddedc47dc" category="list-text">确保之前配置的 ONTAP S3 服务器名称解析为分配给 ONTAP S3 服务器的数据接口 (LIF) 的 IP 地址，并且 VM 可以成功解析此名称。</block>
+  <block id="1a4eaa32a33ff44ee78c16ff34eb4910" category="list-text">安装 Cloud Volumes ONTAP 的 CA 证书。</block>
+  <block id="f32f838bea15935850e3df15b3f9c3c2" category="list-text">在 VM 上打开浏览器并导航到您的 S3 服务器：<block ref="1cfe437221cfb69705aeb922769764fb" prefix=" " category="inline-code"></block></block>
+  <block id="42af570b9fa9f4a361b0e255be4ec545" category="list-text">选择地址栏上的锁定图标，然后选择*证书详细信息*。</block>
+  <block id="1e83331d7566d6eec86c36a12d51ea89" category="list-text">在*证书查看器*窗口中，选择*详细信息*选项卡，然后在证书列表中选择根 CA 的第一行。</block>
+  <block id="2aba31027fa6ff9cf745197efbf9a10a" category="image-alt">OneLake 下载证书屏幕截图</block>
+  <block id="75c5753d8bfd764dd89cf6c91e610d0f" category="list-text">选择*导出……*并以<block ref="e412c8a99ed51e5b86824e8b7d756a2b" prefix=" " category="inline-code"></block>格式本地保存文件。</block>
+  <block id="f3f224d2d526cea1a346d7b5ced71edd" category="image-alt">屏幕截图onelake save cert</block>
+  <block id="5dfb75bae8a540cb907c10b85ca50436" category="list-text">打开您保存的证书文件，然后选择*安装证书……*。</block>
+  <block id="92aa554fddbca200279fa3cf42c83c99" category="image-alt">screenshot onelake install cert</block>
+  <block id="926b80c1bb279afad9f542cac78ce77a" category="list-text">在*证书导入向导*中，选择*本地计算机*，然后将证书放入*受信任的根证书颁发机构*存储中。</block>
+  <block id="0e9a00255c68bc133b23dd018b839d18" category="image-alt">onelake import cert 屏幕截图</block>
+  <block id="cec46f4bbf37b840e07991def5e1919c" category="list-text">按照提示完成证书安装。</block>
+  <block id="254be0043ca16660bb9a6cde6f3c70bd" category="list-text">通过打开新的浏览器窗口并导航到 <block ref="1cfe437221cfb69705aeb922769764fb" prefix=" " category="inline-code"></block> 来验证证书安装。ONTAP S3 服务器应返回 XML 访问被拒绝的响应，表明 HTTPS 通信正常工作。</block>
+  <block id="6bba9c35bd0e410071db2365d0b1cfb2" category="inline-link-macro">Microsoft 文档：安装本地数据网关</block>
+  <block id="62f82bc3e72da2ef18bd77f4d818fbba" category="list-text">在标准模式下在虚拟机上下载并安装 Microsoft 本地数据网关。有关安装步骤，请参阅 <block ref="648f317920c9c087f5967c6a4d208e54" category="inline-link-macro-rx"></block>。</block>
+  <block id="8bd69f72a99d18acb81561400d465b39" category="section-title">连接到 OneLake</block>
+  <block id="71ad988e7d81584ac0905427a405414d" category="paragraph">在 Microsoft Fabric lakehouse 中创建与 Amazon S3 兼容的快捷方式，以访问存储在 Cloud Volumes ONTAP S3 存储桶中的数据。</block>
+  <block id="0cc8a8b1def64a9596a7806e33d89008" category="inline-link">Microsoft Fabric 湖仓</block>
+  <block id="5c41707375217d5774ec4df49ce5ee2d" category="list-text">工作区中的现有<block ref="16c464d9b04db81a799a840a122d3e49" category="inline-link-rx"></block>。</block>
+  <block id="aa2e561bb80c9f0deb95519e48c8d526" category="list-text">在您的环境中，转到*设置 &gt; 管理连接和网关*，并验证您的本地数据网关是否已列出并连接。</block>
+  <block id="36760beb3d6982a0808f11e3ab45b1f8" category="list-text">已在网关虚拟机上安装 Cloud Volumes ONTAP 根 CA 证书。</block>
+  <block id="523915e3ac05d7eb77c44a3ad36a8da8" category="list-text">您从前面的步骤中获得了以下值：</block>
+  <block id="b084129971df6058a444733035c94274" category="list-text">ONTAP S3 服务器名称（FQDN）</block>
+  <block id="47b84fd1609df93c987377c912e3baf1" category="list-text">访问密钥</block>
+  <block id="864021d1cb190319b62722e58e59a8bf" category="list-text">秘密访问密钥</block>
+  <block id="9f2f3fb652a717ec609f008c506d7109" category="inline-link">Microsoft文档：创建与Amazon S3兼容的快捷方式</block>
+  <block id="e8a5f0d9837152fe195b7fa5ee95c607" category="list-text">在您的 lakehouse 中，使用以下详细信息创建 Cloud Volumes ONTAP S3 存储桶的 Amazon S3 兼容快捷方式。有关创建快捷方式的步骤，请参阅<block ref="f7e880ccf9455eef5a4471da8517bb63" category="inline-link-rx"></block>。</block>
+  <block id="734d0b6c4dc32b630667e753675428df" category="list-text">URL：格式为 <block ref="a731622740a2cf06d4b2bf92e429dd07" prefix=" " category="inline-code"></block> 的 ONTAP S3 服务器</block>
+  <block id="b8fe5746b187f5e7f6a82fbb26512ea3" category="list-text">数据网关：您之前配置的本地数据网关</block>
+  <block id="d407ce3c6418b602c5e62d17e75153e2" category="list-text">访问密钥 ID</block>
+  <block id="f03154f7f37caaaf71be53099307d2dd" category="image-alt">OneLake shortcut1 屏幕截图</block>
+  <block id="a919cd6db92990e9b06efbf013b4fdcf" category="list-text">创建快捷方式后，请验证该快捷方式是否显示在 lakehouse 中的 *Explorer &gt; Files* 下，并且您可以通过快捷方式浏览存储在 Cloud Volumes ONTAP 卷中的文件。</block>
+  <block id="c4def819c84308172fa9bda9ea6e62a6" category="image-alt">屏幕截图，显示已确认的 Cloud Volumes ONTAP S3 快捷方式连接显示在 OneLake lakehouse Explorer 窗格中的"文件"下</block>
+  <block id="876e2bd10a8ed908ec1b5d07f979b521" category="section-title">下一步：使用 Azure AI Search 索引数据</block>
+  <block id="30417398e9fe4a1bffd15ca2840d9bb0" category="paragraph">创建 OneLake 快捷方式后，您可以通过 OneLake 将 Azure AI Search 配置为对存储在 Cloud Volumes ONTAP 卷中的数据建立索引。Azure AI Search 索引功能使 Microsoft Copilot 和 Azure OpenAI 等 AI 应用程序能够使用这些数据。</block>
+  <block id="5edb5e6aaf1d17e92c8915d0f28994f7" category="inline-link-macro">Microsoft 文档：如何索引 OneLake 文件</block>
+  <block id="d04ad284d76f9123254a30d0ddecc3dd" category="paragraph">有关详细信息，请参阅 <block ref="55c5b78106d0736636dce6f21b4ff462" category="inline-link-macro-rx"></block>。</block>
+  <block id="0bcc8ae219242a12ec94651af9fe6e6b" category="inline-link">NetApp 关于 Cloud Volumes ONTAP 和 OneLake 的博客</block>
+  <block id="458db05f958d70be08a09aebeef50565" category="list-text"><block ref="458db05f958d70be08a09aebeef50565" category="inline-link-rx"></block></block>
+  <block id="4d26941d9dd1a06ff5e94d3e55813b8d" category="inline-link">Microsoft OneLake 湖仓</block>
+  <block id="ea970970524902af2a462dc7113321ed" category="list-text"><block ref="ea970970524902af2a462dc7113321ed" category="inline-link-rx"></block></block>
+  <block id="31645afcb22716068ebb80125c566fe7" category="inline-link">Microsoft 文档：什么是 Azure AI Search？</block>
+  <block id="053caf626e9d43c46f92fe521566f3b6" category="list-text"><block ref="053caf626e9d43c46f92fe521566f3b6" category="inline-link-rx"></block></block>
+  <block id="943927e98f08f5eceb9f92c4aa75b01e" category="inline-link">ONTAP 文档：ONTAP S3 多协议支持</block>
+  <block id="0deac7ad5245fcfcbef0120b299cd7a5" category="list-text"><block ref="0deac7ad5245fcfcbef0120b299cd7a5" category="inline-link-rx"></block></block>
+  <block id="ec8ffaaa6739d3cbfaf04807424e73ec" category="paragraph">include::https://raw.githubusercontent.com/NetAppDocs/console-licenses-subscriptions/main/task-manage-capacity-licenses.adoc[lines=15..-1]</block>
+  <block id="986293de703cc99b95fc2636d61190e5" category="paragraph">include::https://raw.githubusercontent.com/NetAppDocs/console-licenses-subscriptions/main/task-manage-node-based-licenses.adoc[lines=15..-1]</block>
+  <block id="91d90ea5487ed9ed44e834f42f272ccb" category="section-title">2026年8月3日</block>
+  <block id="1c1a960c3a731e7c8f48049e14d10120" category="sidebar">Cloud Volumes ONTAP 和 Microsoft OneLake</block>
+  <block id="cabae2c7e02c764400d120dec64c7495" category="sidebar">Cloud Volumes ONTAP 和精心设计的仪表板</block>
 </blocks>

@@ -1,0 +1,210 @@
+---
+sidebar: sidebar 
+permalink: task-azure-onelake.html 
+keywords: Azure, AI, integration, OneLake, analytics, ONTAP S3, Microsoft Fabric, OneLake shortcut, Azure AI Search, On-Premises Data Gateway, OPDG 
+summary: 使用 ONTAP S3 多协议访问配置 Cloud Volumes ONTAP，使 Azure AI 服务能够通过 Microsoft OneLake 读取存储在 Cloud Volumes ONTAP 系统中的数据。 
+---
+= 将 Cloud Volumes ONTAP 系统与 Microsoft OneLake 集成以实现 AI 和分析
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以将 Cloud Volumes ONTAP 与 https://community.fabric.microsoft.com/["Microsoft Fabric"^]集成，使用 https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview["Microsoft OneLake"^]使现有 Cloud Volumes ONTAP NAS 数据可用于 Microsoft 分析和 AI 服务，例如 Power BI、Azure AI Search、OpenAI 和 Microsoft Copilot。集成不需要移动或复制数据。集成使用 https://docs.netapp.com/us-en/ontap/s3-multiprotocol/index.html["ONTAP S3 多协议"^]访问将 Cloud Volumes ONTAP 连接到现有的 Microsoft Fabric lakehouse。
+
+
+
+[[create-a-root-ca-certificate-for-the-ontap-s3-server]]
+== 为 ONTAP S3 服务器创建根 CA 证书
+
+需要证书才能保护 Microsoft OneLake 与 ONTAP S3 服务器之间的 HTTPS 连接。在此过程中，您需要在 Cloud Volumes ONTAP 上创建根 CA 证书，并为 ONTAP S3 服务器生成签名证书。
+
+有关创建和安装 CA 证书的详细信息，请参阅 https://docs.netapp.com/us-en/ontap/s3-config/create-install-ca-certificate-svm-task.html["在启用 ONTAP S3 的 SVM 上创建并安装 CA 证书"^]。
+
+.开始之前
+在开始集成过程之前，请验证是否有正在运行的 Cloud Volumes ONTAP 系统。
+
+.步骤
+. 使用 SSH 从虚拟网络中的虚拟机（vNet）或通过 Azure Bastion 连接到 Cloud Volumes ONTAP 系统。
+. 创建根 CA 证书。
++
+[source, CLI]
+----
+security certificate create -vserver <svm_cvo> -type root-ca -common-name <svm_cvo_ca>
+----
++
+例如，
+
++
+[source, CLI]
+----
+security certificate create -vserver svm_cvopsa2 -type root-ca -common-name svm_cvo_ca
+
+The certificate's generated name for reference: svm_cvo_ca_159D1587CE21E9D4_svm_cvo_ca
+----
+. 生成证书签名请求（CSR）和私钥。
++
+
+NOTE: 为 ONTAP S3 端点（S3 服务器名称）选择一个完全限定域名 (FQDN)，例如 `s3.cvo.com`，并将其指定为 `-common-name`和 `-dns-name`参数的值。请记下此值，因为稍后配置 ONTAP S3 服务器时需要用到它。
+
++
+[source, CLI]
+----
+security certificate generate-csr -common-name s3.cvo.com  -dns-name s3.cvo.com
+----
+. 该命令生成一个 CSR 和一个私钥。复制并保存这两个值。下一步需要 CSR，稍后配置 ONTAP S3 服务时需要私钥。从输出中复制 CSR 和私钥。
+. 使用根 CA 证书对证书请求进行签名。出现提示时，粘贴上一步生成的 CSR。
++
+** `ca_cert_name` - 根 CA 证书的名称
+** `ca_cert_serial_number` - CA 序列号
++
+[source, CLI]
+----
+security certificate sign -vserver svm_name -ca <ca_cert_name> -ca-serial <ca_cert_serial_number>
+----
+
+
+. 该命令返回已签名的证书。复制并保存证书内容。配置 ONTAP S3 服务器时，使用此证书和在上一步中生成的私钥。
+
+
+
+
+[[configure-cloud-volumes-ontap-s3]]
+== 配置Cloud Volumes ONTAP S3
+
+配置 ONTAP S3 多协议访问，以允许 OneLake 读取存储在 Cloud Volumes ONTAP 卷中的数据。
+
+. 为 Cloud Volumes ONTAP 系统配置 ONTAP S3。
++
+.. 在 NetApp Console 的左侧导航菜单中，选择*存储 > 管理*。
+.. 选择一个 Console 代理，然后单击 Cloud Volumes ONTAP 系统，然后从右侧菜单选项中选择 *System Manager*。
+.. 在 SVM 上启用 S3 协议访问。有关信息，请参阅 link:https://docs.netapp.com/us-en/ontap/s3-multiprotocol/enable-access-nas-data-task.html["ONTAP 文档：启用 S3 客户端对 NAS 数据的访问"^]。
++
+
+NOTE: 在配置过程中，请使用上一节中创建的签名证书和私钥。
+
++
+image::screenshot-ontap-s3-svm-config.png[ONTAP S3 SVM 配置截图]
+
+.. 选择*重用用于 SMB/CIFS 或 NFS 协议的数据接口。*以重用现有 LIF 或配置新的数据 LIF。
+
+
+. 复制并保存访问密钥和秘密访问密钥。创建 OneLake 快捷方式时需要使用这些凭据。
+. 创建只读组以从 OneLake 访问 S3 存储桶。
++
+.. 启用 S3 服务器后，配置 S3 服务器并添加新组。选择 *Groups* ，然后选择 *Add*。
+.. 使用上一步中自动创建的 S3 用户添加新组，并为其分配 `ReadOnlyAccess`策略。
++
+image::screenshot-onelake-s3-grp.png[screenshot onelake s3 grp]
+
+
+
+
+
+
+
+[[create-an-s3-nas-bucket]]
+== 创建 S3 NAS 存储区
+
+创建 S3 NAS 存储桶。有关信息，请参见 link:https://docs.netapp.com/us-en/ontap/s3-multiprotocol/create-nas-bucket-task.html["ONTAP 文档：创建 S3 NAS 存储桶"^]。
+
+
+NOTE: 创建存储桶时，请选择包含要通过 OneLake 提供的数据的 NAS 卷。
+
+
+
+[[install-and-configure-microsoft-on-premises-data-gateway]]
+== 安装和配置 Microsoft 本地数据网关
+
+在与 Cloud Volumes ONTAP 系统相同的虚拟网络（vNet）中的虚拟机上安装和配置 Microsoft 本地数据网关。在虚拟机上安装 Cloud Volumes ONTAP 根 CA 证书，为与 ONTAP S3 服务器的 HTTPS 连接建立信任。
+
+.开始之前
+* 请确保 VM 与您在上一节中创建的 ONTAP S3 服务器之间存在网络连接。
+* 确保之前配置的 ONTAP S3 服务器名称解析为分配给 ONTAP S3 服务器的数据接口 (LIF) 的 IP 地址，并且 VM 可以成功解析此名称。
+
+
+.步骤
+. 安装 Cloud Volumes ONTAP 的 CA 证书。
++
+.. 在 VM 上打开浏览器并导航到您的 S3 服务器： `\https://<CVO-S3-SERVER-URL>`
+.. 选择地址栏上的锁定图标，然后选择*证书详细信息*。
+.. 在*证书查看器*窗口中，选择*详细信息*选项卡，然后在证书列表中选择根 CA 的第一行。
++
+image::screenshot-onelake-dnld-cert.png[OneLake 下载证书屏幕截图]
+
+.. 选择*导出……*并以 `DER`格式本地保存文件。
++
+image::screenshot-onelake-save-cert.png[屏幕截图onelake save cert]
+
+.. 打开您保存的证书文件，然后选择*安装证书……*。
++
+image::screenshot-onelake-install-cert.png[screenshot onelake install cert]
+
+.. 在*证书导入向导*中，选择*本地计算机*，然后将证书放入*受信任的根证书颁发机构*存储中。
++
+image::screenshot-onelake-import-cert.png[onelake import cert 屏幕截图]
+
+.. 按照提示完成证书安装。
+.. 通过打开新的浏览器窗口并导航到  `\https://<CVO-S3-SERVER-URL>` 来验证证书安装。ONTAP S3 服务器应返回 XML 访问被拒绝的响应，表明 HTTPS 通信正常工作。
+
+
+. 在标准模式下在虚拟机上下载并安装 Microsoft 本地数据网关。有关安装步骤，请参阅 link:https://learn.microsoft.com/en-us/data-integration/gateway/service-gateway-install["Microsoft 文档：安装本地数据网关"^]。
+
+
+
+
+[[connect-to-onelake]]
+== 连接到 OneLake
+
+在 Microsoft Fabric lakehouse 中创建与 Amazon S3 兼容的快捷方式，以访问存储在 Cloud Volumes ONTAP S3 存储桶中的数据。
+
+.开始之前
+* 工作区中的现有 https://learn.microsoft.com/en-us/fabric/onelake/create-lakehouse-onelake["Microsoft Fabric 湖仓"^]。
+* 在您的环境中，转到*设置 > 管理连接和网关*，并验证您的本地数据网关是否已列出并连接。
+* 已在网关虚拟机上安装 Cloud Volumes ONTAP 根 CA 证书。
+* 您从前面的步骤中获得了以下值：
++
+** ONTAP S3 服务器名称（FQDN）
+** 访问密钥
+** 秘密访问密钥
+
+
+
+
+.步骤
+. 在您的 lakehouse 中，使用以下详细信息创建 Cloud Volumes ONTAP S3 存储桶的 Amazon S3 兼容快捷方式。有关创建快捷方式的步骤，请参阅 https://learn.microsoft.com/en-us/fabric/onelake/create-s3-compatible-shortcut["Microsoft文档：创建与Amazon S3兼容的快捷方式"^]。
++
+** URL：格式为  `\https://<S3-SERVER-FQDN>` 的 ONTAP S3 服务器
+** 数据网关：您之前配置的本地数据网关
+** 访问密钥 ID
+** 秘密访问密钥
++
+image::screenshot-onelake-shortcut1.png[OneLake shortcut1 屏幕截图]
+
+
+
+. 创建快捷方式后，请验证该快捷方式是否显示在 lakehouse 中的 *Explorer > Files* 下，并且您可以通过快捷方式浏览存储在 Cloud Volumes ONTAP 卷中的文件。
++
+image::screenshot-cvo-s3-onelake-confirm.png[屏幕截图，显示已确认的 Cloud Volumes ONTAP S3 快捷方式连接显示在 OneLake lakehouse Explorer 窗格中的"文件"下]
+
+
+
+
+
+[[next-steps-index-data-with-azure-ai-search]]
+== 下一步：使用 Azure AI Search 索引数据
+
+创建 OneLake 快捷方式后，您可以通过 OneLake 将 Azure AI Search 配置为对存储在 Cloud Volumes ONTAP 卷中的数据建立索引。Azure AI Search 索引功能使 Microsoft Copilot 和 Azure OpenAI 等 AI 应用程序能够使用这些数据。
+
+有关详细信息，请参阅 link:https://learn.microsoft.com/en-us/azure/search/search-how-to-index-onelake-files["Microsoft 文档：如何索引 OneLake 文件"^]。
+
+.相关链接
+* https://www.netapp.com/blog/optimize-ai-analytics-microsoft-onelake/["NetApp 关于 Cloud Volumes ONTAP 和 OneLake 的博客"^]
+* https://learn.microsoft.com/en-us/fabric/onelake/create-lakehouse-onelake["Microsoft OneLake 湖仓"^]
+* https://learn.microsoft.com/en-us/azure/search/search-what-is-azure-search?tabs=indexing%2Cquickstarts["Microsoft 文档：什么是 Azure AI Search？"^]
+* https://docs.netapp.com/us-en/ontap/s3-multiprotocol/index.html["ONTAP 文档：ONTAP S3 多协议支持"^]
+

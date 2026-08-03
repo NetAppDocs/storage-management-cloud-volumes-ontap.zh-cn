@@ -661,7 +661,7 @@ AWS Local Zones 中的这些实例类型不支持高写入速度。
 . 使用具有所有 Cloud Volumes ONTAP 配置的 SSD 时，将启用增强的写入性能，但 PAYGO Explore 除外。
 . 使用吞吐量优化 HDD (st1) 时，不建议将数据分层至对象存储。
 . AWS Local Zones 中的 Cloud Volumes ONTAP 配置仅支持通用 SSD (gp2) 磁盘类型。AWS Local Zones 不支持其他磁盘类型。
-. r5.12xlarge 实例类型具有已知的可支持性限制。如果节点因死机而意外重新启动，系统可能无法收集用于排除故障和根本原因分析的核心文件。如果出现这种情况，客户接受风险和有限支持条款，并承担所有支持责任。此限制影响新部署的 HA 对和从 9.8 升级的 HA 对。该限制不影响新部署的单节点系统。
+. r5.12xlarge 实例类型具有已知的可支持性限制。如果节点因崩溃而意外重新启动，则系统可能无法收集用于诊断和查找问题根本原因的核心文件。如果出现这种情况，客户将接受风险和有限的支持条款，并承担所有支持责任。此限制会影响新部署的 HA 对和从 9.8 升级的 HA 对。该限制不影响新部署的单节点系统。
 . 虽然这些 EC2 实例类型支持超过 64 个 vCPU，但 Cloud Volumes ONTAP 最多支持 64 个 vCPU。
 . AWS Local Zones 支持以下 EC2 实例类型系列，规格为 xlarge 到 4xlarge：M5、C5、C5d、R5 和 R5d。link:https://aws.amazon.com/about-aws/global-infrastructure/localzones/features/?nc=sn&loc=2["有关本地区域中受支持的 EC2 实例类型的最新和完整详细信息，请参阅 AWS"^]。
 +
