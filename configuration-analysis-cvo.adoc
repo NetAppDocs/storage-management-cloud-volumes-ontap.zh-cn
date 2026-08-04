@@ -4,7 +4,7 @@ permalink: configuration-analysis-cvo.html
 keywords: Cloud Volumes ONTAP, license, well-architected, WAD, CVO 
 summary: NetApp Console 中的架构完善仪表板会定期分析存储系统配置，以确定您的 Cloud Volumes ONTAP 系统是否存在任何配置问题。发现问题时，仪表板会向您显示问题所在，并解释需要更改的内容，以确保您的存储系统实现最佳性能、成本效益和最佳实践合规性。 
 ---
-= 基于架构良好的仪表板的 Cloud Volumes ONTAP 配置分析
+= Cloud Volumes ONTAP 的配置分析
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

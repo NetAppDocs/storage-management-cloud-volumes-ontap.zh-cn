@@ -315,9 +315,9 @@ sidebar:
     entries:
     - title: 云提供商集成
       url: "/reference-provider-integrations.html"
-    - title: 通过系统管理器进行管理
+    - title: ONTAP System Manager 管理
       url: "/task-administer-advanced-view.html"
-    - title: 从 CLI 进行管理
+    - title: 使用 ONTAP CLI 进行管理
       url: "/task-connecting-to-otc.html"
     - title: Flash Cache 和 Cloud Volumes ONTAP
       url: "/concept-flash-cache.html"
@@ -325,7 +325,7 @@ sidebar:
       url: "/concept-active-iq.html"
     - title: 验证AutoSupport设置
       url: "/task-verify-autosupport.html"
-    - title: 管理Keystone订阅
+    - title: Cloud Volumes ONTAP 和 Keystone
       url: "/task-manage-keystone.html"
     - title: Cloud Volumes ONTAP 和 Microsoft OneLake
       url: "/task-azure-onelake.html"
