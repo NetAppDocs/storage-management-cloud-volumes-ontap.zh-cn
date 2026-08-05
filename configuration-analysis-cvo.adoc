@@ -24,7 +24,25 @@ NetApp Console 中的架构完善仪表板会定期分析存储系统配置，�
 * 从见解到行动
 
 
-未解析的指令，位于  https://raw.githubusercontent.com/NetAppDocs/console-well-architected/main/cvo/configuration-analysis-cvo.adoc[] - include::_include/well-architected-workloads.adoc[]
+
+
+[[how-it-works]]
+== 工作原理
+
+Workload Factory 每天分析在支持的云存储系统部署上运行的工作负载。该分析提供架构完善的状态、见解和建议。
+
+每日分析完成后，配置在部署的精心设计的仪表板中显示为"优化"或"未优化"。您将按类别找到配置问题以及配置问题和建议列表。您可以查看配置问题的建议。某些问题可以由 Workload Factory 自动修复，而其他问题则需要手动干预。在此情况下，Workload Factory 会提供详细说明，以帮助您实施建议的更改。
+
+您可以忽略不适用于您环境的配置分析。这样可以避免不必要的警报和不准确的优化结果。
+
+您还可以用简单的语言创建自定义规则，以根据组织的标准和 NetApp 最佳实践验证您的环境。通过试运行测试规则，然后安排它们在您的环境中运行。link:https://docs.netapp.com/us-en/console-well-architected/learn-custom-rules.html["详细了解自定义规则"^]。
+
+
+
+[[why-it-matters]]
+== 为什么很重要
+
+Workload Factory 通过将持续评估与建议见解和补救措施相结合，将最佳实践应用于大型存储、数据库和 VMware 环境。在 NetApp Console 中应用的自动修复可减少人为错误，确保统一管理，并保持整个工作负载基础架构的性能和可靠性。
 
 
 

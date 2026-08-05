@@ -21,16 +21,16 @@ indexpage:
     links:
     - title: 许可
       url: concept-licensing.html
-    - title: 安全性
-      url: concept-security.html
+    - title: 转换基于节点的许可证
+      url: "/task-convert-node-capacity.html"
+    - title: Cloud Volumes ONTAP 存储 VM
+      url: task-managing-svms.html
     - title: 了解加密
       url: concept-security.html
     - title: 存储管理
       url: concept-storage-management.html
     - title: 用于Cloud Volumes ONTAP集群的磁盘和聚合
       url: reference-default-configs.html
-    - title: Cloud Volumes ONTAP 工作负载的性能监控
-      url: concept-performance.html
   - title: AWS
     links:
     - title: 支持的配置
@@ -93,6 +93,18 @@ indexpage:
       url: https://docs.netapp.com/us-en/console-automation/cm/prepare.html
     - title: 准备使用 API
       url: https://docs.netapp.com/us-en/console-automation/cm/prepare.html
+  - title: Cloud Volumes ONTAP 和其他 NetApp 产品
+    links:
+    - title: Cloud Volumes ONTAP 和 Flash Cache
+      url: "/concept-flash-cache.html"
+    - title: Cloud Volumes ONTAP 和 AutoSupport-Digital Advisor
+      url: "/concept-active-iq.html"
+    - title: Cloud Volumes ONTAP 和 Microsoft OneLake
+      url: "/task-azure-onelake.html"
+    - title: Cloud Volumes ONTAP 和精心设计的仪表板
+      url: "/configuration-analysis-cvo.html"
+    - title: Cloud Volumes ONTAP 和 Keystone
+      url: "/task-manage-keystone.html"
   - title: 更多资源
     links:
     - title: 故障排除
