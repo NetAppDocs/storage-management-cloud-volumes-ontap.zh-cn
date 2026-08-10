@@ -14,14 +14,18 @@ summary: Cloud Volumes ONTAP有多种许可选项。每个选项都允许您选�
 
 
 [role="lead"]
-Cloud Volumes ONTAP有多种许可选项。每个选项都可以让您选择符合您需求的消费模式。
+Cloud Volumes ONTAP 提供多种许可模式。每个选项都可让您选择满足您需求的消费模式。
+
+您可以选择从云市场或通过 NetApp（自带许可证（BYOL））购买或续订许可证和订阅。市场为您提供年度订阅和现收现付（PAYGO）选项。有关信息，请参见 link:concept-license-management.html["了解有关Cloud Volumes ONTAP基于容量的许可证的更多信息"]。
+
+BYOL 许可证可从 NetApp 购买，可用于任何云提供商。有关 BYOL 许可证可用性的详细信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 许可可用性受限"^]。
 
 
 
 [[licensing-overview]]
 == 许可概述
 
-新客户可以使用以下许可选项。
+新客户可以选择通过基于容量的年度市场订阅或 Keystone 订阅收费。少数部署（例如处于私有模式的部署）还具有上一代基于节点的 BYOL 许可证。
 
 基于容量的许可:: 按配置容量支付NetApp帐户中的多个Cloud Volumes ONTAP系统的费用。包括购买附加云数据服务的能力。有关基于容量的许可证的消费模式或购买选项的更多信息，请参阅：link:concept-licensing-charging.html["了解有关基于容量的许可证的更多信息"] 。
 Keystone订阅:: 一种按需付费的订阅式服务，为高可用性 (HA) 对提供无缝的混合云体验。
@@ -243,6 +247,9 @@ NetApp已计划终止基于节点的许可的可用性 (EOA) 和支持 (EOS)。�
 
 如果您拥有有效的基于节点的合同，并且该合同的有效期超出了 EOA 日期，那么您可以继续使用该许可证，直到合同到期。一旦合同到期，就需要过渡到基于容量的许可模式。如果您没有Cloud Volumes ONTAP节点的长期合同，则务必在 EOS 日期之前规划转换。
 
+
+NOTE: 私有模式下的 Cloud Volumes ONTAP 私有部署。
+
 从下表中了解有关每种许可证类型以及 EOA 对其影响的更多信息：
 
 [cols="2*"]
@@ -270,13 +277,8 @@ NetApp已计划终止基于节点的许可的可用性 (EOA) 和支持 (EOS)。�
 自 EOS 日期起将停止获得NetApp支持，直到您过渡到基于容量的许可证。
 
 |===
-.除外事项
-NetApp认识到某些情况需要特殊考虑，基于节点的许可的 EOA 和 EOS 不适用于以下情况：
-
-* 美国公共部门客户
-* 私有模式下的部署
-* AWS 中国区Cloud Volumes ONTAP部署
-
+.异常
+NetApp 认识到某些情况需要特别考虑，例如在 AWS 中的中国地区部署 Cloud Volumes ONTAP，以及基于节点的许可的 EOA 和 EOS 可能不适用于以下情况：
 
 对于这些特殊情况， NetApp将提供支持，以满足符合合同义务和运营需求的独特许可要求。
 
