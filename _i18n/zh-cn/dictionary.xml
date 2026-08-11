@@ -7440,7 +7440,6 @@
   <block id="f03154f7f37caaaf71be53099307d2dd" category="image-alt">OneLake shortcut1 屏幕截图</block>
   <block id="a919cd6db92990e9b06efbf013b4fdcf" category="list-text">创建快捷方式后，请验证该快捷方式是否显示在 lakehouse 中的 *Explorer &gt; Files* 下，并且您可以通过快捷方式浏览存储在 Cloud Volumes ONTAP 卷中的文件。</block>
   <block id="c4def819c84308172fa9bda9ea6e62a6" category="image-alt">屏幕截图，显示已确认的 Cloud Volumes ONTAP S3 快捷方式连接显示在 OneLake lakehouse Explorer 窗格中的"文件"下</block>
-  <block id="876e2bd10a8ed908ec1b5d07f979b521" category="section-title">下一步：使用 Azure AI Search 索引数据</block>
   <block id="30417398e9fe4a1bffd15ca2840d9bb0" category="paragraph">创建 OneLake 快捷方式后，您可以通过 OneLake 将 Azure AI Search 配置为对存储在 Cloud Volumes ONTAP 卷中的数据建立索引。Azure AI Search 索引功能使 Microsoft Copilot 和 Azure OpenAI 等 AI 应用程序能够使用这些数据。</block>
   <block id="5edb5e6aaf1d17e92c8915d0f28994f7" category="inline-link-macro">Microsoft 文档：如何索引 OneLake 文件</block>
   <block id="d04ad284d76f9123254a30d0ddecc3dd" category="paragraph">有关详细信息，请参阅 <block ref="55c5b78106d0736636dce6f21b4ff462" category="inline-link-macro-rx"></block>。</block>
@@ -7708,8 +7707,6 @@
   <block id="17769cb7fca5b211bc545524162cdb9b" category="doc">从 Azure Marketplace 部署 Cloud Volumes ONTAP</block>
   <block id="89e89d68b4151e5d8f4ca5de0e1d2733" category="paragraph">您可以使用 Azure Marketplace 直接部署快速轻松地部署 Cloud Volumes ONTAP。通过 Azure Marketplace，只需单击几下即可快速部署 Cloud Volumes ONTAP，并探索其在环境中的核心特性和功能。</block>
   <block id="2eb690ea4652e421c3e51dd6085019ed" category="paragraph">通过 Azure Marketplace 直接部署的 Cloud Volumes ONTAP 系统具有以下属性。请注意，通过 Azure Marketplace 部署的独立实例在 NetApp Console 中被发现时，其功能会发生变化。</block>
-  <block id="21dd5156944102d55cd9ade369833082" category="list-text">Cloud Volumes ONTAP 的免费许可证最多可提供 500 GiB 的调配容量，无需 NetApp 支持且无到期日期。超过 500 GiB 的容量需要有效的许可权利，并可能产生费用。要访问完整的 Cloud Volumes ONTAP 体验和高级管理功能，请将您的 Cloud Volumes ONTAP 系统连接到 NetApp Console。通过 NetApp Console 进行发现和管理需要与您的 NetApp Console 帐户关联的有效 Azure Marketplace 订阅。</block>
-  <block id="83776a163fbb96376e571a31d146ef23" category="list-text">如果您计划在 NetApp Console 中发现和管理已部署的系统，请确保 NetApp Console 帐户与有效的 Azure Marketplace 订阅相关联。将系统发现到 NetApp Console 需要有效的订阅。</block>
   <block id="dafc0a5d872858be8406e85eb31f93a9" category="list-text">从 Azure Marketplace 网站搜索 NetApp 产品。</block>
   <block id="d98c7da71ebf35b1e2ca8161b1966b59" category="paragraph">直接通过 Azure Marketplace 部署的 Cloud Volumes ONTAP 系统不包含 NetApp 的支持。如果在部署过程中出现任何问题，您可以自行进行故障排除和解决。</block>
   <block id="6f99f6ffa31874382f91c0d7c2df5bcf" category="list-text">在 Azure Marketplace 网站上，转到*启动诊断 &gt; 串行日志*。</block>
@@ -7722,4 +7719,7 @@
   <block id="aea9c467234db8f0360906cb49a2233c" category="inline-link">添加新 marketplace 订阅</block>
   <block id="6dee350fc875c2ca1694dcd7936e6fa8" category="list-text"><block ref="6dee350fc875c2ca1694dcd7936e6fa8" category="inline-link-rx"></block></block>
   <block id="6ffc226d668d783acc3c710ae22bd61d" category="section-title">2026年8月10日</block>
+  <block id="6663a337c6a8024d02aa9f2785f0f713" category="section-title">启用 Azure AI Search</block>
+  <block id="3a39d92162680621c6913009ec265358" category="list-text">Cloud Volumes ONTAP 的免费许可证适用于最多 500 GiB 的已调配容量，不含 NetApp 支持，且无到期日期。超过 500 GiB 的容量需要有效的许可权利，并可能产生费用。要访问完整的 Cloud Volumes ONTAP 体验和高级管理功能，请将您的 Cloud Volumes ONTAP 系统连接到控制台。通过控制台进行发现和管理需要与您的控制台帐户关联的有效 Azure Marketplace 订阅。</block>
+  <block id="6199597ffe2b56ead0cc4e51afe97353" category="list-text">如果您计划在控制台中发现和管理已部署的系统，请确保控制台帐户与有效的 Azure Marketplace 订阅相关联。将系统发现到控制台需要有效的订阅。</block>
 </blocks>
