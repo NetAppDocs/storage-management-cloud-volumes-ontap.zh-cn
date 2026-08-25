@@ -61,6 +61,8 @@ sidebar:
     - title: 在 Amazon Web Services 中部署
       flavor: aws
       entries:
+      - title: 从 AWS Marketplace 载入 Cloud Volumes ONTAP
+        url: "/task-onboard-cvo-aws-marketplace.html"
       - title: 部署概述
         url: "/task-getting-started-aws.html"
       - title: 规划您的配置

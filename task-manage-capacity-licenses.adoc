@@ -106,6 +106,7 @@ https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html[
 Console 始终尝试首先根据许可证收费。如果许可证不可用，则根据市场订阅收费。您无需将 BYOL 订阅转换为市场订阅，反之亦然。
 
 * 如果您有来自云提供商市场的私人优惠或合同，则更改为合同中未包含的收费方式将导致对 BYOL（如果您从 NetApp 购买了许可证）或 PAYGO 收费。
+* 如果您计划通过 AWS 市场中的独立 Cloud Volumes ONTAP 订阅收取 Cloud Volumes ONTAP 容量费用，Cloud Volumes ONTAP 系统必须使用受支持的基于容量的套餐（Essentials 或 Freemium）。独立列表不支持 Professional 套餐，并继续通过 NIS 订阅收费。选择所需套餐后，使用 NetApp Console 中的*账单首选项*选择用于 Cloud Volumes ONTAP 账单的市场订阅。
 
 
 .步骤

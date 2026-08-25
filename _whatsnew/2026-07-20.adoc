@@ -21,6 +21,7 @@ NetApp 为来自 AWS Marketplace 的 Cloud Volumes ONTAP 引入了简化的入�
 
 
 .相关链接
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-onboard-cvo-aws-marketplace.html["从 AWS Marketplace 载入 Cloud Volumes ONTAP"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用快速创建部署 Cloud Volumes ONTAP"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#flexible-billing-for-cloud-volumes-ontap-and-data-services-in-aws["AWS 中 Cloud Volumes ONTAP 和数据服务的灵活计费"^]
 

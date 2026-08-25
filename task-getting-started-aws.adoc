@@ -16,6 +16,8 @@ summary: 验证您已完成在 AWS 中部署 Cloud Volumes ONTAP 的先决条件
 [role="lead"]
 要部署 Cloud Volumes ONTAP，您首先需要了解 AWS 订阅和 Cloud Volumes ONTAP 许可证。您还必须验证是否为 AWS 帐户创建了 NetApp Console 代理。本主题中的大部分信息需要在开始部署 Cloud Volumes ONTAP 之前作为 Console 设置的一部分来执行。
 
+您可以使用 AWS Marketplace 或 NetApp Console 在 AWS 中安装 Cloud Volumes ONTAP。下表概述了在 AWS 中部署 Cloud Volumes ONTAP 所需完成的任务。从 AWS Marketplace 引导是一种简化的体验，可自动执行 Console 代理部署和订阅关联。有关从 AWS Marketplace 引导的信息，请参见 link:task-onboard-cvo-aws-marketplace.html["在 AWS Marketplace 中载入 Cloud Volumes ONTAP"]。
+
 [cols="20,35,25,25"]
 |===
 | 任务 | 描述 | 参考 | 专用模式部署注意事项 

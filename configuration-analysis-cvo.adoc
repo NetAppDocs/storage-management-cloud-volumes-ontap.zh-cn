@@ -51,6 +51,12 @@ Workload Factory 通过将持续评估与建议见解和补救措施相结合，
 
 要进行完整的 Cloud Volumes ONTAP 系统分析，您必须 link:https://docs.netapp.com/us-en/console-setup-admin/concept-agent-install-options.html#agent-console-deploy["部署 NetApp Console agent"^] 在系统与 NetApp Console 之间建立连接。
 
+您还必须建立到以下端点的出站连接：
+
+* \https://api.workloads.netapp.com
+* \https://ws.workloads.bluexp.netapp.com
+
+
 
 
 [[best-practices-and-recommendations-for-cloud-volumes-ontap-systems]]
