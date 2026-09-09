@@ -7855,4 +7855,5 @@
   <block id="c465a7bd98f96ab6b7e15dbed5471998" category="list-text">*远程数据复制*</block>
   <block id="b03b92c4dfcafd9226ecc9026f960e01" category="paragraph">通过远程复制保护您的 Cloud Volumes ONTAP 数据。远程数据复制通过在不同位置维护数据的同步副本来提供灾难恢复功能，从而在系统故障或灾难发生时确保业务连续性。</block>
   <block id="5e6b403f3ce4af919738fd94fe35d2d0" category="section-title">2026 年 9 月 2 日</block>
+  <block id="ee3e9d951c79faa2be7ec2e79fdaf3dd" category="paragraph">Workload Factory 定期分析存储系统配置，以确定您的 Cloud Volumes ONTAP 系统是否存在任何配置问题。当发现问题时，良好架构控制面板会显示问题所在以及需要更改的建议，以确保您的存储系统实现最佳性能、成本效益和最佳实践合规性。</block>
 </blocks>
