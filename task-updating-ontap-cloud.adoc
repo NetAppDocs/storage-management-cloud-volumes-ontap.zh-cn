@@ -457,7 +457,7 @@ NOTE: 您从中访问控制台的计算机必须具有与Cloud Volumes ONTAP 的
 
 .步骤
 . 在Cloud Volumes ONTAP系统上，单击 *Aggregates* 选项卡。
-. 在所需的聚合图块上，单击image:icon-action.png[""]图标，然后选择*查看汇总详情*。
+. 在所需的聚合图块上，单击 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标，然后选择*查看聚合详细信息*。
 +
 image:screenshots_aggregate_details_state.png["屏幕截图：查看聚合信息时显示“状态”字段。"]
 
@@ -574,7 +574,7 @@ NOTE: 预定义的Cloud Volumes ONTAP安全组默认允许出站 HTTP 连接。
 ** `/opt/application/netapp/cloudmanager/ontap/images/`
 
 
-. 在系统上，单击image:icon-action.png[""]图标，然后单击*更新Cloud Volumes ONTAP*。
+. 在系统上，单击 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标，然后单击 *Update Cloud Volumes ONTAP*。
 . 在更新Cloud Volumes ONTAP版本页面上，输入 URL，然后单击 *更改图像*。
 +
 如果您将软件映像复制到上面显示的路径中的控制台代理，则需要输入以下 URL：

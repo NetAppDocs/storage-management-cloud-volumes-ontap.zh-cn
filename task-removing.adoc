@@ -21,7 +21,7 @@ summary: 您可以删除Cloud Volumes ONTAP系统以将其移动到另一个系�
 
 .步骤
 . 在*系统*页面上，双击要删除的系统。
-. 在控制台的右上角，单击image:icon-action.png[""]图标，然后选择*从工作区中删除*。
+. 在控制台右上角，单击 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标，然后选择 *Remove from workspace*。
 . 在*从工作区中删除*窗口中，单击*删除*。
 
 

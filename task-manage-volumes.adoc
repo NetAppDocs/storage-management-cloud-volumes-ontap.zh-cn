@@ -264,7 +264,7 @@ TIP: 当聚合已达到 90% 的使用容量时，控制台会显示这些“需�
 . 确定要移出聚合的一个或多个卷：
 +
 .. 在Cloud Volumes ONTAP系统中，单击 *Aggregates tab*。
-.. 在聚合图块上，单击image:icon-action.png[""]图标，然后单击*查看汇总详情*。
+.. 在聚合图块上，单击 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标，然后单击 *查看聚合详细信息*。
 .. 在“聚合详细信息”屏幕的“概述”选项卡下，查看每个卷的大小并选择要移出聚合的一个或多个卷。
 +
 您应该选择足够大的卷来释放聚合中的空间，以避免将来出现额外的容量问题。
@@ -348,7 +348,7 @@ image::screenshot_aggr_volume_overview.png[屏幕截图聚合量概览]
 . 验证现有聚合是否具有可供您需要移动的卷使用的容量：
 +
 .. 在Cloud Volumes ONTAP系统上，单击 *Aggregates tab*。
-.. 在所需的聚合图块上，单击image:icon-action.png[""]图标，然后*查看聚合详细信息*以查看可用容量（预配置大小减去已用聚合容量）。
+.. 在所需的聚合图块上，单击 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标，然后单击*查看聚合详细信息*以查看可用容量（调配大小减去已用聚合容量）。
 +
 image::screenshot_aggr_capacity.png[屏幕截图聚合容量]
 
@@ -356,7 +356,7 @@ image::screenshot_aggr_capacity.png[屏幕截图聚合容量]
 
 . 如果需要，将磁盘添加到现有聚合：
 +
-.. 选择聚合，然后单击image:icon-action.png[""]图标 > *添加磁盘*。
+.. 选择聚合，然后单击 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标 > *Add Disks*。
 .. 选择要添加的磁盘数量，然后单击“*添加*”。
 
 

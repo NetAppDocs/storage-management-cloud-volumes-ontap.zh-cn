@@ -35,7 +35,7 @@ https://docs.netapp.com/us-en/bluexp-classification/concept-cloud-compliance.htm
 . 删除Cloud Volumes ONTAP系统。
 +
 .. 在“*系统*”页面上，双击要删除的Cloud Volumes ONTAP系统的名称。
-.. 在控制台的右上角，单击image:icon-action.png[""]图标，然后选择*删除*。
+.. 在控制台右上角，单击 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标，然后选择 *Delete*。
 .. 输入要删除的系统的名称，然后单击“*删除*”。删除系统最多可能需要五分钟。
 
 

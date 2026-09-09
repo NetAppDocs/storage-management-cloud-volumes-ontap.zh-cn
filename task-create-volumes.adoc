@@ -65,7 +65,7 @@ endif::aws[]
 --
 .特定骨料
 --
-.. 在*聚合*选项卡上，转到所需的聚合并单击image:icon-action.png[""]图标。
+.. 在*聚合*选项卡上，转到所需的聚合，然后单击 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标。
 .. 选择*添加卷*。image:screenshot_add_volume_button_agg.png["“聚合”选项卡下的“添加卷”按钮的屏幕截图。"]
 
 

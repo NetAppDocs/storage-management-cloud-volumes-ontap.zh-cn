@@ -23,7 +23,7 @@ summary: 通过添加磁盘、查看有关聚合的信息以及删除聚合来�
 
 .步骤
 . 从左侧导航窗格转到*管理>代理*。
-. 点击image:icon-action.png[""]管理Cloud Volumes ONTAP系统的控制台代理的图标。
+. 单击管理 Cloud Volumes ONTAP 系统的 Console 代理的 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标。
 . 选择* Cloud Volumes ONTAP设置*。
 +
 image::screenshot-settings-cloud-volumes-ontap.png[设置图标下的Cloud Volumes ONTAP设置选项的屏幕截图。]
