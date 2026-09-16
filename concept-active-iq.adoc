@@ -55,7 +55,7 @@ Digital Advisor用户界面完全集成在控制台中。
 +
 image:screenshot_aiq_digital_advisor.png["控制台中Digital Advisor用户界面的屏幕截图。"]
 
-* 如果您尚未在控制台中注册 NSS 帐户，请立即注册一个 NSS 帐户，然后就会出现Digital Advisor UI。参考 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-nss-accounts.html["管理与组织或帐户关联的 NSS 凭据"]以获取说明。
+* 如果您尚未在 Console 中注册 NSS 帐户，请立即注册 NSS 帐户，然后 Digital Advisor UI 将会显示。有关说明，请参阅 https://docs.netapp.com/us-en/console-setup-admin/task-adding-nss-accounts.html["管理与组织或帐户关联的 NSS 凭据"]。
 
 
 

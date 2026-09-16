@@ -18,7 +18,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 
 要在 Azure 中创建和管理其他数据服务存储虚拟机，您应该使用 API。这是因为 API 自动化了创建存储虚拟机和配置所需网络接口的过程。创建存储虚拟机时， NetApp Console会配置所需的 LIF 服务，以及存储虚拟机出站 SMB/CIFS 通信所需的 iSCSI LIF。
 
-有关运行Cloud Volumes ONTAP API 调用的信息，请参阅 https://docs.netapp.com/us-en/bluexp-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一次 API 调用"^]。
+要了解有关运行 Cloud Volumes ONTAP API 调用的信息，请参阅 https://docs.netapp.com/us-en/console-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一次 API 调用"^]。
 
 
 
@@ -47,7 +47,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 
 
 .开始之前
-控制台代理需要特定权限才能为Cloud Volumes ONTAP创建存储虚拟机。所需权限包含在 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html["NetApp提供的政策"^]。
+Console 代理需要特定权限才能为 Cloud Volumes ONTAP 创建存储 VM。所需权限包含在 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-azure.html["NetApp提供的政策"^]中。
 
 
 
@@ -91,7 +91,7 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 使用 API，您可以重命名和删除单节点和 HA 配置中的存储虚拟机。
 
 .开始之前
-控制台代理需要特定权限来管理Cloud Volumes ONTAP 的存储虚拟机。所需权限包含在 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html["NetApp提供的政策"^]。
+Console 代理需要特定权限来管理 Cloud Volumes ONTAP 的存储 VM。所需权限包含在 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-azure.html["NetApp提供的政策"^]中。
 
 
 
@@ -152,8 +152,8 @@ summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端
 
 
 .相关信息
-* https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html["准备使用 API"^]
-* https://docs.netapp.com/us-en/bluexp-automation/cm/workflow_processes.html#organization-of-cloud-volumes-ontap-workflows["Cloud Volumes ONTAP工作流程"^]
-* https://docs.netapp.com/us-en/bluexp-automation/platform/get_identifiers.html#get-the-connector-identifier["获取所需的标识符"^]
-* https://docs.netapp.com/us-en/bluexp-automation/platform/use_rest_apis.html["使用NetApp Console的 REST API"^]
+* https://docs.netapp.com/us-en/console-automation/cm/prepare.html["准备使用 API"^]
+* https://docs.netapp.com/us-en/console-automation/cm/workflow_processes.html#organization-of-cloud-volumes-ontap-workflows["Cloud Volumes ONTAP工作流程"^]
+* https://docs.netapp.com/us-en/console-automation/platform/get_identifiers.html#get-the-connector-identifier["获取所需的标识符"^]
+* https://docs.netapp.com/us-en/console-automation/platform/use_rest_apis.html["使用NetApp Console的 REST API"^]
 

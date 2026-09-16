@@ -30,7 +30,7 @@ Azure 中必须满足以下网络要求。
 
 Cloud Volumes ONTAP系统需要出站互联网访问才能访问外部端点以实现各种功能。如果这些端点在具有严格安全要求的环境中被阻止， Cloud Volumes ONTAP将无法正常运行。
 
-控制台代理还联系多个端点以进行日常操作。有关端点的信息，请参阅 https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html#step-3-set-up-networking["查看从控制台代理联系的端点"^]和 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-networking-saas-console.html["准备使用控制台的网络"^]。
+Console 代理还会联系多个端点进行日常操作。有关端点的信息，请参见 https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html#step-3-set-up-networking["查看从控制台代理联系的端点"^]和 https://docs.netapp.com/us-en/console-setup-admin/reference-networking-saas-console.html["准备使用控制台的网络"^]。
 
 
 
@@ -89,7 +89,7 @@ Cloud Volumes ONTAP使用这些端点与各种服务进行通信。
 * *透明代理*：网络配置为通过控制台代理的代理自动路由来自Cloud Volumes ONTAP 的出站流量。设置透明代理时，管理员只需要提供用于从Cloud Volumes ONTAP进行连接的根 CA 证书，而不是代理服务器的 HTTP 地址。确保使用以下方式获取相同的根 CA 证书并将其上传到您的Cloud Volumes ONTAP系统 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全证书安装"^]命令。
 
 
-有关配置代理服务器的信息，请参阅 https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html["配置控制台代理以使用代理服务器"^]。
+有关配置代理服务器的信息，请参见 https://docs.netapp.com/us-en/console-setup-admin/task-configuring-proxy.html["配置控制台代理以使用代理服务器"^]。
 
 
 
@@ -224,7 +224,7 @@ Cloud Volumes ONTAP HA 对包括 HA 互连，这使得每个节点能够持续�
 [[security-group-rules]]
 === 安全组规则
 
-控制台创建 Azure 安全组，其中包括Cloud Volumes ONTAP成功运行的入站和出站规则。 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-azure.html["查看控制台代理的安全组规则"^] 。
+控制台创建 Azure 安全组，其中包括 Cloud Volumes ONTAP 成功运行所需的入站和出站规则 https://docs.netapp.com/us-en/console-setup-admin/reference-ports-azure.html["查看控制台代理的安全组规则"^]。
 
 Cloud Volumes ONTAP的 Azure 安全组需要打开适当的端口以进行节点之间的内部通信。 https://docs.netapp.com/us-en/ontap/networking/ontap_internal_ports.html["了解ONTAP内部端口"^] 。
 
@@ -505,8 +505,8 @@ NOTE: 源是Cloud Volumes ONTAP系统上的接口（IP 地址）。
 
 如果您尚未创建控制台代理，您也应该查看控制台代理的网络要求。
 
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html["查看控制台代理的网络要求"^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-azure.html["Azure 中的安全组规则"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-azure.html["查看控制台代理的网络要求"^]
+* https://docs.netapp.com/us-en/console-setup-admin/reference-ports-azure.html["Azure 中的安全组规则"^]
 
 
 .相关链接

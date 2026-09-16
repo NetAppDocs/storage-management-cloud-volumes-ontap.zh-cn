@@ -131,7 +131,7 @@ NOTE: 控制台将卷移动到使用具有分层功能的所选磁盘类型的�
 如果您需要调整卷大小，您可以从控制台中的ONTAP系统管理器进行操作。
 
 .步骤
-. 单击系统管理器视图以通过ONTAP系统管理器调整卷大小。请参阅link:task-administer-advanced-view.html#how-to-get-started["如何开始"] 。
+. 选择System Manager视图以通过ONTAP System Manager调整卷的大小。请参阅 link:task-administer-advanced-view.html#get-started-with-system-manager["开始使用系统管理器"]。
 . 从左侧导航菜单中，选择“存储”>“卷”。
 . 从卷列表中，确定应调整大小的卷。
 . 点击选项图标image:screenshot_gallery_options.gif["烤肉串图标"]。
@@ -237,7 +237,7 @@ Cloud Volumes ONTAP使用更改来更新 CIFS 服务器。
 控制台可能会显示“需要采取措施”消息，表示需要移动卷以避免容量问题，但您需要自行解决问题。如果发生这种情况，您需要确定如何纠正问题，然后移动一个或多个卷。
 
 
-TIP: 当聚合已达到 90% 的使用容量时，控制台会显示这些“需要操作”消息。如果启用了数据分层，则当聚合已达到 80% 的已用容量时会显示消息。默认情况下，保留 10% 的可用空间用于数据分层。link:task-tiering.html#changing-the-free-space-ratio-for-data-tiering["了解有关数据分层的可用空间比率的更多信息"^] 。
+TIP: 当聚合已达到 90% 的已用容量时，控制台（Console）将显示这些"需要操作"消息。如果启用了数据分层，则在聚合达到 80% 已用容量时显示消息。默认情况下，为数据分层保留 10% 的可用空间。link:task-tiering.html#change-the-free-space-ratio-for-data-tiering["了解有关数据分层的可用空间比率的更多信息"^]。
 
 .步骤
 . <<确定如何纠正容量问题>> 。
@@ -312,11 +312,11 @@ image::screenshot_aggr_volume_overview.png[屏幕截图聚合量概览]
 . 确定具有可用容量的Cloud Volumes ONTAP系统，或部署新系统。
 . 将源系统拖放到目标系统以执行卷的一次性数据复制。
 +
-有关信息，请参阅link:https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["在系统之间复制数据"^]。
+有关详细信息，请参阅 link:https://docs.netapp.com/us-en/data-services-replication/task-replicating-data.html["在系统之间复制数据"^]。
 
 . 转到“复制状态”页面，然后中断SnapMirror关系，将复制的卷从数据保护卷转换为读/写卷。
 +
-有关信息，请参阅link:https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html#managing-data-replication-schedules-and-relationships["管理数据复制计划和关系"^]。
+有关详细信息，请参阅 link:https://docs.netapp.com/us-en/data-services-replication/task-replicating-data.html#managing-data-replication-schedules-and-relationships["管理数据复制计划和关系"^]。
 
 . 配置数据访问的卷。
 +

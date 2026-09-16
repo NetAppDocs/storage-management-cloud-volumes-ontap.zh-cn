@@ -108,7 +108,7 @@ Cloud Volumes ONTAP 使用 Azure 存储作为磁盘并将其分组到_聚合_中
 [[limits-for-different-deployment-modes-of-capacity-based-licensing]]
 === 基于容量的许可的不同部署模式的限制
 
-以下磁盘限制适用于使用基于容量的许可包的 Cloud Volumes ONTAP 系统 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html["了解 Cloud Volumes ONTAP 许可选项"^]。
+以下磁盘限制适用于使用基于容量的许可包的 Cloud Volumes ONTAP 系统 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html["了解 Cloud Volumes ONTAP 许可选项"^]。
 
 
 NOTE: 有关单个节点、单个可用区域中使用页面 blob 的 HA 对以及单个和多个可用区域中使用共享托管磁盘的 HA 对的最大系统容量和数据分层容量限制，请参阅 <<cap-license-azure>>。
@@ -341,7 +341,7 @@ NOTE: 有关单个节点、单个可用区域中使用页面 blob 的 HA 对以�
 
 以下磁盘限制适用于使用基于节点的许可的 Cloud Volumes ONTAP 系统。基于节点的许可是上一代模型，允许您按节点许可 Cloud Volumes ONTAP。基于节点的许可仍可供现有客户使用。
 
-您可以为 Cloud Volumes ONTAP BYOL 单节点或 HA 对系统购买多个基于节点的许可证，以分配超过 368 TiB 的容量，最高可达经过测试和支持的系统容量限制 2 PiB。请注意，磁盘限制可能会阻止您仅使用磁盘达到容量限制。您可以通过 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]超出磁盘限制 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-node-licenses.html["了解如何向 Cloud Volumes ONTAP 添加其他系统许可证"^]。Cloud Volumes ONTAP 支持高达 2 PiB 的最大测试和支持系统容量，超过 2 PiB 限制会导致不受支持的系统配置。
+您可以为 Cloud Volumes ONTAP BYOL 单节点或 HA 对系统购买多个基于节点的许可证，以分配超过 368 TiB 的容量，最高可达经过测试和支持的系统容量限制 2 PiB。请注意，磁盘限制可能会阻止您仅使用磁盘达到容量限制。您可以通过 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]超出磁盘限制 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-node-licenses.html["了解如何向 Cloud Volumes ONTAP 添加其他系统许可证"^]。Cloud Volumes ONTAP 支持高达 2 PiB 的最大测试和支持系统容量，超过 2 PiB 限制会导致不受支持的系统配置。
 
 
 
@@ -631,7 +631,7 @@ HA 对有两种配置类型：页面 blob 和多个可用区域。每种配置�
 
 这些是测试的限制。不支持设置更多存储虚拟机。
 
-https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-managing-svms-azure.html["了解如何创建其他存储 VM"^]。
+https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-managing-svms-azure.html["了解如何创建其他存储 VM"^]。
 
 [cols="2*"]
 |===

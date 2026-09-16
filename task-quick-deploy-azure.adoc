@@ -165,7 +165,7 @@ https://docs.cloud.google.com/storage/docs/tags-and-labels["Google Cloud 文档�
 
 .多个可用区中的高可用性
 ... *可用区域和中介*：选择每个节点的可用区域 (AZ) 以及要部署Cloud Volumes ONTAP HA 对的中介和相应子网。
-... *浮动 IP*：如果您选择多个 AZ，请为 NFS 和 CIFS 服务以及集群和 SVM 管理指定浮动 IP 地址。 IP 地址必须位于该区域内所有 VPC 的 CIDR 块之外。有关更多详细信息，请参阅link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["多个可用区中Cloud Volumes ONTAP HA 的 AWS 网络要求"^]。
+... *浮动 IP*：如果您选择了多个 AZ，请为 NFS 和 CIFS 服务以及集群和 SVM 管理指定浮动 IP 地址。IP 地址必须位于该区域所有 VPC 的 CIDR 块之外。有关其他详细信息，请参阅 link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["多个可用区中Cloud Volumes ONTAP HA 的 AWS 网络要求"^]。
 ... *调解器访问*：指定调解器访问信息。调解器是一个单独的实例，用于监控 HA 对的健康状况并在发生故障时提供仲裁。提供密钥对名称以使中介实例能够连接到 AWS EC2 服务，并选择连接方法。
 ... *路由表*：如果您选择了多个 AZ，请选择包含到浮动 IP 地址的路由的路由表。如果您有多个路由表，则选择正确的路由表非常重要。否则，某些客户端可能无法访问Cloud Volumes ONTAP HA 对。有关路由表的更多信息，请参阅 http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html["AWS 文档：路由表"^]。
 

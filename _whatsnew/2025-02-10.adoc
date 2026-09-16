@@ -9,7 +9,7 @@
 
 作为BlueXP管理员，您现在可以为从BlueXP访问ONTAP系统管理器的ONTAP用户激活身份验证。您可以通过编辑BlueXP连接器设置来启用此选项。此选项适用于标准模式和私人模式。
 
-link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-administer-advanced-view.html["使用系统管理器管理Cloud Volumes ONTAP"^] 。
+link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-administer-advanced-view.html["使用系统管理器管理Cloud Volumes ONTAP"^]。
 
 
 
@@ -18,7 +18,7 @@ link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-administer-ad
 
 通过ONTAP系统管理器从BlueXP对Cloud Volumes ONTAP进行高级管理的选项已从 *Advanced View* 重命名为 *System Manager*。
 
-link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-administer-advanced-view.html["使用系统管理器管理Cloud Volumes ONTAP"^] 。
+link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-administer-advanced-view.html["使用系统管理器管理Cloud Volumes ONTAP"^]。
 
 
 
@@ -32,4 +32,4 @@ link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-administer-ad
 * 如果您更喜欢以前的界面，您可以单击“切换到旧视图”按钮按类型查看许可证详细信息并修改许可证的收费方式。
 
 
-link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-capacity-licenses.html["管理基于容量的许可证"^] 。
+link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-capacity-licenses.html["管理基于容量的许可证"^]。

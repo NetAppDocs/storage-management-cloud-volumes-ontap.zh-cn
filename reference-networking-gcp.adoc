@@ -197,7 +197,7 @@ Google Cloud 共享 VPC 和独立 VPC 均支持Cloud Volumes ONTAP和控制台�
 
 https://cloud.google.com/vpc/docs/shared-vpc["Google Cloud 文档：共享 VPC 概览"^] 。
 
-https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["查看控制台代理部署中涵盖的所需共享 VPC 权限"^]
+https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-google.html["查看控制台代理部署中涵盖的所需共享 VPC 权限"^]
 
 
 
@@ -213,7 +213,7 @@ https://cloud.google.com/vpc/docs/packet-mirroring["数据包镜像"^]必须在�
 
 Cloud Volumes ONTAP系统需要出站互联网访问才能访问外部端点以实现各种功能。如果这些端点在具有严格安全要求的环境中被阻止， Cloud Volumes ONTAP将无法正常运行。
 
-控制台代理还联系多个端点以进行日常操作。有关端点的信息，请参阅 https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html#step-3-set-up-networking["查看从控制台代理联系的端点"^]和 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-networking-saas-console.html["准备使用控制台的网络"^]。
+Console 代理还会联系多个端点以执行日常操作。有关端点的信息，请参见 https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html#step-3-set-up-networking["查看从控制台代理联系的端点"^]和 https://docs.netapp.com/us-en/console-setup-admin/reference-networking-saas-console.html["准备使用控制台的网络"^]。
 
 
 
@@ -269,7 +269,7 @@ Cloud Volumes ONTAP的防火墙规则需要入站和出站规则。如果您正�
 
 
 
-TIP: 正在寻找有关控制台代理的信息？ https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-gcp.html["查看控制台代理的防火墙规则"^]
+TIP: 正在寻找有关 Console 代理的信息？ https://docs.netapp.com/us-en/console-setup-admin/reference-ports-gcp.html["查看控制台代理的防火墙规则"^]
 
 
 
@@ -557,8 +557,8 @@ NOTE: 为了使新的 Google Cloud HA 对部署实现较高的写入速度，VPC
 
 如果您尚未创建控制台代理，则应查看网络要求。
 
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["查看控制台代理的网络要求"^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/reference-ports-gcp.html["Google Cloud 中的防火墙规则"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-google.html["查看控制台代理的网络要求"^]
+* https://docs.netapp.com/us-en/console-setup-admin/reference-ports-gcp.html["Google Cloud 中的防火墙规则"^]
 
 
 
@@ -572,7 +572,7 @@ NOTE: 为了使新的 Google Cloud HA 对部署实现较高的写入速度，VPC
 * *透明代理*：网络配置为通过控制台代理代理自动路由来自Cloud Volumes ONTAP 的出站流量。设置透明代理时，控制台代理管理员仅需要提供用于从Cloud Volumes ONTAP进行连接的根 CA 证书，而不是代理服务器的 HTTP 地址。确保使用以下方式获取相同的根 CA 证书并将其上传到您的Cloud Volumes ONTAP系统 https://docs.netapp.com/us-en/ontap-cli/security-certificate-install.html["ONTAP CLI：安全证书安装"^]命令。
 
 
-有关为控制台代理配置代理服务器的信息，请参阅 https://docs.netapp.com/us-en/bluexp-setup-admin/task-configuring-proxy.html["配置控制台代理以使用代理服务器"^]。
+有关为控制台代理配置代理服务器的信息，请参见 https://docs.netapp.com/us-en/console-setup-admin/task-configuring-proxy.html["配置控制台代理以使用代理服务器"^]。
 
 .在 Google Cloud 中为Cloud Volumes ONTAP配置网络标签
 在控制台代理的透明代理配置期间，管理员为 Google Cloud 添加网络标签。您需要获取并手动添加Cloud Volumes ONTAP配置的相同网络标签。此标签对于代理服务器正常运行是必需的。

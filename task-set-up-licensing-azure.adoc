@@ -21,7 +21,7 @@ summary: 在您决定要为Cloud Volumes ONTAP使用哪种许可选项后，在�
 [[freemium]]
 == 免费增值
 
-选择免费增值服务，免费使用Cloud Volumes ONTAP，最高可提供 500 GiB 的配置容量。link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#packages["了解有关免费增值服务的更多信息"^] 。
+选择 Freemium 产品，免费使用 Cloud Volumes ONTAP，最多可使用 500 GiB 的已配置容量。link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#packages["了解有关免费增值服务的更多信息"^]。
 
 .步骤
 . 从NetApp Console的左侧导航菜单中，选择“存储”>“管理”。
@@ -29,7 +29,7 @@ summary: 在您决定要为Cloud Volumes ONTAP使用哪种许可选项后，在�
 +
 .. 在“详细信息和凭据”页面上，单击“编辑凭据”>“添加订阅”，然后按照提示订阅 Azure 市场中的即用即付产品。
 +
-除非您超过 500 GiB 的预配置容量，否则您无需通过市场订阅付费，此时系统将自动转换为link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing["基本套餐"^]。
+除非您已配置的容量超过 500 GiB，否则不会通过平台订阅向您收费，此时系统将自动转换为link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#capacity-based-licensing["基本套餐"^]。
 
 +
 image:screenshot-azure-paygo-subscription.png["创建Cloud Volumes ONTAP系统时 PAYGO 订阅选项的屏幕截图。"]
@@ -70,11 +70,11 @@ link:concept-licensing.html["了解有关基于容量的许可的更多信息"] 
 通过从NetApp购买许可证 (BYOL) 进行预付款，以便在任何云提供商处部署Cloud Volumes ONTAP系统。
 
 
-NOTE: 已限制 BYOL 许可证的购买、延期和续订。有关更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 许可可用性受限"^] 。
+NOTE: NetApp 已限制 BYOL 许可的购买、延期和续期。有关详细信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 许可可用性受限"^]。
 
 .步骤
 . https://www.netapp.com/forms/sales-contact/["联系NetApp销售人员获取许可证"^]
-. https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-nss-accounts.html#add-an-nss-account["将您的NetApp支持站点帐户添加到控制台"^]
+. https://docs.netapp.com/us-en/console-setup-admin/task-adding-nss-accounts.html#add-an-nss-account["将您的NetApp支持站点帐户添加到控制台"^]
 +
 控制台会自动查询 NetApp 的许可服务，以获取与您的NetApp支持站点帐户相关的许可证的详细信息。如果没有错误，控制台会自动将许可证添加到控制台。
 
@@ -128,7 +128,7 @@ image:screenshot-professional.png["创建Cloud Volumes ONTAP系统时专业选�
 link:task-deploying-otc-azure.html["查看在 Azure 中启动Cloud Volumes ONTAP 的分步说明"] 。
 
 
-TIP: 您可以从“设置”>“凭据”页面管理与您的 Azure 帐户关联的 Azure 市场订阅。 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-azure-accounts.html["了解如何管理 Azure 帐户和订阅"^]
+TIP: 您可以从"设置">"凭据"页面管理与 Azure 帐户关联的 Azure Marketplace 订阅。 https://docs.netapp.com/us-en/console-setup-admin/task-adding-azure-accounts.html["了解如何管理 Azure 帐户和订阅"^]
 
 
 

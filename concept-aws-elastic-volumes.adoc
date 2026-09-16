@@ -74,7 +74,7 @@ https://aws.amazon.com/ebs/features/["AWS 文档：了解有关 AWS 弹性卷的
 * ec2：修改卷
 
 
-这些权限包含在 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html["NetApp提供的政策"^]
+这些权限包含在 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["NetApp提供的政策"^]
 
 
 
@@ -196,6 +196,6 @@ link:task-manage-aggregates.html["了解如何提高总容量"] 。
 如果目标Cloud Volumes ONTAP系统支持弹性卷，则目标卷将放置在启用了弹性卷的聚合上（只要您选择 gp3 或 io1 磁盘）。
 
 +
-https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["了解如何设置数据复制"^]
+https://docs.netapp.com/us-en/data-services-replication/task-replicating-data.html["了解如何设置数据复制"^]
 
 

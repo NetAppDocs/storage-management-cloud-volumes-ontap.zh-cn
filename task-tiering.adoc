@@ -173,7 +173,7 @@ ifdef::azure[]
 "Microsoft.Network/virtualNetworks/subnets/write",
 "Microsoft.Network/routeTables/join/action",
 ----
-自定义角色默认包含权限。 https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html["查看控制台代理的 Azure 权限"^]
+默认情况下，自定义角色包括权限。 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-azure.html["查看控制台代理的 Azure 权限"^]
 
 endif::azure[]
 
@@ -301,7 +301,7 @@ Cloud Volumes ONTAP可以将数据从数据保护卷分层到容量层。如果�
 image:screenshot_replication_tiering.gif["屏幕截图显示了复制卷时的 S3 分层选项。"]
 
 +
-有关复制数据的帮助，请参阅 https://docs.netapp.com/us-en/bluexp-replication/task-replicating-data.html["将数据复制到云端或从云端复制数据"^]。
+要获得有关复制数据的帮助，请参阅 https://docs.netapp.com/us-en/data-services-replication/task-replicating-data.html["将数据复制到云端或从云端复制数据"^]。
 
 
 

@@ -19,7 +19,7 @@ summary: 通过 Linux 上的Cloud Volumes ONTAP映像摘要文件工具验证导
 .步骤
 . 从下载 Azure 映像文件 https://mysupport.netapp.com/site/["NetApp 支持站点"^]并提取摘要（.sig）文件、公钥证书（.pem）文件和链证书（.pem）文件。
 +
-参考 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-azure-download-digest-file.html["下载 Azure 映像摘要文件"^]了解更多信息。
+请参阅  https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-azure-download-digest-file.html["下载 Azure 映像摘要文件"^] 以了解更多信息。
 
 . 验证信任链。
 +

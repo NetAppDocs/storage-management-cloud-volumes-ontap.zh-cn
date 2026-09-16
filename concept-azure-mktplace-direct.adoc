@@ -67,5 +67,5 @@ Eds_v5 和 Ls_v3 实例类型
 .相关链接
 * Azure 市场直接部署：link:task-deploy-cvo-azure-mktplc.html["从 Azure 市场部署Cloud Volumes ONTAP"]
 * 通过控制台部署：link:task-getting-started-azure.html["Azure 中的Cloud Volumes ONTAP快速入门"]
-* https://docs.netapp.com/us-en/bluexp-family/index.html["NetApp Console文档"^]
+* link:https://docs.netapp.com/us-en/console-family/index.html["NetApp Console文档"^]
 

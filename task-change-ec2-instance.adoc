@@ -36,7 +36,7 @@ TIP: NetApp Console通过启动接管并等待返回来一次更改一个节点�
 
 
 .参考
-要查看 AWS 中支持的实例类型列表，请参阅 link:reference-configs-aws.html#supported-ec2-compute["支持的 EC2 实例"]。
+要查看 AWS 中支持的实例类型列表，请参阅 link:reference-configs-aws.html#supported-storage["支持的 EC2 实例"]。
 
 如果您无法将实例类型从 c4、m4 或 r4 实例更改为其他类型，请参阅知识库文章link:https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/Converting_an_AWS_Xen_CVO_instance_to_Nitro_(KVM)["将 AWS Xen CVO 实例转换为 Nitro (KVM)"^]。
 

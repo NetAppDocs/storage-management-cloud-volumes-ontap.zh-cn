@@ -30,7 +30,7 @@ summary: 如果在启动初始Cloud Volumes ONTAP系统后需要更多存储，�
 
 关于卷配置的一些注意事项：
 
-* 当您创建 iSCSI 卷时，控制台会自动为您创建一个 LUN。我们通过为每个卷创建一个 LUN 来简化操作，因此无需进行任何管理。创建卷后，link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-connect-lun.html["使用 IQN 从主机连接到 LUN"^] 。
+* 在您创建 iSCSI 卷时，Console 会自动为您创建一个 LUN。我们通过在每个卷上只创建一个 LUN 来简化操作，因此无需进行任何管理。在您创建卷后，link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-connect-lun.html["使用 IQN 从主机连接到 LUN"^]。
 * 您可以从ONTAP系统管理器或ONTAP CLI 创建其他 LUN。
 
 
@@ -157,7 +157,7 @@ ifdef::gcp[]
 endif::gcp[]
 
 DNS 域:: Cloud Volumes ONTAP存储虚拟机 (SVM) 的 DNS 域。大多数情况下，该域与 AD 域相同。
-NTP 服务器:: 选择“使用 Active Directory 域”以使用 Active Directory DNS 配置 NTP 服务器。如果您需要使用不同的地址配置 NTP 服务器，那么您应该使用 API。欲了解更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自动化文档"^]。
+NTP 服务器:: 选择*使用 Active Directory 域*，以使用 Active Directory DNS 配置 NTP 服务器。如果需要使用其他地址配置 NTP 服务器，则应使用 API。有关信息，请参阅 https://docs.netapp.com/us-en/console-automation/index.html["NetApp Console 自动化文档"^]。
 +
 --
 请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。创建 CIFS 服务器后，它不可配置。
@@ -180,7 +180,7 @@ LUN:: iSCSI 存储目标称为 LUN（逻辑单元），并作为标准块设备�
 ifdef::aws[]
 
 +
-*** link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-planning-your-config.html#size-your-system-in-aws["在 AWS 中调整系统规模"^]
+*** link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-planning-your-config.html#size-your-system-in-aws["在 AWS 中调整系统规模"^]
 
 
 
@@ -191,14 +191,14 @@ endif::aws[]
 
 ifdef::azure[]
 
-* link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-planning-your-config-azure.html#size-your-system-in-azure["在 Azure 中调整系统大小"^]
+* link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-planning-your-config-azure.html#size-your-system-in-azure["在 Azure 中调整系统大小"^]
 
 
 endif::azure[]
 
 ifdef::gcp[]
 
-* link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-planning-your-config-gcp.html#size-your-system-in-gcp["在 Google Cloud 中调整系统规模"^]
+* link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-planning-your-config-gcp.html#size-your-system-in-gcp["在 Google Cloud 中调整系统规模"^]
 
 
 endif::gcp[]

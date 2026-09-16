@@ -24,7 +24,7 @@ TIP: 未注册支持的系统仍会在有新版本可用时收到NetApp Console�
 .步骤
 . 如果您尚未将NetApp支持站点帐户添加到控制台，请转到 *帐户设置* 并立即添加。
 +
-https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-nss-accounts.html["了解如何添加NetApp支持站点帐户"^] 。
+https://docs.netapp.com/us-en/console-setup-admin/task-adding-nss-accounts.html["了解如何添加NetApp支持站点帐户"^]。
 
 . 在“*系统*”页面上，双击要注册的系统的名称。
 . 在“概述”选项卡上，单击“功能”面板，然后单击“*支持注册*”旁边的铅笔图标。

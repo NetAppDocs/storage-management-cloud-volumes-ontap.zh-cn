@@ -11,6 +11,6 @@
 
 但是，可以通过 API 添加或更新优化许可证。
 
-有关许可包的信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html["Cloud Volumes ONTAP许可"^]。
+要了解有关许可包的信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html["Cloud Volumes ONTAP许可"^]。
 
-有关切换到不同充电方式的信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-manage-capacity-licenses.html["管理基于容量的许可"^]。
+有关切换到其他收费方式的信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-capacity-licenses.html["管理基于容量的许可"^]。

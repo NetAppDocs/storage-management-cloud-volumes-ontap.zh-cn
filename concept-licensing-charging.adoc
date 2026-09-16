@@ -26,7 +26,7 @@ summary: 熟悉基于容量的许可证的收费、消费模式、定价和配�
 * *BYOL*：自带许可证（BYOL）。从NetApp购买的许可证，可用于在任何云提供商中部署Cloud Volumes ONTAP 。
 +
 
-NOTE: NetApp 已限制 BYOL 许可的购买、扩展和续订，并在特定场景（例如私有模式部署）中限制了其可用性。有关详细信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 许可可用性受限"^]。
+NOTE: NetApp 已限制 BYOL 许可的购买、扩展和续订，并在特定场景（例如私有模式部署）中限制了其可用性。有关详细信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 许可可用性受限"^]。
 
 
 
@@ -71,7 +71,7 @@ link:task-manage-capacity-licenses.html["了解如何更改充电方式"] 。
 
 Cloud Volumes ONTAP的计费基于多种因素，例如套餐和卷类型。Cloud Volumes ONTAP 9.7 及更高版本提供基于容量的许可包。
 
-有关定价的详细信息，请访问 https://bluexp.netapp.com/pricing/["NetApp Console网站"^]。
+有关定价的详细信息，请转到 link:https://www.netapp.com/pricing/["NetApp 定价网站"^]。
 
 
 
@@ -200,7 +200,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/index.html["了解 AW
 
 同样，如果您签订了年度市场合同或包含多个 Essentials 套餐的私人优惠，并且您的使用量超过了特定套餐的部署和容量类型的承诺容量，则控制台会根据可用容量，向价格更高的 Essentials 套餐收取超额费用。当该容量耗尽后，剩余的超额容量将按市场按需（PAYGO）小时费率计费，并添加到您的月账单中。
 
-有关 Essentials 许可证收费的信息，请参阅link:concept-licensing-charging.html#essentialscharging["基本套装"]。
+要了解有关 Essentials 许可证收费的信息，请参阅 <<基本套装>>。
 
 这是一个例子。假设您拥有 Essentials 包的以下许可证：
 

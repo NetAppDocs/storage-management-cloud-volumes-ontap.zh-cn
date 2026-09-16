@@ -25,7 +25,7 @@ ifdef::aws[]
 
 * 适用于 AWS 的Cloud Volumes ONTAP
 +
-link:https://www.netapp.com/pdf.html?item=/media/9088-tr4383["NetApp技术报告 4383：Amazon Web Services 中Cloud Volumes ONTAP与应用程序工作负载的性能特征"^]
+link:https://www.netapp.com/pdf.html?item=/media/9088-tr4383.pdf["NetApp技术报告 4383：Amazon Web Services 中Cloud Volumes ONTAP与应用程序工作负载的性能特征"^]
 
 
 
@@ -35,7 +35,7 @@ ifdef::azure[]
 
 * 适用于 Microsoft Azure 的Cloud Volumes ONTAP
 +
-link:https://www.netapp.com/pdf.html?item=/media/9089-tr-4671pdf.pdf["NetApp技术报告 4671：Azure 中Cloud Volumes ONTAP与应用程序工作负载的性能特征"^]
+link:https://www.netapp.com/pdf.html?item=/media/9089-tr-4671.pdf["NetApp技术报告 4671：Azure 中Cloud Volumes ONTAP与应用程序工作负载的性能特征"^]
 
 
 

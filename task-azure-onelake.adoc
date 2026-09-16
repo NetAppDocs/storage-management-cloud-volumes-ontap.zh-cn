@@ -14,7 +14,7 @@ summary: 使用 ONTAP S3 多协议访问配置 Cloud Volumes ONTAP，使 Azure A
 
 
 [role="lead"]
-您可以将 Cloud Volumes ONTAP 与 https://community.fabric.microsoft.com/["Microsoft Fabric"^]集成，使用 https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview["Microsoft OneLake"^]使现有 Cloud Volumes ONTAP NAS 数据可用于 Microsoft 分析和 AI 服务，例如 Power BI、Azure AI Search、OpenAI 和 Microsoft Copilot。集成不需要移动或复制数据。集成使用 https://docs.netapp.com/us-en/ontap/s3-multiprotocol/index.html["ONTAP S3 多协议"^]访问将 Cloud Volumes ONTAP 连接到现有的 Microsoft Fabric lakehouse。
+您可以将 Cloud Volumes ONTAP 与 link:https://community.fabric.microsoft.com/["Microsoft Fabric"^] 集成，使用 link:https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview["Microsoft OneLake"^] 使现有 Cloud Volumes ONTAP NAS 数据可用于 Microsoft 分析和 AI 服务，例如 Power BI、Azure AI Search、OpenAI 和 Microsoft Copilot。集成不需要数据移动或复制。集成使用 link:https://docs.netapp.com/us-en/ontap/s3-multiprotocol/index.html["ONTAP S3 多协议"^] 访问将 Cloud Volumes ONTAP 连接到现有的 Microsoft Fabric lakehouse。
 
 
 

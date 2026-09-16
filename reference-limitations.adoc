@@ -71,7 +71,7 @@ https://kb.netapp.com/on-prem/ontap/da/NAS/NAS-KBs/What_are_SMB_Continuous_Avail
 
 您不应将云提供商的快照用作 Cloud Volumes ONTAP 数据备份和恢复计划的一部分。您应始终使用 ONTAP 快照副本或第三方备份解决方案来备份和恢复托管在 Cloud Volumes ONTAP 上的数据。
 
-https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["了解如何使用 NetApp Backup and Recovery 来备份和还原 ONTAP 数据"^]。
+https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["了解如何使用 NetApp Backup and Recovery 来备份和还原 ONTAP 数据"^]。
 
 
 NOTE: WAFL 文件系统中的 ONTAP 一致性点确定数据一致性。只有 ONTAP 可以静止 WAFL 文件系统以进行崩溃一致性备份。

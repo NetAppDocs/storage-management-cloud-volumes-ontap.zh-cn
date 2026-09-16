@@ -18,6 +18,6 @@ WORM（一次写入多次读取）和 ARP（自主勒索软件保护）的内置
 
 了解有关这些功能的更多信息：
 
-* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-protecting-ransomware.html["为Cloud Volumes ONTAP启用NetApp勒索软件防护解决方案"]
-* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-worm.html["WORM存储"]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-protecting-ransomware.html["为Cloud Volumes ONTAP启用NetApp勒索软件防护解决方案"]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-worm.html["WORM存储"]
 

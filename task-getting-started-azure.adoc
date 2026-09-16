@@ -26,9 +26,9 @@ summary: 只需几个步骤即可开始使用Cloud Volumes ONTAP for Azure。
  a| 
 如果您还没有 Console 代理，请在部署 Cloud Volumes ONTAP 之前先创建一个。
  a| 
-请参见 Console 设置指南：https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html["在 Azure 中创建 Console 代理"^]
+请参见 Console 设置指南：https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-azure.html["在 Azure 中创建 Console 代理"^]
  a| 
-如果部署在没有 Internet 访问权限的子网中，请手动安装 Console 代理并访问该 NetApp Console 代理上运行的 Console 用户界面。请参阅 Console 设置指南：https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["在没有互联网访问的情况下手动安装 Console 代理"^]
+如果部署在没有 Internet 访问权限的子网中，请手动安装 Console 代理并访问该 NetApp Console 代理上运行的 Console 用户界面。请参见 Console 设置指南：https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-private-mode.html["在没有互联网访问的情况下手动安装 Console 代理"^]
 
 
 
@@ -77,8 +77,8 @@ link:reference-networking-azure.html["Azure 的网络要求"]
 
 |===
 .相关链接
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-azure.html["从控制台创建控制台代理"^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-azure-marketplace.html["从 Azure 市场创建控制台代理"^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html["在 Linux 主机上安装控制台代理软件"^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-azure.html["控制台如何处理权限"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-azure.html["从控制台创建控制台代理"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-azure-marketplace.html["从 Azure 市场创建控制台代理"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html["在 Linux 主机上安装控制台代理软件"^]
+* https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-azure.html["控制台如何处理权限"^]
 

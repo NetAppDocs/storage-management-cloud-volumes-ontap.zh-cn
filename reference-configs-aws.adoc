@@ -26,6 +26,7 @@ AWS 支持几种 Cloud Volumes ONTAP 配置。
 
 
 [[internal-disks-for-system-data]]
+[[aws]]
 === 用于系统数据的内部磁盘
 
 以下内部磁盘用于 AWS 中的系统数据：
@@ -84,7 +85,7 @@ NOTE: 使用吞吐量优化 HDD (st1) 时，不建议将数据分层到对象存
 [[supported-disk-sizes]]
 === 支持的磁盘大小
 
-在 AWS 中，一个聚合最多可包含 6 个大小相同的磁盘。但是，如果您的配置支持 Amazon EBS Elastic Volumes 功能，则一个聚合最多可包含 8 个磁盘。 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-aws-elastic-volumes.html["了解有关弹性卷支持的更多信息"^]
+在 AWS 中，一个聚合最多可包含 6 个大小相同的磁盘。但是，如果您的配置支持 Amazon EBS Elastic Volumes 功能，则一个聚合最多可包含 8 个磁盘。 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-aws-elastic-volumes.html["了解有关弹性卷支持的更多信息"^]
 
 [cols="3*"]
 |===
@@ -335,7 +336,7 @@ Cloud Volumes ONTAP 可以在保留或按需 EC2 实例上运行。不支持使�
 
 |===
 . 对于 HA 对，容量限制是针对整个 HA 对的。不是针对每个节点的。例如，如果您使用 PAYGO Premium 许可证，两个节点之间的容量最多可达 368 TiB。
-. 对于某些配置，磁盘限制会阻止您仅通过使用磁盘来达到容量限制。在这些情况下，您可以通过 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。有关磁盘限制的信息，请参阅link:reference-limits-aws.html["存储限制"]。
+. 对于某些配置，磁盘限制会阻止您仅通过使用磁盘来达到容量限制。在这些情况下，您可以通过 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。有关磁盘限制的信息，请参阅link:reference-limits-aws.html["存储限制"]。
 +
 通过基于容量的许可，每个 Cloud Volumes ONTAP 系统都支持到对象存储的分层。总分层容量可以扩展到云提供商的存储桶限制。虽然许可证不会施加容量限制，但在配置和管理分层时，应遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳实践"^]以确保最佳性能、可靠性和成本效率。
 
@@ -654,7 +655,7 @@ AWS Local Zones 中的这些实例类型不支持高写入速度。
 | 冷数据分层到 S3 | 不支持 3+| 支持 
 |===
 . 对于 HA 对，容量限制是针对整个 HA 对的。不是针对每个节点的。例如，如果您使用 PAYGO Premium 许可证，两个节点之间的容量最多可达 368 TiB。
-. 对于某些配置，磁盘限制会阻止您仅通过使用磁盘来达到容量限制。在这些情况下，您可以通过 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。有关磁盘限制的信息，请参阅link:reference-limits-aws.html["存储限制"]。
+. 对于某些配置，磁盘限制会阻止您仅通过使用磁盘来达到容量限制。在这些情况下，您可以通过 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。有关磁盘限制的信息，请参阅link:reference-limits-aws.html["存储限制"]。
 +
 通过基于容量的许可，每个 Cloud Volumes ONTAP 系统都支持到对象存储的分层。总分层容量可以扩展到云提供商的存储桶限制。虽然许可证不会施加容量限制，但在配置和管理分层时，应遵循 https://www.netapp.com/pdf.html?item=/media/17239-tr-4598.pdf["FabricPool最佳实践"^]以确保最佳性能、可靠性和成本效率。
 
@@ -681,7 +682,7 @@ Cloud Volumes ONTAP 不再支持 AWS 中的 c4、m4 和 r4 EC2 实例类型。
 
 如果您的系统在 c4、m4 或 r4 实例上运行，请将其更改为 c5、m5 或 r5 实例，然后再升级到此版本。
 
-link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-change-ec2-instance.html["了解如何更改 Cloud Volumes ONTAP 的 EC2 实例类型"^]。
+link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-change-ec2-instance.html["了解如何更改 Cloud Volumes ONTAP 的 EC2 实例类型"^]。
 
 有关详细信息，请参阅以下资源：
 
@@ -816,8 +817,8 @@ pass:[*] Flash Cache 在 m6id.xlarge、m6id.2xlarge、m6idn.xlarge 和 m6idn.2xl
 
 以下说明提供了有关支持的实例行为和部署选项的一般指导。
 
-* 某些实例类型包括本地 NVMe 存储，Cloud Volumes ONTAP 将其用作 Flash Cache。Flash Cache 通过对最近读取的用户数据和 NetApp 元数据进行实时智能缓存，加快了对数据的访问速度。它适用于随机读取密集型工作负载，包括数据库、电子邮件和文件服务。必须在所有卷上禁用压缩，才能利用 Flash Cache 性能改进 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-flash-cache.html["详细了解 Flash Cache"^]。
-* 使用单节点系统时，Cloud Volumes ONTAP 支持所有受支持的实例类型的高写入速度。使用 HA 对时，只有受支持的实例类型才支持高写入速度 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-write-speed.html["详细了解如何选择写入速度"^]。
+* 某些实例类型包括本地 NVMe 存储，Cloud Volumes ONTAP 将其用作 Flash Cache。Flash Cache 通过对最近读取的用户数据和 NetApp 元数据进行实时智能缓存，加快了对数据的访问速度。它适用于随机读取密集型工作负载，包括数据库、电子邮件和文件服务。必须在所有卷上禁用压缩，才能利用 Flash Cache 性能改进 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-flash-cache.html["详细了解 Flash Cache"^]。
+* 使用单节点系统时，Cloud Volumes ONTAP 支持所有受支持的实例类型的高写入速度。使用 HA 对时，只有受支持的实例类型才支持高写入速度 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-write-speed.html["详细了解如何选择写入速度"^]。
 * 选择 EC2 实例类型时，可以指定是共享实例还是专用实例。
 
 

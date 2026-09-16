@@ -18,7 +18,7 @@ summary: 在 Azure 中配置 Premium SSD v2 磁盘的性能参数。
 
 Premium SSD v2 磁盘支持需要快速、可靠性能、低延迟、高 IOPS 和高吞吐量的工作负载。通过调整 IOPS 和吞吐量设置，您可以定制部署中聚合的性能。有关 Premium SSD v2 磁盘的更多信息，请参阅 https://learn.microsoft.com/en-us/azure/virtual-machines/disks-deploy-premium-v2?tabs=azure-cli["部署高级 SSD v2 磁盘"]。
 
-使用 API 实现修改 Premium SSD v2 磁盘设置的自动化过程。有关运行Cloud Volumes ONTAP API 调用的信息，请参阅 https://docs.netapp.com/us-en/bluexp-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一次 API 调用"^]。
+使用 API 自动完成修改 Premium SSD v2 磁盘设置的过程。有关运行 Cloud Volumes ONTAP API 调用的信息，请参阅 https://docs.netapp.com/us-en/console-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一次 API 调用"^]。
 
 .关于此任务
 * 此功能适用于 Azure 单一可用性区域中的Cloud Volumes ONTAP部署。
@@ -66,9 +66,9 @@ NOTE: 在 24 小时内，您最多可以调用此 API 四次。
 API 返回响应表明操作成功后，请在 Azure 门户中检查Cloud Volumes ONTAP系统的磁盘详细信息，以验证修改后的参数。
 
 .相关信息
-* https://docs.netapp.com/us-en/bluexp-automation/cm/prepare.html["准备使用 API"^]
-* https://docs.netapp.com/us-en/bluexp-automation/cm/workflow_processes.html#organization-of-cloud-volumes-ontap-workflows["Cloud Volumes ONTAP工作流程"^]
-* https://docs.netapp.com/us-en/bluexp-automation/platform/get_identifiers.html#get-the-connector-identifier["获取所需的标识符"^]
-* https://docs.netapp.com/us-en/bluexp-automation/platform/use_rest_apis.html["使用 REST API 访问Cloud Volumes ONTAP"^]
+* https://docs.netapp.com/us-en/console-automation/cm/prepare.html["准备使用 API"^]
+* https://docs.netapp.com/us-en/console-automation/cm/workflow_processes.html#organization-of-cloud-volumes-ontap-workflows["Cloud Volumes ONTAP工作流程"^]
+* https://docs.netapp.com/us-en/console-automation/platform/get_identifiers.html#get-the-connector-identifier["获取所需的标识符"^]
+* https://docs.netapp.com/us-en/console-automation/platform/use_rest_apis.html["使用 REST API 访问Cloud Volumes ONTAP"^]
 * https://learn.microsoft.com/en-us/azure/virtual-machines/use-premium-ssd-v2-with-availability-set?tabs=CLI["在可用性集中将 Premium SSD v2 与虚拟机一起使用"^]
 

@@ -25,7 +25,7 @@ Microsoft Azure 会安排其虚拟机的定期维护事件。当Cloud Volumes ON
 CAUTION: 此过程可能会对 CIFS 客户端造成破坏。  CIFS 客户端未提交的数据可能会丢失。
 
 .开始之前
-您需要先创建控制台代理，然后才能更改控制台设置。 https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html#how-to-create-a-connector["了解详情"^] 。
+更改控制平台(Console)设置之前，需要创建控制平台(Console)代理 https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html#how-to-create-a-connector["了解详情"^]。
 
 .步骤
 . 从左侧导航窗格转到*管理>代理*。

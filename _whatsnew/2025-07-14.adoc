@@ -11,9 +11,9 @@
 
 有关在Cloud Volumes ONTAP中使用代理服务器的更多信息，请参阅：
 
-* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-aws.html#network-configurations-to-support-connector-proxy-servers["用于支持 AWS 中的连接器代理的网络配置"^]
-* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/azure/reference-networking-azure.html#network-configurations-to-support-connector["用于支持 Azure 中的连接器代理的网络配置"^]
-* https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-gcp.html#network-configurations-to-support-connector-proxy["用于支持 Google Cloud 中的连接器代理的网络配置"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-aws.html#network-configurations-to-support-connector-proxy-servers["用于支持 AWS 中的连接器代理的网络配置"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/azure/reference-networking-azure.html#network-configurations-to-support-connector["用于支持 Azure 中的连接器代理的网络配置"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-gcp.html#network-configurations-to-support-connector-proxy["用于支持 Google Cloud 中的连接器代理的网络配置"^]
 
 
 

@@ -26,6 +26,7 @@ Google Cloud 中支持多种 Cloud Volumes ONTAP 配置。
 
 
 [[internal-disks-for-system-data-in-single-node-systems]]
+[[google-cloud-single-node]]
 === 单节点系统中用于系统数据的内部磁盘
 
 * 一个 10 GiB SSD 永久磁盘，用于存储启动数据
@@ -162,12 +163,12 @@ Cloud Volumes ONTAP 可以在云提供商提供的保留或按需 VM 实例上�
 +
 新的 Cloud Volumes ONTAP 系统不再支持 custom-4-16384 机器类型。如果您在此机器类型上运行现有系统，则可以继续使用它，但我们建议切换到 n2-standard-4 机器类型。
 
-. ^2^ 磁盘限制可阻止您单独使用磁盘达到最大系统容量限制。您可以通过 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。
+. ^2^ 磁盘限制可阻止您单独使用磁盘达到最大系统容量限制。您可以通过 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。
 +
 link:reference-limits-gcp.html["详细了解 Google Cloud 中的磁盘限制"]。
 
 . ^3^ 使用平衡永久磁盘和性能 (SSD) 永久磁盘时，已启用增强的写入性能。
-. ^4^ 从 2025 年 8 月 11 日开始，Cloud Volumes ONTAP Optimized 许可证已弃用，将无法在 Google Cloud marketplace 中购买或续订现收现付 (PAYGO) 订阅。有关信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html["Cloud Volumes ONTAP 的新增功能"^]。
+. ^4^ 从 2025 年 8 月 11 日开始，Cloud Volumes ONTAP Optimized 许可证已弃用，将无法在 Google Cloud marketplace 中购买或续订现收现付 (PAYGO) 订阅。有关信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html["Cloud Volumes ONTAP 的新增功能"^]。
 . ^5^ 您可以在 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#improved-cloud-volumes-ontap-support-with-google-cloud-c3-vms["Cloud Volumes ONTAP 9.18.1 及更高版本"^]上部署下一代 C3 系列虚拟机。默认情况下，c3-standard-44 和 c3-standard-88 计算机及其 LSSD 变体支持 Google Cloud Console 中的 Tier-1 带宽。有关 LSSD 变体的更多信息，请参阅link:reference-configs-gcp.html#flash-cache-support["Flash Cache 支持"]。
 
 
@@ -223,7 +224,7 @@ link:reference-limits-gcp.html["详细了解 Google Cloud 中的磁盘限制"]�
 |===
 注：
 
-. ^1^ 磁盘限制可阻止您单独使用磁盘达到最大系统容量限制。您可以通过 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。
+. ^1^ 磁盘限制可阻止您单独使用磁盘达到最大系统容量限制。您可以通过 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。
 +
 link:reference-limits-gcp.html["详细了解 Google Cloud 中的磁盘限制"]。
 
@@ -313,12 +314,12 @@ Console 显示了 Standard 和 BYOL 支持的其他机器类型：n1-highmem-4�
 +
 新的 Cloud Volumes ONTAP 系统不再支持 custom-4-16384 机器类型。如果您在此机器类型上运行现有系统，则可以继续使用它，但我们建议切换到 n2-standard-4 机器类型。
 
-. ^2^ 磁盘限制可阻止您单独使用磁盘达到最大系统容量限制。您可以通过 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。
+. ^2^ 磁盘限制可阻止您单独使用磁盘达到最大系统容量限制。您可以通过 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。
 +
 link:reference-limits-gcp.html["详细了解 Google Cloud 中的磁盘限制"]。
 
 . ^3^ 使用平衡永久磁盘和性能 (SSD) 永久磁盘时，已启用增强的写入性能。
-. ^4^ 从 2025 年 8 月 11 日开始，Cloud Volumes ONTAP Optimized 许可证已弃用，将无法在 Google Cloud marketplace 中购买或续订现收现付 (PAYGO) 订阅。有关信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html["Cloud Volumes ONTAP 的新增功能"^]。
+. ^4^ 从 2025 年 8 月 11 日开始，Cloud Volumes ONTAP Optimized 许可证已弃用，将无法在 Google Cloud marketplace 中购买或续订现收现付 (PAYGO) 订阅。有关信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html["Cloud Volumes ONTAP 的新增功能"^]。
 . ^5^ 您可以在 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#support-for-next-generation-google-cloud-vms-in-cloud-volumes-ontap-ha["适用于单 AZ HA 部署的 Cloud Volumes ONTAP 9.19.1 及更高版本"^]上部署下一代 C3 系列虚拟机。默认情况下，c3-standard-44 和 c3-standard-88 计算机及其 LSSD 变体支持 Google Cloud Console 中的 Tier-1 带宽。有关 LSSD 变体的更多信息，请参阅link:reference-configs-gcp.html#flash-cache-support["Flash Cache 支持"]。
 
 
@@ -372,7 +373,7 @@ link:reference-limits-gcp.html["详细了解 Google Cloud 中的磁盘限制"]�
 |===
 注：
 
-. ^1^ 磁盘限制可阻止您单独使用磁盘达到最大系统容量限制。您可以通过 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。
+. ^1^ 磁盘限制可阻止您单独使用磁盘达到最大系统容量限制。您可以通过 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-data-tiering.html["将非活动数据分层到对象存储"^]达到容量限制。
 +
 link:reference-limits-gcp.html["详细了解 Google Cloud 中的磁盘限制"]。
 
@@ -401,7 +402,7 @@ Console 显示了 Standard 和 BYOL 支持的其他机器类型：n1-highmem-4�
 * n2-标准-64
 
 
-部署符合条件的实例类型时，可以启用 Flash Cache 和高写入速度。要启用 8,896 字节的更高最大传输单元，必须选择 VPC-1、VPC-2 或 VPC-3 进行部署。更高的 MTU 可实现更高的网络吞吐量。有关启动其中一个部署的更多信息，请参见 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-deploying-gcp.html["在 Google Cloud 中启动 Cloud Volumes ONTAP"^]。
+部署符合条件的实例类型时，可以启用 Flash Cache 和高写入速度。要启用 8,896 字节的更高最大传输单元，必须选择 VPC-1、VPC-2 或 VPC-3 进行部署。更高的 MTU 可实现更高的网络吞吐量。有关启动其中一个部署的更多信息，请参见 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-gcp.html["在 Google Cloud 中启动 Cloud Volumes ONTAP"^]。
 
 
 NOTE: Flash Cache、高写入模式和 8,896 的 MTU 依赖于功能，并且不能在配置的实例中单独禁用。

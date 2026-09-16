@@ -26,8 +26,8 @@ summary: 您可以在单系统配置中启动Cloud Volumes ONTAP ，也可以在
 [[licensing]]
 * 已启动且正在运行的 NetApp Console 代理。
 +
-** 你应该有一个 https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["与您的系统关联的控制台代理"^]。
-** https://docs.netapp.com/us-en/bluexp-setup-admin/concept-connectors.html["您应该准备好让控制台代理始终处于运行状态"^] 。
+** 您应拥有 https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-google.html["与您的系统关联的控制台代理"^]。
+** https://docs.netapp.com/us-en/console-setup-admin/concept-connectors.html["您应该准备好让控制台代理始终处于运行状态"^]。
 ** 与 Console 代理关联的服务帐户 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html["应该具有所需的权限"^]。
 
 
@@ -61,7 +61,7 @@ link:task-set-up-licensing-google.html["了解如何设置许可"] 。
 . 从左侧导航菜单中，选择“存储”>“管理”。
 . [[订阅]]在*系统*页面上，单击*添加系统*并按照提示进行操作。
 . *选择位置*：选择*Google Cloud*和* Cloud Volumes ONTAP*。
-. 如果出现提示， https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["创建控制台代理"^] 。
+. 如果出现提示，请按 https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-google.html["创建控制台代理"^]。
 . *详细信息和凭证*：选择一个项目，指定一个集群名称，可选地选择一个服务帐户，可选地添加标签，然后指定凭证。
 +
 下表描述了您可能需要指导的字段：
@@ -75,7 +75,7 @@ link:task-set-up-licensing-google.html["了解如何设置许可"] 。
 | 系统名称 | 控制台使用系统名称来命名Cloud Volumes ONTAP系统和 Google Cloud VM 实例。如果您选择该选项，它还会使用该名称作为预定义安全组的前缀。 
 
 
-| 服务帐户名称 | 如果你打算使用link:concept-data-tiering.html["数据分层"]或者 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery"^]使用Cloud Volumes ONTAP，则需要启用*服务帐户*并选择具有预定义存储管理员角色的服务帐户。link:task-creating-gcp-service-account.html["了解如何创建服务帐号"^] 。 
+| 服务帐户名称 | 如果您计划将 link:concept-data-tiering.html["数据分层"] 或  https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery"^] 与 Cloud Volumes ONTAP 结合使用，则需要启用 *Service Account* 并选择具有预定义 Storage Admin 角色的服务帐户。link:task-creating-gcp-service-account.html["了解如何创建服务帐号"^]。 
 
 
 | 添加标签 | 标签是您的 Google Cloud 资源的元数据。控制台将标签添加到Cloud Volumes ONTAP系统以及与该系统关联的 Google Cloud 资源。创建系统时，您可以从用户界面添加最多四个标签，然后可以在创建系统后添加更多标签。请注意，创建系统时，API 不会将您限制为四个标签。有关标签的信息，请参阅 https://cloud.google.com/compute/docs/labeling-resources["Google Cloud 文档：标记资源"^]。 
@@ -90,11 +90,11 @@ link:task-set-up-licensing-google.html["了解如何设置许可"] 。
 如果您在下拉列表中没有看到任何其他项目，则表示您尚未将服务帐户与其他项目关联。转到 Google Cloud Console，打开 IAM 服务，然后选择项目。将具有用于 Console 的角色的服务帐户添加到该项目。您需要为每个项目重复此步骤。
 
 
-NOTE: 这是您为控制台设置的服务帐户，link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["如本页所述"^] 。
+NOTE: 这是您为 Console 设置的服务帐户 link:https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-google.html["如本页所述"^]。
 
 单击“添加订阅”将选定的凭据与订阅关联。
 
-要创建按使用量付费的Cloud Volumes ONTAP系统，您需要从 Google Cloud 市场选择与Cloud Volumes ONTAP订阅相关联的 Google Cloud 项目。参考 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html["将市场订阅与 Google Cloud 凭据关联"^]。
+要创建即用即付的 Cloud Volumes ONTAP 系统，您需要选择一个与从 Google Cloud Marketplace 订阅 Cloud Volumes ONTAP 相关联的 Google Cloud 项目。请参阅 https://docs.netapp.com/us-en/console-setup-admin/task-adding-gcp-accounts.html["将市场订阅与 Google Cloud 凭据关联"^]。
 
 |===
 . *服务*：选择您想要在此系统上使用的服务。为了选择备份和恢复，或使用NetApp Cloud Tiering，您必须在步骤 3 中指定服务帐户。
@@ -149,7 +149,7 @@ NOTE: 如果所选版本有较新的候选版本、通用版本或补丁版本�
 磁盘大小适用于初始聚合中的所有磁盘以及使用简单配置选项时控制台创建的任何其他聚合。您可以使用高级分配选项创建使用不同磁盘大小的聚合。
 
 +
-有关选择磁盘类型和大小的帮助，请参阅link:task-planning-your-config-gcp.html#size-your-system-in-gcp["在 Google Cloud 中调整系统大小"^]。
+要获得选择磁盘类型和大小的帮助，请参阅 link:task-planning-your-config-gcp.html#size-your-system-in-google-cloud["在 Google Cloud 中调整系统大小"^]。
 
 . *闪存缓存、写入速度和 WORM*：
 +
@@ -159,7 +159,7 @@ NOTE: 如果所选版本有较新的候选版本、通用版本或补丁版本�
 
 +
 
-NOTE: 通过*高*写入速度选项可实现高写入速度和更高的 8,896 字节最大传输单元 (MTU)。此外，8,896 的更高 MTU 要求选择 VPC-1、VPC-2 和 VPC-3 进行部署。有关 VPC-1、VPC-2 和 VPC-3 的更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-gcp.html#requirements-for-the-connector["VPC-1、VPC-2 和 VPC-3 的规则"^]。
+NOTE: 通过*高*写入速度选项可获得高写入速度和更高的最大传输单元（MTU）8,896 字节。此外，较高的 MTU 8,896 要求在部署时选择 VPC-1、VPC-2 和 VPC-3。有关 VPC-1、VPC-2 和 VPC-3 的详细信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-gcp.html#requirements-for-the-console-agent["VPC-1、VPC-2 和 VPC-3 的规则"^]。
 
 .. 如果需要，请激活一次写入、多次读取 (WORM) 存储。
 +
@@ -177,7 +177,7 @@ link:concept-worm.html["了解有关 WORM 存储的更多信息"^] 。
 
 +
 ** 控制台在Cloud Volumes ONTAP实例上设置服务帐户。此服务帐户提供将数据分层到 Google Cloud Storage 存储桶的权限。请确保将控制台代理服务帐户添加为分层服务帐户的用户，否则，您无法从控制台中选择它。
-** 如需添加 Google Cloud 帐户的帮助，请参阅 https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html["使用 9.6 设置和添加 Google Cloud 帐户以进行数据分层"^]。
+** 要获得有关添加 Google Cloud 帐户的帮助，请参阅  https://docs.netapp.com/us-en/console-setup-admin/task-adding-gcp-accounts.html["使用 9.6 设置和添加 Google Cloud 帐户以进行数据分层"^]。
 ** 您可以在创建或编辑卷时选择特定的卷分层策略。
 ** 如果您禁用数据分层，则可以在后续聚合上启用它，但您需要关闭系统并从 Google Cloud Console 添加服务帐户。
 +
@@ -246,7 +246,7 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例�
 | DNS 域 | Cloud Volumes ONTAP存储虚拟机 (SVM) 的 DNS 域。大多数情况下，该域与 AD 域相同。 
 
 
-| NTP 服务器 | 选择“使用 Active Directory 域”以使用 Active Directory DNS 配置 NTP 服务器。如果您需要使用不同的地址配置 NTP 服务器，那么您应该使用 API。欲了解更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自动化文档"^]了解详情。请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。创建 CIFS 服务器后，它不可配置。 
+| NTP 服务器 | 选择 *Use Active Directory Domain* 可使用 Active Directory DNS 配置 NTP 服务器。如果需要使用其他地址配置 NTP 服务器，则应使用 API。有关详细信息，请参阅 https://docs.netapp.com/us-en/console-automation/index.html["NetApp Console自动化文档"^]。请注意，您只能在创建 CIFS 服务器时配置 NTP 服务器。创建 CIFS 服务器后，无法对其进行配置。 
 |===
 . *使用情况配置文件、磁盘类型和分层策略*：选择是否要启用存储效率功能并更改卷分层策略（如果需要）。
 +
@@ -302,18 +302,18 @@ CAUTION: 部署流程完成后，请勿修改 Google Cloud 门户中系统生成
 
 
 | Google Cloud 项目和 Marketplace 订阅  a| 
-选择要用于此系统的 Google 项目和订阅。这是您为 Console 设置的服务帐户。有关信息，请参阅link:https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-google.html["Console 设置文档"^]。Console 使用该项目创建 Cloud Volumes ONTAP 系统，并使用订阅确定计费和使用情况。如果您在下拉列表中未看到任何其他项目，则表示您尚未将服务帐户与其他项目关联。转到 Google Cloud Console，打开 IAM 服务，然后选择项目。将具有您用于 Console 的角色的服务帐户添加到该项目。您需要为每个项目重复此步骤。
+选择要用于此系统的 Google 项目和订阅。这是您为 Console 设置的服务帐户。有关信息，请参阅link:https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-google.html["Console 设置文档"^]。Console 使用该项目创建 Cloud Volumes ONTAP 系统，并使用订阅确定计费和使用情况。如果您在下拉列表中未看到任何其他项目，则表示您尚未将服务帐户与其他项目关联。转到 Google Cloud Console，打开 IAM 服务，然后选择项目。将具有您用于 Console 的角色的服务帐户添加到该项目。您需要为每个项目重复此步骤。
 
 单击“添加订阅”将选定的凭据与订阅关联。
 
-要创建即用即付的 Cloud Volumes ONTAP 系统，您需要选择一个与从 Google Cloud Marketplace 订阅 Cloud Volumes ONTAP 相关联的 Google Cloud 项目。请参阅 Console 设置文档： https://docs.netapp.com/us-en/bluexp-setup-admin/task-adding-gcp-accounts.html["将市场订阅与 Google Cloud 凭据关联"^]。
+要创建即用即付的 Cloud Volumes ONTAP 系统，您需要选择一个与从 Google Cloud Marketplace 订阅 Cloud Volumes ONTAP 相关联的 Google Cloud 项目。请参阅 Console 设置文档： https://docs.netapp.com/us-en/console-setup-admin/task-adding-gcp-accounts.html["将市场订阅与 Google Cloud 凭据关联"^]。
 
 
 
 | 系统名称 | 控制台使用系统名称来命名Cloud Volumes ONTAP系统和 Google Cloud VM 实例。如果您选择该选项，它还会使用该名称作为预定义安全组的前缀。 
 
 
-| 服务帐户名称 | 如果您打算使用link:concept-data-tiering.html["NetApp Cloud Tiering"]或者 https://docs.netapp.com/us-en/bluexp-backup-recovery/concept-backup-to-cloud.html["备份和恢复"^]服务，您需要启用*服务帐户*开关，然后选择具有预定义存储管理员角色的服务帐户。 
+| 服务帐户名称 | 如果您计划使用link:concept-data-tiering.html["NetApp Cloud Tiering"]或 https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["备份和恢复"^]服务，则需要启用 *Service Account* 开关，然后选择具有预定义 Storage Admin 角色的服务帐户。 
 
 
 | 标签 | 标签是您的 Google Cloud 资源的元数据。控制台将标签添加到Cloud Volumes ONTAP系统以及与该系统关联的 Google Cloud 资源。创建系统时，您可以从用户界面添加最多四个标签，然后可以在创建系统后添加更多标签。请注意，创建系统时，API 不会将您限制为四个标签。有关标签的信息，请参阅 https://cloud.google.com/compute/docs/labeling-resources["Google Cloud 文档：标记资源"^]。 
@@ -381,7 +381,7 @@ NOTE: 如果所选版本有较新的候选版本、通用版本或补丁版本�
 磁盘大小适用于初始聚合中的所有磁盘以及使用简单配置选项时控制台创建的任何其他聚合。您可以使用高级分配选项创建使用不同磁盘大小的聚合。
 
 +
-有关选择磁盘类型和大小的帮助，请参阅link:task-planning-your-config-gcp.html#size-your-system-in-gcp["在 Google Cloud 中调整系统大小"^]。
+要获得选择磁盘类型和大小的帮助，请参阅 link:task-planning-your-config-gcp.html#size-your-system-in-google-cloud["在 Google Cloud 中调整系统大小"^]。
 
 . *闪存缓存、写入速度和 WORM*：
 +
@@ -391,7 +391,7 @@ NOTE: 如果所选版本有较新的候选版本、通用版本或补丁版本�
 
 +
 
-NOTE: 通过 n2-standard-16、n2-standard-32、n2-standard-48 和 n2-standard-64 实例类型的 *高* 写入速度选项，可以获得高写入速度和更高的 8,896 字节的最大传输单元 (MTU)。此外，8,896 的更高 MTU 要求选择 VPC-1、VPC-2 和 VPC-3 进行部署。高写入速度和 8,896 的 MTU 取决于功能，无法在配置的实例中单独禁用。有关 VPC-1、VPC-2 和 VPC-3 的更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-gcp.html#requirements-for-the-connector["VPC-1、VPC-2 和 VPC-3 的规则"^]。
+NOTE: 通过 n2-standard-16、n2-standard-32、n2-standard-48 和 n2-standard-64 实例类型的 *High* 写入速度选项，可以获得高写入速度和更高的最大传输单元 (MTU)（8,896 字节）。此外，较高的 MTU（8,896）需要选择 VPC-1、VPC-2 和 VPC-3 进行部署。高写入速度和 8,896 的 MTU 取决于功能，不能在已配置的实例中单独禁用。有关 VPC-1、VPC-2 和 VPC-3 的详细信息，请参阅  https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-gcp.html#requirements-for-the-connector["VPC-1、VPC-2 和 VPC-3 的规则"^]。
 
 .. 如果需要，请激活一次写入、多次读取 (WORM) 存储。
 +
@@ -477,7 +477,7 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例�
 | DNS 域 | Cloud Volumes ONTAP存储虚拟机 (SVM) 的 DNS 域。大多数情况下，该域与 AD 域相同。 
 
 
-| NTP 服务器 | 选择“使用 Active Directory 域”以使用 Active Directory DNS 配置 NTP 服务器。如果您需要使用不同的地址配置 NTP 服务器，那么您应该使用 API。请参阅 https://docs.netapp.com/us-en/bluexp-automation/index.html["NetApp Console自动化文档"^]了解详情。请注意，只有在创建 CIFS 服务器时才能配置 NTP 服务器。创建 CIFS 服务器后，它不可配置。 
+| NTP 服务器 | 选择*Use Active Directory Domain*可使用 Active Directory DNS 配置 NTP 服务器。如果需要使用其他地址配置 NTP 服务器，则应使用 API。请参阅 https://docs.netapp.com/us-en/console-automation/index.html["NetApp Console自动化文档"^]了解详细信息。请注意，您只能在创建 CIFS 服务器时配置 NTP 服务器。创建 CIFS 服务器后，无法对其进行配置。 
 |===
 . *使用情况配置文件、磁盘类型和分层策略*：选择是否要启用存储效率功能并更改卷分层策略（如果需要）。
 +

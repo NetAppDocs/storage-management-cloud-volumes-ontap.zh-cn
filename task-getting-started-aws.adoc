@@ -28,9 +28,9 @@ summary: 验证您已完成在 AWS 中部署 Cloud Volumes ONTAP 的先决条件
  a| 
 如果您还没有 Console 代理，请在部署 Cloud Volumes ONTAP 之前创建一个。如果部署在没有 Internet 访问权限的子网中，请手动安装 Console 代理并访问在该代理上运行的 NetApp Console。
  a| 
-请参见 Console 设置指南：https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-connector-aws.html["在 AWS 中创建 Console 代理"^]
+请参见 Console 设置指南：https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-aws.html["在 AWS 中创建 Console 代理"^]
  a| 
-如果部署在没有 Internet 访问权限的子网中，请手动安装 Console 代理并访问该 NetApp Console 代理上运行的 Console 用户界面。请参阅 Console 设置指南：https://docs.netapp.com/us-en/bluexp-setup-admin/task-quick-start-private-mode.html["在没有互联网访问的情况下手动安装 Console 代理"^]
+如果部署在没有 Internet 访问权限的子网中，请手动安装 Console 代理并访问该 NetApp Console 代理上运行的 Console 用户界面。请参见 Console 设置指南：https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-private-mode.html["在没有互联网访问的情况下手动安装 Console 代理"^]
 
 
 
@@ -89,8 +89,8 @@ link:task-setting-up-kms.html["设置 AWS KMS"]
 
 |===
 .相关链接
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-bluexp.html["为 AWS 创建控制台代理"^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-aws-marketplace.html["从 AWS Marketplace 创建控制台代理"^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/task-install-connector-on-prem.html["在本地安装并设置控制台代理"^]
-* https://docs.netapp.com/us-en/bluexp-setup-admin/reference-permissions-aws.html["控制台代理的 AWS 权限"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-aws-bluexp.html["为 AWS 创建控制台代理"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-aws-marketplace.html["从 AWS Marketplace 创建控制台代理"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html["在本地安装并设置控制台代理"^]
+* https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-aws.html["控制台代理的 AWS 权限"^]
 

@@ -94,7 +94,7 @@ HA 配置通过以下方式维护数据的高可用性：
 
 在跨多个可用区域部署 HA 配置之前，您应该查看浮动 IP 地址和路由表的要求。部署配置时必须指定浮动 IP 地址。私有 IP 地址是自动创建的。
 
-有关详细信息，请参阅link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["多个可用区中Cloud Volumes ONTAP HA 的 AWS 网络要求"^] 。
+有关详细信息，请参阅 link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["多个可用区中Cloud Volumes ONTAP HA 的 AWS 网络要求"^]。
 
 
 

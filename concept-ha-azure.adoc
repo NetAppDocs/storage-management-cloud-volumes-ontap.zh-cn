@@ -34,7 +34,7 @@ image:diagram_ha_azure.png["概念图显示了一个负载均衡器管理来自N
 
 Azure 标准负载均衡器:: 负载均衡器管理传入Cloud Volumes ONTAP HA 对的流量。
 单个可用区域中的虚拟机:: 从Cloud Volumes ONTAP 9.15.1 开始，您可以在单个可用区 (AZ) 中创建和管理异构虚拟机 (VM)。您可以在同一可用区内的不同故障域中部署高可用性 (HA) 节点，以确保最佳可用性。要了解有关实现此功能的灵活编排模式的更多信息，请参阅 https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/["Microsoft Azure 文档：虚拟机规模集"^]。
-磁盘:: 客户数据驻留在高级存储页面 blob 上。每个节点都可以访问其他节点的存储。还需要额外的存储空间link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-default-configs.html#azure-ha-pair["引导、根和核心数据"^]。
+磁盘:: 客户数据驻留在 Premium Storage 页 blob 上。每个节点都可以访问另一个节点的存储。还需要额外的存储用于 link:reference-configs-azure.html#azure-ha-pair["引导、根和核心数据"]。
 存储帐户::
 +
 --
@@ -52,7 +52,7 @@ https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-target
 
 
 
-NOTE: 从 Cloud Volumes ONTAP 9.15.0P1 开始，新的高可用性对部署不再支持 Azure 页面 Blob。如果当前在现有的高可用性对部署中使用 Azure 页面 Blob，则可以迁移到 Edsv4 系列虚拟机和 Edsv5 系列虚拟机中较新的虚拟机实例类型。link:link:reference-configs-azure.html#ha-pairs["详细了解 Azure 中支持的配置"]。
+NOTE: 从 Cloud Volumes ONTAP 9.15.0P1 开始，新的高可用性对部署不再支持 Azure 页面 Blob。如果当前在现有的高可用性对部署中使用 Azure 页面 Blob，则可以迁移到 Edsv4 系列虚拟机和 Edsv5 系列虚拟机中较新的虚拟机实例类型。link:reference-configs-azure.html#ha-pairs["详细了解 Azure 中支持的配置"]。
 
 
 
@@ -82,7 +82,7 @@ Azure 标准负载均衡器:: 负载均衡器管理传入Cloud Volumes ONTAP HA 
 
 NOTE: 如果您为符合上述条件的环境选择高级 SSD 管理磁盘，控制台将自动部署高级 SSD v2 管理磁盘。您无法切换到高级 SSD v1 管理磁盘。
 
-磁盘:: 客户数据驻留在本地冗余存储 (LRS) 管理的磁盘上。每个节点都可以访问其他节点的存储。还需要额外的存储空间link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-default-configs.html#azure-ha-pair["启动、根、合作伙伴根、核心和NVRAM数据"^]。
+磁盘:: 客户数据驻留在本地冗余存储 (LRS) 托管磁盘上。每个节点都可以访问另一个节点的存储。还需要额外的存储用于 link:reference-configs-azure.html#azure-ha-pair["启动、根、合作伙伴根、核心和NVRAM数据"]。
 存储帐户:: 存储帐户用于基于托管磁盘的部署，以处理诊断日志和分层到 Blob 存储。
 
 
@@ -99,7 +99,7 @@ image:diagram_ha_azure_maz.png["概念图显示了一个负载均衡器，用于
 
 Azure 标准负载均衡器:: 负载均衡器管理传入Cloud Volumes ONTAP HA 对的流量。
 可用区域:: HA 多可用区配置采用一种部署模型，其中两个Cloud Volumes ONTAP节点部署到不同的可用区，确保节点位于不同的故障域中以提供冗余和可用性。要了解灵活编排模式下的虚拟机规模集如何使用 Azure 中的可用性区域，请参阅 https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-use-availability-zones?tabs=cli-1%2Cportal-2["Microsoft Azure 文档：创建使用可用性区域的虚拟机规模集"^]。
-磁盘:: 客户数据驻留在区域冗余存储 (ZRS) 托管磁盘上。每个节点都可以访问其他节点的存储。还需要额外的存储空间link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/reference-default-configs.html#azure-ha-pair["启动、根、合作伙伴根和核心数据"^]。
+磁盘:: 客户数据驻留在区域冗余存储 (ZRS) 托管磁盘上。每个节点都可以访问另一个节点的存储。还必须为 link:reference-configs-azure.html#azure-ha-pair["启动、根、合作伙伴根和核心数据"] 提供额外的存储。
 存储帐户:: 存储帐户用于基于托管磁盘的部署，以处理诊断日志和分层到 Blob 存储。
 
 

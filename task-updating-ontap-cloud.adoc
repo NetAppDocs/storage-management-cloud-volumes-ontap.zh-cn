@@ -375,7 +375,7 @@ Cloud Volumes ONTAP不再支持 c4、m4 和 r4 EC2 实例类型。您可以使�
 
 c4、m4 和 r4 EC2 实例类型允许每个节点拥有比 c5、m5 和 r5 EC2 实例类型更多的磁盘。如果您正在运行的 c4、m4 或 r4 EC2 实例每个节点的磁盘数低于 c5、m5 和 r5 实例每个节点的最大磁盘限额，则可以将 EC2 实例类型更改为 c5、m5 或 r5。
 
-link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-aws.html#disk-and-tiering-limits-by-ec2-instance["检查 EC2 实例的磁盘和分层限制"^] link:https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/task-change-ec2-instance.html["更改Cloud Volumes ONTAP的 EC2 实例类型"^]
+link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-aws.html#disk-and-tiering-limits-by-ec2-instance["检查 EC2 实例的磁盘和分层限制"^] link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-change-ec2-instance.html["更改Cloud Volumes ONTAP的 EC2 实例类型"^]
 
 如果您无法更改实例类型，请按照<<启用增强联网>>。
 
@@ -618,6 +618,6 @@ _maxDownloadSessions_ 的值可以是 1 或任何大于 1 的整数。如果值�
 
 请注意，32 是一个示例值。您应该使用的值取决于您的 NAT 配置和您可以同时拥有的会话数。
 
-https://docs.netapp.com/us-en/bluexp-automation/cm/api_ref_resources.html#occmconfig["了解有关 /occm/config API 调用的更多信息"^] 。
+https://docs.netapp.com/us-en/console-automation/cm/api_ref_resources.html#occmconfig["了解有关 /occm/config API 调用的更多信息"^]。
 
 endif::gcp[]
