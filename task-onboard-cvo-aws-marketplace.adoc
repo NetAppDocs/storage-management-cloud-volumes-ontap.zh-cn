@@ -222,7 +222,7 @@ image:screenshot-stack-creation.png["width=50% AWS CloudFormation 堆栈创建�
 . 完成系统配置。
 
 
-要查看详细的系统部署说明，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用快速创建部署 Cloud Volumes ONTAP"^]。
+要查看详细的系统部署说明，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["在 AWS 中使用快速创建部署 Cloud Volumes ONTAP"^]。
 
 
 

@@ -95,7 +95,7 @@ Cloud Volumes ONTAP 需要一个 Google Cloud 服务帐户来启用数据分层�
  a| 
 请参阅：
 
-* link:task-quick-deploy-gcp.html["使用快速创建部署 Cloud Volumes ONTAP"]
+* link:task-quick-deploy-gcp.html["在 Google Cloud 中使用快速创建部署 Cloud Volumes ONTAP"]
 * link:task-deploying-gcp.html["使用高级选项部署 Cloud Volumes ONTAP"]
 
  a| 
@@ -103,7 +103,6 @@ Cloud Volumes ONTAP 需要一个 Google Cloud 服务帐户来启用数据分层�
 
 * link:concept-license-management.html["基于节点的 BYOL 许可证管理"]
 * link:task-manage-node-licenses.html["管理基于节点的 BYOL 许可证"]
-* link:task-quick-deploy-gcp.html["使用快速创建部署 Cloud Volumes ONTAP"]
 * link:task-deploying-gcp.html["使用高级选项部署 Cloud Volumes ONTAP"]
 
 

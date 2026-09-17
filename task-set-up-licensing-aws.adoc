@@ -38,7 +38,7 @@ summary: 在您决定要为Cloud Volumes ONTAP使用哪种许可选项后，在�
 . 在 AWS 选项卡上，选择独立订阅，然后单击选项图标 image:screenshot_gallery_options.gif["烤肉串图标"]。
 . 在编辑配置窗口中，在 *AWS 帐户凭据* 字段中选择独立列表的订阅号。
 . 单击 *Configure*。您可以将订阅视为 AWS 中 Cloud Volumes ONTAP 计费的首选选项。
-. 部署新的 Cloud Volumes ONTAP 系统时，选择 Essentials 包以通过独立订阅进行计费。有关信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用快速创建部署 Cloud Volumes ONTAP"^]。
+. 部署新的 Cloud Volumes ONTAP 系统时，选择 Essentials 包以通过独立订阅进行计费。有关信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["在 AWS 中使用快速创建部署 Cloud Volumes ONTAP"^]。
 
 
 在 *数据服务* 选项卡上对 NIS 订阅重复相同的步骤，以使用数据服务的 NIS 订阅。部署新的 Cloud Volumes ONTAP 系统时，选择 Professional 包以通过 NIS 订阅计费。

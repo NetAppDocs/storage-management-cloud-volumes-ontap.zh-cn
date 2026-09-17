@@ -161,7 +161,7 @@ NetApp 为来自 AWS Marketplace 的 Cloud Volumes ONTAP 引入了简化的入�
 
 .相关链接
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-onboard-cvo-aws-marketplace.html["从 AWS Marketplace 载入 Cloud Volumes ONTAP"^]
-* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["使用快速创建部署 Cloud Volumes ONTAP"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-aws.html["在 AWS 中使用快速创建部署 Cloud Volumes ONTAP"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#flexible-billing-for-cloud-volumes-ontap-and-data-services-in-aws["AWS 中 Cloud Volumes ONTAP 和数据服务的灵活计费"^]
 
 
@@ -243,7 +243,7 @@ https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3_series["G
 现在，您可以使用*快速创建*向导在 Google Cloud 中为单节点和高可用性 (HA) 配置部署 Cloud Volumes ONTAP。这种简化的流程减少了步骤，在单个页面上自动设置默认值，并最大限度地减少导航操作，从而实现更快、更轻松的部署。
 
 .相关链接
-* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-gcp.html["使用 Quick create 在 Google Cloud 中部署 Cloud Volumes ONTAP"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-gcp.html["在 Google Cloud 中使用快速创建部署 Cloud Volumes ONTAP"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-gcp.html["使用 Google Cloud 中的高级选项部署 Cloud Volumes ONTAP"^]
 
 
@@ -320,7 +320,7 @@ Cloud Volumes ONTAP 9.16.1 及更高版本支持 M6id 和 M6idn EC2 实例系列
 现在，您可以使用快速创建在 Azure 中部署单节点和高可用性 (HA) 配置的 Cloud Volumes ONTAP。这种简化的流程与高级方法相比减少了步骤数，自动在单个页面上设置默认值，并最大限度地减少导航，使部署更快、更轻松。
 
 .相关链接
-* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-azure.html["使用快速创建在 Azure 中部署 Cloud Volumes ONTAP"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-quick-deploy-azure.html["在 Azure 中使用快速创建部署 Cloud Volumes ONTAP"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-otc-azure.html["使用 Azure 中的高级选项部署 Cloud Volumes ONTAP"^]
 
 

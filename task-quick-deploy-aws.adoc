@@ -4,7 +4,7 @@ permalink: task-quick-deploy-aws.html
 keywords: aws quick deploy, quick deploy, aws, single screen deployment AWS, SAZ, MAZ, single node, HA pair 
 summary: 您可以在单系统配置中或 AWS 中以 HA 对的形式快速部署Cloud Volumes ONTAP实例。 
 ---
-= 使用快速创建部署 Cloud Volumes ONTAP
+= 在 AWS 中使用快速创建部署 Cloud Volumes ONTAP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

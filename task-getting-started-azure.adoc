@@ -63,7 +63,7 @@ link:reference-networking-azure.html["Azure 的网络要求"]
  a| 
 请参阅：
 
-* link:task-quick-deploy-azure.html["使用快速创建部署 Cloud Volumes ONTAP"]
+* link:task-quick-deploy-azure.html["在 Azure 中使用快速创建部署 Cloud Volumes ONTAP"]
 * link:task-deploying-otc-azure.html["使用高级选项部署 Cloud Volumes ONTAP"]
 
  a| 
@@ -71,7 +71,6 @@ link:reference-networking-azure.html["Azure 的网络要求"]
 
 * link:concept-license-management.html["基于节点的 BYOL 许可证管理"]
 * link:task-manage-node-licenses.html["管理基于节点的 BYOL 许可证"]
-* link:task-quick-deploy-azure.html["使用快速创建部署 Cloud Volumes ONTAP"]
 * link:task-deploying-otc-azure.html["使用高级选项部署 Cloud Volumes ONTAP"]
 
 
