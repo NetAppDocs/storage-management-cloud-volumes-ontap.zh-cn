@@ -43,7 +43,7 @@ Console 发行版列出的所有权限：
 
 
 |===
-在专用模式部署中，您需要对 Cloud Volumes ONTAP 进行一些配置更改才能开始使用 Infrastructure Manager。请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-gcp.html#infrastructure-manager-configuration-for-private-mode-deployments["适用于专用模式部署的 Infrastructure Manager 配置"^]。
+在专用模式部署中，您需要对 Cloud Volumes ONTAP 进行一些配置更改才能开始使用 Infrastructure Manager。请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-gcp.html#infrastructure-manager-configuration-in-private-mode-or-protected-environments["适用于专用模式部署的 Infrastructure Manager 配置"^]。
 
 .相关链接
 * https://docs.netapp.com/us-en/console-setup-admin/whats-new.html#console-agent-4-2-0["NetApp Console Agent 4.2.0 发行说明"^]

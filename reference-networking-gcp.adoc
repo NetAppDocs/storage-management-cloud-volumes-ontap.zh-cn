@@ -1,8 +1,8 @@
 ---
 sidebar: sidebar 
 permalink: reference-networking-gcp.html 
-keywords: networking, network, requirements, connection, connections, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, outbound, ports, bucket, private google access, set up data requirement, gcp networking, google networking, shared vpc, host project, service project 
-summary: 设置您的 Google Cloud 网络，以便Cloud Volumes ONTAP系统可以正常运行。 
+keywords: networking, network, requirements, connection, connections, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, outbound, ports, bucket, private google access, set up data requirement, gcp networking, google networking, shared vpc, host project, service project; private mode or in a project protected by VPC Service Controls 
+summary: 设置您的 Google Cloud 网络，以便 Cloud Volumes ONTAP 系统可以正常运行。您将了解 CVO 的网络要求、私有 IP 地址、VPC、子网、数据包镜像、防火墙规则和 HA 配置以及控制台代理要求。 
 ---
 = 为Cloud Volumes ONTAP设置 Google Cloud 网络
 :hardbreaks:
@@ -512,10 +512,10 @@ NOTE: 为了使新的 Google Cloud HA 对部署实现较高的写入速度，VPC
 
 
 
-[[infrastructure-manager-configuration-for-private-mode-deployments]]
-=== 适用于专用模式部署的 Infrastructure Manager 配置
+[[infrastructure-manager-configuration-in-private-mode-or-protected-environments]]
+=== 私有模式或受保护环境中的 Infrastructure Manager 配置
 
-如果要在私有模式下部署 Cloud Volumes ONTAP 9.16.1 或更高版本，则需要进行一些配置更改，以便 Cloud Volumes ONTAP 可以使用 Google Cloud Infrastructure Manager 作为部署服务，而不是 Google 最终将弃用的 Deployment Manager。
+如果要在私有模式或受 VPC Service Controls 保护的项目中部署 Cloud Volumes ONTAP 9.16.1 或更高版本，您需要进行一些配置更改，以便 Cloud Volumes ONTAP 可以使用 Google Cloud Infrastructure Manager 作为部署服务，而不是 Deployment Manager（Google 最终将弃用该服务）。
 
 .开始之前
 * 确保您的 Cloud Volumes ONTAP 系统为 9.16.1 或更高版本。如果不是，请升级您的系统。有关说明，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-updating-ontap-cloud.html["升级Cloud Volumes ONTAP"]。
@@ -526,6 +526,9 @@ NOTE: 为了使新的 Google Cloud HA 对部署实现较高的写入速度，VPC
 
 .步骤
 . 在与 Cloud Volumes ONTAP 部署相同的区域中使用此配置创建专用工作者池。有关创建专用工作者池的信息，请参阅 https://docs.cloud.google.com/build/docs/private-pools/create-manage-private-pools#creating_a_new_private_pool["Google Cloud 文档：创建和管理私有池"^]和 https://cloud.google.com/build/pricing["Google Cloud Build 定价"^]。
++
+如果在受 VPC Service Controls 保护的项目中部署 Cloud Volumes ONTAP，请在与 Console agent 相同的项目中创建私有工作线程池。工作线程池必须处于运行状态。Google Cloud 的默认公共 Cloud Build 工作线程池无法在服务边界内运行。
+
 +
 工作进程池必须具有以下配置：
 
@@ -548,6 +551,13 @@ NOTE: 为了使新的 Google Cloud HA 对部署实现较高的写入速度，VPC
 
 . 部署此工作者池并使其运行以进行 Cloud Volumes ONTAP 管理。Google Cloud 使用此工作者池在隔离环境中运行所有 Terraform 操作。
 . 在私有模式下部署 Cloud Volumes ONTAP 时，请在 *GCP Worker Pool* 字段中选择此工作池的名称。有关说明，请参阅 link:task-deploying-gcp.html["在 Google Cloud 中启动Cloud Volumes ONTAP"]。
++
+如果在受 VPC Service Controls 保护的项目中部署 Cloud Volumes ONTAP，请使用 API 创建 Cloud Volumes ONTAP 系统，并在创建请求正文中包含 `workerPool`参数。
+
++
+
+NOTE: 当前不支持在使用控制台 UI 部署 Cloud Volumes ONTAP 时包含工作池。对于受 VPC Service Controls 保护的项目，API 是部署 Cloud Volumes ONTAP 的唯一受支持方式。
+
 
 
 

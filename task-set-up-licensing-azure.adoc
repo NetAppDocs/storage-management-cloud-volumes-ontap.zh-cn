@@ -79,7 +79,7 @@ NOTE: NetApp 已限制 BYOL 许可的购买、延期和续期。有关详细信�
 控制台会自动查询 NetApp 的许可服务，以获取与您的NetApp支持站点帐户相关的许可证的详细信息。如果没有错误，控制台会自动将许可证添加到控制台。
 
 +
-您必须先从控制台获取许可证，然后才能将其与Cloud Volumes ONTAP一起使用。如果需要的话，你可以link:task-manage-capacity-licenses.html#add-purchased-licenses-to-your-account["手动将许可证添加到控制台"]。
+您的许可证必须在控制台上可用，然后才能与 Cloud Volumes ONTAP 配合使用。如有需要，您可以 link:task-manage-capacity-licenses.html#how-licenses-are-added-to-netapp-console["手动将许可证添加到控制台"]。
 
 . 在*系统*页面上，单击*添加系统*并按照步骤操作。
 +
