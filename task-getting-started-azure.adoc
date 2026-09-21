@@ -18,7 +18,18 @@ summary: 只需几个步骤即可开始使用Cloud Volumes ONTAP for Azure。
 
 [cols="20,35,25,25"]
 |===
-| 任务 | 描述 | 参考 | 专用模式部署注意事项 
+| 任务 | 描述 | 参考 | 专用模式部署的注意事项 
+
+
+ a| 
+验证 NetApp Console 角色
+ a| 
+在为 Cloud Volumes ONTAP 创建 Console 代理并执行其他部署任务之前，必须验证必要的 IAM 角色和权限是否已到位。
+ a| 
+请参见 Console 设置指南：https://docs.netapp.com/us-en/console-setup-admin/reference-iam-cvo-roles.html["Cloud Volumes ONTAP 访问角色（位于 NetApp Console 中）"^] https://docs.netapp.com/us-en/console-setup-admin/task-cvo-rbac-setup.html["为 Cloud Volumes ONTAP 设置基于角色的访问"^]
+ a| 
+确认角色配置正确。
+
 
 
  a| 
@@ -67,10 +78,10 @@ link:reference-networking-azure.html["Azure 的网络要求"]
 * link:task-deploying-otc-azure.html["使用高级选项部署 Cloud Volumes ONTAP"]
 
  a| 
-开始部署前，请确保已从 NetApp 购买 Cloud Volumes ONTAP 许可证。专用模式部署需要基于节点的 BYOL 许可证。市场订阅不支持对您的 Cloud Volumes ONTAP 使用量计费。请从 NetApp 获取许可证文件，并在部署过程中上传。请参阅：
+专用模式仅支持高级部署。开始部署前，请确保已从 NetApp 购买 Cloud Volumes ONTAP 许可证。私有模式部署依赖于 BYOL 许可证。市场订阅不支持为您的 Cloud Volumes ONTAP 使用量计费。请从 NetApp 获取许可证文件，并在部署过程中上传。请参阅：
 
-* link:concept-license-management.html["基于节点的 BYOL 许可证管理"]
-* link:task-manage-node-licenses.html["管理基于节点的 BYOL 许可证"]
+* link:concept-license-management.html["许可证管理"]
+* link:task-manage-node-licenses.html["管理 BYOL 许可证"]
 * link:task-deploying-otc-azure.html["使用高级选项部署 Cloud Volumes ONTAP"]
 
 

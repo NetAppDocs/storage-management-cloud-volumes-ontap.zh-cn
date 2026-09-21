@@ -20,6 +20,29 @@ summary: 了解 Cloud Volumes ONTAP 管理中的新增功能和增强功能。
 
 
 
+[[21-september-2026]]
+== 2026年9月21日
+
+
+
+[[support-for-capacity-based-licenses-in-private-mode-deployments]]
+=== 在私有模式部署中支持基于容量的许可证
+
+您现在可以在 AWS、Azure 和 Google Cloud 中以私有模式部署具有基于容量许可证的 Cloud Volumes ONTAP 系统。
+
+NetApp 仅支持私有模式下基于容量的许可的 Essentials 软件包。从 NetApp 购买基于容量的自带许可证 (BYOL) Essentials 软件包，并在部署期间将其分配给您的系统。前 500 GiB 的已消耗容量不计入您的许可费用。随着工作负载需求的增长，您可以购买额外的软件包。
+
+NetApp 建议对所有私有模式的 Cloud Volumes ONTAP 部署使用基于容量的许可。如果您现有的私有模式部署使用基于节点的许可证，则可以通过从 NetApp 购买 Essentials 软件包将其转换为基于容量的许可。这一新的部署功能与转换选项相结合，支持 NetApp 逐步从基于节点的许可转向基于容量的许可的计划。
+
+.相关链接
+* https://review.docs.netapp.com/us-en/storage-management-cloud-volumes-ontap_capacity-license-darkmode/concept-licensing.html["Cloud Volumes ONTAP许可"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-license-management.html["了解Cloud Volumes ONTAP BYOL"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基于节点的许可证的可用性终止"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-node-licenses.html["管理 Cloud Volumes ONTAP 的基于节点的许可证"^]
+
+
+
+
 [[02-september-2026]]
 == 2026 年 9 月 2 日
 
@@ -75,7 +98,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/["了解有关此版�
 [[ability-to-convert-node-based-licenses-to-capacity-based-licensing-in-private-mode]]
 === 能够在私有模式下将基于节点的许可转换为基于容量的许可
 
-NetApp 很高兴宣布针对私有模式 Cloud Volumes ONTAP 部署的基于容量的许可。您现在可以通过将基于节点的许可证转换为基于容量的许可来优化私有模式 Cloud Volumes ONTAP 部署的成本。对于您的私有模式部署，您可以直接从 NetApp 购买 Essentials（自带许可证 (BYOL)）软件包，其容量与您现有的基于节点的许可证相近。
+NetApp 很高兴宣布针对私有模式 Cloud Volumes ONTAP 部署的基于容量的许可。您现在可以通过将基于节点的许可证转换为基于容量的许可来优化私有模式 Cloud Volumes ONTAP 部署的成本。对于您的私有模式部署，您可以直接从 NetApp 购买 Essentials（自带许可证或 BYOL）包，其容量与您现有的基于节点的许可证相似。
 
 此转换选项支持 NetApp 的分阶段计划，即从基于节点的许可转向基于容量的许可。与为每个系统分配固定容量的基于节点的许可不同，基于容量的许可从 Cloud Volumes ONTAP 系统的共享容量池中提取，使您能够在存储需求发生变化时更灵活地重新分配工作负载。
 
@@ -438,9 +461,9 @@ https://docs.netapp.com/us-en/console-automation/cvo/put-occm-config.html["配�
 [[support-for-google-infrastructure-manager-for-private-mode-deployments]]
 === 支持用于私有模式部署的 Google Infrastructure Manager
 
-Cloud Volumes ONTAP 9.16.1 及更高版本现在支持 https://docs.cloud.google.com/infrastructure-manager/docs/overview["Google Cloud Infrastructure Manager"^] (IM) 而不是 https://docs.cloud.google.com/deployment-manager/docs/deprecations["Cloud Deployment Manager"^] (DM) 用于 Google Cloud 中的新私有模式部署。Google 将在不久的将来弃用 Deployment Manager 作为基础架构服务，转而使用更高级的 Infrastructure Manager。
+Cloud Volumes ONTAP 9.16.1 及更高版本现在支持 https://docs.cloud.google.com/infrastructure-manager/docs/overview["Google Cloud Infrastructure Manager"^] (IM)，而不是 https://docs.cloud.google.com/deployment-manager/docs/deprecations["Cloud Deployment Manager"^] (DM)，用于 Google Cloud 中的新私有模式部署。Google 将在不久的将来弃用 Deployment Manager 作为基础架构服务，转而使用更高级的 Infrastructure Manager。
 
-从 2026 年 2 月 25 日开始，Cloud Volumes ONTAP 使用 Infrastructure Manager 进行新的和现有的专用模式部署。下表介绍了您的基本工作流程：
+从 2026 年 2 月 25 日起，Cloud Volumes ONTAP 将使用 Infrastructure Manager 进行新的和现有的私有模式部署。下表介绍了基本工作流程：
 
 [cols="1,4,1,1,1,1"]
 |===
@@ -470,11 +493,11 @@ Console 发行版列出的所有权限：
 
 | 新代理和新部署 | 创建新代理，并在专用模式下部署新的 Cloud Volumes ONTAP 系统。 |  |  |   a| 
 * https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html["从 Google Cloud 创建 Console 代理"^]
-* https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-private-mode.html["私人模式部署的快速入门"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-private-mode.html["私有模式部署快速入门"^]
 
 
 |===
-在专用模式部署中，您需要对 Cloud Volumes ONTAP 进行一些配置更改才能开始使用 Infrastructure Manager。请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-gcp.html#infrastructure-manager-configuration-in-private-mode-or-protected-environments["适用于专用模式部署的 Infrastructure Manager 配置"^]。
+在专用模式部署中，您需要对 Cloud Volumes ONTAP 进行一些配置更改，才能开始使用 Infrastructure Manager。请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-gcp.html#infrastructure-manager-configuration-for-private-mode-deployments["适用于专用模式部署的 Infrastructure Manager 配置"^]。
 
 .相关链接
 * https://docs.netapp.com/us-en/console-setup-admin/whats-new.html#console-agent-4-2-0["NetApp Console Agent 4.2.0 发行说明"^]
@@ -667,7 +690,7 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage
 [[overage-charging-for-essentials-licenses-simplified]]
 === Essentials 许可证超额收费简化
 
-对于Cloud Volumes ONTAP市场年度合同/私有报价，Essentials 许可证的超额使用计算现在与自带许可证 (BYOL) 套餐保持一致。此前，超出部分按基本套餐的每小时市场价格计费。现在，如果您的市场年度合同包含多个 Essentials 套餐， NetApp Console会将 Essentials 套餐的超额费用计入您订阅中价格更高的 Essentials 套餐的可用容量。这简化了 Essentials 套餐的超额费用计算，并确保从 BYOL 许可模式平稳过渡到订阅模式。
+对于 Cloud Volumes ONTAP 市场年度合同/私人优惠，Essentials 许可证的超额计算现在与 Bring-Your-Own License (BYOL) 套餐保持一致。此前，超额部分按精确的 Essentials 套餐的每小时市场费率收费。现在，如果您的市场年度合同包含多个 Essentials 套餐，NetApp Console 将根据订阅中价格较高的 Essentials 套餐的可用容量收取 Essentials 套餐的超额费用。这简化了 Essentials 套餐的超额计算，并确保从 BYOL 许可顺利过渡到基于订阅的模式。
 
 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing-charging.html#how-overages-are-charged-for-essentials-licenses["Essentials许可证超额费用如何收取"^]
 
@@ -694,7 +717,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azu
 
 对于缺少许可证的现有 NVMe-TCP 部署， Cloud Volumes ONTAP会自动应用许可证。您必须重启系统才能使许可证生效。
 
-更多信息请参见 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-client-protocols.html#nvme-tcp["Cloud Volumes ONTAP支持的客户端协议：NVMe-TCP"^]。
+有关详细信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-client-protocols.html#nvme-tcp["Cloud Volumes ONTAP支持的客户端协议：NVMe-TCP"^]。
 
 
 
@@ -807,7 +830,7 @@ link:https://docs.netapp.com/us-en/cloud-volumes-ontap-9171-relnotes/["了解有
 [[restricted-availability-of-byol-licensing-for-cloud-volumes-ontap]]
 === Cloud Volumes ONTAP的 BYOL 许可可用性受限
 
-自 2025 年 6 月 25 日起， NetApp已限制Cloud Volumes ONTAP的自带许可证 (BYOL) 许可模式。此限制适用于 AWS、Azure 和 Google Cloud 中的所有客户和Cloud Volumes ONTAP部署。唯一的例外是美国公共部门客户和中国区域部署。
+从 2025 年 6 月 25 日开始，NetApp 对 Cloud Volumes ONTAP 的自带许可证 (BYOL) 许可模式进行了限制。该限制适用于所有客户以及在 AWS、Azure 和 Google Cloud 中部署的 Cloud Volumes ONTAP。唯一的豁免对象是美国公共部门客户和中国地区的部署。
 
 NetApp支持和服务将持续到您的 BYOL 合同到期，但已过期的许可证将无法续订或延长。BYOL许可证到期后，您必须将其替换为通过云市场订阅购买的基于容量的许可证。通过超大规模市场购买的基于容量的许可模式可以简化许可体验并带来更大的业务优势。请联系您的NetApp客户团队或客户成功代表，讨论您的转换方案。
 
@@ -821,7 +844,7 @@ NetApp支持和服务将持续到您的 BYOL 合同到期，但已过期的许�
 
 
 [[private-mode-deployments-enabled-for-cloud-volumes-ontap-9-15-1]]
-=== 为Cloud Volumes ONTAP 9.15.1 启用私有模式部署
+=== 已为 Cloud Volumes ONTAP 9.15.1 启用私有模式部署
 
 您现在可以在 AWS、Azure 和 Google Cloud 中以私有模式部署Cloud Volumes ONTAP 9.15.1。  Cloud Volumes ONTAP 9.15.1 的单节点和高可用性 (HA) 部署均启用私有模式。
 
@@ -895,7 +918,7 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-managi
 
 
 [[private-mode-deployments-enabled-for-cloud-volumes-ontap-9-14-1]]
-=== 为Cloud Volumes ONTAP 9.14.1 启用私有模式部署
+=== 已为 Cloud Volumes ONTAP 9.14.1 启用私有模式部署
 
 您现在可以在 AWS、Azure 和 Google Cloud 中以私有模式部署Cloud Volumes ONTAP 9.14.1。  Cloud Volumes ONTAP 9.14.1 的单节点和高可用性 (HA) 部署均启用私有模式。
 
@@ -1056,7 +1079,7 @@ NetApp认识到符合合同义务和运营需求的以下独特许可要求，�
 * 美国公共部门客户
 * 私有模式下的部署
 * AWS 中国区Cloud Volumes ONTAP部署
-* 如果您拥有有效、未过期的按节点自带许可证（BYOL 许可证）
+* 如果您拥有有效、未过期的按节点划分的 Bring-Your-Own License (BYOL) 套餐
 
 
 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基于节点的许可证的可用性终止"^]
@@ -1243,7 +1266,7 @@ Edge Cache 基于容量的许可包将不再适用于Cloud Volumes ONTAP的未�
 
 在 Azure 中配置 Flash Cache 所需的最低Cloud Volumes ONTAP版本是 9.13.1 GA。您只能使用ONTAP 9.13.1 GA 及更高版本在 Azure 中的Cloud Volumes ONTAP系统上部署 Flash Cache。
 
-有关支持的配置，请参阅 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html#single-node-systems["Azure 中支持的配置"^]。
+要查看支持的配置，请参阅 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-azure.html#single-node-systems["Azure 中支持的配置"^]。
 
 
 
@@ -2687,7 +2710,7 @@ image:screenshot_cvo_charging_methods.png["这是Cloud Volumes ONTAP工作环境
 [[support-for-m5dn-24xlarge-in-aws]]
 === AWS 中对 m5dn.24xlarge 的支持
 
-从 9.9.1 版本开始， Cloud Volumes ONTAP现在支持 m5dn.24xlarge 实例类型，并具有以下收费方式：PAYGO Premium、自带许可证 (BYOL) 和 Freemium。
+从 9.9.1 版本开始，Cloud Volumes ONTAP 现在通过以下收费方式支持 m5dn.24xlarge 实例类型：PAYGO Premium、Bring-Your-Own License (BYOL) 和 Freemium。
 
 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-aws.html["查看 AWS 中Cloud Volumes ONTAP支持的配置"^] 。
 

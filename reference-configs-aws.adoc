@@ -827,7 +827,7 @@ pass:[*] Flash Cache 在 m6id.xlarge、m6id.2xlarge、m6idn.xlarge 和 m6idn.2xl
 [[supported-regions]]
 === 支持的区域
 
-有关 AWS 区域支持，请参见 https://bluexp.netapp.com/cloud-volumes-global-regions["Cloud Volumes 全球区域"^]。
+要获取 AWS 区域支持，请参阅 https://bluexp.netapp.com/cloud-volumes-global-regions["Cloud Volumes 全球区域"^]。
 
 .相关信息
 * https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html["Amazon EC2 实例类型"^]

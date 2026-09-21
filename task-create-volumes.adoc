@@ -36,7 +36,7 @@ summary: 如果在启动初始Cloud Volumes ONTAP系统后需要更多存储，�
 
 ifdef::aws[]
 
-* 如果您想在 AWS 中使用 CIFS，则必须设置 DNS 和 Active Directory。有关详细信息，请参阅link:reference-networking-aws.html["Cloud Volumes ONTAP for AWS 的网络要求"]。
+* 如果要在 AWS 中使用 CIFS，则必须已设置 DNS 和 Active Directory。有关详细信息，请参阅 link:reference-networking-aws.html["AWS 中Cloud Volumes ONTAP的网络要求"]。
 * 如果您的Cloud Volumes ONTAP配置支持 Amazon EBS Elastic Volumes 功能，您可能需要link:concept-aws-elastic-volumes.html["详细了解创建卷时发生的情况"]。
 
 

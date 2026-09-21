@@ -14,36 +14,27 @@ summary: 在NetApp Console中管理基于节点的许可证，以确保每个Clo
 
 
 [role="lead lead"]
-在 NetApp Console 中管理基于节点的许可证，以确保每个 Cloud Volumes ONTAP 系统具有所需容量的有效许可证。
+Bring-Your-Own License (BYOL) 是 Cloud Volumes ONTAP 中的一种计费模式，您可以通过直接从 NetApp 购买的许可证来支付容量消耗费用，而无需通过市场订阅。在 NetApp Console 中管理您的 BYOL 许可证，以确保您的 Cloud Volumes ONTAP 系统具有所需容量的有效许可证。有关详细信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html["Cloud Volumes ONTAP许可"^]。
 
-_基于节点的许可证_是上一代许可模式（不适用于新客户）：
-
-* 自带许可证 (BYOL)，即从 NetApp 购买的许可证
-* 云提供商市场的每小时即用即付 (PAYGO) 订阅
+NetApp 建议为所有新部署使用基于容量的许可。如果您有使用上一代基于节点的模型的现有许可证，则必须将其转换为基于容量的许可。有关说明，请参见 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-convert-node-capacity.html["将Cloud Volumes ONTAP基于节点的许可证转换为基于容量的许可证"^]。
 
 
-您可以从 NetApp Console 管理基于节点的 Cloud Volumes ONTAP 许可证。
+NOTE: 来自云提供商市场的 PAYGO（即用即付）订阅不适用于私有模式部署。在私有模式下，NetApp 直接提供 BYOL 许可证。基于节点的许可证仅适用于现有的私有模式部署，不能新部署。自 2025 年 6 月 25 日起，NetApp 已限制以私有模式购买、扩展和续订基于节点的许可证。如果您拥有现有的基于节点的许可证，则必须将其转换为基于容量的许可证。
 
-https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/concept-licensing.html["详细了解 Cloud Volumes ONTAP 许可证"^]。
+对于新的专用模式部署，请改用基于容量的授权。请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap_capacity-license-darkmode/task-deploying-otc-aws.html#deploy-cloud-volumes-ontap-in-private-mode["以私有模式部署 Cloud Volumes ONTAP"^]。
 
 
 
-[[manage-paygo-licenses]]
-== 管理 PAYGO 许可证
+[[manage-paygo-subscriptions]]
+== 管理 PAYGO 订阅
 
-通过 Licenses and subscriptions 菜单，您可以查看有关每个 PAYGO Cloud Volumes ONTAP 系统的详细信息，包括序列号和 PAYGO 许可证类型。
+通过 Licenses and subscriptions 菜单，您可以查看每个 PAYGO Cloud Volumes ONTAP 系统的详细信息，包括序列号和 PAYGO 订阅类型。来自云提供商市场的 PAYGO 订阅仅适用于基于容量的许可。
 
 .步骤
 . 从左侧导航窗格中，选择 *Administration > Licenses and subscriptions*。
 . 选择 *Overview* 选项卡。
 . 在 Cloud Volumes ONTAP 磁贴上，选择 *查看*。
-. 从下拉列表中选择 *Node Based Licenses*。
-. 单击 *PAYGO*。
-. 查看表格中有关每个 PAYGO 许可证的详细信息。
-+
-image:screenshot_paygo_licenses.png["屏幕截图，显示 Licenses and subscriptions 页面中的表格，其中包含三个 paygo 许可证。每行都显示名称、系统类型、序列号、套餐和管理许可证的链接。"]
-
-. 如果需要，单击 *Manage PAYGO License* 以更改 PAYGO 许可证或更改实例类型。
+. 在*订阅*选项卡中，查看表格中每个 PAYGO 订阅的详细信息。
 
 
 
@@ -56,18 +47,24 @@ image:screenshot_paygo_licenses.png["屏幕截图，显示 Licenses and subscrip
 
 NOTE: 已限制 BYOL 许可证的购买、延期和续订。有关更多信息，请参阅 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 许可可用性受限"^] 。
 
+Cloud Volumes ONTAP 的 BYOL 许可现在包括直接从 NetApp 购买的基于节点的许可证和基于容量的许可证。
+
+对于*基于容量的 BYOL 许可证*，许可证与您的 Console 帐户相关联，而不是与单个 Cloud Volumes ONTAP 系统相关联。每个系统都会收到自己的序列号，但同一帐户下的多个系统均从同一共享容量池中提取资源，并且可以共享底层许可证。
+
+对于*基于节点的 BYOL 许可证*，此池化不适用。每个 Cloud Volumes ONTAP 系统都需要自己的专用系统许可证，许可证不会在系统之间共享。但是，如果删除系统，则可以将其转移到新系统。有关详细信息，请参见 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-license-management.html["了解 Cloud Volumes ONTAP 基于节点的 BYOL"^]。
+
 
 
 [[add-unassigned-licenses]]
 === 添加未分配的许可证
 
-将基于节点的许可证添加到 Console，以便在创建新的 Cloud Volumes ONTAP 系统时选择许可证。Console 将这些许可证标识为 _unassigned_。
+将 BYOL 许可证添加到控制台，以便在创建新的 Cloud Volumes ONTAP 系统时选择该许可证。控制台将这些许可证标识为 _unassigned_。
 
 .步骤
 . 从左侧导航窗格中，选择 *Administration > Licenses and subscriptions*。
 . 选择 *Overview* 选项卡。
 . 在 Cloud Volumes ONTAP 磁贴上，选择 *查看*。
-. 从下拉列表中选择 *Node Based Licenses*。
+. 选择*Licenses*选项卡。
 . 单击“*未分配*”。
 . 单击“添加未分配的许可证”。
 . 输入许可证的序列号或上传许可证文件。
@@ -82,10 +79,10 @@ Console 添加许可证。在您将其与新的 Cloud Volumes ONTAP 系统关联
 
 
 
-[[exchange-unassigned-node-based-licenses]]
-=== 交换未分配的基于节点的许可证
+[[exchange-an-unassigned-license]]
+=== 交换未分配的许可证
 
-如果您有未使用的基于节点的 Cloud Volumes ONTAP 许可证，则可以通过将其转换为 NetApp Backup and Recovery 许可证、NetApp Data Classification 许可证或 NetApp Cloud Tiering 许可证来交换该许可证。
+如果您有未使用的 Cloud Volumes ONTAP 未分配许可证，则可以通过将其转换为 NetApp Backup and Recovery 许可证、NetApp Data Classification 许可证或 NetApp Cloud Tiering 许可证来进行交换。
 
 交换许可证将吊销 Cloud Volumes ONTAP 许可证，并为该服务创建等值美元许可证：
 
@@ -95,13 +92,13 @@ Console 添加许可证。在您将其与新的 Cloud Volumes ONTAP 系统关联
 
 转换后的许可证与 Cloud Volumes ONTAP 许可证具有相同的到期日期。
 
-link:https://mydemo.netapp.com/player/?demoId=c96ef113-c338-4e44-9bda-81a8d252de63&showGuide=true&showGuidesToolbar=true&showHotspots=true&source=app["查看如何交换基于节点的许可证的演练。"^]
+link:https://mydemo.netapp.com/player/?demoId=c96ef113-c338-4e44-9bda-81a8d252de63&showGuide=true&showGuidesToolbar=true&showHotspots=true&source=app["查看如何交换未分配许可证的演练。"^]
 
 .步骤
 . 从左侧导航窗格中，选择 *Administration > Licenses and subscriptions*。
 . 选择 *Overview* 选项卡。
 . 在 Cloud Volumes ONTAP 磁贴上，选择 *查看*。
-. 从下拉列表中选择 *Node Based Licenses*。
+. 选择*Licenses*选项卡。
 . 单击“*未分配*”。
 . 单击 *Exchange License*。
 +
@@ -145,7 +142,7 @@ image:screenshot-license-generator.png["屏幕截图：显示 NetApp 许可证�
 . 从左侧导航窗格中，选择 *Administration > Licenses and subscriptions*。
 . 选择 *Overview* 选项卡。
 . 在 Cloud Volumes ONTAP 磁贴上，选择 *查看*。
-. 从下拉列表中选择 *Node Based Licenses*。
+. 选择*Licenses*选项卡。
 . 在 *BYOL* 选项卡中，展开 Cloud Volumes ONTAP 系统的详细信息。
 . 单击系统许可证旁边的操作菜单，然后选择*Update License*。
 . 上传许可证文件（如果您有 HA 对，则上传多个文件）。
@@ -157,10 +154,12 @@ image:screenshot-license-generator.png["屏幕截图：显示 NetApp 许可证�
 
 
 
-[[manage-extra-capacity-licenses]]
-=== 管理额外容量许可证
+[[manage-extra-capacity-licenses-node-based-licenses-only]]
+=== 管理额外容量许可证（仅限基于节点的许可证）
 
-您可以为 Cloud Volumes ONTAP BYOL 系统购买额外的容量许可证，以分配超过 BYOL 系统许可证提供的 368 TiB 的容量。例如，您可以购买一个额外的许可证容量，为 Cloud Volumes ONTAP 分配最多 736 TiB 的容量。或者，您可以购买三个额外的容量许可证，以获得最多 1.4 PiB 的容量。
+此过程仅适用于基于节点的许可证。基于容量的许可证从共享容量池中提取，不需要单独的额外容量许可证。
+
+您可以为 Cloud Volumes ONTAP 基于节点的 BYOL 系统购买额外的容量许可证，以分配超过系统许可证提供的 368 TiB 的容量。例如，您可以购买一个额外的许可证，为 Cloud Volumes ONTAP 分配高达 736 TiB 的容量。或者，您可以购买三个额外的容量许可证，以获得高达 1.4 PiB 的容量。
 
 可以为单节点系统或 HA 对购买的许可证数量是无限的。
 
@@ -168,13 +167,13 @@ image:screenshot-license-generator.png["屏幕截图：显示 NetApp 许可证�
 
 ==== 添加容量许可证
 
-通过控制台右下角的聊天图标与我们联系，购买额外的容量许可证。购买许可证后，您可以将其应用于 Cloud Volumes ONTAP 系统。
+请联系您的 NetApp 代表以购买额外的容量许可证。购买许可证后，您可以将其应用于 Cloud Volumes ONTAP 系统。
 
 .步骤
 . 从左侧导航窗格中，选择 *Administration > Licenses and subscriptions*。
 . 选择 *Overview* 选项卡。
 . 在 Cloud Volumes ONTAP 磁贴上，选择 *查看*。
-. 从下拉列表中选择 *Node Based Licenses*。
+. 选择*Licenses*选项卡。
 . 在 *BYOL* 选项卡中，展开 Cloud Volumes ONTAP 系统的详细信息。
 . 单击*添加容量许可证*。
 . 输入序列号或上传许可证文件（如果有 HA 对，则为多个文件）。
@@ -191,7 +190,7 @@ image:screenshot-license-generator.png["屏幕截图：显示 NetApp 许可证�
 . 从左侧导航窗格中，选择 *Administration > Licenses and subscriptions*。
 . 选择 *Overview* 选项卡。
 . 在 Cloud Volumes ONTAP 磁贴上，选择 *查看*。
-. 从下拉列表中选择 *Node Based Licenses*。
+. 选择*Licenses*选项卡。
 . 在 *BYOL* 选项卡中，展开 Cloud Volumes ONTAP 系统的详细信息。
 . 单击容量许可证旁边的操作菜单，然后选择*Update License*。
 . 上传许可证文件（如果您有 HA 对，则上传多个文件）。
@@ -208,7 +207,7 @@ image:screenshot-license-generator.png["屏幕截图：显示 NetApp 许可证�
 . 从左侧导航窗格中，选择 *Administration > Licenses and subscriptions*。
 . 选择 *Overview* 选项卡。
 . 在 Cloud Volumes ONTAP 磁贴上，选择 *查看*。
-. 从下拉列表中选择 *Node Based Licenses*。
+. 选择*Licenses*选项卡。
 . 在 *BYOL* 选项卡中，展开 Cloud Volumes ONTAP 系统的详细信息。
 . 单击容量许可证旁边的操作菜单，然后选择*Remove License*。
 . 单击 *Remove*。
@@ -219,7 +218,10 @@ image:screenshot-license-generator.png["屏幕截图：显示 NetApp 许可证�
 [[change-between-paygo-and-byol]]
 == 在 PAYGO 和 BYOL 之间切换
 
-不支持将系统从 PAYGO 按节点许可转换为 BYOL 按节点许可（反之亦然）。如果要在按需购买订阅和 BYOL 订阅之间切换，则需要部署新系统并将数据从现有系统复制到新系统。
+
+NOTE: 由于 PAYGO 在私有模式下不可用，因此仅适用于标准模式部署。
+
+不支持将系统从 PAYGO 转换为 BYOL 许可（反之亦然）。如果要在 PAYGO 订阅和 BYOL 订阅之间切换，则需要部署新系统并将数据从现有系统复制到新系统。
 
 .步骤
 . 创建新的 Cloud Volumes ONTAP 系统。

@@ -348,7 +348,7 @@ endif::gcp[]
 [[support-registration]]
 === 支持注册
 
-必须在NetApp支持处注册Cloud Volumes ONTAP才能使用本页描述的任何方法升级软件。这适用于现收现付（PAYGO）和自带许可证（BYOL）。你需要link:task-registering.html["手动注册PAYGO系统"]，而 BYOL 系统是默认注册的。
+Cloud Volumes ONTAP 必须在 NetApp 支持部门注册，才能使用本页所述的任何方法升级软件。这适用于现收现付 (PAYGO) 和自带许可证 (BYOL)。您需要 link:task-registering.html["手动注册PAYGO系统"]，而 BYOL 系统默认已注册。
 
 
 TIP: 未注册支持的系统仍会在有新版本可用时收到控制台中出现的软件更新通知。但您需要先注册系统才能升级软件。

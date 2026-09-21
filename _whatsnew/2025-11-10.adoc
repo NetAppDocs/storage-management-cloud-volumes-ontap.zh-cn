@@ -11,4 +11,4 @@
 
 对于缺少许可证的现有 NVMe-TCP 部署， Cloud Volumes ONTAP会自动应用许可证。您必须重启系统才能使许可证生效。
 
-更多信息请参见 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-client-protocols.html#nvme-tcp["Cloud Volumes ONTAP支持的客户端协议：NVMe-TCP"^]。
+有关详细信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-client-protocols.html#nvme-tcp["Cloud Volumes ONTAP支持的客户端协议：NVMe-TCP"^]。

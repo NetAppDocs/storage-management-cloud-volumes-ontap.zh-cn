@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: concept-licensing.html 
-keywords: freemium, professional, essentials, licensing, licenses, cloud volumes ontap charging, cloud volumes ontap licenses, cloud volumes ontap licensing, cvo licenses, cvo licensing, byol, bring your own license, paygo, pay as you go, keystone flex, keystone, cloud backup, digital wallet, bluexp license conversion for node based, end of support, eos, end of availability, eoa, node-based 
+keywords: freemium, professional, essentials, licensing, licenses, cloud volumes ontap charging, cloud volumes ontap licenses, cloud volumes ontap licensing, cvo licenses, cvo licensing, byol, bring your own license, paygo, pay as you go, keystone flex, keystone, cloud backup, digital wallet, license conversion for node based, end of support, eos, end of availability, eoa, node-based 
 summary: Cloud Volumes ONTAP有多种许可选项。每个选项都允许您选择满足您需求的配置。 
 ---
 = Cloud Volumes ONTAP许可
@@ -16,7 +16,7 @@ summary: Cloud Volumes ONTAP有多种许可选项。每个选项都允许您选�
 [role="lead"]
 Cloud Volumes ONTAP 提供多种许可模式。每个选项都可让您选择满足您需求的消费模式。
 
-您可以选择从云市场或通过 NetApp（自带许可证（BYOL））购买或续订许可证和订阅。市场为您提供年度订阅和现收现付（PAYGO）选项。有关信息，请参见 link:concept-license-management.html["了解有关Cloud Volumes ONTAP基于容量的许可证的更多信息"]。
+您可以选择从云市场或通过 NetApp（自带许可证或 BYOL）购买或续订许可证和订阅。市场为您提供年度订阅和现收现付（PAYGO）选项。有关信息，请参阅 link:concept-license-management.html["了解有关Cloud Volumes ONTAP基于容量的许可证的更多信息"]。
 
 BYOL 许可证可从 NetApp 购买，可用于任何云提供商。有关 BYOL 许可证可用性的详细信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 许可可用性受限"^]。
 
@@ -258,21 +258,21 @@ NOTE: 私有模式下的 Cloud Volumes ONTAP 私有部署。
 
 
  a| 
-通过自带许可证 (BYOL) 购买的有效基于节点的许可证
+从 NetApp 购买的有效基于节点的许可证或 BYOL。
  a| 
 许可证有效期至到期日。现有未使用的基于节点的许可证可用于部署新的Cloud Volumes ONTAP系统。
 
 
 
  a| 
-通过 BYOL 购买的基于节点的许可证已过期
+已过期的基于节点的 BYOL 许可证。
  a| 
 您无权使用此许可证部署新的Cloud Volumes ONTAP系统。现有系统可能会继续运行，但在 EOS 日期之后，您将不会收到任何系统支持或更新。
 
 
 
  a| 
-具有 PAYGO 订阅的有效基于节点的许可证
+具有 PAYGO 订阅的有效基于节点的许可证。
  a| 
 自 EOS 日期起将停止获得NetApp支持，直到您过渡到基于容量的许可证。
 
@@ -288,11 +288,13 @@ NOTE: 即使在这些情况下，新的基于节点的许可证和许可证续�
 
 
 [[license-conversion]]
-== 许可证转换
+=== 许可证转换
 
-控制台可以通过许可证转换工具将基于节点的许可证无缝转换为基于容量的许可证。有关基于节点的许可的 EOA 的信息，请参阅link:concept-licensing.html#end-of-availability-of-node-based-licenses["基于节点的许可证的可用性终止"]。
+控制台可以通过许可证转换工具将基于节点的许可证无缝转换为基于容量的许可证。有关基于节点的许可的 EOA 的信息，请参阅 link:concept-licensing.html#end-of-availability-of-node-based-licenses["基于节点的许可证的可用性终止"]。
 
 在转换之前，最好熟悉两种许可模式之间的区别。基于节点的许可包括每个ONTAP实例的固定容量，这可能会限制灵活性。另一方面，基于容量的许可允许跨多个实例共享存储池，从而提供增强的灵活性，优化资源利用率，并降低重新分配工作负载时可能产生的经济损失。基于容量的充电可以无缝适应不断变化的存储需求。
+
+##如果您使用基于节点的许可证进行市场订阅或专用部署，则可以link:task-convert-node-capacity.html["将基于节点的许可证转换为基于容量的许可证"]使用 Console 中的许可证转换工具。##
 
 要了解如何执行此转换，请参阅link:task-convert-node-capacity.html["将Cloud Volumes ONTAP基于节点的许可证转换为基于容量的许可证"]。
 

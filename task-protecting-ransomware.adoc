@@ -65,7 +65,7 @@ Cloud Volumes ONTAP支持自主勒索软件防护 (ARP) 功能，该功能对工
 
 与通过 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-protecting-ransomware.html#protection-from-common-ransomware-file-extensions["勒索软件防护设置"]提供的文件扩展名保护不同，ARP 功能使用工作负载分析，根据检测到的"异常活动"向用户发出潜在攻击警报。勒索软件防护设置和 ARP 功能可以结合使用，以实现全面的勒索软件防护。
 
-ARP 功能可与自带许可证 (BYOL) 一起使用，并且无需额外付费即可在市场订阅您的许可证。
+ARP 功能可与 Bring-Your-Own License (BYOL) 和市场订阅配合使用，无需额外付费。
 
 启用 ARP 的卷具有指定状态“学习模式”或“活动”。
 

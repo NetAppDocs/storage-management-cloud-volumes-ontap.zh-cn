@@ -509,6 +509,20 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例�
 
 CAUTION: 部署流程完成后，请勿修改 Google Cloud 门户中系统生成的 Cloud Volumes ONTAP 配置，例如系统标签以及 Google Cloud 资源中设置的标签。对这些配置进行的任何更改都可能导致意外行为或数据丢失。
 
+
+
+[[deploy-cloud-volumes-ontap-in-private-mode]]
+== 以私有模式部署 Cloud Volumes ONTAP
+
+专用模式部署选项可帮助您满足组织的安全和合规性要求。专用模式部署遵循与标准模式部署相同的过程。它在您自己的虚拟私有云 (VPC) 或虚拟网络 (VNet) 中运行，无需公共互联网连接。
+
+在私有模式下，您必须从 NetApp 购买基于容量的 Bring-Your-Own License (BYOL) 或 link:concept-license-management.html["BYOL"] _Essentials_ 套餐，并在部署期间将其分配给您的系统。前 500 GiB 的已消耗容量不计入许可费用。随着工作负载需求的增加，请购买其他 Essentials 套餐。部署后，您可以在控制台中查看许可证序列号。
+
+有关将许可证文件上传到专用模式部署的信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-node-licenses.html["管理 Cloud Volumes ONTAP 的基于节点的许可证"]。
+
+.基于节点的许可限制
+私有模式部署以前仅使用基于节点的许可证。NetApp 已限制购买、扩展和续订这些上一代许可证，但自 https://docs.netapp.com/us-en/bluexp-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["2025-06-25"]起的有限情况除外。如果您现有的私有模式部署具有基于节点的许可证，则必须将其转换为基于容量的许可证。有关说明，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-convert-node-capacity.html["将基于节点的许可证转换为基于容量的许可证"^]。
+
 .相关链接
 * link:task-planning-your-config-gcp.html["在 Google Cloud 中规划Cloud Volumes ONTAP配置"]
 

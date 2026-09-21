@@ -53,7 +53,7 @@ link:task-deploying-otc-azure.html["查看在 Azure 中启动Cloud Volumes ONTAP
 
 Essentials 和 Professional 套餐提供以下几种消费模式或购买选项：
 
-* 从NetApp购买的许可证（自带许可证 (BYOL)）
+* 从 NetApp 购买的许可证（Bring-Your-Own License 或 BYOL）
 * Azure 市场提供的按小时付费 (PAYGO) 订阅
 * 年度合同
 

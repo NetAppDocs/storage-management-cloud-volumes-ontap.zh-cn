@@ -50,7 +50,7 @@ link:task-deploying-gcp.html["查看在 Google Cloud 中启动Cloud Volumes ONTA
 
 Essentials 和 Professional 套餐提供以下几种消费模式或购买选项：
 
-* 从NetApp购买的许可证（自带许可证 (BYOL)）
+* 从 NetApp 购买的许可证（Bring-Your-Own License 或 BYOL）
 * Google Cloud Marketplace 的按小时付费 (PAYGO) 订阅
 * 年度合同
 

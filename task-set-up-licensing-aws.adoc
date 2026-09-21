@@ -52,7 +52,7 @@ summary: 在您决定要为Cloud Volumes ONTAP使用哪种许可选项后，在�
 
 Essentials 和 Professional 套餐提供以下几种消费模式或购买选项：
 
-* 从NetApp购买的许可证（自带许可证 (BYOL)）
+* 从 NetApp 购买的许可证（Bring-Your-Own License 或 BYOL）
 * AWS Marketplace 的按小时付费 (PAYGO) 订阅
 * 来自 AWS Marketplace 的年度合同
 

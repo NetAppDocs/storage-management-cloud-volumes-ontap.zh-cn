@@ -149,6 +149,7 @@ CAUTION: 在发现过程中，您可能会看到失败消息，但在发现过�
 .相关链接
 有关创建存储的更多信息，请参阅ONTAP文档：
 
+* link:task-onboard-cvo-aws-marketplace.html["从 AWS Marketplace 订阅和部署 Cloud Volumes ONTAP"]
 * https://docs.netapp.com/us-en/console-licenses-subscriptions/task-manage-subscriptions.html["添加新 marketplace 订阅"^]
 * https://docs.netapp.com/us-en/ontap/volumes/create-volume-task.html["为 NFS 创建卷"^]
 * https://docs.netapp.com/us-en/ontap-cli/lun-create.html["为 iSCSI 创建 LUN"^]

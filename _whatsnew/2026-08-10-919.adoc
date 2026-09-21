@@ -16,7 +16,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/["了解有关此版�
 [[ability-to-convert-node-based-licenses-to-capacity-based-licensing-in-private-mode]]
 === 能够在私有模式下将基于节点的许可转换为基于容量的许可
 
-NetApp 很高兴宣布针对私有模式 Cloud Volumes ONTAP 部署的基于容量的许可。您现在可以通过将基于节点的许可证转换为基于容量的许可来优化私有模式 Cloud Volumes ONTAP 部署的成本。对于您的私有模式部署，您可以直接从 NetApp 购买 Essentials（自带许可证 (BYOL)）软件包，其容量与您现有的基于节点的许可证相近。
+NetApp 很高兴宣布针对私有模式 Cloud Volumes ONTAP 部署的基于容量的许可。您现在可以通过将基于节点的许可证转换为基于容量的许可来优化私有模式 Cloud Volumes ONTAP 部署的成本。对于您的私有模式部署，您可以直接从 NetApp 购买 Essentials（自带许可证或 BYOL）包，其容量与您现有的基于节点的许可证相似。
 
 此转换选项支持 NetApp 的分阶段计划，即从基于节点的许可转向基于容量的许可。与为每个系统分配固定容量的基于节点的许可不同，基于容量的许可从 Cloud Volumes ONTAP 系统的共享容量池中提取，使您能够在存储需求发生变化时更灵活地重新分配工作负载。
 

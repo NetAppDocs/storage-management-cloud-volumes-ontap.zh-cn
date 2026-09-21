@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: concept-license-management.html 
 keywords: byol, bring your own license, expiration, warning, node-based byol, node license, capacity 
-summary: 每个具有基于节点的 BYOL 的Cloud Volumes ONTAP系统都必须安装具有有效订阅的系统许可证。控制台通过为您管理许可证并在许可证到期前显示警告来简化该流程。 
+summary: 了解基于容量和基于节点的 BYOL 许可证在标准模式和专用模式 Cloud Volumes ONTAP 部署中的工作原理，包括续订和到期行为。 
 ---
-= 了解 Cloud Volumes ONTAP 基于节点的 BYOL
+= 了解 Cloud Volumes ONTAP 中的 BYOL 许可
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,80 +14,113 @@ summary: 每个具有基于节点的 BYOL 的Cloud Volumes ONTAP系统都必须�
 
 
 [role="lead"]
-每个具有基于节点的自带许可证 (BYOL) 的Cloud Volumes ONTAP系统都必须安装具有有效订阅的系统许可证。  NetApp Console通过为您管理许可证并在许可证到期前显示警告来简化该流程。
+自带许可证 (BYOL) 是一种 Cloud Volumes ONTAP 收费模式，您直接从 NetApp 购买许可证，而不是使用云市场订阅。
 
+BYOL 可用于标准模式和私有模式部署，但受可用性限制。您可以在 NetApp Console 的*许可和订阅*部分的*直接许可证*下管理 BYOL 许可证。每个许可证都与您的公司和特定 NetApp 支持站点凭据相关联。
 
-NOTE: 基于节点的许可证是Cloud Volumes ONTAP的上一代许可证。基于节点的许可证可以从NetApp (BYOL) 处购买，并且仅在特定情况下才可以续订许可证。
-
-link:concept-licensing.html["了解Cloud Volumes ONTAP许可证"]。
-
-link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-node-licenses.html["了解有关如何管理基于节点的许可证的更多信息"^]。
-
-
-
-[[byol-system-licenses]]
-== BYOL 系统许可证
-
-可从 NetApp 采购基于节点的许可证。您可以为单节点系统或 HA 对购买的许可证数量是无限的。
-
-
-NOTE: NetApp 已限制 BYOL 许可的购买、延期和续期。有关详细信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAPP的 BYOL 许可可用性受限"^]。
-
-基于节点的许可证最多可为单个节点或 HA 对提供 368 TiB 的容量。您可能已为Cloud Volumes ONTAP BYOL 系统购买了多个许可证，以分配超过 368 TiB 的容量。例如，您可能有两个许可证，为Cloud Volumes ONTAP分配最多 736 TiB 的容量。或者，您可能有四个许可证，以获得最多 1.4 PiB 的容量。
-
-请注意，磁盘限制可能会阻止您仅使用磁盘就达到容量限制。您可以通过以下方式超越磁盘限制link:concept-data-tiering.html["将非活动数据分层到对象存储"]。有关磁盘限制的信息，请参阅 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/["Cloud Volumes ONTAP发行说明中的​​存储限制"^]。
+* NetApp 已限制对具有有效市场订阅的标准模式部署购买、扩展和续订 BYOL 许可证。有关详细信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 许可可用性受限"^]。
+* NetApp 正在逐步淘汰基于节点的许可，转而采用基于容量的许可。基于节点的许可证仍可用于有限数量的现有部署，包括部分 USPS 客户部署以及中国境内的部署。有关详细信息，请参见 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基于节点的许可证的可用性终止"^]。
 
 
 
-[[license-management-for-a-new-system]]
-== 新系统的许可证管理
 
-当您创建基于节点的 BYOL 系统时，控制台会提示您输入许可证的序列号和NetApp支持站点帐户。控制台使用该帐户从NetApp下载许可证文件并将其安装在Cloud Volumes ONTAP系统上。
+[[byol-deployment-modes]]
+== BYOL 部署模式
 
-https://docs.netapp.com/us-en/console-setup-admin/task-adding-nss-accounts.html["了解如何将NetApp支持站点帐户添加到控制台"^]。
+[role="tabbed-block"]
+====
+.标准模式部署
+--
+* NetApp 倾向于使用年度或按需付费 (PAYGO) 市场订阅来计算您的使用费用，而非 BYOL。
+* 标准模式部署通常使用基于容量的许可证而不是基于节点的许可证。只有数量有限的现有标准模式部署使用基于节点的许可证。
 
-如果控制台无法通过安全的互联网连接访问许可证文件，您可以link:task-manage-node-licenses.html["自行获取文件，然后手动将文件上传到控制台"]。
+
+--
+.私有模式部署
+--
+* 私有模式部署完全依赖 BYOL 许可证，因为市场订阅在私有模式下不可用。
+* 对于新部署，请使用基于容量的 Essentials 软件包，而不是基于节点的许可证。某些较旧的私有模式部署使用基于节点的许可。
+
+
+--
+====
+
+
+[[compare-byol-license-types-in-private-mode]]
+=== 在私有模式下比较 BYOL 许可证类型
+
+下表总结了私有模式下基于容量和基于节点的许可证之间的差异。
+
+[cols="25,37,38"]
+|===
+| 功能 | 基于容量的许可证 | 基于节点的许可证 
+
+
+| 部署支持  a| 
+新的专用模式部署仅支持基于容量的许可证，特别是 Essentials 软件包。
+ a| 
+新的专用模式部署不支持基于节点的许可证。只有少数现有的基于节点的部署可以继续使用它们。
 
 
 
-[[license-expiration]]
-== 许可证到期
+| 购买  a| 
+从 NetApp 购买基于容量的 BYOL Essentials 软件包，并在部署期间将其分配给您的系统。
+ a| 
+如果您已有使用基于节点的许可证的专用模式部署，则可以通过从 NetApp 购买 Essentials 软件包将其转换为基于容量的许可。
 
-控制台会在基于节点的许可证到期前 30 天显示警告，并在许可证到期时再次显示警告。下图显示了用户界面中出现的 30 天到期警告：
+
+
+| 容量  a| 
+前 500 GiB 的已消耗容量不计入您的许可费用。随着工作负载需求的增长，您可以购买额外的套餐。
+ a| 
+基于节点的许可证为单个节点或 HA 对提供高达 368 TiB 的容量。要为 Cloud Volumes ONTAP 系统分配超过 368 TiB，请购买多个许可证。例如，两个许可证提供高达 736 TiB，四个许可证提供高达 1.4 PiB。
+
+
+
+| 范围  a| 
+基于容量的许可从跨 Cloud Volumes ONTAP 系统的共享容量池中提取。您可以根据存储需求的变化重新分配可用容量。
+ a| 
+每个基于节点的许可证适用于一个 Cloud Volumes ONTAP 系统，并为该系统提供固定的容量。
+
+
+
+| 可转让性  a| 
+每个基于容量的许可证都与一个 Console 帐户相关联。在该帐户下创建的系统可以共享许可证容量和序列号。例如，一个 5-TiB 许可证可以支持两个各具有 2.5 TiB 的系统，或一个具有 5 TiB 的系统。您可以在 Console 中查看许可证序列号，并将同一许可证分配给同一帐户下的多个系统。
+ a| 
+您可以通过删除现有系统并使用许可证创建新系统来转移基于节点的 BYOL 许可证。只有 _cloud-agnostic_ 序列号适用于所有云提供商。这些序列号以 _908xxxx_ 前缀开头。
+
+|===
+
+
+[[manage-and-renew-byol-licenses]]
+== 管理和续订 BYOL 许可证
+
+
+
+[[renew-a-byol-license]]
+=== 续订 BYOL 许可证
+
+请联系 NetApp 代表续签您的 BYOL 许可证。Console 将自动获取更新后的许可证并将其安装在 Cloud Volumes ONTAP 系统上。
+
+如果 Console 无法通过安全的互联网连接访问许可证文件，请下载许可证文件并 link:task-manage-node-licenses.html["手动将其上传到 Console"]。
+
+要管理与 Console 关联的 NetApp 支持站点凭据，请参见 https://docs.netapp.com/us-en/console-setup-admin/task-adding-nss-accounts.html["管理与 NetApp Console 关联的 NSS 凭据"^]。
+
+
+
+[[respond-to-an-expiration-warning]]
+=== 响应过期警告
+
+Console 会在基于节点的许可证到期前 30 天以及许可证到期时再次显示警告。选择 Cloud Volumes ONTAP 系统以查看警告并续订许可证。
 
 image:screenshot_warning.gif["屏幕截图：显示包含警告图标的Cloud Volumes ONTAP系统。该图标表示需要采取行动。"]
 
-您可以选择系统来查看该消息。
+如果您是组织管理员或帐户管理员并已启用该选项，则 Console 会在 Cloud Volumes ONTAP 报告中包含许可证过期警告，并通过电子邮件发送给您。
 
-如果您是组织或帐户管理员并且启用了该选项，则控制台会在通过电子邮件发送给您的Cloud Volumes ONTAP报告中包含许可证到期警告。通过电子邮件发送的报告包含每两周一次的许可证到期警告。
-
-如果您不及时续订许可证， Cloud Volumes ONTAP系统将自动关闭。如果您重新启动它，它就会再次自动关闭。
-
-
-
-[[license-renewal]]
-== 执照续期
-
-如果您通过联系NetApp代表续订基于节点的 BYOL 订阅，控制台将自动从NetApp获取新许可证并将其安装在Cloud Volumes ONTAP系统上。
-
-如果控制台无法通过安全的互联网连接访问许可证文件，您可以link:task-manage-node-licenses.html["自行获取文件，然后手动将文件上传到控制台"]。
-
-
-
-[[license-transfer-to-a-new-system]]
-== 许可证转移到新系统
-
-当您删除现有系统然后使用相同的许可证创建新系统时，基于节点的 BYOL 许可证可以在Cloud Volumes ONTAP系统之间转移。
-
-例如，您可能想要删除现有的许可系统，然后将许可证与不同 VPC/VNet 或云提供商中的新 BYOL 系统一起使用。请注意，只有_cloud-agnostic_序列号才适用于任何云提供商。与云无关的序列号以 _908xxxx_ 前缀开头。
-
-值得注意的是，您的 BYOL 许可证与您的公司和一组特定的NetApp支持站点凭证相关联。
+如果在许可证过期之前未续订许可证，则 Cloud Volumes ONTAP 系统将关闭。在不续订许可证的情况下重新启动系统会导致系统再次关闭。
 
 .相关链接
-* link:concept-licensing.html["Cloud Volumes ONTAP许可"^]
-* link:concept-licensing-charging.html["了解有关基于容量的许可证的更多信息"^]
-* link:task-manage-capacity-licenses.html["管理Cloud Volumes ONTAP基于容量的许可"^]
-* link:task-manage-node-licenses.html["管理基于节点的许可"^]
-* link:task-convert-node-capacity.html["将基于节点的许可证转换为基于容量的许可证"^]
-* link:task-manage-keystone.html["管理Keystone订阅"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html["Cloud Volumes ONTAP许可"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-node-licenses.html["管理基于节点的许可证，包括私有模式 BYOL 上传"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-convert-node-capacity.html["将基于节点的许可证转换为基于容量的许可证"^]
 

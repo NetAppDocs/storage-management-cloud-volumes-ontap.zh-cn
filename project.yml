@@ -287,7 +287,7 @@ sidebar:
         url: "/concept-licensing-charging.html"
       - title: 管理基于容量的许可证
         url: "/task-manage-capacity-licenses.html"
-      - title: 了解基于节点的 BYOL
+      - title: 了解 BYOL 许可
         url: "/concept-license-management.html"
       - title: 管理基于节点的许可证
         url: "/task-manage-node-licenses.html"
