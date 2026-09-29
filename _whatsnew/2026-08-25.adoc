@@ -14,4 +14,4 @@
 * 使用区域冗余存储 (ZRS) 在多个可用区中实现 HA
 
 
-有关所有受支持区域的列表，请参阅 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球区域地图"^]。
+有关所有受支持区域的列表，请参阅 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球区域地图"^]。

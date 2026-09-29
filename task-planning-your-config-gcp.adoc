@@ -32,7 +32,7 @@ Cloud Volumes ONTAP有多种许可选项。每个选项都可以让您选择符�
 [[choose-a-supported-region]]
 == 选择支持的区域
 
-大多数 Google Cloud 区域都支持Cloud Volumes ONTAP 。 https://bluexp.netapp.com/cloud-volumes-global-regions["查看支持区域的完整列表"^] 。
+Cloud Volumes ONTAP 在大多数 Google Cloud 地区均受支持。 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["查看支持区域的完整列表"^].
 
 
 

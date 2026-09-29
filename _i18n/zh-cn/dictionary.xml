@@ -82,7 +82,6 @@
   <block id="e622e2ddfce6c06eca3078953e9e6186" category="doc">Azure 对新西兰北部地区的支持</block>
   <block id="81ae8423a213b8c9bbcb79aee6ae0af8" category="paragraph">Azure 现已支持新西兰北部地区的Cloud Volumes ONTAP 9.12.1 GA 及更高版本的单节点和高可用性 (HA) 配置。请注意，此区域不支持 Lsv3 实例类型。</block>
   <block id="1453deb356953584c888fcae0040c1c6" category="inline-link">Azure 下的全球区域地图</block>
-  <block id="b717ddfb2f9a28b7e4673751144693cc" category="paragraph">有关所有受支持区域的列表，请参阅<block ref="0f1c2d6a84741595f86a459e46c2a400" category="inline-link-rx"></block>。</block>
   <block id="5781bb449b503c5fcaefb20bfaa81cc4" category="doc">Cloud Volumes ONTAP 9.16.1 正式版</block>
   <block id="efa5e5522cbd4457ef4e551fb5d60491" category="paragraph">您现在可以使用BlueXP在 Azure 和 Google Cloud 中部署和管理Cloud Volumes ONTAP 9.16.1 通用可用性版本。但此版本尚不支持在AWS中部署和升级。</block>
   <block id="9f97c3125a701942b4e6e648146819fc" category="inline-link-macro">了解此版本Cloud Volumes ONTAP中包含的新功能</block>
@@ -94,13 +93,11 @@
   <block id="0cc914ed23f0f7d6bc902ae731843213" category="paragraph">以下区域现在支持 Azure 中适用于Cloud Volumes ONTAP 9.12.1 GA 及更高版本的 HA 多可用区域部署：</block>
   <block id="2e168141b8f719cbd37e6beec663b599" category="list-text">美国中部</block>
   <block id="7a6df46ff8e25ac610f60f312512afa4" category="list-text">US Gov Virginia（美国政府地区 - 弗吉尼亚州）</block>
-  <block id="91aba3afcaafb3ecbed8f358c30b8a7a" category="paragraph">有关所有地区的列表，请参阅<block ref="0f1c2d6a84741595f86a459e46c2a400" category="inline-link-rx"></block>。</block>
   <block id="f2035db09bb2be2db0508915fa584149" category="paragraph">您现在可以在 AWS、Azure 和 Google Cloud 中以私有模式部署Cloud Volumes ONTAP 9.14.1。  Cloud Volumes ONTAP 9.14.1 的单节点和高可用性 (HA) 部署均启用私有模式。</block>
   <block id="62bd7572081df25dd3f1f52151883c4a" category="inline-link">了解BlueXP部署模式</block>
   <block id="b77891a5294c25aca8a6fda943805ecf" category="doc">AWS 中Cloud Volumes ONTAP 9.13.1 对中国区域的支持</block>
   <block id="a3f77d8413628b40c09a649cd79a6e02" category="paragraph">您现在可以在中国区域的 AWS 中部署Cloud Volumes ONTAP 9.13.1。这包括对单节点和高可用性 (HA) 部署的支持。仅支持直接从NetApp购买的许可证。</block>
   <block id="abe88f95b23156cb29c433c9ebe92a00" category="inline-link">Cloud Volumes ONTAP的全球区域地图</block>
-  <block id="10df570a0447a18b299f516b2e8498c2" category="paragraph">有关区域可用性，请参阅<block ref="f76c632bc8b9c4e032a9d48fcbfa8dc1" category="inline-link-rx"></block>。</block>
   <block id="d0ae6326de6f7742cd369aae9832406f" category="doc">通过 Google Cloud 中的 API 自动创建存储虚拟机</block>
   <block id="1bf898a189d08a92d24b9432b7db4ed0" category="paragraph">您现在可以使用BlueXP API 在 Google Cloud 中自动创建存储虚拟机。您一直在Cloud Volumes ONTAP高可用性 (HA) 配置中使用此功能，现在您也可以在单节点部署中使用它。通过使用BlueXP API，您可以在 Google Cloud 环境中轻松创建、重命名和删除其他数据服务存储虚拟机，而无需手动配置所需的网络接口、LIF 和管理 LIF。这种自动化简化了管理存储虚拟机的过程。</block>
   <block id="914fe95f5aa6c2bb4ed60cded696ac13" category="inline-link">在 Google Cloud 中管理Cloud Volumes ONTAP的数据服务存储虚拟机</block>
@@ -3337,7 +3334,6 @@
   <block id="e7010d3e26fcd0c3b7c9d7059b1649f0" category="list-text"><block ref="e7010d3e26fcd0c3b7c9d7059b1649f0" category="inline-link-macro-rx"></block></block>
   <block id="519fd69508502bac64035ccc9de1d25e" category="section-title">选择支持的区域</block>
   <block id="3b61cbbfa7452cc07df9dbea0756d650" category="inline-link">查看支持区域的完整列表</block>
-  <block id="e242baa97428f1acdd0a43c0f27ecf0e" category="paragraph">大多数 Microsoft Azure 区域都支持Cloud Volumes ONTAP 。<block ref="0de6b81e82e22001f2c59ffd34a8aeac" category="inline-link-rx"></block> 。</block>
   <block id="e3a47201ab0cc67c20d5aeacce3b8ced" category="section-title">选择受支持的 VM 类型</block>
   <block id="00d6f59010ef5b4445142547ef7725f2" category="paragraph">Cloud Volumes ONTAP支持多种 VM 类型，具体取决于您选择的许可证类型。</block>
   <block id="a09c3a7be8e7dc42776a7b03793d536c" category="inline-link">Azure 中Cloud Volumes ONTAP支持的配置</block>
@@ -3390,7 +3386,6 @@
   <block id="a89897d61f59af926b4d06d06e8b2884" category="summary">部署Cloud Volumes ONTAP时，您可以选择符合您的工作负载要求的预配置系统，也可以创建自己的配置。如果您选择自己的配置，您应该了解可用的选项。</block>
   <block id="70cc6814c68e3ce95f7b70c2f1ea3e9d" category="paragraph">在 Google Cloud 中部署Cloud Volumes ONTAP时，您可以选择符合您的工作负载要求的预配置系统，也可以创建自己的配置。如果您选择自己的配置，您应该了解可用的选项。</block>
   <block id="f1e89d709c35aed2650bbf12a55f1ba1" category="list-text"><block ref="f1e89d709c35aed2650bbf12a55f1ba1" category="inline-link-macro-rx"></block></block>
-  <block id="c24e9fc1263121db1bb6501931efe09c" category="paragraph">大多数 Google Cloud 区域都支持Cloud Volumes ONTAP 。<block ref="0de6b81e82e22001f2c59ffd34a8aeac" category="inline-link-rx"></block> 。</block>
   <block id="18ff4ec9e6259918d45028a5d6040d91" category="section-title">选择支持的机器类型</block>
   <block id="64efea6517490623e51052b533085d96" category="paragraph">Cloud Volumes ONTAP支持多种机器类型，具体取决于您选择的许可证类型。</block>
   <block id="d1d964d1db8731b3b8174fa845b85de0" category="paragraph">调整Cloud Volumes ONTAP系统的大小可以帮助您满足性能和容量要求。在选择机器类型、磁盘类型和磁盘大小时，您应该注意几个关键点：</block>
@@ -3430,7 +3425,6 @@
   <block id="7669beb3752fde839271f735bd3fd173" category="paragraph">控制台可让您选择Cloud Volumes ONTAP的写入速度设置，但 Google Cloud 中的高可用性 (HA) 对除外。在选择写入速度之前，您应该了解正常设置和高设置之间的差异以及使用高写入速度时的风险和建议。<block ref="12222f10612c9f092ca31c9e99478649" category="inline-link-macro-rx"></block> 。</block>
   <block id="72d7d9fbd92253175591abfdb19dc6a1" category="summary">在 AWS 中部署Cloud Volumes ONTAP时，您可以选择符合您的工作负载要求的预配置系统，也可以创建自己的配置。如果您选择自己的配置，您应该了解可用的选项。</block>
   <block id="b2908e7df27905e20924b93b3ff0b803" category="list-text"><block ref="b2908e7df27905e20924b93b3ff0b803" category="inline-link-macro-rx"></block></block>
-  <block id="77616d628efddeba1fd424b939777229" category="paragraph">大多数 AWS 区域都支持Cloud Volumes ONTAP 。<block ref="0de6b81e82e22001f2c59ffd34a8aeac" category="inline-link-rx"></block> 。</block>
   <block id="77ccb62da3cbac8ecfb3dcda7b4635b9" category="inline-link">AWS 文档：了解如何启用区域</block>
   <block id="fef606ad68172c64f478d929b8842876" category="paragraph">必须先启用较新的 AWS 区域，然后才能在这些区域中创建和管理资源。<block ref="b7b79d9a35f355344e562154976e1f3d" category="inline-link-rx"></block> 。</block>
   <block id="64d1ac557c8992bc5d65b98a95e0b497" category="section-title">选择受支持的本地区域</block>
@@ -4211,7 +4205,6 @@
   <block id="2c8ad7deb621eae9ecb23ccf84d9c22c" category="section-title">AWS 现已支持加拿大西部地区</block>
   <block id="184c928c73aa00c7569ba55c0b9e0064" category="paragraph">AWS 现已支持加拿大西部地区的Cloud Volumes ONTAP 9.12.1 GA 及更高版本。</block>
   <block id="0970aa81dd486fe1c8e03549b29f3d46" category="inline-link">AWS 下的全球区域地图</block>
-  <block id="96c6a6277896e4ed7c2cef558b5542c1" category="paragraph">有关所有地区的列表，请参阅<block ref="24faa078890c2d8c97de1a6b5a5789e3" category="inline-link-rx"></block>。</block>
   <block id="bfe1024d3c9f1a02aa5dd1d7e5dccb34" category="section-title">2024年8月22日</block>
   <block id="cf153c7d2cb432b6e772832926525a09" category="section-title">Cloud Volumes ONTAP 9.15.1 正式版</block>
   <block id="ffa2c93a775db2cb6243bf2a224cf240" category="paragraph">BlueXP现在可以在 AWS、Azure 和 Google Cloud 中部署和管理Cloud Volumes ONTAP 9.15.1 通用可用性版本。</block>
@@ -4239,7 +4232,6 @@
   <block id="0b745a8416b0a8e3b89e7e01ba13af65" category="section-title">Google Cloud 现已支持约翰内斯堡地区</block>
   <block id="ec826289e3407edb59d3c5ed0aca5c74" category="paragraph">约翰内斯堡地区<block ref="6d1d2d77b70fb38d060e5653977838a2" prefix="(" category="inline-code"></block>Google Cloud 的Cloud Volumes ONTAP 9.12.1 GA 及更高版本现已支持区域。</block>
   <block id="2bc724993144e8002899059117620062" category="inline-link">Google Cloud 下的全球区域地图</block>
-  <block id="9b699d89d2577245514962357937a87b" category="paragraph">有关所有地区的列表，请参阅<block ref="5328f934c7a30e2b8b67732fc162a525" category="inline-link-rx"></block>。</block>
   <block id="ee94ea94211470599a81d49f8c4b586f" category="section-title">不再支持卷模板和标签</block>
   <block id="96b0b2a19dd9deb6b94e53f2e29f4387" category="paragraph">您无法再从模板创建卷或编辑卷的标签。这些操作与BlueXP修复服务相关，但该服务已不再可用。</block>
   <block id="1582ce9c3a0b0079717e0b0c6edf2347" category="section-title">Amazon Instant Metadata Service v2 支持</block>
@@ -4294,7 +4286,6 @@
   <block id="56e0da46254ac9c6f784da40f466bda0" category="paragraph">Google Cloud for Cloud Volumes ONTAP 9.12.1 GA 及更高版本现已支持柏林地区。</block>
   <block id="bbb4cf526641d95bbb8ab8bada56fa79" category="section-title">AWS 现已支持特拉维夫地区</block>
   <block id="04afad264aa486baec91a1ade145665a" category="paragraph">AWS 现已支持特拉维夫地区的Cloud Volumes ONTAP 9.12.1 GA 及更高版本。</block>
-  <block id="a3146a355baed19983a62f97e9e33a8e" category="paragraph">有关所有地区的列表，请参阅<block ref="24faa078890c2d8c97de1a6b5a5789e3" category="inline-link-rx"></block>。</block>
   <block id="8904b1f88c62ce8a8381c8474f2ccb42" category="paragraph">连接器 3.9.34 版本引入了以下更改。</block>
   <block id="992f57af99811ae146ed6df67eccc26f" category="section-title">Google Cloud 现已支持沙特阿拉伯地区</block>
   <block id="9e06c986efeeff600f0b04c67d5d6354" category="paragraph">Google Cloud for Cloud Volumes ONTAP和 Connector for Cloud Volumes ONTAP 9.12.1 GA 及更高版本现已支持沙特阿拉伯地区。</block>
@@ -4309,7 +4300,6 @@
   <block id="7def8b46a24f875959130a855cd80918" category="list-text">瑞典中央</block>
   <block id="8fb2033d01e3efa2825282a13f86c14e" category="list-text">西欧</block>
   <block id="c349d3a26cf4231660785a0c5b4cb007" category="list-text">美国西部 2</block>
-  <block id="52183d0603ae187e1b8670c9880c570c" category="paragraph">有关支持多个可用区的所有区域的列表，请参阅<block ref="0f1c2d6a84741595f86a459e46c2a400" category="inline-link-rx"></block>。</block>
   <block id="44d133359b344c4542acdebe6209e101" category="section-title">Cloud Volumes ONTAP 9.14.0</block>
   <block id="c5fa627d231c9a8813c9a2421d86136f" category="paragraph">BlueXP现在可以在 AWS、Azure 和 Google Cloud 中部署和管理Cloud Volumes ONTAP 9.14.0 通用可用性版本。</block>
   <block id="24444e2a682bc377b24836f577ac4475" category="paragraph"><block ref="81dc441c35d41d83534cfed9e9baa0db" category="inline-link-rx"></block> 。</block>
@@ -4373,7 +4363,6 @@
   <block id="ebef32c1ba0aec7a39eb2ce8370a97d5" category="paragraph">从Cloud Volumes ONTAP 9.12.1 GA 开始，AWS 现在支持中国地区，如下所示。</block>
   <block id="80a79e3e92d4834ae8746d205e83c105" category="list-text">支持直接从NetApp购买的许可证。</block>
   <block id="13615a82d1149a992b363c411914d3b8" category="inline-link">Cloud Volumes ONTAP的全球区域地图</block>
-  <block id="cec47fe41efdc9b07523c56da6796d2e" category="paragraph">有关区域可用性，请参阅<block ref="7511e65336251f569b4c4f44ab1468f7" category="inline-link-rx"></block>。</block>
   <block id="102787ed6297b34a7504b527e91d01d3" category="section-title">2023年4月3日</block>
   <block id="2dfd965acb2426b281b13a70df99c06b" category="paragraph">连接器 3.9.28 版本引入了以下更改。</block>
   <block id="7ce52c94db42646098e71a61d9836b73" category="section-title">Google Cloud 现已支持都灵地区</block>
@@ -4500,7 +4489,6 @@
   <block id="c86d179c90248acd6ebdba05bd94320c" category="section-title">新的 Azure 云区域支持</block>
   <block id="c55cc410beff8f86afc3ba8027b681f7" category="paragraph">从 9.10.1 版本开始，Azure West US 3 区域现在支持Cloud Volumes ONTAP 。</block>
   <block id="d1ce20099e22fd96c2217da218a20a9e" category="inline-link">查看Cloud Volumes ONTAP支持区域的完整列表</block>
-  <block id="c1a328cf0660e851f6654745d3aca99e" category="paragraph"><block ref="c1a328cf0660e851f6654745d3aca99e" category="inline-link-rx"></block></block>
   <block id="1a3362a1b5304a4e1e1112496974b9ae" category="section-title">Azure 中的ONTAP S3 许可证</block>
   <block id="f225a4f57ea32da8b983d7bffd20b6eb" category="paragraph">现在，在 Azure 中运行 9.9.1 或更高版本的新版和现有Cloud Volumes ONTAP系统均包含ONTAP S3 许可证。</block>
   <block id="650bbb3fd1c3ec1cf13fbf6dc440ce1c" category="paragraph">连接器 3.9.19 版本引入了以下更改。</block>
@@ -4752,7 +4740,6 @@
   <block id="2fae32629d4ef4fc6341f1751b405e45" category="sidebar">安全性</block>
   <block id="900a7d1cbee7ee0ec36bcd1f657e3d33" category="sidebar">使用NetApp加密技术加密卷</block>
   <block id="d586076d8407175a440d65cf7ae51ba3" category="sidebar">提高勒索软件防护</block>
-  <block id="c564b2555372de0d934ba75ba59f8d84" category="sidebar">Cloud Volumes ONTAP API 概述</block>
   <block id="19ec08da81a826d919d64ab860845c04" category="sidebar">API 参考</block>
   <block id="231cf4c70d866b616c21baddaeed0696" category="sidebar">故障排除</block>
   <block id="1cc5d81d544d68e9400f1d1195456642" category="sidebar">支持的云区域</block>
@@ -6203,7 +6190,6 @@
   <block id="1adacbb72826f9b83c0140c9286c1820" category="cell">n2（所有变体）</block>
   <block id="c8ffe9a587b126f152ed3d89a146b445" category="cell">124</block>
   <block id="d96409bf894217686ba124d7356686c9" category="cell">257</block>
-  <block id="9b986795dc6a434c7339bfecbd5e5c8b" category="paragraph">有关 Google Cloud 区域支持，请参见<block ref="e55b14db85f4d4837890e415926626e0" category="inline-link-rx"></block>。</block>
   <block id="01b4b8fa1f5ea45d927ed40fc0ca5983" category="inline-link">Google Cloud 文档：N1 系列通用机器类型</block>
   <block id="752d9c77571c216848dea601a2146e64" category="list-text"><block ref="752d9c77571c216848dea601a2146e64" category="inline-link-rx"></block></block>
   <block id="f01b2e7c91fc1d27e951f6c14322b1db" category="inline-link">Google Cloud 文档：N2 系列通用机器类型</block>
@@ -6252,7 +6238,6 @@
   <block id="ed5b1d9ebcc8b8d189007ac8c9494846" category="section-title">HA 部署的限制</block>
   <block id="b1969fa9ebe4dd2003618adb77082978" category="paragraph">某些地区不支持 HA 对。</block>
   <block id="d91c9372e1fdf74d651217f1a36e518b" category="inline-link">查看支持的 Azure 区域列表</block>
-  <block id="d798d4963d0ac509a1bda5483d9b9a52" category="paragraph"><block ref="5a94f18247116693735ff13d8eeaa964" category="inline-link-rx"></block>。</block>
   <block id="b2c659497c1ac3bfb0fc72c1bc792dd9" category="doc">Google Cloud 中 Cloud Volumes ONTAP 的已知限制</block>
   <block id="5caaf889f6f108c7753c8110e25e46bc" category="paragraph">以下已知限制仅适用于 Google Cloud Platform 中的 Cloud Volumes ONTAP。请务必同时查看 <block ref="edcf15b4d9d7d1e018ccca7ce112dd3e" category="inline-link-macro-rx"></block>。</block>
   <block id="aa55d70088944a0bae64dd34633165af" category="section-title">数据包镜像的限制</block>
@@ -6686,7 +6671,6 @@
   <block id="c7a5cb6d0f07a5d09419f0f984b0353c" category="sidebar">在系统上创建 FlexVol volume</block>
   <block id="97b0cb10b9751d7db1a5951f0f1d4fa7" category="sidebar">将非活动数据分层</block>
   <block id="32761d08dfb05de9ed6cf3939fb3885a" category="sidebar">在 Cloud Volumes ONTAP 上加密卷</block>
-  <block id="a01fbb30559112e345b9f539170bd7ea" category="sidebar">API 参考（NetApp Console Automation）</block>
   <block id="dfcc398099d6a64026e51ab282e16253" category="sidebar">更多资源</block>
   <block id="57f987f1cc203722b3382b8d192e634b" category="sidebar">将 ONTAP CLI 用于 Cloud Volumes ONTAP</block>
   <block id="75de5084889080c34d338d79014b90d7" category="sidebar">常见限制</block>
@@ -7206,8 +7190,6 @@
   <block id="9775ec01b640ec37d790fc80fcd304fa" category="doc">Azure Secret 和 Top Secret 区域中的 Cloud Volumes ONTAP 支持（私有预览）</block>
   <block id="71220dfc0ef52806d7063323e20a8d01" category="paragraph">Cloud Volumes ONTAP 现在支持在私有预览中的 Azure Government Secret 和 Top Secret 区域中进行部署。此功能将 Cloud Volumes ONTAP 扩展到 Microsoft 的分类 Azure 环境，使政府和国防客户能够使用 ONTAP 进行数据管理、保护和灾难恢复，以支持国家安全工作负载。请联系您的 NetApp 客户团队以参与其中。</block>
   <block id="9a4d5529d16b869118217275b6da762d" category="paragraph">有关信息，请参阅 Azure 文档：</block>
-  <block id="d6cb1d3533b658f7c8098c480b799207" category="inline-link">适用于美国政府任务的云服务^</block>
-  <block id="77063c44fc617a6f3c637b1e2c35bd37" category="list-text"><block ref="77063c44fc617a6f3c637b1e2c35bd37" category="inline-link-rx"></block></block>
   <block id="985c02ef44894c5b9eb81c7ef41befb6" category="inline-link">Azure Government Secret</block>
   <block id="97003784d2f5493688983ca3efa74e68" category="list-text"><block ref="97003784d2f5493688983ca3efa74e68" category="inline-link-rx"></block></block>
   <block id="68e1f1aba2e1561ee3226c9bcfef5ee1" category="inline-link">Azure Government Top Secret</block>
@@ -7607,8 +7589,6 @@
   <block id="77ed1894c70b52c4bd276c4386e398b5" category="inline-link-macro">将基于节点的许可证转换为基于容量的许可证</block>
   <block id="f6baf1b492e955e0279a9f14cb4d1a91" category="paragraph">##如果您使用基于节点的许可证进行市场订阅或专用部署，则可以<block ref="db4ec6a978acbab7786496b22aa52409" category="inline-link-macro-rx"></block>使用 Console 中的许可证转换工具。##</block>
   <block id="6a5ecd454fa726d7a1f82f34b7971296" category="paragraph">WORM 功能可与您的市场订阅和 Bring-Your-Own License (BYOL) 一起使用，无需额外费用。请联系您的 NetApp 销售代表，将 WORM 添加到您当前的许可证中。</block>
-  <block id="f7e27190d04c602ebb7b131101f305a6" category="paragraph">要获取 AWS 区域支持，请参阅<block ref="e55b14db85f4d4837890e415926626e0" category="inline-link-rx"></block>。</block>
-  <block id="2a4306e4935178b821ec39f5f7b1916a" category="paragraph">要获取 Azure 区域支持，请参阅<block ref="e55b14db85f4d4837890e415926626e0" category="inline-link-rx"></block>。</block>
   <block id="fa8cd47e4ec2a3db59105b2bede68a28" category="list-text">NetApp Volume Encryption（仅适用于 Bring-Your-Own License (BYOL) 或注册的即用即付 (PAYGO) 系统）</block>
   <block id="10e6e33e8d7a64d70c731d40ea252ed8" category="paragraph">以下注释提供了有关下表中数字的详细信息：</block>
   <block id="86eecdd58a14a30dd3508ee6ec90bab3" category="cell">\https://cloudbuild.googleapis.com/v1 （仅适用于私有模式部署）\https://cloudkms.googleapis.com/v1 \https://cloudresourcemanager.googleapis.com/v1/projects \https://compute.googleapis.com/compute/v1 \https://www.googleapis.com/compute/beta \https://www.googleapis.com/compute/v1/projects/ \https://www.googleapis.com/deploymentmanager/v2/projects \https://www.googleapis.com/storage/v1 \https://www.googleapis.com/upload/storage/v1 \https://config.googleapis.com/v1 \https://iam.googleapis.com/v1 \https://storage.googleapis.com/storage/v1</block>
@@ -7898,4 +7878,138 @@
   <block id="65601c8f51b1de63274aa8b67a3052ad" category="list-text">在"Update Cloud Volumes ONTAP version"页面上，输入 URL，然后选择 *Change Image*。</block>
   <block id="c65eb3709abb1b2f358bd22d6b1ea6c9" category="list-text">选择*继续*确认。</block>
   <block id="4147ce3eb95920fce808ef8ad51af5ba" category="list-text">接管完成后，转到 <block ref="f43c51286fe1559c6253e0b37ec045c6" prefix=" " category="inline-code"></block> 的虚拟机实例，然后选择 *Stop* 按钮将其关闭。</block>
+  <block id="030639c6688cdf5be783da65b9a42cde" category="paragraph">有关所有受支持区域的列表，请参阅<block ref="085eda4cd9d5efc52830e9b3586a231f" category="inline-link-rx"></block>。</block>
+  <block id="24ba262452119f5d0f640a423b1bbb92" category="paragraph">要查看所有区域的列表，请参见<block ref="085eda4cd9d5efc52830e9b3586a231f" category="inline-link-rx"></block>。</block>
+  <block id="9296c60d99cddd7019fead6f85170952" category="paragraph">要了解各地区的可用性，请参阅<block ref="8360ebb88791975205a481dde2bb56eb" category="inline-link-rx"></block>。</block>
+  <block id="2c35e19e5a880895a1f3f6748fe75e56" category="inline-link">适用于美国政府任务的云</block>
+  <block id="28426dd827c38f71cac9fa79f418b6f0" category="list-text"><block ref="28426dd827c38f71cac9fa79f418b6f0" category="inline-link-rx"></block></block>
+  <block id="9325b5a6040c409fd602c94ba64ae667" category="summary">了解 NetApp 为 Cloud Volumes ONTAP 支持的自动化技术。</block>
+  <block id="fdfde3c36b19e9242b6e36e1e2652ec7" category="doc">了解 Cloud Volumes ONTAP 自动化选项</block>
+  <block id="a88e1e67adc25856b931a5405393d700" category="paragraph">DevOps 团队使用各种工具来自动设置和管理其数据中心运行时环境。除了 NetApp Console 之外，您还可以使用其中几种技术来实现 Cloud Volumes ONTAP 自动化，包括 NetApp Console API、ONTAP CLI 过程和自动化工具，如 Ansible 和 Terraform。外部自动化工具通常基于基础架构即代码 （IaC） 设计。</block>
+  <block id="e41eeb18c8b1c48d8645aac00cd5d0da" category="inline-link">Lab on Demand</block>
+  <block id="faee51b031f6344652100fef4890abb9" category="paragraph">使用<block ref="2ac7731137aee09ff863c55752c09f01" category="inline-link-rx"></block>练习自动化 Cloud Volumes ONTAP。</block>
+  <block id="e5528296ac460cde32f9a8ce7cef4879" category="section-title">NetApp Console API</block>
+  <block id="af11fd309f249172d7131ce3581a4945" category="paragraph">NetApp Console 提供 REST API，可用于以编程方式管理 Cloud Volumes ONTAP 资源。API 支持创建和管理 Cloud Volumes ONTAP 系统以及在 Amazon Web Services (AWS)、Microsoft Azure (Azure) 和 Google Cloud 上添加聚合和卷等操作。可用的 API 调用因云提供商和部署类型而异，包括单节点和高可用性 (HA) 配置。</block>
+  <block id="51d8c650be92bf9d2eb7ff808e101876" category="paragraph">您可以使用 Cloud Volumes ONTAP API 工作流来自动化典型部署和后续存储管理。一些工作流包括准备部署、创建系统和管理存储，以及针对 AWS、Azure 和 Google Cloud 的提供商特定工作流。</block>
+  <block id="d78ed35383108fb6c04c16d0a11b20fe" category="cell">活动</block>
+  <block id="a56894d3fd482e0ce63d7e0d0ff9d687" category="cell">要使用的 API 和接口</block>
+  <block id="bed81788d674a19faec19ea1897139cd" category="cell">创建 Cloud Volumes ONTAP 系统。API 调用因云提供商和单节点或 HA 部署而异。</block>
+  <block id="c94a6ea5c88e9e8ddfdd90f8abb7b0b1" category="cell">NetApp Console REST API 和 Cloud Volumes ONTAP API 工作流程</block>
+  <block id="432b0073de7262db3d487decfb343c7d" category="inline-link">AWS：创建系统</block>
+  <block id="e86016649efebe2ef31546ac6eb54048" category="list-text"><block ref="4c0d6a5781f091a63a5bcd60c20108d5" category="inline-link-rx"></block> -<block ref="c17d7ff8f3f84064eff627c16151011f" prefix=" " category="inline-code"></block> 或<block ref="e1520e553d885c552e2794aafa8af4e1" prefix=" " category="inline-code"></block></block>
+  <block id="88d62368b67954308f86140a416041f7" category="inline-link">Azure：创建系统</block>
+  <block id="c33440038b9cf6d532272687909110a1" category="list-text"><block ref="ee9fea22f11cfd6240c32c45e4c02e6c" category="inline-link-rx"></block> -<block ref="a07e2a1726e30e6cfe84c616096b6af9" prefix=" " category="inline-code"></block> 或<block ref="4a6240791bd90bfdeedc93d8b6d616c0" prefix=" " category="inline-code"></block></block>
+  <block id="ac515478265f7b4b3b2292f9b3330ba2" category="inline-link">Google Cloud：创建系统</block>
+  <block id="76f585c45f869fdf50978a7e2ff1e845" category="list-text"><block ref="12a63ad2ee8367d38c1778ef59272c7e" category="inline-link-rx"></block> -<block ref="0152f3b4b9aef5bd3345082925e18974" prefix=" " category="inline-code"></block> 或<block ref="c03475dd69e20b05b6e22c63e47176c6" prefix=" " category="inline-code"></block></block>
+  <block id="47185c82242b10308d6360018b88573a" category="cell">为 Cloud Volumes ONTAP 系统创建聚合。</block>
+  <block id="07f2eead2d33f2fa381cc4b011d584ac" category="cell">NetApp Console REST APIs</block>
+  <block id="89e81a58d1597d8486ded76de8be23d6" category="inline-link">AWS：创建聚合</block>
+  <block id="cf1d545f30052af0801fce0b3ccc9163" category="list-text"><block ref="6e50cfb82b4252d220fcc69b4d1994bb" category="inline-link-rx"></block> -<block ref="5a7ebc57a98790882874df8b94363ba5" prefix=" " category="inline-code"></block> 或<block ref="fa11b5befbbeb48a4dfbf9522c03c9ab" prefix=" " category="inline-code"></block></block>
+  <block id="bbf8ac3547d44614feec2fad9af67c61" category="inline-link">AWS：向弹性卷聚合添加容量</block>
+  <block id="942987baab44e06173ff42e3cd817a76" category="list-text"><block ref="48bbeab8a9923d62184d61097270e6b4" category="inline-link-rx"></block> -<block ref="a51d77ba8dd987edc03092f0dfc606ef" prefix=" " category="inline-code"></block> 或<block ref="f943549e3abbadb7bc772aef09cb92ee" prefix=" " category="inline-code"></block></block>
+  <block id="2c87338731e15adf4fb609c1b12597d4" category="inline-link">AWS：向聚合添加磁盘</block>
+  <block id="421e819dd2abafde3cb198b0ee7c6ca4" category="list-text"><block ref="1c9f9c7b7636c045fa697e34035a9956" category="inline-link-rx"></block> -<block ref="dcd393b33d6270e936383754e9ad1e0b" prefix=" " category="inline-code"></block> 或<block ref="938df6d76b344520082042cfad2161b4" prefix=" " category="inline-code"></block></block>
+  <block id="d984a8d748bb774a7cd27ebf147f792a" category="cell">为 Cloud Volumes ONTAP 系统配置 CIFS 服务器。</block>
+  <block id="874050a6fcd7d0e8ffc2191d20fca4ce" category="inline-link">AWS：创建 CIFS 服务器配置</block>
+  <block id="473ca1a02338b38b2926a515fa43fbec" category="list-text"><block ref="34db4ad457c80017c2ed76c82c9291d7" category="inline-link-rx"></block> -<block ref="4aadb6536febae4a984285dbbbd262e3" prefix=" " category="inline-code"></block> 或<block ref="db04db98d00b0497c420d989cf58a58c" prefix=" " category="inline-code"></block></block>
+  <block id="bbf0315fb222618a57b8a659d3048769" category="inline-link">Azure：创建 CIFS 服务器配置</block>
+  <block id="789b884b25a59341d6d0e62e1aad4227" category="list-text"><block ref="ce8a12510b56c87d5f3fe4021956f1f6" category="inline-link-rx"></block> -<block ref="2def770fb738f26066adbdbc29092c73" prefix=" " category="inline-code"></block> 或<block ref="3a182f3234fc06b574375309b3e62c35" prefix=" " category="inline-code"></block></block>
+  <block id="c4e57fedd351ac0c19d7b8d24331d588" category="inline-link">Google Cloud：创建 CIFS 服务器配置</block>
+  <block id="47231a9072ad8c66641b2fb7a54f70a6" category="list-text"><block ref="e6005398d2dd810f964dee738f37b452" category="inline-link-rx"></block> -<block ref="4645de1064a783ee0ab74c226e5663d6" prefix=" " category="inline-code"></block> 或<block ref="f55a3f0f9a69dd6595b9b5a6d77f7651" prefix=" " category="inline-code"></block></block>
+  <block id="354d0dee47f6aa5512f1772288fbe0e8" category="cell">创建和管理其他数据服务存储虚拟机，并在 Azure 和 Google Cloud 中配置其所需的网络接口。</block>
+  <block id="6003f9d31c91a9ffeb354a7d3f60c495" category="cell">适用于 NetApp Console 的 Cloud Volumes ONTAP API</block>
+  <block id="326bd96c0e6b7d07ca1479cfc0a1c75f" category="paragraph"><block ref="887cda3aa1e8a9fdcdcba122e5a3dc37" category="inline-link-macro-rx"></block> <block ref="702b9f2fc1cec4c10bd8f265b2f20741" category="inline-link-macro-rx"></block></block>
+  <block id="8c89122cd1b4c9c7b5e3240af17e3341" category="cell">创建使用客户管理的加密密钥的 Cloud Volumes ONTAP 系统。</block>
+  <block id="360104bf3231cd79990fa62b469a3981" category="cell">NetApp Console API</block>
+  <block id="0cac39c8b6d0b75bd4d288de23d99852" category="inline-link-macro">在 Azure 中使用客户管理的密钥</block>
+  <block id="f24d9b90221b24d424b81700f8192909" category="inline-link-macro">在 Google Cloud 中使用客户管理的密钥</block>
+  <block id="addc1d48a50bd2962473ca3d5444e720" category="paragraph"><block ref="3ae9ec5d4da9b4fe905f1239818df3f1" category="inline-link-macro-rx"></block> <block ref="53a0a8f4a557e8a4e3fbcea1df788ddd" category="inline-link-macro-rx"></block></block>
+  <block id="8f3998d4e32a451c0a5711ff2abf3e14" category="cell">部署后修改 Azure Premium SSD v2 磁盘的 IOPS 和吞吐量设置。</block>
+  <block id="3081239b9e08a8aefc0bf58abc7db431" category="cell">Cloud Volumes ONTAP API</block>
+  <block id="6d7c7f769eaa42a12066fade5112d993" category="inline-link-macro">管理 Premium SSD v2 磁盘性能</block>
+  <block id="fb98b759adc4702f2fea98a65918be2d" category="paragraph"><block ref="fb98b759adc4702f2fea98a65918be2d" category="inline-link-macro-rx"></block></block>
+  <block id="a7d9285bdc2fccb8bd1114aa1d8b68e9" category="cell">在 AWS 共享子网中部署 Cloud Volumes ONTAP HA 对。</block>
+  <block id="8a7e37546ca35eb5e89b6a0a8b269239" category="inline-link-macro">在 AWS 共享子网中部署 HA 对</block>
+  <block id="2cda55d19dc22cc34d1b39df24d15702" category="paragraph"><block ref="2cda55d19dc22cc34d1b39df24d15702" category="inline-link-macro-rx"></block></block>
+  <block id="84d6bbcd5f55d08d5a837fd1839af756" category="cell">在部署期间未配置对象存储时，在创建系统后启用数据分层。</block>
+  <block id="1f15576faba4a1186dededa3564603da" category="inline-link-macro">启用数据分层</block>
+  <block id="74f83eca5a8527c51058183c7eb3042d" category="cell"><block ref="74f83eca5a8527c51058183c7eb3042d" category="inline-link-macro-rx"></block></block>
+  <block id="629822e4d339a9d91f1a46cfbc1c29bc" category="cell">为现有 Cloud Volumes ONTAP 集群配置 NTP 服务器。</block>
+  <block id="de96d21169aba194859dc496a9f407fe" category="inline-link-macro">配置 NTP 服务器</block>
+  <block id="ae682f7b00612d59326d36855b6cadae" category="cell"><block ref="ae682f7b00612d59326d36855b6cadae" category="inline-link-macro-rx"></block></block>
+  <block id="2f8299f876158db323c08455b12b585a" category="paragraph">有关详细信息，请参阅：</block>
+  <block id="75002176e5fb12dc110f84df17ea71fa" category="list-text"><block ref="75002176e5fb12dc110f84df17ea71fa" category="inline-link-rx"></block></block>
+  <block id="d16c17f65bc41006807ee1e260dfb738" category="list-text"><block ref="d16c17f65bc41006807ee1e260dfb738" category="inline-link-rx"></block></block>
+  <block id="4217d64a8652c92abf35281a0ac16485" category="list-text"><block ref="4217d64a8652c92abf35281a0ac16485" category="inline-link-rx"></block></block>
+  <block id="7cad274fa343ad19ecb1bbb7204bc699" category="inline-link">使用 REST API 的典型 Cloud Volumes ONTAP 部署</block>
+  <block id="af6bd9ac0a0138f1bf49bfa7c440f23d" category="list-text"><block ref="af6bd9ac0a0138f1bf49bfa7c440f23d" category="inline-link-rx"></block></block>
+  <block id="de134183bea5df515a6756a539ce6f18" category="section-title">ONTAP 命令行界面</block>
+  <block id="19353f4bb757748785e88d65f6e74e91" category="paragraph">您可以将 ONTAP CLI 用于多个 Cloud Volumes ONTAP 管理任务。可用的过程和命令因功能和云提供商而异。请勿使用 ONTAP CLI 或 ONTAP System Manager 升级 Cloud Volumes ONTAP。从 NetApp Console 执行升级。</block>
+  <block id="c850536c84614313f01fe940e1acebe0" category="cell">CLI 过程或命令</block>
+  <block id="d95867deadfe690e40f42068d6b59df8" category="cell">参考文献</block>
+  <block id="7b23ad44e2f62504eb4844326be38da1" category="cell">配置 Cloud Volumes ONTAP 的加密密钥管理。</block>
+  <block id="cada788138f5e4fbf7baeb0c846c2d90" category="cell">ONTAP CLI 中的 AWS KMS、Azure Key Vault 或 Google Cloud KMS 命令</block>
+  <block id="00307e4c49877f4528950532074707c9" category="inline-link-macro">配置 AWS KMS 密钥管理</block>
+  <block id="06e8e83aa2b42857d1afd97a5f0fe20e" category="inline-link-macro">配置 Azure Key Vault 密钥管理</block>
+  <block id="ff5fd9adbcf474a696e25829a71a2c77" category="inline-link-macro">配置 Google Cloud KMS 密钥管理</block>
+  <block id="482c7dcae898a6ca32463e4accbcf619" category="paragraph"><block ref="d381175a46a9145d4f5abc5d56032d76" category="inline-link-macro-rx"></block> <block ref="e9ad5c18a0f47184f594195729f432f4" category="inline-link-macro-rx"></block> <block ref="6f069bceb660702d6995dd3163dd98ad" category="inline-link-macro-rx"></block></block>
+  <block id="24ca75ed13f2174be14a77636b343572" category="cell">配置事件管理系统 （EMS） 事件目的地和路由。</block>
+  <block id="de35b51d5dae332d952816974cc06421" category="cell">ONTAP CLI 中的 EMS 配置命令</block>
+  <block id="34b1569dc58e1228e30e96930ecaee4e" category="cell"><block ref="34b1569dc58e1228e30e96930ecaee4e" category="inline-link-macro-rx"></block></block>
+  <block id="0c960f2e1d9e679ba57e3e16760281cd" category="cell"><block ref="2e5b00a7734f4716b08d44d8793d1795" prefix="" category="inline-code"></block></block>
+  <block id="d2c49b176b2bf89a6d107ff7033da97b" category="cell">在创建禁用存储效率的卷时禁用数据压缩。</block>
+  <block id="bda8e58b95d839057b4d9ee70c0735bf" category="cell">ONTAP CLI 卷效率命令</block>
+  <block id="01e28c94ab02e08599e61f36875aa97d" category="inline-link-macro">查看存储效率选项</block>
+  <block id="5f2a7b1e2ce49a705febfdf542a85b15" category="inline-link-macro">查看 AWS 存储效率限制</block>
+  <block id="eabd0bf84a6148c56bdc1496101ed3bf" category="paragraph"><block ref="912bac3ec133895a3d70950ea5ea5be5" category="inline-link-macro-rx"></block> <block ref="189674a88c9c3be104317143057f2a05" category="inline-link-macro-rx"></block></block>
+  <block id="ecfaf475c341db59563d4547fc423076" category="cell">创建其他 LUN。</block>
+  <block id="6bf3792c376b4189693127f528fe5705" category="cell">ONTAP CLI 中的 LUN 创建命令</block>
+  <block id="6f43a459634b77cb981821c60421788d" category="inline-link-macro">创建卷和其他 LUN</block>
+  <block id="76e055cf90505baa14aa008888200440" category="cell"><block ref="76e055cf90505baa14aa008888200440" category="inline-link-macro-rx"></block></block>
+  <block id="473146d2c936547c34fddae94f78de09" category="cell">根据需要创建禁用 WORM 的卷，或者为 SnapLock 卷创建 Snapshot 副本。</block>
+  <block id="a3afac203a47f9be53ed25d2d229464f" category="cell">ONTAP CLI 中的卷和快照管理命令</block>
+  <block id="15830567d5d874dbbf57c00f0fa04b81" category="inline-link-macro">管理 WORM 存储</block>
+  <block id="b493c36fe0e804aca12c202691984d48" category="inline-link-macro">为 WORM 存储创建 Snapshot 副本</block>
+  <block id="ab5b276224c7a85c26de1e04a9221f7f" category="paragraph"><block ref="ae47b528758734aa867eebf826329789" category="inline-link-macro-rx"></block> <block ref="8414253d8e05f0d57e6e7a3ccbab701e" category="inline-link-macro-rx"></block></block>
+  <block id="c80822b08878f2eb034c674a66844f2c" category="cell">配置 NVFAIL 行为，以帮助防止在数据丢失事件后访问数据，直到问题得到解决。</block>
+  <block id="0133fae8698c06de5054ad1211854b77" category="cell">ONTAP CLI 中的 NVFAIL 配置命令</block>
+  <block id="0b9412ac1fb181b55ef6a7c524a44124" category="inline-link-macro">配置 NVFAIL</block>
+  <block id="8ef40b5607c1411188eca243bedcc6b2" category="cell"><block ref="8ef40b5607c1411188eca243bedcc6b2" category="inline-link-macro-rx"></block></block>
+  <block id="5200e0665cdd5a1fcf1a2b3c366b6a6f" category="cell">隔离 Azure 单节点部署中的 SnapMirror 复制流量。</block>
+  <block id="30aa9de9cb1724d93bef71ee5b111cc7" category="cell">ONTAP CLI 网络和 SnapMirror 命令</block>
+  <block id="031fa5f85e435c3ab51b6ee7855bf24d" category="cell"><block ref="031fa5f85e435c3ab51b6ee7855bf24d" category="inline-link-macro-rx"></block></block>
+  <block id="e58e23bbb15653b7db25ec49fb2139c0" category="inline-link">ONTAP CLI 参考指南</block>
+  <block id="b68dd2659875b3751312fd1387884892" category="paragraph">有关详细信息，请参见 <block ref="56919433a9012a25d7444e56a764a2ab" category="inline-link-rx"></block></block>
+  <block id="d51d5ee15f404c2f4f7863bebcde1fac" category="section-title">Ansible</block>
+  <block id="f2006b3f888f38a6cd9904a0a993f3fb" category="paragraph">Ansible 是一个基于过程配置文件的开源配置管理工具。</block>
+  <block id="733ba000742537e7a4435573aca51393" category="inline-link">Ansible Galaxy</block>
+  <block id="139807910facd19f02db2d5fe0f59378" category="list-text"><block ref="139807910facd19f02db2d5fe0f59378" category="inline-link-rx"></block></block>
+  <block id="5eae6f5974c9d4195ebe0cf8b607647e" category="inline-link">Ansible 文档</block>
+  <block id="2c17b123ab1174f57aef57626d7fe326" category="list-text"><block ref="2c17b123ab1174f57aef57626d7fe326" category="inline-link-rx"></block></block>
+  <block id="303e96f80576360d0c7b07ae7528fa4b" category="section-title">Terraform</block>
+  <block id="e75ea875a9cecce91df4e6d2fe5dbe12" category="inline-link">NetApp Terraform 提供程序</block>
+  <block id="ae5b03629b482b45c8952bcee4d77759" category="paragraph">Terraform 是一个使用声明性配置文件的开源编排工具。NetApp 为 Cloud Volumes ONTAP 提供 Terraform 提供程序。您可以使用它来自动化您的基础架构并将其与 IaC 集成。有关详细信息，请参阅<block ref="9db86edb27cba5e99043532cee2f3846" category="inline-link-rx"></block>。</block>
+  <block id="11007b94a5cf49417110dc6230ff409f" category="inline-link">NetApp Console 自动化概述</block>
+  <block id="2346e86a3d7fd592cc189c443ef62b72" category="list-text"><block ref="2346e86a3d7fd592cc189c443ef62b72" category="inline-link-rx"></block></block>
+  <block id="d2bc990612eeaf36be5a5547738b1be6" category="inline-link">基础架构即代码</block>
+  <block id="f5e2902021e30fbb5b577f0f1cf4610e" category="list-text"><block ref="f5e2902021e30fbb5b577f0f1cf4610e" category="inline-link-rx"></block></block>
+  <block id="b21e3010d0232bf320d611581f271d67" category="list-text"><block ref="b21e3010d0232bf320d611581f271d67" category="inline-link-rx"></block></block>
+  <block id="be960f52304f760b90b6bd73eea1c811" category="list-text"><block ref="be960f52304f760b90b6bd73eea1c811" category="inline-link-rx"></block></block>
+  <block id="0709e43ba3dfdd3d67bcbc67fb4bfa56" category="paragraph">要获取 AWS 区域支持，请参阅<block ref="90ba6443eab00b2a9c691a5eb4bf7074" category="inline-link-rx"></block>。</block>
+  <block id="d5d5c5377914e0f5ae48f36f84a4b13c" category="paragraph">要获取 Azure 区域支持，请参阅<block ref="90ba6443eab00b2a9c691a5eb4bf7074" category="inline-link-rx"></block>。</block>
+  <block id="52bf55984e5170af5a3ba17d8f431af1" category="paragraph">有关 Google Cloud 区域支持，请参见<block ref="90ba6443eab00b2a9c691a5eb4bf7074" category="inline-link-rx"></block>。</block>
+  <block id="cf27908351815c30617e1750ca762e34" category="paragraph"><block ref="e5acb05260eb745b6c9d5a300d8e8f65" category="inline-link-rx"></block>。</block>
+  <block id="adeae359fca7d0e23001e2898362b818" category="paragraph">Cloud Volumes ONTAP 在大多数 Microsoft Azure 区域中受支持。<block ref="df054d4012f96ec06367a9186a706206" category="inline-link-rx"></block>。</block>
+  <block id="58d2bd00c02b340cb50ae58d5a547163" category="paragraph">Cloud Volumes ONTAP 在大多数 Google Cloud 地区均受支持。<block ref="df054d4012f96ec06367a9186a706206" category="inline-link-rx"></block>.</block>
+  <block id="9d48aed6eca755384acc2d44ba7a38af" category="paragraph">Cloud Volumes ONTAP 在大多数 AWS 区域均受支持。<block ref="df054d4012f96ec06367a9186a706206" category="inline-link-rx"></block>。</block>
+  <block id="c41a6f828f72f3ab937ae2d504409961" category="paragraph">有关所有区域的列表，请参见<block ref="b759f66ba80110c14857f0e563afdbbd" category="inline-link-rx"></block>。</block>
+  <block id="3b0d596b0d27419f9462b9d935135fb6" category="paragraph">要查看所有区域的列表，请参见<block ref="fb5a5089b7141a73dc90cfeebfbbcae7" category="inline-link-rx"></block>。</block>
+  <block id="e5dd7c13b99167cac19ba3dd9d51afec" category="paragraph">要查看所有区域的列表，请参见<block ref="b759f66ba80110c14857f0e563afdbbd" category="inline-link-rx"></block>。</block>
+  <block id="a70bdfa6a14cf487d4b00e5c896944e0" category="paragraph">有关支持多个可用区域的所有区域的列表，请参阅<block ref="085eda4cd9d5efc52830e9b3586a231f" category="inline-link-rx"></block>。</block>
+  <block id="6fd68ac6dd18e7ec1406334f92c6d517" category="paragraph">要了解各地区的可用性，请参见<block ref="fc6a9ecc22a7b5ee5a07f9223f89cec0" category="inline-link-rx"></block>。</block>
+  <block id="4478c7d9173abfb0a9d9a27bc975ce1e" category="paragraph"><block ref="4478c7d9173abfb0a9d9a27bc975ce1e" category="inline-link-rx"></block></block>
+  <block id="b6554413211bb41fd342e2fd836971b1" category="sidebar">Cloud Volumes ONTAP 自动化</block>
+  <block id="0c06b5982fa51b01bda9bbbf8f86e47a" category="sidebar">NetApp Console REST API 概念</block>
+  <block id="532a9bd10ba3f29a7e5525254f60da9a" category="sidebar">了解 API 工作流程</block>
+  <block id="86c38aa977344df13fe2cdfd45f82392" category="sidebar">适用于 AWS、Azure 和 Google Cloud 的 Cloud Volumes ONTAP API 调用列表</block>
 </blocks>

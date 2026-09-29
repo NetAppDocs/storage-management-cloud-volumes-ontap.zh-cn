@@ -72,4 +72,4 @@ Cloud Volumes ONTAP 在某些 VM 类型中使用本地 NVMe 存储作为 _Flash 
 
 某些地区不支持 HA 对。
 
-https://bluexp.netapp.com/cloud-volumes-global-regions["查看支持的 Azure 区域列表"^]。
+https://www.netapp.com/cloud-volumes-ontap/supported-regions/["查看支持的 Azure 区域列表"^]。

@@ -477,7 +477,7 @@ Cloud Volumes ONTAP 9.18.1 及更高版本支持 C3 系列虚拟机的本地 SSD
 [[supported-regions]]
 == 支持的区域
 
-有关 Google Cloud 区域支持，请参见 https://bluexp.netapp.com/cloud-volumes-global-regions["Cloud Volumes 全球区域"^]。
+有关 Google Cloud 区域支持，请参见 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Cloud Volumes 全球区域"^]。
 
 .相关链接
 * https://cloud.google.com/compute/docs/disks/["Google Cloud 文档：存储选项"^]

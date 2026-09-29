@@ -13,4 +13,4 @@
 * 墨西哥中央
 
 
-有关所有地区的列表，请参阅 https://bluexp.netapp.com/cloud-volumes-global-regions["Azure 下的全球区域地图"^]。
+要查看所有区域的列表，请参见 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球区域地图"^]。

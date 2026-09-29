@@ -11,7 +11,7 @@ Cloud Volumes ONTAP 现在支持在私有预览中的 Azure Government Secret �
 
 有关信息，请参阅 Azure 文档：
 
-* https://azure.microsoft.com/en-us/blog/azure-government-top-secret-now-generally-available-for-us-national-security-missions/["适用于美国政府任务的云服务^"]
+* https://azure.microsoft.com/en-us/blog/azure-government-top-secret-now-generally-available-for-us-national-security-missions/["适用于美国政府任务的云"^]
 * https://azure.microsoft.com/en-us/explore/global-infrastructure/government/national-security["Azure Government Secret"^]
 * https://azure.microsoft.com/en-us/blog/azure-government-top-secret-now-generally-available-for-us-national-security-missions["Azure Government Top Secret"^]
 
