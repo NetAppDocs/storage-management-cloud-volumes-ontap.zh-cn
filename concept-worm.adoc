@@ -77,7 +77,7 @@ WORM 功能可与您的市场订阅和 Bring-Your-Own License (BYOL) 一起使�
 
 .步骤
 . 在“*系统*”页面上，双击要启用 WORM 的系统的名称。
-. 在“概述”选项卡上，单击“功能”面板，然后单击“*WORM*”旁边的铅笔图标。
+. 在"概述"选项卡上，选择"功能"面板，然后选择 *WORM* 旁边的铅笔图标。
 +
 如果系统上已启用 WORM，则铅笔图标将被禁用。
 
@@ -85,7 +85,7 @@ WORM 功能可与您的市场订阅和 Bring-Your-Own License (BYOL) 一起使�
 +
 欲了解更多信息，请参阅 https://docs.netapp.com/us-en/ontap/snaplock/initialize-complianceclock-task.html["ONTAP文档：初始化合规时钟"^]。
 
-. 单击“*设置*”。
+. 选择*设置*。
 
 
 .完成后

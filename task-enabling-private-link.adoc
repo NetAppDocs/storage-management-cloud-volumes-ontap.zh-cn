@@ -38,14 +38,14 @@ Cloud Volumes ONTAP使用 Azure Private Link 连接到其关联的存储帐户�
 
 .步骤
 . 从左侧导航窗格转到*管理>代理*。
-. 单击管理 Cloud Volumes ONTAP 系统的 Console 代理的 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标。
+. 选择管理 Cloud Volumes ONTAP 系统的控制台代理的 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标。
 . 选择* Cloud Volumes ONTAP设置*。
 +
 image::screenshot-settings-cloud-volumes-ontap.png[设置图标下的Cloud Volumes ONTAP设置选项的屏幕截图。]
 
-. 在“*Azure*”下，单击“*使用 Azure 专用链接*”。
+. 在 *Azure* 下，选择 *Use Azure Private Link*。
 . 取消选择* Cloud Volumes ONTAP和存储帐户之间的专用链接连接*。
-. 单击“保存”。
+. 选择 *保存*。
 
 
 .完成后

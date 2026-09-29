@@ -56,9 +56,9 @@ link:task-set-up-licensing-aws.html["了解如何设置许可"^] 。
 
 .步骤
 . 从左侧导航菜单中，选择“存储”>“管理”。
-. [[订阅]]在*系统*页面上，单击*添加系统*并按照提示进行操作。
+. [[subscribe]]在*系统*页面上，选择*添加系统*并按照提示操作。
 . 选择 *Amazon Web Services* 和 * Cloud Volumes ONTAP Single Node*。
-. 选择*高级创建*。由于默认选择了*快速创建*模式，您可能会看到一条有关默认值的消息。单击“继续”。
+. 选择*高级创建*。由于默认情况下选择了*快速创建*模式，您可能会看到默认值的消息。选择*继续*。
 . 如果系统提示您， https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-aws.html["创建控制台代理"^]。
 . *详细信息和凭证*：可选择更改 AWS 凭证和订阅，输入系统名称，根据需要添加标签，然后输入密码。
 +
@@ -79,11 +79,11 @@ link:task-set-up-licensing-aws.html["了解如何设置许可"^] 。
 | 用户名和密码 | 这些是Cloud Volumes ONTAP集群管理员帐户的凭据。您可以使用这些凭据通过ONTAP System Manager 或ONTAP CLI 连接到Cloud Volumes ONTAP 。保留默认的_admin_用户名或将其更改为自定义用户名。 
 
 
-| 编辑凭证 | 选择与要部署此系统的帐户关联的 AWS 凭据。您还可以将 AWS 市场订阅与此 Cloud Volumes ONTAP 系统关联使用。单击 *添加订阅* ，将所选凭据与新的 AWS 市场订阅关联。订阅可以是年度合同，也可以是按小时费率为 Cloud Volumes ONTAP 付费。https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html["了解如何向NetApp Console添加其他 AWS 凭证"^]。 
+| 编辑凭证 | 选择与要部署此系统的帐户关联的 AWS 凭据。您还可以将 AWS 市场订阅与此 Cloud Volumes ONTAP 系统关联使用。选择 *添加订阅* ，将所选凭据与新的 AWS 市场订阅关联。订阅可以是年度合同，也可以按小时费率支付 Cloud Volumes ONTAP 。https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html["了解如何向NetApp Console添加其他 AWS 凭证"^]。 
 |===
 +
 
-TIP: 如果多个 IAM 用户在同一个 AWS 账户中工作，则每个用户都需要订阅。第一个用户订阅后，AWS 市场会通知后续用户他们已经订阅，如下图所示。当 AWS 账户有订阅时，每个 IAM 用户都需要将自己与该订阅关联起来。如果您看到下面显示的消息，请单击“*单击此处*”链接转到控制台网站并完成该过程。image:screenshot_aws_marketplace.gif["当 AWS 账户已有订阅但特定 IAM 用户可能没有时，显示Cloud Volumes ONTAP控制台的订阅页面的屏幕截图。"]
+TIP: 如果多个 IAM 用户在同一个 AWS 账户中工作，则每个用户都需要订阅。第一个用户订阅后，AWS Marketplace 会通知后续用户他们已经订阅，如下图所示。当 AWS _account_ 已有订阅时，每个 IAM 用户都需要将自己与该订阅相关联。如果您看到下面显示的消息，请选择 *click here* 链接转到 Console 网站并完成此过程。 image:screenshot_aws_marketplace.gif["当 AWS 账户已有订阅但特定 IAM 用户可能没有时，显示Cloud Volumes ONTAP控制台的订阅页面的屏幕截图。"]
 
 . *服务*：保持服务启用或禁用您不想与Cloud Volumes ONTAP一起使用的单个服务。
 +
@@ -139,11 +139,11 @@ link:concept-security.html#encryption-of-data-at-rest["了解有关受支持的�
 ** link:task-set-up-licensing-aws.html["了解如何设置许可"^] 。
 
 
-. * Cloud Volumes ONTAP配置*（仅限年度 AWS 市场合同）：查看默认配置并单击*继续*或单击*更改配置*以选择您自己的配置。
+. *Cloud Volumes ONTAP Configuration* （仅适用于年度 AWS marketplace 合同）：查看默认配置并选择 *Continue* （继续）或选择 *Change Configuration* （更改配置）以选择您自己的配置。
 +
 如果保留默认配置，则只需要指定一个卷，然后审核并批准该配置。
 
-. *预配置包*：选择其中一个包以快速启动Cloud Volumes ONTAP，或单击*更改配置*以选择您自己的配置。
+. *预配置软件包*：选择其中一个软件包以快速启动 Cloud Volumes ONTAP，或选择 *更改配置* 以选择自己的配置。
 +
 如果您选择其中一个包，那么您只需要指定一个卷，然后审核并批准配置。
 
@@ -187,7 +187,7 @@ link:concept-worm.html["了解有关 WORM 存储的更多信息"^] 。
 .. 如果您激活 WORM 存储，请选择保留期限。
 
 
-. *创建卷*：输入新卷的详细信息或单击*跳过*。
+. *Create Volume*：输入新卷的详细信息或选择 *Skip*。
 +
 link:concept-client-protocols.html["了解支持的客户端协议和版本"^] 。
 
@@ -257,9 +257,9 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例�
 . *审核并批准*：审核并确认您的选择。
 +
 .. 查看有关配置的详细信息。
-.. 单击“更多信息”以查看有关支持和控制台将购买的 AWS 资源的详细信息。
+.. 选择 *更多信息* 以查看有关支持和控制台将购买的 AWS 资源的详细信息。
 .. 选中*我明白...*复选框。
-.. 单击“*开始*”。
+.. 选择 *Go*。
 
 
 
@@ -267,7 +267,7 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例�
 .结果
 控制台启动Cloud Volumes ONTAP实例。您可以在*审计*页面上跟踪进度。
 
-如果您在启动Cloud Volumes ONTAP实例时遇到任何问题，请查看失败消息。您也可以选择系统并单击*重新创建环境*。
+如果您在启动 Cloud Volumes ONTAP 实例时遇到任何问题，请查看失败消息。您还可以选择系统并选择*重新创建环境*。
 
 如需更多帮助，请访问 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp Cloud Volumes ONTAP支持"^]。
 
@@ -297,7 +297,7 @@ CAUTION: 部署过程完成后，请勿修改 AWS 云门户中系统生成的Clo
 
 .步骤
 . 从左侧导航菜单中，选择“存储”>“管理”。
-. 在*系统*页面上，单击*添加系统*并按照提示进行操作。
+. 在*系统*页面上，选择*添加系统*并按照提示操作。
 . 选择 *Amazon Web Services* 和 * Cloud Volumes ONTAP HA*。
 +
 一些 AWS 本地区域可用。
@@ -327,11 +327,11 @@ CAUTION: 部署过程完成后，请勿修改 AWS 云门户中系统生成的Clo
 | 用户名和密码 | 这些是Cloud Volumes ONTAP集群管理员帐户的凭据。您可以使用这些凭据通过ONTAP System Manager 或ONTAP CLI 连接到Cloud Volumes ONTAP 。保留默认的_admin_用户名或将其更改为自定义用户名。 
 
 
-| 编辑凭证 | 选择要与此 Cloud Volumes ONTAP 系统一起使用的 AWS 凭据和市场订阅。单击*添加订阅*，将所选凭据与新的 AWS 市场订阅相关联。订阅可以是年度合同，也可以是按小时费率支付 Cloud Volumes ONTAP。如果您直接从 NetApp（Bring-Your-Own License 或 BYOL）购买了许可证，则不需要 AWS 订阅。NetApp 已限制 BYOL 许可的购买、扩展和续订。有关详细信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 许可可用性受限"^]。https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html["了解如何向控制台添加其他 AWS 凭证"^]。 
+| 编辑凭证 | 选择要与此 Cloud Volumes ONTAP 系统一起使用的 AWS 凭据和市场订阅。选择 *添加订阅* ，将所选凭据与新的 AWS 市场订阅相关联。订阅可以是年度合同，也可以是按小时费率支付 Cloud Volumes ONTAP。如果您直接从 NetApp（Bring-Your-Own License 或 BYOL）购买了许可证，则不需要 AWS 订阅。NetApp 已限制 BYOL 许可证的购买、扩展和续订。有关详细信息，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#restricted-availability-of-byol-licensing-for-cloud-volumes-ontap["Cloud Volumes ONTAP的 BYOL 许可可用性受限"^]。https://docs.netapp.com/us-en/console-setup-admin/task-adding-aws-accounts.html["了解如何向控制台添加其他 AWS 凭证"^]。 
 |===
 +
 
-TIP: 如果多个 IAM 用户在同一个 AWS 账户中工作，则每个用户都需要订阅。第一个用户订阅后，AWS 市场会通知后续用户他们已经订阅，如下图所示。当 AWS 账户有订阅时，每个 IAM 用户都需要将自己与该订阅关联起来。如果您看到下面显示的消息，请单击“*单击此处*”链接转到控制台网站并完成该过程。image:screenshot_aws_marketplace.gif["当 AWS 账户已有订阅但特定 IAM 用户可能没有时，显示Cloud Volumes ONTAP控制台的订阅页面的屏幕截图。"]
+TIP: 如果多个 IAM 用户在同一个 AWS 账户中工作，则每个用户都需要订阅。第一个用户订阅后，AWS Marketplace 会通知后续用户他们已经订阅，如下图所示。当 AWS _account_ 已有订阅时，每个 IAM 用户都需要将自己与该订阅相关联。如果您看到下面显示的消息，请选择 *click here* 链接转到 Console 网站并完成此过程。 image:screenshot_aws_marketplace.gif["当 AWS 账户已有订阅但特定 IAM 用户可能没有时，显示Cloud Volumes ONTAP控制台的订阅页面的屏幕截图。"]
 
 . *服务*：保持服务启用或禁用您不想在此Cloud Volumes ONTAP系统中使用的单个服务。
 +
@@ -397,11 +397,11 @@ link:concept-security.html#encryption-of-data-at-rest["了解有关受支持的�
 ** link:task-set-up-licensing-aws.html["了解如何设置许可"^] 。
 
 
-. * Cloud Volumes ONTAP配置*（仅限年度 AWS Marketplace 合同）：查看默认配置并单击*继续*或单击*更改配置*以选择您自己的配置。
+. *Cloud Volumes ONTAP Configuration* （仅适用于年度 AWS Marketplace 合同）：查看默认配置并选择 *Continue* （继续）或选择 *Change Configuration* （更改配置）以选择您自己的配置。
 +
 如果保留默认配置，则只需要指定一个卷，然后审核并批准该配置。
 
-. *预配置包*（按小时或仅限 BYOL）：选择其中一个包以快速启动Cloud Volumes ONTAP，或单击*更改配置*以选择您自己的配置。
+. *预配置包*（仅限每小时或 BYOL）：选择其中一个包以快速启动 Cloud Volumes ONTAP，或选择*更改配置*以选择自己的配置。
 +
 如果您选择其中一个包，那么您只需要指定一个卷，然后审核并批准配置。
 
@@ -445,7 +445,7 @@ link:concept-worm.html["了解有关 WORM 存储的更多信息"^] 。
 .. 如果您激活 WORM 存储，请选择保留期限。
 
 
-. *创建卷*：输入新卷的详细信息或单击*跳过*。
+. *Create Volume*：输入新卷的详细信息或选择 *Skip*。
 +
 link:concept-client-protocols.html["了解支持的客户端协议和版本"^] 。
 
@@ -515,9 +515,9 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例�
 . *审核并批准*：审核并确认您的选择。
 +
 .. 查看有关配置的详细信息。
-.. 单击“更多信息”以查看有关支持和控制台将购买的 AWS 资源的详细信息。
+.. 选择 *更多信息* 以查看有关支持和控制台将购买的 AWS 资源的详细信息。
 .. 选中*我明白...*复选框。
-.. 单击“*开始*”。
+.. 选择 *Go*。
 
 
 
@@ -525,7 +525,7 @@ image:screenshot_cot_vol.gif["屏幕截图：显示为Cloud Volumes ONTAP实例�
 .结果
 控制台启动Cloud Volumes ONTAP HA 对。您可以在*审计*页面上跟踪进度。
 
-如果您在启动 HA 对时遇到任何问题，请查看失败消息。您也可以选择系统并单击重新创建环境。
+如果您在启动 HA 对时遇到任何问题，请查看故障消息。您还可以选择系统并选择重新创建环境。
 
 .完成后
 * 如果您配置了 CIFS 共享，请授予用户或组对文件和文件夹的权限，并验证这些用户是否可以访问共享并创建文件。

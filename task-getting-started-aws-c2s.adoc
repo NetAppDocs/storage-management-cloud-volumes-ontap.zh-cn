@@ -68,7 +68,7 @@ summary: 您可以在 AWS Secret Cloud 和 Top Secret Cloud 环境中部署 Clou
 
 
 .步骤
-. 转到 AWS IAM 控制台并单击 *策略*。
+. 转到 AWS IAM 控制台并选择 *策略*。
 . 为控制台代理实例创建策略。
 +
 
@@ -592,17 +592,17 @@ docker restart <docker-id>
 . 从左侧导航菜单中，选择*Licenses and subscriptions*。
 . 在 * Cloud Volumes ONTAP* 面板上，选择 *查看*。
 . 在 * Cloud Volumes ONTAP* 选项卡上，选择 *许可证>基于节点的许可证*。
-. 单击“*未分配*”。
-. 单击“添加未分配的许可证”。
+. 选择*未分配*。
+. 选择*添加未分配的许可证*。
 . 输入许可证的序列号或上传许可证文件。
 . 如果您还没有许可证文件，则需要从 netapp.com 手动上传许可证文件。
 +
 .. 前往link:https://register.netapp.com/site/vsnr/register/getlicensefile["NetApp许可证文件生成器"^]并使用您的NetApp支持站点凭据登录。
-.. 输入您的密码，选择您的产品，输入序列号，确认您已阅读并接受隐私政策，然后单击*提交*。
+.. 输入您的密码，选择您的产品，输入序列号，确认您已阅读并接受隐私政策，然后选择*Submit*。
 .. 选择您是否希望通过电子邮件或直接下载接收 serialnumber.NLF JSON 文件。
 
 
-. 单击“添加许可证”。
+. 选择*添加许可证*。
 
 
 .结果
@@ -619,7 +619,7 @@ docker restart <docker-id>
 对于 HA 对，需要密钥对来启用对 HA 中介的基于密钥的 SSH 身份验证。
 
 .步骤
-. 在“*系统*”页面上，单击“*添加系统*”。
+. 在*系统*页面上，选择*添加系统*。
 . 在“*创建*”下，选择Cloud Volumes ONTAP。
 +
 对于 HA：在 *创建* 下，选择Cloud Volumes ONTAP或Cloud Volumes ONTAP HA。

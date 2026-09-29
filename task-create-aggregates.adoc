@@ -22,12 +22,10 @@ CAUTION: 必须直接从控制台创建和删除所有磁盘和聚合。您不�
 .步骤
 . 从左侧导航菜单中，选择“存储”>“管理”。
 . 在“*系统*”页面上，双击要管理聚合的Cloud Volumes ONTAP系统的名称。
-. 在“聚合”选项卡上，单击“添加聚合”，然后指定聚合的详细信息。
+. 在"聚合"选项卡上，选择 *Add Aggregate*，然后指定聚合的详细信息。
 +
 [role="tabbed-block"]
 ====
-ifdef::aws[]
-
 .AWS
 --
 ** 如果系统提示您选择磁盘类型和磁盘大小，请参阅link:task-planning-your-config.html["在 AWS 中规划您的Cloud Volumes ONTAP配置"]。
@@ -41,26 +39,16 @@ link:concept-aws-elastic-volumes.html["了解有关弹性卷支持的更多信�
 
 
 --
-endif::aws[]
-
-ifdef::azure[]
-
 .Azure
 --
 有关磁盘类型和磁盘大小的帮助，请参阅link:task-planning-your-config-azure.html["在 Azure 中规划Cloud Volumes ONTAP配置"]。
 
 --
-endif::azure[]
-
-ifdef::gcp[]
-
 .Google Cloud
 --
 有关磁盘类型和磁盘大小的帮助，请参阅link:task-planning-your-config-gcp.html["在 Google Cloud 中规划您的Cloud Volumes ONTAP配置"]。
 
 --
-endif::gcp[]
-
 ====
-. 单击“*添加*”，然后单击“*批准并购买*”。
+. 选择*添加*，然后选择*批准并购买*。
 

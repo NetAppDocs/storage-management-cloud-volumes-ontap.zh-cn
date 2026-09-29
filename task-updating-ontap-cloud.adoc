@@ -39,15 +39,14 @@ summary: 从NetApp Console升级Cloud Volumes ONTAP以获取最新的功能和�
 
 
 [[supported-upgrade-paths]]
-=== 支持的升级路径
+== 支持的升级路径
 
 您可以升级的 Cloud Volumes ONTAP 版本取决于您当前运行的版本。下表中发行版中的每个通用版本或修补程序版本表示可用于升级的基本版本。有关可用修补程序的详细信息，请参见每个版本的 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-new.html["版本化发行说明"^]。
 
-ifdef::aws[]
 
 
-
-==== 支持的 AWS 升级路径
+[[aws]]
+=== AWS
 
 [cols="2*"]
 |===
@@ -152,13 +151,10 @@ ifdef::aws[]
 
 | 8.3 | 9.0 
 |===
-endif::aws[]
-
-ifdef::azure[]
 
 
-
-==== Azure 支持的升级路径
+[[azure]]
+=== Azure
 
 [cols="2*"]
 |===
@@ -193,13 +189,10 @@ ifdef::azure[]
 * 9.10.1 P12 -> 9.11.1 P20
 
 
-endif::azure[]
-
-ifdef::gcp[]
 
 
-
-==== 支持的 Google Cloud 升级路径
+[[google-cloud]]
+=== Google Cloud
 
 [cols="2*"]
 |===
@@ -304,8 +297,6 @@ ifdef::gcp[]
 
 | 8.3 | 9.0 
 |===
-endif::gcp[]
-
 请注意以下事项：
 
 * Cloud Volumes ONTAP支持的升级路径与本地ONTAP集群支持的升级路径不同。
@@ -441,8 +432,8 @@ NOTE: 尽管NetApp Backup and Recovery使用SnapMirror的实现来创建备份�
 
 NOTE: 您从中访问控制台的计算机必须具有与Cloud Volumes ONTAP 的网络连接。例如，您可能需要从云提供商网络中的跳转主机登录到控制台。
 
-. 单击*保护>关系*。
-. 选择关系并单击*操作>静默*。
+. 选择 *Protection > Relationships*。
+. 选择此关系，然后选择 *Operations > Quiesce*。
 
 
 
@@ -456,15 +447,15 @@ NOTE: 您从中访问控制台的计算机必须具有与Cloud Volumes ONTAP 的
 以下步骤介绍了如何使用ONTAP System Manager 9.3 及更高版本。
 
 .步骤
-. 在Cloud Volumes ONTAP系统上，单击 *Aggregates* 选项卡。
-. 在所需的聚合图块上，单击 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标，然后选择*查看聚合详细信息*。
+. 在 Cloud Volumes ONTAP 系统上，选择 *Aggregates* 选项卡。
+. 在所需的聚合图块上，选择 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标，然后选择*查看聚合详细信息*。
 +
 image:screenshots_aggregate_details_state.png["屏幕截图：查看聚合信息时显示“状态”字段。"]
 
 . 如果聚合处于脱机状态，请使用ONTAP系统管理器使聚合处于联机状态：
 +
-.. 单击“存储”>“聚合和磁盘”>“聚合”。
-.. 选择聚合，然后单击*更多操作>状态>在线*。
+.. 选择 *Storage > Aggregates & Disks > Aggregates*。
+.. 选择聚合，然后选择*更多操作 > 状态 > 在线*。
 
 
 
@@ -511,20 +502,20 @@ Cloud Volumes ONTAP系统上不得进行卷或聚合创建等操作。
 +
 image:screenshot_overview_upgrade.png["显示“概览”选项卡下“立即升级！”链接的屏幕截图。"]
 
-. 如果要升级已安装的Cloud Volumes ONTAP版本，请单击“立即升级！”默认情况下，您会看到最新的、兼容的升级版本。
+. 如果要升级已安装的 Cloud Volumes ONTAP，请选择 *立即升级！*默认情况下，您会看到用于升级的最新兼容版本。
 +
 image:screenshot_upgrade_select_versions.png["升级Cloud Volumes ONTAP版本页面的屏幕截图。"]
 
 +
-如果要升级到其他版本，请单击“选择其他版本”。您会看到列出的最新Cloud Volumes ONTAP版本，这些版本也与您系统上安装的版本兼容。例如，您的系统上安装的版本是9.12.1P3，并且有以下兼容版本可用：
+如果要升级到其他版本，请选择 *Select other versions*。您会看到列出的最新 Cloud Volumes ONTAP 版本，这些版本也与系统上安装的版本兼容。例如，您的系统上安装的版本是 9.12.1P3，并且提供以下兼容版本：
 
 +
 ** 9.12.1P4 至 9.12.1P14
 ** 9.13.1 和 9.13.1P1 您会看到 9.13.1P1 是升级的默认版本，而 9.12.1P13、9.13.1P14、9.13.1 和 9.13.1P1 是其他可用版本。
 
 
-. 或者，您可以单击“所有版本”来输入要升级到的另一个版本（例如，已安装版本的下一个补丁）。有关当前Cloud Volumes ONTAP版本的兼容升级路径，请参阅link:task-updating-ontap-cloud.html#supported-upgrade-paths["支持的升级路径"]。
-. 单击“*保存*”，然后单击“*应用*”。image:screenshot_upgrade_other_versions.png["显示可升级版本的屏幕截图。"]
+. （可选）您可以选择 *All versions* 以输入要升级到的另一个版本（例如，已安装版本的下一个修补程序）。有关当前 Cloud Volumes ONTAP 版本的兼容升级路径，请参阅 link:task-updating-ontap-cloud.html#supported-upgrade-paths["支持的升级路径"]。
+. 选择*保存*，然后选择*应用*。 image:screenshot_upgrade_other_versions.png["显示可升级版本的屏幕截图。"]
 . 在升级Cloud Volumes ONTAP页面中，阅读 EULA，然后选择 *我已阅读并同意 EULA*。
 . 选择*升级*。
 . 要查看进度，请在Cloud Volumes ONTAP系统上选择 *Audit*。
@@ -574,8 +565,8 @@ NOTE: 预定义的Cloud Volumes ONTAP安全组默认允许出站 HTTP 连接。
 ** `/opt/application/netapp/cloudmanager/ontap/images/`
 
 
-. 在系统上，单击 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标，然后单击 *Update Cloud Volumes ONTAP*。
-. 在更新Cloud Volumes ONTAP版本页面上，输入 URL，然后单击 *更改图像*。
+. 在系统上，选择 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标，然后选择 *Update Cloud Volumes ONTAP*。
+. 在"Update Cloud Volumes ONTAP version"页面上，输入 URL，然后选择 *Change Image*。
 +
 如果您将软件映像复制到上面显示的路径中的控制台代理，则需要输入以下 URL：
 
@@ -586,7 +577,7 @@ NOTE: 预定义的Cloud Volumes ONTAP安全组默认允许出站 HTTP 连接。
 
 NOTE: 在 URL 中，*image-file-name* 必须遵循“cot.image.9.13.1P2.tgz”格式。
 
-. 单击“继续”进行确认。
+. 选择*继续*确认。
 
 
 .结果
@@ -594,8 +585,6 @@ NOTE: 在 URL 中，*image-file-name* 必须遵循“cot.image.9.13.1P2.tgz”�
 
 .完成后
 如果您暂停了SnapMirror传输，请使用系统管理器恢复传输。
-
-ifdef::gcp[]
 
 
 
@@ -619,5 +608,3 @@ _maxDownloadSessions_ 的值可以是 1 或任何大于 1 的整数。如果值�
 请注意，32 是一个示例值。您应该使用的值取决于您的 NAT 配置和您可以同时拥有的会话数。
 
 https://docs.netapp.com/us-en/console-automation/cm/api_ref_resources.html#occmconfig["了解有关 /occm/config API 调用的更多信息"^]。
-
-endif::gcp[]

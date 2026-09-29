@@ -89,7 +89,7 @@ link:reference-networking-gcp.html["Google Cloud 中的网络要求"]
 
 .步骤
 . 从左侧导航菜单中，选择“存储”>“管理”。
-. [[订阅]]在 Canvas 页面上，单击 *添加系统* 并按照提示进行操作。
+. [[subscribe]]在画布页面上，选择*添加系统*，然后按照提示操作。
 . 选择您的云提供商（*Amazon Web Services*、*Microsoft Azure* 或 *Google Cloud*）> *Cloud Volumes ONTAP/Cloud Volumes ONTAP HA* > *Add new*。默认情况下会选择 *Quick create* 选项。
 +
 .快速创建选项的屏幕截图示例
@@ -117,9 +117,13 @@ image:screenshot-quick-start-gcp.png["width=500,alt=\"Google Cloud 快速创建\
 
 
 .系统详细信息
-. *云提供商帐户/凭据/Google Cloud 项目*：根据您的 Console 代理自动填写帐户和订阅详细信息。如果您有多个帐户或订阅，请选择要使用的帐户或订阅。如果 Console 代理不可用，系统将提示您 https://docs.netapp.com/us-en/console-setup-admin/concept-agent-install-options.html["创建控制台代理"^]。
+. *云提供商帐户/凭据/Google Cloud 项目*：根据您的 Console 代理自动填写帐户和订阅详细信息。如果您有多个帐户或订阅，请选择要使用的帐户或订阅。如果 Console 代理不可用，系统将提示您 https://docs.netapp.com/us-en/console-setup-admin/concept-agent-install-options.html["创建控制台代理"^]。对于 Google Cloud，您需要选择具有项目名称的市场订阅。
 . *名称*：输入 Cloud Volumes ONTAP 系统的名称（也称为集群名称）。NetApp Console 使用系统（集群）名称来命名 Cloud Volumes ONTAP 系统和 VM 实例。如果您选择该选项，它还会使用该名称作为预定义安全组的前缀。
 . *ONTAP 凭据*：这些是 Cloud Volumes ONTAP 集群管理员帐户的凭据。您可以使用这些凭据通过 ONTAP System Manager 或 ONTAP CLI 连接到 Cloud Volumes ONTAP。您可以保留默认的 _admin_ 用户名或将其更改为自定义用户名。
+
+
+对于 _Google Cloud_，如果您计划将 link:concept-data-tiering.html["数据分层"] 或  https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery"^] 与 Cloud Volumes ONTAP 结合使用，则需要启用 *Service Account* 并选择具有预定义 Storage Admin 角色的服务帐户。link:task-creating-gcp-service-account.html["了解如何创建服务帐号"^]。与 Console 代理关联的服务帐户 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html["应该具有所需的权限"^]。
+
 . *标签* ：标签是 AWS 或 Azure 资源的元数据。Console 将标签添加到 Cloud Volumes ONTAP 实例以及与该实例关联的每个资源。在创建 Cloud Volumes ONTAP 系统时，您最多可以从用户界面添加 15 个标签，然后可以在创建后添加更多标签。有关更多信息，请参阅：
 +
 [role="tabbed-block"]
@@ -197,7 +201,7 @@ NOTE: Cloud Volumes ONTAP 9.19.1 及更高版本支持link:concept-ha-google-clo
 
 .充电和服务
 . *许可证*：选择要用于此 Cloud Volumes ONTAP 系统的许可证类型。您可以从 Professional、Essentials 和 Freemium 许可证中进行选择。有关不同许可证的信息，请参阅 link:concept-licensing.html["了解Cloud Volumes ONTAP许可证"^]。
-. *数据服务和功能*：保持服务启用或禁用您不想与Cloud Volumes ONTAP一起使用的服务。
+. *数据服务和功能*：保持启用这些服务，或者禁用您不想与 Cloud Volumes ONTAP 结合使用的服务。在 _Google Cloud_ 中，要选择“备份和恢复”或使用 NetApp Cloud Tiering，您必须已指定服务帐户。
 +
 ** https://docs.netapp.com/us-en/data-services-data-classification/concept-classification.html["了解有关NetApp分类的更多信息"^]
 ** https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["了解有关NetApp Backup and Recovery的更多信息"^]
@@ -209,8 +213,12 @@ TIP: 如果您想利用 WORM 和数据分层，则必须禁用备份和恢复并
 
 
 . * NetApp支持站点帐户*：如果您有多个帐户，请选择要使用的帐户。
-. 检查或编辑您输入的详细信息，然后单击*创建*。
+. 检查或编辑您输入的详细信息，然后选择*Create*。
 
+
+在 _Azure_ 中，*概述*部分显示部署过程完成时将分配的资源。
+
+在 _AWS_ 中，创建 Cloud Volumes ONTAP 系统后，NetApp Console 立即在指定的 VPC 中启动测试实例以验证连接。如果成功，Console 会立即终止实例，然后开始部署系统。如果 Console 无法验证连接，则系统创建失败。测试实例可以是 `t2.nano`（对于默认 VPC 租赁）或 `m3.medium`（对于专用 VPC 租赁）。
 
 .完成后
 控制台部署Cloud Volumes ONTAP系统。您可以在审核页面上跟踪进度。

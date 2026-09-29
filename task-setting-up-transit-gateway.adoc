@@ -32,10 +32,10 @@ image:diagram_transit_gateway.png["该图显示了一个 VPC 中的 HA 配置，
 . https://docs.aws.amazon.com/vpc/latest/tgw/tgw-getting-started.html["创建中转网关并将 VPC 附加到该网关"^] 。
 . 将 VPC 与传输网关路由表关联。
 +
-.. 在 *VPC* 服务中，单击 *Transit Gateway Route Tables*。
+.. 在 *VPC* 服务中，选择 *Transit Gateway Route Tables*。
 .. 选择路由表。
-.. 单击*关联*，然后选择*创建关联*。
-.. 选择要关联的附件（VPC），然后单击*创建关联*。
+.. 选择*Associations*，然后选择*Create association*。
+.. 选择要关联的附件（VPC），然后选择*创建关联*。
 
 
 . 通过指定 HA 对的浮动 IP 地址在传输网关的路由表中创建路由。
@@ -75,13 +75,13 @@ image:screenshot_transit_gateway3.png["AWS 控制台的屏幕截图，显示了 
 
 . 将安全组设置更新为 VPC 的所有流量。
 +
-.. 在虚拟私有云下，单击*子网*。
-.. 单击“*路由表*”选项卡，为 HA 对的其中一个浮动 IP 地址选择所需的环境。
-.. 单击“安全组”。
+.. 在虚拟私有云下，选择*子网*。
+.. 选择 *Route table* 选项卡，为 HA 对的一个浮动 IP 地址选择所需的环境。
+.. 选择*安全组*。
 .. 选择*编辑入站规则*。
-.. 单击“添加规则”。
+.. 选择*添加规则*。
 .. 在类型下，选择*所有流量*，然后选择 VPC IP 地址。
-.. 单击“保存规则”以应用更改。
+.. 选择*保存规则*以应用更改。
 
 
 . 使用浮动 IP 地址将卷挂载到客户端。

@@ -41,7 +41,7 @@ TIP: 目前，您只能通过 Azure 门户将NVRAM磁盘从 P20 层升级到 P30
 `storage failover takeover -ofnode <Node02>`
 
 . Sign inAzure 门户。
-. 接管完成后，请转到虚拟机实例。 `node02`然后点击“停止”按钮将其关闭。
+. 接管完成后，转到  `node02` 的虚拟机实例，然后选择 *Stop* 按钮将其关闭。
 . 导航至资源组 `node02` 从磁盘列表中选择NVRAM磁盘以更改层级。
 . 选择*尺寸+性能*。
 . 在“性能等级”下拉菜单中，选择 `P30 - 5000 IOPS, 200MB/s`。

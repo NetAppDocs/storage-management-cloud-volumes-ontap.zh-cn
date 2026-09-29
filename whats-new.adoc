@@ -1031,8 +1031,8 @@ link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-a
 现在，您可以通过使用BlueXP digital wallet中改进的导航点来体验简化的Cloud Volumes ONTAP许可证管理：
 
 * 通过*管理>Licenses and subscriptions>概述/直接许可证*选项卡轻松访问您的Cloud Volumes ONTAP许可证信息。
-* 单击“概览”选项卡中 Cloud Volume ONTAP面板上的“查看”以全面了解基于容量的许可证。此高级视图提供有关您的许可证和订阅的详细信息。
-* 如果您更喜欢以前的界面，您可以单击“切换到旧视图”按钮按类型查看许可证详细信息并修改许可证的收费方式。
+* 在*概述*选项卡的 Cloud Volumes ONTAP 面板上选择*查看*，以全面了解您的基于容量的许可证。此高级视图提供有关您的许可证和订阅的详细信息。
+* 如果您更喜欢之前的界面，可以选择*切换到旧版视图*按钮，按类型查看许可证详细信息，并修改许可证的收费方式。
 
 
 link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-capacity-licenses.html["管理基于容量的许可证"^]。

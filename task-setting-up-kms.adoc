@@ -53,7 +53,7 @@ summary: 如果您想将 Amazon 加密与Cloud Volumes ONTAP一起使用，则�
 --
 . 在 AWS Console 上，转到 *KMS > Customer managed keys*，然后选择您的 CMEK 密钥。
 . 在*主要用户*部分，选择*添加*。
-. 选择您的 Console 代理实例角色，例如， `occm-role`，然后单击*添加*。
+. 选择您的 Console 代理实例角色，例如 `occm-role`，然后选择 *添加*。
 . 保存更改。
 
 

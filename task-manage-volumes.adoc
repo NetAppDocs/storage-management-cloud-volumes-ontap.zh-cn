@@ -32,37 +32,37 @@ summary: NetApp Console使您能够管理卷和 CIFS 服务器。它还会提示
 +
 image:screenshot_manage_vol_button.png["“卷”选项卡下的“管理卷”按钮的屏幕截图。"]
 
-. 在所需的卷图块上，单击*管理卷*。
+. 在所需的卷磁贴上，选择 *Manage volume*。
 +
 [cols="30,70"]
 |===
 | 任务 | 操作 
 
 
-| 查看有关卷的信息 | 在“管理卷”面板的“卷操作”下，单击“查看卷详细信息”。 
+| 查看有关卷的信息 | 在"管理卷"面板中的"卷操作"下，选择*查看卷详细信息*。 
 
 
 | 获取NFS挂载命令  a| 
-.. 在“管理卷”面板的“卷操作”下，单击“安装命令”。
-.. 单击“复制”。
+.. 在"管理卷"面板的"卷操作"下，选择 *Mount Command*。
+.. 选择*复制*。
 
 
 
 
 | 克隆卷  a| 
-.. 在“管理卷”面板的“卷操作”下，单击“克隆卷”。
-.. 根据需要修改克隆名称，然后单击“*克隆*”。
+.. 在"管理卷"面板的"卷操作"下，选择*Clone the volume*。
+.. 根据需要修改克隆名称，然后选择*Clone*。
 
 
 此过程会创建一个FlexClone卷。  FlexClone卷是可写的、时间点副本，它节省空间，因为它只使用少量空间来存储元数据，并且仅在更改或添加数据时才消耗额外的空间。
 
-要了解有关FlexClone卷的更多信息，请参阅 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["ONTAP 9 逻辑存储管理指南"^]。
+要了解有关 FlexClone 卷的更多信息，请参阅 link:http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-vsmg/home.html["ONTAP 9 逻辑存储管理指南"^]。
 
 
 
 | 编辑卷（仅限读写卷）  a| 
-.. 在“管理卷”面板的“卷操作”下，单击“编辑卷设置”
-.. 修改卷的快照策略、NFS 协议版本、NFS 访问控制列表（导出策略）或共享权限，然后单击*应用*。
+.. 在"管理卷"面板的"卷操作"下，选择*编辑卷设置*
+.. 修改卷的 Snapshot 策略、NFS 协议版本、NFS 访问控制列表（导出策略）或共享权限，然后选择 *Apply*。
 
 
 
@@ -71,30 +71,30 @@ NOTE: 如果您需要自定义 Snapshot 策略，则可以使用ONTAP System Man
 
 
 | 删除卷  a| 
-.. 在“管理卷”面板的“卷操作”下，单击“删除卷”。
+.. 在"管理卷"面板的"卷操作"下，选择*删除卷*。
 .. 在“删除卷”窗口下，输入要删除的卷的名称。
-.. 再次单击“*删除*”进行确认。
+.. 再次选择*删除*进行确认。
 
 
 
 
 | 按需创建 Snapshot 副本  a| 
-.. 在“管理卷”面板的“保护操作”下，单击“创建 Snapshot 副本”。
-.. 如果需要，更改名称，然后单击“*创建*”。
+.. 在"管理卷"面板中的"保护操作"下，选择*Create a Snapshot copy*。
+.. 如果需要，请更改名称，然后选择*创建*。
 
 
 
 
 | 将数据从 Snapshot 副本还原到新卷  a| 
-.. 在“管理卷”面板的“保护操作”下，单击“从 Snapshot 副本还原”。
-.. 选择一个 Snapshot 副本，输入新卷的名称，然后单击“*恢复*”。
+.. 在"管理卷"面板中的"保护操作"下，选择 *Restore from Snapshot copy*。
+.. 选择一个 Snapshot 副本，输入新卷的名称，然后选择*还原*。
 
 
 
 
 | 更改底层磁盘类型  a| 
-.. 在“管理卷”面板的“高级操作”下，单击“更改磁盘类型”。
-.. 选择磁盘类型，然后单击“*更改*”。
+.. 在"管理卷"面板中的"高级操作"下，选择*更改磁盘类型*。
+.. 选择磁盘类型，然后选择 *Change*。
 
 
 
@@ -103,8 +103,8 @@ NOTE: 控制台将卷移动到使用所选磁盘类型的现有聚合，或者�
 
 
 | 更改分层策略  a| 
-.. 在“管理卷”面板的“高级操作”下，单击“更改分层策略”。
-.. 选择不同的策略并单击*更改*。
+.. 在"管理卷"面板中的"高级操作"下，选择*更改分级策略*。
+.. 选择其他策略，然后选择*更改*。
 
 
 
@@ -113,9 +113,9 @@ NOTE: 控制台将卷移动到使用具有分层功能的所选磁盘类型的�
 
 
 | 删除卷  a| 
-.. 选择一个卷，然后单击“*删除*”。
+.. 选择一个卷，然后选择 *Delete*。
 .. 在对话框中输入卷的名称。
-.. 再次单击“*删除*”进行确认。
+.. 再次选择*删除*进行确认。
 
 
 |===
@@ -134,10 +134,10 @@ NOTE: 控制台将卷移动到使用具有分层功能的所选磁盘类型的�
 . 选择System Manager视图以通过ONTAP System Manager调整卷的大小。请参阅 link:task-administer-advanced-view.html#get-started-with-system-manager["开始使用系统管理器"]。
 . 从左侧导航菜单中，选择“存储”>“卷”。
 . 从卷列表中，确定应调整大小的卷。
-. 点击选项图标image:screenshot_gallery_options.gif["烤肉串图标"]。
+. 选择选项图标 image:screenshot_gallery_options.gif["烤肉串图标"]。
 . 选择*调整大小*。
 . 在*调整卷大小*屏幕上，根据需要编辑容量和快照预留百分比。您可以将现有的可用空间与修改后的容量进行比较。
-. 单击“保存”。
+. 选择 *保存*。
 
 
 image:screenshot-resize-volume.png["屏幕显示卷调整大小后修改后的容量"]
@@ -152,8 +152,8 @@ image:screenshot-resize-volume.png["屏幕显示卷调整大小后修改后的�
 如果您更改 DNS 服务器或 Active Directory 域，则需要修改Cloud Volumes ONTAP中的 CIFS 服务器，以便它可以继续为客户端提供存储服务。
 
 .步骤
-. 从Cloud Volumes ONTAP系统的 *Overview* 选项卡中，单击右侧面板下的 *Feature* 选项卡。
-. 在 CIFS 设置字段下，单击 *铅笔图标* 以显示 CIFS 设置窗口。
+. 在 Cloud Volumes ONTAP 系统的 *Overview* 选项卡中，选择右侧面板下的 *Feature* 选项卡。
+. 在 CIFS 设置字段中，选择*铅笔图标*以显示 CIFS 设置窗口。
 . 指定 CIFS 服务器的设置：
 +
 [cols="30,70"]
@@ -170,7 +170,7 @@ image:screenshot-resize-volume.png["屏幕显示卷调整大小后修改后的�
 | 授权加入域的凭据 | 具有足够权限将计算机添加到 AD 域内指定组织单位 (OU) 的 Windows 帐户的名称和密码。 
 
 
-| DNS 主 IP 地址和辅助 IP 地址 | 为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含定位 Active Directory LDAP 服务器和 CIFS 服务器将加入的域的域控制器所需的服务位置记录 (SRV)。ifdef::gcp[] 如果您正在配置 Google Managed Active Directory，则默认情况下可以使用 169.254.169.254 IP 地址访问 AD。endif::gcp[] 
+| DNS 主 IP 地址和辅助 IP 地址 | 为 CIFS 服务器提供名称解析的 DNS 服务器的 IP 地址。列出的 DNS 服务器必须包含查找 CIFS 服务器将加入的域的 Active Directory LDAP 服务器和域控制器所需的服务位置记录 (SRV)。如果您正在配置 Google 管理的 Active Directory，则默认情况下可以使用 169.254.169.254 IP 地址访问 AD。 
 
 
 | DNS 域 | Cloud Volumes ONTAP存储虚拟机 (SVM) 的 DNS 域。大多数情况下，该域与 AD 域相同。 
@@ -182,29 +182,13 @@ image:screenshot-resize-volume.png["屏幕显示卷调整大小后修改后的�
 | 组织单位  a| 
 AD 域内与 CIFS 服务器关联的组织单位。默认值为 CN=Computers。
 
-ifdef::aws[]
+** AWS：要将 AWS Managed Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 *OU=Computers,OU=corp*。
+** Azure：若要将 Azure AD Domain Services 配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 *OU=AADDC Computers* 或 *OU=AADDC Users*。Azure 文档：link:https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou["在 Azure AD Domain Services 托管域中创建组织单元 （OU）"^]
+** Google Cloud：要将 Google Managed Microsoft AD 配置为 Cloud Volumes ONTAP 的 AD 服务器，请在此字段中输入 *OU=Computers,OU=Cloud*。Google Cloud 文档：link:https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google Managed Microsoft AD 中的组织单位"^]
 
-** 要将 AWS Managed Microsoft AD 配置为Cloud Volumes ONTAP 的AD 服务器，请在此字段中输入 *OU=Computers,OU=corp*。
-
-
-endif::aws[]
-
-ifdef::azure[]
-
-** 要将 Azure AD 域服务配置为Cloud Volumes ONTAP 的AD 服务器，请在此字段中输入 *OU=AADDC Computers* 或 *OU=AADDC Users*。link:https://docs.microsoft.com/en-us/azure/active-directory-domain-services/create-ou["Azure 文档：在 Azure AD 域服务托管域中创建组织单位 (OU)"^]
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
-** 要将 Google Managed Microsoft AD 配置为Cloud Volumes ONTAP的 AD 服务器，请在此字段中输入 *OU=Computers,OU=Cloud*。link:https://cloud.google.com/managed-microsoft-ad/docs/manage-active-directory-objects#organizational_units["Google Cloud 文档：Google Managed Microsoft AD 中的组织单位"^]
-
-
-endif::gcp[]
 
 |===
-. 单击“*设置*”。
+. 选择*设置*。
 
 
 .结果
@@ -263,8 +247,8 @@ TIP: 当聚合已达到 90% 的已用容量时，控制台（Console）将显示
 
 . 确定要移出聚合的一个或多个卷：
 +
-.. 在Cloud Volumes ONTAP系统中，单击 *Aggregates tab*。
-.. 在聚合图块上，单击 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标，然后单击 *查看聚合详细信息*。
+.. 在 Cloud Volumes ONTAP 系统中，选择 *Aggregates 选项卡*。
+.. 在聚合图块上，选择 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标，然后选择*查看聚合详细信息*。
 .. 在“聚合详细信息”屏幕的“概述”选项卡下，查看每个卷的大小并选择要移出聚合的一个或多个卷。
 +
 您应该选择足够大的卷来释放聚合中的空间，以避免将来出现额外的容量问题。
@@ -303,11 +287,9 @@ image::screenshot_aggr_volume_overview.png[屏幕截图聚合量概览]
 .关于此任务
 您可以按照此任务中的步骤来更正以下“需要操作”消息：
 
-[]
-====
-移动卷对于避免容量问题是必要的；但是，控制台无法为您执行此操作，因为系统已达到磁盘限制。
 
-====
+NOTE: 移动卷是避免容量问题的必要操作；但是，如果系统达到磁盘限制，Console 将无法为您执行此操作。
+
 .步骤
 . 确定具有可用容量的Cloud Volumes ONTAP系统，或部署新系统。
 . 将源系统拖放到目标系统以执行卷的一次性数据复制。
@@ -339,16 +321,14 @@ image::screenshot_aggr_volume_overview.png[屏幕截图聚合量概览]
 .关于此任务
 您可以按照此任务中的步骤来更正以下“需要操作”消息：
 
-[]
-====
-需要移动两个或更多卷以避免容量问题；但是，控制台无法为您执行此操作。
 
-====
+NOTE: 需要移动两个或更多卷以避免容量问题；但是，控制台无法为您执行此操作。
+
 .步骤
 . 验证现有聚合是否具有可供您需要移动的卷使用的容量：
 +
-.. 在Cloud Volumes ONTAP系统上，单击 *Aggregates tab*。
-.. 在所需的聚合图块上，单击 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标，然后单击*查看聚合详细信息*以查看可用容量（调配大小减去已用聚合容量）。
+.. 在 Cloud Volumes ONTAP 系统上，选择 *Aggregates 选项卡*。
+.. 在所需的聚合图块上，选择 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标，然后*查看聚合详细信息*以查看可用容量（配置大小减去已用聚合容量）。
 +
 image::screenshot_aggr_capacity.png[屏幕截图聚合容量]
 
@@ -356,8 +336,8 @@ image::screenshot_aggr_capacity.png[屏幕截图聚合容量]
 
 . 如果需要，将磁盘添加到现有聚合：
 +
-.. 选择聚合，然后单击 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标 > *Add Disks*。
-.. 选择要添加的磁盘数量，然后单击“*添加*”。
+.. 选择聚合，然后选择 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标 > *添加磁盘*。
+.. 选择要添加的磁盘数量，然后选择*Add*。
 
 
 . 如果没有可用容量的聚合，则创建一个新的聚合。

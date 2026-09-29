@@ -24,26 +24,10 @@ summary: 您可以通过将用于热数据的 SSD 或 HDD 性能层与用于非�
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]确保Cloud Volumes ONTAP与对象存储之间的连接
 [role="quick-margin-list"]
-ifdef::aws[]
-
-* 对于 AWS，您需要一个到 Amazon Simple Storage Service (Amazon S3) 的 VPC 端点。<<Requirements to tier cold data to AWS S3,了解更多>>。
-
-
-endif::aws[]
-
-ifdef::azure[]
-
+* 对于 AWS，需要将 VPC 端点连接到 Amazon Simple Storage Service（Amazon S3）。<<Requirements to tier cold data to AWS S3,了解更多>>。
 * 对于 Azure，只要NetApp Console具有所需的权限，您就不需要执行任何操作。<<将冷数据分层到 Azure Blob 存储的要求,了解更多>> 。
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
 * 对于 Google Cloud，您需要配置私有 Google Access 子网并设置服务帐户。<<将冷数据分层到 Google Cloud Storage 存储桶的要求,了解更多>> 。
 
-
-endif::gcp[]
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-3.png["三"]确保您已启用分层聚合
 [role="quick-margin-para"]
@@ -77,8 +61,6 @@ endif::gcp[]
 
 您可以在使用特定配置和功能时启用数据分层。
 
-ifdef::aws[]
-
 
 
 [[support-in-aws]]
@@ -92,10 +74,6 @@ NOTE: 使用吞吐量优化 HDD (st1) 时，我们不建议将数据分层到对
 
 * 非活动数据分层存储到 Amazon S3 存储桶。不支持分层到其他提供商。
 
-
-endif::aws[]
-
-ifdef::azure[]
 
 
 
@@ -112,10 +90,6 @@ ifdef::azure[]
 * 非活动数据分层到 Microsoft Azure Blob。不支持分层到其他提供商。
 
 
-endif::azure[]
-
-ifdef::gcp[]
-
 
 
 [[support-in-google-cloud]]
@@ -125,8 +99,6 @@ ifdef::gcp[]
 * 性能层可以是 SSD 持久磁盘、平衡持久磁盘或标准持久磁盘。
 * 非活动数据分层存储到 Google Cloud Storage。不支持分层到其他提供商。
 
-
-endif::gcp[]
 
 
 
@@ -144,8 +116,6 @@ endif::gcp[]
 
 根据您的云提供商，必须设置某些连接和权限，以便Cloud Volumes ONTAP可以将冷数据分层到对象存储。
 
-ifdef::aws[]
-
 
 
 [[requirements-to-tier-cold-data-to-amazon-s3]]
@@ -156,10 +126,6 @@ ifdef::aws[]
 创建 VPC 端点时，请确保选择与Cloud Volumes ONTAP实例相对应的区域、VPC 和路由表。您还必须修改安全组以添加允许流量到 S3 端点的出站 HTTPS 规则。否则， Cloud Volumes ONTAP无法连接到 S3 服务。
 
 如果您遇到任何问题，请参阅 https://aws.amazon.com/premiumsupport/knowledge-center/connect-s3-vpc-endpoint/["AWS Support 知识中心：为什么我无法使用网关 VPC 终端节点连接到 S3 存储桶？"^]。
-
-endif::aws[]
-
-ifdef::azure[]
 
 
 
@@ -174,10 +140,6 @@ ifdef::azure[]
 "Microsoft.Network/routeTables/join/action",
 ----
 默认情况下，自定义角色包括权限。 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-azure.html["查看控制台代理的 Azure 权限"^]
-
-endif::azure[]
-
-ifdef::gcp[]
 
 
 
@@ -200,8 +162,6 @@ link:task-creating-gcp-service-account.html["了解如何设置此服务帐号"]
 link:task-setting-up-gcp-encryption.html["了解如何将客户管理的加密密钥与Cloud Volumes ONTAP结合使用"] 。
 
 
-
-endif::gcp[]
 
 
 
@@ -240,9 +200,9 @@ image:screenshot_aggregate_tiering_enabled.png["屏幕截图显示了控制台�
 
 
 .在聚合上启用分层的步骤
-. 在ONTAP系统管理器中，单击 *存储 > 层级*。
-. 单击聚合的操作菜单并选择*附加云层*。
-. 选择要附加的云层并单击*保存*。
+. 在 ONTAP System Manager 中，选择 *存储 > 层*。
+. 选择聚合的操作菜单，然后选择 *Attach Cloud Tiers*。
+. 选择要附加的云层，然后选择*保存*。
 
 
 .下一步是什么？
@@ -263,10 +223,10 @@ Cloud Volumes ONTAP可以将读写卷上的非活动数据分层到经济高效�
 | 任务 | 操作 
 
 
-| 创建新卷 | 单击“添加新卷”。 
+| 创建新卷 | 选择 *Add New Volume*。 
 
 
-| 修改现有卷 | 选择所需的卷图块，单击*管理卷*以访问管理卷右侧面板，然后单击右侧面板下的*高级操作*和*更改分层策略*。 
+| 修改现有卷 | 选择所需的卷图块，选择*管理卷*以访问"管理卷"右侧面板，然后选择右侧面板下的*高级操作*和*更改分层策略*。 
 |===
 . 选择分层策略。
 +
@@ -317,8 +277,8 @@ image:screenshot_replication_tiering.gif["屏幕截图显示了复制卷时的 S
 有关受支持的存储类别的信息，请参阅link:concept-data-tiering.html["数据分层概述"]。
 
 .步骤
-. 在Cloud Volumes ONTAP系统上，单击菜单图标，然后单击 *存储类* 或 *Blob 存储分层*。
-. 选择一个存储类，然后单击*保存*。
+. 在 Cloud Volumes ONTAP 系统上，选择菜单图标，然后选择 *Storage Classes* 或 *Blob Storage Tiering*。
+. 选择存储类，然后选择*保存*。
 
 
 
@@ -337,16 +297,16 @@ CAUTION: 如果没有足够的空间，那么Cloud Volumes ONTAP就无法移动�
 
 .步骤
 . 从左侧导航窗格转到*管理>代理*。
-. 单击管理 Cloud Volumes ONTAP 系统的 Console 代理的 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标。
+. 选择管理 Cloud Volumes ONTAP 系统的控制台代理的 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标。
 . 选择* Cloud Volumes ONTAP设置*。
 +
 image::screenshot-settings-cloud-volumes-ontap.png[设置图标下的Cloud Volumes ONTAP设置选项的屏幕截图。]
 
-. 在“*容量*”下，单击“*聚合容量阈值 - 数据分层的可用空间比率*”。
+. 在 *Capacity* 下，选择 *Aggregate Capacity Thresholds - Free Space Ratio for Data Tiering*。
 +
 image:screenshot-cvo-settings-page.png["Cloud Volumes ONTAP容量设置概述。"]
 
-. 根据您的要求更改可用空间比例，然后单击“保存”。
+. 根据您的要求更改可用空间比率，然后选择*保存*。
 
 
 

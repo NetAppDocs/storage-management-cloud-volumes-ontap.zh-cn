@@ -81,7 +81,7 @@ security certificate sign -vserver svm_name -ca <ca_cert_name> -ca-serial <ca_ce
 . 为 Cloud Volumes ONTAP 系统配置 ONTAP S3。
 +
 .. 在 NetApp Console 的左侧导航菜单中，选择*存储 > 管理*。
-.. 选择一个 Console 代理，然后单击 Cloud Volumes ONTAP 系统，然后从右侧菜单选项中选择 *System Manager*。
+.. 选择一个控制台代理。然后选择 Cloud Volumes ONTAP 系统，然后从右侧菜单选项中选择 *System Manager*。
 .. 在 SVM 上启用 S3 协议访问。有关信息，请参阅 link:https://docs.netapp.com/us-en/ontap/s3-multiprotocol/enable-access-nas-data-task.html["ONTAP 文档：启用 S3 客户端对 NAS 数据的访问"^]。
 +
 

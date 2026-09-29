@@ -33,7 +33,13 @@ summary: 了解Cloud Volumes ONTAP 的默认配置方式可以帮助您设置和
 ** iSCSI
 ** 多租户加密密钥管理 (MTEKM)，从Cloud Volumes ONTAP 9.12.1 GA 开始
 ** NetApp Volume Encryption（仅适用于 Bring-Your-Own License (BYOL) 或注册的即用即付 (PAYGO) 系统）
-** NFS ifdef::aws[] endif::aws[] ifdef::azure[] endif::azure[]
+** NFS
+** ONTAP S3
++
+*** AWS：从 Cloud Volumes ONTAP 9.11.0 开始
+*** Azure：从 Cloud Volumes ONTAP 9.9.1 开始
+
+
 ** SnapMirror
 ** SnapRestore
 ** SnapVault
@@ -43,55 +49,29 @@ summary: 了解Cloud Volumes ONTAP 的默认配置方式可以帮助您设置和
 +
 ** 集群管理 LIF
 ** 集群间 LIF
+** AWS 单节点系统：一个 SVM 管理 LIF
+** Azure HA 系统：一个 SVM 管理 LIF
+** Google Cloud HA 系统：一个 SVM 管理 LIF
+** 节点管理 LIF
++
+Google Cloud：此 LIF 与集群间 LIF 合并。
 
-
-
-
-ifdef::azure[]
-
-* Azure 中 HA 系统上的 SVM 管理 LIF
-
-
-endif::azure[]
-
-ifdef::gcp[]
-
-* Google Cloud 中 HA 系统上的 SVM 管理 LIF
-
-
-endif::gcp[]
-
-ifdef::aws[]
-
-* AWS 单节点系统上的 SVM 管理 LIF
-
-
-endif::aws[]
-
-* 节点管理 LIF
-
-
-ifdef::gcp[]
-
-+ 在 Google Cloud 中，此 LIF 与集群间 LIF 结合在一起。
-
-endif::gcp[]
-
-* iSCSI 数据 LIF
-* CIFS 和 NFS 数据 LIF
+** iSCSI 数据 LIF
+** CIFS 和 NFS 数据 LIF
 +
 
 NOTE: 由于云提供商的要求， Cloud Volumes ONTAP默认禁用 LIF 故障转移。将 LIF 迁移到其他端口会破坏实例上 IP 地址和网络接口之间的外部映射，从而使 LIF 无法访问。
 
-+
-** Cloud Volumes ONTAP使用 HTTP 将配置备份发送到控制台代理。
+
+
+* Cloud Volumes ONTAP使用 HTTP 将配置备份发送到控制台代理。
 +
 可以从 \http://ipaddress/occm/offboxconfig/ 访问备份，其中 _ipaddress_ 是控制台代理主机的 IP 地址。
 
 +
 您可以使用备份重新配置您的Cloud Volumes ONTAP系统。有关配置备份的更多信息，请参阅 https://docs.netapp.com/us-en/ontap/system-admin/config-backup-file-concept.html["ONTAP 文档"^]。
 
-** 控制台设置的一些卷属性与其他管理工具（例如ONTAP系统管理器或ONTAP CLI）不同。
+* 控制台设置的一些卷属性与其他管理工具（例如ONTAP系统管理器或ONTAP CLI）不同。
 +
 下表列出了与默认值不同的卷属性设置：
 
@@ -122,8 +102,6 @@ NOTE: 组织或帐户管理员可以从“设置”页面修改此值。
 |===
 +
 有关这些属性的信息，请参阅link:https://docs.netapp.com/us-en/ontap-cli-9121/volume-create.html["ONTAP卷创建手册页"]。
-
-
 
 
 

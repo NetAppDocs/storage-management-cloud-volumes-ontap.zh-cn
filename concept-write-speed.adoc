@@ -46,67 +46,46 @@ NetApp Console使您能够为大多数Cloud Volumes ONTAP配置选择正常或�
 [[recommendations-when-using-high-write-speed]]
 === 使用高写入速度时的建议
 
-如果启用高写入速度，则应确保应用程序层的写保护，或者确保应用程序能够容忍数据丢失（如果发生）。
-
-ifdef::aws[]
+如果启用高写入速度，则应确保应用层的写入保护，或者确保应用程序能够容忍数据丢失（如果发生数据丢失）。并非所有 Cloud Volumes ONTAP 配置都支持高写入速度。这些配置默认使用正常写入速度。
 
 
 
-[[high-write-speed-with-an-ha-pair-in-aws]]
-=== AWS 中的 HA 对具有高写入速度
+[[high-write-speed-in-aws]]
+=== AWS 中的高写入速度
 
-如果您计划在 AWS 中的 HA 对上启用高写入速度，则应该了解多可用区 (AZ) 部署和单可用区部署之间的保护级别差异。跨多个可用区部署 HA 对可提供更高的弹性，并有助于降低数据丢失的可能性。
+单节点系统:: 如果使用单节点系统，则 Cloud Volumes ONTAP 支持所有实例类型的高写入速度。
+HA 对:: 从 9.8 版本开始， Cloud Volumes ONTAP在使用几乎所有受支持的 EC2 实例类型（m5.xlarge 和 r5.xlarge 除外）时都支持具有 HA 对的高写入速度。
++
+--
+link:reference-configs-aws.html["了解有关Cloud Volumes ONTAP支持的 Amazon EC2 实例的更多信息"]。如果您计划在 AWS 中的 HA 对上启用高写入速度，则应了解多个可用区 (AZ) 部署与单个 AZ 部署之间的保护级别差异。跨多个 AZ 部署 HA 对可提供更高的弹性，并有助于降低数据丢失的可能性。
 
 link:concept-ha.html["了解有关 AWS 中的 HA 对的更多信息"] 。
 
-endif::aws[]
+--
 
 
 
-[[configurations-that-support-high-write-speed]]
-=== 支持高写入速度的配置
 
-并非所有Cloud Volumes ONTAP配置都支持高写入速度。这些配置默认使用正常的写入速度。
+[[high-write-speed-in-azure]]
+=== Azure 中的高写入速度
 
-ifdef::aws[]
-
-
-
-==== AWS
-
-如果使用单节点系统，则 Cloud Volumes ONTAP 支持所有实例类型的高写入速度。
-
-从 9.8 版本开始， Cloud Volumes ONTAP在使用几乎所有受支持的 EC2 实例类型（m5.xlarge 和 r5.xlarge 除外）时都支持具有 HA 对的高写入速度。
-
-link:reference-configs-aws.html["了解有关Cloud Volumes ONTAP支持的 Amazon EC2 实例的更多信息"]。
-
-endif::aws[]
-
-ifdef::azure[]
+单节点系统:: 如果使用单节点系统，则 Cloud Volumes ONTAP 支持所有虚拟机类型的高写入速度。
+HA 对:: 如果使用 HA 对，从 9.8 版本开始，Cloud Volumes ONTAP 支持多种 VM 类型的高写入速度。转到 link:reference-configs-azure.html["Cloud Volumes ONTAP发行说明"] 以查看支持高写入速度的 VM 类型。
 
 
 
-==== Azure
 
-如果使用单节点系统，则 Cloud Volumes ONTAP 支持所有虚拟机类型的高写入速度。
+[[high-write-speed-in-google-cloud]]
+=== 在 Google Cloud 中实现高写入速度
 
-如果使用 HA 对，从 9.8 版本开始，Cloud Volumes ONTAP 支持多种 VM 类型的高写入速度。转到 link:reference-configs-azure.html["Cloud Volumes ONTAP发行说明"] 以查看支持高写入速度的 VM 类型。
-
-endif::azure[]
-
-ifdef::gcp[]
-
-
-
-==== Google Cloud
-
-如果使用单节点系统，则 Cloud Volumes ONTAP 支持所有机器类型的高写入速度。
-
-如果使用 HA 对，从 9.13.0 版本开始，Cloud Volumes ONTAP 支持多种 VM 类型的高写入速度。转到link:reference-configs-gcp.html#supported-configurations-by-license["Cloud Volumes ONTAP发行说明"^]以查看支持高写入速度的 VM 类型。
-
+单节点系统:: 如果使用单节点系统，则 Cloud Volumes ONTAP 支持所有机器类型的高写入速度。
+HA 对:: 如果使用 HA 对，从 9.13.0 版本开始，Cloud Volumes ONTAP 支持多种 VM 类型的高写入速度。转到link:reference-configs-gcp.html#supported-configurations-by-license["Cloud Volumes ONTAP发行说明"^]以查看支持高写入速度的 VM 类型。
++
+--
 link:reference-configs-gcp.html["详细了解Cloud Volumes ONTAP支持的 Google Cloud 机器类型"^]。
 
-endif::gcp[]
+--
+
 
 
 
@@ -142,7 +121,7 @@ endif::gcp[]
 
 
 [[how-to-stop-data-access-if-data-loss-occurs]]
-== 如果发生数据丢失，如何停止数据访问
+=== 如果发生数据丢失，如何停止数据访问
 
 如果您担心数据丢失，希望应用程序在数据丢失时停止运行，并在正确解决数据丢失问题后恢复数据访问，则可以使用 CLI 中的 NVFAIL 选项来实现该目标。
 

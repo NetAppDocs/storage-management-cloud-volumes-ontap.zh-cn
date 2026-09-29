@@ -26,17 +26,16 @@ CAUTION: 您无法发现、查看或管理在其他帐户或组织中注册的�
 
 .步骤
 . 从左侧导航菜单中，选择“存储”>“管理”。
-. 在*系统*页面上，单击*添加系统*。
+. 在*系统*页面上，选择*添加系统*。
 . 选择系统所在的云提供商。
 . 选择要添加的Cloud Volumes ONTAP系统的类型。
-. 单击链接即可发现现有系统。
+. 选择链接以发现现有系统。
++
+以下屏幕截图显示了 AWS 中的此选项。
 
 
-ifdef::aws[]
 
-+image:screenshot_discover_redesign.png["屏幕截图显示了用于发现现有Cloud Volumes ONTAP系统的链接。"]
-
-endif::aws[]
+image:screenshot_discover_redesign.png["屏幕截图显示了用于发现现有Cloud Volumes ONTAP系统的链接。"]
 
 . 在“区域”页面上，选择一个区域。您可以看到在所选区域中运行的系统。
 +

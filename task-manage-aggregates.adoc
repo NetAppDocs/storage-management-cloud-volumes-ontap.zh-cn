@@ -28,8 +28,8 @@ CAUTION: 必须直接从NetApp Console创建和删除所有磁盘和聚合。您
 .步骤
 . 从左侧导航菜单中，选择“存储”>“管理”。
 . 在 *Systems* 页面上，双击要管理聚合的Cloud Volumes ONTAP系统。
-. 从系统详细信息中，单击“*聚合*”选项卡。
-. 对于所需的聚合，单击管理操作的 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标。
+. 从系统详细信息中，选择*聚合*选项卡。
+. 对于所需的聚合，请选择管理操作的 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标。
 +
 image:screenshot_aggr_menu_options.png["聚合菜单选项的屏幕截图。"]
 
@@ -39,14 +39,10 @@ image:screenshot_aggr_menu_options.png["聚合菜单选项的屏幕截图。"]
 
 NOTE: 要将磁盘添加到聚合，聚合中的所有磁盘必须具有相同的大小。
 
-ifdef::aws[]
-
 对于 AWS，您可以增加支持 Amazon EBS 弹性卷的聚合的容量。
 
-. 在 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 菜单下，单击*增加容量*。
-. 输入您想要添加的额外容量，然后单击*增加*。
+. 在 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 菜单下，选择 *增加容量*。
+. 输入您要添加的额外容量，然后选择*Increase*。
 
 
 请注意，您必须将聚合的容量至少增加 256 GiB 或聚合大小的 10%。例如，如果您有 1.77 TiB 聚合，则 10% 就是 181 GiB。这低于 256 GiB，因此聚合的大小必须增加 256 GiB 的最小值。
-
-endif::aws[]

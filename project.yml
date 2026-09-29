@@ -10,19 +10,6 @@ settings:
     pdf_enabled: true
     harmony_enabled: false
   rss_page: whats-new.html
-  filter:
-    label: 云提供商
-    default: 所有云提供商
-    options:
-    - name: Amazon Web Services
-      alias: AWS
-      id: aws
-    - name: Google Cloud
-      alias: Google Cloud
-      id: gcp
-    - name: Microsoft Azure
-      alias: Azure
-      id: azure
   langs: zh-cn,us-en,de-de,es-es,fr-fr,it-it,pt-br,ja-jp,ko-kr,zh-tw
 sidebar:
   entries:
@@ -59,7 +46,6 @@ sidebar:
       - title: Cloud Volumes ONTAP HA 配置
         url: "/concept-degraded-ha-pair.html"
     - title: 在 Amazon Web Services 中部署
-      flavor: aws
       entries:
       - title: 从 AWS Marketplace 载入 Cloud Volumes ONTAP
         url: "/task-onboard-cvo-aws-marketplace.html"
@@ -92,7 +78,6 @@ sidebar:
       - title: 在 AWS Secret 区域部署Cloud Volumes ONTAP
         url: "/task-getting-started-aws-c2s.html"
     - title: 在 Microsoft Azure 中部署
-      flavor: azure
       entries:
       - title: 了解 Azure 中的Cloud Volumes ONTAP部署选项
         url: "/concept-azure-mktplace-direct.html"
@@ -133,7 +118,6 @@ sidebar:
       - title: 在 Azure Marketplace 中部署
         url: "/task-deploy-cvo-azure-mktplc.html"
     - title: 在 Google Cloud 中部署
-      flavor: gcp
       entries:
       - title: 部署概述
         url: "/task-getting-started-gcp.html"
@@ -172,13 +156,10 @@ sidebar:
       - title: Cloud Volumes ONTAP 存储 VM
         url: "/task-managing-svms.html"
       - title: 管理 AWS 中的存储虚拟机
-        flavor: aws
         url: "/task-managing-svms-aws.html"
       - title: 管理 Azure 中的存储 VM
-        flavor: azure
         url: "/task-managing-svms-azure.html"
       - title: 管理 Google Cloud 中的存储虚拟机
-        flavor: gcp
         url: "/task-managing-svms-gcp.html"
     - title: 聚合管理
       entries:
@@ -219,7 +200,6 @@ sidebar:
   - title: 云基础架构管理
     entries:
     - title: AWS 管理
-      flavor: aws
       entries:
       - title: AWS 中支持的配置
         url: "/reference-configs-aws.html"
@@ -236,7 +216,6 @@ sidebar:
       - title: 更改 HA 对的路由表
         url: "/task-change-route-tables.html"
     - title: Azure 管理
-      flavor: azure
       entries:
       - title: Azure 中支持的配置
         url: "/reference-configs-azure.html"
@@ -261,7 +240,6 @@ sidebar:
       - title: 在 Azure 中升级磁盘性能层
         url: "/task-upgrade-disk-perf-azure.html"
     - title: Google Cloud 管理
-      flavor: gcp
       entries:
       - title: Google Cloud 中支持的配置
         url: "/reference-configs-gcp.html"

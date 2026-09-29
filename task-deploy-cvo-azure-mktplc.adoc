@@ -62,7 +62,7 @@ NOTE: 如果您已将资源提供程序“Microsoft.storage”注册到您的订
 .步骤
 . 从 Azure Marketplace 网站搜索 NetApp 产品。
 . 选择* NetApp Cloud Volumes ONTAP direct*。
-. 单击“*创建*”以启动部署向导。
+. 选择*Create*以启动部署向导。
 . 选择一个计划。  *计划*列表通常显示Cloud Volumes ONTAP的最新版本。
 . 在“*基本信息*”选项卡中，提供以下详细信息：
 +

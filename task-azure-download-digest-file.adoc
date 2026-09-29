@@ -20,7 +20,7 @@ _tar.gz_ 文件包含图像签名验证所需的文件。除了 _tar.gz_ 文件�
 
 .步骤
 . 前往 https://mysupport.netapp.com/site/products/all/details/cloud-volumes-ontap/guideme-tab["NetApp支持站点上的Cloud Volumes ONTAP产品页面"^]并从*下载*部分下载所需的软件版本。
-. 在Cloud Volumes ONTAP下载页面上，单击 Azure 映像的可下载文件并下载 _tar.gz_ 文件。
+. 在 Cloud Volumes ONTAP 下载页面上，为 Azure 映像选择可下载文件，然后下载 _tar.gz_ 文件。
 +
 image::screenshot_cloud_volumes_ontap_tar.gz.png[屏幕截图云卷 ontap tar.gz]
 

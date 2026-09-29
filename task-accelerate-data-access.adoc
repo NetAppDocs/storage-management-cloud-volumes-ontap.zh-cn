@@ -36,25 +36,11 @@ video::PBNPVRUeT1o[youtube,width=848,height=480]
 
 .开始之前
 . *加密设置*：确保源卷完全加密且可操作。对于Cloud Volumes ONTAP系统，这涉及与特定于云的密钥管理服务集成。
++
+** *对于 AWS*，这通常意味着使用 AWS Key Management Service （KMS）。有关信息，请参阅 link:task-aws-key-management.html["使用 AWS Key Management Service 管理密钥"]。
+** *对于 Azure*，需要设置 Azure Key Vault 以进行 NetApp 卷加密 （NVE）。有关信息，请参阅 link:task-azure-key-vault.html["使用 Azure Key Vault 管理密钥"]。
+** *对于 Google Cloud*，请使用 Google Cloud Key Management Service。有关信息，请参阅 link:task-google-key-manager.html["使用 Google 的云密钥管理服务管理密钥"]。
 
-
-ifdef::aws[]
-
-对于 AWS，这通常意味着使用 AWS 密钥管理服务 (KMS)。有关信息，请参阅link:task-aws-key-management.html["使用 AWS Key Management Service 管理密钥"]。
-
-endif::aws[]
-
-ifdef::azure[]
-
-对于 Azure，您需要为NetApp卷加密 (NVE) 设置 Azure Key Vault。有关信息，请参阅link:task-azure-key-vault.html["使用 Azure Key Vault 管理密钥"]。
-
-endif::azure[]
-
-ifdef::gcp[]
-
-对于 Google Cloud，它是 Google Cloud Key Management Service。有关信息，请参阅link:task-google-key-manager.html["使用 Google 的云密钥管理服务管理密钥"]。
-
-endif::gcp[]
 
 . *密钥管理服务*：在创建FlexCache卷之前，请验证密钥管理服务是否在Cloud Volumes ONTAP系统上正确配置。此配置对于FlexCache卷解密来自原始卷的数据至关重要。
 . *许可*：确认有效的FlexCache许可证可用并在Cloud Volumes ONTAP系统上激活。
