@@ -24,7 +24,6 @@ summary: 您可以通过将用于热数据的 SSD 或 HDD 性能层与用于非�
 
 .image:https://raw.githubusercontent.com/NetAppDocs/common/main/media/number-2.png["两个"]确保Cloud Volumes ONTAP与对象存储之间的连接
 [role="quick-margin-list"]
-* 对于 AWS，需要将 VPC 端点连接到 Amazon Simple Storage Service（Amazon S3）。<<Requirements to tier cold data to AWS S3,了解更多>>。
 * 对于 Azure，只要NetApp Console具有所需的权限，您就不需要执行任何操作。<<将冷数据分层到 Azure Blob 存储的要求,了解更多>> 。
 * 对于 Google Cloud，您需要配置私有 Google Access 子网并设置服务帐户。<<将冷数据分层到 Google Cloud Storage 存储桶的要求,了解更多>> 。
 
