@@ -26,5 +26,5 @@ NetApp Console 中精心设计的仪表板现在允许您修复 Cloud Volumes ON
 
 如果稍后要包含已取消的配置，可以在架构良好的控制面板中重新激活该配置。这会将配置还原到分析中，并允许您获取其建议和修复。
 
-* link:https://docs.netapp.com/us-en/console-well-architected/cvo/improve-configurations-cvo.html["修复、关闭和重新激活 Microsoft Azure 中 Cloud Volumes ONTAP 的配置"^]
+* link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-improve-configurations-cvo.html["修复、关闭和重新激活 Microsoft Azure 中 Cloud Volumes ONTAP 的配置"^]
 

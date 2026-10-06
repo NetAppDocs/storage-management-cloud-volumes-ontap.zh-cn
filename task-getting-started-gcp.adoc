@@ -22,17 +22,6 @@ summary: 只需几个步骤，即可开始在 Google Cloud 中使用 Cloud Volum
 
 
  a| 
-验证 NetApp Console 角色
- a| 
-在为 Cloud Volumes ONTAP 创建 Console 代理并执行其他部署任务之前，必须验证必要的 IAM 角色和权限是否已到位。
- a| 
-请参见 Console 设置指南：https://docs.netapp.com/us-en/console-setup-admin/reference-iam-cvo-roles.html["Cloud Volumes ONTAP 访问角色（位于 NetApp Console 中）"^] https://docs.netapp.com/us-en/console-setup-admin/task-cvo-rbac-setup.html["为 Cloud Volumes ONTAP 设置基于角色的访问"^]
- a| 
-确认角色配置正确。
-
-
-
- a| 
 创建 Console 代理
  a| 
 如果您还没有 Console 代理，请在部署 Cloud Volumes ONTAP 之前创建一个。如果部署在没有 Internet 访问权限的子网中，请手动安装 Console 代理并访问在该代理上运行的 NetApp Console。
@@ -40,6 +29,17 @@ summary: 只需几个步骤，即可开始在 Google Cloud 中使用 Cloud Volum
 请参见 Console 设置指南：https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html["在 Google Cloud 中创建 Console 代理"^]
  a| 
 如果部署在没有 Internet 访问权限的子网中，请手动安装 Console 代理并访问该 NetApp Console 代理上运行的 Console 用户界面。请参见 Console 设置指南：https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-private-mode.html["在没有互联网访问的情况下手动安装 Console 代理"^]
+
+
+
+ a| 
+验证 NetApp Console 角色
+ a| 
+创建控制台代理后，必须验证必要的 IAM 角色和 Cloud Volumes ONTAP 角色和权限是否到位。
+ a| 
+请参见 Console 设置指南：https://docs.netapp.com/us-en/console-setup-admin/reference-iam-cvo-roles.html["Cloud Volumes ONTAP 访问角色（位于 NetApp Console 中）"^] https://docs.netapp.com/us-en/console-setup-admin/task-cvo-rbac-setup.html["为 Cloud Volumes ONTAP 设置基于角色的访问"^]
+ a| 
+在私有模式下，Console 代理必须正确配置必要的角色和权限。但是，Cloud Volumes ONTAP 角色不适用于私有模式部署。请参阅 Console 设置指南： https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["NetApp Console 访问角色"^]
 
 
 

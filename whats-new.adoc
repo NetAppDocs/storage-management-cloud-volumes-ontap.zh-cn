@@ -137,7 +137,7 @@ NetApp Console 中精心设计的仪表板现在允许您修复 Cloud Volumes ON
 
 如果稍后要包含已取消的配置，可以在架构良好的控制面板中重新激活该配置。这会将配置还原到分析中，并允许您获取其建议和修复。
 
-* link:https://docs.netapp.com/us-en/console-well-architected/cvo/improve-configurations-cvo.html["修复、关闭和重新激活 Microsoft Azure 中 Cloud Volumes ONTAP 的配置"^]
+* link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-improve-configurations-cvo.html["修复、关闭和重新激活 Microsoft Azure 中 Cloud Volumes ONTAP 的配置"^]
 
 
 
@@ -204,8 +204,8 @@ NetApp Console 现在支持对在 Microsoft Azure 中运行的 Cloud Volumes ONT
 
 
 .相关链接
-* https://docs.netapp.com/us-en/console-well-architected/cvo/configuration-analysis-cvo.html["Cloud Volumes ONTAP 的配置分析"^]
-* https://docs.netapp.com/us-en/console-well-architected/cvo/improve-configurations-cvo.html["实施架构良好的 Cloud Volumes ONTAP 系统配置"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-configuration-analysis-cvo.html["Cloud Volumes ONTAP 的配置分析"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-improve-configurations-cvo.html["使用 Workload Factory 改进 Azure 中的 Cloud Volumes ONTAP 配置"^]
 
 
 
@@ -275,7 +275,9 @@ https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3_series["G
 [[introducing-access-roles-for-cloud-volumes-ontap]]
 === Cloud Volumes ONTAP 访问角色简介
 
-NetApp 为 Cloud Volumes ONTAP 引入了身份和访问管理 (IAM) 角色，实现了基于角色的访问控制 (RBAC)，以提升安全性并简化合规管理。用户可以继续使用其现有凭据登录 NetApp Console，以执行 Cloud Volumes ONTAP 操作。但是，身份验证现在通过身份联合进行路由，使 Console 管理员能够对这些功能进行更精细的控制。每个用户必须具有以下角色之一，才能对 Cloud Volumes ONTAP 执行任何操作。如果没有角色，用户将无法查看或访问 Cloud Volumes ONTAP 实例。
+NetApp 为 Cloud Volumes ONTAP 引入了身份和访问管理（IAM）角色，支持基于角色的访问控制（RBAC），以实现更好的安全性和更轻松的合规性。用户可以继续使用其现有凭据登录 NetApp Console 进行 Cloud Volumes ONTAP 操作。但是，身份验证现在通过身份联合进行路由，使控制台管理员能够更精细地控制这些功能。在启用 Cloud Volumes ONTAP 角色之前，控制台代理必须运行 4.9.0 或更高版本。
+
+每个用户必须具有以下角色之一，才能对 Cloud Volumes ONTAP 执行任何操作。如果没有角色，用户将无法查看或访问 Cloud Volumes ONTAP 实例。
 
 * *Cloud Volumes ONTAP viewer*：授予对 Cloud Volumes ONTAP 屏幕和选项卡的只读访问权限。此角色中禁用了某些屏幕和操作按钮。
 * *Cloud Volumes ONTAP operator*：启用日常管理任务，例如添加卷、管理存储和配置复制。
@@ -287,13 +289,13 @@ Console 管理员从*管理 > 身份*为 Cloud Volumes ONTAP 用户分配角色�
 Cloud Volumes ONTAP 使用每个用户权限的本地缓存强制执行 RBAC，该缓存每小时自动刷新一次。当为用户分配新角色或更改其现有角色时，该更改可能需要最多一小时才能生效，此后，角色允许的所有工作流将被启用。
 
 
-NOTE: 首次部署 Console 代理或将现有 Console 代理升级到 Console 4.9.0 或更高版本时，一次性种子设定过程会自动将 Cloud Volumes ONTAP 角色分配给组织中的所有现有用户。此过程最多可能需要 30 分钟才能完成。完成后，Console 将为现有用户分配适当的角色。
+NOTE: 首次部署 Console 代理或将现有 Console 代理升级到 Console 4.9.0 或更高版本时，一次性种子设定过程会自动将 Cloud Volumes ONTAP 角色分配给组织中的所有现有用户。此过程最多可能需要 30 分钟才能完成。完成后，Console 将为现有用户分配适当的角色。除非有代理正在运行，否则种子设定过程不会发生。
 
-Cloud Volumes ONTAP 角色适用于 Amazon Web Service (AWS)、Microsoft Azure (Azure) 和 Google Cloud 环境。
+Cloud Volumes ONTAP 角色适用于 Amazon Web Service（AWS）、Microsoft Azure（Azure）和 Google Cloud 环境。这些角色不适用于私有和受限制的部署模式。
 
 .相关链接
-* https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html["NetApp Console 访问角色"^]
 * https://docs.netapp.com/us-en/console-setup-admin/reference-iam-cvo-roles.html["Cloud Volumes ONTAP 访问角色（位于 NetApp Console 中）"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-cvo-rbac-setup.html["在 NetApp Console 中为 Cloud Volumes ONTAP 设置基于角色的访问控制"^]
 
 
 

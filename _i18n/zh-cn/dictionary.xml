@@ -5621,16 +5621,12 @@
   <block id="2ac8bb0efb00600c2a41354a94948174" category="inline-link">使用 Google Cloud 中的高级选项部署 Cloud Volumes ONTAP</block>
   <block id="6c9068df44f8a14533034d80a58ea324" category="list-text"><block ref="6c9068df44f8a14533034d80a58ea324" category="inline-link-rx"></block></block>
   <block id="12d92330947695a8724da477e7db5baa" category="section-title">Cloud Volumes ONTAP 访问角色简介</block>
-  <block id="ae05e9d1fb64b3f3eb3c2b718a64b7c2" category="paragraph">NetApp 为 Cloud Volumes ONTAP 引入了身份和访问管理 (IAM) 角色，实现了基于角色的访问控制 (RBAC)，以提升安全性并简化合规管理。用户可以继续使用其现有凭据登录 NetApp Console，以执行 Cloud Volumes ONTAP 操作。但是，身份验证现在通过身份联合进行路由，使 Console 管理员能够对这些功能进行更精细的控制。每个用户必须具有以下角色之一，才能对 Cloud Volumes ONTAP 执行任何操作。如果没有角色，用户将无法查看或访问 Cloud Volumes ONTAP 实例。</block>
   <block id="ac12122f7d4bba19a9bdf9634b8cc548" category="list-text">*Cloud Volumes ONTAP viewer*：授予对 Cloud Volumes ONTAP 屏幕和选项卡的只读访问权限。此角色中禁用了某些屏幕和操作按钮。</block>
   <block id="147d529d31a33dd1ffe2aed02030d216" category="list-text">*Cloud Volumes ONTAP operator*：启用日常管理任务，例如添加卷、管理存储和配置复制。</block>
   <block id="ccb8cf6de876397f5af5fd2969199a4c" category="list-text">*Cloud Volumes ONTAP admin*：提供对所有 Cloud Volumes ONTAP 操作的完全访问权限。</block>
   <block id="9118c1f5d2016b980f9d65d7ab66a79b" category="paragraph">Console 管理员从*管理 &gt; 身份*为 Cloud Volumes ONTAP 用户分配角色。角色权限基于用户的组织，并应用于该组织中的所有 Cloud Volumes ONTAP 系统。</block>
   <block id="7e04f92c9f24c942f442e9d0b64d902d" category="paragraph">Cloud Volumes ONTAP 使用每个用户权限的本地缓存强制执行 RBAC，该缓存每小时自动刷新一次。当为用户分配新角色或更改其现有角色时，该更改可能需要最多一小时才能生效，此后，角色允许的所有工作流将被启用。</block>
-  <block id="cacd0669e0e9c09f881a4cca5340e098" category="admonition">首次部署 Console 代理或将现有 Console 代理升级到 Console 4.9.0 或更高版本时，一次性种子设定过程会自动将 Cloud Volumes ONTAP 角色分配给组织中的所有现有用户。此过程最多可能需要 30 分钟才能完成。完成后，Console 将为现有用户分配适当的角色。</block>
-  <block id="2c3736b0de2c7956e8b876c728c32036" category="paragraph">Cloud Volumes ONTAP 角色适用于 Amazon Web Service (AWS)、Microsoft Azure (Azure) 和 Google Cloud 环境。</block>
   <block id="f50849d7a51a2af22661c16f98df65ff" category="inline-link">NetApp Console 访问角色</block>
-  <block id="ccca36d58a98cb8fda0efa22f507ff91" category="list-text"><block ref="ccca36d58a98cb8fda0efa22f507ff91" category="inline-link-rx"></block></block>
   <block id="38231d7ab948e14954505c434dbc3406" category="inline-link">Cloud Volumes ONTAP 访问角色（位于 NetApp Console 中）</block>
   <block id="ad25b993a54c0c353ed1957e95a74d22" category="list-text"><block ref="ad25b993a54c0c353ed1957e95a74d22" category="inline-link-rx"></block></block>
   <block id="09ea0908fbfc4cde85bf416e35dc55c8" category="inline-link">NetApp 支持</block>
@@ -5680,7 +5676,6 @@
   <block id="3e21d0873324d070ffd9f5112b99ce4d" category="list-text">*卓越运营*：优化架构，实现业务价值最大化。</block>
   <block id="886863730bd12cb56f89bdf0ee2221be" category="list-text">*成本优化*：降低和优化成本，实现更大的业务价值。</block>
   <block id="109cdb23e41e8df9e7f4319a28a800c9" category="inline-link">Cloud Volumes ONTAP 的配置分析</block>
-  <block id="30e75dda73d152784f441d20f2d17069" category="list-text"><block ref="30e75dda73d152784f441d20f2d17069" category="inline-link-rx"></block></block>
   <block id="8381df48e9be426c5a0c10881c1deb6b" category="paragraph">如果要将 Amazon Web Services (AWS) 加密与 Cloud Volumes ONTAP 结合使用，则需要设置 AWS Key Management Service (KMS)。</block>
   <block id="d4a0c1bae3ce52b89988e4025c15728f" category="paragraph">客户主密钥 (CMK) 可以由 AWS 或客户管理。它可以与 NetApp Console 和 Cloud Volumes ONTAP 位于同一 AWS 账户中，也可以位于不同的 AWS 账户（共享账户）中。AWS 仅通过 AWS Console 启用密钥管理。有关详细信息，请参阅<block ref="489bfcd850e0fa4bfd74a278f7f67b66" category="inline-link-rx"></block>。</block>
   <block id="6268b495b409110e383079b8b2ae93f9" category="list-text">确保您拥有有关 NetApp Console 代理身份和访问管理 (IAM) 角色（适用于 AWS）的信息。</block>
@@ -5724,8 +5719,6 @@
   <block id="51c9eb8f2bdf1ba7a4e0dbc5ca8299bd" category="inline-link">管理 NetApp Console 的 AWS 凭据和市场订阅</block>
   <block id="fd6c8706b70c72f62dc54104dbcb57c2" category="list-text"><block ref="fd6c8706b70c72f62dc54104dbcb57c2" category="inline-link-rx"></block></block>
   <block id="ac750267020c9b3c0e32de825d9b57fc" category="section-title">2026年7月20日</block>
-  <block id="12959707639320f789d4bb4fbba777f1" category="inline-link">实施架构良好的 Cloud Volumes ONTAP 系统配置</block>
-  <block id="e8227a8388a93064d0bbb4e13f50ff6e" category="list-text"><block ref="e8227a8388a93064d0bbb4e13f50ff6e" category="inline-link-rx"></block></block>
   <block id="1fa61fc2f5b77b2d0fa94849b6af3dbb" category="paragraph">通过基于容量的许可，每个 Cloud Volumes ONTAP 系统都支持到对象存储的分层。总分层容量可以扩展到云提供商的存储桶限制。虽然许可证不会施加容量限制，但在配置和管理分层时，应遵循<block ref="c6ca22161b60218024eaf899637cc82e" category="inline-link-rx"></block>以确保最佳性能、可靠性和成本效率。</block>
   <block id="a085284f5224dbc53fb00943e5efc79a" category="doc">支持 Azure 中的智利中部地区</block>
   <block id="b8f489089455a848257f3e898316d7b6" category="paragraph">现在可以在 Azure 的智利中部（chilecentral）区域部署 Cloud Volumes ONTAP 9.12.1 GA 及更高版本。支持以下部署类型：</block>
@@ -6714,8 +6707,6 @@
   <block id="3f2d6026e86cfc3a3e872a2f3cd8f989" category="paragraph">NetApp Console 中精心设计的仪表板现在允许您修复 Cloud Volumes ONTAP 系统的配置建议。</block>
   <block id="e4eac83bd4922d84fdd323f4afe1066b" category="paragraph">您还可以从良好架构分析中忽略一个或多个配置。这样，您可以忽略不适用于您的环境的特定配置。</block>
   <block id="d45ddb9ce602eba8b90aee11b1ee25cf" category="paragraph">如果稍后要包含已取消的配置，可以在架构良好的控制面板中重新激活该配置。这会将配置还原到分析中，并允许您获取其建议和修复。</block>
-  <block id="37c159a88b5bcfaeea126c1581ba5f53" category="list-text"><block ref="37c159a88b5bcfaeea126c1581ba5f53" category="inline-link-macro-rx"></block></block>
-  <block id="6cb16892d109192c0cd1c62fbd1330a2" category="summary">NetApp Console 中的架构完善仪表板会定期分析存储系统配置，以确定您的 Cloud Volumes ONTAP 系统是否存在任何配置问题。发现问题时，仪表板会向您显示问题所在，并解释需要更改的内容，以确保您的存储系统实现最佳性能、成本效益和最佳实践合规性。</block>
   <block id="1c11d2e59190fe6a4e37f1e68abafcb4" category="paragraph">主要功能包括：</block>
   <block id="ebc3bf5de769bc75ad8e36a90a0ed695" category="list-text">每日配置分析</block>
   <block id="d0367f15d2fd772d543d692442807fa1" category="list-text">针对 NetApp ONTAP 存储系统和合作伙伴存储提供商的自动最佳实践验证</block>
@@ -6723,36 +6714,27 @@
   <block id="16fcd85dc9469370b62b4b46381f8e2a" category="list-text">从见解到行动</block>
   <block id="3f6f8b4e204fd3aa39cac35661de164d" category="section-title">分析要求</block>
   <block id="f064aed6dd86a2b762ecf9bcf528b941" category="section-title">Cloud Volumes ONTAP 系统的最佳实践和建议</block>
-  <block id="df022fa81268ad87abe9b34e29e60ea4" category="paragraph">架构良好的仪表板评估存储配置，以提供 ONTAP 配置最佳实践的深入视图，并符合 Azure Well-Architected Framework。该评估还提出了改进和修复建议。</block>
   <block id="ffd9fc00ab43b8283346c6266e00d684" category="paragraph">架构完善的分析将配置归类为框架的以下支柱：_reliability_、_security_、_operational excellence_、_cost optimization_ 和 _performance efficiency_。</block>
   <block id="820b8f74ad843d1574106ec4cadfc07e" category="section-title">可靠性</block>
   <block id="f52eaa2b01823c61afb346f01ff37aec" category="paragraph">可靠性可确保工作负载正确一致地执行其预期功能，即使在中断期间也是如此。</block>
   <block id="ca512a483bb26b1b253abc6b2cc463bd" category="list-text">*Snapshot 策略*</block>
   <block id="ce36269ae95cd0ab7422d78bb843b720" category="paragraph">安排本地快照以实现高效备份和快速恢复。快照是卷的即时时间点映像。</block>
   <block id="e5cdf4f9c0dda596826a91093d4f69f4" category="list-text">*SSD 容量余量*</block>
-  <block id="e1571d44d672c7a35fe7952a28f414b7" category="paragraph">SSD 存储层容量不应超过 80% 的利用率。这可能会影响对容量池存储层的数据读取和写入，并影响系统的吞吐量。当容量耗尽时，数据卷将变为只读。尝试写入新数据的服务也会失败。</block>
   <block id="7d7265a6929882bb433fc74e8bee871a" category="paragraph">安全强调通过风险评估和缓解策略保护数据、系统和资产。</block>
   <block id="d08117d717007eeb4d6273695d9a7725" category="list-text">*基于 AI 的自主勒索软件防护 (ARP/AI)*</block>
   <block id="167fce45da752e074139dbfd85f1d96d" category="paragraph">NetApp Autonomous Ransomware Protection with AI (ARP/AI) 有助于增强网络弹性，并保护您的卷免受勒索软件威胁。我们建议为所有卷启用 ARP/AI。</block>
   <block id="17d2a91a4f3c01de4c2f05b2242e49d3" category="section-title">卓越运营</block>
   <block id="84c2d06d655e822b38b222df9c0aa965" category="paragraph">卓越运营的重点是提供最佳架构和业务价值。</block>
   <block id="bca05dfe73df2536775bb543bb367fb6" category="list-text">*卷容量余量*</block>
-  <block id="70a83d0e2246f9bf751ee82d9d86782a" category="paragraph">我们建议卷容量不超过 80% 的利用率。这可能会影响对应用程序的数据读取和写入。卷容量可以手动增加，也可以使用卷自动增长功能自动增加。</block>
   <block id="cb24245fc7fbb951739f0e037e8ed58f" category="list-text">*FlexCache 写入模式*</block>
-  <block id="fce6ac16b523a1ae826c8b02fe97af9a" category="paragraph">为了获得最佳性能，我们建议使用最适合您的工作负载的 FlexCache 写入模式。写入绕行模式为具有小文件的读取密集型工作负载提供更好的性能，而写回模式为具有大文件的写入密集型工作负载提供更好的性能。</block>
   <block id="199b5a17e840b5e8165065942a5aba7f" category="list-text">*FlexCache 副本大小*</block>
-  <block id="7cba8fc6d012368d0bb1868a9da3aebb" category="paragraph">我们建议在缓存卷上启用卷自动调整大小和清理，以保持最佳大小，并将缓存集中在频繁访问（热）数据上，以实现最高效率。</block>
   <block id="7f14df7d96b168d75780c47437a63021" category="list-text">*ONTAP 版本合规性*</block>
   <block id="3bbb5a399ebdfb8d2d4a8a5c7bafb3fb" category="paragraph">升级到最新的 ONTAP 版本，以实现完全兼容性、获得支持并访问新功能。</block>
   <block id="a39ae09f8be4327fc176cfeb76a0e366" category="section-title">成本优化</block>
   <block id="394c926099d3d2cf7e0d7477f17faf38" category="paragraph">成本优化可帮助您在保持低成本的同时为业务创造最大价值。</block>
   <block id="8611faa768b220ecb3795c6fda54fdaa" category="list-text">*过度配置的 SSD 容量*</block>
-  <block id="aafa79fe1c7925cadee2f2931c5a90a6" category="paragraph">过度配置的 SSD 容量层会增加不必要的成本。我们建议在保持 20% 可用空间缓冲区的同时减少 SSD 层容量。减少操作需要数小时到数天，在此期间不支持其他文件系统操作。</block>
   <block id="01fd10a8e7ac161e328da4eaf6292046" category="list-text">*冷数据分层*</block>
-  <block id="038dede88376955fc6f5dc23c8915a6f" category="paragraph">启用冷数据分层，将冷数据从 SSD 存储层移动到成本较低的存储。我们建议对每个卷应用分层策略。Azure Blob Storage 用作非活动数据的容量层。</block>
   <block id="01e12de62fa77fda2815719aed8ff892" category="paragraph-title">下一步</block>
-  <block id="8a4fd5d300e707a9269f6215138076a2" category="paragraph"><block ref="8a4fd5d300e707a9269f6215138076a2" category="inline-link-macro-rx"></block></block>
-  <block id="e99c9a581ad7f3ee001ba4518d21895d" category="list-text"><block ref="e99c9a581ad7f3ee001ba4518d21895d" category="inline-link-rx"></block></block>
   <block id="1ec0779bb7e51cbc27ab486c62ef2d11" category="list-text">r5.12xlarge 实例类型具有已知的可支持性限制。如果节点因崩溃而意外重新启动，则系统可能无法收集用于诊断和查找问题根本原因的核心文件。如果出现这种情况，客户将接受风险和有限的支持条款，并承担所有支持责任。此限制会影响新部署的 HA 对和从 9.8 升级的 HA 对。该限制不影响新部署的单节点系统。</block>
   <block id="6c826d16193263c31494836004943717" category="summary">使用 ONTAP S3 多协议访问配置 Cloud Volumes ONTAP，使 Azure AI 服务能够通过 Microsoft OneLake 读取存储在 Cloud Volumes ONTAP 系统中的数据。</block>
   <block id="14fa8bd582301929e8385f26fb4ec09f" category="section-title">为 ONTAP S3 服务器创建根 CA 证书</block>
@@ -7003,15 +6985,10 @@
   <block id="3fad075b9721b22aae0e7e5689caf7ba" category="sidebar">ONTAP System Manager 管理</block>
   <block id="4375417a8b8f335f3352e1f741532269" category="sidebar">使用 ONTAP CLI 进行管理</block>
   <block id="932294ad5d34f659aa544ec559cad4ad" category="sidebar">Cloud Volumes ONTAP 和 Keystone</block>
-  <block id="887238a149638ebe371e1475e7cf53de" category="sidebar">Cloud Volumes ONTAP 和精心设计的仪表板</block>
   <block id="9ffdb95250e26c7a6b468126ac7c75b0" category="section-title">工作原理</block>
   <block id="874fbc8635967fd5300d05269c50cea0" category="paragraph">Workload Factory 每天分析在支持的云存储系统部署上运行的工作负载。该分析提供架构完善的状态、见解和建议。</block>
-  <block id="27b3ab8a4b26cd2ee311ee2ac5911ba3" category="paragraph">每日分析完成后，配置在部署的精心设计的仪表板中显示为"优化"或"未优化"。您将按类别找到配置问题以及配置问题和建议列表。您可以查看配置问题的建议。某些问题可以由 Workload Factory 自动修复，而其他问题则需要手动干预。在此情况下，Workload Factory 会提供详细说明，以帮助您实施建议的更改。</block>
   <block id="8215457eb88ef1fb110b79579b908e3d" category="paragraph">您可以忽略不适用于您环境的配置分析。这样可以避免不必要的警报和不准确的优化结果。</block>
-  <block id="8817b0c6f0795c52cab62044416eee8a" category="inline-link-macro">详细了解自定义规则</block>
-  <block id="821af7226458ea25572e88e8ab2026e4" category="paragraph">您还可以用简单的语言创建自定义规则，以根据组织的标准和 NetApp 最佳实践验证您的环境。通过试运行测试规则，然后安排它们在您的环境中运行。<block ref="ce039b478eb432b675a03c04866f31ab" category="inline-link-macro-rx"></block>。</block>
   <block id="ee25e0b6cd574166f206b4c5b7f02df3" category="section-title">为什么很重要</block>
-  <block id="c2bf4ab5c816a6a7be03384125f4a5d6" category="paragraph">Workload Factory 通过将持续评估与建议见解和补救措施相结合，将最佳实践应用于大型存储、数据库和 VMware 环境。在 NetApp Console 中应用的自动修复可减少人为错误，确保统一管理，并保持整个工作负载基础架构的性能和可靠性。</block>
   <block id="8f96dd86c3b476f91f5e8deb2f840342" category="sidebar">Cloud Volumes ONTAP 和其他 NetApp 产品</block>
   <block id="632cbf73d084e28580f4f6dfbd84efcc" category="sidebar">Cloud Volumes ONTAP 和 Flash Cache</block>
   <block id="0814f25d2fb19660c0f5a17f5faecd5b" category="doc">以私有模式部署 Cloud Volumes ONTAP</block>
@@ -7197,7 +7174,6 @@
   <block id="c465a7bd98f96ab6b7e15dbed5471998" category="list-text">*远程数据复制*</block>
   <block id="b03b92c4dfcafd9226ecc9026f960e01" category="paragraph">通过远程复制保护您的 Cloud Volumes ONTAP 数据。远程数据复制通过在不同位置维护数据的同步副本来提供灾难恢复功能，从而在系统故障或灾难发生时确保业务连续性。</block>
   <block id="5e6b403f3ce4af919738fd94fe35d2d0" category="section-title">2026 年 9 月 2 日</block>
-  <block id="ee3e9d951c79faa2be7ec2e79fdaf3dd" category="paragraph">Workload Factory 定期分析存储系统配置，以确定您的 Cloud Volumes ONTAP 系统是否存在任何配置问题。当发现问题时，良好架构控制面板会显示问题所在以及需要更改的建议，以确保您的存储系统实现最佳性能、成本效益和最佳实践合规性。</block>
   <block id="e7f639747125ba0ea26f45843967eecd" category="inline-image-macro">显示三个水平点的图标，用于其他操作</block>
   <block id="c6f3be6f5fd2a7a00e040c02adef2a44" category="list-text">通过 <block ref="21d1ea15f76c8e0170375dc9a7026afb" category="inline-image-macro-rx" type="image"></block> 菜单中的可用选项管理您的聚合。</block>
   <block id="45ee631d373eb4731eace15e86035ee3" category="paragraph">有关配置代理服务器的信息，请参见<block ref="ee748f633e32a464408350c15b5a4a4d" category="inline-link-rx"></block>。</block>
@@ -7587,7 +7563,6 @@
   <block id="215b4e349fc2537280c6e13bf20c54d0" category="paragraph">具有 PAYGO 订阅的有效基于节点的许可证。</block>
   <block id="14479c0c41f20ac2c95d0fb2bfd1f372" category="paragraph">控制台可以通过许可证转换工具将基于节点的许可证无缝转换为基于容量的许可证。有关基于节点的许可的 EOA 的信息，请参阅 <block ref="7f9a8649ca2d86db235ba56502d14f92" category="inline-link-macro-rx"></block>。</block>
   <block id="77ed1894c70b52c4bd276c4386e398b5" category="inline-link-macro">将基于节点的许可证转换为基于容量的许可证</block>
-  <block id="f6baf1b492e955e0279a9f14cb4d1a91" category="paragraph">##如果您使用基于节点的许可证进行市场订阅或专用部署，则可以<block ref="db4ec6a978acbab7786496b22aa52409" category="inline-link-macro-rx"></block>使用 Console 中的许可证转换工具。##</block>
   <block id="6a5ecd454fa726d7a1f82f34b7971296" category="paragraph">WORM 功能可与您的市场订阅和 Bring-Your-Own License (BYOL) 一起使用，无需额外费用。请联系您的 NetApp 销售代表，将 WORM 添加到您当前的许可证中。</block>
   <block id="fa8cd47e4ec2a3db59105b2bede68a28" category="list-text">NetApp Volume Encryption（仅适用于 Bring-Your-Own License (BYOL) 或注册的即用即付 (PAYGO) 系统）</block>
   <block id="10e6e33e8d7a64d70c731d40ea252ed8" category="paragraph">以下注释提供了有关下表中数字的详细信息：</block>
@@ -7606,10 +7581,8 @@
   <block id="aeb0575b4b66e933e9c5b96f7153308c" category="paragraph">指定 <block ref="8fc12ad6381abbb87712055c7f5e50f1" prefix=" " category="inline-code"></block> 参数以在私有模式部署中运行该工具。有关工作池配置，请参阅 <block ref="35e5e66305f1922881221779e510e2d8" category="inline-link-macro-rx"></block>。</block>
   <block id="d672c069be18026b86395f27a7724ba5" category="cell">专用模式部署的注意事项</block>
   <block id="4fbfded360b8289b829cf1c33cae0e0f" category="paragraph">验证 NetApp Console 角色</block>
-  <block id="154665f702970d938a3cc50836f1cab4" category="paragraph">在为 Cloud Volumes ONTAP 创建 Console 代理并执行其他部署任务之前，必须验证必要的 IAM 角色和权限是否已到位。</block>
   <block id="769bcb1b917e9456afc908e3923e871d" category="inline-link">为 Cloud Volumes ONTAP 设置基于角色的访问</block>
   <block id="22e1589a303aa3fc57392ca5216e9d16" category="paragraph">请参见 Console 设置指南：<block ref="ad25b993a54c0c353ed1957e95a74d22" category="inline-link-rx"></block> <block ref="2205e26c5be2613487e20c49521c249f" category="inline-link-rx"></block></block>
-  <block id="2c0cbb16169e28bbe43da96de58484d2" category="paragraph">确认角色配置正确。</block>
   <block id="04979a9e4bb2872b4340d1087f214291" category="paragraph">对于私有模式部署，您需要具有类似的规划考虑因素。</block>
   <block id="9b32539664be63d47ad3930f9813d1ed" category="paragraph">类似的步骤也适用于私有模式部署。</block>
   <block id="dec2094122d4c1e1fd30e4e8f39fc23a" category="paragraph">专用模式仅支持高级部署。开始部署前，请确保已从 NetApp 购买 Cloud Volumes ONTAP 许可证。私有模式部署依赖于 BYOL 许可证。市场订阅不支持为您的 Cloud Volumes ONTAP 使用量计费。请从 NetApp 获取许可证文件，并在部署过程中上传。请参阅：</block>
@@ -7621,7 +7594,6 @@
   <block id="e2c28fe1b1e987a06f636ae7c3482bae" category="paragraph">Bring-Your-Own License (BYOL) 是 Cloud Volumes ONTAP 中的一种计费模式，您可以通过直接从 NetApp 购买的许可证来支付容量消耗费用，而无需通过市场订阅。在 NetApp Console 中管理您的 BYOL 许可证，以确保您的 Cloud Volumes ONTAP 系统具有所需容量的有效许可证。有关详细信息，请参阅<block ref="d9d28f09a38154804862cc0742f76db1" category="inline-link-rx"></block>。</block>
   <block id="847e45a642e11ad647bc1b931aa93b6f" category="paragraph">NetApp 建议为所有新部署使用基于容量的许可。如果您有使用上一代基于节点的模型的现有许可证，则必须将其转换为基于容量的许可。有关说明，请参见<block ref="6c9714235e53a411b3b31b5a9d910769" category="inline-link-rx"></block>。</block>
   <block id="6eb61ba1a2f61db4d9f72f3888890463" category="admonition">来自云提供商市场的 PAYGO（即用即付）订阅不适用于私有模式部署。在私有模式下，NetApp 直接提供 BYOL 许可证。基于节点的许可证仅适用于现有的私有模式部署，不能新部署。自 2025 年 6 月 25 日起，NetApp 已限制以私有模式购买、扩展和续订基于节点的许可证。如果您拥有现有的基于节点的许可证，则必须将其转换为基于容量的许可证。</block>
-  <block id="993fca3d74b4e0c45a0b63335fff4fc2" category="paragraph">对于新的专用模式部署，请改用基于容量的授权。请参阅<block ref="a830c5764652e2ca74bb3dce260e01c7" category="inline-link-rx"></block>。</block>
   <block id="63a4063cbdde53629f056f26faa6a46b" category="section-title">管理 PAYGO 订阅</block>
   <block id="27d6a6ca8e88ba1cb467019b29f60d17" category="paragraph">通过 Licenses and subscriptions 菜单，您可以查看每个 PAYGO Cloud Volumes ONTAP 系统的详细信息，包括序列号和 PAYGO 订阅类型。来自云提供商市场的 PAYGO 订阅仅适用于基于容量的许可。</block>
   <block id="13cd5e1a4f18ae48c4acaf913e719713" category="list-text">从左侧导航窗格中，选择 *Administration &gt; Licenses and subscriptions*。</block>
@@ -7854,7 +7826,6 @@
   <block id="2c75f8b945372b634e9e18b99c136ff5" category="list-text">选择*安全组*。</block>
   <block id="11ce8fc378ad1e71fa11777c66fc27b8" category="list-text">选择*添加规则*。</block>
   <block id="575a791f9a30787a33d3ffa1e153d74f" category="list-text">选择*保存规则*以应用更改。</block>
-  <block id="e077119f4ea7fb417ccec23198b24ffa" category="list-text">对于 AWS，需要将 VPC 端点连接到 Amazon Simple Storage Service（Amazon S3）。<block ref="8bf18368a4d50e7d264c6ce0821cc35b" category="inline-xref-macro-rx"></block>。</block>
   <block id="94b9c9690f23092831b71a91d85ed9e4" category="list-text">在 ONTAP System Manager 中，选择 *存储 &gt; 层*。</block>
   <block id="e8eaa508caa22b6a16b153ffc33a3d68" category="list-text">选择聚合的操作菜单，然后选择 *Attach Cloud Tiers*。</block>
   <block id="991945168db3b31dcbd5a4d700e55ce7" category="list-text">选择要附加的云层，然后选择*保存*。</block>
@@ -8012,4 +7983,84 @@
   <block id="0c06b5982fa51b01bda9bbbf8f86e47a" category="sidebar">NetApp Console REST API 概念</block>
   <block id="532a9bd10ba3f29a7e5525254f60da9a" category="sidebar">了解 API 工作流程</block>
   <block id="86c38aa977344df13fe2cdfd45f82392" category="sidebar">适用于 AWS、Azure 和 Google Cloud 的 Cloud Volumes ONTAP API 调用列表</block>
+  <block id="4ffb16f35f5e9aee9dee7b4d07e72ec5" category="paragraph">NetApp 为 Cloud Volumes ONTAP 引入了身份和访问管理（IAM）角色，支持基于角色的访问控制（RBAC），以实现更好的安全性和更轻松的合规性。用户可以继续使用其现有凭据登录 NetApp Console 进行 Cloud Volumes ONTAP 操作。但是，身份验证现在通过身份联合进行路由，使控制台管理员能够更精细地控制这些功能。在启用 Cloud Volumes ONTAP 角色之前，控制台代理必须运行 4.9.0 或更高版本。</block>
+  <block id="fc587a597771f80d7a6ba4e7b2d90d37" category="paragraph">每个用户必须具有以下角色之一，才能对 Cloud Volumes ONTAP 执行任何操作。如果没有角色，用户将无法查看或访问 Cloud Volumes ONTAP 实例。</block>
+  <block id="cb5ee3ecd31c69fc46d3da114a16ed83" category="admonition">首次部署 Console 代理或将现有 Console 代理升级到 Console 4.9.0 或更高版本时，一次性种子设定过程会自动将 Cloud Volumes ONTAP 角色分配给组织中的所有现有用户。此过程最多可能需要 30 分钟才能完成。完成后，Console 将为现有用户分配适当的角色。除非有代理正在运行，否则种子设定过程不会发生。</block>
+  <block id="58589b55d1f4e063bc5f101e0aaacde5" category="paragraph">Cloud Volumes ONTAP 角色适用于 Amazon Web Service（AWS）、Microsoft Azure（Azure）和 Google Cloud 环境。这些角色不适用于私有和受限制的部署模式。</block>
+  <block id="07ee22b21ec2682df904eeff73509ddc" category="inline-link">在 NetApp Console 中为 Cloud Volumes ONTAP 设置基于角色的访问控制</block>
+  <block id="c1fb6aa9d061f2b296f150910042d1d2" category="list-text"><block ref="c1fb6aa9d061f2b296f150910042d1d2" category="inline-link-rx"></block></block>
+  <block id="675e5c95b67dc978d87e55c19d5da7e8" category="list-text"><block ref="675e5c95b67dc978d87e55c19d5da7e8" category="inline-link-rx"></block></block>
+  <block id="b27aa3c0e44a53b3c16b5a2e40086669" category="inline-link">使用 Workload Factory 改进 Azure 中的 Cloud Volumes ONTAP 配置</block>
+  <block id="f436c99a1822c57781e57709a1694485" category="list-text"><block ref="f436c99a1822c57781e57709a1694485" category="inline-link-rx"></block></block>
+  <block id="21b943021728acb873fd80e1597c6721" category="list-text"><block ref="21b943021728acb873fd80e1597c6721" category="inline-link-macro-rx"></block></block>
+  <block id="6f949577a89acb540c2feac1c32cdede" category="summary">从 NetApp Console，Workload Factory 会定期分析存储系统配置，以确定您的 Cloud Volumes ONTAP 系统是否存在任何配置问题。</block>
+  <block id="f476707cc34d6443fb3395b42de7046f" category="doc">Azure 中 Cloud Volumes ONTAP 系统的配置分析</block>
+  <block id="84075a62c8a1ffbfc237b2f7ca0e825d" category="paragraph">Workload Factory 定期从 NetApp Console 分析存储系统配置，以确定 Azure 中的 Cloud Volumes ONTAP 系统是否存在任何配置问题。当发现问题时，架构完善的仪表板会显示问题所在以及需要更改的建议，以确保您的存储系统实现最佳性能、成本效益并符合最佳实践。</block>
+  <block id="fc5c62a62be404e612778d7bfb0b2449" category="inline-link-macro">详细了解 Workload Factory。</block>
+  <block id="30dd86e65cb917e7834fe29250cfffe5" category="paragraph"><block ref="30dd86e65cb917e7834fe29250cfffe5" category="inline-link-macro-rx"></block></block>
+  <block id="081bb4ab1716ea656b2b52715598f415" category="paragraph">每日分析完成后，配置在部署的 Well-architected 仪表板中显示为"已优化"或"未优化"。您将按类别找到配置问题以及配置问题和建议列表。您可以查看配置问题的建议。Workload Factory 可以自动修复某些问题；其他问题需要手动干预。在此情况下，Workload Factory 会提供详细说明，以帮助您实施建议的更改。</block>
+  <block id="8be08850265c9930c26a8e5b28183a2e" category="paragraph">您还可以用简单的语言创建自定义规则，以根据组织的标准和 NetApp 最佳实践验证您的环境。通过试运行测试规则，然后安排它们在您的环境中运行。</block>
+  <block id="8feb6c8d13e912657481adbe0cafebb3" category="paragraph">NetApp Workload Factory 通过将持续评估与建议见解和补救措施相结合，将最佳实践应用于大型存储、数据库和 VMware 环境。自动化修复可减少人为错误，确保统一管理，并保持整个工作负载基础架构的性能和可靠性。</block>
+  <block id="a455642b6d08e55358a5b7b715b2a022" category="paragraph">Workload Factory 评估存储配置，以提供 ONTAP 配置最佳实践的深入视图，并确保符合 Azure Well-Architected Framework。评估还提出了改进和修复建议。</block>
+  <block id="fcee73fda93b51f2062d8a7a3b3a7c9f" category="paragraph">将 SSD 存储层利用率保持在 80% 以下，以防止潜在的应用程序读/写和吞吐量影响。您可以手动或自动增加容量。</block>
+  <block id="47bbd8baef0cacd39277e4da47b13e41" category="paragraph">将卷利用率保持在 80% 以下，以防止潜在的应用程序读/写和吞吐量影响。您可以手动增加容量或使用卷自动增长。</block>
+  <block id="7a1c697dfc80a0af16ac8385d1fc8e04" category="paragraph">为了获得最佳性能，请选择最适合您的工作负载的 FlexCache 写入模式。写入绕行模式为具有小文件的读取密集型工作负载提供更好的性能，而写回模式为具有大文件的写入密集型工作负载提供更好的性能。</block>
+  <block id="48962e2bd8d287020b93803ab33e2b37" category="paragraph">在缓存卷上启用卷自动调整大小和清理，以保持最佳大小，并将缓存集中在频繁访问（热）数据上，以实现最高效率。</block>
+  <block id="bed459e6df93ff6f9fe5d1a77eb803e3" category="paragraph">多余的SSD容量会增加不必要的成本。减少SSD层，同时保持20%的可用空间缓冲区。此操作可能需要数小时到数天，在此期间不支持其他文件系统操作。</block>
+  <block id="fe74e3d6069d6e3b0abc5a608352fbcb" category="paragraph">启用冷数据分层，将冷数据从 SSD 存储层移动到成本较低的存储。将分层策略应用于每个卷。</block>
+  <block id="51eb8c5bc84dae0daf3cfe28900bc13b" category="paragraph"><block ref="51eb8c5bc84dae0daf3cfe28900bc13b" category="inline-link-macro-rx"></block></block>
+  <block id="5d501ad8198f79f39de48560c5722d1e" category="paragraph">如果您拥有采用基于节点许可证的市场订阅或私有部署，则可以使用控制台中的许可证转换工具<block ref="db4ec6a978acbab7786496b22aa52409" category="inline-link-macro-rx"></block>。</block>
+  <block id="fb0147398e4c8a5b077a1394aed4389e" category="inline-link">在专用模式下部署 NetApp Console 代理</block>
+  <block id="d7758adbfebba00b7b4101d670263bc5" category="paragraph">如果部署在没有 Internet 访问权限的子网中，请手动安装 Console 代理并访问该 NetApp Console 代理上运行的 Console 用户界面。请参见 Console 设置指南：<block ref="c773f3709d9679eedc95217358ef5683" category="inline-link-rx"></block></block>
+  <block id="0b8c04c10b3278013001602c5c74edf9" category="paragraph">创建控制台代理后，必须验证必要的 IAM 角色和 Cloud Volumes ONTAP 角色和权限是否到位。</block>
+  <block id="d1338dafa7fd0fe58848d12cfd231e3a" category="paragraph">在私有模式下，Console 代理必须正确配置必要的角色和权限。但是，Cloud Volumes ONTAP 角色不适用于私有模式部署。请参阅 Console 设置指南：<block ref="649a12b1226d0452fe3b0c061e0f668b" category="inline-link-rx"></block></block>
+  <block id="2b4d9723a34936112e4a4945c03eafb0" category="summary">精心设计的仪表板扫描 Cloud Volumes ONTAP 配置，提供见解和建议，帮助您实现卓越运营。</block>
+  <block id="1362bc6d891ce46b20bd9f14b5d20bd8" category="paragraph">使用 NetApp Workload Factory 从 NetApp Console 为 Azure 中的 Cloud Volumes ONTAP 系统实施最佳实践。您可以轻松查看架构完善的状态，了解配置问题，并修复问题以改进任何未在可靠性、安全性、效率、性能和成本方面进行优化的系统的体系结构。</block>
+  <block id="2481fd47e889a8c5be960ceeee3fc039" category="inline-link-macro">了解配置分析和架构良好的状态。</block>
+  <block id="bb0ead911621e5df4a13bafd73abb288" category="paragraph"><block ref="bb0ead911621e5df4a13bafd73abb288" category="inline-link-macro-rx"></block></block>
+  <block id="59f30b51d90b672b7f39da83bc3e409c" category="paragraph">Workload Factory 每天分析 Microsoft Azure 上的 Cloud Volumes ONTAP 系统配置。</block>
+  <block id="432cde80af7aede16dd04f981eecdffc" category="paragraph">由于存储配置的要求各不相同，因此您可以忽略不适用于存储环境的特定配置的分析。</block>
+  <block id="4ceaf19fb3d0a70e329fcd3777bb05ea" category="inline-link-macro">已部署</block>
+  <block id="fff36a3e5977f0339bc636e4a98482da" category="list-text">您必须在 Azure 中<block ref="645fa5b039844afebaf146683ddeb134" category="inline-link-macro-rx"></block>拥有 Cloud Volumes ONTAP 系统，才能查看架构完善的状态以及有关配置问题的建议。</block>
+  <block id="ea6bb2a380bcfe53fc0389ef76c5e079" category="list-text">确保与 Cloud Volumes ONTAP 关联的代理可以访问以下端点：</block>
+  <block id="74bdd3d51d7fef35f3c1e1829b2c63fe" category="section-title">修复配置问题</block>
+  <block id="f1d08eb73549875db80c43cd9a925fa8" category="paragraph">修复 Cloud Volumes ONTAP 系统或选定卷的配置问题。您可以选择一个或多个要修复的配置。</block>
+  <block id="fa86b77bd202fbee06c4800f9441c22d" category="paragraph">修复操作可能导致实例停机或服务中断。在修复配置问题之前，请仔细阅读每个建议。</block>
+  <block id="5838891146d1517c2bdea92fd1f98c7f" category="list-text">登录到 <block ref="7416259fdf1662634baa26751ef5cd92" category="inline-link-macro-rx"></block>。</block>
+  <block id="674cdd9d0643c21337fb29007e8823da" category="list-text">在 NetApp Console 菜单中，选择 *Workloads* &gt; *Well-architected* &gt; *Cloud Volumes ONTAP for Azure*。</block>
+  <block id="7ca53d4270a5ef830e9b23a161121575" category="list-text">从架构完善的仪表板中，为任何配置选择*查看并修复*。请务必仔细审查建议。</block>
+  <block id="c9e425055996f71ecfc858708d926276" category="paragraph">该建议解释了未优化配置的最佳实践和潜在缺陷。</block>
+  <block id="a4ae5a230015c0a679cee86f84a28962" category="list-text">选择资源，然后选择*修复*。</block>
+  <block id="2af3c9fde17ed17e2cb74daff4214448" category="paragraph">某些修复仅适用于特定配置，并且不能始终应用于多个资源。例如，您可以修复单个卷的配置，但不能修复多个卷的配置。</block>
+  <block id="5d1f387838383b2d368f6e7f1c840316" category="list-text">查看操作项目，了解此修复的后果，例如实例停机或服务中断。</block>
+  <block id="53274680f8c8a77a8f6eea3b3540d8e8" category="list-text">如果您希望 Workload Factory 应用建议的更改，请选择*修复*。</block>
+  <block id="726bf0c95b7d224357eed255c4a10e8b" category="paragraph">Workload Factory 启动修复此问题的流程。</block>
+  <block id="a46fab6bb1626887eac54858dc05cb71" category="section-title">忽略配置分析</block>
+  <block id="4a98f536eaad8a4f8fba5780c2425562" category="paragraph">停止 Cloud Volumes ONTAP 系统或选定卷的配置分析。您可以在需要时重新启动分析。</block>
+  <block id="b4bb104bc7f6b013b24aa5c7a44aa055" category="open-title">忽略系统的配置分析</block>
+  <block id="7e12ec579b2b712008a0313c32f73260" category="list-text">在"配置"下，确定不适用于您的环境的配置，然后选择 *关闭*。</block>
+  <block id="36ed461a33f462df70ba0e617165352a" category="list-text">在 Dismiss configuration 对话框中，选择 *Dismiss* 停止配置分析。</block>
+  <block id="894ee870661e494e23b4326cec5b3c29" category="open-title">取消卷的配置分析</block>
+  <block id="0b75d0f51d0af9418adc1dfa9e70aaef" category="list-text">在“配置”下，确定要为您的资源取消的配置，然后选择 *查看并修复*。</block>
+  <block id="c221226095e354a5e5a331d8d2b4b96c" category="list-text">在配置页面上，选择要从配置分析中排除的资源。</block>
+  <block id="4ddd20f2e74d8c101dd2fb7ca2d68381" category="list-text">对于一个资源：选择操作菜单，然后选择 *忽略卷*。</block>
+  <block id="eb1f9234defa9a86f32519be3fcb787a" category="list-text">对于多个资源：选择资源，然后选择"批量操作"旁边的 *Dismiss*。</block>
+  <block id="7efbc096eb8818df22ad0ea26cc99905" category="list-text">选择*Dismiss*以停止对配置的分析。</block>
+  <block id="2773330e4a665ad4a0b2217458b38f4d" category="list-text">在"关闭卷"对话框中，选择 *Dismiss* 确认。</block>
+  <block id="035c78581554c14599153884930c42fa" category="paragraph">Workload Factory 停止对选定配置的配置分析。</block>
+  <block id="61ab3b6f044b76185565a9f1d6db2113" category="section-title">重新激活已解除的配置分析</block>
+  <block id="1ba6be935ab946465d05505a4c53e7a7" category="paragraph">随时重新激活 Cloud Volumes ONTAP 系统的已解除配置分析。您可以选择一个或多个要重新激活的配置。</block>
+  <block id="77239733a61971463cfe9a0499111a99" category="open-title">重新激活系统的配置分析</block>
+  <block id="e1b530152da44e105ca4a8d377616f64" category="list-text">选择 *Dismissed configurations*。</block>
+  <block id="270bcb2a3b0d4dcdf87bf4e7c1c99a97" category="list-text">确定要重新激活的配置，然后选择*Reactivate*。</block>
+  <block id="ecb092b253afce33e8f8f745bc02e5da" category="open-title">重新激活资源的配置分析</block>
+  <block id="6f8513c04e28c27f7f5f28a792579726" category="list-text">在配置页面上，选择要重新激活的资源。</block>
+  <block id="c8722f7d59ae6b72c8f75298ee9eac38" category="list-text">对于一个资源：选择操作菜单，然后选择 *重新激活*。</block>
+  <block id="a38e01e3ec63bd595f916620c9db95f2" category="list-text">对于多个资源：选择资源，然后选择"批量操作"旁边的 *Reactivate*。</block>
+  <block id="90bf65e5861f1213fc5134e7f7138cc3" category="paragraph">Workload Factory 每天重新激活配置分析并运行新的分析。</block>
+  <block id="c04205f36d58d2d1ec62c2899d062abf" category="paragraph">对于新的专用模式部署，请改用基于容量的授权。请参阅<block ref="e18a894e162de115535720d8609168d7" category="inline-link-rx"></block>。</block>
+  <block id="ef0a2b24c4d241810a5cc26a0a481a06" category="sidebar">Azure 和 Workload Factory 中的 Cloud Volumes ONTAP</block>
+  <block id="180f505a7fc07d3f76f768c6fcc4a74c" category="sidebar">使用 Workload Factory 进行配置分析和改进</block>
+  <block id="7f8dc6515dcacddbb5d244b704ed2660" category="sidebar">Azure 中 Cloud Volumes ONTAP 的配置分析</block>
+  <block id="a4103c06761e189279517f49433e8fdc" category="sidebar">改进 Azure 中的 Cloud Volumes ONTAP 配置</block>
 </blocks>

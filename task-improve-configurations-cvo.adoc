@@ -1,0 +1,144 @@
+---
+sidebar: sidebar 
+permalink: task-improve-configurations-cvo.html 
+keywords: improve configurations, optimize configurations, implement best practices, well-architected file system, Cloud Volumes ONTAP, Microsoft Azure 
+summary: 精心设计的仪表板扫描 Cloud Volumes ONTAP 配置，提供见解和建议，帮助您实现卓越运营。 
+---
+= 使用 Workload Factory 改进 Azure 中的 Cloud Volumes ONTAP 配置
+:allow-uri-read: 
+:icons: font
+:imagesdir: ./media/
+
+
+[role="lead"]
+使用 NetApp Workload Factory 从 NetApp Console 为 Azure 中的 Cloud Volumes ONTAP 系统实施最佳实践。您可以轻松查看架构完善的状态，了解配置问题，并修复问题以改进任何未在可靠性、安全性、效率、性能和成本方面进行优化的系统的体系结构。
+
+link:concept-configuration-analysis-cvo.html["了解配置分析和架构良好的状态。"]
+
+
+
+[[about-this-task]]
+== 关于此任务
+
+Workload Factory 每天分析 Microsoft Azure 上的 Cloud Volumes ONTAP 系统配置。
+
+由于存储配置的要求各不相同，因此您可以忽略不适用于存储环境的特定配置的分析。
+
+
+
+[[before-you-begin]]
+== 开始之前
+
+* 您必须在 Azure 中link:concept-azure-mktplace-direct.html["已部署"]拥有 Cloud Volumes ONTAP 系统，才能查看架构完善的状态以及有关配置问题的建议。
+* 确保与 Cloud Volumes ONTAP 关联的代理可以访问以下端点：
++
+** \https://api.workloads.netapp.com
+** \https://ws.workloads.bluexp.netapp.com
+
+
+
+
+
+
+[[fix-a-configuration-issue]]
+== 修复配置问题
+
+修复 Cloud Volumes ONTAP 系统或选定卷的配置问题。您可以选择一个或多个要修复的配置。
+
+修复操作可能导致实例停机或服务中断。在修复配置问题之前，请仔细阅读每个建议。
+
+.步骤
+. 登录到 link:https://console.netapp.com/home["NetApp Console"^]。
+. 在 NetApp Console 菜单中，选择 *Workloads* > *Well-architected* > *Cloud Volumes ONTAP for Azure*。
+. 从架构完善的仪表板中，为任何配置选择*查看并修复*。请务必仔细审查建议。
++
+该建议解释了未优化配置的最佳实践和潜在缺陷。
+
+. 选择资源，然后选择*修复*。
++
+某些修复仅适用于特定配置，并且不能始终应用于多个资源。例如，您可以修复单个卷的配置，但不能修复多个卷的配置。
+
+. 查看操作项目，了解此修复的后果，例如实例停机或服务中断。
+. 如果您希望 Workload Factory 应用建议的更改，请选择*修复*。
+
+
+.结果
+Workload Factory 启动修复此问题的流程。
+
+
+
+[[dismiss-a-configuration-analysis]]
+== 忽略配置分析
+
+停止 Cloud Volumes ONTAP 系统或选定卷的配置分析。您可以在需要时重新启动分析。
+
+[role="tabbed-block"]
+====
+.忽略系统的配置分析
+--
+.步骤
+. 登录到 link:https://console.netapp.com/home["NetApp Console"^]。
+. 在 NetApp Console 菜单中，选择 *Workloads* > *Well-architected* > *Cloud Volumes ONTAP for Azure*。
+. 在"配置"下，确定不适用于您的环境的配置，然后选择 *关闭*。
+. 在 Dismiss configuration 对话框中，选择 *Dismiss* 停止配置分析。
+
+
+--
+.取消卷的配置分析
+--
+.步骤
+. 登录到 link:https://console.netapp.com/home["NetApp Console"^]。
+. 在 NetApp Console 菜单中，选择 *Workloads* > *Well-architected* > *Cloud Volumes ONTAP for Azure*。
+. 在“配置”下，确定要为您的资源取消的配置，然后选择 *查看并修复*。
+. 在配置页面上，选择要从配置分析中排除的资源。
++
+** 对于一个资源：选择操作菜单，然后选择 *忽略卷*。
+** 对于多个资源：选择资源，然后选择"批量操作"旁边的 *Dismiss*。
+
+
+. 选择*Dismiss*以停止对配置的分析。
+. 在"关闭卷"对话框中，选择 *Dismiss* 确认。
+
+
+--
+====
+.结果
+Workload Factory 停止对选定配置的配置分析。
+
+
+
+[[reactivate-a-dismissed-configuration-analysis]]
+== 重新激活已解除的配置分析
+
+随时重新激活 Cloud Volumes ONTAP 系统的已解除配置分析。您可以选择一个或多个要重新激活的配置。
+
+[role="tabbed-block"]
+====
+.重新激活系统的配置分析
+--
+.步骤
+. 登录到 link:https://console.netapp.com/home["NetApp Console"^]。
+. 在 NetApp Console 菜单中，选择 *Workloads* > *Well-architected* > *Cloud Volumes ONTAP for Azure*。
+. 选择 *Dismissed configurations*。
+. 确定要重新激活的配置，然后选择*Reactivate*。
+
+
+--
+.重新激活资源的配置分析
+--
+.步骤
+. 登录到 link:https://console.netapp.com/home["NetApp Console"^]。
+. 在 NetApp Console 菜单中，选择 *Workloads* > *Well-architected* > *Cloud Volumes ONTAP for Azure*。
+. 选择 *Dismissed configurations*。
+. 在配置页面上，选择要重新激活的资源。
++
+** 对于一个资源：选择操作菜单，然后选择 *重新激活*。
+** 对于多个资源：选择资源，然后选择"批量操作"旁边的 *Reactivate*。
+
+
+
+
+--
+====
+.结果
+Workload Factory 每天重新激活配置分析并运行新的分析。
