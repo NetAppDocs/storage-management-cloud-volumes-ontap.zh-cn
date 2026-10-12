@@ -47,7 +47,7 @@ sidebar:
         url: "/concept-degraded-ha-pair.html"
     - title: 在 Amazon Web Services 中部署
       entries:
-      - title: 从 AWS Marketplace 载入 Cloud Volumes ONTAP
+      - title: 从 AWS Marketplace 部署独立的 Cloud Volumes ONTAP
         url: "/task-onboard-cvo-aws-marketplace.html"
       - title: 部署概述
         url: "/task-getting-started-aws.html"

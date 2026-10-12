@@ -7051,46 +7051,15 @@
   <block id="44e833213a99257d69192896111996f4" category="paragraph">现在，您可以在 Azure 的奥地利东部 (austriaeast) 和比利时中部 (belgiumcentral) 区域部署 Cloud Volumes ONTAP 9.12.1 GA 及更高版本。支持以下部署类型：</block>
   <block id="0eda8bbe61d2248f5418aba76b8dc5b1" category="list-text">\https://api.workloads.netapp.com</block>
   <block id="9f45fe3cd2af64a1afc3f4b7f81bdae6" category="list-text">\https://ws.workloads.bluexp.netapp.com</block>
-  <block id="69fad001104806c7d3df4d9a347564cb" category="inline-link-macro">在 AWS Marketplace 中载入 Cloud Volumes ONTAP</block>
-  <block id="96b530e768c1d37cb28e1a93deb3f72b" category="paragraph">您可以使用 AWS Marketplace 或 NetApp Console 在 AWS 中安装 Cloud Volumes ONTAP。下表概述了在 AWS 中部署 Cloud Volumes ONTAP 所需完成的任务。从 AWS Marketplace 引导是一种简化的体验，可自动执行 Console 代理部署和订阅关联。有关从 AWS Marketplace 引导的信息，请参见 <block ref="837547e59085e904a77e7f4e64639022" category="inline-link-macro-rx"></block>。</block>
   <block id="dbf314f960a580dec77c3328f5a7dcfe" category="list-text">如果您计划通过 AWS 市场中的独立 Cloud Volumes ONTAP 订阅收取 Cloud Volumes ONTAP 容量费用，Cloud Volumes ONTAP 系统必须使用受支持的基于容量的套餐（Essentials 或 Freemium）。独立列表不支持 Professional 套餐，并继续通过 NIS 订阅收费。选择所需套餐后，使用 NetApp Console 中的*账单首选项*选择用于 Cloud Volumes ONTAP 账单的市场订阅。</block>
   <block id="a21deb009c8ff7309664108fdf426e10" category="summary">在 AWS Marketplace 中订阅 Cloud Volumes ONTAP，并在 NetApp Console 中完成设置，包括组织创建、订阅关联、代理部署和首个系统创建。</block>
   <block id="ce95e653013e10f07ac1b69529baf3bb" category="doc">从 AWS Marketplace 订阅和部署 Cloud Volumes ONTAP</block>
-  <block id="a56d9a462f5d920c9293b0c67186d9e1" category="paragraph">从 AWS Marketplace 订阅 Cloud Volumes ONTAP，让 NetApp Console 指导您完成入门流程。通过从订阅到部署的简单路径，您可以快速启动并运行 Cloud Volumes ONTAP。引导式体验简化了从 AWS Marketplace 订阅到部署的流程，帮助您部署 Cloud Volumes ONTAP，而无需具备丰富的云或 ONTAP 专业知识。</block>
-  <block id="6a38f577211073eeb02102781c7a7724" category="paragraph">从 AWS Marketplace 订阅和部署 Cloud Volumes ONTAP 包括以下步骤：</block>
-  <block id="9d45170ac0ac56a9ff0cb7cc857e63f0" category="list-text">在 AWS Marketplace 中订阅 Cloud Volumes ONTAP。</block>
-  <block id="02ab25857b97c370d093230f750bedf8" category="list-text">注册到 Console。</block>
-  <block id="07fed0f9fcd003852926ec161d68a5ed" category="list-text">创建您的组织（如果需要）并关联 Marketplace 订阅。</block>
-  <block id="a5dea32886a7e080be6f9329f1fb446a" category="list-text">在 AWS 中部署 Console 代理。</block>
-  <block id="aff1b02ecbb84d53a7ea17d4cd323753" category="list-text">添加您的第一个 Cloud Volumes ONTAP 系统。</block>
-  <block id="1216ca4f430de5c3a0d9702bcbabaa02" category="paragraph">简化的入门流程为订阅关联、IAM 角色配置、代理配置和系统初始化提供自动化代理部署，所需输入极少。后端编排自动处理 CloudFormation 堆栈创建、VPC 连接验证和资源依赖关系。这减少了手动配置步骤和屏幕切换，让您能够以更少的设置错误和中断更快地部署 Cloud Volumes ONTAP。随着部署的进行，您可以在右侧面板中跟踪进度。</block>
-  <block id="d102ad960823e2e5bdf818a47be9d5b3" category="paragraph">在开始入门工作流之前，请先查看这些先决条件。</block>
-  <block id="172b7630d3591caad16d4e53bb8caa5b" category="list-text">您需要拥有在 AWS Marketplace 中订阅权限的 AWS 帐户。要使用自动 IAM 设置，您必须是 AWS 管理员或具有以下所示的权限。</block>
-  <block id="6a5a62604841f01985bd66ce12b68800" category="list-text">您可以在 AWS 中创建或使用 IAM 角色进行代理部署。</block>
-  <block id="48a51e79fb6a62108e71ba7e037a9b37" category="list-text">您可以登录 NetApp Console 或在其中创建帐户。</block>
-  <block id="09f8a40b3c8ade5b73c631a145579e8d" category="inline-link-macro">从 AWS Marketplace 部署 NetApp Console 代理</block>
-  <block id="2884c4b8debb63cfcef54c15dde97b1f" category="paragraph">有关完整的 AWS 代理部署先决条件，请参见 <block ref="d87c3906dbbd3aa004bc4ac3ab4610c2" category="inline-link-macro-rx"></block>。</block>
-  <block id="f444f7c358bbe34ac520595600b8b22c" category="section-title">在 AWS Marketplace 中订阅</block>
-  <block id="c8a45b103b3411fa57280389e905876d" category="paragraph">通过在 AWS Marketplace 中找到 Cloud Volumes ONTAP 产品，开始入门流程。</block>
-  <block id="d30611ae1c4aa386020b8e622fda43df" category="list-text">使用您的 AWS 账户转到 AWS Marketplace。</block>
-  <block id="65a60fa3ef358594aeb5c3013a500873" category="list-text">找到 NetApp Cloud Volumes ONTAP 产品。AWS Marketplace 中有两种针对 Cloud Volumes ONTAP 的产品：</block>
-  <block id="6bf9cb27d1125662310a04223e3dedcf" category="list-text">Cloud Volumes ONTAP 年度订阅的独立产品</block>
-  <block id="fdfb3edef005048dd4efa8424b37cd80" category="list-text">NetApp 数据服务和 Cloud Volumes ONTAP 订阅的 NetApp 智能服务 (NIS) 组合产品。为此入门工作流程选择_独立_产品。</block>
   <block id="a4cede66de2477ac18bbdee0f03c3b4b" category="list-text">查看列表详情和定价条款。</block>
   <block id="885d2379a584c302d318353e375f294c" category="list-text">订阅并完成结算。</block>
-  <block id="f1b64129ed9863a99f0398b63b8a21eb" category="list-text">订阅后，AWS 会将您重定向到 Console 注册或登录页面。</block>
   <block id="af9938b36ef2a60606b45bb8ffe35344" category="section-title">注册或登录 NetApp Console</block>
-  <block id="96b3a57bf37c129501b50b711ec35358" category="paragraph">完成市场订阅后，请访问控制台继续设置。</block>
   <block id="e7d1b65dd28597571fba7d964af5a41c" category="list-text">在控制台页面上，选择一项：</block>
   <block id="df754221abc49063bd0903d180e996c6" category="list-text">如果您是新用户，请*注册*。</block>
   <block id="7056635c8b9f8d28fc7e21996cb93294" category="list-text">*登录 NetApp Console*（如果您已有帐户）。</block>
-  <block id="115e2aa74ec72f678a8f9c0ff8a23d84" category="list-text">如果您选择了*注册*，请完成以下操作：</block>
-  <block id="0ed642aae1713d162a22c10261227792" category="list-text">输入必填字段：</block>
-  <block id="ce8ae9da5b7cd6c3df2929543a9af92d" category="list-text">电子邮件</block>
-  <block id="dc647eb65e6711e155375218212b3964" category="list-text">密码</block>
-  <block id="f11b368cddfe37c47af9b9d91c6ba4f0" category="list-text">全名</block>
-  <block id="1c76cbfe21c6f44c1d1e59d54f3e4420" category="list-text">公司</block>
-  <block id="59716c97497eb9694541f7c3d37b1a4d" category="list-text">国家/地区</block>
   <block id="e6cd86d61f4639c8a27006c6c29b3e9f" category="list-text">选择 *Next*。</block>
   <block id="39f666f68e0b42f2f9f878864293d3b0" category="list-text">可选：输入联系方式，如地址、城市、州/省、邮政编码和电话号码。</block>
   <block id="7408a50737fd936622eeec54bbeb439c" category="list-text">选择*注册*。</block>
@@ -7098,66 +7067,32 @@
   <block id="606b520330e1b3dd8468aa4c696f320b" category="list-text">使用来自 service@console.netapp.com 的邮件验证您的电子邮件地址。</block>
   <block id="e01bdff1ce4770f66f1a74a9b5892c8b" category="list-text">登录到控制台并完成身份验证。</block>
   <block id="ac9188736d7d24740d106bad6d2f1a24" category="section-title">创建您的组织</block>
-  <block id="db32d51e7a32c3835f9ca7138ba5e779" category="paragraph">仅当您是首次使用的用户或尚未属于 NetApp Console 组织时，才需完成此步骤。</block>
-  <block id="dfa6580bc43676ec0428470c4226197e" category="paragraph">如果您已经属于某个组织，请跳过此部分并继续 <block ref="5a5b9f60942f56579652f4a550dadca9" category="inline-xref-macro-rx"></block>。</block>
-  <block id="b60fce2f30234b8c655d26812f8d684c" category="paragraph">创建组织以管理用户、角色、权限、许可证和系统。</block>
   <block id="4c27c7ddbdd91ad9f40d0e69913d02f8" category="list-text">输入组织名称。</block>
   <block id="340e0bcb7d46eb5bd14fee5c751d3175" category="list-text">可选：关联 NetApp 支持站点 (NSS) 帐户。</block>
   <block id="bf18811faac9b8e4fcaebab51afd1113" category="list-text">选择 *Create*。</block>
-  <block id="34c93ad83166c6e80fe3fea1d5eaa0df" category="section-title">关联订阅</block>
-  <block id="e7044d37a1ed84ca9f7caa2b9d24ef7f" category="paragraph">创建组织后，Console 会自动尝试将您的市场订阅链接到该组织。</block>
   <block id="3bdc84428bee979e77f1781f40304f42" category="inline-link-macro">了解如何管理订阅</block>
-  <block id="6038ef325e8557cc84b0ef6c053a062d" category="paragraph">如果自动关联失败，请手动关联您的订阅。<block ref="31ece82e919075b6d4fa8e64ff8627ac" category="inline-link-macro-rx"></block>。</block>
   <block id="999c350fcbd9f270e794eb9f39020947" category="section-title">在 AWS 中部署 Console 代理</block>
-  <block id="5cb502f88565459be3dfd091651deb1b" category="paragraph">关联订阅后，Console 将自动打开代理部署流程，以管理您的 AWS 资源和 Cloud Volumes ONTAP 系统。</block>
   <block id="0e5a6ed81e42dfb7b8082abc4bd85af9" category="inline-link-macro">AWS 权限参考</block>
-  <block id="57a69cea62fbfee2c988421746b5ec77" category="paragraph">有关代理部署期间使用的权限的详细信息，请参见 <block ref="8640373d61143a22452f799c5e012ff9" category="inline-link-macro-rx"></block>。</block>
-  <block id="b11b04338f764b72f59f7c3db188b3ad" category="list-text">您可以按照介绍页面中提到的步骤，以获得部署代理的最低权限，或继续为代理部署自动创建角色。</block>
-  <block id="701ad266790171c293af9ebdab49b1dd" category="list-text">在 *AWS credentials* 页面上，选择以下选项之一为代理部署提供凭据：</block>
   <block id="f6775e307e0e96c3d2d2aa4261c2dc06" category="open-title">为我创建角色（推荐）</block>
-  <block id="7d1dd887a48c9c23271325fc57dc9b7d" category="paragraph">选择此选项将打开 AWS CloudFormation 快速创建流程以创建代理部署角色。如果您是具有管理员权限的用户，您可以使用此选项自动使用 CloudFormation 堆栈创建策略、角色并对用户进行身份验证以创建代理。</block>
   <block id="947040282161ce63e6c467b9272f0987" category="list-text">添加 AWS 帐户 ID，也可以添加外部 ID。控制台设置默认角色名称。</block>
-  <block id="058984dad8b35b2edf4e90cc0d99e422" category="list-text">确认条款并选择*Create stack*。</block>
-  <block id="dd9b75b6f9c28d257df9b082c4cd3f22" category="inline-image-macro">width=50% AWS CloudFormation 堆栈创建页面的屏幕截图，您可以在其中输入 AWS 账户 ID，也可以输入代理部署角色的外部 ID。</block>
-  <block id="cb8aa7095d78f4373b1a7bc44eb8ccc3" category="paragraph"><block ref="cb8aa7095d78f4373b1a7bc44eb8ccc3" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1a8675104d64ecc19112dddcea8c45b8" category="list-text">在 AWS 中配置 IAM 角色并生成 ARN 时，确认并保存该角色。</block>
   <block id="c922cc18eca71598d4a86b7707d7eba0" category="open-title">承担角色</block>
-  <block id="6a2a0f10cb2f085ebdbde5eebef49a3e" category="paragraph">这是手动角色分配工作流程的一部分。输入现有 IAM 角色 ARN。有关编辑此角色的信息，请参阅<block ref="4d74176964b79f9dc8cf6e9b4edd3262" category="inline-link-rx"></block>。</block>
   <block id="e656cb1ebc2e559e3bcc2002585434ed" category="open-title">AWS 密钥</block>
-  <block id="dfb7a0fc5277c45a86764545309957ce" category="paragraph">这是手动角色分配工作流程的一部分。输入 AWS 访问密钥和私有密钥。有关信息，请参阅<block ref="075c8733f05483e5267d384d7c0db32a" category="inline-link-rx"></block>。</block>
-  <block id="68ff9a106c651bd2460baf0343787e09" category="list-text">部署 AWS 代理：</block>
-  <block id="bb65b2f90c49dcd84ae767d9f986f148" category="list-text">在 *AWS agent details* 页面上，设置或确认代理实例名称和代理角色。</block>
-  <block id="4d3d862d7ac1ef0cd306cce2d43b61c6" category="list-text">在*网络*页面上，选择 VPC、子网、密钥对、公共 IP 行为和代理设置。</block>
-  <block id="0cb0d7dbb504e41f0b9980e3f106ae8e" category="list-text">配置*安全组*。允许入站 HTTP (80)、HTTPS (443) 和 SSH (22) 以进行代理虚拟机的故障排除访问。</block>
-  <block id="e60a9f11dba1e6072ec9503cca905c92" category="list-text">查看章节摘要并选择*添加*进行部署。</block>
-  <block id="3ed9f44843bea0baa9e9721e607d24c2" category="paragraph">有关完整的网络和权限要求，请参见：</block>
   <block id="ef9fe436c6881c3aeb226ecf309827f0" category="inline-link">为 AWS Marketplace 部署设置网络</block>
   <block id="13ccd8cfe31fc2437285f8fa41bb39d0" category="list-text"><block ref="13ccd8cfe31fc2437285f8fa41bb39d0" category="inline-link-rx"></block></block>
   <block id="2d3fc94cd0898448a15e6e05f4098b6f" category="inline-link">设置 AWS 权限</block>
   <block id="57d5f449d9cc74edd78470cc9873c16e" category="list-text"><block ref="57d5f449d9cc74edd78470cc9873c16e" category="inline-link-rx"></block></block>
   <block id="43663d02f9f2280fb62656e0e2171f96" category="list-text"><block ref="43663d02f9f2280fb62656e0e2171f96" category="inline-link-rx"></block></block>
-  <block id="7ac3658f7b2ea40441a46f7d503df9d6" category="list-text">跟踪部署进度对话框直至完成。您可以展开事件日志以查看详细活动。</block>
-  <block id="40b1bbcf1d63550b5ee1a9ca612f354d" category="paragraph">部署完成后，您可以创建第一个 Cloud Volumes ONTAP 系统，也可以留在系统页面稍后添加系统。</block>
   <block id="63919d343a2d06159ee93f9535a4ca2e" category="section-title">添加您的第一个 Cloud Volumes ONTAP 系统</block>
-  <block id="e1373b355aa6da2aad7bba187ff4e9f2" category="paragraph">代理准备就绪后，在 AWS 中创建您的第一个 Cloud Volumes ONTAP 系统。</block>
-  <block id="b0845b98104086e018330dff1f994b3a" category="list-text">在部署后提示中，选择*Add system*。</block>
-  <block id="beec7c8b8f52f7e44dec39ce075d3abb" category="list-text">启动 Cloud Volumes ONTAP 系统创建工作流。</block>
-  <block id="e4998cdb09fc1ae76d7c7b0f97a04fd9" category="list-text">完成系统配置。</block>
   <block id="72d7b93cee23363a2907b2be8b237290" category="section-title">故障排除和恢复</block>
-  <block id="cb1bc5edf506394ee9927cb447901c17" category="paragraph">如果您在完成前离开引导流程，或者代理部署失败，请使用此部分。这些步骤可帮助您从中断处继续操作，或恢复并重试部署。</block>
   <block id="90a521d73cad15b4a353df47ccdc06d8" category="section-title">恢复设置</block>
-  <block id="e933831d8f6e421c7eea9aa2e2c76bb9" category="paragraph">如果在完成之前离开，则可以从上次完成的步骤恢复设置。</block>
   <block id="e440edd270e603c687695db87b77144a" category="list-text">转到 NetApp Console 主页。</block>
   <block id="733fbe662fa606d61fff360b4b1246b5" category="list-text">选择*Resume setup*以继续启用程序。</block>
   <block id="2a208a77ab0c5ca79397c57987de1a1a" category="section-title">从部署失败中恢复</block>
-  <block id="628f962201a560f694204274ce3d88ec" category="paragraph">如果部署失败：</block>
   <block id="1b523bb53ad2000e3344ff316e869855" category="list-text">下载部署报告。</block>
   <block id="07be83ce12a3bf78ef715d65c6c54020" category="list-text">查看您的配置和日志。</block>
   <block id="160e5aa077c7539416162287f02990f8" category="list-text">选择*Start over*以重试部署。</block>
   <block id="d2cfcb99c2e8baa996b4db2415ca247d" category="inline-link-macro">了解如何排查代理问题</block>
   <block id="69adeb1c49bb37715a017c9a902b7d1d" category="paragraph"><block ref="61813908742cfb0bf968ca5176776caa" category="inline-link-macro-rx"></block>。</block>
-  <block id="8c157a27a72f45bb42efe091d45115ef" category="paragraph">使用这些资源进行相关的设置任务和故障排除。</block>
-  <block id="d87c3906dbbd3aa004bc4ac3ab4610c2" category="list-text"><block ref="d87c3906dbbd3aa004bc4ac3ab4610c2" category="inline-link-macro-rx"></block></block>
   <block id="ff462988ef2bf728297fe5ed85ddc08d" category="inline-link-macro">配置AWS订阅</block>
   <block id="187e653c7125a081fc8f4c8454b7978a" category="list-text"><block ref="187e653c7125a081fc8f4c8454b7978a" category="inline-link-macro-rx"></block></block>
   <block id="2639be1d095a58dd96a72a823ff1b61b" category="inline-link-macro">对 NetApp Console agent 进行故障排除</block>
@@ -7446,7 +7381,6 @@
   <block id="0f37e7019150020ad56dacb33e050ce0" category="list-text"><block ref="0f37e7019150020ad56dacb33e050ce0" category="inline-link-macro-rx"></block></block>
   <block id="c5ff6e289ca10cde1a5f81d196d305dc" category="list-text"><block ref="c5ff6e289ca10cde1a5f81d196d305dc" category="inline-link-macro-rx"></block></block>
   <block id="0a96b1cb21a865ff7a38d495809cc48e" category="list-text"><block ref="0a96b1cb21a865ff7a38d495809cc48e" category="inline-link-macro-rx"></block></block>
-  <block id="75b888c439b50482e442b156f85f8b7b" category="paragraph">要查看详细的系统部署说明，请参阅<block ref="51799ed8a3c9382ecde3d4e502dc227c" category="inline-link-rx"></block>。</block>
   <block id="54675850f07c5f375dabbd24ce963055" category="paragraph">确保与 Cloud Volumes ONTAP 关联的 Console 代理能够访问以下端点：</block>
   <block id="8e7b9a9e43a2aeb3a7aabc300317310a" category="summary">设置您的 Google Cloud 网络，以便 Cloud Volumes ONTAP 系统可以正常运行。您将了解 CVO 的网络要求、私有 IP 地址、VPC、子网、数据包镜像、防火墙规则和 HA 配置以及控制台代理要求。</block>
   <block id="ecdc6a1891228ecd86842e25403089c2" category="section-title">私有模式或受保护环境中的 Infrastructure Manager 配置</block>
@@ -8063,4 +7997,80 @@
   <block id="65f9ec8af69f87b7b7419485ecdc45e9" category="list-text"><block ref="65f9ec8af69f87b7b7419485ecdc45e9" category="inline-link-rx"></block></block>
   <block id="3a7bbb1b9e5b37872fef8f715efc7171" category="list-text">确保已完成网络配置并为专用模式部署创建工作者池。请参阅 <block ref="36efb7ae258f0de12028dabdb108a37a" category="inline-link-macro-rx"></block>。</block>
   <block id="6ed0cfe5d8872e13ec685679d0c5586b" category="paragraph">指定 <block ref="8fc12ad6381abbb87712055c7f5e50f1" prefix=" " category="inline-code"></block> 参数以在私有模式部署中运行该工具。有关工作池配置，请参阅 <block ref="36efb7ae258f0de12028dabdb108a37a" category="inline-link-macro-rx"></block>。</block>
+  <block id="2ebfd6a7d346b4f849cfb04c2d3a5434" category="paragraph">您可以使用 AWS Marketplace 或 NetApp Console 在 AWS 中安装 Cloud Volumes ONTAP。下表概述了在 AWS 中部署 Cloud Volumes ONTAP 所需完成的任务。</block>
+  <block id="5e51aa22235e0104a5fffb9b0e0b97ac" category="inline-link-macro">在 AWS Marketplace 中载入 Cloud Volumes ONTAP 独立产品</block>
+  <block id="c15e37bc266e7b7e0212916e681f40ad" category="admonition">如果您在 AWS Marketplace 中订阅 Cloud Volumes ONTAP 独立产品，步骤会有所不同。有关从 AWS Marketplace 引导的信息，请参见 <block ref="e7b82cae26dca0ede070f2a3673c283d" category="inline-link-macro-rx"></block>。</block>
+  <block id="956257b7d0ca445001951932f7e84848" category="doc">从 AWS Marketplace 订阅和部署 Cloud Volumes ONTAP 独立产品</block>
+  <block id="723d1c9b2cb416390ec6382bd2a185db" category="paragraph">在 AWS Marketplace 中订阅独立的 Cloud Volumes ONTAP 产品，部署 Console 代理，并创建您的第一个系统。</block>
+  <block id="a579432a8e3b22d3a85649d7f57e5065" category="paragraph">在开始之前，请确保具备以下条件：</block>
+  <block id="7f9aae631f852dc3f30a5113d517404f" category="list-text">NetApp Console 帐户，或创建该帐户所需的信息。</block>
+  <block id="2cdcb75cdf45ad60c49310aa4953ecf2" category="inline-link-macro">了解控制台代理网络要求</block>
+  <block id="9c29150d1a4df0c7450a869ce2723638" category="list-text">已确保 Console 代理网络满足要求。 <block ref="a3f5b6fd7f8b50cbffb3cbeb6fa40451" category="inline-link-macro-rx"></block></block>
+  <block id="9706dc62b1cd200c516832184fe17aea" category="list-text">有权订阅 AWS Marketplace 并接受服务条款的 AWS 帐户和身份。</block>
+  <block id="40452a9c0c304507d341249cbb861fed" category="paragraph">如果选择*为我创建角色*，则提交 CloudFormation 快速创建堆栈的 AWS 身份需要以下权限。要使用相同的身份来订阅和提交堆栈，请在开始之前附加这些权限。如果使用不同的身份来提交堆栈，请将它们附加到该身份。这些权限允许 CloudFormation 创建部署角色；它们不是运行代理使用的权限。</block>
+  <block id="30e4c20d5d10c9da535f38ab1c548e1b" category="listing-title">CloudFormation 快速创建的最低权限</block>
+  <block id="fc232400356fdfe067adadb406acd776" category="section-title">在 AWS Marketplace 中订阅独立的 Cloud Volumes ONTAP 产品</block>
+  <block id="288d38f29d8eeeb99070bff4f65525c0" category="paragraph">在 AWS Marketplace 中找到独立的 Cloud Volumes ONTAP 产品。</block>
+  <block id="a11a0a42613839623b80519a128fe81d" category="list-text">使用具有所需权限的 AWS 帐户转到 AWS Marketplace。</block>
+  <block id="ef6da38a0094b683cff50de6f2edfb73" category="list-text">找到 NetApp Cloud Volumes ONTAP 独立产品。AWS Marketplace 为 Cloud Volumes ONTAP 提供两种产品：</block>
+  <block id="65e2afdf3ea7ead73c73f2ccc67a88bb" category="list-text">Cloud Volumes ONTAP 年度订阅的独立产品</block>
+  <block id="828bc789f8fea62d7d9dcfb1c8df6b67" category="list-text">NetApp 智能服务联合产品，适用于 NetApp 数据服务和 Cloud Volumes ONTAP 订阅。</block>
+  <block id="f734624cb745f5a29fe5ff81d7f7049f" category="list-text">选择 _standalone_ 产品。这些步骤将指导您订阅独立产品。</block>
+  <block id="0bede5b2fb82cb93a6b7341f902bd965" category="list-text">订阅后，选择*设置产品*将重定向至 NetApp Console 以完成部署。</block>
+  <block id="8e54d24c608de9f6d76f0ddf776cd3cc" category="paragraph">完成 Marketplace 订阅后，请继续在 NetApp Console 中进行设置。</block>
+  <block id="e17e44482e762e707860b1c0d43859ab" category="list-text">如果您选择*注册*，请完成以下操作：</block>
+  <block id="001e71c8221c566f7d55a6c444a3bb93" category="list-text">输入必填字段。</block>
+  <block id="7f80592ced9735452b147a4ca330f6d9" category="paragraph">仅当您是首次使用的用户或尚未属于某个组织时，才创建组织。如果您已经属于某个组织，请跳过此部分并继续<block ref="7acf9f6f7caab8589fdd395956f11b46" category="inline-xref-macro-rx"></block>。</block>
+  <block id="4e153039c8e6ff6a95edc5ef7d826812" category="paragraph">组织可帮助您管理用户、角色、权限、许可证和系统。</block>
+  <block id="af155629373d274993ac8a266ab76b89" category="paragraph">将订阅与 NetApp Console 关联后，部署 Console 代理来管理 AWS 资源和 Cloud Volumes ONTAP 系统。</block>
+  <block id="d53a7c0871705c4ac01b2df9d5b241e5" category="paragraph">在部署代理之前，请查看 AWS 授权和网络要求。</block>
+  <block id="03f6071650b6469d9c9a93a196a61040" category="list-text">决定如何授权控制台部署代理。</block>
+  <block id="05a3fe2e02c1f1540ccef223505a2330" category="inline-xref">上述 JSON 示例</block>
+  <block id="d5bfbb2ca7dde59b481ff309b6bec285" category="list-text">对于 *为我创建角色*，提交 CloudFormation 快速创建堆栈的 AWS 身份需要 AWS 管理员权限或 <block ref="7156c9b2f9143a675b60fc91ab28fcb2" category="inline-xref-macro-rx"></block> 中的最低权限。</block>
+  <block id="ee1fa866b1036ae536c488636502e9c2" category="inline-link-macro">部署代理的 AWS 权限</block>
+  <block id="0607e2a460bfd565aa14109e030961be" category="list-text">有关*代入角色*或*AWS 密钥*，请参见 <block ref="4f7e9163cfde6ff2377419c6fdae5558" category="inline-link-macro-rx"></block>。</block>
+  <block id="68ea4d5293026e87aacb258b4be2e6f7" category="inline-link-macro">控制平台（Console）代理网络要求</block>
+  <block id="68c2d10650903953a14604c3c3109692" category="list-text">根据<block ref="57e30a23131f96ed68767f7cb3969724" category="inline-link-macro-rx"></block>设置网络。</block>
+  <block id="9ae31cce7f4f997ca6a4ce974729dc69" category="list-text">在欢迎页面上，选择*恢复设置*。</block>
+  <block id="c65772ff5c5b2b004272e64e76129adb" category="paragraph">控制台尝试将您的市场订阅与您的组织关联。如果自动关联失败，请手动关联您的订阅。<block ref="31ece82e919075b6d4fa8e64ff8627ac" category="inline-link-macro-rx"></block>。</block>
+  <block id="760b2cce1bdd91643828cb336e30011d" category="paragraph">关联订阅后，控制台将引导您部署控制台代理。</block>
+  <block id="a6b0b13c48c4edabf130e29f6c2aede6" category="list-text">选择如何授权控制台部署代理：</block>
+  <block id="d03dc9a97d84741e0fd10a2dd0247fe2" category="paragraph">部署凭据授权控制台部署代理。正在运行的代理使用附加到其 EC2 实例的单独 IAM 角色。控制台可以创建该角色或使用具有所需权限的现有角色。请参阅 <block ref="e480ed58fa8c12ab0039f7c0d6e93451" category="inline-link-macro-rx"></block>。</block>
+  <block id="81f02468fbacade145190951812b5c52" category="list-text">选择 *为我创建角色* 让 CloudFormation 创建控制台可以担任的角色。</block>
+  <block id="55e0ed57514dd8e3614d3cc5e64dab17" category="list-text">选择*承担角色*并提供其信任策略允许控制台承担且具有所需部署权限的现有 IAM 角色的 ARN。</block>
+  <block id="61f0b94adca0bfbe32231ebb50e6f6f3" category="list-text">选择 *AWS 密钥* 并为具有所需部署权限的 IAM 用户提供访问密钥。</block>
+  <block id="c22156a97b61c41d0b27a531f1be22fd" category="paragraph">要让控制台使用 CloudFormation 快速创建来创建角色，提交堆栈的 AWS 身份需要管理员权限或 <block ref="7156c9b2f9143a675b60fc91ab28fcb2" category="inline-xref-macro-rx"></block> 中的最低权限。</block>
+  <block id="8b09bca331c2d114372940628cdbfd53" category="list-text">选择*为我创建角色*。</block>
+  <block id="15640fe1eda1ab1476d294aff63b245a" category="list-text">选择*打开 CloudFormation 快速创建*。</block>
+  <block id="3ea12154582fce476dd101329847499e" category="list-text">在 AWS CloudFormation 快速创建页面中，确认条款并选择 *创建堆栈*。</block>
+  <block id="547352482e47f8c24f1b5834a6bcd147" category="inline-image-macro">width=35% AWS CloudFormation 堆栈创建页面的屏幕截图，您可以在其中输入 AWS 账户 ID，也可以输入代理部署角色的外部 ID。</block>
+  <block id="185318e8d0d0e687a38b5cced6d01d4c" category="paragraph"><block ref="185318e8d0d0e687a38b5cced6d01d4c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="f904293ff082e78cf2be783cd8904daa" category="list-text">当 AWS 配置 IAM 角色并生成 ARN 时，确认并保存该角色。</block>
+  <block id="5b7f5df4a7a01162f4bed8b97f90562e" category="inline-link-macro">了解如何创建角色</block>
+  <block id="e2821614155d778a682e7da539728675" category="paragraph">如果您已经拥有具备所需 AWS 权限的角色，请提供其 ARN，以便控制台可以代入该角色来部署代理。<block ref="317303ab0e471a0d3619a16accefb685" category="inline-link-macro-rx"></block>。</block>
+  <block id="61a42cfed56b2ddd6374f98e34e921bc" category="list-text">选择*承担角色*。</block>
+  <block id="c62afca1b3bd89404213a6f0e7d2efe4" category="paragraph">控制台会为代入的角色创建一个名称，您可以根据需要更改该名称。</block>
+  <block id="773589cad93758ea895e6e7d3f6d269d" category="list-text">输入现有角色的 ARN。</block>
+  <block id="98af778bae37b93b59c535e2a555cb8e" category="list-text">选择*验证凭据*。</block>
+  <block id="f31ef44b0f2acc926f4cbe2b14abc63a" category="inline-link-macro">了解如何为用户创建角色</block>
+  <block id="2d70ada56c746e0b77ba13c0324201e9" category="paragraph">如果要使用访问密钥授权代理部署，请提供 AWS 访问密钥和机密密钥。<block ref="a374fc742560a6fa685b34b6e92d873c" category="inline-link-macro-rx"></block>。</block>
+  <block id="ed7aab9934f873f9bcc01963b18ef05e" category="list-text">选择 *AWS 密钥*。</block>
+  <block id="4e231d57b5ff3fb02e79c5e9519d1239" category="list-text">输入要使用的角色的访问密钥和机密密钥。</block>
+  <block id="070673c42aa09e5b740913726c0c83c0" category="list-text">配置代理部署详细信息，包括代理实例名称以及控制台是否应为正在运行的代理创建 IAM 角色或使用现有角色。</block>
+  <block id="5b648a602c64391c13459b2242feaccf" category="inline-link-macro">详细了解 Console 代理的 IAM 策略</block>
+  <block id="5da5e1a2666b568b0f2281c713180ef8" category="paragraph">当 Console 创建 Console 代理时，它会为代理创建 IAM 角色和配置文件，或使用您提供的角色。此角色包括使代理能够管理 AWS 资源的权限。确保在未来版本中添加新权限时更新该角色。<block ref="7f447941d99d36030500c16d428fc2ff" category="inline-link-macro-rx"></block>。</block>
+  <block id="9ca3e0361a9e911cee0cf7cfaf465ecc" category="list-text">如果需要，通过选择 VPC、子网、密钥对、公共 IP 行为和代理设置来配置网络。</block>
+  <block id="1e01fdf07bb63446d747d736af983957" category="list-text">将安全组规则配置为允许入站 HTTP (80)、HTTPS (443) 和 SSH (22)，以便对代理虚拟机的访问进行故障排除。</block>
+  <block id="461008ea76e4abfc7758a2885f6cdf98" category="inline-link-macro">查看 AWS 的安全组规则</block>
+  <block id="4d37b17ba71df69ed4e85e9136279e66" category="paragraph"><block ref="5a44bc318dad7e87d5b99ce757b946bd" category="inline-link-macro-rx"></block>。</block>
+  <block id="2e28a83454833bd4dc7264c2ee2760a6" category="list-text">查看部分摘要并选择*添加*以部署控制台代理。</block>
+  <block id="d34ca49cea2b1e9ae7d439596fd49f50" category="paragraph">跟踪部署进度，直至完成。您可以展开事件日志以查看详细的活动。</block>
+  <block id="bdd1d9820619a1ccc976a093ca5d4720" category="paragraph">有关 Console 代理的完整网络和权限要求，请参见：</block>
+  <block id="787c504b628f17f67b110fffe7ae00a8" category="paragraph">控制台部署代理后，请按照<block ref="51799ed8a3c9382ecde3d4e502dc227c" category="inline-link-rx"></block>中的步骤创建第一个系统。</block>
+  <block id="a1e7b53d70ba6579ff07cffd44cfdf8d" category="paragraph">如果您还没有准备好创建 Cloud Volumes ONTAP 系统，您可以随时返回系统页面以稍后创建您的系统。</block>
+  <block id="7aa08f57a5f5ecd2cec4636034d53f91" category="paragraph">从中断的位置继续执行载入操作，或在失败后重试代理部署。</block>
+  <block id="5302bc1044bf2997c712f10444d007ae" category="paragraph">如果在入驻流程完成前离开，请从上一个完成的步骤继续操作。</block>
+  <block id="9aca15ba5b18529516b4cd632ddf7639" category="paragraph">如果控制台无法部署代理，请使用下面的步骤重试：</block>
+  <block id="492b64735bc91205336e73d3b231f7ea" category="paragraph">有关代理部署、AWS 订阅或 Cloud Volumes ONTAP 任务的帮助，请参见：</block>
+  <block id="76d37acbce48c445bc735fe56c61f7ac" category="sidebar">从 AWS Marketplace 部署独立的 Cloud Volumes ONTAP</block>
 </blocks>
