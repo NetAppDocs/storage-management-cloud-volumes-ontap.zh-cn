@@ -2,7 +2,6 @@
 :allow-uri-read: 
 
 
-[role="lead"]
 您可以使用  `Quick create` 在 Amazon Web Services (AWS)、Microsoft Azure 和 Google Cloud 中部署 Cloud Volumes ONTAP，从而在单节点和高可用性 (HA) 配置中实现更快的部署。与高级方法相比，此简化流程通过在单个页面上自动设置默认值并最大限度地减少导航，从而减少了部署步骤。
 
 .开始之前
