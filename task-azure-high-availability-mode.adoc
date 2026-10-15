@@ -14,22 +14,22 @@ summary: 应启用 Microsoft Azure 的高可用性模式，以减少计划外故
 
 
 [role="lead"]
-您应该启用 Microsoft Azure 的高可用性 (HA) 模式，以减少计划外故障转移时间，并为 Cloud Volumes ONTAP 启用 NFSv4 支持。如果启用此模式，您的 Cloud Volumes ONTAP HA 节点可以在 CIFS 和 NFSv4 客户端上的计划外故障转移期间实现较低（60 秒）的恢复时间目标 (RTO)。
+为您的 Cloud Volumes ONTAP HA 对启用 Microsoft Azure 的高可用性（HA）模式，以减少计划外故障转移时间并支持 NFSv4。此模式可以在计划外故障转移期间为 CIFS 和 NFSv4 客户端提供 60 秒的恢复时间目标（RTO）。
 
-从Cloud Volumes ONTAP 9.10.1 开始，我们减少了在 Microsoft Azure 中运行的Cloud Volumes ONTAP HA 对的计划外故障转移时间，并增加了对 NFSv4 的支持。要使这些增强功能可用于Cloud Volumes ONTAP，您需要在 Azure 订阅上启用高可用性功能。
+从 Cloud Volumes ONTAP 9.10.1 开始，我们缩短了在 Microsoft Azure 中运行的 Cloud Volumes ONTAP HA 对的意外故障转移时间，并添加了对 NFSv4 的支持。要使这些增强功能可用于 Cloud Volumes ONTAP，您需要在 Azure 订阅上启用 HA 功能。
 
 .关于此任务
-当需要在 Azure 订阅上启用此功能时，NetApp Console 会提示您这些详细信息。请注意以下事项：
+当您需要在 Azure 订阅上启用此功能时，NetApp Console 会显示提示。请注意以下几点：
 
-* 您的Cloud Volumes ONTAP HA 对的高可用性没有问题。此 Azure 功能与ONTAP协同工作，以减少客户端观察到的因计划外故障转移事件导致的 NFS 协议应用程序中断时间。
-* 启用此功能不会对Cloud Volumes ONTAP HA 对造成破坏。
-* 在您的 Azure 订阅上启用此功能不会给其他虚拟机带来问题。
-* Cloud Volumes ONTAP在 CIFS 和 NFS 客户端上的集群和 SVM 管理 LIF 故障转移期间使用内部 Azure 负载均衡器。
-* 启用 HA 模式后，控制台每 12 小时扫描一次系统以更新内部 Azure 负载均衡器规则。
+* 此功能与 ONTAP 配合使用，以减少 NFS 客户端在计划外故障转移期间观察到的应用程序中断时间。启用它并不表示 Cloud Volumes ONTAP HA 对的可用性存在问题。
+* 启用此 Azure 功能不会中断 Cloud Volumes ONTAP HA 对。
+* 在 Azure 订阅上启用此功能不会影响环境中的其他虚拟机或同一订阅中的任何单节点系统。
+* 在故障转移期间，Cloud Volumes ONTAP 将内部 Azure 负载平衡器用于服务 CIFS 和 NFS 客户端的集群和 SVM 管理 LIF。
+* 启用 HA 模式时，控制台每 12 小时扫描一次系统，以更新内部 Azure Load Balancer 规则。
 
 
 .步骤
-具有 _Owner_ 权限的 Azure 用户可以从 Azure CLI 启用该功能。
+请使用 Azure CLI 以具有 _Owner_ 权限的 Azure 用户身份启用此功能。
 
 . https://docs.microsoft.com/en-us/azure/cloud-shell/quickstart["从 Azure 门户访问 Azure Cloud Shell"^]
 . 注册高可用性模式功能：

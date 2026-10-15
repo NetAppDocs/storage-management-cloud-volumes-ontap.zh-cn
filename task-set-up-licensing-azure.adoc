@@ -79,7 +79,7 @@ NOTE: NetApp 已限制 BYOL 许可的购买、延期和续期。有关详细信�
 控制台会自动查询 NetApp 的许可服务，以获取与您的NetApp支持站点帐户相关的许可证的详细信息。如果没有错误，控制台会自动将许可证添加到控制台。
 
 +
-您的许可证必须在控制台上可用，然后才能与 Cloud Volumes ONTAP 配合使用。如有需要，您可以 link:task-manage-capacity-licenses.html#how-licenses-are-added-to-netapp-console["手动将许可证添加到控制台"]。
+您的许可证必须在控制台上可用，然后才能与 Cloud Volumes ONTAP 配合使用。如有需要，您可以 link:task-manage-capacity-licenses.html["手动将许可证添加到控制台"]。
 
 . 在*系统*页面上，选择*添加系统*并按照步骤操作。
 +
@@ -169,7 +169,7 @@ Keystone订阅是一种按需付费的订阅式服务。link:concept-licensing.h
 .步骤
 . 如果您尚未订阅， https://www.netapp.com/forms/keystone-sales-contact/["联系NetApp"^]
 . mailto:ng-keystone-success@netapp.com[联系NetApp] 以在控制台中授权您的用户帐户拥有一个或多个Keystone订阅。
-. NetApp授权您的帐户后，link:task-manage-keystone.html#link-a-subscription["链接您的订阅以用于Cloud Volumes ONTAP"] 。
+. 在 NetApp 授权您的帐户后，link:task-manage-keystone.html["链接您的订阅以用于Cloud Volumes ONTAP"]。
 . 在*系统*页面上，选择*添加系统*并按照步骤操作。
 +
 .. 当提示选择收费方式时，选择Keystone Subscription 收费方式。

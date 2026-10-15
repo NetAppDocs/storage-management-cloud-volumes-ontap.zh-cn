@@ -1,0 +1,66 @@
+---
+sidebar: sidebar 
+permalink: task-enable-cluster-encryption.html 
+keywords: Backend cluster network encryption, encryption, security, TLS, IPsec, CSM, kTLS, backend encryption 
+summary: 启用后端集群网络加密以保护尚未受 ONTAP IPsec 保护的 Cloud Volumes ONTAP 集群流量。 
+---
+= 在 Azure 和 Google Cloud 中为 Cloud Volumes ONTAP 启用后端集群网络加密
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+对于 Cloud Volumes ONTAP 9.19.1 及更高版本，请启用后端集群网络加密，以保护 Azure 和 Google Cloud 中高可用性（HA）配置中的内部东西向流量。此设置保护传输中的流量；它不会加密静态卷数据。
+
+ONTAP 使用基于内核 TLS（kTLS）和软件 IPsec 的集群会话管理（CSM）来保护 HA 配置的后端网络上的流量。Cloud Volumes ONTAP 9.19.1 及更高版本将此保护扩展到后端集群流量。
+
+
+NOTE: 启用集群网络加密可能会影响集群的性能。在启用此功能之前，请谨慎行事，并验证您的环境是否能够承受额外的开销。
+
+.开始之前
+* 您必须运行 Cloud Volumes ONTAP 9.19.1 或更高版本。
+* 您必须具有集群管理员权限。
+* 您必须验证 Cloud Volumes ONTAP 部署是否使用受支持的配置。
+
+
+.步骤
+. 请使用 ONTAP CLI 连接到 Cloud Volumes ONTAP 集群。
+. 验证群集网络加密的配置是否正确：
++
+[source, cli]
+----
+security cluster-network show
+    Enabled: false
+    Mode: tls
+    Status: READY
+----
+. 在 TLS 和 IPsec 模式下启用集群网络加密：
++
+[source, cli]
+----
+security cluster-network modify -enabled true -mode tls_ipsec
+----
+. 验证群集网络加密是否已启用：
++
+[source, cli]
+----
+security cluster-network show
+    Enabled: true
+    Mode: tls_ipsec
+    Status: READY
+----
++
+
+NOTE: 当您启用 `tls_ipsec` 模式时，CSM 流量使用 TLS，而其他集群网络流量使用 IPsec。ONTAP 生成并管理所需的证书和后端 IPsec 策略。
+
+
+
+.相关信息
+* https://docs.netapp.com/us-en/ontap/networking/configure-backend-encryption.html["配置 ONTAP 后端集群网络加密"^]
+* https://docs.netapp.com/us-en/ontap-cli/security-cluster-network-show.html["security cluster-network show"^]
+* https://docs.netapp.com/us-en/ontap-cli/security-cluster-network-modify.html["security cluster-network modify"^]
+

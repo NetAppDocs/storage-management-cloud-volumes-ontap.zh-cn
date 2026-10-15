@@ -1190,7 +1190,6 @@
   <block id="f1ff33b1bdbf816203ee716386af3578" category="list-text">数据卷也驻留在 aggr1 中。</block>
   <block id="1eba71d64e6c5e410e558530711e835b" category="summary">已知限制标识了该产品的此版本不支持或不能与其正确互操作的平台、设备或功能。仔细审查这些限制。</block>
   <block id="482723983a4f2af954e36ff41e567451" category="doc">已知限制</block>
-  <block id="06c86f2b2f40c7b5ae916f820dace6f3" category="inline-link">转到Cloud Volumes ONTAP发行说明</block>
   <block id="a9a4cd5ea793be3406daa718aa41e840" category="section-title">控制台不支持创建FlexGroup卷</block>
   <block id="36e65cc6fe6b3547cf9b7396631f7367" category="paragraph">虽然Cloud Volumes ONTAP支持FlexGroup卷，但控制台目前不支持创建FlexGroup卷。如果您从ONTAP系统管理器或ONTAP CLI 创建FlexGroup卷，则应将控制台中的容量管理模式设置为<block ref="e1ba155a9f2e8c3be94020eef32a0301" prefix=" " category="inline-code"></block>。<block ref="086247a9b57fde6eefee2a0c4752242d" prefix=" " category="inline-code"></block>模式可能无法与FlexGroup卷正常配合使用。</block>
   <block id="4eb542d6930b1a0eae1e891a8bd8ec57" category="admonition">我们计划在未来的版本中提供在控制台中创建FlexGroup卷的功能。</block>
@@ -1918,12 +1917,6 @@
   <block id="7926415a130a1678f0dd302e6e12b7fc" category="paragraph">*提取 tar.gz 文件后的示例输出：*</block>
   <block id="d2a65c4b3d7d612fe9fcff1cd53a7468" category="summary">应启用 Microsoft Azure 的高可用性模式，以减少计划外故障转移时间，并为Cloud Volumes ONTAP启用 NFSv4 支持。</block>
   <block id="2c01d75f7ab3854f30dad654b7836fd5" category="doc">在 Azure 中为Cloud Volumes ONTAP启用高可用性模式</block>
-  <block id="3cf5fe492293bbbf3d99776de821b378" category="paragraph">从Cloud Volumes ONTAP 9.10.1 开始，我们减少了在 Microsoft Azure 中运行的Cloud Volumes ONTAP HA 对的计划外故障转移时间，并增加了对 NFSv4 的支持。要使这些增强功能可用于Cloud Volumes ONTAP，您需要在 Azure 订阅上启用高可用性功能。</block>
-  <block id="4b86a9bfe35da8d5b3e1175b8664656d" category="list-text">您的Cloud Volumes ONTAP HA 对的高可用性没有问题。此 Azure 功能与ONTAP协同工作，以减少客户端观察到的因计划外故障转移事件导致的 NFS 协议应用程序中断时间。</block>
-  <block id="74c86f2714a033254b4bc8058a066937" category="list-text">启用此功能不会对Cloud Volumes ONTAP HA 对造成破坏。</block>
-  <block id="aede641e1d7acdfda83bae4962f9cad6" category="list-text">在您的 Azure 订阅上启用此功能不会给其他虚拟机带来问题。</block>
-  <block id="61d250b56c4dbcf65efb9a23e69575b2" category="list-text">Cloud Volumes ONTAP在 CIFS 和 NFS 客户端上的集群和 SVM 管理 LIF 故障转移期间使用内部 Azure 负载均衡器。</block>
-  <block id="7d8b7e414092c32abfb47d483a738b9f" category="list-text">启用 HA 模式后，控制台每 12 小时扫描一次系统以更新内部 Azure 负载均衡器规则。</block>
   <block id="dede8f1d754e5872747fd6fdd219a9da" category="inline-link">从 Azure 门户访问 Azure Cloud Shell</block>
   <block id="826fb3564b49a63adcbf5c36eec58144" category="list-text"><block ref="826fb3564b49a63adcbf5c36eec58144" category="inline-link-rx"></block></block>
   <block id="3cad9b9a9f4d8a66f7f9dabc18c3c350" category="list-text">注册高可用性模式功能：</block>
@@ -3760,7 +3753,6 @@
   <block id="3af4fb97c9f77d1ba8d551d286a88c61" category="list-text">如果您尚未订阅，<block ref="49d6686f1a400348bbcff579d9d978a6" category="inline-link-rx"></block></block>
   <block id="1515dd7dd8745717115e7de707e60c28" category="list-text">mailto:ng-keystone-success@netapp.com[联系NetApp] 为您的用户帐户授权一个或多个Keystone订阅。</block>
   <block id="72aa254218c757aad3e3703bdaf90694" category="inline-link-macro">链接您的订阅以用于Cloud Volumes ONTAP</block>
-  <block id="cf2d2d8d3f12faf0a0924f5c5c89598b" category="list-text">NetApp授权您的帐户后，<block ref="92e1d32055031f48c102a52373394710" category="inline-link-macro-rx"></block> 。</block>
   <block id="23a6fec51e7e7d398bc37636e86e1522" category="list-text">当提示选择收费方式时，选择Keystone Subscription 收费方式。</block>
   <block id="e428b29d4d6bf82f76acfdd75e9dc62f" category="inline-image-macro">创建Cloud Volumes ONTAP系统时Keystone订阅选项的屏幕截图。</block>
   <block id="fac566a675ffdff100e743a78e19c604" category="paragraph"><block ref="fac566a675ffdff100e743a78e19c604" category="inline-image-macro-rx" type="image"></block></block>
@@ -4185,7 +4177,6 @@
   <block id="1ce11a955fcab73f91ead73e47d4f374" category="list-text">使用提取的公钥解密签名并验证下载的 disk.raw 文件的内容。</block>
   <block id="9d72c2bef829db2eecf218dce9aa0f18" category="doc">Cloud Volumes ONTAP的新功能</block>
   <block id="282a076d9f3b028a74e6186a429822bd" category="paragraph">了解NetApp Console中Cloud Volumes ONTAP管理的新功能。</block>
-  <block id="fba77b4c3f3b2f8af51a858aaf78b37e" category="paragraph">本页描述的增强功能特定于通过控制台管理Cloud Volumes ONTAP 。要了解Cloud Volumes ONTAP软件本身的新功能，<block ref="708e09e3f2783926556b9c6d77f63a27" category="inline-link-rx"></block> 。</block>
   <block id="b9d888f58b09c4007db0247286e392b5" category="section-title">2025年8月11日</block>
   <block id="f2673d4a3fe0162a501d43f5168ae950" category="section-title">2025年7月14日</block>
   <block id="98d06a8873f74ad318a67a8dee1dcd5f" category="section-title">2025年6月25日</block>
@@ -5303,9 +5294,6 @@
   <block id="6da8d6e9b798741f378936006c625899" category="paragraph">只需确保在虚拟机的 NIC 上启用加速网络，并在启用该功能之前查看 Azure VNet 加密要求和限制即可。不应修改 NetApp 托管负载平衡器对象。</block>
   <block id="ce656a6c436f0486370929df8fb1dd1a" category="inline-link">Azure 文档：VNet 加密和 Accelerated Networking</block>
   <block id="9bdbdeebdd8331589ab921db85db9669" category="paragraph"><block ref="d39bae656ec8bf75660159dea5c8b6ec" category="inline-link-rx"></block>。</block>
-  <block id="8408e1736cfbdeef8576825010d4866f" category="paragraph">您应该启用 Microsoft Azure 的高可用性 (HA) 模式，以减少计划外故障转移时间，并为 Cloud Volumes ONTAP 启用 NFSv4 支持。如果启用此模式，您的 Cloud Volumes ONTAP HA 节点可以在 CIFS 和 NFSv4 客户端上的计划外故障转移期间实现较低（60 秒）的恢复时间目标 (RTO)。</block>
-  <block id="c3d76ca45edb967ae8d1d50df0d945fb" category="paragraph">当需要在 Azure 订阅上启用此功能时，NetApp Console 会提示您这些详细信息。请注意以下事项：</block>
-  <block id="81d14f46835576af9278d9a0c55be147" category="paragraph">具有 _Owner_ 权限的 Azure 用户可以从 Azure CLI 启用该功能。</block>
   <block id="b191fed57e777b1ef44aa24007d4733f" category="inline-link">Microsoft Azure 文档：高可用性端口概述</block>
   <block id="1a6a578d19caca99a2abe3dad51430c7" category="list-text"><block ref="1a6a578d19caca99a2abe3dad51430c7" category="inline-link-rx"></block></block>
   <block id="1dc3e27b9e18035ada1acc10400265ac" category="inline-link">Microsoft Azure 文档：Azure CLI 入门</block>
@@ -7388,7 +7376,6 @@
   <block id="3be0ccabbc043586c0889f1f415a8b9f" category="paragraph">如果在受 VPC Service Controls 保护的项目中部署 Cloud Volumes ONTAP，请在与 Console agent 相同的项目中创建私有工作线程池。工作线程池必须处于运行状态。Google Cloud 的默认公共 Cloud Build 工作线程池无法在服务边界内运行。</block>
   <block id="f4a4ada049ad3a9b0e3d9b625436e9a9" category="paragraph">如果在受 VPC Service Controls 保护的项目中部署 Cloud Volumes ONTAP，请使用 API 创建 Cloud Volumes ONTAP 系统，并在创建请求正文中包含<block ref="127211a07a94fab89b03bd83ab2202c0" prefix=" " category="inline-code"></block>参数。</block>
   <block id="115d3c8236e5dc5d086a75c0cf66c531" category="admonition">当前不支持在使用控制台 UI 部署 Cloud Volumes ONTAP 时包含工作池。对于受 VPC Service Controls 保护的项目，API 是部署 Cloud Volumes ONTAP 的唯一受支持方式。</block>
-  <block id="80eeb3d4d3560338374cd151f3c11997" category="paragraph">您的许可证必须在控制台上可用，然后才能与 Cloud Volumes ONTAP 配合使用。如有需要，您可以 <block ref="197414bd6021ce3306666e377bab3f64" category="inline-link-macro-rx"></block>。</block>
   <block id="c9c977fbc795b6bd0ed423510b01b8bc" category="paragraph">专用模式部署选项可帮助您满足组织的安全和合规性要求。专用模式部署遵循与标准模式部署相同的过程。它在您自己的虚拟私有云 (VPC) 或虚拟网络 (VNet) 中运行，无需公共互联网连接。</block>
   <block id="3840d205649c55018bcdee43450e7701" category="paragraph">在私有模式下，您必须从 NetApp 购买基于容量的 Bring-Your-Own License (BYOL) 或 <block ref="21c9e4fd721ccd216b91708a53687a36" category="inline-link-macro-rx"></block> _Essentials_ 套餐，并在部署期间将其分配给您的系统。前 500 GiB 的已消耗容量不计入许可费用。随着工作负载需求的增加，请购买其他 Essentials 套餐。部署后，您可以在控制台中查看许可证序列号。</block>
   <block id="0fe543eedb1c5378c457c99faaad8ecd" category="paragraph">有关将许可证文件上传到专用模式部署的信息，请参阅<block ref="f888ea506435b2c889c60839b24fe06e" category="inline-link-rx"></block>。</block>
@@ -7406,8 +7393,6 @@
   <block id="f912f417c21da5aa69ae72c383dfeb4f" category="paragraph">从 2026 年 2 月 25 日起，Cloud Volumes ONTAP 将使用 Infrastructure Manager 进行新的和现有的私有模式部署。下表介绍了基本工作流程：</block>
   <block id="e9cf22aacad315822851ad3463773911" category="inline-link">私有模式部署快速入门</block>
   <block id="682ccbd6c9c48bc1f3716474dc91d4cf" category="list-text"><block ref="682ccbd6c9c48bc1f3716474dc91d4cf" category="inline-link-rx"></block></block>
-  <block id="02b9d10b7bf1d22fd65f1d9f40a0513b" category="inline-link">适用于专用模式部署的 Infrastructure Manager 配置</block>
-  <block id="85868adfff1f6df15bff85cb363fb20e" category="paragraph">在专用模式部署中，您需要对 Cloud Volumes ONTAP 进行一些配置更改，才能开始使用 Infrastructure Manager。请参阅<block ref="77f136a5b47f46056c2660c6b1277aeb" category="inline-link-rx"></block>。</block>
   <block id="5acd2c3a8de363e60768e2480ebee1c3" category="paragraph">NetApp 很高兴宣布针对私有模式 Cloud Volumes ONTAP 部署的基于容量的许可。您现在可以通过将基于节点的许可证转换为基于容量的许可来优化私有模式 Cloud Volumes ONTAP 部署的成本。对于您的私有模式部署，您可以直接从 NetApp 购买 Essentials（自带许可证或 BYOL）包，其容量与您现有的基于节点的许可证相似。</block>
   <block id="b97fde06b7b518f77d6af8b950fd42b8" category="doc">在私有模式部署中支持基于容量的许可证</block>
   <block id="e7407e69cea5642ae9e0cd7198fe3213" category="paragraph">您现在可以在 AWS、Azure 和 Google Cloud 中以私有模式部署具有基于容量许可证的 Cloud Volumes ONTAP 系统。</block>
@@ -7995,8 +7980,6 @@
   <block id="7f8dc6515dcacddbb5d244b704ed2660" category="sidebar">Azure 中 Cloud Volumes ONTAP 的配置分析</block>
   <block id="a4103c06761e189279517f49433e8fdc" category="sidebar">改进 Azure 中的 Cloud Volumes ONTAP 配置</block>
   <block id="65f9ec8af69f87b7b7419485ecdc45e9" category="list-text"><block ref="65f9ec8af69f87b7b7419485ecdc45e9" category="inline-link-rx"></block></block>
-  <block id="3a7bbb1b9e5b37872fef8f715efc7171" category="list-text">确保已完成网络配置并为专用模式部署创建工作者池。请参阅 <block ref="36efb7ae258f0de12028dabdb108a37a" category="inline-link-macro-rx"></block>。</block>
-  <block id="6ed0cfe5d8872e13ec685679d0c5586b" category="paragraph">指定 <block ref="8fc12ad6381abbb87712055c7f5e50f1" prefix=" " category="inline-code"></block> 参数以在私有模式部署中运行该工具。有关工作池配置，请参阅 <block ref="36efb7ae258f0de12028dabdb108a37a" category="inline-link-macro-rx"></block>。</block>
   <block id="2ebfd6a7d346b4f849cfb04c2d3a5434" category="paragraph">您可以使用 AWS Marketplace 或 NetApp Console 在 AWS 中安装 Cloud Volumes ONTAP。下表概述了在 AWS 中部署 Cloud Volumes ONTAP 所需完成的任务。</block>
   <block id="5e51aa22235e0104a5fffb9b0e0b97ac" category="inline-link-macro">在 AWS Marketplace 中载入 Cloud Volumes ONTAP 独立产品</block>
   <block id="c15e37bc266e7b7e0212916e681f40ad" category="admonition">如果您在 AWS Marketplace 中订阅 Cloud Volumes ONTAP 独立产品，步骤会有所不同。有关从 AWS Marketplace 引导的信息，请参见 <block ref="e7b82cae26dca0ede070f2a3673c283d" category="inline-link-macro-rx"></block>。</block>
@@ -8073,4 +8056,91 @@
   <block id="9aca15ba5b18529516b4cd632ddf7639" category="paragraph">如果控制台无法部署代理，请使用下面的步骤重试：</block>
   <block id="492b64735bc91205336e73d3b231f7ea" category="paragraph">有关代理部署、AWS 订阅或 Cloud Volumes ONTAP 任务的帮助，请参见：</block>
   <block id="76d37acbce48c445bc735fe56c61f7ac" category="sidebar">从 AWS Marketplace 部署独立的 Cloud Volumes ONTAP</block>
+  <block id="765d68481de48282cae7e607bf9e96ff" category="paragraph">在专用模式部署中，您需要对 Cloud Volumes ONTAP 进行一些配置更改，才能开始使用 Infrastructure Manager。请参阅<block ref="f256b232dde545e233ffcb84a21d913a" category="inline-link-rx"></block>。</block>
+  <block id="1f4aec85e2be241e736a55d9da306e72" category="doc">Azure 中的 Cloud Volumes ONTAP 9.19.1</block>
+  <block id="38649e84871938dc48da678f8c0225b7" category="paragraph">现在，您可以使用 NetApp Console 在 Azure 中部署和管理 Cloud Volumes ONTAP 9.19.1 的正式发布（GA）版本。</block>
+  <block id="55827b1b260053ade23e437507e4d4d6" category="paragraph">自 2026 年 8 月起，控制台已支持 AWS 和 Google Cloud 中的 Cloud Volumes ONTAP 9.19.1。</block>
+  <block id="baa4551a28b9b9b693078dff3d23a9c8" category="inline-link">Cloud Volumes ONTAP 9.19.1 发行说明</block>
+  <block id="cb7f1191bad9ffa813970eda72e677c3" category="paragraph"><block ref="cb7f1191bad9ffa813970eda72e677c3" category="inline-link-rx"></block></block>
+  <block id="b9a06ca155484f482929cec5f8dd93f2" category="section-title">适用于 Cloud Volumes ONTAP 的 Azure 主机加密</block>
+  <block id="65c800dc2b98e78e47a93565108209a8" category="paragraph">从 Cloud Volumes ONTAP 9.19.1 GA 开始，对于满足先决条件的新 Azure 单节点和高可用性（HA）部署，默认情况下会在主机上启用 Azure 加密。此功能会在数据写入主机和从主机读取时，对托管 VM 的物理服务器上的数据进行加密，包括临时磁盘和相关的主机级缓存。</block>
+  <block id="e4d61d3550f13efd53aeff4a22e83ea8" category="paragraph">在 Azure 中部署 Cloud Volumes ONTAP 之前，请确保满足以下前提条件：</block>
+  <block id="66661aefda04e7e8fc3b285416a5747c" category="inline-link">Microsoft 文档：在主机上启用加密</block>
+  <block id="ad0c10652c212a9436d51cb4a4ff84e1" category="list-text">已为您的 Azure 订阅注册了<block ref="9b5430cc1667a3828b4733b3fceebcc5" prefix=" " category="inline-code"></block>功能。请参阅<block ref="7a203e9800b2ad6ccab50741b723916c" category="inline-link-rx"></block>。</block>
+  <block id="3ef3dd18f4a36e278227da4d639cfc32" category="inline-link">Microsoft 文档：查找支持的 VM 大小</block>
+  <block id="5dd3216d5312f2f7fff26e6602bd3ef4" category="list-text">所选 VM 实例类型支持在您的 Azure 区域的主机上进行加密。请参阅<block ref="b937f110917df6a4c55186c37d29a104" category="inline-link-rx"></block>。</block>
+  <block id="17e143eab5799a1d059d05efff379a05" category="list-text">无需额外配置。</block>
+  <block id="c8e2d48b465aa8eefb29bd89f3fafcca" category="list-text">如果不满足这些先决条件，则不会为 Cloud Volumes ONTAP 部署启用主机上的 Azure 加密。</block>
+  <block id="92e84bce8028abc60ccfdbbae1096f14" category="list-text">主机加密仅适用于 Azure，不适用于 AWS 或 Google Cloud。</block>
+  <block id="bfb1c810db245ddba60543c21a682b84" category="inline-link">使用 Azure 门户通过主机加密启用端到端加密</block>
+  <block id="8161b03145de9190c8562fdf070323cd" category="paragraph">Microsoft 文档：<block ref="67a78f496718d7c7396fe4250a10dd9f" category="inline-link-rx"></block></block>
+  <block id="b1b31149ea36e9ee60b289e49fc26e40" category="section-title">Azure 和 Google Cloud 中 Cloud Volumes ONTAP 集群上的后端网络加密</block>
+  <block id="78a1c3e822bde3124feccc9a318e3dba" category="paragraph">Cloud Volumes ONTAP 9.19.1 及更高版本支持 Azure 和 Google Cloud 中 HA 配置的后端群集网络加密。</block>
+  <block id="6ed570b003232171d0ab8a2b1258fe42" category="paragraph">启用集群网络加密可能会影响集群性能。在启用此功能之前，请谨慎操作，并验证您的环境是否可以承受额外的开销。</block>
+  <block id="6122269aefde3f6051ca7b61f5bd424e" category="inline-link">在 Cloud Volumes ONTAP 集群上启用后端网络加密</block>
+  <block id="cf892fcd6fb8331bf43c890e1ee21ea2" category="paragraph"><block ref="cf892fcd6fb8331bf43c890e1ee21ea2" category="inline-link-rx"></block></block>
+  <block id="1437adf1c59f087364ad88b1856888f6" category="section-title">能够减少 Azure 计划维护期间的中断</block>
+  <block id="103f08fd4ffc655a151d17f40e8c4d04" category="paragraph">在计划维护期间，Azure 可以短暂暂停 Cloud Volumes ONTAP HA 对中的虚拟机。ONTAP 可能会将暂停解释为节点中断，并将存储操作移至伙伴节点，然后在 VM 恢复时将其移回（接管和交还）。即使没有节点故障，此过程也可能中断活动的客户端连接。</block>
+  <block id="7a14f4282238253accfa3c299f8906b1" category="paragraph">使用 Cloud Volumes ONTAP 9.19.1 及更高版本，您可以启用一项可选设置，允许 HA 对在 Azure 计划维护冻结期间继续运行，而无需自动启动接管和交还。</block>
+  <block id="a299e856c9d39c1b0322c36f2b4a7fb3" category="admonition">此功能在 Cloud Volumes ONTAP 9.19.1 中作为公开预览版提供。</block>
+  <block id="d76461728409bdd7d106249c2bbd279c" category="inline-link">防止在 Azure 维护期间 Cloud Volumes ONTAP HA 对发生中断</block>
+  <block id="d95952cb789c981f49c06e8b4c6698fc" category="paragraph"><block ref="d95952cb789c981f49c06e8b4c6698fc" category="inline-link-rx"></block></block>
+  <block id="30951a68269f6d61f76d566e44074682" category="paragraph">为您的 Cloud Volumes ONTAP HA 对启用 Microsoft Azure 的高可用性（HA）模式，以减少计划外故障转移时间并支持 NFSv4。此模式可以在计划外故障转移期间为 CIFS 和 NFSv4 客户端提供 60 秒的恢复时间目标（RTO）。</block>
+  <block id="d2682fb90e13aa59d0285f9d6178123f" category="paragraph">从 Cloud Volumes ONTAP 9.10.1 开始，我们缩短了在 Microsoft Azure 中运行的 Cloud Volumes ONTAP HA 对的意外故障转移时间，并添加了对 NFSv4 的支持。要使这些增强功能可用于 Cloud Volumes ONTAP，您需要在 Azure 订阅上启用 HA 功能。</block>
+  <block id="a1e840dd5bdd579c1a58ad254da33516" category="paragraph">当您需要在 Azure 订阅上启用此功能时，NetApp Console 会显示提示。请注意以下几点：</block>
+  <block id="742cd28bff88c9b4f639084a2dac14bf" category="list-text">此功能与 ONTAP 配合使用，以减少 NFS 客户端在计划外故障转移期间观察到的应用程序中断时间。启用它并不表示 Cloud Volumes ONTAP HA 对的可用性存在问题。</block>
+  <block id="e56407b9817d7aaff9a28c24f250b798" category="list-text">启用此 Azure 功能不会中断 Cloud Volumes ONTAP HA 对。</block>
+  <block id="1d365989756632feb49292059b23d178" category="list-text">在 Azure 订阅上启用此功能不会影响环境中的其他虚拟机或同一订阅中的任何单节点系统。</block>
+  <block id="2255f53e33e8ec152f0c543aca2de2ae" category="list-text">在故障转移期间，Cloud Volumes ONTAP 将内部 Azure 负载平衡器用于服务 CIFS 和 NFS 客户端的集群和 SVM 管理 LIF。</block>
+  <block id="eb749eba7ab94bd7fb33b04b244566f2" category="list-text">启用 HA 模式时，控制台每 12 小时扫描一次系统，以更新内部 Azure Load Balancer 规则。</block>
+  <block id="dbb5241dd2423e3b988a08ec10780193" category="paragraph">请使用 Azure CLI 以具有 _Owner_ 权限的 Azure 用户身份启用此功能。</block>
+  <block id="687cbeb1944eb3717022b0377c43a61a" category="summary">通过抑制 Cloud Volumes ONTAP HA 对的自动接管和交还来防止 Azure 维护期间的中断。</block>
+  <block id="a57ea55b43149e8f212dbfcaa5006e6f" category="paragraph">您可以配置 Cloud Volumes ONTAP HA 对，以抑制 Azure 计划维护期间的自动接管和交回。此可选功能适用于 Cloud Volumes ONTAP 9.19.1 及更高版本，默认情况下处于禁用状态。</block>
+  <block id="3a7679f90a01a00ac9b3a16280dae53b" category="paragraph">Microsoft Azure 可以在计划维护期间短暂暂停 VM。在 Cloud Volumes ONTAP HA 配置中，ONTAP 可能会将暂停视为节点中断，并将存储操作移动到配对节点，然后在暂停的 VM 恢复时自动将其交还（接管和交还）。这可能会中断活动的客户端连接。如果启用此功能，HA 对将在 Azure 计划维护冻结期间继续运行，而不会自动启动接管和交还。</block>
+  <block id="4271f4b9a37eb090d0a9083aa5602b73" category="list-text">在 Azure VM 冻结期间，客户端 I/O 可能会停止。ONTAP 不会自动启动接管，因此客户端 I/O 仍保留在受影响的节点上，而不是移动到 HA 伙伴。在节点恢复之前，I/O 可能会停止。</block>
+  <block id="591bd482fde553d02bc32eb0c7ea55f0" category="list-text">中断的持续时间取决于 Azure VM 冻结。更长的冻结可能会导致更长的 I/O 中断。</block>
+  <block id="c9b5ba798c3741aacdacbd6123aa2b0e" category="list-text">对于其他故障情况，正常 HA 保护仍处于活动状态。该功能仅禁止 Azure 计划维护冻结的接管和交还。通常触发接管的其他情况（例如节点故障或崩溃）将继续触发接管。</block>
+  <block id="3ffe1a431eb65296a1972ba07530f0a0" category="list-text">该功能适用于 HA 对中的两个节点。维护事件行为在两个节点上配置，不能仅在一个节点上启用。</block>
+  <block id="b4d3671bdb29f5d4aec771f6cbe86bb2" category="list-text">该功能在重新启动后仍然有效，直到您将其禁用。禁用它会恢复默认的计划维护接管和交还行为。</block>
+  <block id="a89131c14477d499117e6a34dc57c2a5" category="list-text">您的 Cloud Volumes ONTAP 系统必须运行 9.19.1 或更高版本。</block>
+  <block id="8da8e60d52401f09cdc9c2cfee508984" category="list-text">要完成此过程，您必须具有 Cloud Volumes ONTAP 管理员访问权限。</block>
+  <block id="d05fd6c4ff344dc9fe5bfb843e81fe7d" category="list-text">确认您的工作负载可以在 Azure 计划维护冻结期间容忍临时 I/O 停顿，并且在冻结期间继续运行优于默认的接管和交还响应。</block>
+  <block id="0ac4465b6348019ac75e06215ffb2f91" category="section-title">在 Azure 计划维护期间防止自动接管和交还</block>
+  <block id="e647d072341720c38d1f1cee658ff4e7" category="list-text">标识 Azure HA 对的系统 ID。有关识别资源和进行 API 调用的信息，请参见<block ref="2b5c9a64a0a28b95d7cfc5db1ff2c794" category="inline-link-rx"></block>。</block>
+  <block id="78bc854d36de758797203ad7780d9b78" category="list-text">向以下端点发送<block ref="3e75383a5992a6d15fb81e872e46e256" prefix=" " category="inline-code"></block>请求，将<block ref="1f7f5b0a33cb78cd5f99f2d4a1cd6e29" prefix=" " category="inline-code"></block>替换为系统 ID：</block>
+  <block id="6c6f17e6722d2eb336661f2d25056f88" category="paragraph"><block ref="d556da1c70d221ee2c087aad73b92f4d" prefix="" category="inline-code"></block></block>
+  <block id="45b55e4c2afa6172c51b9861010ec585" category="paragraph">在请求正文中将<block ref="a10311459433adf322f2590a4987c423" prefix=" " category="inline-code"></block>设置为<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>：</block>
+  <block id="d9c094dac124f893323d0af825d9bf60" category="paragraph">成功的请求返回带有空正文的 HTTP 202。</block>
+  <block id="03ce0c5802bd8821d5a8b490160338e4" category="admonition">API 按顺序更新 HA 对中的节点。如果请求在操作完成之前失败，请在重试请求之前验证两个节点上的设置，因为节点可能具有不同的设置。</block>
+  <block id="8d035b34d83a2fc0c79af15136b4eac9" category="section-title">禁用该功能以恢复默认行为</block>
+  <block id="60242a67b792170d6374ef67e7e1875f" category="paragraph">若要在 Azure 计划维护期间还原默认接管和交还行为，请禁用此功能。</block>
+  <block id="b1c99bd089b17e20a9f2a2707a599854" category="list-text">向同一个端点发送<block ref="3e75383a5992a6d15fb81e872e46e256" prefix=" " category="inline-code"></block>请求，将<block ref="1f7f5b0a33cb78cd5f99f2d4a1cd6e29" prefix=" " category="inline-code"></block>替换为系统 ID：</block>
+  <block id="ed1f1798cf59d3b7e2dccb773f996a49" category="paragraph">在请求正文中将<block ref="a10311459433adf322f2590a4987c423" prefix=" " category="inline-code"></block>设置为<block ref="68934a3e9455fa72420237eb05902327" prefix=" " category="inline-code"></block>：</block>
+  <block id="840e012212b7ce51ef9cd5802d3ffc25" category="summary">启用后端集群网络加密以保护尚未受 ONTAP IPsec 保护的 Cloud Volumes ONTAP 集群流量。</block>
+  <block id="7999d03bdd5aa474a03ebcf61a2de49d" category="doc">在 Azure 和 Google Cloud 中为 Cloud Volumes ONTAP 启用后端集群网络加密</block>
+  <block id="719b33ddd2a7d0686b19b3ae5af3ce4f" category="paragraph">对于 Cloud Volumes ONTAP 9.19.1 及更高版本，请启用后端集群网络加密，以保护 Azure 和 Google Cloud 中高可用性（HA）配置中的内部东西向流量。此设置保护传输中的流量；它不会加密静态卷数据。</block>
+  <block id="d6a96ea38aea023cd1fea09197b94126" category="paragraph">ONTAP 使用基于内核 TLS（kTLS）和软件 IPsec 的集群会话管理（CSM）来保护 HA 配置的后端网络上的流量。Cloud Volumes ONTAP 9.19.1 及更高版本将此保护扩展到后端集群流量。</block>
+  <block id="e0c9d8803c8bdc8ce51e91511d3f16e9" category="admonition">启用集群网络加密可能会影响集群的性能。在启用此功能之前，请谨慎行事，并验证您的环境是否能够承受额外的开销。</block>
+  <block id="3a77fed898c3fa02fcbdf21c5d1176c1" category="list-text">您必须运行 Cloud Volumes ONTAP 9.19.1 或更高版本。</block>
+  <block id="61d8f42966e800ec9cad1f122cfa27c0" category="list-text">您必须具有集群管理员权限。</block>
+  <block id="52e6f991d9aeb7b9af213e879a7fc0b0" category="list-text">您必须验证 Cloud Volumes ONTAP 部署是否使用受支持的配置。</block>
+  <block id="e450f1fbdb963f94d869715d20ba535e" category="list-text">请使用 ONTAP CLI 连接到 Cloud Volumes ONTAP 集群。</block>
+  <block id="ccc86c40291a6c6bbc152cf5d8647153" category="list-text">验证群集网络加密的配置是否正确：</block>
+  <block id="de5d22766835e9ea85b47ae15b2730eb" category="list-text">在 TLS 和 IPsec 模式下启用集群网络加密：</block>
+  <block id="93942be1109fc857f17da6f831a2ffa5" category="list-text">验证群集网络加密是否已启用：</block>
+  <block id="a414bddd2cfbfb953336130d241a4954" category="admonition">当您启用<block ref="b25fc53f80956cccbc157fdd682e8db9" prefix=" " category="inline-code"></block> 模式时，CSM 流量使用 TLS，而其他集群网络流量使用 IPsec。ONTAP 生成并管理所需的证书和后端 IPsec 策略。</block>
+  <block id="cb8a57871001bf171ca55a9234d0333e" category="inline-link">配置 ONTAP 后端集群网络加密</block>
+  <block id="708f016cb76be1806b16fcc5233a47c3" category="list-text"><block ref="708f016cb76be1806b16fcc5233a47c3" category="inline-link-rx"></block></block>
+  <block id="81b5da25ab30e79821d5290cd59bd859" category="inline-link">security cluster-network show</block>
+  <block id="f3c67684218b3eff305ecd149891fb61" category="list-text"><block ref="f3c67684218b3eff305ecd149891fb61" category="inline-link-rx"></block></block>
+  <block id="54b3ffcd56ca9fcf7b510eacd6e2b2c2" category="inline-link">security cluster-network modify</block>
+  <block id="8de36505e6c08f8621e3a78ce3f914fb" category="list-text"><block ref="8de36505e6c08f8621e3a78ce3f914fb" category="inline-link-rx"></block></block>
+  <block id="15bcb4c6449d561405dcd3343b296f3f" category="list-text">确保已完成网络配置并为专用模式部署创建工作者池。请参阅 <block ref="f6826eadb975b62aabcce78c0bcbe6da" category="inline-link-macro-rx"></block>。</block>
+  <block id="22d13b1b320aa83b9fbd888d6b3349d9" category="paragraph">指定 <block ref="8fc12ad6381abbb87712055c7f5e50f1" prefix=" " category="inline-code"></block> 参数以在私有模式部署中运行该工具。有关工作池配置，请参阅 <block ref="f6826eadb975b62aabcce78c0bcbe6da" category="inline-link-macro-rx"></block>。</block>
+  <block id="6f05250c0d8ee6e1e655dce3b4fafd31" category="list-text">在 NetApp 授权您的帐户后，<block ref="0d5be306dbda0781dddbcc32145dcc04" category="inline-link-macro-rx"></block>。</block>
+  <block id="a5afab6e833a0c61f2c731eac753192e" category="paragraph">您的许可证必须在控制台上可用，然后才能与 Cloud Volumes ONTAP 配合使用。如有需要，您可以 <block ref="01d63d3ea6e2febdc331ccf6e8ab0d0f" category="inline-link-macro-rx"></block>。</block>
+  <block id="e4216eff9837bc291d5eabe5aed0dafd" category="paragraph">此页面上描述的增强功能特定于通过控制台管理 Cloud Volumes ONTAP。要了解主要版本和修补程序，请参阅<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block>。</block>
+  <block id="f535eb1278ad100b4d323539a7942781" category="section-title">2026年10月14日</block>
+  <block id="5e97b5d6eddbf44365aa9f33e020e547" category="sidebar">启用后端集群网络加密</block>
+  <block id="1cab9fa2920a3e09427bd4bf2d92adf4" category="sidebar">在 Azure 维护 Cloud Volumes ONTAP HA 期间防止中断</block>
 </blocks>

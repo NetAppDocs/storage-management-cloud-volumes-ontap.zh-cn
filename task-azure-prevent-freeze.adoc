@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: task-azure-prevent-freeze.html 
+keywords: Azure, maintenance event, HA, takeover, giveback, freeze, disruption 
+summary: 通过抑制 Cloud Volumes ONTAP HA 对的自动接管和交还来防止 Azure 维护期间的中断。 
+---
+= 防止在 Azure 维护期间 Cloud Volumes ONTAP HA 对发生中断
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以配置 Cloud Volumes ONTAP HA 对，以抑制 Azure 计划维护期间的自动接管和交回。此可选功能适用于 Cloud Volumes ONTAP 9.19.1 及更高版本，默认情况下处于禁用状态。
+
+
+NOTE: 此功能在 Cloud Volumes ONTAP 9.19.1 中作为公开预览版提供。
+
+Microsoft Azure 可以在计划维护期间短暂暂停 VM。在 Cloud Volumes ONTAP HA 配置中，ONTAP 可能会将暂停视为节点中断，并将存储操作移动到配对节点，然后在暂停的 VM 恢复时自动将其交还（接管和交还）。这可能会中断活动的客户端连接。如果启用此功能，HA 对将在 Azure 计划维护冻结期间继续运行，而不会自动启动接管和交还。
+
+.关于此任务
+* 在 Azure VM 冻结期间，客户端 I/O 可能会停止。ONTAP 不会自动启动接管，因此客户端 I/O 仍保留在受影响的节点上，而不是移动到 HA 伙伴。在节点恢复之前，I/O 可能会停止。
+* 中断的持续时间取决于 Azure VM 冻结。更长的冻结可能会导致更长的 I/O 中断。
+* 对于其他故障情况，正常 HA 保护仍处于活动状态。该功能仅禁止 Azure 计划维护冻结的接管和交还。通常触发接管的其他情况（例如节点故障或崩溃）将继续触发接管。
+* 该功能适用于 HA 对中的两个节点。维护事件行为在两个节点上配置，不能仅在一个节点上启用。
+* 该功能在重新启动后仍然有效，直到您将其禁用。禁用它会恢复默认的计划维护接管和交还行为。
+
+
+.开始之前
+* 您的 Cloud Volumes ONTAP 系统必须运行 9.19.1 或更高版本。
+* 要完成此过程，您必须具有 Cloud Volumes ONTAP 管理员访问权限。
+* 确认您的工作负载可以在 Azure 计划维护冻结期间容忍临时 I/O 停顿，并且在冻结期间继续运行优于默认的接管和交还响应。
+
+
+
+
+[[prevent-automatic-takeover-and-giveback-during-azure-scheduled-maintenance]]
+== 在 Azure 计划维护期间防止自动接管和交还
+
+.步骤
+. 标识 Azure HA 对的系统 ID。有关识别资源和进行 API 调用的信息，请参见 https://docs.netapp.com/us-en/console-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一次 API 调用"^]。
+. 向以下端点发送 `PUT`请求，将 `{id}`替换为系统 ID：
++
+`PUT /occm/api/azure/ha/working-environments/{id}/opt-off-maintenance-event`
+
++
+在请求正文中将 `enabled`设置为 `true`：
+
++
+[source, json]
+----
+{
+  "enabled": true
+}
+----
+
+
+.结果
+成功的请求返回带有空正文的 HTTP 202。
+
+
+IMPORTANT: API 按顺序更新 HA 对中的节点。如果请求在操作完成之前失败，请在重试请求之前验证两个节点上的设置，因为节点可能具有不同的设置。
+
+
+
+[[disable-the-feature-to-restore-default-behavior]]
+== 禁用该功能以恢复默认行为
+
+若要在 Azure 计划维护期间还原默认接管和交还行为，请禁用此功能。
+
+.步骤
+. 向同一个端点发送 `PUT`请求，将 `{id}`替换为系统 ID：
++
+`PUT /occm/api/azure/ha/working-environments/{id}/opt-off-maintenance-event`
+
++
+在请求正文中将 `enabled`设置为 `false`：
+
++
+[source, json]
+----
+{
+  "enabled": false
+}
+----
+

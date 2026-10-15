@@ -197,6 +197,8 @@ sidebar:
         url: "/task-protecting-ransomware.html"
       - title: 为 WORM 存储创建防篡改 Snapshot 副本
         url: "/reference-worm-snaplock.html"
+      - title: 启用后端集群网络加密
+        url: "/task-enable-cluster-encryption.html"
   - title: 云基础架构管理
     entries:
     - title: AWS 管理
@@ -223,6 +225,8 @@ sidebar:
         url: "/reference-limits-azure.html"
       - title: 了解 Azure 中的 HA 对
         url: "/concept-ha-azure.html"
+      - title: 在 Azure 维护 Cloud Volumes ONTAP HA 期间防止中断
+        url: "/task-azure-prevent-freeze.html"
       - title: 使用 Azure Key Vault 管理密钥
         url: "/task-azure-key-vault.html"
       - title: 更改 Azure VM 类型
@@ -245,10 +249,6 @@ sidebar:
           url: "/concept-configuration-analysis-cvo.html"
         - title: 改进 Azure 中的 Cloud Volumes ONTAP 配置
           url: "/task-improve-configurations-cvo.html"
-      - title: Azure 中 Cloud Volumes ONTAP 的配置分析
-        url: "/concept-configuration-analysis-cvo.html"
-      - title: 改进 Azure 中的 Cloud Volumes ONTAP 配置
-        url: "/task-improve-configurations-cvo.html"
     - title: Google Cloud 管理
       entries:
       - title: Google Cloud 中支持的配置

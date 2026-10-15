@@ -1,0 +1,61 @@
+= Azure 中的 Cloud Volumes ONTAP 9.19.1
+:allow-uri-read: 
+
+
+
+
+[[cloud-volumes-ontap-9-19-1-in-azure]]
+=== Azure 中的 Cloud Volumes ONTAP 9.19.1
+
+现在，您可以使用 NetApp Console 在 Azure 中部署和管理 Cloud Volumes ONTAP 9.19.1 的正式发布（GA）版本。
+
+自 2026 年 8 月起，控制台已支持 AWS 和 Google Cloud 中的 Cloud Volumes ONTAP 9.19.1。
+
+https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-new.html["Cloud Volumes ONTAP 9.19.1 发行说明"^]
+
+
+
+[[azure-encryption-at-host-for-cloud-volumes-ontap]]
+=== 适用于 Cloud Volumes ONTAP 的 Azure 主机加密
+
+从 Cloud Volumes ONTAP 9.19.1 GA 开始，对于满足先决条件的新 Azure 单节点和高可用性（HA）部署，默认情况下会在主机上启用 Azure 加密。此功能会在数据写入主机和从主机读取时，对托管 VM 的物理服务器上的数据进行加密，包括临时磁盘和相关的主机级缓存。
+
+在 Azure 中部署 Cloud Volumes ONTAP 之前，请确保满足以下前提条件：
+
+* 已为您的 Azure 订阅注册了 `EncryptionAtHost`功能。请参阅 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli["Microsoft 文档：在主机上启用加密"^]。
+* 所选 VM 实例类型支持在您的 Azure 区域的主机上进行加密。请参阅 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli#finding-supported-vm-sizes["Microsoft 文档：查找支持的 VM 大小"^]。
+
+
+请注意以下几点：
+
+* 无需额外配置。
+* 如果不满足这些先决条件，则不会为 Cloud Volumes ONTAP 部署启用主机上的 Azure 加密。
+* 主机加密仅适用于 Azure，不适用于 AWS 或 Google Cloud。
+
+
+Microsoft 文档： https://learn.microsoft.com/en-us/azure/virtual-machines/disks-enable-host-based-encryption-portal["使用 Azure 门户通过主机加密启用端到端加密"^]
+
+
+
+[[backend-network-encryption-on-cloud-volumes-ontap-clusters-in-azure-and-google-cloud]]
+=== Azure 和 Google Cloud 中 Cloud Volumes ONTAP 集群上的后端网络加密
+
+Cloud Volumes ONTAP 9.19.1 及更高版本支持 Azure 和 Google Cloud 中 HA 配置的后端群集网络加密。
+
+启用集群网络加密可能会影响集群性能。在启用此功能之前，请谨慎操作，并验证您的环境是否可以承受额外的开销。
+
+https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-enable-cluster-encryption.html["在 Cloud Volumes ONTAP 集群上启用后端网络加密"^]
+
+
+
+[[ability-to-reduce-disruptions-during-azure-scheduled-maintenance]]
+=== 能够减少 Azure 计划维护期间的中断
+
+在计划维护期间，Azure 可以短暂暂停 Cloud Volumes ONTAP HA 对中的虚拟机。ONTAP 可能会将暂停解释为节点中断，并将存储操作移至伙伴节点，然后在 VM 恢复时将其移回（接管和交还）。即使没有节点故障，此过程也可能中断活动的客户端连接。
+
+使用 Cloud Volumes ONTAP 9.19.1 及更高版本，您可以启用一项可选设置，允许 HA 对在 Azure 计划维护冻结期间继续运行，而无需自动启动接管和交还。
+
+
+NOTE: 此功能在 Cloud Volumes ONTAP 9.19.1 中作为公开预览版提供。
+
+https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-azure-prevent-freeze.html["防止在 Azure 维护期间 Cloud Volumes ONTAP HA 对发生中断"^]
