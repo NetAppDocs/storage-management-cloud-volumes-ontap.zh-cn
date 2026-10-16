@@ -41,7 +41,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-new.html["C
 
 从 Cloud Volumes ONTAP 9.19.1 GA 开始，对于满足先决条件的新 Azure 单节点和高可用性（HA）部署，默认情况下会在主机上启用 Azure 加密。此功能会在数据写入主机和从主机读取时，对托管 VM 的物理服务器上的数据进行加密，包括临时磁盘和相关的主机级缓存。
 
-在 Azure 中部署 Cloud Volumes ONTAP 之前，请确保满足以下前提条件：
+在 Azure 中部署 Cloud Volumes ONTAP 之前，请确认您的环境满足以下先决条件：
 
 * 已为您的 Azure 订阅注册了 `EncryptionAtHost`功能。请参阅 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli["Microsoft 文档：在主机上启用加密"^]。
 * 所选 VM 实例类型支持在您的 Azure 区域的主机上进行加密。请参阅 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli#finding-supported-vm-sizes["Microsoft 文档：查找支持的 VM 大小"^]。
@@ -136,7 +136,7 @@ Cloud Volumes ONTAP 现在支持在私有预览中的 Azure Government Secret �
 现在，您可以在 Azure 的奥地利东部 (austriaeast) 和比利时中部 (belgiumcentral) 区域部署 Cloud Volumes ONTAP 9.12.1 GA 及更高版本。支持以下部署类型：
 
 * 单节点
-* 使用本地冗余存储 (LRS) 的单个可用性区域中的 HA
+* 使用本地冗余存储（LRS）的单个可用区中的 HA
 * 使用区域冗余存储 (ZRS) 在多个可用区中实现 HA
 
 
@@ -216,7 +216,7 @@ NetApp Console 中精心设计的仪表板现在允许您修复 Cloud Volumes ON
 现在可以在 Azure 的智利中部（chilecentral）区域部署 Cloud Volumes ONTAP 9.12.1 GA 及更高版本。支持以下部署类型：
 
 * 单节点
-* 使用本地冗余存储 (LRS) 的单个可用性区域中的 HA
+* 使用本地冗余存储（LRS）的单个可用区中的 HA
 * 使用区域冗余存储 (ZRS) 在多个可用区中实现 HA
 
 
@@ -526,16 +526,16 @@ https://docs.netapp.com/us-en/console-automation/cvo/put-occm-config.html["配�
 [[support-for-google-infrastructure-manager-for-private-mode-deployments]]
 === 支持用于私有模式部署的 Google Infrastructure Manager
 
-Cloud Volumes ONTAP 9.16.1 及更高版本现在支持 https://docs.cloud.google.com/infrastructure-manager/docs/overview["Google Cloud Infrastructure Manager"^] (IM)，而不是 https://docs.cloud.google.com/deployment-manager/docs/deprecations["Cloud Deployment Manager"^] (DM)，用于 Google Cloud 中的新私有模式部署。Google 将在不久的将来弃用 Deployment Manager 作为基础架构服务，转而使用更高级的 Infrastructure Manager。
+对于 Google Cloud 中的新私有模式部署，Cloud Volumes ONTAP 9.16.1 及更高版本现在支持 https://docs.cloud.google.com/infrastructure-manager/docs/overview["Google Cloud Infrastructure Manager"^] （IM）而不是 https://docs.cloud.google.com/deployment-manager/docs/deprecations["Cloud Deployment Manager"^] （DM）。Google 正在弃用 Deployment Manager 作为基础架构服务，转而使用更高级的 Infrastructure Manager。
 
-从 2026 年 2 月 25 日起，Cloud Volumes ONTAP 将使用 Infrastructure Manager 进行新的和现有的私有模式部署。下表介绍了基本工作流程：
+从2026年2月25日开始，Cloud Volumes ONTAP 使用 Infrastructure Manager 进行新的和现有的专用模式部署。基本工作流程取决于您的场景：
 
 [cols="1,4,1,1,1,1"]
 |===
 | 场景 | 操作 | 代理的新 API | 代理的新权限 | 适用于 Cloud Volumes ONTAP 的全新 Google Cloud API | 文档资源 
 
 
-| 私有模式下的现有代理和现有部署 | 通过从 NetApp 支持站点下载安装程序，然后在主机上手动安装代理，升级到最新版本的 NetApp Console 代理，以便它可以使用 Infrastructure Manager API。然后，将现有的 Cloud Volumes ONTAP 系统转换为使用 Infrastructure Manager。  a| 
+| 私有模式下的现有代理和现有部署 | 通过从 NetApp 支持站点下载安装程序，然后在主机上手动安装代理，升级到最新版本的 Console 代理，以便它可以使用 Infrastructure Manager API。然后，将现有的 Cloud Volumes ONTAP 系统转换为使用 Infrastructure Manager。  a| 
 * 云基础架构管理器 API
 * Cloud Quotas API
 * Cloud Build API
@@ -1267,14 +1267,14 @@ AWS 现已支持加拿大西部地区的Cloud Volumes ONTAP 9.12.1 GA 及更高�
 
 BlueXP现在可以在 AWS、Azure 和 Google Cloud 中部署和管理Cloud Volumes ONTAP 9.15.1 通用可用性版本。
 
-此版本包括以下 Azure 功能和增强功能。请继续阅读，详细了解支持这些新功能的特定配置。
+此版本包括以下 Azure 功能和增强功能。
 
 
 
 [[support-for-premium-ssd-v2-managed-disks-in-azure]]
 === Azure 中对高级 SSD v2 托管磁盘的支持
 
-Azure 上的 Cloud Volumes ONTAP 系统现在支持高级 SSD v2 托管磁盘。与高级 SSD 托管磁盘相比，这些高级磁盘以更低的成本为单节点和高可用性 (HA) 对提供更高的性能和更低的延迟。与其他托管磁盘一样，最大磁盘大小为 32 TiB。可以配置高级 SSD v2 托管磁盘的性能（容量、吞吐量和 IOPS），从而使工作负载具有成本效益，同时满足不断变化的性能需求。
+Azure 上的 Cloud Volumes ONTAP 系统现在支持高级 SSD v2 托管磁盘。与高级 SSD 托管磁盘相比，这些高级磁盘以更低的成本为单节点和高可用性（HA）对提供更高的性能和更低的延迟。与其他托管磁盘一样，最大磁盘大小为 32 TiB。您可以配置高级 SSD v2 托管磁盘的性能（容量、吞吐量和 IOPS），以保持工作负载的经济效益，同时满足不断变化的性能需求。
 
 
 
@@ -1284,18 +1284,18 @@ Azure 上的 Cloud Volumes ONTAP 系统现在支持高级 SSD v2 托管磁盘。
 从 Cloud Volumes ONTAP 9.15.1 开始，您可以在 Azure 的单个可用区 (AZ) 中以 HA 模式部署虚拟机 (VM) 实例。与以前的非区域部署不同，Cloud Volumes ONTAP 9.15.1 在灵活业务流程模式下使用 Microsoft Virtual Machines Scale Sets 来部署所有资源，包括同一 AZ 内的独立故障域，从而确保最佳可用性。默认情况下，当满足以下条件时，此部署模式使用高级 SSD v2 托管磁盘：
 
 * Cloud Volumes ONTAP的版本为 9.15.1 或更高版本。
-* 所选区域和可用区支持 Premium SSD v2 托管磁盘。有关支持区域的信息，请参阅 https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/["Microsoft Azure 网站：按地区提供的产品"^]。要了解如何添加，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-otc-azure.html#launching-a-cloud-volumes-ontap-ha-pair-in-azure["在 Azure 中启动 Cloud Volumes ONTAP HA 对"^]。
+* 所选区域和可用区支持 Premium SSD v2 托管磁盘。有关支持区域的信息，请参阅 https://azure.microsoft.com/en-us/explore/global-infrastructure/products-by-region/["Microsoft Azure 网站：按地区提供的产品"^]。要了解如何添加它们，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploying-otc-azure.html#launching-a-cloud-volumes-ontap-ha-pair-in-azure["在 Azure 中启动 Cloud Volumes ONTAP HA 对"^]。
 * 该订阅已注册 Microsoft `Microsoft.Compute/VMOrchestratorZonalMultiFD` 功能。https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-saz-feature.html["了解如何为单个可用区启用 VMOrchestratorZonalMultiFD"^]。
 
 
-如果未满足上述任一标准，则先前用于本地冗余存储 (LRS) 的非区域部署模式将生效。
+如果不符合上述任一标准，则适用本地冗余存储（LRS）的先前非分区部署模式。
 
 
 
 [[support-for-virtual-machines-scale-sets-to-unify-all-azure-ha-types]]
 === 支持虚拟机规模集以统一所有 Azure HA 类型
 
-Cloud Volumes ONTAP 9.15.1 利用 Azure 上灵活编排模式下的 Virtual Machines Scale Sets，在单个可用性区域中部署虚拟机 (VM) 实例，以实现高可用性 (HA) 对。它涵盖了 HA 模式的所有类型，包括页面 blob、LRS、区域冗余存储 (ZRS) 或多区域，以及 LRS 区域（单 AZ）。
+Cloud Volumes ONTAP 9.15.1 在 Azure 上使用灵活编排模式下的虚拟机规模集，在单个可用性区域中部署虚拟机（VM）实例，以实现高可用性（HA）对。此支持涵盖所有 HA 类型：页 blob、LRS、区域冗余存储（ZRS）或多区域，以及 LRS 区域（单个 AZ）。
 
 * https://learn.microsoft.com/en-us/azure/virtual-machine-scale-sets/["Microsoft Azure 文档：Virtual Machine Scale Sets 文档"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-ha-azure.html["了解 Azure 中的高可用性对"^]。
@@ -1322,7 +1322,7 @@ Cloud Volumes ONTAP 9.15.1 利用 Azure 上灵活编排模式下的 Virtual Mach
 [[edge-cache-licensing-packages-deprecated]]
 === Edge Cache 许可包已弃用
 
-Edge Cache 基于容量的许可包将不再适用于Cloud Volumes ONTAP的未来部署。但是，您可以使用 API 来实现此功能。
+基于 Edge Cache 容量的许可包将不再可用于 Cloud Volumes ONTAP 的未来部署。但是，您可以使用 API 访问此功能。
 
 
 
@@ -1338,7 +1338,7 @@ Edge Cache 基于容量的许可包将不再适用于Cloud Volumes ONTAP的未�
 [[free-trials-for-marketplace-subscriptions-deprecated]]
 === 市场订阅的免费试用已弃用
 
-云提供商市场中按使用量付费订阅的 30 天自动免费试用或评估许可证将不再在Cloud Volumes ONTAP中提供。任何类型的市场订阅（PAYGO 或年度合同）的收费将从首次使用时激活，没有任何免费试用期。
+云提供商市场中按需付费订阅的 30 天自动免费试用或评估许可证将不再在 Cloud Volumes ONTAP 中提供。任何类型的市场订阅（PAYGO 或年度合同）均从首次使用开始收费，没有任何免费试用期。
 
 
 
@@ -1416,10 +1416,10 @@ NOTE: 在标准模式下使用BlueXP时支持 AWS 本地区域。目前，在受
 
 
 
-[[amazon-instant-metadata-service-v2-support]]
-=== Amazon Instant Metadata Service v2 支持
+[[amazon-instance-metadata-service-v2-support]]
+=== Amazon Instance Metadata Service v2 支持
 
-在 AWS 中， Cloud Volumes ONTAP、Mediator 和 Connector 现在支持 Amazon Instant Metadata Service v2 (IMDSv2) 的所有功能。 IMDSv2 提供了增强的针对漏洞的保护。之前仅支持 IMDSv1。
+在 AWS 中，Cloud Volumes ONTAP、Mediator 和 Connector 现在针对所有功能支持 Amazon Instance Metadata Service v2（IMDSv2）。IMDSv2 提供针对漏洞的增强保护。以前仅支持 IMDSv1。
 
 如果安全策略要求，您可以将 EC2 实例配置为使用 IMDSv2。有关说明，请参阅 https://docs.netapp.com/us-en/console-setup-admin/task-require-imdsv2.html["用于管理现有连接器的BlueXP设置和管理文档"^]。
 
@@ -1532,14 +1532,14 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-9141-relnotes/["了解此版�
 === Azure 中的新区域支持
 
 .单一可用区域区域支持
-以下区域现在支持 Azure 中适用于Cloud Volumes ONTAP 9.12.1 GA 及更高版本的高可用性单可用区部署：
+以下区域现在支持 Cloud Volumes ONTAP 9.12.1 GA 及更高版本在 Azure 中的高可用性单可用区部署：
 
 * 特拉维夫
 * 米兰
 
 
 .多可用区域支持
-以下区域现在支持 Azure 中适用于Cloud Volumes ONTAP 9.12.1 GA 及更高版本的高可用性多可用区部署：
+以下区域现在支持在 Azure 中为 Cloud Volumes ONTAP 9.12.1 GA 及更高版本进行高可用性多可用区部署：
 
 * 印度中部
 * 挪威东部
@@ -1610,7 +1610,7 @@ Google Cloud for Cloud Volumes ONTAP和 Connector for Cloud Volumes ONTAP 9.12.1
 [[new-regions-supported-for-ha-multiple-availability-zone-deployments-in-azure]]
 === Azure 中支持 HA 多可用区部署的新区域
 
-Azure 中的以下区域现在支持Cloud Volumes ONTAP 9.12.1 GA 及更高版本的高可用性多可用区部署：
+Azure 中的以下区域现在支持 Cloud Volumes ONTAP 9.12.1 GA 及更高版本的高可用性多可用区部署：
 
 * 澳大利亚东部
 * 东亚
@@ -1685,12 +1685,12 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-deploy
 [[usage-reports-enhancements]]
 === 使用情况报告增强功能
 
-现在可以对使用报告中显示的信息进行各种改进。以下是使用情况报告的增强功能：
+现在提供了对使用情况报告中显示信息的各种改进。使用情况报告包括以下增强功能：
 
 * TiB 单位现在包含在列名中。
 * 现在包含一个用于序列号的新“节点”字段。
 * 存储虚拟机使用情况报告下现在包含一个新的“工作负载类型”列。
-* 工作环境名称现在包含在存储虚拟机和卷使用报告中。
+* 工作环境名称现在包含在 Storage VMs 和 Volume 使用报告中。
 * 卷类型“文件”现在标记为“主（读/写）”。
 * 卷类型“辅助”现在标记为“辅助 (DP)”。
 
@@ -1725,7 +1725,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-9131-relnotes/["了解此版�
 [[support-for-ha-multiple-availability-zone-deployments-in-azure]]
 === 支持 Azure 中的 HA 多可用区域部署
 
-Azure 中的日本东部和韩国中部现在支持Cloud Volumes ONTAP 9.12.1 GA 及更高版本的 HA 多可用区域部署。
+Azure 中的日本东部和韩国中部地区现在支持 Cloud Volumes ONTAP 9.12.1 GA 及更高版本的 HA 多可用区部署。
 
 有关支持多个可用区域的所有区域的列表，请参阅 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球区域地图"^]。
 
@@ -1877,7 +1877,7 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage
 [[support-for-comments-during-volume-creation]]
 === 支持在卷创建期间进行注释
 
-此版本使您能够在使用 API 创建Cloud Volumes ONTAP FlexGroup卷或FlexVol volume时发表评论。
+此版本允许您在使用 API 创建 Cloud Volumes ONTAP FlexGroup 卷或 FlexVol 卷时添加注释。
 
 
 
@@ -2202,7 +2202,7 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-encryp
 
 AutoSupport主动监控系统的健康状况并向NetApp技术支持发送消息。
 
-唯一的要求是确保连接器的安全组允许通过端口 3128 进行入站连接。部署连接器后，您需要打开此端口。
+唯一的要求是确保 Connector 的安全组允许通过端口 3128 进行 _入站_ 连接。部署 Connector 后，您需要打开此端口。
 
 
 
@@ -2250,7 +2250,7 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-lic
 [[digital-wallet]]
 === 数字钱包
 
-数字钱包现在显示您帐户中消耗的总容量以及许可包消耗的容量。这可以帮助您了解收费方式以及是否需要购买额外的容量。
+数字钱包现在显示您帐户中的总消耗容量和通过许可套餐消耗的容量。此信息可帮助您了解系统如何向您收费，以及您是否需要购买额外的容量。
 
 
 
@@ -2311,7 +2311,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-9111-relnotes["了解此版本
 
 如果您需要对Cloud Volumes ONTAP执行高级管理，则可以使用ONTAP System Manager（它是ONTAP系统提供的管理界面）来执行此操作。我们已将系统管理器界面直接包含在BlueXP中，这样您无需离开BlueXP即可进行高级管理。
 
-此高级视图可作为Cloud Volumes ONTAP 9.10.0 及更高版本的预览版使用。我们计划在即将发布的版本中完善这种体验并增加增强功能。请使用产品内聊天向我们发送反馈。
+此高级视图可作为 Cloud Volumes ONTAP 9.10.0 及更高版本的预览版提供。请使用产品内聊天向我们发送反馈。
 
 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-administer-advanced-view.html["了解有关高级视图的更多信息"]。
 
@@ -2501,7 +2501,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-configs-gcp
 [[charging-for-worm-storage]]
 === WORM存储收费
 
-现在，优惠特价已经过期，您现在需要为使用 WORM 存储付费。根据 WORM 卷的总配置容量按小时收费。这适用于新的和现有的Cloud Volumes ONTAP系统。
+现在，入门级特惠费率已过期，您将因使用 WORM 存储而被收取费用。计费按小时进行，具体取决于 WORM 卷的总配置容量。这适用于新的和现有的 Cloud Volumes ONTAP 系统。
 
 https://bluexp.netapp.com/pricing["了解 WORM 存储的定价"^] 。
 
@@ -2577,7 +2577,7 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage
 [[redesigned-licensing-selection]]
 === 重新设计的许可选择
 
-我们重新设计了创建新的Cloud Volumes ONTAP工作环境时的许可选择屏幕。这些变化凸显了 2021 年 7 月推出的按容量收费方法，并支持通过云提供商市场推出的即将推出的产品。
+在创建新的 Cloud Volumes ONTAP 工作环境时，我们重新设计了许可选择屏幕。这些更改突出了 2021 年 7 月推出的按容量收费方法，并支持通过云提供商市场提供的产品。
 
 
 
@@ -2669,7 +2669,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-9101-relnotes["了解此版本
 
 您现在可以使用Keystone订阅来支付Cloud Volumes ONTAP HA 对的费用。
 
-Keystone订阅是一种按需付费的订阅式服务，为那些喜欢 OpEx 消费模式而非前期资本支出或租赁的用户提供无缝的混合云体验。
+Keystone Subscription 是一项基于按增长付费的订阅服务，为更喜欢 OpEx 消费模式而不是预付 CapEx 或租赁的客户提供无缝的混合云体验。
 
 您可以从BlueXP部署的所有新版本的Cloud Volumes ONTAP均支持Keystone订阅。
 
@@ -2750,7 +2750,7 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-set-up
 
 Cloud Volumes ONTAP有新的计费方式。
 
-* *基于容量的 BYOL*：基于容量的许可证使您能够按 TiB 容量支付Cloud Volumes ONTAP费用。该许可证与您的NetApp帐户相关联，只要您的许可证提供足够的容量，您就可以创建多个Cloud Volumes ONTAP系统。基于容量的许可以包的形式提供，可以是_Essentials_ 或_Professional_。
+* *基于容量的 BYOL*：基于容量的许可证使您能够按 TiB 容量为 Cloud Volumes ONTAP 付费。该许可证与您的 NetApp 帐户相关联，只要您的许可证中有足够的可用容量，您就可以创建多个 Cloud Volumes ONTAP 系统。基于容量的许可以套餐形式提供，包括 _Essentials_ 或 _Professional_。
 * *免费增值服务*：免费增值服务使您能够免费使用NetApp的所有Cloud Volumes ONTAP功能（仍需支付云提供商费用）。每个系统的配置容量限制为 500 GiB，并且没有支持合同。您最多可以拥有 10 个免费增值系统。
 +
 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html["了解有关这些许可选项的更多信息"]。
@@ -2883,7 +2883,7 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-tierin
 [[deletion-of-old-cloud-snapshots]]
 === 删除旧的云快照
 
-BlueXP现在会删除在部署Cloud Volumes ONTAP系统时以及每次关闭电源时创建的根和启动磁盘的旧云快照。根卷和启动卷仅保留最近的两个快照。
+BlueXP 现在会删除在部署 Cloud Volumes ONTAP 系统时以及每次关闭电源时创建的根磁盘和启动磁盘的旧云快照。对于根卷和启动卷，仅保留两个最新的快照。
 
 此增强功能通过删除不再需要的快照来帮助降低云提供商的成本。
 
@@ -2921,7 +2921,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-991-relnotes["了解此版本C
 
 BlueXP现在可以在其为Cloud Volumes ONTAP创建的初始存储 VM 上启用逻辑空间报告。
 
-当逻辑报告空间时， ONTAP会报告卷空间，以便存储效率功能节省的所有物理空间也被报告为已使用。
+当按逻辑报告空间时，ONTAP 会报告卷空间，以便将存储效率功能节省的所有物理空间也报告为已使用。
 
 
 
@@ -3019,7 +3019,7 @@ https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-n
 [[aws-outposts]]
 === AWS Outposts
 
-几个月前，我们宣布Cloud Volumes ONTAP已获得 Amazon Web Services (AWS) Outposts Ready 认证。今天，我们很高兴地宣布，我们已经通过 AWS Outposts 验证了BlueXP和Cloud Volumes ONTAP 。
+几个月前，我们宣布 Cloud Volumes ONTAP 已获得 Amazon Web Services（AWS）Outposts Ready 认证。我们已经通过 AWS Outposts 验证了 BlueXP 和 Cloud Volumes ONTAP。
 
 如果您有 AWS Outpost，则可以通过在工作环境向导中选择 Outpost VPC 在该 Outpost 中部署Cloud Volumes ONTAP 。体验与驻留在 AWS 中的任何其他 VPC 相同。请注意，您需要首先在 AWS Outpost 中部署连接器。
 

@@ -82,7 +82,7 @@ Azure 标准负载均衡器:: 负载均衡器管理传入Cloud Volumes ONTAP HA 
 
 NOTE: 如果您为符合上述条件的环境选择高级 SSD 管理磁盘，控制台将自动部署高级 SSD v2 管理磁盘。您无法切换到高级 SSD v1 管理磁盘。
 
-磁盘:: 客户数据驻留在本地冗余存储 (LRS) 托管磁盘上。每个节点都可以访问另一个节点的存储。还需要额外的存储用于 link:reference-configs-azure.html#azure-ha-pair["启动、根、合作伙伴根、核心和NVRAM数据"]。
+磁盘:: 客户数据驻留在本地冗余存储（LRS）托管磁盘上。每个节点都可以访问另一个节点的存储。还需要为 link:reference-configs-azure.html#azure-ha-pair["启动、根、合作伙伴根、核心和NVRAM数据"] 提供额外的存储。
 存储帐户:: 存储帐户用于基于托管磁盘的部署，以处理诊断日志和分层到 Blob 存储。
 
 

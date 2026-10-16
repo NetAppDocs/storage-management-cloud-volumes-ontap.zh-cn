@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: reference-networking-gcp.html 
 keywords: networking, network, requirements, connection, connections, subnet, vpn, internet, proxy, HTTP, private, proxy server, routing, firewall, autosupport, connection, jump host, outbound, ports, bucket, private google access, set up data requirement, gcp networking, google networking, shared vpc, host project, service project, private mode or in a project protected by VPC Service Controls 
-summary: 设置您的 Google Cloud 网络，以便 Cloud Volumes ONTAP 系统可以正常运行。您将了解 CVO 的网络要求、私有 IP 地址、VPC、子网、数据包镜像、防火墙规则和 HA 配置以及控制台代理要求。 
+summary: 查看 Cloud Volumes ONTAP 的 Google Cloud 网络要求，包括专用 IP 地址、VPC、子网、数据包镜像、防火墙规则和 Console 代理要求。 
 ---
-= 为Cloud Volumes ONTAP设置 Google Cloud 网络
+= Cloud Volumes ONTAP 的 Google Cloud 网络要求
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: 设置您的 Google Cloud 网络，以便 Cloud Volumes ONTAP 系统可
 
 
 [role="lead"]
-NetApp Console负责设置Cloud Volumes ONTAP的网络组件，例如 IP 地址、网络掩码和路由。您需要确保可以访问出站互联网、有足够的私有 IP 地址、有正确的连接等等。
+NetApp Console 在 Google Cloud 中为 Cloud Volumes ONTAP 设置网络组件，例如 IP 地址、网络掩码和路由。您需要确保出站互联网访问可用，有足够的专用 IP 地址可用，并且已建立正确的连接。
 
 如果你想部署 HA 对，你应该link:concept-ha-google-cloud.html["了解 HA 对在 Google Cloud 中的工作原理"]。
 
@@ -23,7 +23,7 @@ NetApp Console负责设置Cloud Volumes ONTAP的网络组件，例如 IP 地址�
 [[requirements-for-cloud-volumes-ontap]]
 == Cloud Volumes ONTAP的要求
 
-Google Cloud 必须满足以下要求。
+您的 Google Cloud 环境必须符合这些要求。
 
 
 
@@ -69,11 +69,11 @@ NOTE: LIF 是与物理端口关联的 IP 地址。  SnapCenter等管理工具需
 
 ==== 一个或多个区域
 
-您可以通过在多个区域或单个区域中部署 HA 配置来确保数据的高可用性。创建 HA 对时，控制台会提示您选择多个区域或单个区域。
+您可以通过跨多个区域或在单个区域中部署 HA 配置来确保数据的高可用性。创建 HA 对时，控制台会提示您选择多个区域或单个区域。
 
 * 多区域（推荐）
 +
-跨三个区域部署 HA 配置可确保当一个区域内发生故障时数据仍然可用。请注意，与使用单个区域相比，写入性能略低，但差别很小。
+跨三个区域部署 HA 配置可确保在区域内发生故障时持续的数据可用性。写入性能略低于单个区域，但差异很小。
 
 * 单区
 +
@@ -88,7 +88,7 @@ NOTE: LIF 是与物理端口关联的 IP 地址。  SnapCenter等管理工具需
 
 ==== 四个虚拟私有云
 
-HA 配置需要四个虚拟私有云 (VPC)。需要四个 VPC，因为 Google Cloud 要求每个网络接口位于单独的 VPC 网络中。
+HA 配置需要四个虚拟私有云（VPC），因为 Google Cloud 要求每个网络接口驻留在单独的 VPC 网络中。
 
 创建 HA 对时，控制台会提示您选择四个 VPC：
 
@@ -104,9 +104,9 @@ image:diagram_gcp_ha.png["概念图展示了 Cloud Volume HA 对和配置所需�
 
 每个 VPC 都需要一个私有子网。
 
-如果将控制台代理放置在 VPC-0 中，则需要在子网上启用私有 Google 访问权限以访问 API 并启用数据分层。
+如果将控制台代理放在 VPC-0 中，则必须在子网上启用私有 Google 访问权限，以访问 API 并启用数据分层。
 
-这些 VPC 中的子网必须具有不同的 CIDR 范围。它们不能有重叠的 CIDR 范围。
+这些 VPC 中的子网必须具有不重叠的不同 CIDR 范围。
 
 
 
@@ -116,7 +116,7 @@ image:diagram_gcp_ha.png["概念图展示了 Cloud Volume HA 对和配置所需�
 
 为 Cloud Volumes ONTAP 分配的 LIF 数量取决于您是部署单节点系统还是 HA 对。LIF 是与物理端口关联的 IP 地址。像 SnapCenter 这样的管理工具需要 SVM 管理 LIF。
 
-* *单节点* Console 为单节点系统分配 4 个 IP 地址：
+* *单节点* 控制台为单节点系统分配四个 IP 地址：
 +
 ** 节点管理 LIF
 ** 集群管理 LIF
@@ -136,17 +136,17 @@ NOTE: iSCSI LIF 通过 iSCSI 协议提供客户端访问，并被系统用于其
 
 * *HA 对* 控制台为 HA 对分配 12-13 个 IP 地址：
 +
-** 2 个节点管理 LIF (e0a)
-** 1 集群管理 LIF (e0a)
-** 2 个 iSCSI LIF (e0a)
+** 两个节点管理 LIF （e0a）
+** 一个集群管理 LIF（e0a）
+** 两个 iSCSI LIF （e0a）
 +
 
 NOTE: iSCSI LIF 通过 iSCSI 协议提供客户端访问，并被系统用于其他重要的网络工作流程。这些 LIF 是必需的，不应删除。
 
-** 1 或 2 个 NAS LIF (e0a)
-** 2 个集群 LIF (e0b)
-** 2 个 HA 互连 IP 地址 (e0c)
-** 2 个 RSM iSCSI IP 地址（e0d）
+** 一个或两个 NAS LIF（e0a）
+** 两个集群 LIF（e0b）
+** 两个 HA 互连 IP 地址（e0c）
+** 两个 RSM iSCSI IP 地址（e0d）
 +
 如果您使用 API 部署Cloud Volumes ONTAP并指定以下标志，则可以跳过创建存储虚拟机 (SVM) 管理 LIF：
 
@@ -161,7 +161,7 @@ NOTE: iSCSI LIF 通过 iSCSI 协议提供客户端访问，并被系统用于其
 
 ==== 内部负载均衡器
 
-控制台创建四个 Google Cloud 内部负载均衡器（TCP/UDP），用于管理传入Cloud Volumes ONTAP HA 对的流量。您无需进行任何设置。我们将其列为一项要求只是为了告知您网络流量并减轻任何安全问题。
+控制台创建四个 Google Cloud 内部负载平衡器（TCP/UDP），用于管理 Cloud Volumes ONTAP HA 对的传入流量。无需设置。这些信息有助于您了解网络流量并解决安全问题。
 
 一个负载均衡器用于集群管理，一个用于存储虚拟机 (SVM) 管理，一个用于到节点 1 的 NAS 流量，最后一个用于到节点 2 的 NAS 流量。
 
@@ -178,7 +178,7 @@ NOTE: iSCSI LIF 通过 iSCSI 协议提供客户端访问，并被系统用于其
 * 一条 UDP 转发规则
 * 全局访问已禁用
 +
-尽管默认情况下禁用全局访问，但支持在部署后启用它。我们禁用它是因为跨区域流量会有明显更高的延迟。我们希望确保您不会因为意外的跨区域坐骑而产生负面体验。启用此选项是为了满足您的业务需求。
+即使默认情况下全局访问被禁用，您也可以在部署后启用它。我们禁用了它，因为跨区域流量的延迟明显更高，我们希望防止意外跨区域挂载带来的负面体验。仅在您的业务需要时启用全局访问。
 
 
 
@@ -211,7 +211,7 @@ https://cloud.google.com/vpc/docs/packet-mirroring["数据包镜像"^]必须在�
 [[outbound-internet-access]]
 === 出站互联网访问
 
-Cloud Volumes ONTAP系统需要出站互联网访问才能访问外部端点以实现各种功能。如果这些端点在具有严格安全要求的环境中被阻止， Cloud Volumes ONTAP将无法正常运行。
+Cloud Volumes ONTAP 系统需要出站互联网访问才能访问外部端点以实现各种功能。如果在具有严格安全要求的环境中阻止了这些端点，Cloud Volumes ONTAP 将无法正常运行。
 
 Console 代理还会联系多个端点以执行日常操作。有关端点的信息，请参见 https://docs.netapp.com/us-en/console-setup-admin/task-install-connector-on-prem.html#step-3-set-up-networking["查看从控制台代理联系的端点"^]和 https://docs.netapp.com/us-en/console-setup-admin/reference-networking-saas-console.html["准备使用控制台的网络"^]。
 
@@ -236,13 +236,13 @@ Cloud Volumes ONTAP使用这些端点与各种服务进行通信。
 
 
 
-| \ https://api.bluexp.netapp.com/tenancy | 租户 | 用于从控制台检索Cloud Volumes ONTAP资源以授权资源和用户。 | 标准和限制模式。 | Cloud Volumes ONTAP资源和用户未获得授权。 
+| \ https://api.bluexp.netapp.com/tenancy | 租户 | 用于从控制台检索 Cloud Volumes ONTAP 资源以授权资源和用户。 | 标准和限制模式。 | Cloud Volumes ONTAP资源和用户未获得授权。 
 
 
 | \ https://mysupport.netapp.com/aods/asupmessage \ https://mysupport.netapp.com/asupprod/post/1.0/postAsup | AutoSupport | 用于将AutoSupport遥测数据发送给NetApp支持。 | 标准和限制模式。 | AutoSupport信息仍未送达。 
 
 
-| \https://cloudbuild.googleapis.com/v1 （仅适用于私有模式部署）\https://cloudkms.googleapis.com/v1 \https://cloudresourcemanager.googleapis.com/v1/projects \https://compute.googleapis.com/compute/v1 \https://www.googleapis.com/compute/beta \https://www.googleapis.com/compute/v1/projects/ \https://www.googleapis.com/deploymentmanager/v2/projects \https://www.googleapis.com/storage/v1 \https://www.googleapis.com/upload/storage/v1 \https://config.googleapis.com/v1 \https://iam.googleapis.com/v1 \https://storage.googleapis.com/storage/v1 | Google Cloud（商业用途）。 | 与 Google Cloud 服务通信。 | 标准、受限和私人模式。 | Cloud Volumes ONTAP无法与 Google Cloud 服务通信以对 Google Cloud 中的控制台执行特定操作。 
+| \https://cloudbuild.googleapis.com/v1 （仅适用于私有模式部署）\https://cloudkms.googleapis.com/v1 \https://cloudresourcemanager.googleapis.com/v1/projects \https://compute.googleapis.com/compute/v1 \https://www.googleapis.com/compute/beta \https://www.googleapis.com/compute/v1/projects/ \https://www.googleapis.com/deploymentmanager/v2/projects \https://www.googleapis.com/storage/v1 \https://www.googleapis.com/upload/storage/v1 \https://config.googleapis.com/v1 \https://iam.googleapis.com/v1 \https://storage.googleapis.com/storage/v1 | Google Cloud（商业用途）。 | 与 Google Cloud 服务通信。 | 标准、受限和私人模式。 | Cloud Volumes ONTAP 无法与 Google Cloud 服务通信，无法在 Google Cloud 中为控制台执行特定操作。 
 |===
 
 
@@ -260,12 +260,12 @@ https://cloud.google.com/vpn/docs/concepts/overview["Google Cloud 文档：Cloud
 
 控制台创建 Google Cloud 防火墙规则，其中包括Cloud Volumes ONTAP成功运行所需的入站和出站规则。您可能希望参考端口以进行测试，或者您更喜欢使用自己的防火墙规则。
 
-Cloud Volumes ONTAP的防火墙规则需要入站和出站规则。如果您正在部署 HA 配置，这些是 VPC-0 中Cloud Volumes ONTAP的防火墙规则。
+Cloud Volumes ONTAP 的防火墙规则需要入站和出站规则。如果您要部署 HA 配置，这些是 VPC-0 中 Cloud Volumes ONTAP 的防火墙规则。
 
-请注意，HA 配置需要两组防火墙规则：
+HA 配置需要两组防火墙规则：
 
 * 针对 VPC-0 中的 HA 组件的一组规则。这些规则允许对Cloud Volumes ONTAP进行数据访问。
-* 针对 VPC-1、VPC-2 和 VPC-3 中的 HA 组件的另一组规则。这些规则对于 HA 组件之间的入站和出站通信开放。<<rules-for-vpc,了解更多>> 。
+* VPC-1、VPC-2 和 VPC-3 中 HA 组件的另一组规则。这些规则对 HA 组件之间的入站和出站通信开放。<<rules-for-vpc,了解更多>>。
 
 
 
@@ -281,7 +281,7 @@ TIP: 正在寻找有关 Console 代理的信息？ https://docs.netapp.com/us-en
 * *所有 VPC*：入站流量的源过滤器是 0.0.0.0/0 IP 范围。
 
 
-如果您使用自己的防火墙策略，请确保添加所有需要与Cloud Volumes ONTAP通信的网络，同时还要确保添加两个地址范围以允许内部 Google 负载均衡器正常运行。这些地址是 130.211.0.0/22 和 35.191.0.0/16。欲了解更多信息，请参阅 https://cloud.google.com/load-balancing/docs/tcp#firewall_rules["Google Cloud 文档：负载均衡器防火墙规则"^]。
+如果您使用自己的防火墙策略，请添加所有需要与 Cloud Volumes ONTAP 通信的网络，并添加这两个地址范围，以允许内部 Google 负载平衡器正常运行。这些地址是 130.211.0.0/22 和 35.191.0.0/16。有关详细信息，请参见 https://cloud.google.com/load-balancing/docs/tcp#firewall_rules["Google Cloud 文档：负载均衡器防火墙规则"^]。
 
 [cols="10,10,80"]
 |===
@@ -385,7 +385,7 @@ Cloud Volumes ONTAP的预定义安全组包括以下出站规则。
 | 所有 UDP | 全部 | 所有出站流量 
 |===
 .高级出站规则
-如果您需要对出站流量制定严格的规则，则可以使用以下信息仅打开Cloud Volumes ONTAP出站通信所需的端口。  Cloud Volumes ONTAP集群使用以下端口来调节节点流量。
+如果您需要严格的出站流量规则，请使用此信息仅打开 Cloud Volumes ONTAP 进行出站通信所需的端口。Cloud Volumes ONTAP 集群使用以下端口来规范节点流量。
 
 
 NOTE: 源是Cloud Volumes ONTAP系统的接口（IP 地址）。
@@ -473,7 +473,7 @@ NOTE: 源是Cloud Volumes ONTAP系统的接口（IP 地址）。
 | NDMP | TCP | 18600-18699 | 节点管理 LIF | 目标服务器 | NDMP 拷贝 
 
 
-| SMTP | TCP | 25 | 节点管理 LIF | 邮件服务器 | SMTP 警报，可用于AutoSupport 
+| SMTP | TCP | 25 | 节点管理 LIF | 邮件服务器 | SMTP 警报，可用于 AutoSupport 
 
 
 .4+| SNMP | TCP | 161 | 节点管理 LIF | 监控服务器 | 通过 SNMP 陷阱进行监控 
@@ -508,26 +508,26 @@ NOTE: 源是Cloud Volumes ONTAP系统的接口（IP 地址）。
 从 HA 节点到 HA 中介的通信通过端口 3260（iSCSI）进行。
 
 
-NOTE: 为了使新的 Google Cloud HA 对部署实现较高的写入速度，VPC-1、VPC-2 和 VPC-3 需要至少 8,896 字节的最大传输单元 (MTU)。如果您选择将现有的 VPC-1、VPC-2 和 VPC-3 升级到 8,896 字节的 MTU，则必须在配置过程中关闭使用这些 VPC 的所有现有 HA 系统。
+NOTE: 要为新的 Google Cloud HA 对部署启用高写入速度，VPC-1、VPC-2 和 VPC-3 需要至少 8,896 字节的最大传输单元（MTU）。如果您选择将现有 VPC-1、VPC-2 和 VPC-3 升级到 8,896 字节的 MTU，则必须在配置过程中关闭所有使用这些 VPC 的现有 HA 系统。
 
 
 
 [[infrastructure-manager-configuration-in-private-mode-or-protected-environments]]
 === 私有模式或受保护环境中的 Infrastructure Manager 配置
 
-如果要在私有模式或受 VPC Service Controls 保护的项目中部署 Cloud Volumes ONTAP 9.16.1 或更高版本，您需要进行一些配置更改，以便 Cloud Volumes ONTAP 可以使用 Google Cloud Infrastructure Manager 作为部署服务，而不是 Deployment Manager（Google 最终将弃用该服务）。
+如果您要在专用模式或受 VPC Service Controls 保护的项目中部署 Cloud Volumes ONTAP 9.16.1 或更高版本，您需要进行一些配置更改，以便 Cloud Volumes ONTAP 可以使用 Google Cloud Infrastructure Manager 作为部署服务，而不是 Deployment Manager。
 
 .开始之前
-* 确保您的 Cloud Volumes ONTAP 系统为 9.16.1 或更高版本。如果不是，请升级您的系统。有关说明，请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-updating-ontap-cloud.html["升级Cloud Volumes ONTAP"]。
+* 验证您的 Cloud Volumes ONTAP 系统是否为 9.16.1 或更高版本。如果不是，请升级您的系统。请参阅 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-updating-ontap-cloud.html["升级Cloud Volumes ONTAP"]了解相关说明。
 * 请确保已启用 Google Cloud API。请参阅 https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["启用 Google Cloud API"^]。
 * 确保已启用 Cloud Build API。请参阅 https://console.cloud.google.com/flows/enableapi?apiid=cloudbuild.googleapis.com&redirect=https://console.cloud.google.com/build/docs/private-pools/set-up-private-pool-environment["在此处启用 Cloud Build API"^]。
-* 验证 Console 代理的服务帐户是否具有所有标准权限。此外，请确保服务帐户具有 `cloudbuild.workerpools.get`和 `cloudbuild.workerpools.list`权限。请参阅 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html#service-account-permissions["控制台代理的 Google Cloud 权限"^]。
+* 验证 Console 代理的服务帐户是否具有所有标准权限。此外，请确保此服务帐户具有 `cloudbuild.workerpools.get`和 `cloudbuild.workerpools.list`权限。请参阅 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html#service-account-permissions["控制台代理的 Google Cloud 权限"^]。
 
 
 .步骤
 . 在与 Cloud Volumes ONTAP 部署相同的区域中使用此配置创建专用工作者池。有关创建专用工作者池的信息，请参阅 https://docs.cloud.google.com/build/docs/private-pools/create-manage-private-pools#creating_a_new_private_pool["Google Cloud 文档：创建和管理私有池"^]和 https://cloud.google.com/build/pricing["Google Cloud Build 定价"^]。
 +
-如果在受 VPC Service Controls 保护的项目中部署 Cloud Volumes ONTAP，请在与 Console agent 相同的项目中创建私有工作线程池。工作线程池必须处于运行状态。Google Cloud 的默认公共 Cloud Build 工作线程池无法在服务边界内运行。
+如果您在受 VPC Service Controls 保护的项目中部署 Cloud Volumes ONTAP，请在与 Console 代理相同的项目中创建私有工作线程池。工作线程池必须处于运行状态。Google Cloud 中的默认公共 Cloud Build 工作线程池无法在服务边界内运行。
 
 +
 工作进程池必须具有以下配置：
@@ -536,7 +536,7 @@ NOTE: 为了使新的 Google Cloud HA 对部署实现较高的写入速度，VPC
 ** 机器类型：e2-medium
 ** 磁盘大小：100 GB
 ** 分配外部 IP：False
-** 网络：Default 或 private。
+** 网络：默认或专用网络。
 ** 配置为访问 https://cloud.google.com/apis["Google Cloud API"^]的子网。执行以下步骤以确保子网可以访问 Google API：
 +
 ... 确保子网的 "Private Google Access" 已打开。
@@ -565,7 +565,7 @@ NOTE: 当前不支持在使用控制台 UI 部署 Cloud Volumes ONTAP 时包含�
 [[requirements-for-the-console-agent]]
 == 控制台代理的要求
 
-如果您尚未创建控制台代理，则应查看网络要求。
+如果您尚未创建 Console 代理，请查看网络要求。
 
 * https://docs.netapp.com/us-en/console-setup-admin/task-quick-start-connector-google.html["查看控制台代理的网络要求"^]
 * https://docs.netapp.com/us-en/console-setup-admin/reference-ports-gcp.html["Google Cloud 中的防火墙规则"^]

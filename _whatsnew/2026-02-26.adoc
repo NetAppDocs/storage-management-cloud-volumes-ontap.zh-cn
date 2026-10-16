@@ -7,16 +7,16 @@
 [[support-for-google-infrastructure-manager-for-private-mode-deployments]]
 === 支持用于私有模式部署的 Google Infrastructure Manager
 
-Cloud Volumes ONTAP 9.16.1 及更高版本现在支持 https://docs.cloud.google.com/infrastructure-manager/docs/overview["Google Cloud Infrastructure Manager"^] (IM)，而不是 https://docs.cloud.google.com/deployment-manager/docs/deprecations["Cloud Deployment Manager"^] (DM)，用于 Google Cloud 中的新私有模式部署。Google 将在不久的将来弃用 Deployment Manager 作为基础架构服务，转而使用更高级的 Infrastructure Manager。
+对于 Google Cloud 中的新私有模式部署，Cloud Volumes ONTAP 9.16.1 及更高版本现在支持 https://docs.cloud.google.com/infrastructure-manager/docs/overview["Google Cloud Infrastructure Manager"^] （IM）而不是 https://docs.cloud.google.com/deployment-manager/docs/deprecations["Cloud Deployment Manager"^] （DM）。Google 正在弃用 Deployment Manager 作为基础架构服务，转而使用更高级的 Infrastructure Manager。
 
-从 2026 年 2 月 25 日起，Cloud Volumes ONTAP 将使用 Infrastructure Manager 进行新的和现有的私有模式部署。下表介绍了基本工作流程：
+从2026年2月25日开始，Cloud Volumes ONTAP 使用 Infrastructure Manager 进行新的和现有的专用模式部署。基本工作流程取决于您的场景：
 
 [cols="1,4,1,1,1,1"]
 |===
 | 场景 | 操作 | 代理的新 API | 代理的新权限 | 适用于 Cloud Volumes ONTAP 的全新 Google Cloud API | 文档资源 
 
 
-| 私有模式下的现有代理和现有部署 | 通过从 NetApp 支持站点下载安装程序，然后在主机上手动安装代理，升级到最新版本的 NetApp Console 代理，以便它可以使用 Infrastructure Manager API。然后，将现有的 Cloud Volumes ONTAP 系统转换为使用 Infrastructure Manager。  a| 
+| 私有模式下的现有代理和现有部署 | 通过从 NetApp 支持站点下载安装程序，然后在主机上手动安装代理，升级到最新版本的 Console 代理，以便它可以使用 Infrastructure Manager API。然后，将现有的 Cloud Volumes ONTAP 系统转换为使用 Infrastructure Manager。  a| 
 * 云基础架构管理器 API
 * Cloud Quotas API
 * Cloud Build API

@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-azure-high-availability-mode.html 
 keywords: high availability mode, EnableHighAvailabilityMode, action required, nfsv4 
-summary: 应启用 Microsoft Azure 的高可用性模式，以减少计划外故障转移时间，并为Cloud Volumes ONTAP启用 NFSv4 支持。 
+summary: 启用 Microsoft Azure 高可用性模式以减少计划外故障转移时间，并为 Cloud Volumes ONTAP HA 对支持 NFSv4。 
 ---
 = 在 Azure 中为Cloud Volumes ONTAP启用高可用性模式
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 应启用 Microsoft Azure 的高可用性模式，以减少计划外故
 
 
 [role="lead"]
-为您的 Cloud Volumes ONTAP HA 对启用 Microsoft Azure 的高可用性（HA）模式，以减少计划外故障转移时间并支持 NFSv4。此模式可以在计划外故障转移期间为 CIFS 和 NFSv4 客户端提供 60 秒的恢复时间目标（RTO）。
+为您的 Cloud Volumes ONTAP HA 对启用 Microsoft Azure 高可用性（HA）模式，以减少计划外故障转移时间并支持 NFSv4。此模式可以在计划外故障转移期间为 CIFS 和 NFSv4 客户端提供 60 秒的恢复时间目标（RTO）。
 
 从 Cloud Volumes ONTAP 9.10.1 开始，我们缩短了在 Microsoft Azure 中运行的 Cloud Volumes ONTAP HA 对的意外故障转移时间，并添加了对 NFSv4 的支持。要使这些增强功能可用于 Cloud Volumes ONTAP，您需要在 Azure 订阅上启用 HA 功能。
 

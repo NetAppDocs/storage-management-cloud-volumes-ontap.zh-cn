@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: reference-versions.html 
 keywords: versions, supported versions, new versions, cloud volumes ontap version 
-summary: 当您创建新的Cloud Volumes ONTAP系统时， NetApp Console可让您从多个不同的ONTAP版本中进行选择。 
+summary: 查找适用于 AWS、Azure 和 Google Cloud 中全新 Cloud Volumes ONTAP 系统的可用 ONTAP 版本，包括单节点和 HA 对配置。 
 ---
 = Cloud Volumes ONTAP部署支持的ONTAP版本
 :hardbreaks:
@@ -18,7 +18,7 @@ summary: 当您创建新的Cloud Volumes ONTAP系统时， NetApp Console可让�
 
 除此处列出的版本外，Cloud Volumes ONTAP 的其他版本不可用于新部署。此处版本中的修补程序或通用（通用可用性）版本表示可用于部署的基本版本。有关可用修补程序的详细信息，请参阅每个版本的 https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-new.html["版本化发行说明"^]。
 
-有关升级的信息，请参阅 link:task-updating-ontap-cloud.html#supported-upgrade-paths["支持的升级路径"]。
+要了解有关升级的信息，请参阅 link:task-updating-ontap-cloud.html#supported-upgrade-paths["支持的升级路径"]。
 
 
 

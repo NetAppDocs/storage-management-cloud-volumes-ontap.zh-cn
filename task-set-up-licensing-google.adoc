@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-set-up-licensing-google.html 
 keywords: freemium, professional, essentials, licensing, licenses, cloud volumes ontap charging, cloud volumes ontap licenses, cloud volumes ontap licensing, cvo licenses, cvo licensing, byol, bring your own license, paygo, pay as you go, keystone flex, keystone, digital wallet 
-summary: 在您决定要为Cloud Volumes ONTAP使用哪种许可选项后，在部署新系统时选择该许可选项之前，需要执行几个步骤。 
+summary: 在创建系统之前，请在 Google Cloud 中为 Cloud Volumes ONTAP 设置 Freemium、基于容量或 Keystone 订阅许可。 
 ---
 = 在 Google Cloud 中设置Cloud Volumes ONTAP许可
 :hardbreaks:
@@ -14,7 +14,7 @@ summary: 在您决定要为Cloud Volumes ONTAP使用哪种许可选项后，在�
 
 
 [role="lead"]
-在您决定要对Cloud Volumes ONTAP使用哪种许可选项后，需要执行几个步骤才能在创建新系统时选择该许可选项。
+决定在 Google Cloud 中对 Cloud Volumes ONTAP 使用哪种许可选项后，请先完成几个设置步骤，然后再在创建系统时选择该选项。
 
 
 
@@ -29,7 +29,7 @@ summary: 在您决定要为Cloud Volumes ONTAP使用哪种许可选项后，在�
 +
 .. 在*详细信息和凭据*页面上，选择*编辑凭据 > 添加订阅*，然后按照提示在 Google Cloud Marketplace 中订阅按需购买产品。
 +
-除非您超过 500 GiB 的预配置容量，否则您无需通过市场订阅付费，此时系统将自动转换为link:concept-licensing.html#packages["基本套餐"]。
+除非您配置的容量超过 500 GiB，否则不会通过市场订阅向您收费。如果超过，系统会自动转换为 link:concept-licensing.html#packages["基本套餐"]。
 
 .. 返回控制台后，到达收费方式页面时选择“免费增值”。
 +
@@ -46,7 +46,7 @@ link:task-deploying-gcp.html["查看在 Google Cloud 中启动Cloud Volumes ONTA
 [[capacity-based-license]]
 == 基于容量的许可证
 
-基于容量的许可使您能够按 TiB 容量支付Cloud Volumes ONTAP费用。基于容量的许可以_包_的形式提供：Essentials 或 Professional 包。
+基于容量的许可使您能够按 TiB 容量为 Cloud Volumes ONTAP 付费。基于容量的许可以_套餐_形式提供：Essentials 或 Professional。
 
 Essentials 和 Professional 套餐提供以下几种消费模式或购买选项：
 
@@ -57,7 +57,7 @@ Essentials 和 Professional 套餐提供以下几种消费模式或购买选项�
 
 link:concept-licensing.html#capacity-based-licensing["了解有关基于容量的许可的更多信息"] 。
 
-以下部分介绍了如何开始使用每种消费模型。
+要开始使用每种消费模式，请按照以下各节中的步骤进行操作。
 
 
 
@@ -82,7 +82,7 @@ NOTE: NetApp 已限制 BYOL 许可的购买、延期和续期。有关详细信�
 +
 .. 在*详细信息和凭据*页面上，选择*编辑凭据 > 添加订阅*，然后按照提示在 Google Cloud Marketplace 中订阅按需购买产品。
 +
-始终会先向您从NetApp购买的许可证收费，但如果您超出许可容量或许可证期限到期，则会按照市场上的小时费率向您收费。
+系统始终会优先针对您从 NetApp 购买的许可证计费，但如果您超出了许可容量或许可证已过期，则将按市场的小时费率向您收费。
 
 .. 返回控制台后，在进入收费方式页面时选择基于容量的套餐。
 +
@@ -159,7 +159,7 @@ Keystone订阅是一种按需付费的订阅式服务。link:concept-licensing.h
 
 .步骤
 . 如果您尚未订阅， https://www.netapp.com/forms/keystone-sales-contact/["联系NetApp"^]
-. mailto:ng-keystone-success@netapp.com[联系NetApp] 授权您的控制台用户帐户拥有一个或多个Keystone订阅。
+. mailto:ng-keystone-success@netapp.com[联系 NetApp] 为您的 Console 用户帐户授权一个或多个 Keystone 订阅。
 . 在 NetApp 授权您的帐户后，link:task-manage-keystone.html["链接您的订阅以用于Cloud Volumes ONTAP"]。
 . 在*系统*页面上，选择*添加系统*并按照步骤操作。
 +
@@ -179,7 +179,7 @@ link:task-deploying-gcp.html["查看在 Google Cloud 中启动Cloud Volumes ONTA
 [[node-based-license]]
 == 基于节点的许可证
 
-基于节点的许可证是Cloud Volumes ONTAP的上一代许可证。基于节点的许可证可以从NetApp (BYOL) 处购买，并且仅在特定情况下才可以续订许可证。有关信息，请参阅：
+基于节点的许可证是 Cloud Volumes ONTAP 的上一代许可证。您可以从 NetApp （BYOL）购买基于节点的许可证。基于节点的许可证现在仅在特定情况下可用于续订。有关信息，请参阅：
 
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#end-of-availability-for-node-based-licenses["基于节点的许可证的可用性终止"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基于节点的许可证的可用性终止"^]

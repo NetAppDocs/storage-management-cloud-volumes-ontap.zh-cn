@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-updating-ontap-cloud.html 
 keywords: update, updating, upgrading, upgrade, software, downgrade, downgrading, FTP, HTTP, mediator, local image, revert, reverting, downgrading, cloud backup 
-summary: 从NetApp Console升级Cloud Volumes ONTAP以获取最新的功能和增强功能。在升级软件之前，您应该准备好Cloud Volumes ONTAP系统。 
+summary: 查看支持的升级路径，准备系统，并从 NetApp Console 通知或 URL 处的映像升级 Cloud Volumes ONTAP。 
 ---
 = 升级Cloud Volumes ONTAP
 :hardbreaks:
@@ -21,14 +21,14 @@ summary: 从NetApp Console升级Cloud Volumes ONTAP以获取最新的功能和�
 [[upgrade-overview]]
 == 升级概述
 
-在开始Cloud Volumes ONTAP升级过程之前，您应该注意以下事项。
+在开始 Cloud Volumes ONTAP 升级流程之前，请查看这些注意事项。
 
 
 
 [[upgrade-from-console-only]]
 === 仅从控制台升级
 
-您不应使用ONTAP系统管理器或ONTAP CLI 升级Cloud Volumes ONTAP ，而应仅使用控制台升级。否则可能会影响系统稳定性。
+仅从控制台升级 Cloud Volumes ONTAP。使用 ONTAP System Manager 或 ONTAP 命令行界面进行升级可能会影响系统稳定性。
 
 控制台提供了两种升级Cloud Volumes ONTAP 的方法：
 
@@ -302,9 +302,9 @@ summary: 从NetApp Console升级Cloud Volumes ONTAP以获取最新的功能和�
 |===
 请注意以下事项：
 
-* Cloud Volumes ONTAP支持的升级路径与本地ONTAP集群支持的升级路径不同。
+* Cloud Volumes ONTAP 支持的升级路径与内部 ONTAP 集群的升级路径不同。
 * 如果您按照系统中出现的通知进行升级，控制台将提示您升级到遵循这些支持的升级路径的版本。
-* 如果通过将升级映像放置在 HTTPS 位置来进行升级，请务必遵循这些支持的升级路径。
+* 如果通过将升级映像放置在 HTTPS 位置进行升级，请按照以下受支持的升级路径进行升级。
 * 在某些情况下，您可能需要升级几次才能达到目标版本。
 +
 例如，如果您正在运行版本 9.8 并且想要升级到 9.10.1，则首先需要升级到版本 9.9.1，然后再升级到 9.10.1。
@@ -324,7 +324,7 @@ summary: 从NetApp Console升级Cloud Volumes ONTAP以获取最新的功能和�
 
 作为补丁版本的一般规则，您可以从较低的补丁版本升级到相同或下一个Cloud Volumes ONTAP版本中的任何较高补丁版本。
 
-以下是几个例子：
+以下是两个示例：
 
 * 9.13.0 -> 9.13.1 P15
 * 9.12.1 -> 9.13.1 P2
@@ -342,7 +342,7 @@ summary: 从NetApp Console升级Cloud Volumes ONTAP以获取最新的功能和�
 [[support-registration]]
 === 支持注册
 
-Cloud Volumes ONTAP 必须在 NetApp 支持部门注册，才能使用本页所述的任何方法升级软件。这适用于现收现付 (PAYGO) 和自带许可证 (BYOL)。您需要 link:task-registering.html["手动注册PAYGO系统"]，而 BYOL 系统默认已注册。
+您必须向 NetApp 支持部门注册 Cloud Volumes ONTAP，才能通过任何方式升级软件。这适用于现收现付（PAYGO）和自带许可证（BYOL）。您需要link:task-registering.html["手动注册PAYGO系统"]，而 BYOL 系统默认已注册。
 
 
 TIP: 未注册支持的系统仍会在有新版本可用时收到控制台中出现的软件更新通知。但您需要先注册系统才能升级软件。
@@ -359,15 +359,15 @@ TIP: 未注册支持的系统仍会在有新版本可用时收到控制台中出
 [[upgrades-in-aws-with-c4-m4-and-r4-ec2-instance-types]]
 === 使用 c4、m4 和 r4 EC2 实例类型在 AWS 中进行升级
 
-Cloud Volumes ONTAP不再支持 c4、m4 和 r4 EC2 实例类型。您可以使用这些实例类型将现有部署升级到Cloud Volumes ONTAP版本 9.8-9.12.1。升级之前，我们建议您<<更改实例类型,更改实例类型>>。如果您无法更改实例类型，则需要<<启用增强联网,启用增强联网>>升级之前。阅读以下部分以了解有关更改实例类型和启用增强联网的更多信息。
+Cloud Volumes ONTAP 不再支持 c4、m4 和 r4 EC2 实例类型。您可以使用这些实例类型将现有部署升级到 Cloud Volumes ONTAP 版本 9.8-9.12.1。在升级之前，我们建议您 <<更改实例类型,更改实例类型>>。如果无法更改实例类型，则需要在升级之前 <<启用增强联网,启用增强联网>>。
 
-在运行 9.13.0 及更高版本的Cloud Volumes ONTAP中，您无法使用 c4、m4 和 r4 EC2 实例类型进行升级。在这种情况下，您需要减少磁盘数量，然后<<更改实例类型,更改实例类型>>或者部署具有 c5、m5 和 r5 EC2 实例类型的新 HA 对配置并迁移数据。
+在运行 9.13.0 及更高版本的 Cloud Volumes ONTAP 中，您无法使用 c4、m4 和 r4 EC2 实例类型进行升级。在这种情况下，您需要减少磁盘数量，然后<<更改实例类型,更改实例类型>>或使用 c5、m5 和 r5 EC2 实例类型部署新的 HA 对并迁移数据。
 
 
 
 ==== 更改实例类型
 
-c4、m4 和 r4 EC2 实例类型允许每个节点拥有比 c5、m5 和 r5 EC2 实例类型更多的磁盘。如果您正在运行的 c4、m4 或 r4 EC2 实例每个节点的磁盘数低于 c5、m5 和 r5 实例每个节点的最大磁盘限额，则可以将 EC2 实例类型更改为 c5、m5 或 r5。
+c4、m4 和 r4 EC2 实例类型允许每个节点配置的磁盘数多于 c5、m5 和 r5 EC2 实例类型。如果您的 c4、m4 或 r4 EC2 实例上每个节点的磁盘数低于 c5、m5 和 r5 实例的每个节点最大磁盘数，则可以将 EC2 实例类型更改为 c5、m5 或 r5。
 
 link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits-aws.html#disk-and-tiering-limits-by-ec2-instance["检查 EC2 实例的磁盘和分层限制"^] link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-change-ec2-instance.html["更改Cloud Volumes ONTAP的 EC2 实例类型"^]
 
@@ -402,14 +402,14 @@ link:https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-limits
 
 在许多情况下，升级 HA 对不会造成中断，并且 I/O 也不会中断。在此无中断升级过程中，每个节点都会同步升级，以继续为客户端提供 I/O 服务。
 
-面向会话的协议在升级过程中可能会对某些区域的客户端和应用程序造成不利影响。有关详细信息，请参阅 https://docs.netapp.com/us-en/ontap/upgrade/concept_considerations_for_session_oriented_protocols.html["ONTAP 文档"^]
+在升级过程中，面向会话的协议可能会对某些领域的客户端和应用程序造成不利影响。有关详细信息，请参阅 https://docs.netapp.com/us-en/ontap/upgrade/concept_considerations_for_session_oriented_protocols.html["ONTAP 文档"^]。
 
 
 
 [[verify-that-automatic-giveback-is-still-enabled]]
 === 验证自动交还是否仍然启用
 
-必须在Cloud Volumes ONTAP HA 对上启用自动交还（这是默认设置）。如果不是，则操作将失败。
+必须在 Cloud Volumes ONTAP HA 对上启用自动交还（这是默认设置）。如果未启用自动交还，则操作将失败。
 
 http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/GUID-3F50DE15-0D01-49A5-BEFD-D529713EC1FA.html["ONTAP文档：用于配置自动交还的命令"^]
 
@@ -418,7 +418,7 @@ http://docs.netapp.com/ontap-9/topic/com.netapp.doc.dot-cm-hacg/GUID-3F50DE15-0D
 [[suspend-snapmirror-transfers]]
 === 暂停SnapMirror传输
 
-如果Cloud Volumes ONTAP系统具有活动的SnapMirror关系，最好在更新Cloud Volumes ONTAP软件之前暂停传输。暂停传输可防止SnapMirror故障。您必须暂停从目标系统的传输。
+如果 Cloud Volumes ONTAP 系统具有活动的 SnapMirror 关系，则最好在升级 Cloud Volumes ONTAP 软件之前暂停传输。暂停传输可防止 SnapMirror 失败。您必须从目标系统暂停传输。
 
 
 NOTE: 尽管NetApp Backup and Recovery使用SnapMirror的实现来创建备份文件（称为SnapMirror Cloud），但在系统升级时无需暂停备份。
@@ -444,7 +444,7 @@ NOTE: 您从中访问控制台的计算机必须具有与Cloud Volumes ONTAP 的
 [[verify-that-aggregates-are-online]]
 === 验证聚合是否在线
 
-在更新软件之前， Cloud Volumes ONTAP的聚合必须处于在线状态。在大多数配置中，聚合应该处于在线状态，但如果没有，则应将其置于在线状态。
+在升级软件之前，Cloud Volumes ONTAP 的聚合必须处于联机状态。在大多数配置中，聚合应处于联机状态。如果未处于联机状态，请将其联机。
 
 .关于此任务
 以下步骤介绍了如何使用ONTAP System Manager 9.3 及更高版本。
@@ -470,7 +470,7 @@ image:screenshots_aggregate_details_state.png["屏幕截图：查看聚合信息
 
 升级之前，所有 LIF 必须位于主端口上。请参阅ONTAP文档link:https://docs.netapp.com/us-en/ontap/upgrade/task_enabling_and_reverting_lifs_to_home_ports_preparing_the_ontap_software_for_the_update.html["验证所有 LIF 是否位于主端口"^]。
 
-如果出现升级失败错误，请查阅知识库 (KB) 文章link:https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/CVO_upgrade_fails["Cloud Volumes ONTAP升级失败"^]。
+如果升级失败，请参阅知识库（KB）文章 link:https://kb.netapp.com/Cloud/Cloud_Volumes_ONTAP/CVO_upgrade_fails["Cloud Volumes ONTAP升级失败"^]。
 
 
 
@@ -479,19 +479,19 @@ image:screenshots_aggregate_details_state.png["屏幕截图：查看聚合信息
 
 当有新版本可供升级时，控制台会通知您。您可以从此通知开始升级过程。有关更多信息，请参阅<<从控制台通知升级>> 。
 
-执行软件升级的另一种方法是使用外部 URL 上的图像。如果控制台无法访问 S3 存储桶来升级软件或者您获得了补丁，则此选项很有用。有关更多信息，请参阅<<通过 URL 上的可用图像进行升级>> 。
+您还可以通过使用外部 URL 上的映像来升级软件。如果 Console 无法访问 S3 存储桶以升级软件，或者为您提供了修补程序，则此选项非常有用。有关详细信息，请参见 <<通过 URL 上的可用图像进行升级>>。
 
 
 
 [[upgrade-from-console-notifications]]
 === 从控制台通知升级
 
-当有新版本的Cloud Volumes ONTAP Cloud Volumes ONTAP工作环境中显示通知：
+当有新版本的 Cloud Volumes ONTAP 可用时，控制台会在 Cloud Volumes ONTAP 系统中显示通知。
 
 
 NOTE: 您必须拥有NetApp支持站点帐户，然后才能通过通知升级Cloud Volumes ONTAP 。
 
-您可以从此通知开始升级过程，该通知通过从 S3 存储桶获取软件映像、安装映像，然后重新启动系统来自动执行该过程。
+您可以从此通知开始升级过程。Console 从 S3 存储桶获取软件映像，安装映像，然后重新启动系统。
 
 .开始之前
 Cloud Volumes ONTAP系统上不得进行卷或聚合创建等操作。
@@ -517,7 +517,7 @@ image:screenshot_upgrade_select_versions.png["升级Cloud Volumes ONTAP版本页
 ** 9.13.1 和 9.13.1P1 您会看到 9.13.1P1 是升级的默认版本，而 9.12.1P13、9.13.1P14、9.13.1 和 9.13.1P1 是其他可用版本。
 
 
-. （可选）您可以选择 *All versions* 以输入要升级到的另一个版本（例如，已安装版本的下一个修补程序）。有关当前 Cloud Volumes ONTAP 版本的兼容升级路径，请参阅 link:task-updating-ontap-cloud.html#supported-upgrade-paths["支持的升级路径"]。
+. 可选：选择 *所有版本* 以输入要升级到的另一个版本（例如，已安装版本的下一个修补程序）。有关当前 Cloud Volumes ONTAP 版本的兼容升级路径，请参阅 link:task-updating-ontap-cloud.html#supported-upgrade-paths["支持的升级路径"]。
 . 选择*保存*，然后选择*应用*。 image:screenshot_upgrade_other_versions.png["显示可升级版本的屏幕截图。"]
 . 在升级Cloud Volumes ONTAP页面中，阅读 EULA，然后选择 *我已阅读并同意 EULA*。
 . 选择*升级*。
@@ -525,7 +525,7 @@ image:screenshot_upgrade_select_versions.png["升级Cloud Volumes ONTAP版本页
 
 
 .结果
-控制台开始软件升级。软件更新完成后，您可以在系统上执行操作。
+控制台开始软件升级。软件升级完成后，您可以对系统执行操作。
 
 .完成后
 如果您暂停了SnapMirror传输，请使用系统管理器恢复传输。
@@ -571,7 +571,7 @@ NOTE: 预定义的Cloud Volumes ONTAP安全组默认允许出站 HTTP 连接。
 . 在系统上，选择 image:icon-action.png["显示三个水平点的图标，用于其他操作"] 图标，然后选择 *Update Cloud Volumes ONTAP*。
 . 在"Update Cloud Volumes ONTAP version"页面上，输入 URL，然后选择 *Change Image*。
 +
-如果您将软件映像复制到上面显示的路径中的控制台代理，则需要输入以下 URL：
+如果您在上述路径中将软件映像复制到了控制台代理，请输入以下 URL：
 
 +
 \http://<Console_agent_private-IP-address>/ontap/images/<图像文件名>
@@ -584,7 +584,7 @@ NOTE: 在 URL 中，*image-file-name* 必须遵循“cot.image.9.13.1P2.tgz”�
 
 
 .结果
-控制台开始软件更新。软件更新完成后，您就可以在系统上执行操作。
+控制台开始软件升级。软件升级完成后，您可以对系统执行操作。
 
 .完成后
 如果您暂停了SnapMirror传输，请使用系统管理器恢复传输。

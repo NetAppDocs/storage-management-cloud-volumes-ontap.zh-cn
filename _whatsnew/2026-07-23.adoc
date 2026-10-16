@@ -10,7 +10,7 @@
 现在可以在 Azure 的智利中部（chilecentral）区域部署 Cloud Volumes ONTAP 9.12.1 GA 及更高版本。支持以下部署类型：
 
 * 单节点
-* 使用本地冗余存储 (LRS) 的单个可用性区域中的 HA
+* 使用本地冗余存储（LRS）的单个可用区中的 HA
 * 使用区域冗余存储 (ZRS) 在多个可用区中实现 HA
 
 

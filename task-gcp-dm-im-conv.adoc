@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-gcp-dm-im-conv.html 
 keywords: manual conversion tool, gcp dm im conversion, gcp deployment manager to infrastructure manager, gcp dm to im conversion 
-summary: 对于 Google Cloud 中的现有部署，需要将系统升级到 Cloud Volumes ONTAP 9.16.1 或更高版本，然后手动运行过渡工具，以便从 Google Cloud Deployment Manager 转换为 Cloud Infrastructure Manager。 
+summary: 将 Google Cloud 中现有的 Cloud Volumes ONTAP 系统升级到 9.16.1 或更高版本，然后运行转换工具以从 Deployment Manager 转换为 Infrastructure Manager。 
 ---
 = 将现有 Cloud Volumes ONTAP 部署转换为 Infrastructure Manager
 :hardbreaks:
@@ -14,10 +14,10 @@ summary: 对于 Google Cloud 中的现有部署，需要将系统升级到 Cloud
 
 
 [role="lead"]
-从 2026 年 2 月 9 日起，Google Cloud 中的新 Cloud Volumes ONTAP 部署可以使用 Google Cloud Infrastructure Manager。Google 即将弃用 Google Cloud Deployment Manager，转而使用 Infrastructure Manager。因此，您需要手动运行过渡工具，将现有 Cloud Volumes ONTAP 部署从 Deployment Manager 转换为 Infrastructure Manager。这是一个一次性流程，之后您的系统将自动开始使用 Infrastructure Manager。
+从 2026 年 2 月 9 日起，Google Cloud 中的新 Cloud Volumes ONTAP 部署可以使用 Google Cloud Infrastructure Manager。Google 将弃用 Google Cloud Deployment Manager，转而使用 Infrastructure Manager。要将现有 Cloud Volumes ONTAP 部署从 Deployment Manager 转换为 Infrastructure Manager，请手动运行转换工具。此一次性流程会自动将您的系统切换到 Infrastructure Manager。
 
 .关于此任务
-转换工具在 NetApp 支持站点中提供，并创建以下项目：
+转换工具在 NetApp 支持站点中提供，并创建以下工件：
 
 * Terraform 工件，保存在 `conversion_output/deployment_name`中。
 * 转换摘要，保存于 `conversion_output/batch_summary_<deployment_name>_<timestamp>.json.`
@@ -34,16 +34,16 @@ summary: 对于 Google Cloud 中的现有部署，需要将系统升级到 Cloud
 
 ====
 .开始之前
-* 确保您的 Cloud Volumes ONTAP 系统为 9.16.1 或更高版本。
-* 请确保未从 Google Cloud Console 手动编辑任何 Cloud Volumes ONTAP 资源或其属性。
-* 请确保已启用 Google Cloud API。请参阅 https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["启用 Google Cloud API"^]。请确保与其他 API 一起启用 Google Cloud Quotas API。
+* 验证您的 Cloud Volumes ONTAP 系统是否为 9.16.1 或更高版本。
+* 确认未从 Google Cloud Console 手动编辑任何 Cloud Volumes ONTAP 资源或其属性。
+* 验证是否已启用 Google Cloud API，包括 Google Cloud Quotas API。请参阅 https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["启用 Google Cloud API"^]。
 * 验证 NetApp Console 代理的服务帐户是否具有所需的所有权限。请参阅 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html#service-account-permissions["控制台代理的 Google Cloud 权限"^]。
 +
 .对于专用模式部署，请确保满足以下附加先决条件：
 [%collapsible]
 ====
 ** 确保拥有最新的 Console 代理版本。从 NetApp 支持站点下载产品安装程序，然后在主机上手动安装代理，以便代理可以使用 Infrastructure Manager API。
-** 如果在专用模式下运行工具，请确保已与其他 API 一起启用 Cloud Build API https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["启用 Google Cloud API"^]。
+** 如果在专用模式下运行该工具，请确保已启用 Cloud Build API 以及其他 API。请参阅 https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["启用 Google Cloud API"^]。
 ** 确保已完成网络配置并为专用模式部署创建工作者池。请参阅 link:reference-networking-gcp.html#infrastructure-manager-configuration-in-private-mode-or-protected-environments["私有模式或受保护环境中的 Infrastructure Manager 配置"]。
 
 
@@ -165,7 +165,7 @@ includedPermissions:
 .包括私有模式部署的其他权限
 [%collapsible]
 ====
-如果在私有模式下运行此工具，请将 `cloudbuild.workerpools.get`权限也添加到 YAML 文件。
+如果在私有模式下运行工具，请同时向 YAML 文件添加 `cloudbuild.workerpools.get`权限。
 
 ====
 .. 使用 YAML 文件中定义的权限在 Google Cloud 中创建自定义角色。
@@ -259,7 +259,7 @@ exec -l $SHELL
 [[run-the-conversion-tool]]
 == 运行转换工具
 
-这些步骤适用于运行转换工具的 Ubuntu 和 SUSE Linux Enterprise Server。
+使用以下步骤在 Ubuntu 和 SUSE Linux Enterprise Server 上运行转换工具。
 
 .步骤
 . 将当前用户添加到 Docker 组中，以便该工具可以在没有 `sudo`权限的情况下使用 Docker。
@@ -280,7 +280,7 @@ cd <folder where you extracted the tool>
 这将在隔离环境中安装工具， `dmconvert-venv`，并验证是否已安装所有必需的软件包。
 
 . 输入安装工具的环境： `source dmconvert-venv/bin/activate`
-. 以 `non-sudo` 用户身份运行转换工具。请确保使用与 Console 代理的服务帐户相同的服务帐户，并且服务帐户具有所有 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html#service-account-permissions["Google Cloud Infrastructure Manager 的必要权限"^]。
+. 以 `non-sudo` 用户身份运行转换工具。请确保使用 Console 代理使用的相同服务帐户，并且该服务帐户具有所有 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html#service-account-permissions["Google Cloud Infrastructure Manager 的必要权限"^]。
 +
 [source, cli]
 ----
@@ -307,10 +307,10 @@ dmconvert \
 
 
 .完成后
-该工具显示所有 Cloud Volumes ONTAP 系统和 SVM 详细信息的列表。当它完成运行时，您可以看到所有已转换系统的状态。每个转换后的系统都以 _<system-name-imdeploy>_ 格式显示在 Google Console 的 Infrastructure Manager 下，表明 Console 现在使用 Infrastructure Manager API 来管理该 Cloud Volumes ONTAP 系统。
+该工具显示所有 Cloud Volumes ONTAP 系统和 SVM 详细信息的列表。当它完成运行时，您可以看到所有已转换系统的状态。每个转换后的系统都以 _<system-name-imdeploy>_ 格式显示在 Google Cloud Console 的 Infrastructure Manager 下，表明控制台现在使用 Infrastructure Manager API 来管理该 Cloud Volumes ONTAP 系统。
 
 
-CAUTION: 转换后，请勿在 Google Cloud Console 中删除 Deployment Manager 的部署对象。此部署对象包含回滚转换的系统可能需要的信息。
+CAUTION: 转换后，请勿在 Google Cloud Console 中删除 Deployment Manager 的部署对象。此部署对象包含回滚转换后的系统可能需要的信息。
 
 如果需要回滚转换，则必须使用相同的 VM。如果已转换所有系统，并且不需要回滚到 Deployment Manager，则可以删除 VM。
 
@@ -332,7 +332,7 @@ dmconvert \
 --service-account=<the service account attached to the Console agent> \
 --rollback
 ----
-. 等待回滚完成。
+. 请等待回滚完成。
 
 
 .相关链接

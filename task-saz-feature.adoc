@@ -2,7 +2,7 @@
 sidebar: sidebar 
 permalink: task-saz-feature.html 
 keywords: Microsoft Azure feature, HA in SAZ, single availability zone, Azure feature, Virtual Machine Scale Sets in Flexible mode, VMOrchestratorZonalMultiFD, VM Orchestrator, Zonal, MultiFD, VMOrchestratorZonalMultiFD feature 
-summary: 启用此 Microsoft Azure 功能以在 SAZ 中部署 HA。 
+summary: 在 Azure 中启用 VMOrchestratorZonalMultiFD 功能，以在单个可用区的单独故障域中部署 Cloud Volumes ONTAP HA 节点。 
 ---
 = 在 Azure 中为Cloud Volumes ONTAP启用 VMOrchestratorZonalMultiFD
 :hardbreaks:
@@ -14,11 +14,11 @@ summary: 启用此 Microsoft Azure 功能以在 SAZ 中部署 HA。
 
 
 [role="lead"]
-要在本地冗余存储 (LRS) 单可用区 (AZ) 中部署虚拟机实例，您应该激活 Microsoft `Microsoft.Compute/VMOrchestratorZonalMultiFD`您的订阅功能。在高可用性 (HA) 模式下，此功能有助于在同一可用区域内的不同故障域中部署节点。
+若要在 Azure 的本地冗余存储（LRS）单可用性区域（AZ）中部署 Cloud Volumes ONTAP VM 实例，请为订阅激活 Microsoft `Microsoft.Compute/VMOrchestratorZonalMultiFD` 功能。在高可用性（HA）模式下，此功能允许您在同一可用性区域中的单独故障域中部署节点。
 
 除非您激活此功能，否则不会发生区域部署，并且之前的 LRS 非区域部署将生效。
 
-有关在单个可用区域中部署虚拟机的信息，请参阅link:concept-ha-azure.html["Azure 中的高可用性对"]。
+要了解有关在单个可用区中部署 VM 的信息，请参阅link:concept-ha-azure.html["Azure 中的高可用性对"]。
 
 以具有“所有者”权限的用户身份执行以下步骤：
 
@@ -31,7 +31,7 @@ summary: 启用此 Microsoft Azure 功能以在 SAZ 中部署 HA。
 az 帐户设置 -s _<Azure_subscription_name_or_ID>_ az 功能注册 --name VMOrchestratorZonalMultiFD --namespace Microsoft.Compute
 
 ====
-. 验证注册状态及输出样例：
+. 通过运行此命令验证注册状态，该命令返回的输出类似于以下示例：
 +
 []
 ====

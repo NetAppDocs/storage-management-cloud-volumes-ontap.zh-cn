@@ -20,7 +20,7 @@ https://docs.netapp.com/us-en/cloud-volumes-ontap-relnotes/reference-new.html["C
 
 从 Cloud Volumes ONTAP 9.19.1 GA 开始，对于满足先决条件的新 Azure 单节点和高可用性（HA）部署，默认情况下会在主机上启用 Azure 加密。此功能会在数据写入主机和从主机读取时，对托管 VM 的物理服务器上的数据进行加密，包括临时磁盘和相关的主机级缓存。
 
-在 Azure 中部署 Cloud Volumes ONTAP 之前，请确保满足以下前提条件：
+在 Azure 中部署 Cloud Volumes ONTAP 之前，请确认您的环境满足以下先决条件：
 
 * 已为您的 Azure 订阅注册了 `EncryptionAtHost`功能。请参阅 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli["Microsoft 文档：在主机上启用加密"^]。
 * 所选 VM 实例类型支持在您的 Azure 区域的主机上进行加密。请参阅 https://learn.microsoft.com/en-us/azure/virtual-machines/linux/disks-enable-host-based-encryption-cli#finding-supported-vm-sizes["Microsoft 文档：查找支持的 VM 大小"^]。

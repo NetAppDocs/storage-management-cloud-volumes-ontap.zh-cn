@@ -2,18 +2,18 @@
 :allow-uri-read: 
 
 
-您可以使用  `Quick create` 在 Amazon Web Services (AWS)、Microsoft Azure 和 Google Cloud 中部署 Cloud Volumes ONTAP，从而在单节点和高可用性 (HA) 配置中实现更快的部署。与高级方法相比，此简化流程通过在单个页面上自动设置默认值并最大限度地减少导航，从而减少了部署步骤。
+您可以使用  `Quick create` 在 Amazon Web Services （AWS）、Microsoft Azure 和 Google Cloud 中部署 Cloud Volumes ONTAP，以加快单节点和高可用性 （HA） 配置的部署速度。与高级方法相比，此简化流程通过在单个页面上自动设置默认值并最大限度地减少导航，从而减少了部署步骤。
 
 .开始之前
-在开始之前，请确保您具备以下条件：
+请确保已完成以下操作：
 
-. 已启动并运行并与您的项目或工作区相关联的 Console 代理。请记住，Console 代理需要始终运行。有关信息，请参阅：
+. 已启动并运行且与您的项目或工作区相关联的 Console 代理。Console 代理必须始终运行。有关信息，请参阅：
 +
 ** https://docs.netapp.com/us-en/console-setup-admin/concept-agents.html["了解 NetApp Console 代理"^]
 ** https://docs.netapp.com/us-en/console-setup-admin/concept-agent-install-options.html["选择 Console 代理部署方法"^]
 
 
-. 了解要使用的配置。在开始之前，请选择配置并从管理员处获取网络信息。有关信息，请参阅：
+. 了解要使用的配置。选择配置并从管理员处获取网络信息。有关信息，请参阅：
 +
 [role="tabbed-block"]
 ====
@@ -110,7 +110,7 @@ image:screenshot-quick-start-gcp.png["width=500,alt=\"Google Cloud 快速创建\
 . *ONTAP 凭据*：这些是 Cloud Volumes ONTAP 集群管理员帐户的凭据。您可以使用这些凭据通过 ONTAP System Manager 或 ONTAP CLI 连接到 Cloud Volumes ONTAP。您可以保留默认的 _admin_ 用户名或将其更改为自定义用户名。
 
 
-对于 _Google Cloud_，如果您计划将 link:concept-data-tiering.html["数据分层"] 或  https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery"^] 与 Cloud Volumes ONTAP 结合使用，则需要启用 *Service Account* 并选择具有预定义 Storage Admin 角色的服务帐户。link:task-creating-gcp-service-account.html["了解如何创建服务帐号"^]。与 Console 代理关联的服务帐户 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html["应该具有所需的权限"^]。
+对于 _Google Cloud_ ，如果您计划将 link:concept-data-tiering.html["数据分层"] 或  https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["NetApp Backup and Recovery"^] 与 Cloud Volumes ONTAP 结合使用，则需要启用 *服务帐户* 并选择具有预定义存储管理员角色的服务帐户。link:task-creating-gcp-service-account.html["了解如何创建服务帐号"^]。与 Console 代理关联的服务帐户 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html["应该具有所需的权限"^]。
 
 . *标签* ：标签是 AWS 或 Azure 资源的元数据。Console 将标签添加到 Cloud Volumes ONTAP 实例以及与该实例关联的每个资源。在创建 Cloud Volumes ONTAP 系统时，您最多可以从用户界面添加 15 个标签，然后可以在创建后添加更多标签。有关更多信息，请参阅：
 +
@@ -135,18 +135,18 @@ https://docs.cloud.google.com/storage/docs/tags-and-labels["Google Cloud 文档�
 
 
 .部署和配置
-. *部署类型/拓扑*：选择要使用的部署类型，单个节点、单个可用区 (AZ) 中的高可用性 (HA) 或多个 AZ 中的 HA。
+. *部署类型/拓扑*：选择要使用的部署类型：单节点、单个可用区域（AZ）中的高可用性（HA）或多个 AZ 中的 HA。
 . *网络配置*：输入您在区域、VNet 和子网的规划工作表中记录的网络信息。
 +
 .. *区域*：默认情况下，将选择与资源关联的云帐户的区域。
-.. *可用性区域*：您可以根据您选择的部署类型以及所选区域是否支持可用性区域来选择可用性区域。
+.. *可用性区域*：您可以根据您选择的部署类型以及所选区域是否支持您的区域来选择可用性区域。
 .. *子网*：选择区域的子网。
 +
 [role="tabbed-block"]
 ====
 .对于 AWS
 --
-*VPC*：对于 AWS，根据您的计划部署，输入具有子网的区域的 Amazon Virtual Private Cloud (VPC) 网络。
+*VPC*：对于 AWS，请根据您的计划部署，输入该区域中包含子网的 Amazon Virtual Private Cloud（VPC）网络。
 
 .AWS 高可用性
 如果选择了 HA 配置，请输入以下信息：
@@ -159,7 +159,7 @@ https://docs.cloud.google.com/storage/docs/tags-and-labels["Google Cloud 文档�
 ... *可用区域和中介*：选择每个节点的可用区域 (AZ) 以及要部署Cloud Volumes ONTAP HA 对的中介和相应子网。
 ... *浮动 IP*：如果您选择了多个 AZ，请为 NFS 和 CIFS 服务以及集群和 SVM 管理指定浮动 IP 地址。IP 地址必须位于该区域所有 VPC 的 CIDR 块之外。有关其他详细信息，请参阅 link:https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/reference-networking-aws.html#requirements-for-ha-pairs-in-multiple-azs["多个可用区中Cloud Volumes ONTAP HA 的 AWS 网络要求"^]。
 ... *调解器访问*：指定调解器访问信息。调解器是一个单独的实例，用于监控 HA 对的健康状况并在发生故障时提供仲裁。提供密钥对名称以使中介实例能够连接到 AWS EC2 服务，并选择连接方法。
-... *路由表*：如果您选择了多个 AZ，请选择包含到浮动 IP 地址的路由的路由表。如果您有多个路由表，则选择正确的路由表非常重要。否则，某些客户端可能无法访问Cloud Volumes ONTAP HA 对。有关路由表的更多信息，请参阅 http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html["AWS 文档：路由表"^]。
+... *路由表*：如果您选择了多个 AZ，请选择包含到浮动 IP 地址的路由的路由表。如果您有多个路由表，请确保选择正确的路由表。否则，某些客户端可能无法访问 Cloud Volumes ONTAP HA 对。有关路由表的详细信息，请参见 http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Route_Tables.html["AWS 文档：路由表"^]。
 
 
 .充电和服务
@@ -173,7 +173,7 @@ https://docs.cloud.google.com/storage/docs/tags-and-labels["Google Cloud 文档�
 --
 .适用于Google Cloud
 --
-*VPC and subnet*：对于 Google Cloud，根据您的计划部署，输入区域的 Google Virtual Private Cloud (VPC) 网络和子网。
+*VPC 和子网*：对于 Google Cloud，请根据您的计划部署，输入该区域的 Google 虚拟私有云（VPC）网络和子网。
 
 .单个或多个 AZ 中的 HA
 如果选择了 HA 配置，请输入以下信息：*节点 1 和 2 的区域以及 mediator*：添加两个节点和 mediator 的区域。*连接* 为 HA 配置选择四个不同的 VPC，并在每个 VPC 中选择一个子网。有关 VPC-1、VPC-2 和 VPC-3 的详细信息，请参阅 link:reference-networking-gcp.html#requirements-specific-to-single-node-systems["VPC-1、VPC-2 和 VPC-3 的规则"]。
@@ -189,14 +189,14 @@ NOTE: Cloud Volumes ONTAP 9.19.1 及更高版本支持link:concept-ha-google-clo
 
 .充电和服务
 . *许可证*：选择要用于此 Cloud Volumes ONTAP 系统的许可证类型。您可以从 Professional、Essentials 和 Freemium 许可证中进行选择。有关不同许可证的信息，请参阅 link:concept-licensing.html["了解Cloud Volumes ONTAP许可证"^]。
-. *数据服务和功能*：保持启用这些服务，或者禁用您不想与 Cloud Volumes ONTAP 结合使用的服务。在 _Google Cloud_ 中，要选择“备份和恢复”或使用 NetApp Cloud Tiering，您必须已指定服务帐户。
+. *数据服务和功能*：保持启用这些服务，或者禁用您不想与 Cloud Volumes ONTAP 一起使用的服务。在 _Google Cloud_ 中，要选择备份和恢复或使用 NetApp Cloud Tiering，您必须指定服务帐户。
 +
 ** https://docs.netapp.com/us-en/data-services-data-classification/concept-classification.html["了解有关NetApp分类的更多信息"^]
 ** https://docs.netapp.com/us-en/data-services-backup-recovery/concept-backup-to-cloud.html["了解有关NetApp Backup and Recovery的更多信息"^]
 ** link:concept-worm.html["了解Cloud Volumes ONTAP上的 WORM 存储"]
 +
 
-TIP: 如果您想利用 WORM 和数据分层，则必须禁用备份和恢复并部署版本 9.8 或更高版本的Cloud Volumes ONTAP系统。
+TIP: 如果要使用 WORM 和数据分层，则必须禁用备份和恢复并部署 9.8 或更高版本的 Cloud Volumes ONTAP 系统。
 
 
 
@@ -206,7 +206,7 @@ TIP: 如果您想利用 WORM 和数据分层，则必须禁用备份和恢复并
 
 在 _Azure_ 中，*概述*部分显示部署过程完成时将分配的资源。
 
-在 _AWS_ 中，创建 Cloud Volumes ONTAP 系统后，NetApp Console 立即在指定的 VPC 中启动测试实例以验证连接。如果成功，Console 会立即终止实例，然后开始部署系统。如果 Console 无法验证连接，则系统创建失败。测试实例可以是 `t2.nano`（对于默认 VPC 租赁）或 `m3.medium`（对于专用 VPC 租赁）。
+在 _AWS_ 中，创建 Cloud Volumes ONTAP 系统后，NetApp Console 立即在指定的 VPC 中启动测试实例以验证连接。如果测试成功，Console 会立即终止实例，然后开始部署系统。如果 Console 无法验证连通性，则系统创建失败。测试实例可以是 `t2.nano`（对于默认 VPC 租赁）或 `m3.medium`（对于专用 VPC 租赁）。
 
 .完成后
 控制台部署Cloud Volumes ONTAP系统。您可以在审核页面上跟踪进度。
@@ -214,4 +214,4 @@ TIP: 如果您想利用 WORM 和数据分层，则必须禁用备份和恢复并
 如果您在部署 Cloud Volumes ONTAP 系统时遇到任何问题，请查看故障消息。您还可以在系统上选择*重新创建环境*，以使用 `Advanced`模式向导继续进行部署。
 
 
-CAUTION: 部署过程完成后，请勿在 AWS 或 Azure 云门户中修改系统生成的 Cloud Volumes ONTAP 配置，尤其是系统标记。对这些配置所做的任何更改都可能导致意外行为或数据丢失。
+CAUTION: 部署过程完成后，请勿在 AWS 或 Azure 云门户中修改系统生成的 Cloud Volumes ONTAP 配置，尤其是系统标记。更改这些配置可能会导致意外行为或数据丢失。
