@@ -14,7 +14,7 @@ summary: 在 AWS 中部署系统之前，请为 Cloud Volumes ONTAP 设置基于
 
 
 [role="lead"]
-在 AWS 中完成您选择的 Cloud Volumes ONTAP 许可选项的设置，例如基于容量的套餐、免费增值或 Keystone 订阅，以便您在创建新系统时选择它。
+在决定将哪种许可选项与 AWS 中的 Cloud Volumes ONTAP 结合使用后，请完成一些设置步骤，以便在创建新系统时可以选择该选项。
 
 
 
@@ -59,7 +59,7 @@ Essentials 和 Professional 套餐提供以下几种消费模式或购买选项�
 
 link:concept-licensing.html["了解有关基于容量的许可的更多信息"] 。
 
-要开始使用，请按照您选择的消费模式的步骤进行操作。
+要开始使用，请按照要使用的消费模式的步骤进行操作。
 
 
 
@@ -83,7 +83,7 @@ NetApp 已限制 BYOL 许可的购买、延期和续期。有关详细信息，�
 +
 .. 在 *详细信息和凭据* 页面上，选择 *编辑凭据 > 添加订阅*，然后按照提示在 AWS Marketplace 中订阅按需付费产品。
 +
-您从 NetApp 购买的许可证始终会优先计费，但如果您超出了许可容量或许可证期限已过，系统将按市场上的小时费率向您收费。
+始终优先从您向 NetApp 购买的许可证中扣费，但如果您超出了许可容量或许可证期限已届满，则将按市场小时费率向您收费。
 
 +
 image:screenshot-aws-paygo-subscription.png["创建Cloud Volumes ONTAP系统时 PAYGO 订阅选项的屏幕截图。"]
@@ -211,7 +211,7 @@ link:task-deploying-otc-aws.html["查看在 AWS 中启动Cloud Volumes ONTAP 的
 [[node-based-license]]
 == 基于节点的许可证
 
-基于节点的许可证是 Cloud Volumes ONTAP 的上一代许可证。您可以从 NetApp （BYOL）购买基于节点的许可证，并且只能在特定情况下续订。有关信息，请参阅：
+基于节点的许可证是 Cloud Volumes ONTAP 的上一代许可证。您可以从 NetApp （BYOL）购买基于节点的许可证。基于节点的许可证仅在特定情况下可用于续订。有关信息，请参阅：
 
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#end-of-availability-for-node-based-licenses["基于节点的许可证的可用性终止"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基于节点的许可证的可用性终止"^]

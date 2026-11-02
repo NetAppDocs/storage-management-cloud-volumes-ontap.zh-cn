@@ -53,7 +53,7 @@ Digital Advisor用户界面完全集成在控制台中。
 
 * 如果您已经在控制台中注册了一个现有的 NSS 帐户，则Digital Advisor UI 的显示方式与您在独立实施中看到的一样 https://activeiq.netapp.com/[]。
 +
-image:screenshot_aiq_digital_advisor.png["控制台中Digital Advisor用户界面的屏幕截图。"]
+image:screenshot_aiq_digital_advisor.png["NetApp Console 中的 Digital Advisor 控制面板显示健康、库存、规划和升级摘要"]
 
 * 如果您尚未在 Console 中注册 NSS 帐户，请立即注册 NSS 帐户，然后 Digital Advisor UI 将会显示。有关说明，请参阅 https://docs.netapp.com/us-en/console-setup-admin/task-adding-nss-accounts.html["管理与组织或帐户关联的 NSS 凭据"]。
 

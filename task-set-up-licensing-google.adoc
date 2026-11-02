@@ -14,7 +14,7 @@ summary: 在创建系统之前，请在 Google Cloud 中为 Cloud Volumes ONTAP 
 
 
 [role="lead"]
-决定在 Google Cloud 中对 Cloud Volumes ONTAP 使用哪种许可选项后，请先完成几个设置步骤，然后再在创建系统时选择该选项。
+在决定将哪个许可选项与 Google Cloud 中的 Cloud Volumes ONTAP 结合使用后，请完成几个设置步骤，以便在创建新系统时选择该选项。
 
 
 
@@ -57,7 +57,7 @@ Essentials 和 Professional 套餐提供以下几种消费模式或购买选项�
 
 link:concept-licensing.html#capacity-based-licensing["了解有关基于容量的许可的更多信息"] 。
 
-要开始使用每种消费模式，请按照以下各节中的步骤进行操作。
+要开始使用，请按照要使用的消费模式的步骤进行操作。
 
 
 
@@ -82,7 +82,7 @@ NOTE: NetApp 已限制 BYOL 许可的购买、延期和续期。有关详细信�
 +
 .. 在*详细信息和凭据*页面上，选择*编辑凭据 > 添加订阅*，然后按照提示在 Google Cloud Marketplace 中订阅按需购买产品。
 +
-系统始终会优先针对您从 NetApp 购买的许可证计费，但如果您超出了许可容量或许可证已过期，则将按市场的小时费率向您收费。
+始终优先从您向 NetApp 购买的许可证中扣费，但如果您超出了许可容量或许可证期限已届满，则将按市场小时费率向您收费。
 
 .. 返回控制台后，在进入收费方式页面时选择基于容量的套餐。
 +
@@ -179,7 +179,7 @@ link:task-deploying-gcp.html["查看在 Google Cloud 中启动Cloud Volumes ONTA
 [[node-based-license]]
 == 基于节点的许可证
 
-基于节点的许可证是 Cloud Volumes ONTAP 的上一代许可证。您可以从 NetApp （BYOL）购买基于节点的许可证。基于节点的许可证现在仅在特定情况下可用于续订。有关信息，请参阅：
+基于节点的许可证是 Cloud Volumes ONTAP 的上一代许可证。您可以从 NetApp （BYOL）购买基于节点的许可证。基于节点的许可证仅在特定情况下可用于续订。有关信息，请参阅：
 
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/whats-new.html#end-of-availability-for-node-based-licenses["基于节点的许可证的可用性终止"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基于节点的许可证的可用性终止"^]

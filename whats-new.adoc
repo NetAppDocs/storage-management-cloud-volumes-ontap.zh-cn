@@ -20,6 +20,30 @@ summary: 了解 Cloud Volumes ONTAP 管理中的新增功能和增强功能。
 
 
 
+[[02-november-2026]]
+== 2026年11月2日
+
+
+
+[[guidance-for-upgrading-ontap-hotfixes-for-specific-cloud-volumes-ontap-versions]]
+=== 针对特定 Cloud Volumes ONTAP 版本升级 ONTAP 修补程序的指南
+
+ONTAP 已发布以下与 Cloud Volumes ONTAP 版本 9.14.1、9.15.1、9.16.1、9.17.1、9.18.1 和 9.19.1 兼容的修补程序：
+
+* 9.14.1P18HF1
+* 9.15.1P20HF1
+* 9.16.1P16HF1
+* 9.17.1P11HF1
+* 9.18.1P8HF1
+* 9.19.1P3HF1
+
+
+有关详细信息，请参阅 https://security.netapp.com/advisory/ntap-20261021-0021["NTAP 安全公告 20261021-0021"^]。
+
+对于 Cloud Volumes ONTAP 系统，可能会提示您在 NetApp Console 中升级到这些修补程序。但是，仅当 Console 代理版本为 4.12.0 或更高版本时，才支持这些修补程序。如果 Console 代理版本低于 4.12.0，请忽略提示。
+
+
+
 [[14-october-2026]]
 == 2026年10月14日
 
@@ -98,7 +122,7 @@ NetApp 仅支持私有模式下基于容量的许可的 Essentials 软件包。�
 NetApp 建议对所有私有模式的 Cloud Volumes ONTAP 部署使用基于容量的许可。如果您现有的私有模式部署使用基于节点的许可证，则可以通过从 NetApp 购买 Essentials 软件包将其转换为基于容量的许可。这一新的部署功能与转换选项相结合，支持 NetApp 逐步从基于节点的许可转向基于容量的许可的计划。
 
 .相关链接
-* https://review.docs.netapp.com/us-en/storage-management-cloud-volumes-ontap_capacity-license-darkmode/concept-licensing.html["Cloud Volumes ONTAP许可"^]
+* https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html["Cloud Volumes ONTAP许可"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-license-management.html["了解Cloud Volumes ONTAP BYOL"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/concept-licensing.html#end-of-availability-of-node-based-licenses["基于节点的许可证的可用性终止"^]
 * https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-manage-node-licenses.html["管理 Cloud Volumes ONTAP 的基于节点的许可证"^]
@@ -181,7 +205,7 @@ NetApp 很高兴宣布针对私有模式 Cloud Volumes ONTAP 部署的基于容�
 [[cloud-volumes-ontap-integration-with-microsoft-onelake]]
 === Cloud Volumes ONTAP 与 Microsoft OneLake 的集成
 
-Cloud Volumes ONTAP 现在支持与 link:https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview["Microsoft OneLake"^] 集成（公共预览版）。您可以使用 link:https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview["Microsoft OneLake"^] 将 Cloud Volumes ONTAP 与 link:https://community.fabric.microsoft.com/["Microsoft Fabric"^] 集成，从而使现有的 Cloud Volumes ONTAP NAS 数据可用于 Microsoft 分析和 AI 服务，例如 Power BI、Azure AI Search、OpenAI 和 Microsoft Copilot。此集成不需要进行数据移动或复制。该集成使用 link:https://docs.netapp.com/us-en/ontap/s3-multiprotocol/index.html["ONTAP S3 多协议"^] 访问将 Cloud Volumes ONTAP 连接到现有的 Microsoft Fabric lakehouse。
+Cloud Volumes ONTAP 现在支持与 link:https://learn.microsoft.com/en-us/fabric/onelake/onelake-overview["Microsoft OneLake"^] 的集成（公共预览版）。此集成允许您将现有的 Cloud Volumes ONTAP NAS 数据提供给 Microsoft 分析和 AI 服务，例如 Power BI、Azure AI Search、OpenAI 和 Microsoft Copilot。此集成不需要数据移动或复制。此集成使用 link:https://docs.netapp.com/us-en/ontap/s3-multiprotocol/index.html["ONTAP S3 多协议"^] 访问将 Cloud Volumes ONTAP 连接到现有的 Microsoft Fabric lakehouse。
 
 .相关文章和资源：
 * https://www.netapp.com/blog/optimize-ai-analytics-microsoft-onelake/?utm_content=nativelink&utm_medium=internal&utm_source=linkedin&utm_campaign=b2d-port-all-na-ww-digi-blog-1747859361262&es_id=956c739202["NetApp blog：使用 Microsoft OneLake 和 NetApp Cloud Volumes ONTAP 优化人工智能和分析"^]

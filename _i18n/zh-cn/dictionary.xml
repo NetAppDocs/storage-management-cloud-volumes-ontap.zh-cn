@@ -347,8 +347,6 @@
   <block id="dbc1457d32512f230fbf5ecac2168c58" category="section-title">Digital Advisor如何与NetApp Console配合使用</block>
   <block id="7f72992f161284c02ef04b174599d908" category="paragraph">Digital Advisor用户界面完全集成在控制台中。</block>
   <block id="a6ebe8373edbaa7f9e56a8e9d23bfcd0" category="list-text">如果您已经在控制台中注册了一个现有的 NSS 帐户，则Digital Advisor UI 的显示方式与您在独立实施中看到的一样<block ref="a550a333ee33d06042f0abf049084bb9" category="inline-link-rx"></block>。</block>
-  <block id="1f122d41cffa1d12acf10fac0890ee98" category="inline-image-macro">控制台中Digital Advisor用户界面的屏幕截图。</block>
-  <block id="cf11e39febb8082716236e9ac59e5993" category="paragraph"><block ref="cf11e39febb8082716236e9ac59e5993" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a8337bbe7162cb44d567fe345950e592" category="inline-link">管理与组织或帐户关联的 NSS 凭据</block>
   <block id="394af58b8754c06314d43b854dc5006f" category="inline-link">此常见问题解答</block>
   <block id="9c89822027b6c9736a75d3187c897d4d" category="admonition">自 2021 年 12 月 3 日起， NetApp已改用注册 NSS 帐户凭据的新方法。有关更多信息，请参阅<block ref="e276cbae6a7bedd32258cb1ce27fb2ac" category="inline-link-rx"></block> 。如果您的 NSS 帐户使用旧的凭据集，您将需要将帐户更新为新的凭据。</block>
@@ -388,7 +386,6 @@
   <block id="f7c5c3f829ba75eb23b7c60381fd4f74" category="list-text">访问层：热</block>
   <block id="c89729007f1266a456e5a1133a9f58e9" category="list-text">性能：标准</block>
   <block id="af06b9862164f62f5ee6325272d44053" category="list-text">冗余：根据 Cloud Volume ONTAP部署</block>
-  <block id="c43f742471855ab4046c8e23e0d8fe4e" category="list-text">多可用区域：区域冗余存储（ZRS）</block>
   <block id="2f546189dda4bc24c6d8f6ed71c57a36" category="list-text">帐户：StorageV2（通用 v2）</block>
   <block id="e0d679a04a2c140c65cff67ffbfd8444" category="list-text">要求 REST API 操作进行安全传输：已启用</block>
   <block id="4fbd5770a6fd5de01bbbcf2a407118d7" category="list-text">存储帐户密钥访问：已启用</block>
@@ -3359,10 +3356,6 @@
   <block id="d1d964d1db8731b3b8174fa845b85de0" category="paragraph">调整Cloud Volumes ONTAP系统的大小可以帮助您满足性能和容量要求。在选择机器类型、磁盘类型和磁盘大小时，您应该注意几个关键点：</block>
   <block id="3ea4bf9da7622edeeae1bf80e9c5cded" category="list-text">机器类型</block>
   <block id="33163c406a5fa4e618c360f9d6a2cf33" category="paragraph">请参阅以下内容以了解更多详细信息：</block>
-  <block id="0bf615a24a0089df1397d456b7c9a111" category="inline-link">Google Cloud 文档：N1 标准机器类型</block>
-  <block id="4a8c0d1957b124297f183a32fe967b94" category="list-text"><block ref="4a8c0d1957b124297f183a32fe967b94" category="inline-link-rx"></block></block>
-  <block id="e95081e0ce4cd8b52aae7f4c51df0e38" category="inline-link">Google Cloud 文档：性能</block>
-  <block id="7f1833e3cac2f73326c69cb528100505" category="list-text"><block ref="7f1833e3cac2f73326c69cb528100505" category="inline-link-rx"></block></block>
   <block id="81aeb0f42709dc6b02c7b6a3dc77c5fc" category="list-text">为Cloud Volumes ONTAP创建卷时，您需要选择Cloud Volumes ONTAP用于磁盘的底层云存储。磁盘类型可以是以下任意一种：</block>
   <block id="c9f5fb49e1accd9e04bbc9f8698a138d" category="list-text">_区域 SSD 持久磁盘_：SSD 持久磁盘最适合需要高随机 IOPS 率的工作负载。</block>
   <block id="04cc1a164487ea3f644d6e322c5bb9ad" category="list-text">_区域平衡持久磁盘_：这些 SSD 通过提供每 GB 较低的 IOPS 来平衡性能和成本。</block>
@@ -5288,10 +5281,8 @@
   <block id="23475ffaa5c62a61c9fd9936da1b2d17" category="section-title">准备运行工具的环境</block>
   <block id="235ad64d4d44f422462a6f13a9ebdb24" category="paragraph">在运行工具之前运行这些步骤。</block>
   <block id="25099748affaf06175b1716317124072" category="list-text">操作系统：根据您的要求，选择以下任一图像：</block>
-  <block id="c4815cf0c0f871d5ff5c1ad7c1270c4d" category="list-text">Ubuntu 25.10 AMD64 精简版（镜像：ubuntu-minimal-2510-amd64）</block>
   <block id="53b4fb6fd5c954dbf179dba99b662501" category="list-text">SUSE Linux Enterprise Server 15 SP7 x86_64</block>
   <block id="6b71f098730cc9eb4a17b15f0fde4f4f" category="list-text">使用您的 NSS 凭据从<block ref="2b34f2fd14a473003c4bec1d639c99ed" category="inline-link-rx"></block>下载转换工具：<block ref="351cb02cba717c786694e4b04b17a03c" prefix=" " category="inline-code"></block></block>
-  <block id="c4c52ae6b59db725eb370608587a87ac" category="list-text">提取下载的 TAR 文件：<block ref="555b90a4c7bdb6bc696ca4ddf5851d9d" prefix=" " category="inline-code"></block></block>
   <block id="3d945423f8e9496c429a5d8c65b4604f" category="list-title">Ubuntu</block>
   <block id="4ae0b3e9c82d7212e106b8d937d888f9" category="list-title">SUSE Linux Enterprise Server</block>
   <block id="60deaa50ef5cb5075b022cf8b7e2aa9b" category="list-text">设置 Python：<block ref="cf4dfc540c38d1d6ba007027e57f8ad9" prefix=" " category="inline-code"></block></block>
@@ -6496,7 +6487,6 @@
   <block id="0375af31d39c4bfde1c980cd053ab2b9" category="doc">Cloud Volumes ONTAP 存储 VM</block>
   <block id="54448f9a8312c7b08e3e97308160554c" category="paragraph">存储虚拟机 (SVM) 是在 ONTAP 中运行的虚拟机，可为您的客户端提供存储和数据服务。您可能会将其称为 _SVM_ 或 _vserver_。Cloud Volumes ONTAP 默认配置一个存储虚拟机，但某些配置支持额外的存储虚拟机。</block>
   <block id="3298e455b39f3323fcb1a4a41454ef56" category="doc">在 Cloud Volumes ONTAP 中修改系统写入速度</block>
-  <block id="7c6b0fb3b2800b9dc8476ade3878f593" category="list-text">在 <block ref="bbbe0fb63aa435924c3f3696efbae4a8" category="inline-link-macro-rx"></block> 中查看受支持的机器类型，然后查看 Google 提供的有关每种受支持机器类型的详细信息。将您的工作负载要求与机器类型的 vCPU 和内存数量相匹配。请注意，每个 CPU 核心都会提高网络性能。</block>
   <block id="790a6eeef182c9847c5686e3d7af76cd" category="doc">在 Azure 中隔离 Cloud Volumes ONTAP 中的 SnapMirror 流量</block>
   <block id="668ee036e2ed867c0005914c6da1d380" category="section-title">2026年7月23日</block>
   <block id="22e2a7fe0db4ccace3b93579a7678955" category="paragraph">从 Cloud Volumes ONTAP 9.15.1 开始，您可以在 Azure 的单个可用区 (AZ) 中以 HA 模式部署虚拟机 (VM) 实例。与以前的非区域部署不同，Cloud Volumes ONTAP 9.15.1 在灵活业务流程模式下使用 Microsoft Virtual Machines Scale Sets 来部署所有资源，包括同一 AZ 内的独立故障域，从而确保最佳可用性。默认情况下，当满足以下条件时，此部署模式使用高级 SSD v2 托管磁盘：</block>
@@ -6562,7 +6552,6 @@
   <block id="e80ee78606b9fe45ef7d7303b64be29a" category="sidebar">Cloud Volumes ONTAP 和 AutoSupport-Digital Advisor</block>
   <block id="aafe22f0aac02cfc773f108471a387c4" category="doc">Cloud Volumes ONTAP 与 Microsoft OneLake 的集成</block>
   <block id="41aa5ef466861e25c87ddbb36de43edd" category="inline-link">Microsoft OneLake</block>
-  <block id="293c823b8d8e2da1959829a580b33c90" category="inline-link">Microsoft Fabric</block>
   <block id="4d664b02ce777c1e4699e94fd7d34ae7" category="inline-link">ONTAP S3 多协议</block>
   <block id="26ce65cbc7dbbe0f87186b28ea7c57b8" category="list-title">相关文章和资源：</block>
   <block id="a66621d27a6944c58e46d1f565b22143" category="inline-link">NetApp blog：使用 Microsoft OneLake 和 NetApp Cloud Volumes ONTAP 优化人工智能和分析</block>
@@ -7001,7 +6990,6 @@
   <block id="658914614ae687a5f3785b2dac023a24" category="paragraph">有关切换到其他收费方式的信息，请参阅<block ref="abcc188e637b21856ca793757fd17216" category="inline-link-rx"></block>。</block>
   <block id="7c85f350a672cd58f96789a104b266fb" category="paragraph">有关详细信息，请参阅<block ref="bd23f770a22d33f6cff4810341dd9e41" category="inline-link-rx"></block>。</block>
   <block id="2f5a019e704c77949b635a0ae3952c93" category="paragraph"><block ref="3427c8906a29017f5e3e8f06bd64f461" category="inline-link-rx"></block>。</block>
-  <block id="b476893dc5d9404e756affcf8c5c5abf" category="paragraph">Cloud Volumes ONTAP 现在支持与 <block ref="06dad0286aae23111863bb1a79b17a4a" category="inline-link-macro-rx"></block> 集成（公共预览版）。您可以使用 <block ref="06dad0286aae23111863bb1a79b17a4a" category="inline-link-macro-rx"></block> 将 Cloud Volumes ONTAP 与 <block ref="ed504e51b6e034ace3c2f13f8d46981b" category="inline-link-macro-rx"></block> 集成，从而使现有的 Cloud Volumes ONTAP NAS 数据可用于 Microsoft 分析和 AI 服务，例如 Power BI、Azure AI Search、OpenAI 和 Microsoft Copilot。此集成不需要进行数据移动或复制。该集成使用 <block ref="aac36380121b9387ae99c37cf81e3144" category="inline-link-macro-rx"></block> 访问将 Cloud Volumes ONTAP 连接到现有的 Microsoft Fabric lakehouse。</block>
   <block id="5a366af03760eefc1234ea195ba4897c" category="list-text"><block ref="5a366af03760eefc1234ea195ba4897c" category="inline-link-rx"></block></block>
   <block id="413e48ec336773a995f7e6733b27326a" category="list-text">如果您尚未在 Console 中注册 NSS 帐户，请立即注册 NSS 帐户，然后 Digital Advisor UI 将会显示。有关说明，请参阅<block ref="4ed3bf52dc7fed67fd0985edbafecca4" category="inline-link-rx"></block>。</block>
   <block id="892180c8294e60acd48742e0b48c3116" category="paragraph">这些权限包含在<block ref="a89874125d787e70816cb1fc01236869" category="inline-link-rx"></block></block>
@@ -7075,7 +7063,6 @@
   <block id="f9adff656af739700caeb7cccc593d98" category="paragraph"><block ref="f9adff656af739700caeb7cccc593d98" category="inline-link-rx"></block></block>
   <block id="928b1dc588c907971c8b25ff6a14aee2" category="inline-link-macro">NetApp 卷缓存</block>
   <block id="04d7daeedff0c7b93034144e64ec3b7e" category="paragraph">NetApp Console 提供通过 <block ref="c9011e3527c0d32350268809630a5752" category="inline-link-macro-rx"></block> 对 FlexCache 卷的管理。</block>
-  <block id="ae6c061431f20eece91e47d2ed561c2e" category="paragraph">您可以将 Cloud Volumes ONTAP 与 <block ref="ed504e51b6e034ace3c2f13f8d46981b" category="inline-link-macro-rx"></block> 集成，使用 <block ref="06dad0286aae23111863bb1a79b17a4a" category="inline-link-macro-rx"></block> 使现有 Cloud Volumes ONTAP NAS 数据可用于 Microsoft 分析和 AI 服务，例如 Power BI、Azure AI Search、OpenAI 和 Microsoft Copilot。集成不需要数据移动或复制。集成使用 <block ref="aac36380121b9387ae99c37cf81e3144" category="inline-link-macro-rx"></block> 访问将 Cloud Volumes ONTAP 连接到现有的 Microsoft Fabric lakehouse。</block>
   <block id="39000f3289519f01408be42327ae4551" category="paragraph">要查看 AWS 中支持的实例类型列表，请参阅 <block ref="0dc84dfcbbd7d54b187ae06b4f5306f5" category="inline-link-macro-rx"></block>。</block>
   <block id="ec3bf9f6c40daac65ca8a761e177d729" category="paragraph">NetApp 已限制 BYOL 许可的购买、延期和续期。有关详细信息，请参阅<block ref="2e04fcadb4f0e1d32519bbbe2e8f79b8" category="inline-link-rx"></block>。</block>
   <block id="337251482e6032b10cb61cb4d212d2fc" category="list-text">在您创建 iSCSI 卷时，Console 会自动为您创建一个 LUN。我们通过在每个卷上只创建一个 LUN 来简化操作，因此无需进行任何管理。在您创建卷后，<block ref="f3ea82580075da010bd857da680ab3fa" category="inline-link-macro-rx"></block>。</block>
@@ -7269,7 +7256,6 @@
   <block id="e7407e69cea5642ae9e0cd7198fe3213" category="paragraph">您现在可以在 AWS、Azure 和 Google Cloud 中以私有模式部署具有基于容量许可证的 Cloud Volumes ONTAP 系统。</block>
   <block id="5ac8ab42faf3d93a6c3b6ad39ea1d0cf" category="paragraph">NetApp 仅支持私有模式下基于容量的许可的 Essentials 软件包。从 NetApp 购买基于容量的自带许可证 (BYOL) Essentials 软件包，并在部署期间将其分配给您的系统。前 500 GiB 的已消耗容量不计入您的许可费用。随着工作负载需求的增长，您可以购买额外的软件包。</block>
   <block id="21712c9baed4035cb4259749b4f6b0b5" category="paragraph">NetApp 建议对所有私有模式的 Cloud Volumes ONTAP 部署使用基于容量的许可。如果您现有的私有模式部署使用基于节点的许可证，则可以通过从 NetApp 购买 Essentials 软件包将其转换为基于容量的许可。这一新的部署功能与转换选项相结合，支持 NetApp 逐步从基于节点的许可转向基于容量的许可的计划。</block>
-  <block id="659a7e43d06893f1e9ea314bf1e995c0" category="list-text"><block ref="659a7e43d06893f1e9ea314bf1e995c0" category="inline-link-rx"></block></block>
   <block id="98a45c35578305189a0a42309be57c0e" category="inline-link">了解Cloud Volumes ONTAP BYOL</block>
   <block id="d9f9f0f56fedf60259b456ffc4e59d78" category="list-text"><block ref="d9f9f0f56fedf60259b456ffc4e59d78" category="inline-link-rx"></block></block>
   <block id="242bfbe0da9ac42085977af78285c35e" category="summary">了解基于容量和基于节点的 BYOL 许可证在标准模式和专用模式 Cloud Volumes ONTAP 部署中的工作原理，包括续订和到期行为。</block>
@@ -7739,7 +7725,6 @@
   <block id="733ba000742537e7a4435573aca51393" category="inline-link">Ansible Galaxy</block>
   <block id="139807910facd19f02db2d5fe0f59378" category="list-text"><block ref="139807910facd19f02db2d5fe0f59378" category="inline-link-rx"></block></block>
   <block id="5eae6f5974c9d4195ebe0cf8b607647e" category="inline-link">Ansible 文档</block>
-  <block id="2c17b123ab1174f57aef57626d7fe326" category="list-text"><block ref="2c17b123ab1174f57aef57626d7fe326" category="inline-link-rx"></block></block>
   <block id="303e96f80576360d0c7b07ae7528fa4b" category="section-title">Terraform</block>
   <block id="e75ea875a9cecce91df4e6d2fe5dbe12" category="inline-link">NetApp Terraform 提供程序</block>
   <block id="ae5b03629b482b45c8952bcee4d77759" category="paragraph">Terraform 是一个使用声明性配置文件的开源编排工具。NetApp 为 Cloud Volumes ONTAP 提供 Terraform 提供程序。您可以使用它来自动化您的基础架构并将其与 IaC 集成。有关详细信息，请参阅<block ref="9db86edb27cba5e99043532cee2f3846" category="inline-link-rx"></block>。</block>
@@ -7967,7 +7952,6 @@
   <block id="8da8e60d52401f09cdc9c2cfee508984" category="list-text">要完成此过程，您必须具有 Cloud Volumes ONTAP 管理员访问权限。</block>
   <block id="d05fd6c4ff344dc9fe5bfb843e81fe7d" category="list-text">确认您的工作负载可以在 Azure 计划维护冻结期间容忍临时 I/O 停顿，并且在冻结期间继续运行优于默认的接管和交还响应。</block>
   <block id="0ac4465b6348019ac75e06215ffb2f91" category="section-title">在 Azure 计划维护期间防止自动接管和交还</block>
-  <block id="e647d072341720c38d1f1cee658ff4e7" category="list-text">标识 Azure HA 对的系统 ID。有关识别资源和进行 API 调用的信息，请参见<block ref="2b5c9a64a0a28b95d7cfc5db1ff2c794" category="inline-link-rx"></block>。</block>
   <block id="78bc854d36de758797203ad7780d9b78" category="list-text">向以下端点发送<block ref="3e75383a5992a6d15fb81e872e46e256" prefix=" " category="inline-code"></block>请求，将<block ref="1f7f5b0a33cb78cd5f99f2d4a1cd6e29" prefix=" " category="inline-code"></block>替换为系统 ID：</block>
   <block id="6c6f17e6722d2eb336661f2d25056f88" category="paragraph"><block ref="d556da1c70d221ee2c087aad73b92f4d" prefix="" category="inline-code"></block></block>
   <block id="45b55e4c2afa6172c51b9861010ec585" category="paragraph">在请求正文中将<block ref="a10311459433adf322f2590a4987c423" prefix=" " category="inline-code"></block>设置为<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>：</block>
@@ -8003,7 +7987,6 @@
   <block id="e4216eff9837bc291d5eabe5aed0dafd" category="paragraph">此页面上描述的增强功能特定于通过控制台管理 Cloud Volumes ONTAP。要了解主要版本和修补程序，请参阅<block ref="7a96f232274f5a7cebcb1f6a52cc095f" category="inline-link-rx"></block>。</block>
   <block id="f535eb1278ad100b4d323539a7942781" category="section-title">2026年10月14日</block>
   <block id="5e97b5d6eddbf44365aa9f33e020e547" category="sidebar">启用后端集群网络加密</block>
-  <block id="1cab9fa2920a3e09427bd4bf2d92adf4" category="sidebar">在 Azure 维护 Cloud Volumes ONTAP HA 期间防止中断</block>
   <block id="f952d1b986a72954a4a0f3ec3fd67227" category="paragraph">您可以使用 <block ref="956eaa6186169471a13345860cad0757" prefix=" " category="inline-code"></block> 在 Amazon Web Services （AWS）、Microsoft Azure 和 Google Cloud 中部署 Cloud Volumes ONTAP，以加快单节点和高可用性 （HA） 配置的部署速度。与高级方法相比，此简化流程通过在单个页面上自动设置默认值并最大限度地减少导航，从而减少了部署步骤。</block>
   <block id="a8ee86d22a09b40c8f0d9a916f1d0c23" category="paragraph">请确保已完成以下操作：</block>
   <block id="53121934da7c63aa4d0cbb6af9b4073b" category="list-text">已启动并运行且与您的项目或工作区相关联的 Console 代理。Console 代理必须始终运行。有关信息，请参阅：</block>
@@ -8025,7 +8008,6 @@
   <block id="f06295aec82b8045d499f988d711565d" category="list-text">使用本地冗余存储（LRS）的单个可用区中的 HA</block>
   <block id="145afd276d37daec187001af80160d51" category="paragraph">在 Azure 中部署 Cloud Volumes ONTAP 之前，请确认您的环境满足以下先决条件：</block>
   <block id="8e185e7635097d7251137556c4d7b148" category="doc">AWS Marketplace 中 Cloud Volumes ONTAP 的单独 PAYGO 列表</block>
-  <block id="74f7a92556735e887d07fb116f6eb3f0" category="paragraph">NetApp 现在通过 NetApp 独立列表（NSL）在 AWS Marketplace 中为 Cloud Volumes ONTAP 提供单独的按需付费（PAYGO）列表。NetApp 此前推出了独立的 Cloud Volumes ONTAP 订阅，以适应 AWS Enterprise Discount Program（EDP）的更改。PAYGO 列表现在与 Cloud Volumes ONTAP 年度合同一起在同一 NSL 产品下提供，从而更轻松地跟踪 PAYGO 使用情况、监控超额费用并管理消耗成本。Cloud Volumes ONTAP 年度合同和 PAYGO 列表仍与 NetApp Intelligence Services（NIS）年度合同和 PAYGO 列表分开，从而实现 Cloud Volumes ONTAP 容量和数据服务的单独计费。</block>
   <block id="d999b7f4dfd323ff52160b3d7fb22cd7" category="list-text">单一可用区：本地冗余存储（LRS）</block>
   <block id="c0acd2ee203b239b2b95053b3c3821d7" category="list-text">客户数据驻留在本地冗余存储（LRS）托管磁盘上。每个节点都可以访问另一个节点的存储。还需要为 <block ref="8df791ceb35c7c98017fb536efbaab44" category="inline-link-macro-rx"></block> 提供额外的存储。</block>
   <block id="a7d693bae85341ddf4e23591642a4c27" category="summary">查看 Cloud Volumes ONTAP 的 Google Cloud 网络要求，包括专用 IP 地址、VPC、子网、数据包镜像、防火墙规则和 Console 代理要求。</block>
@@ -8070,7 +8052,6 @@
   <block id="6da2e5dc8677928da2cad94847feaa83" category="paragraph">Microsoft Azure 可以在计划维护期间短暂暂停 VM。在 Cloud Volumes ONTAP HA 配置中，ONTAP 可能会将暂停视为节点中断，并将存储操作移动到配对节点（接管）。然后，当暂停的 VM 恢复时，ONTAP 会自动交还操作（交还）。此行为可能会中断活动的客户端连接。如果启用此功能，HA 对将在 Azure 计划维护冻结期间继续运行，而不会自动启动接管和交还。</block>
   <block id="4f54f1c82add47f08c941579c501a406" category="list-text">对于其他故障情况，正常的 HA 保护仍处于活动状态。该功能仅在 Azure 计划维护冻结期间禁止接管和交还。通常触发接管的其他情况（例如节点故障或崩溃）将继续触发接管。</block>
   <block id="6683094c8541cbfa78e085bdd8260a1a" category="list-text">该功能适用于 HA 对中的两个节点。维护事件行为在两个节点上配置，不能仅在一个节点上启用。</block>
-  <block id="7bf71e86fae58d2facbb2e3790c42f27" category="summary">将 Google Cloud 中现有的 Cloud Volumes ONTAP 系统升级到 9.16.1 或更高版本，然后运行转换工具以从 Deployment Manager 转换为 Infrastructure Manager。</block>
   <block id="589bd286ccc0c7a999de70bb9265ddf1" category="paragraph">从 2026 年 2 月 9 日起，Google Cloud 中的新 Cloud Volumes ONTAP 部署可以使用 Google Cloud Infrastructure Manager。Google 将弃用 Google Cloud Deployment Manager，转而使用 Infrastructure Manager。要将现有 Cloud Volumes ONTAP 部署从 Deployment Manager 转换为 Infrastructure Manager，请手动运行转换工具。此一次性流程会自动将您的系统切换到 Infrastructure Manager。</block>
   <block id="0004013451dd21cf0daaa50247b51200" category="paragraph">转换工具在 NetApp 支持站点中提供，并创建以下工件：</block>
   <block id="6a56d32ea8e0427687e2f48db0ebf04b" category="list-text">验证您的 Cloud Volumes ONTAP 系统是否为 9.16.1 或更高版本。</block>
@@ -8087,34 +8068,22 @@
   <block id="afc45f038d978afa5480e65fdfbd77c6" category="list-text">请等待回滚完成。</block>
   <block id="94347c199a7a4ebd4fba7154ec8933bf" category="summary">使用 Quick create 在 AWS 中将 Cloud Volumes ONTAP 部署为单节点系统或 HA 对。</block>
   <block id="a57a1b96ea094530212fd77b725f1189" category="summary">使用快速创建选项从一个页面在 Azure 中部署 Cloud Volumes ONTAP 单节点系统或 HA 对。</block>
-  <block id="7d9d42daab9b177bee4ed4805f4c2ed4" category="summary">使用快速创建在 Google Cloud 中将 Cloud Volumes ONTAP 部署为单节点系统或 HA 对。</block>
   <block id="3121b8a3c6538f7909d9100244df588f" category="summary">在 Azure 中启用 VMOrchestratorZonalMultiFD 功能，以在单个可用区的单独故障域中部署 Cloud Volumes ONTAP HA 节点。</block>
   <block id="7e4a7086b79bf35263b89ada99c0faa3" category="paragraph">若要在 Azure 的本地冗余存储（LRS）单可用性区域（AZ）中部署 Cloud Volumes ONTAP VM 实例，请为订阅激活 Microsoft<block ref="fdfb47698b60e554acc8cff3a6065992" prefix=" " category="inline-code"></block> 功能。在高可用性（HA）模式下，此功能允许您在同一可用性区域中的单独故障域中部署节点。</block>
   <block id="a9babbf2ebf83eaedf5a41c97fd93d99" category="paragraph">要了解有关在单个可用区中部署 VM 的信息，请参阅<block ref="c9a9063659db2ec9460653bbe2cdb792" category="inline-link-macro-rx"></block>。</block>
   <block id="40f974be377190725820b48a37ccbc55" category="list-text">通过运行此命令验证注册状态，该命令返回的输出类似于以下示例：</block>
   <block id="ad74aaf2d1fc32813ef2c19a07f35b85" category="summary">在 AWS 中部署系统之前，请为 Cloud Volumes ONTAP 设置基于容量的许可证、AWS Marketplace 订阅、免费增值或 Keystone 订阅。</block>
-  <block id="40b3062f961f5c16608f9601ab8b75d1" category="paragraph">在 AWS 中完成您选择的 Cloud Volumes ONTAP 许可选项的设置，例如基于容量的套餐、免费增值或 Keystone 订阅，以便您在创建新系统时选择它。</block>
   <block id="f2fb4af3acd9f85ca6f263859287b792" category="section-title">为独立 AWS 列表设置首选计费</block>
-  <block id="98976048462548353d31c39fb99a7f9b" category="paragraph">要开始使用，请按照您选择的消费模式的步骤进行操作。</block>
   <block id="a862ea4586a130b01ea03dcee93d0105" category="paragraph">控制台会自动查询 NetApp 的许可服务，以获取与您的 NetApp 支持站点帐户关联的许可证的详细信息。如果没有错误，控制台会自动添加许可证。</block>
-  <block id="7563cdf889dfa2b8357351fc680f79c8" category="paragraph">您从 NetApp 购买的许可证始终会优先计费，但如果您超出了许可容量或许可证期限已过，系统将按市场上的小时费率向您收费。</block>
   <block id="50f9f61e5500928f9127c0190f68df37" category="paragraph">与按小时订阅类似，控制台会提示您订阅 AWS Marketplace 中提供的年度合同。</block>
-  <block id="d534de855542cc8aa9195dd931ffe6ea" category="paragraph">基于节点的许可证是 Cloud Volumes ONTAP 的上一代许可证。您可以从 NetApp （BYOL）购买基于节点的许可证，并且只能在特定情况下续订。有关信息，请参阅：</block>
   <block id="684e6fd6dbb007b2b9eb34b77dfdadc0" category="summary">在部署新系统之前，请在 Azure 中为 Cloud Volumes ONTAP 设置免费增值、基于容量的（BYOL、PAYGO、年度合同）或 Keystone 订阅许可。</block>
-  <block id="b1ca71fab6fc01ecccec396af45ce21e" category="paragraph">在决定要在 Azure 中对 Cloud Volumes ONTAP 使用哪种许可选项后，您必须完成几个步骤，然后才能在创建新系统时选择该许可选项。</block>
   <block id="e122e83bd76055709ba2c23f96a00386" category="paragraph">除非您已配置的容量超过 500 GiB，否则不会通过市场订阅向您收费。此时，系统会自动转换为<block ref="a532c123c17175d5b8699150d716fe26" category="inline-link-macro-rx"></block>。</block>
   <block id="42faf03ab6b12552e7514a873affeb1d" category="paragraph">基于容量的许可使您能够按每 TiB 容量为 Cloud Volumes ONTAP 付费。基于容量的许可以_包_形式提供：Essentials 包或 Professional 包。</block>
   <block id="a00ec21897346804f53d4b9d2070deed" category="paragraph">要开始使用，请按照要使用的消费模式的步骤进行操作。</block>
-  <block id="d93f1aa337ecc2db3a22cd28f4c69ff9" category="paragraph">您从 NetApp 购买的许可证始终优先计费，但如果您超出了许可容量或许可证期限已过，则将按市场中的小时费率向您收费。</block>
-  <block id="30cc694f0df5f092e551f05d146c3c9a" category="paragraph">基于节点的许可证是 Cloud Volumes ONTAP 的上一代许可证。您可以从 NetApp （BYOL）购买基于节点的许可证。基于节点的许可证仅在特定情况下可用于续订。有关信息，请参阅：</block>
   <block id="6f22620851ebf1f7fe02a11acde1964d" category="summary">在创建系统之前，请在 Google Cloud 中为 Cloud Volumes ONTAP 设置 Freemium、基于容量或 Keystone 订阅许可。</block>
-  <block id="8ed80acf551c1ad4ca4af437a27f7e53" category="paragraph">决定在 Google Cloud 中对 Cloud Volumes ONTAP 使用哪种许可选项后，请先完成几个设置步骤，然后再在创建系统时选择该选项。</block>
   <block id="1bf3fbc31be618352b1f88716a6eb965" category="paragraph">除非您配置的容量超过 500 GiB，否则不会通过市场订阅向您收费。如果超过，系统会自动转换为 <block ref="399bac8d27c4886a3f9c83c2b09e6c23" category="inline-link-macro-rx"></block>。</block>
   <block id="8871018a181028fbbd40a4fc1bd58f5d" category="paragraph">基于容量的许可使您能够按 TiB 容量为 Cloud Volumes ONTAP 付费。基于容量的许可以_套餐_形式提供：Essentials 或 Professional。</block>
-  <block id="d768b64ac82f5086cda48180830d7866" category="paragraph">要开始使用每种消费模式，请按照以下各节中的步骤进行操作。</block>
-  <block id="fb6549d508fe4cf3faccb997b0d085db" category="paragraph">系统始终会优先针对您从 NetApp 购买的许可证计费，但如果您超出了许可容量或许可证已过期，则将按市场的小时费率向您收费。</block>
   <block id="600dc78b7b88f4b4f5eedb121fe78642" category="list-text">mailto:ng-keystone-success@netapp.com[联系 NetApp] 为您的 Console 用户帐户授权一个或多个 Keystone 订阅。</block>
-  <block id="b24029967d037dca171dacf8135ee7d4" category="paragraph">基于节点的许可证是 Cloud Volumes ONTAP 的上一代许可证。您可以从 NetApp （BYOL）购买基于节点的许可证。基于节点的许可证现在仅在特定情况下可用于续订。有关信息，请参阅：</block>
   <block id="5f60c25ccbbc3b2424c34d3263bef9fc" category="summary">查看支持的升级路径，准备系统，并从 NetApp Console 通知或 URL 处的映像升级 Cloud Volumes ONTAP。</block>
   <block id="9e245f73a4ef5c218a1524748df8acab" category="paragraph">在开始 Cloud Volumes ONTAP 升级流程之前，请查看这些注意事项。</block>
   <block id="3654f8fc38ceca1fe6876bc272e10f2c" category="paragraph">仅从控制台升级 Cloud Volumes ONTAP。使用 ONTAP System Manager 或 ONTAP 命令行界面进行升级可能会影响系统稳定性。</block>
@@ -8163,4 +8132,40 @@
   <block id="a98817aa590be4dae5d98e4842a0af78" category="paragraph">BlueXP 现在会删除在部署 Cloud Volumes ONTAP 系统时以及每次关闭电源时创建的根磁盘和启动磁盘的旧云快照。对于根卷和启动卷，仅保留两个最新的快照。</block>
   <block id="5207ff8459c4be6b446093346dbe9aa7" category="paragraph">当按逻辑报告空间时，ONTAP 会报告卷空间，以便将存储效率功能节省的所有物理空间也报告为已使用。</block>
   <block id="51bfc14a72f7cd18d1a2b9b8829d4eca" category="paragraph">几个月前，我们宣布 Cloud Volumes ONTAP 已获得 Amazon Web Services（AWS）Outposts Ready 认证。我们已经通过 AWS Outposts 验证了 BlueXP 和 Cloud Volumes ONTAP。</block>
+  <block id="0557a17b7976bfada1cbf216d937643c" category="paragraph">Cloud Volumes ONTAP 现在支持与 <block ref="06dad0286aae23111863bb1a79b17a4a" category="inline-link-macro-rx"></block> 的集成（公共预览版）。此集成允许您将现有的 Cloud Volumes ONTAP NAS 数据提供给 Microsoft 分析和 AI 服务，例如 Power BI、Azure AI Search、OpenAI 和 Microsoft Copilot。此集成不需要数据移动或复制。此集成使用 <block ref="aac36380121b9387ae99c37cf81e3144" category="inline-link-macro-rx"></block> 访问将 Cloud Volumes ONTAP 连接到现有的 Microsoft Fabric lakehouse。</block>
+  <block id="ba184f13e7bf496f6768b87c5d7acdb0" category="list-text"><block ref="ba184f13e7bf496f6768b87c5d7acdb0" category="inline-link-rx"></block></block>
+  <block id="5a5a491a94e6d556e85e601b24f8d121" category="doc">针对特定 Cloud Volumes ONTAP 版本升级 ONTAP 修补程序的指南</block>
+  <block id="b4891be2934b9e98fc19416ebfae6a18" category="paragraph">ONTAP 已发布以下与 Cloud Volumes ONTAP 版本 9.14.1、9.15.1、9.16.1、9.17.1、9.18.1 和 9.19.1 兼容的修补程序：</block>
+  <block id="e1436b576c97d4ee53df8bdb53230756" category="list-text">9.14.1P18HF1</block>
+  <block id="5050c1a82a49a95d546f16829b500401" category="list-text">9.15.1P20HF1</block>
+  <block id="124b86ef30adb0fa328f15ad507bbe98" category="list-text">9.16.1P16HF1</block>
+  <block id="e64432abe1f57468ee9038ed44c6e0bd" category="list-text">9.17.1P11HF1</block>
+  <block id="d0563c773afdcfb2987438396082bad8" category="list-text">9.18.1P8HF1</block>
+  <block id="d2f816f92f91ab0756cbe4d7ecccbc1c" category="list-text">9.19.1P3HF1</block>
+  <block id="1b798364e278208b0d20b4b1710e6786" category="inline-link">NTAP 安全公告 20261021-0021</block>
+  <block id="93a6a64e1df6cd0e2f07d8b931635a5f" category="paragraph">有关详细信息，请参阅<block ref="12c9bbef01f1c6198b57112eba5f4e7e" category="inline-link-rx"></block>。</block>
+  <block id="a2b19abf4eb1b38f190f7260dec9b0ee" category="paragraph">对于 Cloud Volumes ONTAP 系统，可能会提示您在 NetApp Console 中升级到这些修补程序。但是，仅当 Console 代理版本为 4.12.0 或更高版本时，才支持这些修补程序。如果 Console 代理版本低于 4.12.0，请忽略提示。</block>
+  <block id="e22492ae15b7a204416f84c3bc5e2d1e" category="paragraph">NetApp 现在通过 NetApp 独立列表（NSL）在 AWS Marketplace 中为 Cloud Volumes ONTAP 提供单独的按需付费（PAYGO）列表。NetApp 此前推出了独立的 Cloud Volumes ONTAP 订阅，以适应 AWS Enterprise Discount Program（EDP）的更改。PAYGO 列表现在与 Cloud Volumes ONTAP 年度合同一起在同一 NSL 产品下提供，从而更轻松地跟踪 PAYGO 使用情况、监控超额费用并管理消耗成本。</block>
+  <block id="76d4be3bca7251e78e8b9d340a9e88e6" category="paragraph">Cloud Volumes ONTAP 年度合同和 PAYGO 列表仍与 NetApp Intelligence Services（NIS）年度合同和 PAYGO 列表分开，从而实现 Cloud Volumes ONTAP 容量和数据服务的单独计费。</block>
+  <block id="65314018e479255ddd24d3877b810277" category="inline-image-macro">NetApp Console 中的 Digital Advisor 控制面板显示健康、库存、规划和升级摘要</block>
+  <block id="c7d1f312d9093b65f2a6b383521c4c84" category="paragraph"><block ref="c7d1f312d9093b65f2a6b383521c4c84" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="8ae6363d642b6030f4ef10c58c298a96" category="list-text"><block ref="8ae6363d642b6030f4ef10c58c298a96" category="inline-link-rx"></block></block>
+  <block id="f8346a6d7d3d34bc138804a351ac752d" category="list-text">多可用区：区域冗余存储（ZRS）</block>
+  <block id="634bb958900c847219c91224464fd0f6" category="paragraph">您可以使用 <block ref="06dad0286aae23111863bb1a79b17a4a" category="inline-link-macro-rx"></block> 将 Cloud Volumes ONTAP 与 Microsoft Fabric 集成，以使现有 Cloud Volumes ONTAP NAS 数据可用于 Microsoft 分析和 AI 服务，例如 Power BI、Azure AI Search、OpenAI 和 Microsoft Copilot。此集成不需要移动或复制数据。此集成使用 <block ref="aac36380121b9387ae99c37cf81e3144" category="inline-link-macro-rx"></block> 访问将 Cloud Volumes ONTAP 连接到现有的 Microsoft Fabric lakehouse。</block>
+  <block id="e64c500ea36b81fd5dcd273b23c3860d" category="inline-link">发出 ONTAP 管理 REST API 调用</block>
+  <block id="eec13a785e7df48f295461272b85ae67" category="list-text">标识 Azure HA 对的系统 ID。有关识别资源和进行 API 调用的信息，请参阅<block ref="1583a207d531bed98262d6647da07775" category="inline-link-rx"></block>。</block>
+  <block id="659e66cdf697ebfab10edcdb4d71f743" category="summary">将 Google Cloud 中现有的 Cloud Volumes ONTAP 系统升级到 9.16.1 或更高版本，然后运行转换工具从 Deployment Manager 转换为 Infrastructure Manager。</block>
+  <block id="99cce062974117a24e6e5bcfc4f1692c" category="list-text">Ubuntu 26.04 LTS Minimal （ubuntu-2604-resolute-amd64）</block>
+  <block id="4318c964caa16790a31778fd2da5e0c0" category="list-text">提取下载的文件：<block ref="555b90a4c7bdb6bc696ca4ddf5851d9d" prefix=" " category="inline-code"></block></block>
+  <block id="d60ee8fac4079eb02d49ccc8570fc702" category="inline-link-macro">支持的机器类型</block>
+  <block id="f26d5064ec18d8e9da84fafc14be3b79" category="list-text">查看<block ref="d02d1012f2c7f92c58fe94fc7a292e80" category="inline-link-macro-rx"></block>，然后查看 Google 提供的有关每种受支持机器类型的详细信息。将工作负载要求与机器类型的 vCPU 和内存数量相匹配。请注意，每个 CPU 内核都可以提高网络性能。</block>
+  <block id="980c8d10db9dd7afd1be2c2d714209b7" category="inline-link">Google 文档：机器系列资源和比较指南</block>
+  <block id="8593c47ecdfcf05e8314769a560926d4" category="paragraph">请参见<block ref="4bd1c6385a41aa2d1c999a581cc60291" category="inline-link-rx"></block>以了解详细信息</block>
+  <block id="3f4b66209ddd98ebf65e20ac1181e10e" category="summary">使用“快速创建”在 Google Cloud 中将 Cloud Volumes ONTAP 部署为单节点系统或 HA 对。</block>
+  <block id="748c6018a91f0b297eabca93441b2135" category="paragraph">在决定将哪种许可选项与 AWS 中的 Cloud Volumes ONTAP 结合使用后，请完成一些设置步骤，以便在创建新系统时可以选择该选项。</block>
+  <block id="37a87acf3f8a30eae834a071d9ed696f" category="paragraph">始终优先从您向 NetApp 购买的许可证中扣费，但如果您超出了许可容量或许可证期限已届满，则将按市场小时费率向您收费。</block>
+  <block id="1ccd2627d9150df9610fb4d4790b375d" category="paragraph">基于节点的许可证是 Cloud Volumes ONTAP 的上一代许可证。您可以从 NetApp （BYOL）购买基于节点的许可证。基于节点的许可证仅在特定情况下可用于续订。有关信息，请参阅：</block>
+  <block id="9d2f770dee2976b7c8a9e728002e9237" category="paragraph">在决定将哪种许可选项与 Azure 中的 Cloud Volumes ONTAP 结合使用后，请完成几个设置步骤，以便在创建新系统时可以选择该选项。</block>
+  <block id="56ff1982d9d9e73576ee15361a2b97e2" category="paragraph">在决定将哪个许可选项与 Google Cloud 中的 Cloud Volumes ONTAP 结合使用后，请完成几个设置步骤，以便在创建新系统时选择该选项。</block>
+  <block id="066f3a9431c48361a10c813b2b187f91" category="section-title">2026年11月2日</block>
 </blocks>

@@ -41,7 +41,7 @@ Microsoft Azure 可以在计划维护期间短暂暂停 VM。在 Cloud Volumes O
 == 在 Azure 计划维护期间防止自动接管和交还
 
 .步骤
-. 标识 Azure HA 对的系统 ID。有关识别资源和进行 API 调用的信息，请参见 https://docs.netapp.com/us-en/console-automation/cm/your_api_call.html#step-1-select-the-identifie["您的第一次 API 调用"^]。
+. 标识 Azure HA 对的系统 ID。有关识别资源和进行 API 调用的信息，请参阅 https://docs.netapp.com/us-en/console-automation/cm/your_api_call.html#step-1-select-the-identifier["发出 ONTAP 管理 REST API 调用"^]。
 . 向以下端点发送 `PUT`请求，将 `{id}`替换为系统 ID：
 +
 `PUT /occm/api/azure/ha/working-environments/{id}/opt-off-maintenance-event`

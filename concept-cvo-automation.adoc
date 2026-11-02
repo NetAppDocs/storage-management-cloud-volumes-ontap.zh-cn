@@ -140,7 +140,7 @@ link:concept-worm.html["管理 WORM 存储"] link:reference-worm-snaplock.html["
 Ansible 是一个基于过程配置文件的开源配置管理工具。
 
 * https://galaxy.ansible.com/ui/repo/published/netapp/ontap/["Ansible Galaxy"^]
-* https://docs.ansible.com/ansible/latest/user_guide/index.html["Ansible 文档"^]
+* https://docs.ansible.com/projects/ansible/latest/getting_started/index.html["Ansible 文档"^]
 
 
 

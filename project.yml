@@ -225,7 +225,7 @@ sidebar:
         url: "/reference-limits-azure.html"
       - title: 了解 Azure 中的 HA 对
         url: "/concept-ha-azure.html"
-      - title: 在 Azure 维护 Cloud Volumes ONTAP HA 期间防止中断
+      - title: 防止在 Azure 维护期间 Cloud Volumes ONTAP HA 对发生中断
         url: "/task-azure-prevent-freeze.html"
       - title: 使用 Azure Key Vault 管理密钥
         url: "/task-azure-key-vault.html"
