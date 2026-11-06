@@ -38,6 +38,7 @@ summary: 将 Google Cloud 中现有的 Cloud Volumes ONTAP 系统升级到 9.16.
 * 确认未从 Google Cloud Console 手动编辑任何 Cloud Volumes ONTAP 资源或其属性。
 * 验证是否已启用 Google Cloud API，包括 Google Cloud Quotas API。请参阅 https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["启用 Google Cloud API"^]。
 * 验证 NetApp Console 代理的服务帐户是否具有所需的所有权限。请参阅 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html#service-account-permissions["控制台代理的 Google Cloud 权限"^]。
+* 在开始转换之前，我们建议您为 Cloud Volumes ONTAP 系统的根磁盘和启动磁盘创建快照。
 +
 .对于专用模式部署，请确保满足以下附加先决条件：
 [%collapsible]
@@ -173,6 +174,22 @@ includedPermissions:
     --file=YAML_FILE_PATH`有关详细信息，请参阅 https://cloud.google.com/iam/docs/creating-custom-roles["创建和管理自定义角色"^]。
 .. 将自定义角色附加到将用于创建 VM 的服务帐户。
 .. 将 `roles/iam.serviceAccountUser`角色添加到此服务帐户。请参阅 https://docs.cloud.google.com/iam/docs/service-account-overview["服务账户概述"^]。
+.. 在项目中启用 IAM 服务帐户凭据 API：
++
+[source, cli]
+----
+gcloud services enable iamcredentials.googleapis.com --project=PROJECT_ID
+----
+.. 允许您创建的服务帐户模拟 Console 代理服务帐户。为此，请将 `Service Account Token Creator`角色授予您创建的服务帐户。
++
+[source, cli]
+----
+gcloud iam service-accounts add-iam-policy-binding \
+CONSOLE_AGENT_SA@PROJECT_ID.iam.gserviceaccount.com \ --
+member="serviceAccount:CONVERT_VM_SA@PROJECT_ID.iam.gserviceaccount.com" \  --
+role="roles/iam.serviceAccountTokenCreator" \  --
+project=PROJECT_ID
+----
 
 
 . [[create-vm]]使用以下配置创建虚拟机。在此虚拟机上运行工具。
@@ -307,7 +324,7 @@ dmconvert \
 
 
 .完成后
-该工具显示所有 Cloud Volumes ONTAP 系统和 SVM 详细信息的列表。当它完成运行时，您可以看到所有已转换系统的状态。每个转换后的系统都以 _<system-name-imdeploy>_ 格式显示在 Google Cloud Console 的 Infrastructure Manager 下，表明控制台现在使用 Infrastructure Manager API 来管理该 Cloud Volumes ONTAP 系统。
+该工具显示所有 Cloud Volumes ONTAP 系统和 SVM 详细信息的列表。运行完成后，您可以看到所有已转换系统的状态。每个转换后的系统都以 _<system-name-imdeploy>_ 格式显示在 Google Cloud Console 的 Infrastructure Manager 下。此格式表示 NetApp Console 现在使用 Infrastructure Manager API 来管理该 Cloud Volumes ONTAP 系统。
 
 
 CAUTION: 转换后，请勿在 Google Cloud Console 中删除 Deployment Manager 的部署对象。此部署对象包含回滚转换后的系统可能需要的信息。

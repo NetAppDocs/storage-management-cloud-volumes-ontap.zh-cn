@@ -8063,7 +8063,6 @@
   <block id="94a40954574ac4e2168d485e9c50ff38" category="list-text">网络：允许 HTTP 和 HTTPS 的防火墙</block>
   <block id="c62520e2944607e9aad9bfba7b6e5e2f" category="paragraph">使用以下步骤在 Ubuntu 和 SUSE Linux Enterprise Server 上运行转换工具。</block>
   <block id="f61c832a1c1de58efaf2089d73c900ee" category="list-text">以<block ref="3a2e7e59491b74e35b36d9d724fd0584" prefix=" " category="inline-code"></block> 用户身份运行转换工具。请确保使用 Console 代理使用的相同服务帐户，并且该服务帐户具有所有<block ref="5d3ef0c339df1f2a110bf7d6a45b4e45" category="inline-link-rx"></block>。</block>
-  <block id="b68a32984b7cd35e03e5bd9932d4460d" category="paragraph">该工具显示所有 Cloud Volumes ONTAP 系统和 SVM 详细信息的列表。当它完成运行时，您可以看到所有已转换系统的状态。每个转换后的系统都以 _&lt;system-name-imdeploy&gt;_ 格式显示在 Google Cloud Console 的 Infrastructure Manager 下，表明控制台现在使用 Infrastructure Manager API 来管理该 Cloud Volumes ONTAP 系统。</block>
   <block id="e85bc9517de2e1cb87bcba3339ba6da5" category="admonition">转换后，请勿在 Google Cloud Console 中删除 Deployment Manager 的部署对象。此部署对象包含回滚转换后的系统可能需要的信息。</block>
   <block id="afc45f038d978afa5480e65fdfbd77c6" category="list-text">请等待回滚完成。</block>
   <block id="94347c199a7a4ebd4fba7154ec8933bf" category="summary">使用 Quick create 在 AWS 中将 Cloud Volumes ONTAP 部署为单节点系统或 HA 对。</block>
@@ -8168,4 +8167,10 @@
   <block id="9d2f770dee2976b7c8a9e728002e9237" category="paragraph">在决定将哪种许可选项与 Azure 中的 Cloud Volumes ONTAP 结合使用后，请完成几个设置步骤，以便在创建新系统时可以选择该选项。</block>
   <block id="56ff1982d9d9e73576ee15361a2b97e2" category="paragraph">在决定将哪个许可选项与 Google Cloud 中的 Cloud Volumes ONTAP 结合使用后，请完成几个设置步骤，以便在创建新系统时选择该选项。</block>
   <block id="066f3a9431c48361a10c813b2b187f91" category="section-title">2026年11月2日</block>
+  <block id="08853958e0db62fd50058fd45b355d7a" category="inline-link">Console 代理 4.12.0</block>
+  <block id="b2aa5fc60892f4965eac1f9ee3c256a9" category="paragraph"><block ref="b2aa5fc60892f4965eac1f9ee3c256a9" category="inline-link-rx"></block></block>
+  <block id="5ada900716280c702c5f6b2a13cccf71" category="list-text">在开始转换之前，我们建议您为 Cloud Volumes ONTAP 系统的根磁盘和启动磁盘创建快照。</block>
+  <block id="ef65f3f94d877de929be359626901d12" category="list-text">在项目中启用 IAM 服务帐户凭据 API：</block>
+  <block id="76f8caea778b35171e350499ebd5a417" category="list-text">允许您创建的服务帐户模拟 Console 代理服务帐户。为此，请将<block ref="923187d4bd3b6bfa56e7df07d12df709" prefix=" " category="inline-code"></block>角色授予您创建的服务帐户。</block>
+  <block id="435a8b22867c508e39228ff294ad3369" category="paragraph">该工具显示所有 Cloud Volumes ONTAP 系统和 SVM 详细信息的列表。运行完成后，您可以看到所有已转换系统的状态。每个转换后的系统都以 _&lt;system-name-imdeploy&gt;_ 格式显示在 Google Cloud Console 的 Infrastructure Manager 下。此格式表示 NetApp Console 现在使用 Infrastructure Manager API 来管理该 Cloud Volumes ONTAP 系统。</block>
 </blocks>

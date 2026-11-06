@@ -20,3 +20,5 @@ ONTAP 已发布以下与 Cloud Volumes ONTAP 版本 9.14.1、9.15.1、9.16.1、9
 有关详细信息，请参阅 https://security.netapp.com/advisory/ntap-20261021-0021["NTAP 安全公告 20261021-0021"^]。
 
 对于 Cloud Volumes ONTAP 系统，可能会提示您在 NetApp Console 中升级到这些修补程序。但是，仅当 Console 代理版本为 4.12.0 或更高版本时，才支持这些修补程序。如果 Console 代理版本低于 4.12.0，请忽略提示。
+
+https://docs.netapp.com/us-en/console-setup-admin/whats-new.html#console-agent-4-12-0["Console 代理 4.12.0"^]
