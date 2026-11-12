@@ -28,8 +28,10 @@ summary: 了解 Cloud Volumes ONTAP 管理中的新增功能和增强功能。
 [[guidance-for-upgrading-ontap-hotfixes-for-specific-cloud-volumes-ontap-versions]]
 === 针对特定 Cloud Volumes ONTAP 版本升级 ONTAP 修补程序的指南
 
-ONTAP 已发布以下与 Cloud Volumes ONTAP 版本 9.14.1、9.15.1、9.16.1、9.17.1、9.18.1 和 9.19.1 兼容的修补程序：
+ONTAP 已发布与 Cloud Volumes ONTAP 版本 9.12.1、9.13.1、9.14.1、9.15.1、9.16.1、9.17.1、9.18.1 和 9.19.1 兼容的以下修补程序：
 
+* 9.12.1P20HF1
+* 9.13.1P21HF1
 * 9.14.1P18HF1
 * 9.15.1P20HF1
 * 9.16.1P16HF1

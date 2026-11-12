@@ -14,7 +14,7 @@ summary: 启用后端集群网络加密以保护尚未受 ONTAP IPsec 保护的 
 
 
 [role="lead"]
-对于 Cloud Volumes ONTAP 9.19.1 及更高版本，请启用后端集群网络加密，以保护 Azure 和 Google Cloud 中高可用性（HA）配置中的内部东西向流量。此设置保护传输中的流量；它不会加密静态卷数据。
+从 Cloud Volumes ONTAP 9.19.1 及更高版本开始，您可以启用后端集群网络加密，以保护 Azure 和 Google Cloud 高可用性（HA）配置中的内部 Cloud Volumes ONTAP 节点流量。此设置保护传输中的流量，不会加密静态卷数据。
 
 ONTAP 使用基于内核 TLS（kTLS）和软件 IPsec 的集群会话管理（CSM）来保护 HA 配置的后端网络上的流量。Cloud Volumes ONTAP 9.19.1 及更高版本将此保护扩展到后端集群流量。
 

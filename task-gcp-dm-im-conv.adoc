@@ -17,18 +17,19 @@ summary: 将 Google Cloud 中现有的 Cloud Volumes ONTAP 系统升级到 9.16.
 从 2026 年 2 月 9 日起，Google Cloud 中的新 Cloud Volumes ONTAP 部署可以使用 Google Cloud Infrastructure Manager。Google 将弃用 Google Cloud Deployment Manager，转而使用 Infrastructure Manager。要将现有 Cloud Volumes ONTAP 部署从 Deployment Manager 转换为 Infrastructure Manager，请手动运行转换工具。此一次性流程会自动将您的系统切换到 Infrastructure Manager。
 
 .关于此任务
-转换工具在 NetApp 支持站点中提供，并创建以下工件：
+转换工具可从 NetApp 支持站点获取，并创建以下工件：
 
 * Terraform 工件，保存在 `conversion_output/deployment_name`中。
-* 转换摘要，保存于 `conversion_output/batch_summary_<deployment_name>_<timestamp>.json.`
+* 转化摘要，保存在 `conversion_output/batch_summary_<deployment_name>_<timestamp>.json`。
 * 调试日志，保存在  `<gcp project number>-<region>-blueprint-config/<cvo name>` 目录中。您需要这些日志来进行故障排除。 `<gcp project number>-<region>-blueprint-config` 存储桶存储 Terraform 日志。
+* Cloud Volumes ONTAP 项目是 Google Cloud 项目，您可以在其中创建 Cloud Volumes ONTAP 资源。控制台代理和 Cloud Volumes ONTAP 系统可位于相同或不同的 Google Cloud 项目中（跨项目配置）。在跨项目配置中，如果控制台代理的服务帐户具有所需的权限，则可以在一个项目（如项目 A）中部署控制台代理，并在另一个项目（如项目 B）中部署 Cloud Volumes ONTAP 系统。
 
 
 [CAUTION]
 ====
 使用 Infrastructure Manager 的 Cloud Volumes ONTAP 系统将数据和记录存储在 Google Cloud Storage 存储桶中。您可能需要为这些存储桶支付额外费用，但不要编辑或删除存储桶或其内容：
 
-* `gs://netapp-cvo-infrastructure-manager-<project id>`：适用于 ONTAP 版本和用于新 Cloud Volumes ONTAP 部署的 SVM Terraform 模板。在其中， `dm-to-im-convert` 存储桶包含 Cloud Volumes ONTAP Terraform 文件。
+* `gs://netapp-cvo-infrastructure-manager-<project id>`：用于新 Cloud Volumes ONTAP 部署的 ONTAP 版本和 SVM Terraform 模板。在此存储桶中， `dm-to-im-convert` 存储桶包含 Cloud Volumes ONTAP Terraform 文件。
 * `<gcp project number>-<region>-blueprint-config`：用于存储 Google Cloud Terraform 工件。
 
 
@@ -38,14 +39,15 @@ summary: 将 Google Cloud 中现有的 Cloud Volumes ONTAP 系统升级到 9.16.
 * 确认未从 Google Cloud Console 手动编辑任何 Cloud Volumes ONTAP 资源或其属性。
 * 验证是否已启用 Google Cloud API，包括 Google Cloud Quotas API。请参阅 https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["启用 Google Cloud API"^]。
 * 验证 NetApp Console 代理的服务帐户是否具有所需的所有权限。请参阅 https://docs.netapp.com/us-en/console-setup-admin/reference-permissions-gcp.html#service-account-permissions["控制台代理的 Google Cloud 权限"^]。
+* 如果 Console 代理和 Cloud Volumes ONTAP 位于不同的项目中，请验证 Console 代理的服务帐户在 Cloud Volumes ONTAP 项目中是否具有所有必需的权限。有关向 Console 代理的服务帐户授予访问其他项目的权限的详细信息，请参见 https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-console-gcloud.html#console-permissions-google["创建 Google Cloud 服务帐户以与代理一起使用"^]。
 * 在开始转换之前，我们建议您为 Cloud Volumes ONTAP 系统的根磁盘和启动磁盘创建快照。
 +
-.对于专用模式部署，请确保满足以下附加先决条件：
+.对于私有模式或受保护模式部署，请确保满足以下附加先决条件：
 [%collapsible]
 ====
 ** 确保拥有最新的 Console 代理版本。从 NetApp 支持站点下载产品安装程序，然后在主机上手动安装代理，以便代理可以使用 Infrastructure Manager API。
 ** 如果在专用模式下运行该工具，请确保已启用 Cloud Build API 以及其他 API。请参阅 https://docs.netapp.com/us-en/console-setup-admin/task-install-agent-google-gcloud.html#step-5-enable-google-cloud-apis["启用 Google Cloud API"^]。
-** 确保已完成网络配置并为专用模式部署创建工作者池。请参阅 link:reference-networking-gcp.html#infrastructure-manager-configuration-in-private-mode-or-protected-environments["私有模式或受保护环境中的 Infrastructure Manager 配置"]。
+** 确保已完成网络配置并为专用模式或受保护环境部署创建工作者池。请参阅 link:reference-networking-gcp.html#infrastructure-manager-configuration-in-private-mode-or-protected-environments["私有模式或受保护环境中的 Infrastructure Manager 配置"]。
 
 
 ====
@@ -127,7 +129,7 @@ summary: 将 Google Cloud 中现有的 Cloud Volumes ONTAP 系统升级到 9.16.
 .步骤
 . 创建角色并将其附加到服务帐户：
 +
-.. 创建具有以下权限的 YAML 文件：
+.. 创建具有以下权限的 YAML 文件。
 +
 [source, cli]
 ----
@@ -163,13 +165,38 @@ includedPermissions:
 - storage.objects.list
 ----
 +
-.包括私有模式部署的其他权限
+.包括私有模式或受保护的部署的其他权限
 [%collapsible]
 ====
-如果在私有模式下运行工具，请同时向 YAML 文件添加 `cloudbuild.workerpools.get`权限。
+如果在私有模式或受保护环境中运行工具，还应向 YAML 文件添加 `cloudbuild.workerpools.get`权限。
 
 ====
-.. 使用 YAML 文件中定义的权限在 Google Cloud 中创建自定义角色。
++
+.包括跨项目部署的其他权限（一个项目中的控制台代理，另一个项目中的 Cloud Volumes ONTAP）
+[%collapsible]
+====
+在跨项目部署中，您为 Console 代理的项目创建前面的 YAML 文件。您需要为 Cloud Volumes ONTAP 资源所在的项目创建具有以下权限的第二个 YAML 文件：
+
+[source, cli]
+----
+title: NetApp Dm TO IM Convert Solution for Cross Project
+description: Permissions for the service account associated with the VM where the tool will run for the project where CVO resources resides.
+stage: GA
+includedPermissions:
+- compute.addresses.get
+- compute.disks.get
+- compute.forwardingRules.get
+- compute.healthChecks.get
+- compute.instanceGroups.get
+- compute.instances.get
+- compute.regionBackendServices.get
+- deploymentmanager.deployments.get
+- deploymentmanager.deployments.list
+- deploymentmanager.manifests.get
+- resourcemanager.projects.get
+----
+====
+.. 使用控制台代理项目中的 YAML 文件中定义的权限，在 Google Cloud 中创建自定义角色。在跨项目设置中，您还可以在 Cloud Volumes ONTAP 资源所在的项目中创建此角色。
 `gcloud iam roles create dmtoim_convert_tool_role --project=PROJECT_ID \
     --file=YAML_FILE_PATH`有关详细信息，请参阅 https://cloud.google.com/iam/docs/creating-custom-roles["创建和管理自定义角色"^]。
 .. 将自定义角色附加到将用于创建 VM 的服务帐户。
@@ -302,20 +329,35 @@ cd <folder where you extracted the tool>
 [source, cli]
 ----
 dmconvert \
---project-id=<the Google Cloud project ID for the Cloud Volumes ONTAP deployment> \
+--cvo-project-id=<the Google Cloud project ID for the Cloud Volumes ONTAP deployment> \
 --cvo-name=<Cloud Volumes ONTAP system name> \
 --service-account=<the service account attached to the Console agent>
 ----
 +
-.在私有模式部署中运行工具
+.在跨项目部署中运行该工具（一个项目中的控制台代理，另一个项目中的 Cloud Volumes ONTAP）
 [%collapsible]
 ====
-指定  `--worker-pool` 参数以在私有模式部署中运行该工具。有关工作池配置，请参阅 link:reference-networking-gcp.html#infrastructure-manager-configuration-in-private-mode-or-protected-environments["私有模式或受保护环境中的 Infrastructure Manager 配置"]。
+如果您的 Cloud Volumes ONTAP 系统位于 Console 代理驻留的项目之外的项目中，请指定 `--console-agent-project-id`参数。
 
 [source, cli]
 ----
 dmconvert \
---project-id=<the Google Cloud project ID for the Cloud Volumes ONTAP deployment> \
+--cvo-project-id=<the Google Cloud project ID for the Cloud Volumes ONTAP deployment> \
+--console-agent-project-id=<the Google Cloud project ID for the Console agent> \
+--cvo-name=<Cloud Volumes ONTAP system name> \
+--service-account=<the service account attached to the Console agent> \
+----
+====
++
+.在私有模式或受保护模式部署中运行工具
+[%collapsible]
+====
+指定  `--worker-pool` 参数以在私有模式或受保护模式部署中运行该工具。有关工作池配置，请参阅 link:reference-networking-gcp.html#infrastructure-manager-configuration-in-private-mode-or-protected-environments["私有模式或受保护环境中的 Infrastructure Manager 配置"]。
+
+[source, cli]
+----
+dmconvert \
+--cvo-project-id=<the Google Cloud project ID for the Cloud Volumes ONTAP deployment> \
 --cvo-name=<Cloud Volumes ONTAP system name> \
 --service-account=<the service account attached to the Console agent> \
 --worker-pool=<worker pool name>
@@ -344,7 +386,20 @@ CAUTION: 转换后，请勿在 Google Cloud Console 中删除 Deployment Manager
 [source, cli]
 ----
 dmconvert \
---project-id=<the Google Cloud project ID for the Cloud Volumes ONTAP deployment> \
+--cvo-project-id=<the Google Cloud project ID for the Cloud Volumes ONTAP deployment> \
+--cvo-name=<Cloud Volumes ONTAP system name> \
+--service-account=<the service account attached to the Console agent> \
+--rollback
+----
++
+如果您有跨项目部署，请指定 `--console-agent-project-id`参数：
+
++
+[source, cli]
+----
+dmconvert \
+--cvo-project-id=<the Google Cloud project ID for the Cloud Volumes ONTAP deployment> \
+--console-agent-project-id=<the Google Cloud project ID for the Console agent> \
 --cvo-name=<Cloud Volumes ONTAP system name> \
 --service-account=<the service account attached to the Console agent> \
 --rollback
