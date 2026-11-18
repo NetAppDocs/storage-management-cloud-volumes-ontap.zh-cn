@@ -1,0 +1,366 @@
+---
+sidebar: sidebar 
+permalink: task-azure-entra-id-smb-auth.html 
+keywords: azure, entra id, active directory, smb, cifs, hybrid identity, authentication, kerberos, tenant-id, client-id, client-certificate, hybrid user, cloud user 
+summary: 在 Cloud Volumes ONTAP 上为 SMB 配置 Microsoft Entra ID 身份验证，以支持混合用户身份并减少对本地 Active Directory 的依赖。 
+---
+= 在 Cloud Volumes ONTAP 上为 SMB 配置 Microsoft Entra ID 身份验证
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+您可以配置 Cloud Volumes ONTAP，通过 https://www.microsoft.com/en-in/security/business/identity-access/microsoft-entra-id["Microsoft Entra ID"^]对访问 SMB 共享的用户进行身份验证，从而为混合云上的 Cloud Volumes ONTAP 用户启用身份支持。以前，身份验证需要本地 Active Directory （AD） 来进行域用户的身份管理。使用 Microsoft Entra ID，您可以使用基于云的身份验证，同时保持混合用户的无缝访问。
+
+
+NOTE: 此功能作为公共预览版提供，只能使用 ONTAP CLI 进行配置。目前尚不支持 NetApp Console 集成。在 CLI 中，SMB 操作使用 `cifs`命令前缀，因为 SMB（服务器消息块）是 Common Internet File System（CIFS）协议的现代名称。
+
+.关于此任务
+从 Cloud Volumes ONTAP 9.19.1 开始，您可以使用 Microsoft Entra ID 对使用混合身份的 SMB 用户进行身份验证。混合身份是通过 https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/whatis-azure-ad-connect["Microsoft Entra Connect"^]从本地 Active Directory（AD）同步到 Microsoft Entra ID 的用户帐户。
+
+Cloud Volumes ONTAP 接受来自本地 AD 和 Microsoft Entra ID 的 SMB 身份验证。这允许您在保留现有 AD 基础架构的同时添加云身份支持。
+
+Cloud Volumes ONTAP 9.19.1 及更高版本还支持  `icacls` 命令来管理已装载共享上 Entra ID 身份的文件和文件夹权限。
+
+.开始之前
+* 您必须运行 Cloud Volumes ONTAP 9.19.1 或更高版本。
+* 您必须具有有效的 Azure 订阅。
+* 您必须在 Microsoft Entra ID 租户中拥有具有 https://learn.microsoft.com/en-us/entra/identity/role-based-access-control/permissions-reference#global-administrator["全局管理员"^]权限的用户帐户。
+* 访问 SMB 共享的客户端计算机必须是 Microsoft Entra 混合连接的。
+* 您必须具有连接到 Microsoft Entra ID 的本地 AD 域控制器。
+* 您必须具有一个包含数据 LIF 的存储 VM，以及可供 SMB 服务器和共享使用的聚合。
+* Storage VM 和 Client VM 必须能够解析所需的 Microsoft Entra ID 端点，并通过网络与它们进行通信。
+
+
+
+
+[[step-1-register-an-application-in-microsoft-entra-id]]
+[[azure-app]]
+== 步骤 1：在 Microsoft Entra ID 中注册应用程序
+
+必须在 Microsoft Entra ID 中注册应用程序，以便 Cloud Volumes ONTAP 可以在 SMB 设置期间向租户进行身份验证。Cloud Volumes ONTAP 使用此注册的凭据代表您创建、修改和删除应用程序对象。完成此步骤后，您将收集以下凭据以用于 <<ontap-config,第 3 步>>：
+
+* *tenant-id*：您组织的 Microsoft Entra ID 实例的唯一 GUID。
+* *client-id*：Entra ID 应用程序的唯一标识符。
+* *client-certificate*：用于验证应用程序的证书。
+
+
+.步骤
+. https://learn.microsoft.com/en-us/entra/identity-platform/quickstart-register-app["注册应用程序"^] 在 Azure 门户中。选择 *仅此组织目录中的帐户（单个租户）* 作为支持的帐户类型。
+. 从注册应用的*概述*页面，复制并保存*应用程序（客户端）ID*和*目录（租户）ID*。
+. 将以下 Microsoft Graph API 权限分配给应用注册：
++
+** *Application.ReadWrite.OwnedBy*
+** *User.Read*
+** *User.Read.All*
++
+要分配权限，请转到 *API 权限 > 添加权限 > Microsoft Graph > 应用程序权限*，选择每个权限，然后选择 *为 <tenant-name> 授予管理员同意* 以激活它们。
+
++
+
+NOTE: 与 Microsoft Azure 管理员一起确认组织安全策略所需的最低权限。
+
+
+
+. 上传证书以验证应用注册。转到 *Certificates & secrets > Certificates > Upload certificate* 并以 `.cer`、 `.pem`或 `.crt`格式上传文件。
++
+
+NOTE: 使用由证书颁发机构签名的证书。支持自签名证书，但不推荐用于生产环境。
+
+. 选择*授予管理员同意*以激活权限。
+
+
+
+
+[[step-2-set-up-on-premises-active-directory]]
+[[on-prem-ad]]
+== 步骤 2：设置本地 Active Directory
+
+设置本地 AD 域控制器，将用户和组同步到 Microsoft Entra ID，并配置设备加入设置，以便混合标识可用于 SMB 身份验证。请参阅 https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/plan-connect-design-concepts["有关 Entra Connect 的 Microsoft 文档"^]。
+
+.步骤
+. 例如，将 Windows 服务器设置为本地 AD 域的域控制器 `contoso.com`。
+. 创建同步到 Microsoft Entra ID 的 AD 用户和组。
+. 配置_站点到区域分配列表_组策略，以允许加入域的客户端与 Microsoft Entra ID 身份验证服务进行通信。
++
+转到：*gpedit.msc > 管理模板 > Windows 组件 > Internet Explorer > Internet 控制面板 > 安全页面 > 站点到区域分配列表*
+
+. 添加以下每个 URL，区域值为 *1*：
++
+[listing]
+----
+https://enterpriseregistration.windows.net
+https://login.microsoftonline.com
+https://device.login.microsoftonline.com
+https://autologon.microsoftazuread-sso.com
+https://login.microsoft.com
+----
+. 使用您的全局管理员帐户安装 https://entra.microsoft.com/#view/Microsoft_AAD_Connect_Provisioning/AADConnectMenuBlade/~/ConnectSync["Microsoft Entra Connect | Connect Sync"^]并配置它：
++
+.. https://learn.microsoft.com/en-us/entra/identity/devices/hybrid-join-plan["规划 Microsoft Entra 混合联接实现"^]。请参阅 https://learn.microsoft.com/en-us/entra/identity/devices/hybrid-join-control["Microsoft Entra 混合加入目标部署"^]。
+.. 为每个 https://learn.microsoft.com/en-us/windows-server/identity/ad-ds/plan/understanding-the-active-directory-logical-model["Active Directory 逻辑模型"^]配置服务连接点（SCP）并提供 AD 管理员凭据。
++
+Azure Microsoft Entra Connect 将本地 AD 用户和组同步到 Microsoft Entra ID，并启用混合设备加入。
+
+
+
+. 验证用户和组是否已同步到 Microsoft Entra ID。同步的用户显示的 UPN 后缀与您的租户域匹配，例如 `user@<tenant>.onmicrosoft.com`。有关设置后可以执行的其他任务，请参阅 https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/how-to-connect-post-installation["Microsoft 文档：后续步骤以及如何管理 Microsoft Entra Connect"^]。
+
+
+
+
+[[step-3-configure-the-smb-server-on-cloud-volumes-ontap]]
+[[ontap-config]]
+== 步骤 3：在 Cloud Volumes ONTAP 上配置 SMB 服务器
+
+配置 Cloud Volumes ONTAP 存储虚拟机上的 SMB 服务器，以使用您在 <<azure-app,第 1 步>> 中创建的应用注册凭据，通过 Microsoft Entra ID 验证 SMB 文件访问。
+
+
+NOTE: 在创建 SMB 服务器之前，此 storage VM 必须具有已配置的数据 LIF 以及对聚合的访问权限。客户端使用数据 LIF 访问 SMB 共享。
+
+.步骤
+. 在存储虚拟机上配置 DNS，以便它可以解析 Microsoft Entra ID 端点：
++
+[source, cli]
+----
+dns create -domains <on-premises-domain> -name-servers <dns-server-ip>
+----
+. 创建 SMB 服务器并提供 Microsoft Entra ID 参数：
++
+[source, cli]
+----
+cifs create -vserver <svm-name> -cifs-server <netbios-name> -domain <on-premises-domain-name> -auth-user-type hybrid-user -tenant-id <tenant-id> -client-id <client-id> -client-certificate <certificate>
+----
+. 使用 Entra ID 凭据重置 SMB Kerberos 密码：
++
+[source, cli]
+----
+cifs password reset -vserver <svm-name> -tenant-id <tenant-id> -client-id <client-id> -client-certificate <certificate>
+----
+. （可选）删除 SMB 服务器：
++
+[source, cli]
+----
+cifs delete -vserver <svm-name> -tenant-id <tenant-id> -client-id <client-id> -client-certificate <certificate>
+----
+
+
+
+
+[[step-4-register-a-client-vm-with-microsoft-entra-id]]
+[[client-registered]]
+== 步骤 4：使用 Microsoft Entra ID 注册客户端 VM
+
+您可以设置已注册 Entra ID 的虚拟机，以便在您的环境中无法使用直接远程桌面协议（RDP）连接时访问已加入 Entra ID 的客户端。此虚拟机充当跳板机，您可以从中通过混合用户凭据远程登录到已加入 Entra ID 的客户端。
+
+.开始之前
+* 您必须具有 Windows 10（21H2 或更高版本）或 Windows 11 计算机。
+
+
+.步骤
+. 使用本地管理员凭据登录到 Windows 计算机。
+. 转到 *设置 > 帐户 > 访问工作或学校*，然后选择 *连接*。
+. 输入您的全局管理员帐户凭据，然后按照提示操作。
++
+设备已使用 Microsoft Entra ID 注册。
+
+. 验证设备是否在 Azure 门户的 *Entra ID > 设备 > 所有设备* 下显示为 *Entra ID Registered*。
+
+
+
+
+[[step-5-join-a-client-vm-to-microsoft-entra-id]]
+[[client-joined]]
+== 第 5 步：将客户端虚拟机加入 Microsoft Entra ID
+
+可以将 Windows 客户端虚拟机配置为加入 Entra ID 的计算机，以允许混合用户获取云颁发的 Kerberos 票证并装载 ONTAP SMB 共享。有关详细信息，请参阅 https://learn.microsoft.com/en-us/entra/identity/devices/how-to-hybrid-join["配置 Microsoft Entra 混合联接"^]和 https://learn.microsoft.com/en-us/entra/identity/devices/troubleshoot-hybrid-join-windows-current["Microsoft Entra 混合连接设备故障排除"^]。
+
+
+NOTE: 加入后，您只能使用在 <<client-registered,第 4 步>> 中配置的 Entra ID 注册计算机的混合用户凭据访问此计算机。
+
+.开始之前
+* 您必须具有 Windows 10（21H2 或更高版本）或 Windows 11 计算机。
+* 您必须具有从本地 AD 同步的混合用户帐户。这些帐户是在 <<on-prem-ad,第 2 步>> 中创建的。
+
+
+.步骤
+. 使用本地管理员凭据登录到 Windows 计算机。
+. 转到 *设置 > 帐户 > 访问工作或学校*，然后选择 *连接 > 将此设备加入 Azure Active Directory*。
++
+使用混合用户帐户完成加入。如果加入未成功完成，请参见 https://learn.microsoft.com/en-us/answers/questions/1179294/how-to-join-device-as-azure-ad-joined-if-its-added["Microsoft Entra 混合连接设备故障排除"^]。
+
+. 出现提示时重新启动计算机，然后验证它在 Azure 门户中的 *Entra ID > 设备 > 所有设备* 下显示为 *Entra ID 已加入*。
+
+
+
+
+[[step-6-configure-the-joined-vm-for-smb-access]]
+[[client-config]]
+== 第 6 步：配置已加入的虚拟机以用于 SMB 访问
+
+虚拟机加入 Microsoft Entra ID 后，必须将其配置为获取云颁发的 Kerberos 票证，解析 SMB 服务器主机名，并允许从 Entra ID 注册的计算机进行 RDP 访问。
+
+.步骤
+. 将 DNS 条目添加到加入 Entra ID 的虚拟机上的 hosts 文件中，以便它可以解析 SMB 服务器主机名：
++
+.. 在文本编辑器中打开 `C:\Windows\System32\drivers\etc\hosts`。
+.. 添加以下条目，将 ONTAP 数据 LIF IP 地址映射到 SMB 服务器 FQDN：
++
+[listing]
+----
+<lif-ip-address>  <netbios-name>.<on-premises-domain>
+----
+
+
+. 启用 PKU2U 身份验证策略：
++
+.. 转至：
++
+*gpedit.msc > 计算机配置 > Windows 设置 > 安全设置 > 本地策略 > 安全选项*
+
+.. 启用 *网络安全：允许对此计算机的 PKU2U 身份验证请求使用在线身份*。
++
+有关详细信息，请参见 https://learn.microsoft.com/en-us/windows/security/threat-protection/security-policy-settings/network-security-allow-pku2u-authentication-requests-to-this-computer-to-use-online-identities["PKU2U 身份验证策略"^]。
+
+
+
+. 启用云 Kerberos 票证检索：
++
+.. 转至：
++
+*gpedit.msc > 计算机配置 > 管理模板 > 系统 > Kerberos*
+
+.. 启用*允许在登录期间检索云 Kerberos 票证*。
+
+
+. 配置 ONTAP SMB 服务器的 Kerberos 领域映射：
++
+.. 在相同的 Kerberos 策略位置，选择 *定义主机名到 Kerberos 领域的映射*。
+.. 添加以下映射：
++
+[listing]
+----
+Value name: KERBEROS.MICROSOFTONLINE.COM
+Value: <netbios-name>.<on-premises-domain>
+----
+
+
+. 将混合用户添加到 _Remote Desktop Users_ 组，以允许从 Entra ID 注册的虚拟机进行访问：
++
+[source, cmd]
+----
+net localgroup "Remote Desktop Users" /add "AzureAD\<username>@<tenant>.onmicrosoft.com"
+----
+
+
+
+
+[[step-7-mount-the-smb-share-and-verify-access]]
+[[mount-share]]
+== 第 7 步：挂载 SMB 共享并验证访问权限
+
+您可以从加入 Entra ID 的客户端装载 SMB 共享，并验证使用 Microsoft Entra ID 的基于 Kerberos 的身份验证是否端到端成功。
+
+.步骤
+. 从已注册 Entra ID 的虚拟机，使用远程桌面连接，使用以下格式的混合用户凭据登录到已加入 Entra ID 的虚拟机：
++
+[listing]
+----
+AzureAD\<username>@<tenant>.onmicrosoft.com
+----
++
+如果登录失败，请选择*更多选项*并手动输入凭据。如果此问题仍然存在，请在远程桌面连接客户端的*高级*选项卡中启用*使用 Web 帐户*。有关详细信息，请参阅 https://learn.microsoft.com/en-us/entra/identity/devices/howto-vm-sign-in-azure-ad-windows["使用 Microsoft Entra ID 登录到 Windows VM"^]。
+
+. 通过运行 `klist`并确认存在针对 `KERBEROS.MICROSOFTONLINE.COM`的 `krbtgt`票证，验证登录时是否颁发了云 Kerberos 票证：
++
+[source, powershell]
+----
+klist
+----
++
+输出示例：
+
++
+[listing]
+----
+Cached Tickets: (1)
+#0>     Client: <username> @ <domain>
+        Server: krbtgt/KERBEROS.MICROSOFTONLINE.COM @ KERBEROS.MICROSOFTONLINE.COM
+        KerbTicket Encryption Type: Unknown (-1)
+        Ticket Flags 0x40810000 -> forwardable renewable name_canonicalize
+        Start Time: <date and time>
+        End Time:   <date and time>
+        Renew Time: <date and time>
+        Session Key Type: AES-256-CTS-HMAC-SHA1-96
+----
++
+此票证的存在确认设备已正确加入，并且可以获得云颁发的 Kerberos 票证。
+
+. 在 Cloud Volumes ONTAP 系统上创建卷和 SMB 共享，或使用现有卷和共享：
+
+
+[source, cli]
+----
+volume create -vserver <svm-name> -volume <volume-name> -aggregate <aggregate-name> -size <size> -junction-path /<volume-name> -security-style ntfs
+cifs share create -vserver <svm-name> -share-name <share-name> -path /<volume-name>
+----
+
+NOTE: 卷必须使用 NTFS 安全样式，以便您可以使用  `icacls` 管理 Microsoft Entra ID 标识的文件和文件夹权限。
+
+. 验证客户端是否可以获取 SMB 服务器的 Kerberos 服务票证：
++
+[source, powershell]
+----
+klist get CIFS/<netbios-name>.<on-premises-domain>
+----
++
+确认已返回服务工单，并且 `KdcCalled`显示 `KdcProxy:login.microsoftonline.com`。这确认身份验证是通过 Microsoft Entra ID 路由的。
+
+. 装载 SMB 共享：
++
+[source, powershell]
+----
+net use * \\<netbios-name>.<on-premises-domain>\<share-name>
+----
+. 在 Cloud Volumes ONTAP 系统上，验证是否已建立 SMB 会话：
++
+[source, cli]
+----
+cifs session show -vserver <svm-name>
+----
++
+会话输出显示已连接的工作站和混合用户，格式为 `AZUREAD\<username>@<tenant>.onmicrosoft.com`。
+
+
+
+
+
+[[step-8-manage-file-permissions-with-icacls]]
+[[dacl]]
+== 第 8 步：使用 icacls 管理文件权限
+
+Cloud Volumes ONTAP 9.19.1 及更高版本支持  `icacls` 命令，用于管理已挂载 SMB 共享上 Microsoft Entra ID 身份的文件和文件夹权限。
+
+.步骤
+. 根据您要配置的访问权限运行相应的 `icacls`命令：
++
+要授予访问权限：
+
++
+[source, cmd]
+----
+icacls <drive>:\<path> /grant "AzureAD\<username>@<tenant>.onmicrosoft.com":(W)
+----
++
+要拒绝访问：
+
++
+[source, cmd]
+----
+icacls <drive>:\<path> /deny "AzureAD\<username>@<tenant>.onmicrosoft.com":(W)
+----
+

@@ -6920,13 +6920,11 @@
   <block id="e01bdff1ce4770f66f1a74a9b5892c8b" category="list-text">登录到控制台并完成身份验证。</block>
   <block id="ac9188736d7d24740d106bad6d2f1a24" category="section-title">创建您的组织</block>
   <block id="4c27c7ddbdd91ad9f40d0e69913d02f8" category="list-text">输入组织名称。</block>
-  <block id="340e0bcb7d46eb5bd14fee5c751d3175" category="list-text">可选：关联 NetApp 支持站点 (NSS) 帐户。</block>
   <block id="bf18811faac9b8e4fcaebab51afd1113" category="list-text">选择 *Create*。</block>
   <block id="3bdc84428bee979e77f1781f40304f42" category="inline-link-macro">了解如何管理订阅</block>
   <block id="999c350fcbd9f270e794eb9f39020947" category="section-title">在 AWS 中部署 Console 代理</block>
   <block id="0e5a6ed81e42dfb7b8082abc4bd85af9" category="inline-link-macro">AWS 权限参考</block>
   <block id="f6775e307e0e96c3d2d2aa4261c2dc06" category="open-title">为我创建角色（推荐）</block>
-  <block id="947040282161ce63e6c467b9272f0987" category="list-text">添加 AWS 帐户 ID，也可以添加外部 ID。控制台设置默认角色名称。</block>
   <block id="c922cc18eca71598d4a86b7707d7eba0" category="open-title">承担角色</block>
   <block id="e656cb1ebc2e559e3bcc2002585434ed" category="open-title">AWS 密钥</block>
   <block id="ef9fe436c6881c3aeb226ecf309827f0" category="inline-link">为 AWS Marketplace 部署设置网络</block>
@@ -7827,12 +7825,9 @@
   <block id="2ebfd6a7d346b4f849cfb04c2d3a5434" category="paragraph">您可以使用 AWS Marketplace 或 NetApp Console 在 AWS 中安装 Cloud Volumes ONTAP。下表概述了在 AWS 中部署 Cloud Volumes ONTAP 所需完成的任务。</block>
   <block id="5e51aa22235e0104a5fffb9b0e0b97ac" category="inline-link-macro">在 AWS Marketplace 中载入 Cloud Volumes ONTAP 独立产品</block>
   <block id="c15e37bc266e7b7e0212916e681f40ad" category="admonition">如果您在 AWS Marketplace 中订阅 Cloud Volumes ONTAP 独立产品，步骤会有所不同。有关从 AWS Marketplace 引导的信息，请参见 <block ref="e7b82cae26dca0ede070f2a3673c283d" category="inline-link-macro-rx"></block>。</block>
-  <block id="956257b7d0ca445001951932f7e84848" category="doc">从 AWS Marketplace 订阅和部署 Cloud Volumes ONTAP 独立产品</block>
   <block id="723d1c9b2cb416390ec6382bd2a185db" category="paragraph">在 AWS Marketplace 中订阅独立的 Cloud Volumes ONTAP 产品，部署 Console 代理，并创建您的第一个系统。</block>
-  <block id="a579432a8e3b22d3a85649d7f57e5065" category="paragraph">在开始之前，请确保具备以下条件：</block>
   <block id="7f9aae631f852dc3f30a5113d517404f" category="list-text">NetApp Console 帐户，或创建该帐户所需的信息。</block>
   <block id="2cdcb75cdf45ad60c49310aa4953ecf2" category="inline-link-macro">了解控制台代理网络要求</block>
-  <block id="9c29150d1a4df0c7450a869ce2723638" category="list-text">已确保 Console 代理网络满足要求。 <block ref="a3f5b6fd7f8b50cbffb3cbeb6fa40451" category="inline-link-macro-rx"></block></block>
   <block id="9706dc62b1cd200c516832184fe17aea" category="list-text">有权订阅 AWS Marketplace 并接受服务条款的 AWS 帐户和身份。</block>
   <block id="40452a9c0c304507d341249cbb861fed" category="paragraph">如果选择*为我创建角色*，则提交 CloudFormation 快速创建堆栈的 AWS 身份需要以下权限。要使用相同的身份来订阅和提交堆栈，请在开始之前附加这些权限。如果使用不同的身份来提交堆栈，请将它们附加到该身份。这些权限允许 CloudFormation 创建部署角色；它们不是运行代理使用的权限。</block>
   <block id="30e4c20d5d10c9da535f38ab1c548e1b" category="listing-title">CloudFormation 快速创建的最低权限</block>
@@ -7841,15 +7836,12 @@
   <block id="a11a0a42613839623b80519a128fe81d" category="list-text">使用具有所需权限的 AWS 帐户转到 AWS Marketplace。</block>
   <block id="ef6da38a0094b683cff50de6f2edfb73" category="list-text">找到 NetApp Cloud Volumes ONTAP 独立产品。AWS Marketplace 为 Cloud Volumes ONTAP 提供两种产品：</block>
   <block id="65e2afdf3ea7ead73c73f2ccc67a88bb" category="list-text">Cloud Volumes ONTAP 年度订阅的独立产品</block>
-  <block id="828bc789f8fea62d7d9dcfb1c8df6b67" category="list-text">NetApp 智能服务联合产品，适用于 NetApp 数据服务和 Cloud Volumes ONTAP 订阅。</block>
-  <block id="f734624cb745f5a29fe5ff81d7f7049f" category="list-text">选择 _standalone_ 产品。这些步骤将指导您订阅独立产品。</block>
   <block id="0bede5b2fb82cb93a6b7341f902bd965" category="list-text">订阅后，选择*设置产品*将重定向至 NetApp Console 以完成部署。</block>
   <block id="8e54d24c608de9f6d76f0ddf776cd3cc" category="paragraph">完成 Marketplace 订阅后，请继续在 NetApp Console 中进行设置。</block>
   <block id="e17e44482e762e707860b1c0d43859ab" category="list-text">如果您选择*注册*，请完成以下操作：</block>
   <block id="001e71c8221c566f7d55a6c444a3bb93" category="list-text">输入必填字段。</block>
   <block id="7f80592ced9735452b147a4ca330f6d9" category="paragraph">仅当您是首次使用的用户或尚未属于某个组织时，才创建组织。如果您已经属于某个组织，请跳过此部分并继续<block ref="7acf9f6f7caab8589fdd395956f11b46" category="inline-xref-macro-rx"></block>。</block>
   <block id="4e153039c8e6ff6a95edc5ef7d826812" category="paragraph">组织可帮助您管理用户、角色、权限、许可证和系统。</block>
-  <block id="af155629373d274993ac8a266ab76b89" category="paragraph">将订阅与 NetApp Console 关联后，部署 Console 代理来管理 AWS 资源和 Cloud Volumes ONTAP 系统。</block>
   <block id="d53a7c0871705c4ac01b2df9d5b241e5" category="paragraph">在部署代理之前，请查看 AWS 授权和网络要求。</block>
   <block id="03f6071650b6469d9c9a93a196a61040" category="list-text">决定如何授权控制台部署代理。</block>
   <block id="05a3fe2e02c1f1540ccef223505a2330" category="inline-xref">上述 JSON 示例</block>
@@ -7876,7 +7868,6 @@
   <block id="5b7f5df4a7a01162f4bed8b97f90562e" category="inline-link-macro">了解如何创建角色</block>
   <block id="e2821614155d778a682e7da539728675" category="paragraph">如果您已经拥有具备所需 AWS 权限的角色，请提供其 ARN，以便控制台可以代入该角色来部署代理。<block ref="317303ab0e471a0d3619a16accefb685" category="inline-link-macro-rx"></block>。</block>
   <block id="61a42cfed56b2ddd6374f98e34e921bc" category="list-text">选择*承担角色*。</block>
-  <block id="c62afca1b3bd89404213a6f0e7d2efe4" category="paragraph">控制台会为代入的角色创建一个名称，您可以根据需要更改该名称。</block>
   <block id="773589cad93758ea895e6e7d3f6d269d" category="list-text">输入现有角色的 ARN。</block>
   <block id="98af778bae37b93b59c535e2a555cb8e" category="list-text">选择*验证凭据*。</block>
   <block id="f31ef44b0f2acc926f4cbe2b14abc63a" category="inline-link-macro">了解如何为用户创建角色</block>
@@ -7885,7 +7876,6 @@
   <block id="4e231d57b5ff3fb02e79c5e9519d1239" category="list-text">输入要使用的角色的访问密钥和机密密钥。</block>
   <block id="070673c42aa09e5b740913726c0c83c0" category="list-text">配置代理部署详细信息，包括代理实例名称以及控制台是否应为正在运行的代理创建 IAM 角色或使用现有角色。</block>
   <block id="5b648a602c64391c13459b2242feaccf" category="inline-link-macro">详细了解 Console 代理的 IAM 策略</block>
-  <block id="5da5e1a2666b568b0f2281c713180ef8" category="paragraph">当 Console 创建 Console 代理时，它会为代理创建 IAM 角色和配置文件，或使用您提供的角色。此角色包括使代理能够管理 AWS 资源的权限。确保在未来版本中添加新权限时更新该角色。<block ref="7f447941d99d36030500c16d428fc2ff" category="inline-link-macro-rx"></block>。</block>
   <block id="9ca3e0361a9e911cee0cf7cfaf465ecc" category="list-text">如果需要，通过选择 VPC、子网、密钥对、公共 IP 行为和代理设置来配置网络。</block>
   <block id="1e01fdf07bb63446d747d736af983957" category="list-text">将安全组规则配置为允许入站 HTTP (80)、HTTPS (443) 和 SSH (22)，以便对代理虚拟机的访问进行故障排除。</block>
   <block id="461008ea76e4abfc7758a2885f6cdf98" category="inline-link-macro">查看 AWS 的安全组规则</block>
@@ -7894,12 +7884,10 @@
   <block id="d34ca49cea2b1e9ae7d439596fd49f50" category="paragraph">跟踪部署进度，直至完成。您可以展开事件日志以查看详细的活动。</block>
   <block id="bdd1d9820619a1ccc976a093ca5d4720" category="paragraph">有关 Console 代理的完整网络和权限要求，请参见：</block>
   <block id="787c504b628f17f67b110fffe7ae00a8" category="paragraph">控制台部署代理后，请按照<block ref="51799ed8a3c9382ecde3d4e502dc227c" category="inline-link-rx"></block>中的步骤创建第一个系统。</block>
-  <block id="a1e7b53d70ba6579ff07cffd44cfdf8d" category="paragraph">如果您还没有准备好创建 Cloud Volumes ONTAP 系统，您可以随时返回系统页面以稍后创建您的系统。</block>
   <block id="7aa08f57a5f5ecd2cec4636034d53f91" category="paragraph">从中断的位置继续执行载入操作，或在失败后重试代理部署。</block>
   <block id="5302bc1044bf2997c712f10444d007ae" category="paragraph">如果在入驻流程完成前离开，请从上一个完成的步骤继续操作。</block>
   <block id="9aca15ba5b18529516b4cd632ddf7639" category="paragraph">如果控制台无法部署代理，请使用下面的步骤重试：</block>
   <block id="492b64735bc91205336e73d3b231f7ea" category="paragraph">有关代理部署、AWS 订阅或 Cloud Volumes ONTAP 任务的帮助，请参见：</block>
-  <block id="76d37acbce48c445bc735fe56c61f7ac" category="sidebar">从 AWS Marketplace 部署独立的 Cloud Volumes ONTAP</block>
   <block id="1f4aec85e2be241e736a55d9da306e72" category="doc">Azure 中的 Cloud Volumes ONTAP 9.19.1</block>
   <block id="38649e84871938dc48da678f8c0225b7" category="paragraph">现在，您可以使用 NetApp Console 在 Azure 中部署和管理 Cloud Volumes ONTAP 9.19.1 的正式发布（GA）版本。</block>
   <block id="55827b1b260053ade23e437507e4d4d6" category="paragraph">自 2026 年 8 月起，控制台已支持 AWS 和 Google Cloud 中的 Cloud Volumes ONTAP 9.19.1。</block>
@@ -8183,4 +8171,162 @@
   <block id="0e6d56fe5393252331d7343659494473" category="example-title">在私有模式或受保护模式部署中运行工具</block>
   <block id="eeb17a28d1d99b5b083875c964f9eaca" category="paragraph">指定 <block ref="8fc12ad6381abbb87712055c7f5e50f1" prefix=" " category="inline-code"></block> 参数以在私有模式或受保护模式部署中运行该工具。有关工作池配置，请参阅 <block ref="f6826eadb975b62aabcce78c0bcbe6da" category="inline-link-macro-rx"></block>。</block>
   <block id="effe1179a23b252f4eedfe689321b115" category="paragraph">如果您有跨项目部署，请指定<block ref="f771f2cb6e50d935d8e7d8a76e19a7e5" prefix=" " category="inline-code"></block>参数：</block>
+  <block id="0826142964deaae8afd3cda87c05f9f5" category="doc">新的 Cloud Volumes ONTAP 贡献者角色</block>
+  <block id="14332acd533c12a2fdcddeb8adea61b3" category="paragraph">NetApp 添加了 *Cloud Volumes ONTAP 贡献者* 角色，该角色的权限多于操作员角色，但少于管理员角色。具有操作员角色的用户可以执行多个日常工作流程，包括 SnapMirror 复制任务。管理员角色涵盖这些工作流程，但也允许管理员用户删除 Cloud Volumes ONTAP 系统，这是许多组织不希望运营用户执行的操作。此角色非常重要，因为控制台目前不支持多管理员验证（MAV），如果没有 MAV，管理员用户无需第二次批准即可执行敏感操作，例如删除系统。贡献者角色允许用户执行最关键的操作，例如创建系统、管理复制和管理存储，同时防止系统被删除。</block>
+  <block id="0fba01d9b0e41b7d0de97f3cfdb7dcec" category="paragraph">贡献者角色包括所有操作员权限，包括以下附加功能：</block>
+  <block id="535581d758075804b4cc52814e262a35" category="list-text">创建 Cloud Volumes ONTAP 系统</block>
+  <block id="31252110f902a9c33dd1668a2ddf9d60" category="list-text">更新系统设置，例如更改实例类型或升级 ONTAP 版本</block>
+  <block id="1c755f1ffdbed31cec4887edbc313b67" category="list-text">管理复制，包括中断、重新同步、反向重新同步以及编辑复制计划和传输速率</block>
+  <block id="caa47e3dc29de6679c6dde1ec5cda5ca" category="list-text">管理存储，例如添加聚合和增加容量</block>
+  <block id="105df9d41da1a27f8246ba8df705efc9" category="paragraph">具有贡献者角色的用户无法执行以下任务：</block>
+  <block id="75bfd853ccf811b5f9e995e9b420f0ee" category="list-text">删除系统、卷、聚合或复制关系</block>
+  <block id="26539d0b254897846cdbf2f9df3a2da2" category="list-text">开启或关闭系统</block>
+  <block id="cc940bf2667209e4d71ddc12d8f2e5ed" category="list-text">设置密码</block>
+  <block id="c8764bac128bda390f467bc548de68a5" category="list-text">访问 ONTAP System Manager</block>
+  <block id="2ece167d1d26caae4635d1e5a4d74785" category="paragraph">您可以从*管理&gt;身份*中分配贡献者角色，这与您将其他 Cloud Volumes ONTAP 角色分配给用户的方式相同。</block>
+  <block id="7d8c2cdcdb7f43c46c64f18123f8002b" category="list-text"><block ref="7d8c2cdcdb7f43c46c64f18123f8002b" category="inline-link-rx"></block></block>
+  <block id="ef4dbf81033bbcf56fd22e4eb2c913da" category="section-title">适用于 SMB 的 Microsoft Entra ID 混合用户身份验证（公开预览）</block>
+  <block id="4df90909cc2d04997870c4949a39d14b" category="inline-link">Microsoft Entra ID</block>
+  <block id="dd462d22f562824f1314114fe0506920" category="paragraph">Cloud Volumes ONTAP 9.19.1 及更高版本支持使用 <block ref="c92d60eae0a0d9ece702070bd9116954" category="inline-link-rx"></block> 进行混合用户身份验证以访问 SMB 共享。</block>
+  <block id="56ed7687386c4ddd3c49ce19fe20121e" category="paragraph">以前，Cloud Volumes ONTAP 仅支持域用户的 SMB 身份验证，这需要本地 Active Directory（AD）设置。使用混合用户身份验证，您可以通过 Microsoft Entra ID 将 SMB 身份验证扩展到云，同时继续使用现有的本地 AD 基础架构。</block>
+  <block id="66b8d64c32b9c85c4b6e1af3b9d47224" category="inline-link">Microsoft Entra Connect</block>
+  <block id="b733c58ccb9be823aebceeba2e6d6c49" category="paragraph">通过混合用户身份验证，可以在本地 AD 中创建用户，并使用<block ref="98031aa8f0e636ad4eef034480e4f6c2" category="inline-link-rx"></block>将其同步到 Microsoft Entra ID。ONTAP 通过与本地 AD 和 Microsoft Entra ID 通信来对访问 SMB 共享的用户进行身份验证。</block>
+  <block id="00a970696886f2596c6dc19470a99b67" category="paragraph">此功能作为公开预览版提供。仅支持通过 ONTAP CLI 进行配置。尚不支持 NetApp Console 集成。</block>
+  <block id="840c0d6ab3aac46cebc73c413bcb3de2" category="inline-link">为 SMB 配置 Microsoft Entra ID 身份验证</block>
+  <block id="4751d6cb0ce22c95620735a0f455e8e4" category="paragraph"><block ref="4751d6cb0ce22c95620735a0f455e8e4" category="inline-link-rx"></block></block>
+  <block id="79ef9f61ccfcabc1d70e24a061eef1a5" category="inline-link">详细了解账单偏好设置</block>
+  <block id="70563190697b86d4b7fef9663334a2c7" category="paragraph"><block ref="70563190697b86d4b7fef9663334a2c7" category="inline-link-rx"></block></block>
+  <block id="f0f0c1d3ad1556de34b949ba497629d8" category="summary">在 Cloud Volumes ONTAP 上为 SMB 配置 Microsoft Entra ID 身份验证，以支持混合用户身份并减少对本地 Active Directory 的依赖。</block>
+  <block id="576dddd89d6fcee802f4b33d25d7129c" category="doc">在 Cloud Volumes ONTAP 上为 SMB 配置 Microsoft Entra ID 身份验证</block>
+  <block id="f0d496d92b622242ae63265df0a68c13" category="paragraph">您可以配置 Cloud Volumes ONTAP，通过<block ref="c92d60eae0a0d9ece702070bd9116954" category="inline-link-rx"></block>对访问 SMB 共享的用户进行身份验证，从而为混合云上的 Cloud Volumes ONTAP 用户启用身份支持。以前，身份验证需要本地 Active Directory （AD） 来进行域用户的身份管理。使用 Microsoft Entra ID，您可以使用基于云的身份验证，同时保持混合用户的无缝访问。</block>
+  <block id="b7f9e82cff90746217ea8ac2f5b56d95" category="admonition">此功能作为公共预览版提供，只能使用 ONTAP CLI 进行配置。目前尚不支持 NetApp Console 集成。在 CLI 中，SMB 操作使用<block ref="2a56eb5b4be2d5634983c3d2f33e44eb" prefix=" " category="inline-code"></block>命令前缀，因为 SMB（服务器消息块）是 Common Internet File System（CIFS）协议的现代名称。</block>
+  <block id="9b46b58f2c72c603fbb8f335b5bc3834" category="paragraph">从 Cloud Volumes ONTAP 9.19.1 开始，您可以使用 Microsoft Entra ID 对使用混合身份的 SMB 用户进行身份验证。混合身份是通过<block ref="98031aa8f0e636ad4eef034480e4f6c2" category="inline-link-rx"></block>从本地 Active Directory（AD）同步到 Microsoft Entra ID 的用户帐户。</block>
+  <block id="53e4478289177784709ff85047ef38e4" category="paragraph">Cloud Volumes ONTAP 接受来自本地 AD 和 Microsoft Entra ID 的 SMB 身份验证。这允许您在保留现有 AD 基础架构的同时添加云身份支持。</block>
+  <block id="d6a1c53cc457db37443c2db4d8ebefe5" category="paragraph">Cloud Volumes ONTAP 9.19.1 及更高版本还支持 <block ref="9d22115d36ebd253684637906d1914ec" prefix=" " category="inline-code"></block> 命令来管理已装载共享上 Entra ID 身份的文件和文件夹权限。</block>
+  <block id="5683ff064f61ea6b8cdd3e57bdc720de" category="list-text">您必须具有有效的 Azure 订阅。</block>
+  <block id="82d28824cbdaf3ea9ad693254de8cc08" category="inline-link">全局管理员</block>
+  <block id="1bf5cbf0cd1b7d466f13185f516f295f" category="list-text">您必须在 Microsoft Entra ID 租户中拥有具有<block ref="ededdd6549b2bf145194c6c07d024613" category="inline-link-rx"></block>权限的用户帐户。</block>
+  <block id="5ff8d473cff96050f8025b44c3e19a64" category="list-text">访问 SMB 共享的客户端计算机必须是 Microsoft Entra 混合连接的。</block>
+  <block id="0b573523c99181abb1bf1ed4c5454bc3" category="list-text">您必须具有连接到 Microsoft Entra ID 的本地 AD 域控制器。</block>
+  <block id="2a4ce4268f8a08a72a93eebcd33cecce" category="list-text">您必须具有一个包含数据 LIF 的存储 VM，以及可供 SMB 服务器和共享使用的聚合。</block>
+  <block id="cdada3d51770cf65ad106d4618e13e3f" category="list-text">Storage VM 和 Client VM 必须能够解析所需的 Microsoft Entra ID 端点，并通过网络与它们进行通信。</block>
+  <block id="0d7474d4abe90268f7c956d32a931989" category="section-title">步骤 1：在 Microsoft Entra ID 中注册应用程序</block>
+  <block id="2d5ce426423eeeead4f35769cd8b1b27" category="inline-xref">第 3 步</block>
+  <block id="9a01a967e7969f7331c54cbcaba258c3" category="paragraph">必须在 Microsoft Entra ID 中注册应用程序，以便 Cloud Volumes ONTAP 可以在 SMB 设置期间向租户进行身份验证。Cloud Volumes ONTAP 使用此注册的凭据代表您创建、修改和删除应用程序对象。完成此步骤后，您将收集以下凭据以用于 <block ref="205b622708dfeea2fd1c72784f53fd51" category="inline-xref-macro-rx"></block>：</block>
+  <block id="f4e7141ad7609b7cc5121486e206e130" category="list-text">*tenant-id*：您组织的 Microsoft Entra ID 实例的唯一 GUID。</block>
+  <block id="99127c4618b42413de9d19fde2817a62" category="list-text">*client-id*：Entra ID 应用程序的唯一标识符。</block>
+  <block id="3052ba03fe360fbe74b547d70d2c2bd0" category="list-text">*client-certificate*：用于验证应用程序的证书。</block>
+  <block id="2857315b28fc395af13c38a25edacd0a" category="inline-link">注册应用程序</block>
+  <block id="aa972d60213d1c132f25584d4609b7f0" category="list-text"><block ref="32fc07ae42913e995c7d1f1783bfa036" category="inline-link-rx"></block> 在 Azure 门户中。选择 *仅此组织目录中的帐户（单个租户）* 作为支持的帐户类型。</block>
+  <block id="261e926f718a2d9b8cd73a83ba9acb7e" category="list-text">从注册应用的*概述*页面，复制并保存*应用程序（客户端）ID*和*目录（租户）ID*。</block>
+  <block id="fad05c2bfdd693724a1578cf08eb6403" category="list-text">将以下 Microsoft Graph API 权限分配给应用注册：</block>
+  <block id="a8970bf8fa65ca74be14fdba5c70ceec" category="list-text">*Application.ReadWrite.OwnedBy*</block>
+  <block id="60b0ed19e7b229e21a36cc7563a3289f" category="list-text">*User.Read*</block>
+  <block id="8ea0c9033ac73fea068c56f5eb23610c" category="list-text">*User.Read.All*</block>
+  <block id="299efefe6a28bc1ca31bc0b7162448ce" category="paragraph">要分配权限，请转到 *API 权限 &gt; 添加权限 &gt; Microsoft Graph &gt; 应用程序权限*，选择每个权限，然后选择 *为 &lt;tenant-name&gt; 授予管理员同意* 以激活它们。</block>
+  <block id="66186dc3c77a2a37fd3f3b8de5f51c79" category="admonition">与 Microsoft Azure 管理员一起确认组织安全策略所需的最低权限。</block>
+  <block id="28dd60cdfcc8d8886a4f475da7c2040a" category="list-text">上传证书以验证应用注册。转到 *Certificates &amp; secrets &gt; Certificates &gt; Upload certificate* 并以<block ref="986b1e74c5a22abce37ef2c2cbc37df9" prefix=" " category="inline-code"></block>、<block ref="bdf46f9562b038d0163af0feba0b1dfa" prefix=" " category="inline-code"></block>或<block ref="af5cc73b319c31cbd55a816803ea580b" prefix=" " category="inline-code"></block>格式上传文件。</block>
+  <block id="02100d3a9fd1a998b1e212c23223d5d0" category="admonition">使用由证书颁发机构签名的证书。支持自签名证书，但不推荐用于生产环境。</block>
+  <block id="6e04d7f9da96301b3d4830fe9cddfd35" category="list-text">选择*授予管理员同意*以激活权限。</block>
+  <block id="5c6bc2a5eb35bb7569f380e89fec8fa0" category="section-title">步骤 2：设置本地 Active Directory</block>
+  <block id="11ab63e9a6ac4c36d3ce5a4cc3039c73" category="inline-link">有关 Entra Connect 的 Microsoft 文档</block>
+  <block id="b10babf7ead6c6f4ad3f5e6d93976fe9" category="paragraph">设置本地 AD 域控制器，将用户和组同步到 Microsoft Entra ID，并配置设备加入设置，以便混合标识可用于 SMB 身份验证。请参阅<block ref="6650d3f4b9af73d499879b7bcfaf3eb2" category="inline-link-rx"></block>。</block>
+  <block id="27c0dffa775b77afef445509b11d8bee" category="list-text">例如，将 Windows 服务器设置为本地 AD 域的域控制器<block ref="88070db47637249c3d87a7159739ff89" prefix=" " category="inline-code"></block>。</block>
+  <block id="062608ac10e169cc753a4b9c9917c89c" category="list-text">创建同步到 Microsoft Entra ID 的 AD 用户和组。</block>
+  <block id="1c64dac74f1836bcfd6569e5cb3b2624" category="list-text">配置_站点到区域分配列表_组策略，以允许加入域的客户端与 Microsoft Entra ID 身份验证服务进行通信。</block>
+  <block id="f94b806283415daa8e18520cfe679859" category="paragraph">转到：*gpedit.msc &gt; 管理模板 &gt; Windows 组件 &gt; Internet Explorer &gt; Internet 控制面板 &gt; 安全页面 &gt; 站点到区域分配列表*</block>
+  <block id="91bfddac4049f3606e443cb976794327" category="list-text">添加以下每个 URL，区域值为 *1*：</block>
+  <block id="93470d6387894705482630409f6e8854" category="inline-link">Microsoft Entra Connect | Connect Sync</block>
+  <block id="dd5fb87e0fcf7a79f82c460cc1916f55" category="list-text">使用您的全局管理员帐户安装<block ref="9eb156faaab6ccb1a83ffeb27101c81b" category="inline-link-rx"></block>并配置它：</block>
+  <block id="17cb98a3c4dc35377617eaa96bf1704f" category="inline-link">规划 Microsoft Entra 混合联接实现</block>
+  <block id="876cbc85140828fa1edd2ddbead80331" category="inline-link">Microsoft Entra 混合加入目标部署</block>
+  <block id="d28cc1a233ce492200c3194cbdeaf8ce" category="list-text"><block ref="0273ebc722223bb6fefeee4dc33e8d8a" category="inline-link-rx"></block>。请参阅<block ref="4c2d2e681aea0046918c9e14557994b4" category="inline-link-rx"></block>。</block>
+  <block id="5ed3d947535b44abdc224cdff697ec56" category="inline-link">Active Directory 逻辑模型</block>
+  <block id="72ba2df1998092aa2e4147c0a890c80d" category="list-text">为每个<block ref="ed20acb973830bb6621b7ed65e0032c3" category="inline-link-rx"></block>配置服务连接点（SCP）并提供 AD 管理员凭据。</block>
+  <block id="868cfc82c69a1bdee2bf8f604db7d483" category="paragraph">Azure Microsoft Entra Connect 将本地 AD 用户和组同步到 Microsoft Entra ID，并启用混合设备加入。</block>
+  <block id="da237f632f44d3676d72ce122c7a4e48" category="inline-link">Microsoft 文档：后续步骤以及如何管理 Microsoft Entra Connect</block>
+  <block id="edc8a0869f7a2a70bb9bca49e4062f74" category="list-text">验证用户和组是否已同步到 Microsoft Entra ID。同步的用户显示的 UPN 后缀与您的租户域匹配，例如<block ref="bd988f09cbfbf64506e0589f7b2ac9e7" prefix=" " category="inline-code"></block>。有关设置后可以执行的其他任务，请参阅<block ref="0572584e104f568b7c9cc0d42a0f378e" category="inline-link-rx"></block>。</block>
+  <block id="0274ea537fb8630d4f8319c18f161d9a" category="section-title">步骤 3：在 Cloud Volumes ONTAP 上配置 SMB 服务器</block>
+  <block id="6f4a225b29c0975663d0e4b9e1f4547f" category="inline-xref">第 1 步</block>
+  <block id="8d5a7458985bfe355dd872e4cf0ebcfa" category="paragraph">配置 Cloud Volumes ONTAP 存储虚拟机上的 SMB 服务器，以使用您在 <block ref="72f3601f1fad0e3975fa5774874cabfd" category="inline-xref-macro-rx"></block> 中创建的应用注册凭据，通过 Microsoft Entra ID 验证 SMB 文件访问。</block>
+  <block id="73bdcc5dfa4b3b286ad1803e141e24d0" category="admonition">在创建 SMB 服务器之前，此 storage VM 必须具有已配置的数据 LIF 以及对聚合的访问权限。客户端使用数据 LIF 访问 SMB 共享。</block>
+  <block id="df298aa267f92fe21f4d097bb147c908" category="list-text">在存储虚拟机上配置 DNS，以便它可以解析 Microsoft Entra ID 端点：</block>
+  <block id="a4af0166d0734025f2f823d5fda75f7a" category="list-text">创建 SMB 服务器并提供 Microsoft Entra ID 参数：</block>
+  <block id="8226dc653148cdb98935a44ddfca35fa" category="list-text">使用 Entra ID 凭据重置 SMB Kerberos 密码：</block>
+  <block id="35c8cc78a8bb640b68ea0dc168cdf531" category="list-text">（可选）删除 SMB 服务器：</block>
+  <block id="83d8a030300df97170e3656ac9f25048" category="section-title">步骤 4：使用 Microsoft Entra ID 注册客户端 VM</block>
+  <block id="46ec9355f4990de65048682f477c45cc" category="paragraph">您可以设置已注册 Entra ID 的虚拟机，以便在您的环境中无法使用直接远程桌面协议（RDP）连接时访问已加入 Entra ID 的客户端。此虚拟机充当跳板机，您可以从中通过混合用户凭据远程登录到已加入 Entra ID 的客户端。</block>
+  <block id="32b3cbfedde6a705d3a9f36c36f5ea76" category="list-text">您必须具有 Windows 10（21H2 或更高版本）或 Windows 11 计算机。</block>
+  <block id="bacf3b3fd64b081f8583908b762661f8" category="list-text">使用本地管理员凭据登录到 Windows 计算机。</block>
+  <block id="69011ab46539841f8ffc2c72961d1c77" category="list-text">转到 *设置 &gt; 帐户 &gt; 访问工作或学校*，然后选择 *连接*。</block>
+  <block id="b6475c9f3c48fa4f320ba98f4df6342c" category="list-text">输入您的全局管理员帐户凭据，然后按照提示操作。</block>
+  <block id="9977d609d9197a7d8f1dea4b09d7cc72" category="paragraph">设备已使用 Microsoft Entra ID 注册。</block>
+  <block id="c8d170593528c2422b98b0e9e93b1647" category="list-text">验证设备是否在 Azure 门户的 *Entra ID &gt; 设备 &gt; 所有设备* 下显示为 *Entra ID Registered*。</block>
+  <block id="0cc39f1a8592484c13d910c20392b8ff" category="section-title">第 5 步：将客户端虚拟机加入 Microsoft Entra ID</block>
+  <block id="b0b32523d1c155237c0292e31cdabcfd" category="inline-link">配置 Microsoft Entra 混合联接</block>
+  <block id="81321c3ba570f7b6586edea775848335" category="inline-link">Microsoft Entra 混合连接设备故障排除</block>
+  <block id="72c63436f6867011c0038856bc0aa22c" category="paragraph">可以将 Windows 客户端虚拟机配置为加入 Entra ID 的计算机，以允许混合用户获取云颁发的 Kerberos 票证并装载 ONTAP SMB 共享。有关详细信息，请参阅<block ref="d6e1ec3b3b269d22e93052cbdaef36d6" category="inline-link-rx"></block>和<block ref="b1858f40897f7c6790e86fcfd6686b41" category="inline-link-rx"></block>。</block>
+  <block id="7882a4b556b6996eaf604413a9e602d9" category="inline-xref">第 4 步</block>
+  <block id="3da51256e81083d9310f85ba4885c73d" category="admonition">加入后，您只能使用在 <block ref="0eb2f82aafb012f32ae864d970ca1ba6" category="inline-xref-macro-rx"></block> 中配置的 Entra ID 注册计算机的混合用户凭据访问此计算机。</block>
+  <block id="e31ad1284b7618a9c10777ed99b12e64" category="inline-xref">第 2 步</block>
+  <block id="b9cf29e0a8c086eb445d0de7a1e35434" category="list-text">您必须具有从本地 AD 同步的混合用户帐户。这些帐户是在 <block ref="13c4078c97f6ff637d7df24746433196" category="inline-xref-macro-rx"></block> 中创建的。</block>
+  <block id="eb574d78bed262cc6db62882506345d2" category="list-text">转到 *设置 &gt; 帐户 &gt; 访问工作或学校*，然后选择 *连接 &gt; 将此设备加入 Azure Active Directory*。</block>
+  <block id="5b88fac619c56fa82cdd1800d20be35c" category="paragraph">使用混合用户帐户完成加入。如果加入未成功完成，请参见<block ref="a44ce4f7e9db29439e2a1f227570b357" category="inline-link-rx"></block>。</block>
+  <block id="3e6e1d2f193ddc658daf8b54f5ed726f" category="list-text">出现提示时重新启动计算机，然后验证它在 Azure 门户中的 *Entra ID &gt; 设备 &gt; 所有设备* 下显示为 *Entra ID 已加入*。</block>
+  <block id="d9d18c45d451ef08e9d20657ae5fc14a" category="section-title">第 6 步：配置已加入的虚拟机以用于 SMB 访问</block>
+  <block id="f700f3989681d0a3185d6cde7a32b0b5" category="paragraph">虚拟机加入 Microsoft Entra ID 后，必须将其配置为获取云颁发的 Kerberos 票证，解析 SMB 服务器主机名，并允许从 Entra ID 注册的计算机进行 RDP 访问。</block>
+  <block id="10eb4ded04da5a031291d89a87b9f351" category="list-text">将 DNS 条目添加到加入 Entra ID 的虚拟机上的 hosts 文件中，以便它可以解析 SMB 服务器主机名：</block>
+  <block id="de1a2cb45c8fbbdd1b73e05c23f25057" category="list-text">在文本编辑器中打开<block ref="803976de87f6862821bd3c4d94e0ff2b" prefix=" " category="inline-code"></block>。</block>
+  <block id="889eb16b8e221402539f4528f19e308f" category="list-text">添加以下条目，将 ONTAP 数据 LIF IP 地址映射到 SMB 服务器 FQDN：</block>
+  <block id="be5c670022b66fffa7c34b9cc5ec30ed" category="list-text">启用 PKU2U 身份验证策略：</block>
+  <block id="f29572d5d66b3b251d31c220c2f92eb2" category="list-text">转至：</block>
+  <block id="1891d1343ccb7d013ce21d74305117d2" category="paragraph">*gpedit.msc &gt; 计算机配置 &gt; Windows 设置 &gt; 安全设置 &gt; 本地策略 &gt; 安全选项*</block>
+  <block id="9b390fe5a8b761c2e693abb2cf3fd8ad" category="list-text">启用 *网络安全：允许对此计算机的 PKU2U 身份验证请求使用在线身份*。</block>
+  <block id="4cca9eae8b750f33b90a93d8029e0651" category="inline-link">PKU2U 身份验证策略</block>
+  <block id="d705c8a96f0f8c93ef2c1489c303501f" category="paragraph">有关详细信息，请参见<block ref="b0f5357159e919663795bae97e376c04" category="inline-link-rx"></block>。</block>
+  <block id="9da8a4a24e04fcd5850589a4ae0def8c" category="list-text">启用云 Kerberos 票证检索：</block>
+  <block id="ba50a880ba92e6cba7a5473746d1980e" category="paragraph">*gpedit.msc &gt; 计算机配置 &gt; 管理模板 &gt; 系统 &gt; Kerberos*</block>
+  <block id="8c71a7ffded41f865130af77ab64b1a0" category="list-text">启用*允许在登录期间检索云 Kerberos 票证*。</block>
+  <block id="c85c5a8cad6e8efe6ba8a99061561d24" category="list-text">配置 ONTAP SMB 服务器的 Kerberos 领域映射：</block>
+  <block id="ad4c59074a3f32bb2c9c7dfd512b6513" category="list-text">在相同的 Kerberos 策略位置，选择 *定义主机名到 Kerberos 领域的映射*。</block>
+  <block id="f954ee5e996de9b3de62c9546b35d9fc" category="list-text">添加以下映射：</block>
+  <block id="fca8e98550f6d64c28fc39e79b76cbd7" category="list-text">将混合用户添加到 _Remote Desktop Users_ 组，以允许从 Entra ID 注册的虚拟机进行访问：</block>
+  <block id="edcecc4b4b8e54a82931aa3d4b914517" category="section-title">第 7 步：挂载 SMB 共享并验证访问权限</block>
+  <block id="6c9440a7d804b701f03faa4a408419b4" category="paragraph">您可以从加入 Entra ID 的客户端装载 SMB 共享，并验证使用 Microsoft Entra ID 的基于 Kerberos 的身份验证是否端到端成功。</block>
+  <block id="9e0faae1b4a891cd7636ab9fde62531f" category="list-text">从已注册 Entra ID 的虚拟机，使用远程桌面连接，使用以下格式的混合用户凭据登录到已加入 Entra ID 的虚拟机：</block>
+  <block id="1eda35903c92981af4493cd042dda7ec" category="inline-link">使用 Microsoft Entra ID 登录到 Windows VM</block>
+  <block id="4950b42cedc0385048f650a75acb8f44" category="paragraph">如果登录失败，请选择*更多选项*并手动输入凭据。如果此问题仍然存在，请在远程桌面连接客户端的*高级*选项卡中启用*使用 Web 帐户*。有关详细信息，请参阅<block ref="1b0170374319b47d471d295bb43cee9f" category="inline-link-rx"></block>。</block>
+  <block id="7be8b73965c0a7ca7b04c60522817bc9" category="list-text">通过运行<block ref="202cb8d6626afc16729d7dd3c122f426" prefix=" " category="inline-code"></block>并确认存在针对<block ref="b081ba220cea67c20b6afac1c3b54d0b" prefix=" " category="inline-code"></block>的<block ref="2de5d7596cf7e4f01b7c56f2ccb5906c" prefix=" " category="inline-code"></block>票证，验证登录时是否颁发了云 Kerberos 票证：</block>
+  <block id="8637d6c1f3e0436f7f2ec935b829bd22" category="paragraph">输出示例：</block>
+  <block id="884290bc0ff7f26abecb05af5263fc52" category="paragraph">此票证的存在确认设备已正确加入，并且可以获得云颁发的 Kerberos 票证。</block>
+  <block id="ec89ae255c2afa2f266791959c9c77b6" category="list-text">在 Cloud Volumes ONTAP 系统上创建卷和 SMB 共享，或使用现有卷和共享：</block>
+  <block id="961d28c766792487334adf50e75187ae" category="admonition">卷必须使用 NTFS 安全样式，以便您可以使用 <block ref="9d22115d36ebd253684637906d1914ec" prefix=" " category="inline-code"></block> 管理 Microsoft Entra ID 标识的文件和文件夹权限。</block>
+  <block id="9769838371fcc918f37249655778b2e0" category="list-text">验证客户端是否可以获取 SMB 服务器的 Kerberos 服务票证：</block>
+  <block id="beba504f77cb775bba8fe1b1a4be8a46" category="paragraph">确认已返回服务工单，并且<block ref="5f7264148f90ce948fe46963dca95b27" prefix=" " category="inline-code"></block>显示<block ref="e19a6f936479fb9a08948d8892616017" prefix=" " category="inline-code"></block>。这确认身份验证是通过 Microsoft Entra ID 路由的。</block>
+  <block id="a467671413dbd78e1d7e54dc27c37f81" category="list-text">装载 SMB 共享：</block>
+  <block id="84692ab6e69269bdcacff45d5446a450" category="list-text">在 Cloud Volumes ONTAP 系统上，验证是否已建立 SMB 会话：</block>
+  <block id="505226009558db588b2ed9efdca875a9" category="paragraph">会话输出显示已连接的工作站和混合用户，格式为<block ref="e2ff43edba5b694847286915c94856ec" prefix=" " category="inline-code"></block>。</block>
+  <block id="69c584fe08eb9fc89db06ebc6e3b2409" category="section-title">第 8 步：使用 icacls 管理文件权限</block>
+  <block id="d6974080341df9712ec0af707b961e7b" category="paragraph">Cloud Volumes ONTAP 9.19.1 及更高版本支持 <block ref="9d22115d36ebd253684637906d1914ec" prefix=" " category="inline-code"></block> 命令，用于管理已挂载 SMB 共享上 Microsoft Entra ID 身份的文件和文件夹权限。</block>
+  <block id="4b354f41d5419fd632f462950f477d6f" category="list-text">根据您要配置的访问权限运行相应的<block ref="9d22115d36ebd253684637906d1914ec" prefix=" " category="inline-code"></block>命令：</block>
+  <block id="d0d4a68386bd83860624b6a17750a57a" category="paragraph">要授予访问权限：</block>
+  <block id="5798e009f5498705c64f92ce140cd070" category="paragraph">要拒绝访问：</block>
+  <block id="90354e46cc101991e55370e682628f58" category="doc">使用 AWS Marketplace 上的独立列表部署 Cloud Volumes ONTAP</block>
+  <block id="12f4bfc0538b903177d595621c7ef42d" category="list-text">符合要求的控制台代理网络。 <block ref="a3f5b6fd7f8b50cbffb3cbeb6fa40451" category="inline-link-macro-rx"></block></block>
+  <block id="b03eb9f92b70a1fafaeb31b1e5f8ccdc" category="list-text">NetApp 数据服务和 Cloud Volumes ONTAP 订阅的 NetApp 智能服务组合产品</block>
+  <block id="e3827b821f7d34121f8a07a802dad6dd" category="list-text">选择 _standalone_ 产品。查看列表详情和定价条款。</block>
+  <block id="da387e40e73b9eeced07accc9de6e3e4" category="section-title">订阅数据服务的 NetApp 智能服务产品</block>
+  <block id="f0150d523b994c5ba03cc2d6e2bd875b" category="paragraph">如果要使用其他数据服务，例如 NetApp Backup and Recovery，则需要在独立产品之外订阅 NetApp Intelligent Service 产品。</block>
+  <block id="a7ad6897f7b9076545ea2b2470df2cfb" category="list-text">找到并选择 NetApp 智能服务产品。</block>
+  <block id="7db8d7489646d12d69a7696c02c128ef" category="list-text">可选：关联 NetApp 支持站点（NSS）帐户。</block>
+  <block id="00042f51aa46d7bf5e0fd46db2c83ebd" category="paragraph">将订阅与 NetApp Console 关联后，部署 Console 代理来管理 AWS 资源和 Cloud Volumes ONTAP 系统。</block>
+  <block id="4176621cbdd2e1f6616332f1f3cae6d1" category="list-text">添加 AWS 帐户 ID，也可以添加外部 ID。控制台设置默认角色名称。</block>
+  <block id="2c02911c2dbba2e926eecf6ba56992df" category="paragraph">控制台会创建假定角色的名称，您可以根据需要进行更改。</block>
+  <block id="4bec940f8e5547f4d7ea2a53ec902c6a" category="paragraph">当控制台创建控制台代理时，它会为代理创建 IAM 角色和配置文件，或使用您提供的角色。此角色包括允许代理管理 AWS 资源的权限。请使用代理所需的任何新权限来更新该角色。<block ref="7f447941d99d36030500c16d428fc2ff" category="inline-link-macro-rx"></block>。</block>
+  <block id="4eedc010909cbd7fa3cbf5efdb1be4b6" category="paragraph">如果您还没有准备好创建 Cloud Volumes ONTAP 系统，您可以随时返回系统页面进行创建。</block>
+  <block id="3cc38715797be469f39edd81c803bf02" category="section-title">2026年11月17日</block>
+  <block id="444d7501b3cc1feab5560e903adad61c" category="section-title">2026年11月16日</block>
+  <block id="f2a895f791fcea8f719f85e864d53ea6" category="paragraph">&lt;stdin&gt; 中的未解析指令 - include::_whatsnew/2026-11-16.adoc[]</block>
+  <block id="4e1d849ec7cd4b242a9a758a2e86fe1c" category="sidebar">使用 AWS Marketplace 上的独立列表部署 Cloud Volumes ONTAP</block>
+  <block id="d2091e7366ce9b63a9a82bdd7bb6c641" category="sidebar">防止 HA 对在 Azure 维护期间发生中断</block>
 </blocks>

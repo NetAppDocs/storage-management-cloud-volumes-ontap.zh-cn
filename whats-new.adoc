@@ -20,6 +20,64 @@ summary: 了解 Cloud Volumes ONTAP 管理中的新增功能和增强功能。
 
 
 
+[[17-november-2026]]
+== 2026年11月17日
+
+
+
+[[new-cloud-volumes-ontap-contributor-role]]
+=== 新的 Cloud Volumes ONTAP 贡献者角色
+
+NetApp 添加了 *Cloud Volumes ONTAP 贡献者* 角色，该角色的权限多于操作员角色，但少于管理员角色。具有操作员角色的用户可以执行多个日常工作流程，包括 SnapMirror 复制任务。管理员角色涵盖这些工作流程，但也允许管理员用户删除 Cloud Volumes ONTAP 系统，这是许多组织不希望运营用户执行的操作。此角色非常重要，因为控制台目前不支持多管理员验证（MAV），如果没有 MAV，管理员用户无需第二次批准即可执行敏感操作，例如删除系统。贡献者角色允许用户执行最关键的操作，例如创建系统、管理复制和管理存储，同时防止系统被删除。
+
+贡献者角色包括所有操作员权限，包括以下附加功能：
+
+* 创建 Cloud Volumes ONTAP 系统
+* 更新系统设置，例如更改实例类型或升级 ONTAP 版本
+* 管理复制，包括中断、重新同步、反向重新同步以及编辑复制计划和传输速率
+* 管理存储，例如添加聚合和增加容量
+
+
+具有贡献者角色的用户无法执行以下任务：
+
+* 删除系统、卷、聚合或复制关系
+* 开启或关闭系统
+* 设置密码
+* 访问 ONTAP System Manager
+
+
+您可以从*管理>身份*中分配贡献者角色，这与您将其他 Cloud Volumes ONTAP 角色分配给用户的方式相同。
+
+.相关链接
+* https://docs.netapp.com/us-en/console-setup-admin/reference-iam-cvo-roles.html["Cloud Volumes ONTAP 访问角色（位于 NetApp Console 中）"^]
+* https://docs.netapp.com/us-en/console-setup-admin/task-cvo-rbac-setup.html["在 NetApp Console 中为 Cloud Volumes ONTAP 设置基于角色的访问控制"^]
+* https://docs.netapp.com/us-en/console-setup-admin/reference-iam-predefined-roles.html#data-service-roles["NetApp Console 访问角色"^]
+
+
+
+
+[[microsoft-entra-id-hybrid-user-authentication-for-smb-public-preview]]
+=== 适用于 SMB 的 Microsoft Entra ID 混合用户身份验证（公开预览）
+
+Cloud Volumes ONTAP 9.19.1 及更高版本支持使用  https://www.microsoft.com/en-in/security/business/identity-access/microsoft-entra-id["Microsoft Entra ID"^] 进行混合用户身份验证以访问 SMB 共享。
+
+以前，Cloud Volumes ONTAP 仅支持域用户的 SMB 身份验证，这需要本地 Active Directory（AD）设置。使用混合用户身份验证，您可以通过 Microsoft Entra ID 将 SMB 身份验证扩展到云，同时继续使用现有的本地 AD 基础架构。
+
+通过混合用户身份验证，可以在本地 AD 中创建用户，并使用 https://learn.microsoft.com/en-us/entra/identity/hybrid/connect/whatis-azure-ad-connect["Microsoft Entra Connect"^]将其同步到 Microsoft Entra ID。ONTAP 通过与本地 AD 和 Microsoft Entra ID 通信来对访问 SMB 共享的用户进行身份验证。
+
+此功能作为公开预览版提供。仅支持通过 ONTAP CLI 进行配置。尚不支持 NetApp Console 集成。
+
+https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-azure-entra-id-smb-auth.html["为 SMB 配置 Microsoft Entra ID 身份验证"^]
+
+
+
+[[16-november-2026]]
+== 2026年11月16日
+
+<stdin> 中的未解析指令 - include::_whatsnew/2026-11-16.adoc[]
+
+
+
 [[02-november-2026]]
 == 2026年11月2日
 
