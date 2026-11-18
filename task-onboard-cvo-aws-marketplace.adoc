@@ -71,25 +71,25 @@ summary: 在 AWS Marketplace 中订阅 Cloud Volumes ONTAP，并在 NetApp Conso
 . 使用具有所需权限的 AWS 帐户转到 AWS Marketplace。
 . 找到 NetApp Cloud Volumes ONTAP 独立产品。AWS Marketplace 为 Cloud Volumes ONTAP 提供两种产品：
 +
-** Cloud Volumes ONTAP 年度订阅的独立产品
-** NetApp 数据服务和 Cloud Volumes ONTAP 订阅的 NetApp 智能服务组合产品
+** Cloud Volumes ONTAP 的独立产品，可作为年度订阅或现收现付（PAYGO）提供。
+** 适用于 NetApp 数据服务和 Cloud Volumes ONTAP 的 NetApp 智能服务（NIS）产品，也可作为年度订阅或 PAYGO 提供。
 
 
-. 选择 _standalone_ 产品。查看列表详情和定价条款。
+. 为 _standalone_ 产品选择包年订阅或 PAYGO 选项。查看列表详情和定价条款。
 . 订阅并完成结算。
 . 订阅后，选择*设置产品*将重定向至 NetApp Console 以完成部署。
 
 
 
 
-[[subscribe-to-the-netapp-intelligent-service-offering-for-data-services]]
-== 订阅数据服务的 NetApp 智能服务产品
+[[subscribe-to-netapp-intelligent-service-for-data-services]]
+== 订阅数据服务的 NetApp 智能服务
 
-如果要使用其他数据服务，例如 NetApp Backup and Recovery，则需要在独立产品之外订阅 NetApp Intelligent Service 产品。
+如果要使用其他数据服务（如 NetApp Backup and Recovery），除了独立产品之外，还需要订阅 NIS 产品。
 
 .步骤
 . 使用具有所需权限的 AWS 帐户转到 AWS Marketplace。
-. 找到并选择 NetApp 智能服务产品。
+. 找到并选择 NetApp Intelligent Service (NIS) 产品的年度或 PAYGO 选项。
 . 查看列表详情和定价条款。
 . 订阅并完成结算。
 . 订阅后，选择*设置产品*将重定向至 NetApp Console 以完成部署。

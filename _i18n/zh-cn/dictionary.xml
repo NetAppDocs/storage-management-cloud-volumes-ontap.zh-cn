@@ -6903,7 +6903,6 @@
   <block id="44e833213a99257d69192896111996f4" category="paragraph">现在，您可以在 Azure 的奥地利东部 (austriaeast) 和比利时中部 (belgiumcentral) 区域部署 Cloud Volumes ONTAP 9.12.1 GA 及更高版本。支持以下部署类型：</block>
   <block id="0eda8bbe61d2248f5418aba76b8dc5b1" category="list-text">\https://api.workloads.netapp.com</block>
   <block id="9f45fe3cd2af64a1afc3f4b7f81bdae6" category="list-text">\https://ws.workloads.bluexp.netapp.com</block>
-  <block id="dbf314f960a580dec77c3328f5a7dcfe" category="list-text">如果您计划通过 AWS 市场中的独立 Cloud Volumes ONTAP 订阅收取 Cloud Volumes ONTAP 容量费用，Cloud Volumes ONTAP 系统必须使用受支持的基于容量的套餐（Essentials 或 Freemium）。独立列表不支持 Professional 套餐，并继续通过 NIS 订阅收费。选择所需套餐后，使用 NetApp Console 中的*账单首选项*选择用于 Cloud Volumes ONTAP 账单的市场订阅。</block>
   <block id="a21deb009c8ff7309664108fdf426e10" category="summary">在 AWS Marketplace 中订阅 Cloud Volumes ONTAP，并在 NetApp Console 中完成设置，包括组织创建、订阅关联、代理部署和首个系统创建。</block>
   <block id="ce95e653013e10f07ac1b69529baf3bb" category="doc">从 AWS Marketplace 订阅和部署 Cloud Volumes ONTAP</block>
   <block id="a4cede66de2477ac18bbdee0f03c3b4b" category="list-text">查看列表详情和定价条款。</block>
@@ -7835,7 +7834,6 @@
   <block id="288d38f29d8eeeb99070bff4f65525c0" category="paragraph">在 AWS Marketplace 中找到独立的 Cloud Volumes ONTAP 产品。</block>
   <block id="a11a0a42613839623b80519a128fe81d" category="list-text">使用具有所需权限的 AWS 帐户转到 AWS Marketplace。</block>
   <block id="ef6da38a0094b683cff50de6f2edfb73" category="list-text">找到 NetApp Cloud Volumes ONTAP 独立产品。AWS Marketplace 为 Cloud Volumes ONTAP 提供两种产品：</block>
-  <block id="65e2afdf3ea7ead73c73f2ccc67a88bb" category="list-text">Cloud Volumes ONTAP 年度订阅的独立产品</block>
   <block id="0bede5b2fb82cb93a6b7341f902bd965" category="list-text">订阅后，选择*设置产品*将重定向至 NetApp Console 以完成部署。</block>
   <block id="8e54d24c608de9f6d76f0ddf776cd3cc" category="paragraph">完成 Marketplace 订阅后，请继续在 NetApp Console 中进行设置。</block>
   <block id="e17e44482e762e707860b1c0d43859ab" category="list-text">如果您选择*注册*，请完成以下操作：</block>
@@ -8195,7 +8193,6 @@
   <block id="840c0d6ab3aac46cebc73c413bcb3de2" category="inline-link">为 SMB 配置 Microsoft Entra ID 身份验证</block>
   <block id="4751d6cb0ce22c95620735a0f455e8e4" category="paragraph"><block ref="4751d6cb0ce22c95620735a0f455e8e4" category="inline-link-rx"></block></block>
   <block id="79ef9f61ccfcabc1d70e24a061eef1a5" category="inline-link">详细了解账单偏好设置</block>
-  <block id="70563190697b86d4b7fef9663334a2c7" category="paragraph"><block ref="70563190697b86d4b7fef9663334a2c7" category="inline-link-rx"></block></block>
   <block id="f0f0c1d3ad1556de34b949ba497629d8" category="summary">在 Cloud Volumes ONTAP 上为 SMB 配置 Microsoft Entra ID 身份验证，以支持混合用户身份并减少对本地 Active Directory 的依赖。</block>
   <block id="576dddd89d6fcee802f4b33d25d7129c" category="doc">在 Cloud Volumes ONTAP 上为 SMB 配置 Microsoft Entra ID 身份验证</block>
   <block id="f0d496d92b622242ae63265df0a68c13" category="paragraph">您可以配置 Cloud Volumes ONTAP，通过<block ref="c92d60eae0a0d9ece702070bd9116954" category="inline-link-rx"></block>对访问 SMB 共享的用户进行身份验证，从而为混合云上的 Cloud Volumes ONTAP 用户启用身份支持。以前，身份验证需要本地 Active Directory （AD） 来进行域用户的身份管理。使用 Microsoft Entra ID，您可以使用基于云的身份验证，同时保持混合用户的无缝访问。</block>
@@ -8313,11 +8310,6 @@
   <block id="5798e009f5498705c64f92ce140cd070" category="paragraph">要拒绝访问：</block>
   <block id="90354e46cc101991e55370e682628f58" category="doc">使用 AWS Marketplace 上的独立列表部署 Cloud Volumes ONTAP</block>
   <block id="12f4bfc0538b903177d595621c7ef42d" category="list-text">符合要求的控制台代理网络。 <block ref="a3f5b6fd7f8b50cbffb3cbeb6fa40451" category="inline-link-macro-rx"></block></block>
-  <block id="b03eb9f92b70a1fafaeb31b1e5f8ccdc" category="list-text">NetApp 数据服务和 Cloud Volumes ONTAP 订阅的 NetApp 智能服务组合产品</block>
-  <block id="e3827b821f7d34121f8a07a802dad6dd" category="list-text">选择 _standalone_ 产品。查看列表详情和定价条款。</block>
-  <block id="da387e40e73b9eeced07accc9de6e3e4" category="section-title">订阅数据服务的 NetApp 智能服务产品</block>
-  <block id="f0150d523b994c5ba03cc2d6e2bd875b" category="paragraph">如果要使用其他数据服务，例如 NetApp Backup and Recovery，则需要在独立产品之外订阅 NetApp Intelligent Service 产品。</block>
-  <block id="a7ad6897f7b9076545ea2b2470df2cfb" category="list-text">找到并选择 NetApp 智能服务产品。</block>
   <block id="7db8d7489646d12d69a7696c02c128ef" category="list-text">可选：关联 NetApp 支持站点（NSS）帐户。</block>
   <block id="00042f51aa46d7bf5e0fd46db2c83ebd" category="paragraph">将订阅与 NetApp Console 关联后，部署 Console 代理来管理 AWS 资源和 Cloud Volumes ONTAP 系统。</block>
   <block id="4176621cbdd2e1f6616332f1f3cae6d1" category="list-text">添加 AWS 帐户 ID，也可以添加外部 ID。控制台设置默认角色名称。</block>
@@ -8329,4 +8321,13 @@
   <block id="f2a895f791fcea8f719f85e864d53ea6" category="paragraph">&lt;stdin&gt; 中的未解析指令 - include::_whatsnew/2026-11-16.adoc[]</block>
   <block id="4e1d849ec7cd4b242a9a758a2e86fe1c" category="sidebar">使用 AWS Marketplace 上的独立列表部署 Cloud Volumes ONTAP</block>
   <block id="d2091e7366ce9b63a9a82bdd7bb6c641" category="sidebar">防止 HA 对在 Azure 维护期间发生中断</block>
+  <block id="464804aa8527c7a5675dd4c8d2b5f2b5" category="paragraph"><block ref="70563190697b86d4b7fef9663334a2c7" category="inline-link-rx"></block> <block ref="2d3a44ea7e8ca99b971ec5f419723d79" category="inline-link-rx"></block></block>
+  <block id="f17334f879855cf7befcf9561bf97a15" category="list-text">如果您计划在 AWS 市场中通过 Cloud Volumes ONTAP only 订阅（年度合同或 PAYGO）为 Cloud Volumes ONTAP 容量计费，则 Cloud Volumes ONTAP 系统必须使用受支持的基于容量的套餐（Essentials 或 Freemium）。Professional 套餐不支持独立列表，并将继续通过 NetApp Intelligent Services （NIS）订阅计费。选择所需套餐后，请使用 NetApp Console 中的 *Billing preferences* 选择用于 Cloud Volumes ONTAP 计费的市场订阅。</block>
+  <block id="c57a3384803ce10606c2888bd8bebf10" category="list-text">Cloud Volumes ONTAP 的独立产品，可作为年度订阅或现收现付（PAYGO）提供。</block>
+  <block id="0f84dfccc86093595e11d0f4f2979e06" category="list-text">适用于 NetApp 数据服务和 Cloud Volumes ONTAP 的 NetApp 智能服务（NIS）产品，也可作为年度订阅或 PAYGO 提供。</block>
+  <block id="6b67e3947a2b280b3f1a844cf4397014" category="list-text">为 _standalone_ 产品选择包年订阅或 PAYGO 选项。查看列表详情和定价条款。</block>
+  <block id="efd4fa7529d7c8cd4bd411aad0166ed6" category="section-title">订阅数据服务的 NetApp 智能服务</block>
+  <block id="db78a7e96024e9eef010b9cf7fb53251" category="paragraph">如果要使用其他数据服务（如 NetApp Backup and Recovery），除了独立产品之外，还需要订阅 NIS 产品。</block>
+  <block id="19345556c6e896fcd174b552b92e5c53" category="list-text">找到并选择 NetApp Intelligent Service (NIS) 产品的年度或 PAYGO 选项。</block>
+  <block id="bc2dc85706f0ec1cefd21d3f849eb1e9" category="section-title">2026年11月18日</block>
 </blocks>

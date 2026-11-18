@@ -11,4 +11,4 @@ NetApp 现在通过 NetApp 独立列表（NSL）在 AWS Marketplace 中为 Cloud
 
 Cloud Volumes ONTAP 年度合同和 PAYGO 列表仍与 NetApp Intelligence Services（NIS）年度合同和 PAYGO 列表分开，从而实现 Cloud Volumes ONTAP 容量和数据服务的单独计费。
 
-https://docs.netapp.com/us-en/console-licenses-subscriptions/concept-billing-preferences.html["详细了解账单偏好设置"^]
+https://docs.netapp.com/us-en/console-licenses-subscriptions/concept-billing-preferences.html["详细了解账单偏好设置"^] https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-onboard-cvo-aws-marketplace.html["使用 AWS Marketplace 上的独立列表部署 Cloud Volumes ONTAP"^]
