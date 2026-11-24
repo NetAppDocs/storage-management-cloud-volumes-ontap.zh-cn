@@ -1,0 +1,17 @@
+= 支持 Azure 中的丹麦东部和印度中南部地区
+:allow-uri-read: 
+
+
+
+
+[[support-for-denmark-east-and-india-south-central-regions-in-azure]]
+=== 支持 Azure 中的丹麦东部和印度中南部地区
+
+您现在可以在 Azure 的丹麦东部（denmarkeast）和印度中南部（indiasouthcentral）区域部署 Cloud Volumes ONTAP 9.12.1 GA 及更高版本。支持以下部署类型：
+
+* 单节点
+* 使用本地冗余存储（LRS）的单个可用区中的 HA
+* 使用区域冗余存储（ZRS）的多个可用区中的 HA - 仅适用于印度中南部
+
+
+有关所有受支持区域的列表，请参阅 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球区域地图"^]。

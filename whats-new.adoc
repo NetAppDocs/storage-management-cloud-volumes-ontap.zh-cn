@@ -20,6 +20,25 @@ summary: 了解 Cloud Volumes ONTAP 管理中的新增功能和增强功能。
 
 
 
+[[24-november-2026]]
+== 2026年11月24日
+
+
+
+[[support-for-denmark-east-and-india-south-central-regions-in-azure]]
+=== 支持 Azure 中的丹麦东部和印度中南部地区
+
+您现在可以在 Azure 的丹麦东部（denmarkeast）和印度中南部（indiasouthcentral）区域部署 Cloud Volumes ONTAP 9.12.1 GA 及更高版本。支持以下部署类型：
+
+* 单节点
+* 使用本地冗余存储（LRS）的单个可用区中的 HA
+* 使用区域冗余存储（ZRS）的多个可用区中的 HA - 仅适用于印度中南部
+
+
+有关所有受支持区域的列表，请参阅 https://www.netapp.com/cloud-volumes-ontap/supported-regions/["Azure 下的全球区域地图"^]。
+
+
+
 [[18-november-2026]]
 == 2026年11月18日
 
@@ -84,13 +103,6 @@ Cloud Volumes ONTAP 9.19.1 及更高版本支持使用  https://www.microsoft.co
 此功能作为公开预览版提供。仅支持通过 ONTAP CLI 进行配置。尚不支持 NetApp Console 集成。
 
 https://docs.netapp.com/us-en/storage-management-cloud-volumes-ontap/task-azure-entra-id-smb-auth.html["为 SMB 配置 Microsoft Entra ID 身份验证"^]
-
-
-
-[[16-november-2026]]
-== 2026年11月16日
-
-<stdin> 中的未解析指令 - include::_whatsnew/2026-11-16.adoc[]
 
 
 
