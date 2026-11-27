@@ -4,7 +4,7 @@ permalink: concept-azure-file-sig-verify.html
 keywords: Azure, image, VHD, file signature verification, encryption, sha256, ONTAP, Cloud Volumes, CLI, 
 summary: 了解如何通过Cloud Volumes ONTAP映像摘要文件工具验证导出的 VHD 文件签名。 
 ---
-= 针对Cloud Volumes ONTAP 的Azure 市场映像签名验证
+= 适用于 Cloud Volumes ONTAP 的 Azure 市场镜像签名验证
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

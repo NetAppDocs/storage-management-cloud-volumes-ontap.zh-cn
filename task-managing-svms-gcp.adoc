@@ -4,7 +4,7 @@ permalink: task-managing-svms-gcp.html
 keywords: storage virtual machine, vserver, svm, storage vm, supported number, number supported, create svm, create storage vm, create vserver 
 summary: 存储虚拟机是在ONTAP内运行的虚拟机，可为您的客户端提供存储和数据服务。您可能知道这是 SVM 或 vserver。  Cloud Volumes ONTAP默认配置一个存储虚拟机，但某些配置支持额外的存储虚拟机。 
 ---
-= 在 Google Cloud 中管理Cloud Volumes ONTAP的数据服务存储虚拟机
+= 在 Google Cloud 中管理 Cloud Volumes ONTAP 的存储 VM
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

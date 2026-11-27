@@ -4,7 +4,7 @@ permalink: task-accelerate-data-access.html
 keywords: flexcache, flexcache volumes, create a flexcache volume, provision flexcache, create flexcache volume 
 summary: FlexCache卷是一种存储卷，用于缓存来自源卷或源卷的 NFS 读取数据。随后读取缓存数据可以加快对该数据的访问速度。 
 ---
-= 使用Cloud Volumes ONTAP系统上的FlexCache卷加速数据访问
+= 使用 Cloud Volumes ONTAP 中的 FlexCache 卷加速数据访问
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

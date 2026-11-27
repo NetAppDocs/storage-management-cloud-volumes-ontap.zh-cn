@@ -4,7 +4,7 @@ permalink: reference-networking-aws.html
 keywords: networking, network, requirements, connection, connections, vpc, security group, security groups, subnets, vpn, internet, nat, s3, dns, ad, active directory, az, availability zone, floating IP, floating, SVM, management LIF, route, route tables, proxy, HTTP, private, tier, s3 endpoint, proxy server, nat device, vpn, snapmanager, snapcenter, iscsi, nfs, cifs, nas, san, outbound, inbound, connections, autosupport, ha, ha pair, high availability 
 summary: NetApp Console负责设置Cloud Volumes ONTAP的网络组件，例如 IP 地址、网络掩码和路由。您需要确保可以访问出站互联网、有足够的私有 IP 地址、有正确的连接等等。 
 ---
-= 为Cloud Volumes ONTAP设置 AWS 网络
+= Cloud Volumes ONTAP 的 AWS 网络要求
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

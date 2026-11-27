@@ -283,6 +283,8 @@ sidebar:
         url: "/task-manage-node-licenses.html"
       - title: 转换基于节点的许可证
         url: "/task-convert-node-capacity.html"
+      - title: 在 AWS 中将 NIS 订阅转换为独立订阅
+        url: "/task-convert-nis-nsl.html"
     - title: 注册现收现付系统
       url: "/task-registering.html"
     - title: 停止和启动系统

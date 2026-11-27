@@ -4,7 +4,7 @@ permalink: task-getting-started-gcp.html
 keywords: google cloud platform, gcp, cloud manager, deploy the Console, launch the Console, create the Console, getting started, networking, gcp networking, service account, tiering, data tiering, bucket, fabricpool, cloud backup, storage access key, gcp role, role, iam role, permissions, gcp permissions, cloud backup, the Console 
 summary: 只需几个步骤，即可开始在 Google Cloud 中使用 Cloud Volumes ONTAP。 
 ---
-= Cloud Volumes ONTAP 在 Google Cloud 中的部署概述
+= 开始在 Google Cloud 中使用 Cloud Volumes ONTAP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 

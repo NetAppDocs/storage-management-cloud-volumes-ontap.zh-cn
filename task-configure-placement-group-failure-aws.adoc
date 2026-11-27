@@ -4,12 +4,12 @@ permalink: task-configure-placement-group-failure-aws.html
 keywords: placement group, failure, HA single zone, app.conf, rollback, AWS 
 summary: Cloud Volumes ONTAP使用 Azure Private Link 连接到其关联的存储帐户。如果需要，您可以禁用 Azure Private Links 并改用服务端点。 
 ---
-= 在 AWS 单可用区中为Cloud Volumes ONTAP HA 对配置放置组创建
+= 配置 Cloud Volumes ONTAP HA 对以在 AWS 中创建置放群组
 :allow-uri-read: 
 
 
 [role="lead"]
-如果放置组创建失败，AWS 单可用区 (AZ) 中的Cloud Volumes ONTAP高可用性 (HA) 部署可能会失败并回滚。如果Cloud Volumes ONTAP节点和中介实例不可用，则放置组的创建也会失败，并且部署会回滚。为了避免这种情况，您可以修改配置，以便即使放置组创建失败也能完成部署。
+如果放置组的创建失败，AWS 单一可用区（AZ）中的 Cloud Volumes ONTAP 高可用性（HA）部署可能会失败并回滚。如果 Cloud Volumes ONTAP 节点和 mediator 实例不可用，放置组的创建也会失败，并且部署会回滚。为了避免这种情况，您可以修改配置，以允许即使在放置组创建失败的情况下也能完成部署。
 
 绕过回滚过程后， Cloud Volumes ONTAP部署过程成功完成，并通知您放置组创建未完成。
 
