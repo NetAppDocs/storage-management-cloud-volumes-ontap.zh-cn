@@ -4721,15 +4721,12 @@
   <block id="a1123cd59d7bd876c080c33906ae65ce" category="list-text">*服务*：选择与问题相关的服务。例如，* NetApp Console* 特定于控制台内的工作流或功能的技术支持问题。</block>
   <block id="987df7518e2afb50a860647c832afd13" category="list-text">*系统*：如果适用于存储，请选择* Cloud Volumes ONTAP* 或 *On-Prem*，然后选择相关的工作环境。</block>
   <block id="8f8e8a86e5f52b6186a37bdf266c4320" category="paragraph">系统列表位于控制台组织范围内，并且您在顶部横幅中选择了控制台代理。</block>
-  <block id="77c89527ec8a9f89b24c5579d19b3b4b" category="paragraph"><block ref="77c89527ec8a9f89b24c5579d19b3b4b" category="inline-image-macro-rx" type="image"></block></block>
   <block id="178fdaf97b1d1577437f11ee9d5e5229" category="paragraph">此错误可能意味着 NSS 帐户及其关联的记录公司与NetApp Console帐户序列号的记录公司不同（即。960xxxx）或工作环境序列号。您可以使用以下选项之一寻求帮助：</block>
   <block id="e1100b46295d42ed50ba7a4630710164" category="section-title">管理您的支持案例</block>
   <block id="316508a3483178100806a9d44b49aba2" category="paragraph">您可以直接从控制台查看和管理活动和已解决的支持案例。您可以管理与您的 NSS 帐户和公司相关的案例。</block>
   <block id="9163e8bca6fd93c080d35ab49e3efdfa" category="list-text">在NetApp Console中，选择“帮助”&gt;“支持”。</block>
   <block id="2019fd19051c3ef493dbbb9ca65bab87" category="list-text">选择*案例管理*，如果出现提示，请将您的 NSS 帐户添加到控制台。</block>
   <block id="75e54e3a6fdbf43ed890669e079d7594" category="paragraph">*案例管理*页面显示与您的控制台用户帐户关联的 NSS 帐户相关的未结案例。这与出现在 *NSS 管理* 页面顶部的 NSS 帐户相同。</block>
-  <block id="8ac6be88c1aa79062825a147fb263b0e" category="list-text">通过选择<block ref="500a336e7ba1c54bcffba4e27bda4eb6" category="inline-image-macro-rx" type="image"></block>然后选择您想要显示的列。</block>
-  <block id="049b7b9fab1242f5e715952973c9474d" category="list-text">通过选择管理现有案例<block ref="7381d9baeaf62eb099ce84f1a21ed5ca" category="inline-image-macro-rx" type="image"></block>并选择其中一个可用选项：</block>
   <block id="a58a19877ed0bf7f9b6d06fdd8387763" category="paragraph">通过启用与Cloud Volumes ONTAP一起使用的订阅并请求更改订阅服务级别的承诺容量，在NetApp Console中管理您的Keystone订阅。请求服务级别的额外容量可为Cloud Volumes ONTAP系统提供更多存储空间。</block>
   <block id="df5e66b5e7999995b53a0f100212d79f" category="paragraph">您需要先联系NetApp授权您的控制台帐户使用Keystone订阅，然后才能在控制台中使用和管理Keystone订阅。</block>
   <block id="a53c428d90f592127da49a8d5a558130" category="paragraph">NetApp代表将通过授权您的帐户访问订阅来处理您的请求。</block>
@@ -4968,10 +4965,6 @@
   <block id="e7a270462c8420134738505bc0866ce8" category="list-text">*仅限市场订阅用户*：在此模式下，您的使用费用将首先计入您的年度市场订阅费用。任何额外使用均按市场按需小时费率（PAYGO）收费。任何未使用的许可证容量在计费时均不予考虑。</block>
   <block id="f94c83bcf4a8ed377dfb56f9bda7f82c" category="inline-link">了解许可证和订阅的计费方式</block>
   <block id="38f53d053ce0f3ed0f13a8cdb220d30c" category="paragraph">有关账单偏好设置的更多信息，请参阅<block ref="9a51e16e4e2251fd842a860cb6941933" category="inline-link-rx"></block>。</block>
-  <block id="38fc1b337c0ea26463916fc2913205c1" category="paragraph"><block ref="38fc1b337c0ea26463916fc2913205c1" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="7019a39846e9a2c7f7a80eaba91e4a41" category="paragraph"><block ref="7019a39846e9a2c7f7a80eaba91e4a41" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="1d593c3f7480ada9580d93cd753c3f93" category="paragraph">这是系统生成的映射到您的电子邮件的 ID。在*NSS 管理*页面上，您可以显示来自<block ref="5444f6f0c3983523c8933a1864b2b390" category="inline-image-macro-rx" type="image"></block>菜单。</block>
-  <block id="872eaae7deb6035c20f9bfe6deefd03d" category="list-text">如果您需要刷新登录凭证令牌，还有一个*更新凭证*选项<block ref="5444f6f0c3983523c8933a1864b2b390" category="inline-image-macro-rx" type="image"></block>菜单。</block>
   <block id="667dffcf5676fe0bd645082d2a512fef" category="section-title">2026年1月12日</block>
   <block id="dfcd07d4790b963532ec4f8f70f184cd" category="doc">支持 Google Cloud Infrastructure Manager</block>
   <block id="ed5b5006125f27aac08e98fe5c365d46" category="inline-link">Google Cloud Infrastructure Manager</block>
@@ -8423,4 +8416,11 @@
   <block id="74f9aca10e2756e0a6e4f98283b16ab2" category="doc">更改 Azure 中 Cloud Volumes ONTAP 的 Premium SSD 磁盘性能层</block>
   <block id="561024775ce4912cba9fe28384d03237" category="doc">使用 OpenSSL 验证 Cloud Volumes ONTAP 的 Google Cloud 映像</block>
   <block id="45158acc9812c40a91f41bbdad469d0f" category="sidebar">在 AWS 中将 NIS 订阅转换为独立订阅</block>
+  <block id="6a01d74a3f012349cadafc7f0c97c86d" category="paragraph"><block ref="6a01d74a3f012349cadafc7f0c97c86d" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e461a14ef18284f75a2b6063d614da64" category="list-text">通过选择 <block ref="561341289de713dd5ea2cd49d1743cab" category="inline-image-macro-rx" type="image"></block> 然后选择要显示的列来更改表格中显示的列。</block>
+  <block id="cb70a108f4a6413201209cb4b6024938" category="list-text">通过选择 <block ref="babe7781192bcd33c63a8532a0937e8b" category="inline-image-macro-rx" type="image"></block> 并选择一个可用选项来管理现有个案：</block>
+  <block id="9c0825883c050c64e9b59af470120939" category="paragraph"><block ref="9c0825883c050c64e9b59af470120939" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="357be4e47fe6e7132dca092006062510" category="paragraph"><block ref="357be4e47fe6e7132dca092006062510" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="848755f433bd66788db4d5c6e554252d" category="paragraph">这是一个系统生成的 ID，映射到您的电子邮件。在 *NSS Management* 页面上，您可以从 <block ref="6a3f89871d33c6cbc194f4f6a8275a65" category="inline-image-macro-rx" type="image"></block> 菜单中显示您的电子邮件。</block>
+  <block id="5c680c883d2069f8039766ada41f7c1f" category="list-text">如果您需要刷新登录凭据令牌，<block ref="6a3f89871d33c6cbc194f4f6a8275a65" category="inline-image-macro-rx" type="image"></block> 菜单中还有 *Update Credentials* 选项。</block>
 </blocks>

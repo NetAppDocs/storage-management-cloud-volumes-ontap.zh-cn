@@ -7,7 +7,7 @@ summary: 'NetApp以多种方式提供支持。全天候提供广泛的免费自�
 = 获取有关 Cloud Volumes ONTAP 的帮助
 :allow-uri-read: 
 :icons: font
-:imagesdir: ./media/
+:imagesdir: https://docs.netapp.com/us-en/console-family/media/
 
 
 [role="lead"]
@@ -87,7 +87,7 @@ NetApp以多种方式为NetApp Console及其云服务提供支持。全天候提
 
 
 +
-image:https://raw.githubusercontent.com/NetAppDocs/console-family/main/media/screenshot-create-case.png["创建案例表单的屏幕截图，可让您向NetApp支持创建案例。"]
+image:screenshot-create-case.png["创建案例表单的屏幕截图，可让您向NetApp支持创建案例。"]
 
 
 
@@ -141,10 +141,10 @@ image:https://raw.githubusercontent.com/NetAppDocs/console-family/main/media/scr
 ** 在“组织的案例”下，选择“查看”以查看与您的公司相关的所有案例。
 ** 通过选择精确的日期范围或选择不同的时间范围来修改日期范围。
 ** 过滤列的内容。
-** 通过选择image:https://raw.githubusercontent.com/NetAppDocs/console-family/main/media/icon-table-columns.png["表格中出现的加号图标"]然后选择您想要显示的列。
+** 通过选择 image:icon-table-columns.png["表格中出现的加号图标"] 然后选择要显示的列来更改表格中显示的列。
 
 
-. 通过选择管理现有案例image:https://raw.githubusercontent.com/NetAppDocs/console-family/main/media/icon-table-action.png["表格最后一列中出现的带有三个点的图标"]并选择其中一个可用选项：
+. 通过选择 image:icon-table-action.png["表格最后一列中出现的带有三个点的图标"] 并选择一个可用选项来管理现有个案：
 +
 ** *查看案例*：查看有关特定案例的完整详细信息。
 ** *更新案例说明*：提供有关您的问题的更多详细信息，或选择*上传文件*以附加最多五个文件。
